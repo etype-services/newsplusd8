@@ -1,0 +1,4 @@
+File: newsplusd8.site.yml
+dev:
+   root: /mnt/data/web/public/newsplusd8/web
+   uri: http://newsplusd8.etypegoogle7.com
