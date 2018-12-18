@@ -1,4 +1,7 @@
 File: newsplusd8.site.yml
+local:
+  root: /vagrant_data/newsplusd8
+  uri: http://newsplusd8.local
 dev:
-   root: /mnt/data/web/public/newsplusd8/web
-   uri: http://newsplusd8.etypegoogle7.com
+  root: /mnt/data/web/public/newsplusd8/web
+  uri: http://newsplusd8.etypegoogle7.com

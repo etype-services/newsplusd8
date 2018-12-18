@@ -55,3 +55,5 @@
  * @see \Drupal\Core\DrupalKernel::getSitePath()
  * @see https://www.drupal.org/documentation/install/multi-site
  */
+
+$sites['newsplusd8.local'] = 'newsplusd8.etypegoogle7.com';
