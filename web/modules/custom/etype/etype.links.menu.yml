@@ -1,0 +1,13 @@
+system.admin_config_etype:
+  title: 'eType'
+  route_name: system.admin_config_etype
+  parent: system.admin_config
+  description: 'eType Configuration'
+  position: left
+  weight: -20
+
+etype.admin_settings:
+  title: 'eType Settings'
+  parent: system.admin_config_etype
+  description: 'Configure eType settings.'
+  route_name: etype.admin_settings_form
