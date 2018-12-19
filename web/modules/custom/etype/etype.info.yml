@@ -1,0 +1,7 @@
+name: 'eType Services'
+type: module
+description: 'Custom module for eType Services.'
+core: 8.x
+version: 2.0
+package: 'eType Services'
+configure: my_module.admin
