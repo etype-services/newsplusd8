@@ -23,6 +23,7 @@
         "drupal/console": "^1.0.2",
         "drupal/core": "^8.6.0",
         "drupal/dfp": "^1.0",
+        "drupal/honeypot": "^1.29",
         "drupal/ultimate_cron": "^2.0",
         "drupal/webform": "^5.0",
         "drush/drush": "^9.5",
