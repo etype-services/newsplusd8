@@ -1,0 +1,4 @@
+etype_xml_importer.import_olive_xml:
+  title: 'Import Olive XML'
+  route_name: etype_xml_importer.import_olive_xml
+  base_route: system.admin_content
