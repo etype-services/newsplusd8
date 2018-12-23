@@ -12,6 +12,7 @@ etype_xml_importer.import_olive_xml:
   path: '/admin/config/etype_xml_importer/import_olive_xml'
   defaults:
     _title: 'Import Olive XML'
+    _controller: '\Drupal\etype_xml_importer\Controller\ImportOliveXMLController::ImportOliveXml'
   requirements:
     _permission: 'access administration pages'
   options:
