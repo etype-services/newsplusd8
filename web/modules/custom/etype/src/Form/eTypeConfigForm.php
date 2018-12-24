@@ -34,12 +34,12 @@ class eTypeConfigForm extends ConfigFormBase {
 
     $form['e_edition'] = [
       '#type' => 'fieldset',
-      '#title' => t('e-Edition'),
+      '#title' => $this->t('e-Edition'),
     ];
 
     $form['e_edition']['etype_e_edition'] = [
       '#type' => 'textarea',
-      '#title' => t('e-Edition'),
+      '#title' => $this->t('e-Edition'),
       '#description' => $this->t('For one paper enter the e-Edition like <code>Mitchell%20News-JournalID617</code>, for more than one format like this: <code>Mitchell%20News-JournalID617|Mitchell News Journal,The%20Yorktown%20News-ViewID84|The Yorktown News View</code>'),
       '#size' => 101,
       '#default_value' => $config->get('etype_e_edition'),
