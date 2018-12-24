@@ -3,7 +3,3 @@ etype_xml_importer.admin_settings:
   parent: system.admin_config_etype
   description: 'Configure eType settings.'
   route_name: etype_xml_importer.admin_settings
-
-etype_xml_importer.import_olive_xml:
-  title: 'Import Olive XML'
-  route_name: etype_xml_importer.import_olive_xml
