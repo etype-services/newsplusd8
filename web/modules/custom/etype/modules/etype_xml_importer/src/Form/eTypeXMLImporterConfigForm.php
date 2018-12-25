@@ -49,7 +49,7 @@ class eTypeXMLImporterConfigForm extends ConfigFormBase {
 
 
   /**
-   *
+   * get the fields associated with the node type
    */
   protected function getFields() {
     $this->entity_field_manager = \Drupal::service('entity_field.manager');
