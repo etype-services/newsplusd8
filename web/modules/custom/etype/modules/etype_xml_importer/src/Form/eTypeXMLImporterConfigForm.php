@@ -35,28 +35,48 @@ class eTypeXMLImporterConfigForm extends ConfigFormBase {
   protected $fields = [];
 
   /**
+   * @var array
+   */
+  protected $formats = [];
+
+  /**
    * eTypeXMLImporterConfigForm constructor.
    */
   public function __construct() {
     parent::__construct($this->configFactory());
     $this->conf = $this->config('etype_xml_importer.settings');
+    $this->entity_field_manager = \Drupal::service('entity_field.manager');
+    $this->getNodeTypeOptions();
+    $this->getFields();
+    //$this->getFormats();
+  }
+
+  /**
+   * get node types and make options array
+   */
+  protected function getNodeTypeOptions() {
     $node_types = NodeType::loadMultiple();
     foreach ($node_types as $node_type) {
       $this->node_type_options[$node_type->id()] = $node_type->label();
     }
-    $this->getFields();
   }
 
-
   /**
-   * get the fields associated with the node type
+   * get the fields associated with selected node type
    */
   protected function getFields() {
-    $this->entity_field_manager = \Drupal::service('entity_field.manager');
     $fields = $this->entity_field_manager->getFieldDefinitions('node', $this->conf->get('node_type'));
     $arr = array_keys($fields);
     foreach ($arr as $key) {
       $this->fields[] = $key;
+    }
+  }
+
+  protected function getFormats() {
+    $arr = filter_formats();
+    $array = array_keys($arr);
+    foreach ($array as $key) {
+      $this->formats[] = $key;
     }
   }
 
