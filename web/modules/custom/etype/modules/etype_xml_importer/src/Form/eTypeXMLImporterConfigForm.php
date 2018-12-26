@@ -107,12 +107,21 @@ class eTypeXMLImporterConfigForm extends ConfigFormBase {
       '#title' => $this->t('Basic configuration'),
     );
 
-    $form['importer']['import_file'] = array(
+    $form['importer']['import_files'] = array(
       '#type' => 'textfield',
-      '#title' => $this->t('Import File'),
+      '#title' => $this->t('Import File(s)'),
       '#description' => $this->t('Enter the file name or names to import. Separate multiple files with a comma.'),
       '#size' => 55,
-      '#default_value' => $this->conf->get('import_file'),
+      '#default_value' => $this->conf->get('import_files'),
+      '#required' => TRUE,
+    );
+
+    $form['importer']['cron_schedule'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Cron Schedule'),
+      '#description' => $this->t('Enter a valid cron schedule'),
+      '#size' => 55,
+      '#default_value' => $this->conf->get('cron_schedule'),
     );
 
     $form['importer']['subhead_field'] = array(
@@ -146,6 +155,7 @@ class eTypeXMLImporterConfigForm extends ConfigFormBase {
       '#description' => $this->t('Url from which to import xml.'),
       '#size' => 55,
       '#default_value' => $this->conf->get('import_url'),
+      '#required' => TRUE
     );
 
     $form['importer_advanced']['node_type'] = array(
@@ -164,6 +174,13 @@ class eTypeXMLImporterConfigForm extends ConfigFormBase {
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
     parent::validateForm($form, $form_state);
+
+    /* check for trailing slash on import_url */
+    $val = $form_state->getValue('import_url');
+    if (substr($val, -1) !== '/') {
+      $val = $val . '/';
+      $form_state->setValue('import_url', $val);
+    }
   }
 
   /**
@@ -172,11 +189,12 @@ class eTypeXMLImporterConfigForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     parent::submitForm($form, $form_state);
     $this->config('etype_xml_importer.settings')
-      ->set('import_file', $form_state->getValue('import_file'))
+      ->set('import_files', $form_state->getValue('import_files'))
       ->set('import_url', $form_state->getValue('import_url'))
       ->set('node_type', $form_state->getValue('node_type'))
       ->set('subhead_field', $form_state->getValue('subhead_field'))
       ->set('byline_field', $form_state->getValue('byline_field'))
+      ->set('cron_schedule', $form_state->getValue('cron_schedule'))
       ->save();
   }
 
