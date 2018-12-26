@@ -172,6 +172,7 @@ class ImportOliveXMLController {
       }
       /* Loop over found files and do the extraction */
       $i = 0;
+      $t = 0;
       if (count($entries) > 0) {
 
         $values = array(
@@ -338,10 +339,13 @@ class ImportOliveXMLController {
             }
           }
           $markup .= "<p>eType XML Importer found $i articles to import.</p>";
+          $t += $i;
         } /* end foreach $entry */
       }
     }
 
+    $message = 'eType XML Importer imported $t articles.';
+    \Drupal::logger('my_module')->notice($message);
     return ['#markup' => $markup];
 
   }
