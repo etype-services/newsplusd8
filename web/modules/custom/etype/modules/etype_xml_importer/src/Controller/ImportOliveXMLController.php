@@ -8,9 +8,7 @@
 
 namespace Drupal\etype_xml_importer\Controller;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
-
-require_once(__DIR__  . '/../Plugin/Encoding.php');
-use \ForceUTF8\Encoding;
+use Drupal\etype_xml_importer\Plugin\ForceUTF8\Encoding;
 
 class ImportFileMissingException extends \Exception {
   /**
