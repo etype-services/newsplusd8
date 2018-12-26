@@ -166,6 +166,12 @@ class eTypeXMLImporterConfigForm extends ConfigFormBase {
       '#default_value' => $this->conf->get('node_type'),
     );
 
+    $form['importer_advanced']['import_classifieds'] = array(
+      '#title' => $this->t('Check to import Olive classified section.'),
+      '#type' => 'checkbox',
+      '#default_value' => $this->conf->get('import_classifieds'),
+    );
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -195,6 +201,7 @@ class eTypeXMLImporterConfigForm extends ConfigFormBase {
       ->set('subhead_field', $form_state->getValue('subhead_field'))
       ->set('byline_field', $form_state->getValue('byline_field'))
       ->set('cron_schedule', $form_state->getValue('cron_schedule'))
+      ->set('import_classifieds', $form_state->getValue('import_classifieds'))
       ->save();
   }
 

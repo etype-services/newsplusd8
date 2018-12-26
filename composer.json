@@ -16,6 +16,8 @@
         }
     ],
     "require": {
+        "ext-SimpleXML": "^7.2",
+        "ext-libxml": "^7.2",
         "ext-zip": "^1.15",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6.5",
