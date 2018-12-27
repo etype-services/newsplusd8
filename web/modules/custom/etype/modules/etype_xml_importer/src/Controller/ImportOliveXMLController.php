@@ -380,9 +380,6 @@ class ImportOliveXMLController {
         $node['field_pulled_quote'] = $array['pulled_quote'];
       }
 
-      //$var = print_r($node, true);
-      //$markup .= "$var\n\n\n";
-
       $this->values['created'] = $pub_date;
       $this->CreateNode($node);
       $this->i++;
