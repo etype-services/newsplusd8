@@ -37,7 +37,7 @@ POSSIBILITY OF SUCH DAMAGE.
  * @license  Revised BSD
  */
 
-namespace Drupal\etype_xml_importer\Plugin\ForceUTF8;
+namespace ForceUTF8;
 
 class Encoding {
 
