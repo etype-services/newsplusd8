@@ -9,7 +9,6 @@ namespace Drupal\etype_xml_importer\Form;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\NodeType;
-//use Drupal\ultimate_cron\Entity\CronJob;
 
 class eTypeXMLImporterConfigForm extends ConfigFormBase {
 
@@ -103,75 +102,70 @@ class eTypeXMLImporterConfigForm extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
 
     /* importer settings */
-    $form['importer'] = array(
+    $form['importer'] = [
       '#type' => 'fieldset',
       '#title' => $this->t('Basic configuration'),
-    );
+    ];
 
-    $form['importer']['import_files'] = array(
+    $form['importer']['#markup'] = "Edit (and enable) import cron job at the <a href=\"/admin/config/system/cron/jobs/manage/etype_xml_importer_cron\">cron settings page</a>.";
+
+
+    $form['importer']['import_files'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Import File(s)'),
       '#description' => $this->t('Enter the file name or names to import. Separate multiple files with a comma.'),
       '#size' => 55,
       '#default_value' => $this->conf->get('import_files'),
       '#required' => TRUE,
-    );
+    ];
 
-    $form['importer']['cron_schedule'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('Cron Schedule'),
-      '#description' => $this->t('Enter a valid cron schedule'),
-      '#size' => 55,
-      '#default_value' => $this->conf->get('cron_schedule'),
-    );
-
-    $form['importer']['subhead_field'] = array(
+    $form['importer']['subhead_field'] = [
       '#title' => $this->t('Subhead field'),
       '#type' => 'select',
       '#description' => 'The Drupal field to use for the imported subhead.',
       '#options' => $this->fields,
       '#default_value' => $this->conf->get('subhead_field'),
-    );
+    ];
 
-    $form['importer']['byline_field'] = array(
+    $form['importer']['byline_field'] = [
       '#title' => $this->t('Byline field'),
       '#type' => 'select',
       '#description' => 'The Drupal field to use for the imported byline.',
       '#options' => $this->fields,
       '#default_value' => $this->conf->get('byline_field'),
-    );
+    ];
 
 
     /* advanced importer settings */
-    $form['importer_advanced'] = array(
+    $form['importer_advanced'] = [
       '#type' => 'fieldset',
       '#title' => $this->t('Advanced configuration'),
       '#collapsible' => TRUE,
       '#collapsed' => FALSE,
-    );
+    ];
 
-    $form['importer_advanced']['import_url'] = array(
+    $form['importer_advanced']['import_url'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Base Import Url'),
       '#description' => $this->t('Url from which to import xml.'),
       '#size' => 55,
       '#default_value' => $this->conf->get('import_url'),
       '#required' => TRUE
-    );
+    ];
 
-    $form['importer_advanced']['node_type'] = array(
+    $form['importer_advanced']['node_type'] = [
       '#title' => $this->t('Content Type'),
       '#type' => 'select',
       '#description' => $this->t('Choose a content type into which to import stories.'),
       '#options' => $this->node_type_options,
       '#default_value' => $this->conf->get('node_type'),
-    );
+    ];
 
-    $form['importer_advanced']['import_classifieds'] = array(
+    $form['importer_advanced']['import_classifieds'] = [
       '#title' => $this->t('Check to import Olive classified section.'),
       '#type' => 'checkbox',
       '#default_value' => $this->conf->get('import_classifieds'),
-    );
+    ];
 
     return parent::buildForm($form, $form_state);
   }
@@ -201,25 +195,8 @@ class eTypeXMLImporterConfigForm extends ConfigFormBase {
       ->set('node_type', $form_state->getValue('node_type'))
       ->set('subhead_field', $form_state->getValue('subhead_field'))
       ->set('byline_field', $form_state->getValue('byline_field'))
-      ->set('cron_schedule', $form_state->getValue('cron_schedule'))
       ->set('import_classifieds', $form_state->getValue('import_classifieds'))
       ->save();
-
-    /*$cron_schedule = $form_state->getValue('cron_schedule');
-    $values = [
-      'title' => 'Import Olive XML',
-      'id' => "ultimate_cron_queue_9999",
-      'description' => 'Import content via XML from Olive',
-      'callback' => '_etype_xml_importer_olive_import',
-      'scheduler' => [
-        'name' => 'crontab',
-        'crontab' => [
-          'rules' => [$cron_schedule],
-        ],
-      ]
-    ];
-    $job = CronJob::create($values);
-    $job->save();*/
   }
 
 }
