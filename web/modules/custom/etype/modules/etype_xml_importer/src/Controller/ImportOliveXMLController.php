@@ -396,6 +396,20 @@ class ImportOliveXMLController {
   protected function CreateNode($node) {
 
     $storage = $this->entity_type_manager->getStorage('node');
+    $field_image = [];
+    if (isset($node['images'])) {
+      $rand = substr(md5(uniqid(mt_rand(), true)), 0, 10);
+      foreach ($node['images'] as $image) {
+        // Create file object from remote URL.
+        $data = file_get_contents($image['path']);
+        $file = file_save_data($data, 'public://' . $rand . '_' . $image['name'], FILE_EXISTS_REPLACE);
+        $field_image[] = [
+          'target_id' => $file->id(),
+          'alt' => $image['name'],
+          'title' => $image['name'],
+        ];
+      }
+    }
     $new_entity = $storage->create([
       'type' => $this->node_type,
       'title' => $node['title'],
@@ -403,8 +417,8 @@ class ImportOliveXMLController {
         'value' => $node['body'],
         'summary' => $node['summary'],
         'format' => 'full_html',
-      ]
-
+      ],
+      'field_image' => $field_image,
     ]);
     $new_entity->save();
   }
