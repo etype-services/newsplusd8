@@ -1,0 +1,15 @@
+<?php
+/**
+ * @file
+ * eType XML Importer module file.
+ */
+
+/**
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
+function _etype_xml_importer_olive_import() {
+  $job = new \Drupal\etype_xml_importer\Controller\ImportOliveXMLController;
+  $job->ImportOliveXml();
+}

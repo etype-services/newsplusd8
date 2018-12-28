@@ -9,6 +9,7 @@ namespace Drupal\etype_xml_importer\Form;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\NodeType;
+//use Drupal\ultimate_cron\Entity\CronJob;
 
 class eTypeXMLImporterConfigForm extends ConfigFormBase {
 
@@ -203,6 +204,22 @@ class eTypeXMLImporterConfigForm extends ConfigFormBase {
       ->set('cron_schedule', $form_state->getValue('cron_schedule'))
       ->set('import_classifieds', $form_state->getValue('import_classifieds'))
       ->save();
+
+    /*$cron_schedule = $form_state->getValue('cron_schedule');
+    $values = [
+      'title' => 'Import Olive XML',
+      'id' => "ultimate_cron_queue_9999",
+      'description' => 'Import content via XML from Olive',
+      'callback' => '_etype_xml_importer_olive_import',
+      'scheduler' => [
+        'name' => 'crontab',
+        'crontab' => [
+          'rules' => [$cron_schedule],
+        ],
+      ]
+    ];
+    $job = CronJob::create($values);
+    $job->save();*/
   }
 
 }
