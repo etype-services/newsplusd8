@@ -1,0 +1,65 @@
+/****************************/
+/* LOCAL CSS                */
+/****************************/
+
+/* Put your custom css and css overrides in this file.   */ 
+/* By restricting your css changes to local.css, your    */
+/* changes will not be overwritten when upgrading to a   */
+/* new version of this theme.                            */
+
+
+/* style.css line 161 */
+.logo IMG {
+	height: 100px;
+	width: 920px;
+	max-width:100%;
+}
+
+/* style.css line 519 */
+#slideshow-wrapper {
+    height: 440px;
+}
+
+/* style.css line 527 */
+.slideshow-inner {
+    height: 405px;
+}
+
+/* style.css line 581 */
+#slideshow-bottom {
+    background: none;
+}
+
+
+background: linear-gradient(#b11818, #ff0202);
+
+/* style.css line 210 */
+
+#menu {
+    height: 34px;
+    background: #ff0303;
+    background: -webkit-linear-gradient(#14345c, #285c91);
+    background: -o-linear-gradient(#14345c, #285c91);
+    background: -moz-linear-gradient(#f00, #912833);
+    background: linear-gradient(#961d1d, #ff0a0a);
+    width: 952px;
+    margin: 0 auto;
+    -webkit-box-shadow: 1px 2px 3px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 2px 3px -1px rgba(0,0,0,0.75);
+    box-shadow: 1px 2px 3px -1px rgba(255, 10, 10, 0.8);
+    border-radius: 3px;
+}
+
+
+/* style.css line 390 */
+
+#nav .menu li:first-child a.is-active {
+    background: #ff0202;
+    background: -webkit-linear-gradient(#142f50, #26507d);
+    background: -o-linear-gradient(#142f50, #26507d);
+    background: -moz-linear-gradient(#d53047, #fe5656);
+    background: linear-gradient(#c21029, #740909);
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+

@@ -1,0 +1,33 @@
+/****************************/
+/* LOCAL CSS                */
+/****************************/
+
+/* Put your custom css and css overrides in this file.   */ 
+/* By restricting your css changes to local.css, your    */
+/* changes will not be overwritten when upgrading to a   */
+/* new version of this theme.                            */
+
+
+/* style.css line 161 */
+.logo IMG {
+	height: 100px;
+	width: 920px;
+	max-width:100%;
+}
+
+/* style.css line 519 */
+#slideshow-wrapper {
+    height: 440px;
+}
+
+/* style.css line 527 */
+.slideshow-inner {
+    height: 405px;
+}
+
+/* style.css line 581 */
+#slideshow-bottom {
+    background: none;
+}
+
+
