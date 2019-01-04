@@ -1,0 +1,203 @@
+{#
+/**
+ * @file
+ * News+'s theme implementation to display a node.
+ *
+ * Available variables:
+ * - node: Full node entity.
+ *   - id: The node ID.
+ *   - bundle: The type of the node, for example, "page" or "article".
+ *   - authorid: The user ID of the node author.
+ *   - createdtime: Time the node was published formatted in Unix timestamp.
+ *   - changedtime: Time the node was changed formatted in Unix timestamp.
+ * - label: The title of the node.
+ * - content: All node items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - author_picture: The node author user entity, rendered using the "compact"
+ *   view mode.
+ * - metadata: Metadata for this node.
+ * - date: Themed creation date field.
+ * - author_name: Themed author name field.
+ * - url: Direct URL of the current node.
+ * - display_submitted: Whether submission information should be displayed.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - node: The current template type (also known as a "theming hook").
+ *   - node--type-[type]: The current node type. For example, if the node is an
+ *     "Article" it would result in "node--type-article". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - node--view-mode-[view_mode]: The View Mode of the node; for example, a
+ *     teaser would result in: "node--view-mode-teaser", and
+ *     full: "node--view-mode-full".
+ *   The following are controlled through the node publishing options.
+ *   - node--promoted: Appears on nodes promoted to the front page.
+ *   - node--sticky: Appears on nodes ordered above other non-sticky nodes in
+ *     teaser listings.
+ *   - node--unpublished: Appears on unpublished nodes visible only to site
+ *     admins.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - content_attributes: Same as attributes, except applied to the main
+ *   content tag that appears in the template.
+ * - author_attributes: Same as attributes, except applied to the author of
+ *   the node tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * - view_mode: View mode; for example, "teaser" or "full".
+ * - teaser: Flag for the teaser state. Will be true if view_mode is 'teaser'.
+ * - page: Flag for the full page state. Will be true if view_mode is 'full'.
+ * - readmore: Flag for more state. Will be true if the teaser content of the
+ *   node cannot hold the main body content.
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_node()
+ */
+#}
+
+{% extends "node.html.twig" %}
+{% block node_side %}
+{{ attach_library('newsplus/node-features') }}
+  <div class="node-side">
+    {% if display_submitted %}
+      <div class="user-info">
+        {% if author_picture %}
+          <div class="user-picture">
+            <span{{ author_attributes }}>
+              {{ author_picture }}
+            </span>
+          </div>
+        {% endif %}
+        <div class="user-name">{% trans %} By {{ author_name }}{% endtrans %}</div>
+        {{ metadata }}
+      </div>
+    {% endif %}
+    {% if mt_setting.reading_time %}
+      <div class="reading-time">
+        <div>
+          {% trans %}Time to read{% endtrans %}
+        </div>
+        {% if minutes < 1 %}
+          <span>{% trans %}less than<br> 1 minute{% endtrans %}</span>
+        {% else %}
+          <span>
+            {% trans %}
+              1 minute
+              {% plural minutes %}
+              {{ minutes }} minutes
+            {% endtrans %}
+          </span>
+        {% endif %}
+      </div>
+    {% endif %}
+    {% if mt_setting.affix_side %}
+      <div id="affix">
+    {% endif %}
+    {% if mt_setting.share_links %}
+      <div class="share-links">
+        <ul>
+          <li class="facebook">
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ url('entity.node.canonical', {'node': node.id}) }}&t={{node.label | url_encode(true)}}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+              <span>
+                <i class="fa fa-facebook"></i>
+                <span class="sr-only">{% trans %}Share on Facebook{% endtrans %}</span>
+              </span>
+            </a>
+          </li>
+          <li class="twitter">
+            <a href="http://twitter.com/share?text={{node.label | url_encode(true)}}&url={{ url('entity.node.canonical', {'node': node.id}) }}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+              <span>
+                <i class="fa fa-twitter"></i>
+                <span class="sr-only">{% trans %}Share on Twitter{% endtrans %}</span>
+              </span>
+            </a>
+          </li>
+          <li class="email">
+            <a href="mailto:?Subject={{node.label | url_encode(true)}}&amp;Body={{ url('entity.node.canonical', {'node': node.id}) }}">
+              <span>
+                <i class="fa fa-envelope-o"></i>
+                <span class="sr-only">{% trans %}Share through email{% endtrans %}</span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    {% endif %}
+    {% if mt_setting.print_button or font_resize or display_submitted %}
+      <div class="submitted-info">
+        {% if mt_setting.print_button %}
+          <div class="print">
+            <i class="fa fa-print"></i> <a href="javascript:window.print()" class="print-button">{{"Print"|t}}</a>
+          </div>
+        {% endif %}
+        {% if mt_setting.font_resize %}
+          <div class="font-resize">
+            <a href="#" id="decfont">a-</a>
+            <a href="#" id="incfont">a+</a>
+          </div>
+        {% endif %}
+        {% if display_submitted %}
+          <div class="submitted-info-item">
+            {% trans %}Published{% endtrans %}
+            <span>{{posted_ago}} {% trans %}ago{% endtrans %}</span>
+          </div>
+          <div class="submitted-info-item">
+            {% trans %}Last updated{% endtrans %}
+            <span>{{changed_ago}} {% trans %}ago{% endtrans %}</span>
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+    {% if mt_setting.post_progress %}
+      <div class="post-progress">
+        {{"Read so far"|t}}
+        <span class="post-progress-value"></span>
+        <div class="post-progressbar"></div>
+      </div>
+    {% endif %}
+    {% if mt_setting.affix_side %}
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}
+{% block title_area %}
+  {{ title_prefix }}
+  <h1{{ title_attributes.addClass('node__title title') }}>
+    {{ label }}
+  </h1>
+  {{ title_suffix }}
+{% endblock %}
+{% block meta_area %}
+  {% if display_submitted or content.field_mt_post_categories or content.comment %}
+    <div class="node__meta">
+      <div class="node-info">
+        {% if display_submitted %}
+          <div class="node-info-item node-info-item-date"><i class="fa fa-clock-o"></i> {{date}}</div>
+        {% endif %}
+        {% if content.field_mt_post_categories %}
+          <div class="node-info-item node-info-item-term"><i class="fa fa-tags"></i> {{'Posted in: '|t}}{{content.field_mt_post_categories}}</div>
+        {% endif %}
+        {% if content.comment %}
+          <div class="node-info-item node-info-item-comments">
+            <i class="fa fa-comments"></i>
+            {% trans %}
+              1 comment
+            {% plural comment_count %}
+              {{ comment_count }} comments
+            {% endtrans %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}
+{% block content %}
+  {{ content|without('links', 'field_mt_post_categories') }}
+{% endblock %}

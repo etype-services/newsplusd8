@@ -1,0 +1,61 @@
+/**
+ * @file
+ * Visual styles for Newsplus's views.
+ */
+.views-field-title a {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.42;
+  color: #3f3f3f;
+  display: block;
+}
+.views-field-field-mt-post-categories a {
+  font-size: 13px;
+  text-transform: uppercase;
+  background-color: #7d7d7d;
+  padding: 2px 10px;
+  display: inline-block;
+  color: #fff;
+}
+.views-field-field-mt-post-categories a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.views-field-created {
+  font-size: 11px;
+  color: #7d7d7d;
+  margin-bottom: 10px;
+}
+
+/*Views row clear*/
+@media (max-width: 767px) {
+  .views-row.col-xs-6:nth-child(2n+1),
+  .views-row.col-xs-4:nth-child(3n+1),
+  .views-row.col-xs-3:nth-child(4n+1) {
+    clear: both;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .views-row.col-sm-6:nth-child(2n+1),
+  .views-row.col-sm-4:nth-child(3n+1),
+  .views-row.col-sm-3:nth-child(4n+1) {
+    clear: both;
+  }
+}
+@media (min-width: 992px) {
+  .views-row.col-md-6:nth-child(2n+1),
+  .views-row.col-md-4:nth-child(3n+1),
+  .views-row.col-md-3:nth-child(4n+1) {
+    clear: both;
+  }
+}
+
+/*clear grid floats*/
+.view.row .view-content:before,
+.view.row .view-content:after {
+  display: table;
+  content: " ";
+}
+.view.row .view-content:after {
+  clear: both;
+}

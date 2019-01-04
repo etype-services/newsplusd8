@@ -1,0 +1,114 @@
+/**
+ * @file
+ * Visual styles for Newsplus's tabs.
+ */
+.nav-tabs {
+  border-bottom: 3px solid;
+  margin: 10px 0 20px 0;
+}
+.nav-tabs > li {
+  float: left;
+  margin-bottom: 0;
+  padding: 0;
+  margin-left: 0;
+  border-bottom: none;
+}
+.nav-tabs > li > a {
+  margin-right: 2px;
+  padding: 10px 20px;
+  display: block;
+  text-transform: uppercase;
+  color: #464646;
+  border-radius: 0;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+  font-size: 14px;
+  background-color: #dadada;
+  position: relative;
+  border: 1px solid #fff;
+  border-top: 1px solid #dadada;
+  border-bottom: 3px solid #fff;
+}
+.nav-tabs li a i {
+  padding-right: 10px;
+  font-size: 20px;
+}
+.nav-tabs > li > a:hover {
+  text-decoration: none;
+  color: #fff;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  cursor: default;
+  border: 1px solid;
+  color: #ffffff;
+  border-bottom: 3px solid;
+}
+@media (min-width: 481px) {
+  .nav-tabs > li.active > a:after {
+    content: "\f0d7";
+    font-family: "FontAwesome";
+    position: absolute;
+    bottom: -18px;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .one-sidebar .sidebar .nav-tabs > li > a {
+    padding: 10px 15px;
+  }
+}
+@media (min-width: 992px) {
+
+  /*styles of sidebar tabs for 3-6-3 layout*/
+  .two-sidebars.wide-sidebar .sidebar .nav-tabs > li > a {
+    padding: 10px;
+    font-size: 11px;
+  }
+
+  /*styles of sidebar tabs for 2-6-4 & 4-6-2 layouts*/
+  .two-sidebars.narrow-sidebar .col-md-2 .sidebar .nav-tabs {
+    border-bottom: none;
+    margin: 0 0 20px 0;
+  }
+  .two-sidebars.narrow-sidebar .col-md-2 .sidebar .nav-tabs > li {
+    float: none;
+  }
+  .two-sidebars.narrow-sidebar .col-md-2 .sidebar .nav-tabs > li > a {
+    margin-right: 0;
+    margin-bottom: 2px;
+    border: 1px solid #fff;
+  }
+  .two-sidebars.narrow-sidebar .col-md-2 .sidebar .nav-tabs > li.active > a:after {
+    content: ""!important;
+  }
+}
+@media (min-width: 1200px) {
+
+  /*styles of sidebar tabs for 3-6-3 layout*/
+  .two-sidebars.wide-sidebar .sidebar .nav-tabs > li > a {
+    padding: 10px 15px;
+  }
+}
+@media (max-width: 480px) {
+  .nav-tabs {
+    border-bottom: none!important;
+    margin-bottom: 30px;
+  }
+  .nav-tabs > li {
+    width: 100%;
+    margin: 0 0 5px 0;
+  }
+  .nav-tabs > li > a {
+    text-align: center;
+    border-bottom: none!important;
+  }
+}

@@ -1,0 +1,15 @@
+/**
+ * @file
+ * Visual styles for Newsplus's archive view.
+ */
+.view-archive ul.views-summary li {
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #dddddd;
+  margin-left: 0;
+  list-style: none;
+}
+.view-archive ul.views-summary a {
+  padding: 10px 3px 10px 0;
+  display: inline-block;
+}

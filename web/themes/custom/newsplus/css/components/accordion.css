@@ -1,0 +1,46 @@
+/**
+ * @file
+ * Visual styles for Newsplus's accordions.
+ */
+.panel-group {
+  margin: 25px 0;
+}
+.panel-group .panel {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+}
+.panel-default > .panel-heading {
+  padding: 0;
+  outline: none;
+  border: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  width: 100%;
+}
+.panel-title a {
+  font-weight: 400;
+  padding: 15px;
+  display: inline-block;
+  width: 100%;
+  color: #ffffff;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.panel-title a.collapsed {
+  color: #3f3f3f;
+  background-color: #dadada;
+}
+.panel-heading a:hover {
+  text-decoration: none;
+  color: #ffffff;
+}
+.panel-heading a:not(.collapsed):focus {
+  color: #ffffff;
+}
+.panel-title a i {
+  padding-right: 10px;
+  font-size: 20px;
+}

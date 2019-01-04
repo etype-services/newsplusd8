@@ -1,0 +1,33 @@
+/**
+ * @file
+ * Visual styles for Newsplus's hot posts view.
+ */
+.view-highlighted-objects .views-row {
+  margin-bottom: 30px;
+}
+.view-highlighted-objects .views-field-field-image {
+  margin-bottom: 15px;
+}
+.view-highlighted-objects .content-wapper {
+  position: relative;
+}
+.view-highlighted-objects .content-wapper.with-image .views-field-field-mt-post-categories {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+.view-highlighted-objects .content-wapper.with-image .views-field-field-mt-post-categories a {
+  display: block;
+}
+.view-highlighted-objects .views-field-field-mt-post-categories {
+  margin-bottom: 10px;
+}
+.view-highlighted-objects .views-field-title a {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.view-highlighted-objects .views-field-name {
+  font-size: 12px;
+  color: #7d7d7d;
+}

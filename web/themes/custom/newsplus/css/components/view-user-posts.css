@@ -1,0 +1,12 @@
+/**
+ * @file
+ * Visual styles for Newsplus's user's latest posts view.
+ */
+#page .block-views-blockmt-user-posts-block-1 > h2.title {
+  font-size: 28px;
+  font-weight: 700;
+  padding: 0;
+  margin-bottom: 45px;
+  text-transform: none;
+  border-bottom: 0;
+}

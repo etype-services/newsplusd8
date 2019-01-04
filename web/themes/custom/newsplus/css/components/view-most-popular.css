@@ -1,0 +1,47 @@
+/**
+ * @file
+ * Visual styles for Newsplus's most popular posts view.
+ */
+.view-popular-objects .views-row {
+  margin-bottom: 10px;
+  border: 1px solid #dddddd;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.view-popular-objects .views-field-field-image {
+  margin-bottom: 15px;
+  border: none;
+}
+.view-popular-objects .views-field-title a {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+.view-popular-objects .views-field-title,
+.view-popular-objects .views-field-field-mt-post-categories {
+  padding: 0 45px 0 60px;
+}
+@media (min-width: 992px) {
+  .two-sidebars.narrow-sidebar .col-md-2 .sidebar .view-popular-objects .views-field-title,
+  .two-sidebars.narrow-sidebar .col-md-2 .sidebar .view-popular-objects .views-field-field-mt-post-categories {
+    padding: 0 10px;
+  }
+}
+@media (max-width: 991px) {
+  .view-popular-objects .views-field-title a {
+    font-size: 17px;
+  }
+}
+@media (max-width: 767px) {
+  .view-popular-objects .views-field-title a {
+    font-size: 19px;
+  }
+}
+@media (max-width: 480px) {
+  .view-popular-objects .views-field-title a {
+    font-size: 17px;
+  }
+}

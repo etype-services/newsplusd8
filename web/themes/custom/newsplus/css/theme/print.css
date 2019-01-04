@@ -1,0 +1,54 @@
+.page-node-type-mt-post .headers-wrapper,
+.page-node-type-mt-post #page-intro,
+.page-node-type-mt-post #top-content,
+.page-node-type-mt-post aside.sidebar,
+.page-node-type-mt-post #banner,
+.page-node-type-mt-post #highlighted,
+.page-node-type-mt-post #promoted,
+.page-node-type-mt-post #footer,
+.page-node-type-mt-post #subfooter,
+.page-node-type-mt-post #toolbar,
+.page-node-type-mt-post #toTop,
+.page-node-type-mt-post .block-local-tasks-block,
+.page-node-type-mt-post .field--type-comment,
+.page-node-type-mt-post aside,
+.page-node-type-article .headers-wrapper,
+.page-node-type-article #page-intro,
+.page-node-type-article #top-content,
+.page-node-type-article aside.sidebar,
+.page-node-type-article #banner,
+.page-node-type-article #highlighted,
+.page-node-type-article #promoted,
+.page-node-type-article #footer,
+.page-node-type-article #subfooter,
+.page-node-type-article #toolbar,
+.page-node-type-article #toTop,
+.page-node-type-article .block-local-tasks-block,
+.page-node-type-article .field--type-comment,
+.page-node-type-article aside {
+  display: none!important;
+}
+.page-node-type-mt-post #main-content .col-md-8,
+.page-node-type-article #main-content .col-md-8 {
+  width: 100%;
+}
+.page-node-type-mt-post .node-side {
+  display: none!important;
+}
+.page-node-type-mt-post #main-content,
+.node-type-article #main-content {
+  padding-top: 0;
+}
+.page-node-type-mt-post blockquote,
+.views-field-field-image,
+.field-type-image,
+.image-listing-item,
+.image-wrapper > a,
+.node-type-article #page > .container,
+.node-type-blog #page > .container,
+.page-node-type-mt-post #page > .container {
+  border: none;
+}
+a.image-popup[href]:after {
+  content: none;
+}

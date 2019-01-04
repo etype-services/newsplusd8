@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * News+'s theme override for the block entity refernece field for the dropdown custom block.
+ *
+ * @see newsplus_preprocess_field__block_content__field_mt_dropdown_block__mt_dropdown_block()
+ */
+#}
+{%
+  set classes = [
+    'field',
+    'field--name-' ~ field_name|clean_class,
+    'field--type-' ~ field_type|clean_class,
+    'field--label-' ~ label_display,
+    'field--entity-reference-target-type-' ~ entity_reference_target_type|clean_class,
+    'clearfix',
+  ]
+%}
+{%
+  set title_classes = [
+    'field__label',
+    label_display == 'inline' ? 'inline',
+  ]
+%}
+{{ attach_library('newsplus/dropdown-block') }}
+<div{{ attributes.addClass(classes) }}>
+  {% if not label_hidden %}
+    <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
+  {% endif %}
+  <div class="dropdown">
+    <a data-toggle="dropdown" href="#" class="trigger"><i class="{{trigger_class}}"></i></a>
+    <ul class="dropdown-menu" role="menu">
+      {% for item in items %}
+        <li{{ item.attributes }}>{{ item.content }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

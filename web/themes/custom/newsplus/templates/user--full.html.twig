@@ -1,0 +1,85 @@
+{#
+/**
+ * @file
+ * News+'s theme implementation to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ *
+ * @see template_preprocess_user()
+ *
+ * @ingroup themeable
+ */
+#}
+{{ attach_library('newsplus/user-profile') }}
+<article{{ attributes.addClass('profile clearfix') }}>
+  {% if content %}
+    {% if user.user_picture.value %}
+      <div class="with-user-image">
+        <div class="photo-wrapper">
+          {{ content.user_picture }}
+          {% if user.field_mt_facebook.value or user.field_mt_twitter.value or user.field_mt_google_plus.value %}
+            <ul class="user-social-bookmarks">
+              {% if user.field_mt_facebook.value %}
+                <li class="facebook">
+                  <a target="_blank" href="{{ user.field_mt_facebook.value }}">
+                    <i class="fa fa-facebook"><span class="sr-only">facebook</span></i>
+                  </a>
+                </li>
+              {% endif %}
+              {% if user.field_mt_twitter.value %}
+                <li class="twitter">
+                  <a target="_blank" href="{{ user.field_mt_twitter.value }}">
+                    <i class="fa fa-twitter"><span class="sr-only">twitter</span></i>
+                  </a>
+                </li>
+              {% endif %}
+              {% if user.field_mt_google_plus.value %}
+                <li class="linkedin">
+                  <a target="_blank" href="{{ user.field_mt_google_plus.value }}">
+                    <i class="fa fa-linkedin"><span class="sr-only">linkedin</span></i>
+                  </a>
+                </li>
+              {% endif %}
+            </ul>
+          {% endif %}
+        </div>
+        {{ content|without('user_picture','field_mt_facebook','field_mt_twitter','field_mt_google_plus') }}
+      </div>
+    {% else %}
+      {{ content|without('user_picture','field_mt_facebook','field_mt_twitter','field_mt_google_plus') }}
+      {% if user.field_mt_facebook.value or user.field_mt_twitter.value or user.field_mt_google_plus.value %}
+        <ul class="user-social-bookmarks">
+          {% if user.field_mt_facebook.value %}
+            <li class="facebook">
+              <a target="_blank" href="{{ user.field_mt_facebook.value }}">
+                <i class="fa fa-facebook"><span class="sr-only">facebook</span></i>
+              </a>
+            </li>
+          {% endif %}
+          {% if user.field_mt_twitter.value %}
+            <li class="twitter">
+              <a target="_blank" href="{{ user.field_mt_twitter.value }}">
+                <i class="fa fa-twitter"><span class="sr-only">twitter</span></i>
+              </a>
+            </li>
+          {% endif %}
+          {% if user.field_mt_google_plus.value %}
+            <li class="linkedin">
+              <a target="_blank" href="{{ user.field_mt_google_plus.value }}">
+                <i class="fa fa-linkedin"><span class="sr-only">linkedin</span></i>
+              </a>
+            </li>
+          {% endif %}
+        </ul>
+      {% endif %}
+    {% endif %}
+  {% endif %}
+</article>
