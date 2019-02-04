@@ -49,6 +49,7 @@ global-styling:
       css/components/view-most-popular.css: {}
       css/components/view-tags-cloud.css: {}
       css/components/view-user-posts.css: {}
+      css/components/flexslider-global.css: {}
     theme:
       css/theme/print.css: { media: print }
 
@@ -82,85 +83,6 @@ maintenance_page:
   dependencies:
     - system/maintenance
     - newsplus/global-styling
-
-magnific-popup:
-  version: VERSION
-  css:
-    component:
-      js/magnific-popup/magnific-popup.css: { weight: 0 }
-  js:
-    js/magnific-popup/jquery.magnific-popup.min.js: { minified: true }
-  dependencies:
-    - core/jquery
-
-magnific-popup-init:
-  version: VERSION
-  js:
-    js/init/magnific-popup-init.js: {}
-  dependencies:
-    - newsplus/magnific-popup
-    - core/jquery.once
-
-flexslider:
-  version: 2.7.1
-  css:
-    component:
-      js/flexslider/flexslider.css: { weight: 0 }
-  js:
-    js/flexslider/jquery.flexslider-min.js: { minified: true }
-  dependencies:
-    - core/jquery
-
-flexslider-global:
-  version: VERSION
-  css:
-    component:
-      css/components/flexslider-global.css: { weight: 1 }
-  dependencies:
-    - newsplus/flexslider
-    - core/jquery
-
-flexslider-main-init:
-  version: VERSION
-  js:
-    js/init/flexslider-main-init.js: {}
-  dependencies:
-    - newsplus/flexslider-global
-    - core/drupalSettings
-    - core/jquery.once
-
-flexslider-internal-banner-slider-init:
-  version: VERSION
-  css:
-    component:
-      css/components/flexslider-internal-banner.css: {}
-  js:
-    js/init/flexslider-internal-banner-slider-init.js: {}
-  dependencies:
-    - newsplus/flexslider-global
-    - core/drupalSettings
-    - core/jquery.once
-
-flexslider-internal-banner-carousel-init:
-  version: VERSION
-  js:
-    js/init/flexslider-internal-banner-carousel-init.js: {}
-  dependencies:
-    - newsplus/flexslider-internal-banner-slider-init
-    - core/drupalSettings
-    - core/jquery.once
-
-flexslider-breaking-slider-init:
-  version: VERSION
-  css:
-    component:
-      css/components/view-breaking-slider.css: {}
-  js:
-    js/init/flexslider-breaking-slider-init.js: {}
-  dependencies:
-    - newsplus/flexslider-global
-    - core/drupalSettings
-    - core/jquery.once
 
 slider-revolution:
   version: 5.4.8
