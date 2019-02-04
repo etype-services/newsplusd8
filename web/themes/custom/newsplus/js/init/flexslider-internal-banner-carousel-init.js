@@ -3,7 +3,7 @@
     attach: function (context, settings) {
       $(context).find('#internal-slider-carousel').once('mtInternalBannerCarouselInit').each(function() {
         var $window = $(window), flexslider;
-        // tiny helper function to add breakpoints
+        // Tiny helper function to add breakpoints
         function getGridSize() {
           return (window.innerWidth < 768) ? 3 : 6;
         }
@@ -17,8 +17,8 @@
           prevText: "",
           nextText: "",
           asNavFor: "#internal-banner-slider",
-          minItems: getGridSize(), // use function to pull in initial value
-          maxItems: getGridSize(), // use function to pull in initial value
+          minItems: getGridSize(), // Use function to pull in initial value
+          maxItems: getGridSize(), // Use function to pull in initial value
           start: function(slider){
             flexslider = slider;
           }
