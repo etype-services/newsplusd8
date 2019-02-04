@@ -61,7 +61,9 @@
   overflow: hidden;
 }
 .node--view-mode-teaser .node-content,
-.node-teaser .node-content.full-width, .no-sidebars .node-content.full-width, .two-sidebars .node-content.full-width,
+.node-teaser .node-content.full-width,
+.no-sidebars .node-content.full-width,
+.two-sidebars .node-content.full-width,
 .sidebar-first .node-content.full-width {
   margin-left: 0!important;
 }
@@ -70,6 +72,9 @@
 }
 .node h1.title {
   margin-bottom: 30px;
+}
+.node-content .field--name-field-subhead {
+  font-size: 20px;
 }
 .node-teaser h2.title {
   margin-top: 5px;
