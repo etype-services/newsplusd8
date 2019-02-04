@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dfe7eafd9a90b9b71819c7cee9eede46",
+    "content-hash": "ed6ce46bbae437444de449788ee13dd1",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -6931,6 +6931,16 @@
             ],
             "description": "A robust cross-platform utility for normalizing, comparing and modifying file paths.",
             "time": "2015-12-17T08:42:14+00:00"
+        },
+        {
+            "name": "woothemes/flexslider",
+            "version": "2.6.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/woothemes/FlexSlider.git",
+                "reference": "2.6.3"
+            },
+            "type": "drupal-library"
         },
         {
             "name": "zendframework/zend-diactoros",
