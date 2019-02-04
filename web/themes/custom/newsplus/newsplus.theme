@@ -455,7 +455,7 @@ function newsplus_preprocess_field__block_content__field_mt_dropdown_block__mt_d
   }
 }
 
-function newsplus_preprocess_field__field_mt_video_gallery_slides(&$variables) {
+function newsplus_preprocess_field__field_video_gallery_slides(&$variables) {
   $paragraphs = $variables['element']['#items']->referencedEntities();
   if (!empty($paragraphs)) {
     foreach ($paragraphs as $key => $paragraph) {
@@ -491,7 +491,7 @@ function newsplus_preprocess_field__field_mt_video_gallery_slides(&$variables) {
       if (!empty($thumbnail[0])) {
         $file = File::load($thumbnail[0]['target_id']);
         $path = $file->getFileUri();
-        $thumb_url = ImageStyle::load('mt_video_gallery_thumbnail')->buildUrl($path);
+        $thumb_url = ImageStyle::load('video_gallery_thumbnail')->buildUrl($path);
         $main_url = ImageStyle::load('mt_slideshow')->buildUrl($path);
         $variables['items'][$key]['thumbnail_thumb_styled_uri'] = $thumb_url;
         $variables['items'][$key]['thumbnail_main_styled_uri'] = $main_url;
