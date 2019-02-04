@@ -264,7 +264,7 @@
 }
 .node__meta .field--name-user-picture img {
   float: left;/* LTR */
-  margin: 1px 20px 0 0;/* LTR */
+  margin: 0;/* LTR */
 }
 .post-info {
   font-size: 10px;
