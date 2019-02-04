@@ -13,19 +13,6 @@
     {
       "type": "composer",
       "url": "https://packages.drupal.org/8"
-    },
-    {
-      "type": "package",
-      "package": {
-        "name": "woothemes/flexslider",
-        "version": "2.6.3",
-        "type": "drupal-library",
-        "source": {
-          "url": "https://github.com/woothemes/FlexSlider.git",
-          "type": "git",
-          "reference": "2.6.3"
-        }
-      }
     }
   ],
   "require": {
@@ -55,8 +42,7 @@
     "drush/drush": "^9.5",
     "vlucas/phpdotenv": "^2.4",
     "webflo/drupal-finder": "^1.0.0",
-    "webmozart/path-util": "^2.3",
-    "woothemes/flexslider": "~2.0"
+    "webmozart/path-util": "^2.3"
   },
   "require-dev": {
     "webflo/drupal-core-require-dev": "^8.6.0"
