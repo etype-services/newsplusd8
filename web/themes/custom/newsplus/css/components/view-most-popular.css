@@ -21,12 +21,12 @@
   margin-bottom: 15px;
 }
 .view-popular-objects .views-field-title,
-.view-popular-objects .views-field-field-mt-post-categories {
+.view-popular-objects .views-field-field-article-categories {
   padding: 0 45px 0 60px;
 }
 @media (min-width: 992px) {
   .two-sidebars.narrow-sidebar .col-md-2 .sidebar .view-popular-objects .views-field-title,
-  .two-sidebars.narrow-sidebar .col-md-2 .sidebar .view-popular-objects .views-field-field-mt-post-categories {
+  .two-sidebars.narrow-sidebar .col-md-2 .sidebar .view-popular-objects .views-field-field-article-categories {
     padding: 0 10px;
   }
 }

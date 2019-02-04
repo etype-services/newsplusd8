@@ -175,14 +175,14 @@
   {{ title_suffix }}
 {% endblock %}
 {% block meta_area %}
-  {% if display_submitted or content.field_mt_post_categories or content.comment %}
+  {% if display_submitted or content.field_article_categories or content.comment %}
     <div class="node__meta">
       <div class="node-info">
         {% if display_submitted %}
           <div class="node-info-item node-info-item-date"><i class="fa fa-clock-o"></i> {{date}}</div>
         {% endif %}
-        {% if content.field_mt_post_categories %}
-          <div class="node-info-item node-info-item-term"><i class="fa fa-tags"></i> {{'Posted in: '|t}}{{content.field_mt_post_categories}}</div>
+        {% if content.field_article_categories %}
+          <div class="node-info-item node-info-item-term"><i class="fa fa-tags"></i> {{'Posted in: '|t}}{{content.field_article_categories}}</div>
         {% endif %}
         {% if content.comment %}
           <div class="node-info-item node-info-item-comments">
@@ -199,5 +199,5 @@
   {% endif %}
 {% endblock %}
 {% block content %}
-  {{ content|without('links', 'field_mt_post_categories') }}
+  {{ content|without('links', 'field_article_categories') }}
 {% endblock %}

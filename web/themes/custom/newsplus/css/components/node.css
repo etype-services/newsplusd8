@@ -28,7 +28,7 @@
   line-height: 1.33;
   padding-bottom: 25px;
 }
-.node-type-mt-post h1#page-title,
+.node-type-article h1#page-title,
 .node-type-blog  h1#page-title,
 .node-type-article  h1#page-title {
   display: none;
@@ -274,7 +274,7 @@
   font-style: normal;
 }
 .post-info > span {
-  margin:0 8px;
+  margin: 0 8px;
   position: relative;
 }
 .post-info > span+span:after {
@@ -289,23 +289,23 @@
 .node__links {
   margin-top: 25px;
 }
-.node-info-item-term .field--name-field-mt-post-categories {
+.node-info-item-term .field--name-field-article-categories {
   display: inline-block;
   margin: 0;
   overflow: visible;
   text-transform: none;
 }
-.node-info-item-term .field--name-field-mt-post-categories a {
+.node-info-item-term .field--name-field-article-categories a {
   padding: 0;
   line-height: inherit;
   background-color: transparent;
   display: inline;
   margin: 0;
 }
-.node-info-item-term .field--name-field-mt-post-categories a:hover {
+.node-info-item-term .field--name-field-article-categories a:hover {
   background-color: transparent;
   text-decoration: underline;
 }
-.page-node-type-mt-post #block-newsplus-page-title {
+.page-node-type-article #block-newsplus-page-title {
   display: none;
 }
