@@ -223,9 +223,8 @@
   width: 60px;
 }
 
-/*Node type: Post, Blog Entry, Article - Node info*/
+/*Node type: Article - Node info*/
 .node-info {
-  margin-bottom: 35px;
   font-size: 11px;
   color: #7d7d7d;
 }

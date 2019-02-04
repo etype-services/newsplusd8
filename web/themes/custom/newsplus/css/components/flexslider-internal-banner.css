@@ -47,7 +47,7 @@
 .banner-caption:after {
   position: absolute;
   content: "\f030";
-  font-family: "FontAwesome";
+  font-family: "FontAwesome", sans-serif;
   top: 50%;
   font-size: 22px;
   left: 29px;
@@ -62,7 +62,6 @@
   }
   .banner-caption:after {
     font-size: 18px;
-    left: 19px;
     left: 21px;
     margin-top: -7px;
   }
@@ -103,11 +102,10 @@
   z-index: 2;
 }
 #internal-slider-carousel ul.slides > li {
-  margin: 0;
-  margin-right: 4.8px;
+  margin: 0 5px 0;
   border: 2px solid rgba(255,255,255,0.5);
   cursor: pointer;
-  webkit-box-sizing: content-box;
+
   -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
@@ -209,20 +207,21 @@
     position: absolute;
     bottom: -40px;
     width: 100%;
-    height: 40px;
+    height: 60px;
     left: -5px;
   }
   #internal-slider-carousel .flex-direction-nav a {
     border: 2px solid;
-    width: 40px;
+    width: 60px;
     height: 40px;
-    border: 2px solid;
   }
   #internal-slider-carousel .flex-direction-nav .flex-prev {
     left: 12px!important;
+    padding-left: 10px;
   }
   #internal-slider-carousel .flex-direction-nav .flex-next {
     right: 2px;
+    padding-right: 10px;
   }
   #internal-slider-carousel .flex-direction-nav .flex-disabled {
     border: 2px solid #c7c7c7;
