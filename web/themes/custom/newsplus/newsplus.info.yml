@@ -1,7 +1,7 @@
 name: eType News+
 type: theme
 base theme: classy
-description: 'A flexible, recolorable theme with many regions and a responsive, mobile-first layout.'
+description: 'News+ Drupal 8 theme modified for eType Services.'
 version: 8.x-5.8.0
 core: 8.x
 libraries:
