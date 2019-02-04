@@ -15,6 +15,9 @@
 /web/sites/*/files/
 /web/sites/*/tmp/
 
+# Ignore private files
+/private
+
 # Ignore SimpleTest multi-site environment.
 /web/sites/simpletest
 
@@ -27,3 +30,6 @@
 # Ignore misc files
 .DS_Store
 .idea
+
+# Ignore Apache config files
+.htaccess
