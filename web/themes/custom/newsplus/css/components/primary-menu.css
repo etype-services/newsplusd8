@@ -27,7 +27,7 @@
   display: none;
 }
 body:not(:target) .region-navigation .menu-toggle {
-  color: #FFF;
+  color: #ffffff;
   float: none;
   display: block;
   text-decoration: none;
@@ -35,8 +35,6 @@ body:not(:target) .region-navigation .menu-toggle {
   z-index: 1000;
 }
 body:not(:target) .region-navigation .menu-toggle:after {
-  content:"\f0c9";
-  font-family: Fontawesome;
   font-size: 22px;
   line-height: 22px;
   width: 22px;
@@ -90,8 +88,6 @@ body:not(:target) .region-navigation .menu-toggle-target-show:target ~ .menu .me
   .region-navigation .menu a {
     float: none;
     display: block;
-    margin-bottom: 5px;
-    padding: 0.9em 5px;
   }
   body:not(:target) .region-navigation .menu-toggle {
     display: none;
@@ -104,9 +100,6 @@ body:not(:target) .region-navigation .menu-toggle-target-show:target ~ .menu .me
     height: auto;
     overflow: visible;
   }
-  .featured .region-navigation .menu-item a:active,
-  .featured .region-navigation .menu-item a.is-active {
-  }
   body:not(:target) .region-navigation .menu-toggle {
     display: none;
   }
@@ -114,13 +107,13 @@ body:not(:target) .region-navigation .menu-toggle-target-show:target ~ .menu .me
 #main-navigation ul.menu li a {
   font-size: 15px;
   line-height: 23px;
-  padding: 13px 18px 12px;
+  padding: 13px 10px 7px;
   color: #ffffff;
 }
 #pre-header ul.menu li a,
 #header-top ul.menu li a {
   font-size: 14px;
-  padding: 10px 18px 10px;
+  padding: 10px 10px 10px;
   color: #ffffff;
 }
 #main-navigation ul.menu li.expanded > a:before,
@@ -140,7 +133,7 @@ body:not(:target) .region-navigation .menu-toggle-target-show:target ~ .menu .me
 /* Remove collapsed & expanded menu arrows */
 .region-navigation ul.menu li.menu-item--collapsed > a:before,
 .region-navigation ul.menu li.menu-item--expanded > a:before {
-  content: ""
+  content: "";
 }
 @media all and (min-width: 992px) {
 

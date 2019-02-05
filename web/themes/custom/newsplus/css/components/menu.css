@@ -6,9 +6,11 @@ ul.menu {
   margin: 0;
   padding: 0;
   list-style: none;
+  display: flex;
+  justify-content: flex-start;
 }
 ul.menu li {
-  margin:0;
+  margin: 0;
   position: relative;
   list-style: none;
   padding: 0;
@@ -30,8 +32,6 @@ ul.menu li.menu-item--expanded ul {
 
 /*menu arrows  */
 ul.menu li.menu-item--collapsed > a:before {
-  content: "\f105";
-  font-family: 'FontAwesome';
   position: absolute;
   left: 0px;
   font-size: 20px;
@@ -39,13 +39,11 @@ ul.menu li.menu-item--collapsed > a:before {
   -webkit-transition: all linear 0.2s;
   -moz-transition: all linear 0.2s;
   -o-transition: all linear 0.2s;
-   -ms-transition: all linear 0.2s;
-   transition: all linear 0.2s;
-   font-weight: 700;
+  -ms-transition: all linear 0.2s;
+  transition: all linear 0.2s;
+  font-weight: 700;
 }
 ul.menu li.menu-item--expanded > a:before {
-  content: "\f107";
-  font-family: 'FontAwesome';
   position: absolute;
   left: 0px;
   font-size: 20px;

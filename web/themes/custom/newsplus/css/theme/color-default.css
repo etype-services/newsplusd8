@@ -214,17 +214,15 @@ li.pager__item.is-active > a {
 /* components: primary-menu */
 body:not(:target) .region-navigation .menu-toggle:hover,
 body:not(:target) .region-navigation .menu-toggle--hide {
-  background-color: #EA2D49;
+  background-color: #ea2d49;
 }
 @media all and (min-width:768px) and (max-width:991px) {
-  .region-navigation .menu-item,
   body:not(:target) .region-navigation .menu-item,
   .region-navigation .menu .menu-item a:hover {
-    background-color: #EA2D49;
+    background-color: #ea2d49;
   }
-  .region-navigation .menu-item a,
   body:not(:target) .region-navigation .menu-item a {
-    background-color: #C0273C;
+    background-color: #c0273c;
   }
 }
 
