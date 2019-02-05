@@ -7,15 +7,15 @@
     "use strict";
     Drupal.behaviors.newsplusFixes = {
         attach: function (context, settings) {
-            var list = new Array();
+            var flexImgList = new Array();
             $(".flexslider > .slides > li > img").each(function () {
                 var alt = jQuery(this).attr("alt");
                 console.log(alt);
-                if (list.includes(alt)) {
+                if (!flexImgList.includes(alt)) {
                     jQuery(this).parent().append("<div class=\"flexslider-img-caption\">" + alt + "</div>");
-                    list.push(alt);
+                    flexImgList.push(alt);
                 }
-                console.log(list);
+                console.log(flexImgList);
             });
         }
     };
