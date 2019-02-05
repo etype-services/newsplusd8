@@ -74,6 +74,6 @@ body.maintenance-page {
   padding-bottom: 0;
 }
 /* Hamburger icon */
-#block-newsplus-main-menu .menu-toggle i {
+#block-newsplus-main-menu .menu-toggle svg {
   float: right;
 }
