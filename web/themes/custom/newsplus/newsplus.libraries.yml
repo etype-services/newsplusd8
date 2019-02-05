@@ -56,9 +56,10 @@ global-styling:
 theme-js:
   version: VERSION
   js:
-    js/theme.js: { weight: -1 }
+    js/theme.js: { weight: -100 }
   dependencies:
     - core/jquery
+    - core/drupalSettings
 
 user-profile:
   version: VERSION
