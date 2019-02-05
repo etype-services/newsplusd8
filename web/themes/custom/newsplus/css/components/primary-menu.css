@@ -78,7 +78,6 @@ body:not(:target) .region-navigation .menu-toggle-target-show:target ~ .menu .me
     margin-right: 1.5%;
     padding: 0;
     display: inline-block;
-    width: 31%;
     height: auto;
     overflow: visible;
   }
