@@ -62,7 +62,7 @@
   width: 40px;
   height: 60px;
   margin: 0;
-  top: 0%;
+  top: 0;
   text-shadow: none;
   background-color: #fff;
 }
@@ -140,7 +140,6 @@
   background: #fff;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
-  -o-border-radius: 0;
   border-radius: 0;
   opacity: 0.75;
   filter: alpha(opacity=75);
