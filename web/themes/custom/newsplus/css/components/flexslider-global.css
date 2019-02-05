@@ -14,6 +14,10 @@
   -o-box-shadow: none;
 }
 
+.flexslider .slides li {
+  margin-bottom: 10px;
+}
+
 /*slide-caption*/
 #top-content .flexslider .slide-caption {
   padding-left: 15px;
