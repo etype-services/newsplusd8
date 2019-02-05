@@ -43,6 +43,7 @@
     "drupal/exclude_node_title": "^1.0",
     "drupal/features": "^3.7",
     "drupal/flexslider": "^2.0",
+    "drupal/fontawesome": "^2.9",
     "drupal/google_analytics": "^2.2",
     "drupal/honeypot": "^1.29",
     "drupal/imce": "^1.7",
