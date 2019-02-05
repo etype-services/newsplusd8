@@ -6,4 +6,4 @@
             $(".flex-direction-nav .flex-nav-prev a").html("<i class=\"fas fa-arrow-right\" aria-hidden=\"true\"></i>");
         }
     };
-})(jQuery, Drupal, undefined);
+}(jQuery, Drupal, undefined));
