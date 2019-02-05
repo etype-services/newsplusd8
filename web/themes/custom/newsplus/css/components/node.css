@@ -78,7 +78,11 @@
   padding: 14px 0 0 20px;
   font-size: 21px;
   font-style: oblique;
-  color: black;
+  color: #000000;
+}
+.node-content .field--name-field-kicker {
+  font-size: 14px;
+  color: #000000;
 }
 
 /* Teaser Content Field Styles */
