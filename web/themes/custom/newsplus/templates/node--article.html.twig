@@ -107,7 +107,7 @@
 							<a href="https://www.facebook.com/sharer/sharer.php?u={{ url('entity.node.canonical', {'node': node.id}) }}&t={{ node.label | url_encode(true) }}"
 								 onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
               <span>
-                <i class="fas fa-facebook"></i>
+                <i class="fab fa-facebook"></i>
                 <span class="sr-only">{% trans %}Share on Facebook{% endtrans %}</span>
               </span>
 							</a>
@@ -116,7 +116,7 @@
 							<a href="http://twitter.com/share?text={{ node.label | url_encode(true) }}&url={{ url('entity.node.canonical', {'node': node.id}) }}"
 								 onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
               <span>
-                <i class="fas fa-twitter"></i>
+                <i class="fab fa-twitter"></i>
                 <span class="sr-only">{% trans %}Share on Twitter{% endtrans %}</span>
               </span>
 							</a>
@@ -124,7 +124,7 @@
 						<li class="email">
 							<a href="mailto:?Subject={{ node.label | url_encode(true) }}&amp;Body={{ url('entity.node.canonical', {'node': node.id}) }}">
               <span>
-                <i class="fas fa-envelope-o"></i>
+                <i class="far fa-envelope"></i>
                 <span class="sr-only">{% trans %}Share through email{% endtrans %}</span>
               </span>
 							</a>

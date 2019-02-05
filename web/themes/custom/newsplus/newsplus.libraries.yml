@@ -56,7 +56,7 @@ global-styling:
 theme-js:
   version: VERSION
   js:
-    js/theme.js: {}
+    js/theme.js: { weight: 1 }
   dependencies:
     - core/jquery
 
