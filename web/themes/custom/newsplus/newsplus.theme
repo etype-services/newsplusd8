@@ -451,7 +451,7 @@ function newsplus_preprocess_field__block_content__field_mt_dropdown_block__mt_d
   if (isset($trigger_class)) {
     $variables['trigger_class'] = $trigger_class['value'];
   } else {
-    $variables['trigger_class'] = "fasfa-carret-down";
+    $variables['trigger_class'] = "fas fa-carret-down";
   }
 }
 
