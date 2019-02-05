@@ -204,4 +204,11 @@
 {% block content %}
 	{{ content|without('links', 'field_article_categories') }}
 	{{ attach_library('newsplus/theme-js') }}
+	<script type="javascript">
+    jQuery( document ).ready(function() {
+      jQuery(".flex-next").append("<i class=\"fas fa-arrow-left\"></i>");
+      jQuery(".flex-prev").append("<i class=\"fas fa-arrow-right\"></i>");
+    });
+	</script>
+
 {% endblock %}
