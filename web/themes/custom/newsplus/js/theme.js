@@ -7,8 +7,8 @@
     "use strict";
     Drupal.behaviors.newsplusFixes = {
         attach: function (context, settings) {
-            var flexImgList = new Array();
-            $(".node__content > img.image-style-flexslider-full").each(function () {
+            // var flexImgList = new Array();
+            $(".node__content > img.image-style-flexslider-full", context).once(function () {
                 //var alt = jQuery(this).attr("alt");
                 //console.log(alt);
                 //if (!flexImgList.includes(alt)) {
