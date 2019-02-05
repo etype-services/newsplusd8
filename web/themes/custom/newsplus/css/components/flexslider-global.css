@@ -94,17 +94,6 @@
   color: #fff;
   text-decoration: none;
 }
-.flex-direction-nav a:before {
-  font-family: "FontAwesome", sans-serif;
-  font-size: 26px;
-  display: inline-block;
-  content: '\f104';
-  line-height: 38px;
-  color: inherit;
-}
-.flex-direction-nav a.flex-next:before {
-  content: '\f105';
-}
 @media screen and (max-width:860px) {
   .flex-direction-nav .flex-prev {
     opacity: 0;
