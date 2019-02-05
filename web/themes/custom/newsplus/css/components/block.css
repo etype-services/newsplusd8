@@ -20,18 +20,21 @@
 }
 .maintenance-page h1,
 body.maintenance-page {
-  font-family: 'Roboto',Helvetica Neue, Arial, Sans-serif;
+  font-family: 'Roboto',Helvetica Neue, Arial, sans-serif;
 }
 .maintenance-page #site-name,
 .maintenance-page #site-slogan {
-  font-family: 'Montserrat', Helvetica Neue, Arial, Sans-serif;
+  font-family: 'Montserrat', Helvetica Neue, Arial, sans-serif;
 }
 .footer-area h2.title,
 .subfooter-area h2.title {
-  font-size: 25px; margin-bottom: 20px;
+  font-size: 25px;
+  margin-bottom: 20px;
 }
 @media (max-width: 767px) {
- .node h1.title { font-size: 36px; }
+  .node h1.title {
+    font-size: 36px;
+  }
 }
 /*Blocks*/
 .block {
@@ -69,4 +72,8 @@ body.maintenance-page {
 }
 .tab-pane .block {
   padding-bottom: 0;
+}
+/* Hamburger icon */
+#block-newsplus-main-menu .menu-toggle i {
+  float: right;
 }
