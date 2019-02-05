@@ -14,6 +14,7 @@
                     jQuery(this).parent().append("<div class=\"flexslider-img-caption\">" + alt + "</div>");
                     list.push(alt);
                 }
+                console.log(list);
             });
         }
     };
