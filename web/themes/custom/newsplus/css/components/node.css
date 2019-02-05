@@ -73,9 +73,21 @@
 .node h1.title {
   margin-bottom: 30px;
 }
+
+/* Full Content Field Styles */
 .node-content .field--name-field-subhead {
   font-size: 20px;
 }
+.node-content .field--name-field-pull- {
+  float: right;
+  width: 50%;
+  padding: 14px 0 0 20px;
+  font-size: 21px;
+  font-style: oblique;
+  color: black;
+}
+
+/* Teaser Content Field Styles */
 .node-teaser h2.title {
   margin-top: 5px;
 }
