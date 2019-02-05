@@ -12,7 +12,7 @@
                 var alt = jQuery(this).attr("alt");
                 if (list.indexOf(alt) === -1) {
                     jQuery(this).parent().append("<div class=\"flexslider-img-caption\">" + alt + "</div>");
-                    alt.push(list);
+                    list.push(alt);
                 }
             });
         }
