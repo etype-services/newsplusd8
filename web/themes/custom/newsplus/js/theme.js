@@ -1,4 +1,4 @@
-function($, Drupal, drupalSettings) {
+function($, Drupal, undefined) {
     "use strict";
     Drupal.behaviors.FontFixer = {
         attach: function (context, settings) {
@@ -6,4 +6,4 @@ function($, Drupal, drupalSettings) {
             $(".flex-direction-nav .flex-nav-prev a").html("<i class=\"fas fa-arrow-right\" aria-hidden=\"true\"></i>");
         }
     };
-}(jQuery, Drupal, drupalSettings);
+}(jQuery, Drupal, undefined);
