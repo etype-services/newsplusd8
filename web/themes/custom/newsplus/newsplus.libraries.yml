@@ -53,6 +53,13 @@ global-styling:
     theme:
       css/theme/print.css: { media: print }
 
+theme-js:
+  version: VERSION
+  js:
+    js/theme.js: {}
+  dependencies:
+    - core/jquery
+
 user-profile:
   version: VERSION
   css:
