@@ -7,7 +7,7 @@
     "use strict";
     Drupal.behaviors.newsplusFixes = {
         attach: function (context, settings) {
-            $(".flexslider .slides li img").each(function () {
+            $("#flexslider-2 .slides li img").each(function () {
                 var alt = jQuery(this).attr('alt');
                 jQuery(this).parent().append("<div class=\"flexslider-img-caption\">" + alt + "</div>");
             });
