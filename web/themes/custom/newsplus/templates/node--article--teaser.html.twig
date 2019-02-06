@@ -66,12 +66,12 @@
 {% block above_header %}
   {% if has_image %}
     <div class="teaser-image-wrapper">
-      {{content.field_image}}
+      {{ content.field_image }}
     </div>
   {% endif %}
 {% endblock %}
 {% block content %}
-  <div class="{{content_class}}">
-    {{content|without('field_image', 'links')}}
+  <div class="{{ content_class }}">
+    {{ content|without('field_image', 'links') }}
   </div>
 {% endblock %}

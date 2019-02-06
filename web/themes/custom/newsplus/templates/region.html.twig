@@ -12,12 +12,10 @@
  * @see template_preprocess_region()
  */
 #}
-{%
-  set classes = [
-    'region',
-    'region-' ~ region|clean_class,
-  ]
-%}
+{% set classes = [
+  'region',
+  'region-' ~ region|clean_class,
+] %}
 {% if content %}
   {% block content_wrapper %}
     <div{{ attributes.addClass(classes) }}>

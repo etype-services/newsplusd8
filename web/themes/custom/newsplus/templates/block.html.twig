@@ -30,18 +30,14 @@
  * @ingroup themeable
  */
 #}
-{%
-  set classes = [
-    'block',
-    'block-' ~ configuration.provider|clean_class,
-    'block-' ~ plugin_id|clean_class,
-  ]
-%}
-{%
-  set title_classes = [
-    'title'
-  ]
-%}
+{% set classes = [
+  'block',
+  'block-' ~ configuration.provider|clean_class,
+  'block-' ~ plugin_id|clean_class,
+] %}
+{% set title_classes = [
+  'title'
+] %}
 <div{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {% if label %}

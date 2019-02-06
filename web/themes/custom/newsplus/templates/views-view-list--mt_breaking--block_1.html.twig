@@ -18,13 +18,13 @@
 #}
 {{ attach_library('newsplus/flexslider-breaking-slider-init') }}
 {% if attributes -%}
-  <div{{ attributes }}>
-{% endif %}
+<div{{ attributes }}>
+  {% endif %}
   {% if title %}
     <h3>{{ title }}</h3>
   {% endif %}
-<div id="breaking-slider" class="flexslider clearfix">
-  <{{ list.type }}{{ list.attributes }}>
+  <div id="breaking-slider" class="flexslider clearfix">
+    <{{ list.type }}{{ list.attributes }}>
     {% for row in rows %}
       <li{{ row.attributes }}>
         {{ row.content }}
