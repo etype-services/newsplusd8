@@ -1,7 +1,6 @@
 /**
  * @file
  * Additional theme js.
- *
  */
 
 (function ($, Drupal) {
