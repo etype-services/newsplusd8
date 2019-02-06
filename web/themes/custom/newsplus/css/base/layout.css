@@ -25,6 +25,9 @@
   #header-inside-right {
     margin-right: 40px;
   }
+  #header .col-md-12 {
+    padding: 0;
+  }
 }
 #page-intro > .container {
   background-color: #fff;
