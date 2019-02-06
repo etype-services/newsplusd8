@@ -73,6 +73,9 @@ body.maintenance-page {
 .tab-pane .block {
   padding-bottom: 0;
 }
+#block-views-blockbreaking-news-block-1 {
+  padding-top: 0;
+}
 
 /* Ad Blocks */
 .block-dfp {
