@@ -31,17 +31,8 @@ body:not(:target) .region-navigation .menu-toggle {
   float: none;
   display: block;
   text-decoration: none;
-  padding: 0.9em 10px 0.9em 10px;
+  padding: 13px 10px 8px 10px;
   z-index: 1000;
-}
-body:not(:target) .region-navigation .menu-toggle:after {
-  font-size: 22px;
-  line-height: 22px;
-  width: 22px;
-  height: 22px;
-  display: inline-block;
-  position: absolute;
-  right: 10px;/* LTR */
 }
 [dir="rtl"] body:not(:target) .region-navigation .menu-toggle:after {
   right: initial;
@@ -61,6 +52,12 @@ body:not(:target) .region-navigation .menu-item {
 body:not(:target) .region-navigation .menu-toggle-target-show:target ~ .menu .menu-item {
   height: auto;
   overflow: visible;
+}
+/* Hamburger icon */
+#block-newsplus-main-menu .menu-toggle svg {
+  float: right;
+  margin-top: 3px;
+  margin-right: 15px;
 }
 
 /**
@@ -155,6 +152,6 @@ body:not(:target) .region-navigation .menu-toggle-target-show:target ~ .menu .me
   #main-navigation ul.menu ul.menu,
   #pre-header ul.menu ul.menu,
   #header-top ul.menu ul.menu {
-    display:none;
+    display: none;
   }
 }

@@ -73,7 +73,3 @@ body.maintenance-page {
 .tab-pane .block {
   padding-bottom: 0;
 }
-/* Hamburger icon */
-#block-newsplus-main-menu .menu-toggle svg {
-  float: right;
-}
