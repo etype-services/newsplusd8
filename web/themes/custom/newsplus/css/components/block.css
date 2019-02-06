@@ -80,7 +80,8 @@ body.maintenance-page {
   justify-content: center;
 }
 @media (max-width: 767px) {
-  #block-dfptagcniandrewsleaderboard {
+  #block-dfptagcniandrewsleaderboard,
+  #block-dfptagcniandrewsclassifieds {
     display: none;
   }
 }
