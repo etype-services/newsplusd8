@@ -125,12 +125,12 @@ ul.menu li.menu-item--expanded > a:hover:before {
 /*Superfish Support*/
 #main-navigation .sf-menu ul {
   display: none;
-  top:100%;
+  top: 100%;
 }
 #pre-header .sf-menu ul,
 #header-top .sf-menu ul {
   display: none;
-  top:100%;
+  top: 100%;
 }
 #main-navigation .sf-menu > li > a.menuparent,
 #pre-header .sf-menu > li > a.menuparent,
