@@ -75,7 +75,7 @@ body.maintenance-page {
 }
 
 /* ad blocks */
-.dfp {
+.block-dfp {
   display: flex;
   justify-content: center;
 }
