@@ -74,13 +74,18 @@ body.maintenance-page {
   padding-bottom: 0;
 }
 
-/* ad blocks */
+/* Ad Blocks */
 .block-dfp {
   display: flex;
   justify-content: center;
 }
 @media (max-width: 767px) {
   #block-dfptagcniandrewsleaderboard {
+    display: none;
+  }
+}
+@media (max-width: 991px) {
+  #block-dfptagcniandrewsbanner {
     display: none;
   }
 }
