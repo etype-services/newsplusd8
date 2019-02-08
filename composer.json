@@ -39,6 +39,7 @@
     "drupal/clamav": "^1.0",
     "drupal/console": "^1.0.2",
     "drupal/core": "^8.6.0",
+    "drupal/custom_pub": "^1.0",
     "drupal/dfp": "^1.0",
     "drupal/exclude_node_title": "^1.0",
     "drupal/features": "^3.7",
