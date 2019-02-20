@@ -59,6 +59,7 @@
 $sites['newsplusd8.local'] = 'newsplusd8.etypegoogle7.com';
 
 $sites['www.bayoujournal.com'] = 'bayoujournal.etypegoogle7.com';
+$sites['www.bayoupioneer.com'] = 'bayoujournal.etypegoogle7.com';
 
 $sites['cninewspapers.etypegoogle7.com'] = "cninewspapers.etypegoogle7.com";
 $sites['www.cninewspapers.com'] = "cninewspapers.etypegoogle7.com";
