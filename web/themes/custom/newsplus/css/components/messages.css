@@ -33,8 +33,6 @@
 
 /*Status messages symbols*/
 .messages--status:before {
-  content: "\f00c";
-  font-family: "FontAwesome";
   font-size: 20px;
   position: absolute;
   left: 0;
@@ -46,8 +44,6 @@
   padding-top: 13px;
 }
 .messages--error:before {
-  content: "\f00d";
-  font-family: "FontAwesome";
   font-size: 24px;
   position: absolute;
   left: 0;
@@ -59,8 +55,6 @@
   padding-top: 10px;
 }
 .messages--warning:before {
-  content: "\f12a";
-  font-family: "FontAwesome";
   font-size: 24px;
   position: absolute;
   left: 0;
