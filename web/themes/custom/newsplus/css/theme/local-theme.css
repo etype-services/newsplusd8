@@ -1,1 +1,6 @@
 /* Use this CSS file to override theme CSS rules */
+
+/* Remove top padding from the first block in the highlighted region to make it level with top of Search */
+div#highlighted-inside > div > div:first-child {
+  padding-top: 0;
+}

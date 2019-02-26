@@ -73,10 +73,6 @@ body.maintenance-page {
 .tab-pane .block {
   padding-bottom: 0;
 }
-/* Remove top padding from the first block in the highlighted region to make it level with top of Search */
-div#highlighted-inside > div > div:first-child {
-  padding-top: 0;
-}
 
 /* Ad Blocks */
 .block-dfp {
