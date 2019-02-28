@@ -92,38 +92,6 @@ maintenance_page:
     - system/maintenance
     - newsplus/global-styling
 
-slider-revolution:
-  version: 5.4.8
-  css:
-    component:
-      js/revolution/css/settings.css: {}
-      js/revolution/css/layers.css: {}
-      js/revolution/css/navigation.css: {}
-      css/components/slider-revolution.css: { weight: 1 }
-  js:
-    js/revolution/js/jquery.themepunch.tools.min.js: { preprocess: FALSE, minified: true }
-    js/revolution/js/jquery.themepunch.revolution.min.js: { preprocess: FALSE, minified: true }
-  dependencies:
-    - core/jquery
-
-slider-revolution-boxed-init:
-  version: VERSION
-  js:
-    js/init/slider-revolution-boxed-init.js: {}
-  dependencies:
-    - newsplus/slider-revolution
-    - core/drupalSettings
-    - core/jquery.once
-
-slider-revolution-video-gallery-init:
-  version: VERSION
-  js:
-    js/init/slider-revolution-video-gallery-init.js: {}
-  dependencies:
-    - newsplus/slider-revolution
-    - core/drupalSettings
-    - core/jquery.once
-
 google-maps-init:
   version: VERSION
   css:
