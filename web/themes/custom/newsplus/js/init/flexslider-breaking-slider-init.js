@@ -5,7 +5,8 @@
 
 jQuery(document).ready(function () {
     "use strict";
-    var obj = jQuery("#block-views-block-breaking-news-block-1 .item-list .flexslider");
+    var obj = jQuery("#breaking-slider");
+    console.log(obj.length);
     if (obj.length > 0) {
         obj.fadeIn("slow");
         obj.flexslider({
