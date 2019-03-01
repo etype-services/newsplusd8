@@ -1,6 +1,6 @@
 jQuery(document).ready(function ($) {
     "use strict";
-    let obj = S("#block-views-block-breaking-news-block-1 .item-list .flexslider");
+    var obj = S("#block-views-block-breaking-news-block-1 .item-list .flexslider");
     if (obj.length > 0) {
         $(window).load(function () {
             obj.fadeIn("slow");
