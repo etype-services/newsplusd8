@@ -92,6 +92,27 @@ maintenance_page:
     - system/maintenance
     - newsplus/global-styling
 
+flexslider-breaking-slider-init:
+  version: VERSION
+  css:
+    component:
+      css/components/view-breaking-slider.css: {}
+  js:
+    js/init/flexslider-breaking-slider-init.js: { scope: 'header' }
+  dependencies:
+    - core/drupalSettings
+    - core/jquery
+    - core/flexslider
+
+google-map:
+  version: 3
+  remote: https://maps.googleapis.com/maps/api/js
+  js:
+    https://maps.googleapis.com/maps/api/js?v=3: { scope: 'footer' }
+  license:
+    name: Google Terms of Service
+    url: https://developers.google.com/maps/terms
+
 google-maps-init:
   version: VERSION
   css:
