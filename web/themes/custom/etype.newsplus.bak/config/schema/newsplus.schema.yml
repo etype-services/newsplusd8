@@ -1,0 +1,5 @@
+# Schema for the configuration files of the News+ theme.
+
+newsplus.settings:
+  type: theme_settings
+  label: 'News+ settings'

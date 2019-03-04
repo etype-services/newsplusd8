@@ -1,0 +1,730 @@
+bootstrap:
+  version: 3.3.7
+  css:
+    base: #The CSS category. base is loaded before theme category
+      bootstrap/css/bootstrap.min.css: { weight: 0 } #weight sets the order within the category above
+  js:
+    bootstrap/js/bootstrap.min.js: { minified: true }
+  dependencies:
+    - core/jquery
+
+global-styling:
+  version: VERSION
+  css:
+    base:
+      css/base/elements.css: { weight: 1 }
+      css/base/layout.css: { weight: 1 }
+      css/base/typography.css: { weight: 1 }
+    component:
+      css/components/site-branding.css: {}
+      css/components/breadcrumb.css: {}
+      css/components/tabs.css: {}
+      css/components/accordion.css: {}
+      css/components/progress-bars.css: {}
+      css/components/drupal-tabs.css: {}
+      css/components/block.css: {}
+      css/components/node.css: {}
+      css/components/field.css: {}
+      css/components/comments.css: {}
+      css/components/menu.css: {}
+      css/components/primary-menu.css: {}
+      css/components/teaser-listing.css: {}
+      css/components/pager.css: {}
+      css/components/image-overlay.css: {}
+      css/components/admin.css: {}
+      css/components/search.css: {}
+      css/components/forms.css: {}
+      css/components/buttons.css: {}
+      css/components/node-images.css: {}
+      css/components/node-links.css: {}
+      css/components/tables.css: {}
+      css/components/quickedit.css: {}
+      css/components/icons-list.css: {}
+      css/components/more-links.css: {}
+      css/components/views.css: {}
+      css/components/view-hot-posts.css: {}
+      css/components/view-latest.css: {}
+      css/components/view-archive-summary.css: {}
+      css/components/view-news-in-images.css: {}
+      css/components/view-most-popular.css: {}
+      css/components/view-tags-cloud.css: {}
+      css/components/view-user-posts.css: {}
+      css/components/flexslider-global.css: {}
+    theme:
+      css/theme/print.css: { media: print }
+
+theme-js:
+  version: VERSION
+  js:
+    js/theme.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+
+user-profile:
+  version: VERSION
+  css:
+    component:
+      css/components/user-profile.css: {}
+
+messages:
+  version: VERSION
+  css:
+    component:
+      css/components/messages.css: { preprocess: false }
+
+color.preview:
+  version: VERSION
+  css:
+    theme:
+      color/preview.css: {}
+  js:
+    color/preview.js: {}
+  dependencies:
+    - color/drupal.color
+
+maintenance_page:
+  version: VERSION
+  css:
+    theme:
+      css/maintenance-page.css: {}
+  dependencies:
+    - system/maintenance
+    - newsplus/global-styling
+
+flexslider-breaking-slider-init:
+  version: VERSION
+  css:
+    component:
+      css/components/view-breaking-slider.css: {}
+  js:
+    js/init/flexslider-breaking-slider-init.js: { scope: 'header' }
+  dependencies:
+    - core/drupalSettings
+    - core/jquery
+    - core/flexslider
+
+google-map:
+  version: 3
+  remote: https://maps.googleapis.com/maps/api/js
+  js:
+    https://maps.googleapis.com/maps/api/js?v=3: { scope: 'footer' }
+  license:
+    name: Google Terms of Service
+    url: https://developers.google.com/maps/terms
+
+google-maps-init:
+  version: VERSION
+  css:
+    component:
+      css/components/google-map.css: {}
+  js:
+    js/init/google-map-init.js: {}
+  dependencies:
+    - newsplus/google-maps-dynamic
+    - core/drupalSettings
+    - core/jquery
+    - core/jquery.once
+
+node-features:
+  version: VERSION
+  js:
+    js/custom/node-features.js: {}
+  dependencies:
+    - core/jquery
+
+to-top:
+  version: VERSION
+  css:
+    component:
+      css/components/to-top.css: {}
+  js:
+    js/custom/to-top.js: {}
+  dependencies:
+    - core/jquery
+
+fixed-header:
+  version: VERSION
+  css:
+    component:
+      css/components/fixed-header.css: {}
+  js:
+    js/custom/fixed-header.js: {}
+  dependencies:
+    - core/jquery
+
+dropdown-block:
+  version: VERSION
+  css:
+    component:
+      css/components/dropdown-block.css: {}
+
+theme-settings:
+  version: VERSION
+  css:
+    theme:
+      css/components/theme-settings.css: {}
+
+local-stylesheets:
+  version: VERSION
+  css:
+    base:
+      css/base/local-base.css: { weight: 100 }
+    component:
+      css/components/local-components.css: { weight: 100 }
+    theme:
+      css/theme/local-theme.css: { weight: 150 }
+
+#####################
+#   Color Schemes   #
+#####################
+color-default:
+  version: VERSION
+  css:
+    theme:
+      css/theme/color-default.css: { preprocess: FALSE, weight: 100 }
+
+color-blue:
+  version: VERSION
+  css:
+    theme:
+      css/theme/color-blue.css: { preprocess: FALSE, weight: 100 }
+
+color-green:
+  version: VERSION
+  css:
+    theme:
+      css/theme/color-green.css: { preprocess: FALSE, weight: 100 }
+
+color-orange:
+  version: VERSION
+  css:
+    theme:
+      css/theme/color-orange.css: { preprocess: FALSE, weight: 100 }
+
+color-pink:
+  version: VERSION
+  css:
+    theme:
+      css/theme/color-pink.css: { preprocess: FALSE, weight: 100 }
+
+color-purple:
+  version: VERSION
+  css:
+    theme:
+      css/theme/color-purple.css: { preprocess: FALSE, weight: 100 }
+
+color-gray:
+  version: VERSION
+  css:
+    theme:
+      css/theme/color-gray.css: { preprocess: FALSE, weight: 100 }
+
+color-white:
+  version: VERSION
+  css:
+    theme:
+      css/theme/color-white.css: { preprocess: FALSE, weight: 100 }
+
+color-light-gray:
+  version: VERSION
+  css:
+    theme:
+      css/theme/color-light-gray.css: { preprocess: FALSE, weight: 100 }
+
+color-solid-red:
+  version: VERSION
+  css:
+    theme:
+      css/theme/color-solid-red.css: { preprocess: FALSE, weight: 100 }
+
+color-solid-blue:
+  version: VERSION
+  css:
+    theme:
+      css/theme/color-solid-blue.css: { preprocess: FALSE, weight: 100 }
+
+color-solid-green:
+  version: VERSION
+  css:
+    theme:
+      css/theme/color-solid-green.css: { preprocess: FALSE, weight: 100 }
+
+color-solid-orange:
+  version: VERSION
+  css:
+    theme:
+      css/theme/color-solid-orange.css: { preprocess: FALSE, weight: 100 }
+
+color-solid-pink:
+  version: VERSION
+  css:
+    theme:
+      css/theme/color-solid-pink.css: { preprocess: FALSE, weight: 100 }
+
+color-solid-purple:
+  version: VERSION
+  css:
+    theme:
+      css/theme/color-solid-purple.css: { preprocess: FALSE, weight: 100 }
+
+color-solid-gray:
+  version: VERSION
+  css:
+    theme:
+      css/theme/color-solid-gray.css: { preprocess: FALSE, weight: 100 }
+
+color-solid-white:
+  version: VERSION
+  css:
+    theme:
+      css/theme/color-solid-white.css: { preprocess: FALSE, weight: 100 }
+
+color-solid-light-gray:
+  version: VERSION
+  css:
+    theme:
+      css/theme/color-solid-light-gray.css: { preprocess: FALSE, weight: 100 }
+
+####################
+# Fonts collection #
+####################
+id-01:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Merriweather:400,300italic,300,400italic,700,700italic&subset=latin,greek: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-02:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900,400italic,700italic,900italic&subset=latin,greek: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-03:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Ubuntu:400,700,400italic,700italic&subset=latin,greek: { type: external }
+  license:
+    name: Ubuntu Font Licence, 1.0
+    url: //font.ubuntu.com/ufl/
+    gpl-compatible: true
+
+fonts-id-04:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic&subset=latin,greek: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-05:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Roboto:400,400italic,700,300,700italic&subset=latin-ext,latin,greek: { type: external }
+  license:
+    name: Apache License, version 2.0
+    url: //www.apache.org/licenses/LICENSE-2.0.html
+    gpl-compatible: true
+
+fonts-id-06:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,800italic,400,800,700&subset=latin,greek: { type: external }
+  license:
+    name: Apache License, version 2.0
+    url: //www.apache.org/licenses/LICENSE-2.0.html
+    gpl-compatible: true
+
+fonts-id-07:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-08:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Roboto+Condensed:400italic,700italic,400,300,700&subset=latin-ext,latin,greek: { type: external }
+  license:
+    name: Apache License, version 2.0
+    url: //www.apache.org/licenses/LICENSE-2.0.html
+    gpl-compatible: true
+
+fonts-id-09:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Exo:400,700,800,400italic,700italic,800italic&subset=latin,greek: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-10:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Roboto+Slab:400,300,700&subset=latin-ext,latin,greek: { type: external }
+  license:
+    name: Apache License, version 2.0
+    url: //www.apache.org/licenses/LICENSE-2.0.html
+    gpl-compatible: true
+
+fonts-id-11:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Raleway:400,700,500,300&subset=latin-ext,latin,greek: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-12:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700,400italic,600italic,700italic&subset=latin-ext,latin,greek: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-14:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic&subset=latin-ext,latin,greek: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-15:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Philosopher:400,700,400italic,700italic&subset=latin-ext,latin,greek: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-16:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Cinzel:400,700,900&subset=latin-ext,latin,greek: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-17:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Oswald:400,300,700&subset=latin,latin-ext: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-18:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Playfair+Display+SC:400,400italic,700,700italic&subset=latin,greek,latin-ext: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-19:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Cabin:400,700,400italic,700italic: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-20:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic: { type: external }
+  license:
+    name: Apache License, version 2.0
+    url: //www.apache.org/licenses/LICENSE-2.0.html
+    gpl-compatible: true
+
+fonts-id-22:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic: { type: external }
+  license:
+    name: Apache License, version 2.0
+    url: //www.apache.org/licenses/LICENSE-2.0.html
+    gpl-compatible: true
+
+fonts-id-23:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic&subset=latin,latin-ext: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-24:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Vollkorn:400italic,700italic,400,700: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-25:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700,900&subset=latin,latin-ext: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-26:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic,700italic&subset=latin,latin-ext,greek: { type: external }
+  license:
+    name: Apache License, version 2.0
+    url: //www.apache.org/licenses/LICENSE-2.0.html
+    gpl-compatible: true
+
+fonts-id-27:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600,700,600italic: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-28:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Gentium+Book+Basic:400,400italic,700,700italic: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-29:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Volkhov:400,400italic,700,700italic: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-31:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Alegreya+SC:400,400italic,700,700italic,900&subset=latin,latin-ext: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-32:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Montserrat:400,700: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-33:
+  version: VERSION
+  remote: //code.cdn.mozilla.net/fonts/
+  css:
+    theme:
+      //code.cdn.mozilla.net/fonts/fira.css: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-34:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&subset=latin,latin-ext: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-35:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Quattrocento+Sans:400,400italic,700,700italic&subset=latin,latin-ext: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-36:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Julius+Sans+One&subset=latin,latin-ext: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-37:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Work+Sans:400,700,300,900&subset=latin,latin-ext: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-38:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700&subset=latin,vietnamese,greek,cyrillic,latin-ext: { type: external }
+  license:
+    name: Apache License, version 2.0
+    url: //www.apache.org/licenses/LICENSE-2.0.html
+    gpl-compatible: true
+
+fonts-id-39:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&subset=latin,latin-ext,cyrillic: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-40:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Archivo+Narrow:400,400italic,700,700italic&subset=latin,latin-ext: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-41:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Ubuntu+Condensed&subset=latin,greek,cyrillic,latin-ext: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fonts-id-42:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Arimo:400,400italic,700,700italic&subset=latin,greek,cyrillic: { type: external }
+  license:
+    name: Apache License, version 2.0
+    url: //www.apache.org/licenses/LICENSE-2.0.html
+    gpl-compatible: true
+
+fonts-sourcecodepro:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Source+Code+Pro&subset=latin,latin-ext: { type: external }
+  license:
+    name: SIL Open Font License, 1.1
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true

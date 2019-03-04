@@ -20,14 +20,14 @@
 #}
 {{ attach_library('newsplus/flexslider-main-init') }}
 <div id="slideshow" class="main-slider">
-  {% if attributes -%}
+{% if attributes -%}
   <div{{ attributes }}>
-    {% endif %}
-    {% if title %}
-      <h3>{{ title }}</h3>
-    {% endif %}
+{% endif %}
+  {% if title %}
+    <h3>{{ title }}</h3>
+  {% endif %}
 
-    <{{ list.type }}{{ list.attributes }}>
+  <{{ list.type }}{{ list.attributes }}>
 
     {% for row in rows %}
       <li{{ row.attributes }}>{{ row.content }}</li>
@@ -35,7 +35,7 @@
 
   </{{ list.type }}>
 
-  {% if attributes -%}
-</div>
+{% if attributes -%}
+  </div>
 {% endif %}
 </div>

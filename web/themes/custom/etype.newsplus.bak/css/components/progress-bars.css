@@ -1,0 +1,9 @@
+/**
+ * @file
+ * Visual styles for Newsplus's progress bars.
+ */
+.progress {
+  background-color: #e5e5e5;
+  border-radius: 0;
+  box-shadow: none;
+}

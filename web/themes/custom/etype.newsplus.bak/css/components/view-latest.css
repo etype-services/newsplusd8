@@ -1,0 +1,66 @@
+/**
+ * @file
+ * Visual styles for Newsplus's latest posts view.
+ */
+.view-latest-objects .views-row {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #dddddd;
+}
+.view-latest-objects.row .views-row {
+  border-bottom: none;
+  margin-bottom: 10px;
+}
+.view-latest-objects .views-row-last {
+  border-bottom: none;
+}
+.view-latest-objects .views-field-field-image {
+  float: left;
+  margin: 0 20px 15px 0;
+  max-width: 140px;
+}
+.view-latest-objects .views-field-body p {
+  padding-bottom: 5px;
+}
+.view-latest-objects .views-field-commerce-price {
+  margin-bottom: 10px;
+}
+.view-latest-objects .views-field-title a {
+  margin-bottom: 15px;
+}
+.view-latest-objects .with-image .views-field-title,
+.view-latest-objects .with-image .views-field-created,
+.view-latest-objects .with-image .views-field-body,
+.view-latest-objects .with-image .views-field-commerce-price {
+  margin-left: 160px;
+}
+@media (min-width: 992px) {
+
+  /*layout 3-6-3*/
+  .two-sidebars.wide-sidebar .sidebar .view-latest-objects .views-field-field-image {
+    max-width: 90px;
+  }
+  .two-sidebars.wide-sidebar .sidebar .view-latest-objects .with-image .views-field-title,
+  .two-sidebars.wide-sidebar .sidebar .view-latest-objects .with-image .views-field-created,
+  .two-sidebars.wide-sidebar .sidebar .view-latest-objects .with-image .views-field-body,
+  .two-sidebars.wide-sidebar .sidebar .view-latest-objects .with-image .views-field-commerce-price {
+    margin-left: 110px;
+  }
+
+  /*layout 2-6-4 & 4-6-2*/
+  .two-sidebars.narrow-sidebar .col-md-2 .sidebar .view-latest-objects .views-field-field-image {
+    float: none;
+    max-width: 100%;
+    margin-bottom: 15px;
+    overflow: hidden;
+    margin-right: 0;
+  }
+  .two-sidebars.narrow-sidebar .col-md-2 .sidebar .view-latest-objects .with-image .views-field-title,
+  .two-sidebars.narrow-sidebar .col-md-2 .sidebar .view-latest-objects .with-image .views-field-created,
+  .two-sidebars.narrow-sidebar .col-md-2 .sidebar .view-latest-objects .with-image .views-field-body,
+  .two-sidebars.narrow-sidebar .col-md-2 .sidebar .view-latest-objects .views-field-commerce-price {
+    margin-left: 0;
+  }
+  .two-sidebars.narrow-sidebar .col-md-2 .sidebar .view-latest-objects .with-image .views-field-title a {
+    margin-bottom: 0;
+  }
+}

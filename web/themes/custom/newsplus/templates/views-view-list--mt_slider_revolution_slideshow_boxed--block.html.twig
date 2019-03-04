@@ -19,21 +19,19 @@
  */
 #}
 {{ attach_library('newsplus/slider-revolution-boxed-init') }}
-<div id="slider-revolution-main"
-     class="slideshow-boxedwidth slider-revolution-wrapper rev_slider_wrapper {% if rows|length <= 1 %}one-slide{% endif %}">
+<div id="slider-revolution-main" class="slideshow-boxedwidth slider-revolution-wrapper rev_slider_wrapper {% if rows|length <= 1 %}one-slide{% endif %}">
   <div{{ attributes.addClass('rev_slider') }} data-version="5.4.8">
-    {% if title %}
-      <h3>{{ title }}</h3>
-    {% endif %}
+  {% if title %}
+    <h3>{{ title }}</h3>
+  {% endif %}
 
-    <{{ list.type }}{{ list.attributes }}>
+  <{{ list.type }}{{ list.attributes }}>
 
     {% for row in rows %}
-      <li{{ row.attributes }} data-transition="{{ mt_setting.slider_revolution_slideshow_boxed_effect }}"
-                              data-slotamount="default" data-masterspeed="default">{{ row.content }}</li>
+      <li{{ row.attributes }} data-transition="{{ mt_setting.slider_revolution_slideshow_boxed_effect }}" data-slotamount="default" data-masterspeed="default">{{ row.content }}</li>
     {% endfor %}
 
   </{{ list.type }}>
 
-</div>
+  </div>
 </div>

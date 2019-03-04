@@ -49,17 +49,8 @@ global-styling:
       css/components/view-most-popular.css: {}
       css/components/view-tags-cloud.css: {}
       css/components/view-user-posts.css: {}
-      css/components/flexslider-global.css: {}
     theme:
       css/theme/print.css: { media: print }
-
-theme-js:
-  version: VERSION
-  js:
-    js/theme.js: {}
-  dependencies:
-    - core/jquery
-    - core/drupalSettings
 
 user-profile:
   version: VERSION
@@ -92,26 +83,116 @@ maintenance_page:
     - system/maintenance
     - newsplus/global-styling
 
+magnific-popup:
+  version: VERSION
+  css:
+    component:
+      js/magnific-popup/magnific-popup.css: { weight: 0 }
+  js:
+    js/magnific-popup/jquery.magnific-popup.min.js: { minified: true }
+  dependencies:
+    - core/jquery
+
+magnific-popup-init:
+  version: VERSION
+  js:
+    js/init/magnific-popup-init.js: {}
+  dependencies:
+    - newsplus/magnific-popup
+    - core/jquery.once
+
+flexslider:
+  version: 2.7.1
+  css:
+    component:
+      js/flexslider/flexslider.css: { weight: 0 }
+  js:
+    js/flexslider/jquery.flexslider-min.js: { minified: true }
+  dependencies:
+    - core/jquery
+
+flexslider-global:
+  version: VERSION
+  css:
+    component:
+      css/components/flexslider-global.css: { weight: 1 }
+  dependencies:
+    - newsplus/flexslider
+    - core/jquery
+
+flexslider-main-init:
+  version: VERSION
+  js:
+    js/init/flexslider-main-init.js: {}
+  dependencies:
+    - newsplus/flexslider-global
+    - core/drupalSettings
+    - core/jquery.once
+
+flexslider-internal-banner-slider-init:
+  version: VERSION
+  css:
+    component:
+      css/components/flexslider-internal-banner.css: {}
+  js:
+    js/init/flexslider-internal-banner-slider-init.js: {}
+  dependencies:
+    - newsplus/flexslider-global
+    - core/drupalSettings
+    - core/jquery.once
+
+flexslider-internal-banner-carousel-init:
+  version: VERSION
+  js:
+    js/init/flexslider-internal-banner-carousel-init.js: {}
+  dependencies:
+    - newsplus/flexslider-internal-banner-slider-init
+    - core/drupalSettings
+    - core/jquery.once
+
 flexslider-breaking-slider-init:
   version: VERSION
   css:
     component:
       css/components/view-breaking-slider.css: {}
   js:
-    js/init/flexslider-breaking-slider-init.js: { scope: 'header' }
+    js/init/flexslider-breaking-slider-init.js: {}
   dependencies:
+    - newsplus/flexslider-global
     - core/drupalSettings
-    - core/jquery
-    - core/flexslider
+    - core/jquery.once
 
-google-map:
-  version: 3
-  remote: https://maps.googleapis.com/maps/api/js
+slider-revolution:
+  version: 5.4.8
+  css:
+    component:
+      js/revolution/css/settings.css: {}
+      js/revolution/css/layers.css: {}
+      js/revolution/css/navigation.css: {}
+      css/components/slider-revolution.css: { weight: 1 }
   js:
-    https://maps.googleapis.com/maps/api/js?v=3: { scope: 'footer' }
-  license:
-    name: Google Terms of Service
-    url: https://developers.google.com/maps/terms
+    js/revolution/js/jquery.themepunch.tools.min.js: { preprocess: FALSE, minified: true }
+    js/revolution/js/jquery.themepunch.revolution.min.js: { preprocess: FALSE, minified: true }
+  dependencies:
+    - core/jquery
+
+slider-revolution-boxed-init:
+  version: VERSION
+  js:
+    js/init/slider-revolution-boxed-init.js: {}
+  dependencies:
+    - newsplus/slider-revolution
+    - core/drupalSettings
+    - core/jquery.once
+
+slider-revolution-video-gallery-init:
+  version: VERSION
+  js:
+    js/init/slider-revolution-video-gallery-init.js: {}
+  dependencies:
+    - newsplus/slider-revolution
+    - core/drupalSettings
+    - core/jquery.once
 
 google-maps-init:
   version: VERSION
@@ -125,6 +206,16 @@ google-maps-init:
     - core/drupalSettings
     - core/jquery
     - core/jquery.once
+
+fontawesome:
+  version: 4.7.0
+  remote: //use.fontawesome.com/
+  js:
+    //use.fontawesome.com/f479fb1064.js: {}
+  license:
+    name: MIT
+    url: //opensource.org/licenses/mit-license.html
+    gpl-compatible: true
 
 node-features:
   version: VERSION

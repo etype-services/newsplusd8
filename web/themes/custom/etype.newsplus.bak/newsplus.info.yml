@@ -1,0 +1,34 @@
+name: eType News+
+type: theme
+base theme: classy
+description: 'News+ Drupal 8 theme modified for eType Services.'
+version: 8.x-5.8.0
+core: 8.x
+libraries:
+  - newsplus/bootstrap
+  - newsplus/fontawesome
+  - newsplus/global-styling
+  - newsplus/messages
+  - newsplus/local-stylesheets
+regions:
+  pre_header_left: 'Pre Header Left'
+  pre_header_right: 'Pre header Right'
+  header_top_left: 'Header Top Left'
+  header_top_right: 'Header Top Right'
+  navigation: 'Navigation'
+  header: 'Header'
+  page_intro: 'Page Intro'
+  top_content: 'Top Content'
+  banner: 'Banner'
+  highlighted: 'Highlighted'
+  promoted: 'Promoted Area'
+  content: 'Content'
+  sidebar_first: 'First Sidebar'
+  sidebar_second: 'Second Sidebar'
+  footer_first: 'Footer First'
+  footer_second: 'Footer Second'
+  footer_third: 'Footer Third'
+  footer_fourth: 'Footer Fourth'
+  sub_footer_left: 'Subfooter Left'
+  footer: 'Subfooter Right'
+  hidden_blocks_collection: 'Hidden blocks collection'

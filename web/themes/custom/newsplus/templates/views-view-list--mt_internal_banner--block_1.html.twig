@@ -19,21 +19,20 @@
 
 {{ attach_library('newsplus/flexslider-internal-banner-slider-init') }}
 {% if attributes -%}
-<div{{ attributes }}>
-  {% endif %}
-  {% if title %}
-    <h3>{{ title }}</h3>
-  {% endif %}
-  <div id="internal-banner-slider" class="flexslider clearfix">
-    <{{ list.type }}{{ list.attributes }}>
+  <div{{ attributes }}>
+{% endif %}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+<div id="internal-banner-slider" class="flexslider clearfix">
+  <{{ list.type }}{{ list.attributes }}>
     {% for row in rows %}
       <li{{ row.attributes }}>
         {{ row.content }}
         {% if row.content['#row'].node__field_mt_banner_image_field_mt_banner_image_title %}
-          <div class="banner-caption hidden-xs">
-            <div
-                class="caption-title">{{ row.content['#row'].node__field_mt_banner_image_field_mt_banner_image_title }}</div>
-          </div>
+        <div class="banner-caption hidden-xs">
+          <div class="caption-title">{{row.content['#row'].node__field_mt_banner_image_field_mt_banner_image_title}}</div>
+        </div>
         {% endif %}
       </li>
     {% endfor %}

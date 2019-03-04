@@ -3,7 +3,6 @@
 /vendor/
 /web/core/
 /web/modules/contrib/
-# /web/themes/contrib/
 /web/profiles/contrib/
 /web/libraries/
 
@@ -29,7 +28,6 @@
 
 # Ignore misc files
 .DS_Store
-.idea
 .sass-cache
 *.css.map
 

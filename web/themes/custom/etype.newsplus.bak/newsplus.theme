@@ -1,0 +1,524 @@
+<?php
+
+
+/**
+ * @file
+ * Functions to support theming in the newsplus theme.
+ */
+
+use Drupal\Core\Theme\ThemeSettings;
+use Drupal\Core\Template\Attribute;
+use Drupal\file\Entity\File;
+use Drupal\image\Entity\ImageStyle;
+use Drupal\Component\Utility\Html;
+
+/**
+ * Implements hook_preprocess_HOOK() for HTML document templates.
+ *
+ * Adds body classes if certain regions have content.
+ */
+function newsplus_preprocess_html(&$variables) {
+  // Add information about the number of sidebars.
+  if (!empty($variables['page']['sidebar_first']) && !empty($variables['page']['sidebar_second'])) {
+    $variables['attributes']['class'][] = 'layout-two-sidebars';
+  }
+  elseif (!empty($variables['page']['sidebar_first'])) {
+    $variables['attributes']['class'][] = 'layout-one-sidebar';
+    $variables['attributes']['class'][] = 'layout-sidebar-first';
+  }
+  elseif (!empty($variables['page']['sidebar_second'])) {
+    $variables['attributes']['class'][] = 'layout-one-sidebar';
+    $variables['attributes']['class'][] = 'layout-sidebar-second';
+  }
+  else {
+    $variables['attributes']['class'][] = 'layout-no-sidebars';
+  }
+
+  if (!empty($variables['page']['featured_top'])) {
+    $variables['attributes']['class'][] = 'has-featured-top';
+  }
+
+  $color_scheme_library = 'newsplus/color-'.theme_get_setting('color_scheme');
+  $variables['#attached']['library'][] = $color_scheme_library;
+
+  $headings_font_family = theme_get_setting('headings_font_family');
+  $paragraph_font_family = theme_get_setting('paragraph_font_family');
+  $sitename_font_family = theme_get_setting('sitename_font_family');
+  $slogan_font_family = theme_get_setting('slogan_font_family');
+
+  $variables['attributes']['class'][] = $headings_font_family;
+  $variables['attributes']['class'][] = $paragraph_font_family;
+  $variables['attributes']['class'][] = $sitename_font_family;
+  $variables['attributes']['class'][] = $slogan_font_family;
+
+  //Get the IDs for each font family
+  $headings_font_id = substr($headings_font_family, -2);
+  $paragraph_font_id = substr($paragraph_font_family, -2);
+  $sitename_font_id = substr($sitename_font_family, -2);
+  $slogan_font_id = substr($slogan_font_family, -2);
+
+  //Generate the library strings
+  $headings_font_library = 'newsplus/fonts-id-'.$headings_font_id;
+  $paragraph_font_library = 'newsplus/fonts-id-'.$paragraph_font_id;
+  $sitename_font_library = 'newsplus/fonts-id-'.$sitename_font_id;
+  $slogan_font_library = 'newsplus/fonts-id-'.$slogan_font_id;
+
+  //Font families with the following IDs are OS specific and should not load an external font
+  //13: Georgia
+  //21: Helvetica Neue
+  //30: Times
+  $no_library_array = array('13','21','30');
+
+  //Directly Load the font family libraries if the IDs are not in the $no_library_array
+  if (!in_array($headings_font_id, $no_library_array)) {
+    $variables['#attached']['library'][] = $headings_font_library;
+  }
+  if (!in_array($paragraph_font_id, $no_library_array)) {
+    $variables['#attached']['library'][] = $paragraph_font_library;
+  }
+  if (!in_array($sitename_font_id, $no_library_array)) {
+    $variables['#attached']['library'][] = $sitename_font_library;
+  }
+  if (!in_array($slogan_font_id, $no_library_array)) {
+    $variables['#attached']['library'][] = $slogan_font_library;
+  }
+
+  $variables['#attached']['library'][] = 'newsplus/fonts-sourcecodepro';
+
+  $content_background_color = theme_get_setting('content_background_color');
+  if (isset($content_background_color)) {
+    $variables['attributes']['class'][] = $content_background_color.'-content-background';
+  }
+
+  //Load fixed-header library
+  $fixed_header = theme_get_setting('fixed_header');
+  if ($fixed_header) {
+    $variables['attributes']['class'][] = 'fixed-header-enabled';
+    $variables['#attached']['library'][] = 'newsplus/fixed-header';
+  }
+
+}
+
+function newsplus_preprocess_breadcrumb(&$variables){
+  $variables['mt_setting']['breadcrumb_separator'] = theme_get_setting('breadcrumb_separator');
+  if($variables['breadcrumb']){
+    $request = \Drupal::request();
+    $route_match = \Drupal::routeMatch();
+    $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+    if (!empty($page_title)) {
+      $variables['breadcrumb'][] = array(
+        'text' => $page_title
+      );
+      // Add cache context based on url.
+      $variables['#cache']['contexts'][] = 'url';
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page templates.
+ */
+function newsplus_preprocess_page_title(&$variables) {
+  // Since the title and the shortcut link are both block level elements,
+  // positioning them next to each other is much simpler with a wrapper div.
+  if (!empty($variables['title_suffix']['add_or_remove_shortcut']) && $variables['title']) {
+    // Add a wrapper div using the title_prefix and title_suffix render
+    // elements.
+    $variables['title_prefix']['shortcut_wrapper'] = array(
+      '#markup' => '<div class="shortcut-wrapper clearfix">',
+      '#weight' => 100,
+    );
+    $variables['title_suffix']['shortcut_wrapper'] = array(
+      '#markup' => '</div>',
+      '#weight' => -99,
+    );
+    // Make sure the shortcut link is the first item in title_suffix.
+    $variables['title_suffix']['add_or_remove_shortcut']['#weight'] = -100;
+  }
+}
+
+function newsplus_preprocess_page(&$variables) {
+
+  $mt_display_fixed_site_name = theme_get_setting('display_fixed_site_name');
+  if ($mt_display_fixed_site_name) {
+    $site_name = \Drupal::config('system.site')->get('name');
+    if (!empty($site_name)) {
+      $variables['mt_site_name'] = $site_name;
+    }
+  }
+
+  $color_scheme_class = theme_get_setting('color_scheme');
+  $variables['color_scheme_class'] = 'colored-area__'.$color_scheme_class;
+  $light_color_schemes = array('light-gray','white','solid-light-gray','solid-white');
+
+  if (!in_array($color_scheme_class, $light_color_schemes)) {
+    $variables['colored_area_class'] = "colored-area";
+  } else {
+    $variables['colored_area_class'] = "light-area";
+  }
+
+  $sidebar_first = $variables['page']['sidebar_first'];
+  $sidebar_second = $variables['page']['sidebar_second'];
+  $footer_first = $variables['page']['footer_first'];
+  $footer_second = $variables['page']['footer_second'];
+  $footer_third = $variables['page']['footer_third'];
+  $footer_fourth = $variables['page']['footer_fourth'];
+  $pre_header_left = $variables['page']['pre_header_left'];
+  $pre_header_right = $variables['page']['pre_header_right'];
+  $header = $variables['page']['header'];
+  $header_top_right = $variables['page']['header_top_right'];
+  $header_top_left = $variables['page']['header_top_left'];
+
+  /**
+   * Insert variables into the page template.
+   */
+  $three_columns_grid_layout = theme_get_setting('three_columns_grid_layout');
+  $offset_fullwidth_content = theme_get_setting('offset_fullwidth_content');
+  if($sidebar_first && $sidebar_second) {
+    if ($three_columns_grid_layout == 'grid_3_6_3') {
+      $variables['main_grid_class'] = 'col-md-6';
+      $variables['sidebar_first_grid_class'] = 'col-md-3';
+      $variables['sidebar_second_grid_class'] = 'col-md-3';
+    } elseif ($three_columns_grid_layout == 'grid_2_6_4') {
+      $variables['main_grid_class'] = 'col-md-6';
+      $variables['sidebar_first_grid_class'] = 'col-md-2';
+      $variables['sidebar_second_grid_class'] = 'col-md-4';
+    } elseif ($three_columns_grid_layout == 'grid_4_6_2') {
+      $variables['main_grid_class'] = 'col-md-6';
+      $variables['sidebar_first_grid_class'] = 'col-md-4';
+      $variables['sidebar_second_grid_class'] = 'col-md-2';
+    }
+  } elseif ($sidebar_first && !$sidebar_second) {
+    $variables['main_grid_class'] = 'col-md-8';
+    $variables['sidebar_first_grid_class'] = 'col-md-4';
+  } elseif (!$sidebar_first && $sidebar_second) {
+    $variables['main_grid_class'] = 'col-md-8';
+    $variables['sidebar_second_grid_class'] = 'col-md-4';
+  } else {
+    if ($offset_fullwidth_content && (isset($variables['node']) && !empty($variables['node']))) {
+      $variables['main_grid_class'] = 'col-md-8 col-md-offset-2';
+      $variables['sidebar_first_grid_class'] = '';
+      $variables['sidebar_second_grid_class'] = '';
+    } else {
+      $variables['main_grid_class'] = 'col-md-12';
+      $variables['sidebar_first_grid_class'] = '';
+      $variables['sidebar_second_grid_class'] = '';
+    }
+  }
+
+  if ($pre_header_left && $pre_header_right) {
+    $variables['pre_header_left_grid_class'] = 'col-md-8';
+    $variables['pre_header_right_grid_class'] = 'col-md-4';
+  } else {
+    $variables['pre_header_left_grid_class'] = 'col-md-12';
+    $variables['pre_header_right_grid_class'] = 'col-md-12';
+  }
+
+  if ($header) {
+    $variables['header_inside_left_grid_class'] = 'col-md-8';
+  } else {
+    $variables['header_inside_left_grid_class'] = 'col-md-12';
+  }
+
+  if ($header_top_right) {
+    if ($header_top_left) {
+      $variables['header_top_inside_grid_class'] = 'col-md-6';
+    } else {
+      $variables['header_top_inside_grid_class'] = 'col-md-12';
+    }
+  } else {
+    $variables['header_top_inside_grid_class'] = 'col-md-12';
+  }
+
+  if ($footer_first && $footer_second && $footer_third && $footer_fourth) {
+    $variables['footer_grid_class'] = 'col-sm-3';
+  } elseif ((!$footer_first && $footer_second && $footer_third && $footer_fourth) || ($footer_first && !$footer_second && $footer_third && $footer_fourth)
+  || ($footer_first && $footer_second && !$footer_third && $footer_fourth) || ($footer_first && $footer_second && $footer_third && !$footer_fourth)) {
+    $variables['footer_grid_class'] = 'col-sm-4';
+  } elseif ((!$footer_first && !$footer_second && $footer_third && $footer_fourth) || (!$footer_first && $footer_second && !$footer_third && $footer_fourth)
+  || (!$footer_first && $footer_second && $footer_third && !$footer_fourth) || ($footer_first && !$footer_second && !$footer_third && $footer_fourth)
+  || ($footer_first && !$footer_second && $footer_third && !$footer_fourth) || ($footer_first && $footer_second && !$footer_third && !$footer_fourth)) {
+    $variables['footer_grid_class'] = 'col-sm-6';
+  } else {
+    $variables['footer_grid_class'] = 'col-sm-12';
+  }
+
+  //Load to-top library
+  $variables['scroll_to_top'] = theme_get_setting('scrolltop_display');
+  if ($variables['scroll_to_top']) {
+    $variables['#attached']['library'][] = 'newsplus/to-top';
+  }
+
+}
+
+function newsplus_page_attachments_alter(&$page) {
+
+    //  main slideshow - boxed width (slider revolution)
+    $slider_revolution_slideshow_boxed_effect_time = (int) theme_get_setting('slider_revolution_slideshow_boxed_effect_time')*1000;
+    $slider_revolution_slideshow_boxed_initial_height = (int) theme_get_setting('slider_revolution_slideshow_boxed_initial_height');
+
+    $page['#attached']['drupalSettings']['newsplus']['sliderRevolutionBoxedInit']['sliderRevolutionSlideshowBoxedEffectTime'] = $slider_revolution_slideshow_boxed_effect_time;
+    $page['#attached']['drupalSettings']['newsplus']['sliderRevolutionBoxedInit']['sliderRevolutionSlideshowBoxedInitialHeight'] = $slider_revolution_slideshow_boxed_initial_height;
+
+    $slideshow_effect = theme_get_setting('slideshow_effect');
+    $slideshow_effect_time = theme_get_setting('slideshow_effect_time')*1000;
+
+    $page['#attached']['drupalSettings']['newsplus']['flexsliderMainInit']['slideshowEffect'] = $slideshow_effect;
+    $page['#attached']['drupalSettings']['newsplus']['flexsliderMainInit']['slideshowEffectTime'] = $slideshow_effect_time;
+
+    $internal_banner_effect = theme_get_setting('internal_banner_effect');
+    $page['#attached']['drupalSettings']['newsplus']['flexsliderInternalBannerSliderInit']['internalBannerEffect'] = $internal_banner_effect;
+
+    $breaking_effect = theme_get_setting('breaking_effect');
+    $breaking_effect_time = theme_get_setting('breaking_effect_time')*1000;
+
+    $page['#attached']['drupalSettings']['newsplus']['flexsliderBreakingSliderInit']['breakingEffect'] = $breaking_effect;
+    $page['#attached']['drupalSettings']['newsplus']['flexsliderBreakingSliderInit']['breakingEffectTime'] = $breaking_effect_time;
+
+}
+
+function newsplus_library_info_build() {
+  $google_maps_key = theme_get_setting('google_maps_key');
+  if (!empty($google_maps_key)) {
+    $google_maps_key_string = '&key='.$google_maps_key;
+  } else {
+    $google_maps_key_string = '';
+  }
+  $libraries = [];
+  $libraries['google-maps-dynamic'] = [
+    'version' => '3',
+    'remote' => 'https://maps.googleapis.com/maps/api/js',
+    'js' => [
+      'https://maps.googleapis.com/maps/api/js?v=3'.$google_maps_key_string => [
+        'scope' => ['footer'],
+      ],
+    ],
+    'license' => [
+      'name' => ['Google Terms of Service'],
+      'url' => ['https://developers.google.com/maps/terms'],
+    ],
+  ];
+  return $libraries;
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for maintenance-page.html.twig.
+ */
+function newsplus_preprocess_maintenance_page(&$variables) {
+  // By default, site_name is set to Drupal if no db connection is available
+  // or during site installation. Setting site_name to an empty string makes
+  // the site and update pages look cleaner.
+  // @see template_preprocess_maintenance_page
+  if (!$variables['db_is_active']) {
+    $variables['site_name'] = '';
+  }
+
+  // newsplus has custom styling for the maintenance page.
+  $variables['#attached']['library'][] = 'newsplus/maintenance_page';
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for node.html.twig.
+ */
+function newsplus_preprocess_node(&$variables) {
+  // Remove the "Add new comment" link on teasers or when the comment form is
+  // displayed on the page.
+  if ($variables['teaser'] || !empty($variables['content']['comments']['comment_form'])) {
+    unset($variables['content']['links']['comment']['#links']['comment-add']);
+  }
+
+  $variables['posted_ago'] = \Drupal::service('date.formatter')
+    ->formatInterval(REQUEST_TIME - $variables['node']
+        ->getCreatedTime(), $granularity = 1);
+
+  $variables['changed_ago'] = \Drupal::service('date.formatter')
+    ->formatInterval(REQUEST_TIME - $variables['node']
+        ->getChangedTime(), $granularity = 1);
+
+  if (isset($variables['content']['field_image']['#theme'])){
+    $variables['has_image'] = true;
+  } else {
+    $variables['has_image'] = false;
+  }
+  if ($variables['teaser'] && isset($variables['content']['field_image']['#theme'])) {
+    $variables['content_class'] = 'with-image';
+  } else {
+    $variables['content_class'] = 'without-image';
+  }
+
+  $node_content = $variables['content'];
+  $node_content = render($node_content);
+  $words = str_word_count(strip_tags($node_content));
+  $minutes = floor($words / 275);
+  $variables['minutes'] = $minutes;
+
+  if (isset($variables['node']->comment)) {
+    $comment_count = $variables['node']->get('comment')->__get('comment_count');
+    if ($comment_count) {
+      $variables['comment_count'] = $comment_count;
+    } else {
+      $variables['comment_count'] = "0";
+    }
+  }
+
+  $variables['mt_setting']['reading_time'] = theme_get_setting('reading_time');
+  $variables['mt_setting']['share_links'] = theme_get_setting('share_links');
+  $variables['mt_setting']['print_button'] = theme_get_setting('print_button');
+  $variables['mt_setting']['font_resize'] = theme_get_setting('font_resize');
+  $variables['mt_setting']['post_progress'] = theme_get_setting('post_progress');
+  $variables['mt_setting']['affix_side'] = theme_get_setting('affix_side');
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for block.html.twig.
+ */
+function newsplus_preprocess_block(&$variables) {
+  // Add a clearfix class to system branding blocks.
+  if ($variables['plugin_id'] == 'system_branding_block') {
+    $variables['attributes']['class'][] = 'clearfix';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for field--block-content--mt-google-maps.html.twig.
+ */
+function newsplus_preprocess_field__block_content__mt_google_maps(&$variables) {
+  $variables['#attached']['library'][] = 'newsplus/google-maps-init';
+  $variables['field_mt_latitude_value'] = $variables['element']['#object']->get('field_mt_latitude')->first()->getValue()['value'];
+  $variables['field_mt_longitude_value'] = $variables['element']['#object']->get('field_mt_longitude')->first()->getValue()['value'];
+  $variables['field_mt_map_zoom_value'] = $variables['element']['#object']->get('field_mt_map_zoom')->first()->getValue()['value'];
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for menu.html.twig.
+ */
+function newsplus_preprocess_menu(&$variables) {
+  $variables['attributes']['class'][] = 'clearfix';
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for form templates.
+ */
+function newsplus_theme_suggestions_form_alter(array &$suggestions, array $variables) {
+  if ($variables['element']['#form_id'] == 'search_block_form') {
+    $suggestions[] = 'form__search_block_form';
+  }
+}
+
+/**
+ * Implements hook_form_alter() to add classes to the search form.
+ */
+function newsplus_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if (in_array($form_id, ['search_block_form', 'search_form'])) {
+    $key = ($form_id == 'search_block_form') ? 'actions' : 'basic';
+    if (!isset($form[$key]['submit']['#attributes'])) {
+      $form[$key]['submit']['#attributes'] = new Attribute();
+    }
+    $form[$key]['submit']['#attributes']->addClass('search-form__submit');
+  }
+}
+
+function newsplus_preprocess_field(&$variables) {
+  $element = $variables['element'];
+  $variables['view_mode'] = $element['#view_mode']; //Expose node view_mode to field templates
+}
+
+function newsplus_preprocess_field__entity_reference(&$variables) {
+  $variables['entity_reference_target_type'] = $variables['element']['#items']->getItemDefinition()->getSetting('target_type');
+}
+
+function newsplus_preprocess_field__block_content__mt_tabbed_blocks(&$variables){
+  $variables['entity_reference_target_type'] = $variables['element']['#items']->getItemDefinition()->getSetting('target_type');
+  $block_uuid = $variables['element']['#object']->toArray()['uuid'][0]['value'];
+  $blocks = $variables['element']['#items']->referencedEntities();
+  if (isset($blocks)) {
+    foreach ($blocks as $key => $block) {
+      $variables['items'][$key]['block_data']['label'] = $block->label();
+      if (!empty($block_uuid)) {
+        $variables['items'][$key]['block_data']['id'] = Html::getUniqueId($block_uuid."-".$key);
+      } else {
+        $variables['items'][$key]['block_data']['id'] = Html::getUniqueId($block->id());
+      }
+      $variables['items'][$key]['block_data']['active'] = ($key == 0 ? "active" : "");
+    }
+  }
+}
+
+function newsplus_preprocess_field__block_content__field_mt_dropdown_block__mt_dropdown_block(&$variables){
+  $variables['entity_reference_target_type'] = $variables['element']['#items']->getItemDefinition()->getSetting('target_type');
+  $trigger_class = $variables['element']['#items']->getParent()->get('field_mt_trigger_icon_class')->first()->getValue();
+  if (isset($trigger_class)) {
+    $variables['trigger_class'] = $trigger_class['value'];
+  } else {
+    $variables['trigger_class'] = "fas fa-carret-down";
+  }
+}
+
+function newsplus_preprocess_field__field_video_gallery_slides(&$variables) {
+  $paragraphs = $variables['element']['#items']->referencedEntities();
+  if (!empty($paragraphs)) {
+    foreach ($paragraphs as $key => $paragraph) {
+      $vimeo_id = $paragraph->toArray()['field_mt_vgs_vimeo_id'];
+      $youtube_id = $paragraph->toArray()['field_mt_vgs_youtube_id'];
+      $volume = $paragraph->toArray()['field_mt_vgs_volume'];
+      $slide_title = $paragraph->toArray()['field_mt_vgs_slide_title'];
+      $thumbnail = $paragraph->toArray()['field_mt_vgs_thumbnail'];
+      if (!empty($vimeo_id[0])) {
+        $variables['items'][$key]['vimeo_id'] = $vimeo_id[0]['value'];
+      } else {
+        $variables['items'][$key]['vimeo_id'] = false;
+      }
+      if (!empty($youtube_id[0])) {
+        $variables['items'][$key]['youtube_id'] = $youtube_id[0]['value'];
+      } else {
+        $variables['items'][$key]['youtube_id'] = false;
+      }
+      if (!empty($volume[0])) {
+        if ($volume[0]['value'] != 0) {
+          $variables['items'][$key]['volume'] = $volume[0]['value'];
+        } else {
+          $variables['items'][$key]['volume'] = "mute";
+        }
+      } else {
+        $variables['items'][$key]['volume'] = "mute";
+      }
+      if (!empty($slide_title[0])) {
+        $variables['items'][$key]['slide_title'] = $slide_title[0]['value'];
+      } else {
+        $variables['items'][$key]['slide_title'] = false;
+      }
+      if (!empty($thumbnail[0])) {
+        $file = File::load($thumbnail[0]['target_id']);
+        $path = $file->getFileUri();
+        $thumb_url = ImageStyle::load('video_gallery_thumbnail')->buildUrl($path);
+        $main_url = ImageStyle::load('mt_slideshow')->buildUrl($path);
+        $variables['items'][$key]['thumbnail_thumb_styled_uri'] = $thumb_url;
+        $variables['items'][$key]['thumbnail_main_styled_uri'] = $main_url;
+        $variables['items'][$key]['thumbnail_alt'] = $thumbnail[0]['alt'];
+      } else {
+        $variables['items'][$key]['thumbnail_thumb_styled_uri'] = "";
+        $variables['items'][$key]['thumbnail_main_styled_uri'] = "";
+        $variables['items'][$key]['thumbnail_alt'] = "";
+      }
+    }
+  }
+}
+function newsplus_theme_suggestions_image_formatter_alter(array &$suggestions, array $variables) {
+  $entity = $variables['item']->getEntity();
+  $field_name = $variables['item']->getParent()->getName();
+  if (isset($entity) && isset($field_name)) {
+    $suggestions[] = 'image_formatter__' . $entity->getEntityTypeId() . '__' . $field_name;
+    $suggestions[] = 'image_formatter__' . $entity->getEntityTypeId() . '__' . $entity->bundle() . '__' . $field_name;
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for user templates.
+ */
+function newsplus_theme_suggestions_user_alter(array &$suggestions, array $variables) {
+  $view_mode = $variables['elements']['#view_mode'];
+  if (isset($view_mode)) {
+    $suggestions[] = 'user__' . $view_mode;
+  }
+}

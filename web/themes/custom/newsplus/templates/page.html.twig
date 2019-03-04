@@ -224,18 +224,6 @@
         {# EOF: #top-content #}
       {% endif %}
 
-      {% if page.banner %}
-        {# #banner #}
-        <div id="banner">
-          {# #banner-inside #}
-          <div id="banner-inside" class="clearfix">
-            {{ page.banner }}
-          </div>
-          {# EOF:#banner-inside #}
-        </div>
-        {# EOF: #banner #}
-      {% endif %}
-
       {# #main-content #}
       <div id="main-content">
         <div class="row">
@@ -250,6 +238,18 @@
           {% endif %}
 
           <section class="{{ main_grid_class }}">
+
+            {% if page.banner %}
+              {# #banner #}
+              <div id="banner">
+                {# #banner-inside #}
+                <div id="banner-inside" class="clearfix">
+                  {{ page.banner }}
+                </div>
+                {# EOF:#banner-inside #}
+              </div>
+              {# EOF: #banner #}
+            {% endif %}
 
             {% if page.highlighted %}
               {{ page.highlighted }}
@@ -279,13 +279,13 @@
           </section>
 
           {% if page.sidebar_second %}
-            <aside class="{{ sidebar_second_grid_class }}">
-              {##sidebar#}
-              <section id="sidebar-second" class="sidebar clearfix">
-                {{ page.sidebar_second }}
-              </section>
-              {# EOF:#sidebar #}
-            </aside>
+          <aside class="{{ sidebar_second_grid_class }}">
+            {##sidebar#}
+            <section id="sidebar-second" class="sidebar clearfix">
+              {{ page.sidebar_second }}
+            </section>
+            {# EOF:#sidebar #}
+          </aside>
           {% endif %}
 
         </div>
@@ -349,39 +349,39 @@
 {% if page.sub_footer_left or page.footer %}
   {# #subfooter #}
   <div id="subfooter" class="clearfix">
-  <div class="container">
-    {# #subfooter-inside #}
-    <div id="subfooter-inside" class="clearfix">
-      <div class="row">
-        <div class="col-md-4">
-          {# #subfooter-left #}
-          {% if page.sub_footer_left %}
-            <div class="subfooter-area left">
-              {{ page.sub_footer_left }}
-            </div>
-          {% endif %}
-          {# EOF #subfooter-left #}
-        </div>
-        <div class="col-md-8">
-          {# #subfooter-right #}
-          {% if page.footer %}
-            <div class="subfooter-area right">
-              {{ page.footer }}
-            </div>
-          {% endif %}
-          {# EOF #subfooter-right #}
+    <div class="container">
+      {# #subfooter-inside #}
+      <div id="subfooter-inside" class="clearfix">
+        <div class="row">
+          <div class="col-md-4">
+            {# #subfooter-left #}
+            {% if page.sub_footer_left %}
+              <div class="subfooter-area left">
+                {{ page.sub_footer_left }}
+              </div>
+            {% endif %}
+            {# EOF #subfooter-left #}
+          </div>
+          <div class="col-md-8">
+            {# #subfooter-right #}
+            {% if page.footer %}
+              <div class="subfooter-area right">
+                {{ page.footer }}
+              </div>
+            {% endif %}
+            {# EOF #subfooter-right #}
+          </div>
         </div>
       </div>
+      {# EOF #subfooter-inside #}
     </div>
-    {# EOF #subfooter-inside #}
-  </div>
   </div>{# EOF #subfooter #}
 {% endif %}
 
 {% if scroll_to_top %}
   {# #toTop #}
   <div id="toTop">
-    <i class="fas fa-play-circle fa-rotate-270"></i>
+    <i class="fa fa-play-circle fa-rotate-270"></i>
   </div>
   {# EOF:#toTop #}
 {% endif %}

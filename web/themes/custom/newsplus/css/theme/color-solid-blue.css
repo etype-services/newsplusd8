@@ -201,11 +201,11 @@ ul.links li a:hover,
   background-color: #357cce;
 }
 .node-info-item .field--entity-reference-target-type-taxonomy-term ul.links li a,
-.node-info-item-term .field--name-field-article-categories a {
+.node-info-item-term .field--name-field-mt-post-categories a {
   color: #357cce;
 }
 .node-info-item .field--entity-reference-target-type-taxonomy-term ul.links li a:hover,
-.node-info-item-term .field--name-field-article-categories a:hover {
+.node-info-item-term .field--name-field-mt-post-categories a:hover {
   color: #4f91dd;
 }
 
@@ -294,7 +294,7 @@ table th {
 .view-popular-objects .views-row:hover {
   border-color: #4f91dd;
 }
-.view-popular-objects .views-row:hover .views-field-field-article-categories a {
+.view-popular-objects .views-row:hover .views-field-field-mt-post-categories a {
   background-color: #4f91dd;
 }
 
@@ -302,7 +302,7 @@ table th {
 .views-field-title a:hover {
   color: #4f91dd;
 }
-.views-field-field-article-categories a:hover {
+.views-field-field-mt-post-categories a:hover {
   background-color: #4f91dd;
 }
 

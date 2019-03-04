@@ -9,7 +9,7 @@
   color: #3f3f3f;
   display: block;
 }
-.views-field-field-article-categories a {
+.views-field-field-mt-post-categories a {
   font-size: 13px;
   text-transform: uppercase;
   background-color: #7d7d7d;
@@ -17,7 +17,7 @@
   display: inline-block;
   color: #fff;
 }
-.views-field-field-article-categories a:hover {
+.views-field-field-mt-post-categories a:hover {
   color: #fff;
   text-decoration: none;
 }

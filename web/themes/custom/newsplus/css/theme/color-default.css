@@ -197,11 +197,11 @@ ul.links li a:hover,
   background-color: #ea2d49;
 }
 .node-info-item .field--entity-reference-target-type-taxonomy-term ul.links li a,
-.node-info-item-term .field--name-field-article-categories a {
+.node-info-item-term .field--name-field-mt-post-categories a {
   color: #c0273c;
 }
 .node-info-item .field--entity-reference-target-type-taxonomy-term ul.links li a:hover,
-.node-info-item-term .field--name-field-article-categories a:hover {
+.node-info-item-term .field--name-field-mt-post-categories a:hover {
   color: #ea2d49;
 }
 
@@ -214,15 +214,17 @@ li.pager__item.is-active > a {
 /* components: primary-menu */
 body:not(:target) .region-navigation .menu-toggle:hover,
 body:not(:target) .region-navigation .menu-toggle--hide {
-  background-color: #ea2d49;
+  background-color: #EA2D49;
 }
 @media all and (min-width:768px) and (max-width:991px) {
+  .region-navigation .menu-item,
   body:not(:target) .region-navigation .menu-item,
   .region-navigation .menu .menu-item a:hover {
-    background-color: #ea2d49;
+    background-color: #EA2D49;
   }
+  .region-navigation .menu-item a,
   body:not(:target) .region-navigation .menu-item a {
-    background-color: #c0273c;
+    background-color: #C0273C;
   }
 }
 
@@ -283,7 +285,7 @@ table th {
 .view-popular-objects .views-row:hover {
   border-color: #ea2d49;
 }
-.view-popular-objects .views-row:hover .views-field-field-article-categories a {
+.view-popular-objects .views-row:hover .views-field-field-mt-post-categories a {
   background-color: #ea2d49;
 }
 
@@ -291,7 +293,7 @@ table th {
 .views-field-title a:hover {
   color: #ea2d49;
 }
-.views-field-field-article-categories a:hover {
+.views-field-field-mt-post-categories a:hover {
   background-color: #ea2d49;
 }
 

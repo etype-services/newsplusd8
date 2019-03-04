@@ -1,0 +1,10 @@
+/* Use this CSS file to override theme CSS rules */
+/* Remove top padding from the first block in the highlighted region to make it level with top of Search */
+div#highlighted-inside > div > div:first-child {
+  padding-top: 0; }
+
+/* Front page slideshow */
+.view-frontpage #flexslider-1 .views-field-title a {
+  font-size: 2.5em; }
+
+/*# sourceMappingURL=local-theme.css.map */

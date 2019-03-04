@@ -1,0 +1,10 @@
+/**
+ * @file
+ * Visual styles for Newsplus's google map.
+ */
+.google-map-canvas {
+  height: 400px;
+}
+.google-map-canvas img {
+  max-width: inherit;
+}

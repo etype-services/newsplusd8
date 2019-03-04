@@ -61,15 +61,17 @@
  * @see template_preprocess_node()
  */
 #}
-{% set classes = [
-  'node',
-  'node--type-' ~ node.bundle|clean_class,
-  node.isPromoted() ? 'node--promoted',
-  node.isSticky() ? 'node--sticky',
-  not node.isPublished() ? 'node--unpublished',
-  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-  'clearfix',
-] %}
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'clearfix',
+  ]
+%}
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
   {% block node_side %}
@@ -89,7 +91,7 @@
       {% endblock %}
       {% block meta_area %}
         {% if display_submitted %}
-          <div class="node__meta clearfix">
+          <div class="node__meta">
             <span{{ author_attributes.addClass('user-picture') }}>
               {{ author_picture }}
             </span>

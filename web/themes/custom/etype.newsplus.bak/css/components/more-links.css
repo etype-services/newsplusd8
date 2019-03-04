@@ -1,0 +1,33 @@
+/**
+ * @file
+ * Visual styles for Newsplus's more links.
+ */
+.more-link {
+  text-align: center;
+  clear: both;
+}
+.more-link a {
+  margin: 15px 0px 10px;
+  display: block;
+  padding:0;
+  font-size: 14px;
+}
+.more-link a:after {
+  content: " \f101";
+  font-family: 'FontAwesome';
+  font-style: normal;
+  font-size: 12px;
+}
+.footer-area .more-link {
+  text-align: left;
+}
+.footer-area .more-link a {
+  margin-top: 0;
+}
+.sidebar .more-link {
+  border-bottom: 6px solid #ebebeb;
+  margin-bottom: 5px;
+}
+.sidebar .more-link a {
+  margin-top: 5px;
+}
