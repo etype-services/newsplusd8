@@ -1,1 +1,13 @@
 /* Use this CSS file to override theme CSS rules */
+/* Second Sidebar */
+.region-sidebar-second {
+  /* Most Recent Poll Block */ }
+  .region-sidebar-second #block-mostrecentpoll {
+    /* Adjust choices boxes margins */
+    /* Adjust Input Margin */ }
+    .region-sidebar-second #block-mostrecentpoll #edit-choice--wrapper {
+      margin: 1px 0; }
+    .region-sidebar-second #block-mostrecentpoll input[type="radio"], .region-sidebar-second #block-mostrecentpoll input[type="checkbox"] {
+      margin: 0 4px 3px; }
+
+/*# sourceMappingURL=local-theme.css.map */
