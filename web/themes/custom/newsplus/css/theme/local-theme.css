@@ -4,10 +4,12 @@
   /* Most Recent Poll Block */ }
   .region-sidebar-second #block-mostrecentpoll {
     /* Adjust choices boxes margins */
-    /* Adjust Input Margin */ }
+    /* Adjust Input Margin and Positioning */ }
     .region-sidebar-second #block-mostrecentpoll #edit-choice--wrapper {
       margin: 1px 0; }
     .region-sidebar-second #block-mostrecentpoll input[type="radio"], .region-sidebar-second #block-mostrecentpoll input[type="checkbox"] {
-      margin: 0 4px 3px; }
+      margin: 0 4px 3px;
+      position: relative;
+      top: -2px; }
 
 /*# sourceMappingURL=local-theme.css.map */
