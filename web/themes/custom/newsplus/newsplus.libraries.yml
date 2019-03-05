@@ -162,6 +162,15 @@ flexslider-breaking-slider-init:
     - core/drupalSettings
     - core/jquery.once
 
+flexslider-business-directory-init:
+  version: VERSION
+  js:
+    js/init/flexslider-business-directory-init.js: {}
+  dependencies:
+    - newsplus/flexslider-global
+    - core/drupalSettings
+    - core/jquery.once
+    -
 slider-revolution:
   version: 5.4.8
   css:

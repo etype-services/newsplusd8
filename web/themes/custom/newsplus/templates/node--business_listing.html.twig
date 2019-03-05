@@ -90,7 +90,7 @@
     </header>
     <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
       {% block content %}
-        {{ content|without('links', 'labels') }}
+        {{ content|without('links') }}
       {% endblock %}
       {{ content.links }}
     </div>
