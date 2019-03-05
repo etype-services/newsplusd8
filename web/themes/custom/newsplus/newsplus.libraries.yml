@@ -170,7 +170,7 @@ flexslider-business-directory-init:
     - newsplus/flexslider-global
     - core/drupalSettings
     - core/jquery.once
-    -
+
 slider-revolution:
   version: 5.4.8
   css:
