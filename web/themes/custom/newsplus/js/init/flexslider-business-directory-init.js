@@ -10,7 +10,8 @@
                     pauseOnAction: false,
                     useCSS: false,
                     controlNav: false,
-                    directionNav: false
+                    directionNav: false,
+                    itemWidth: "25%",
                 });
                 $(this).fadeIn("slow");
             });
