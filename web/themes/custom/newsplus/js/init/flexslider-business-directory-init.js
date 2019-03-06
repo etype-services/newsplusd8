@@ -11,14 +11,14 @@
 
                 // store the slider in a local variable
                 var $window = $(window),
-                    flexslider = { vars:{} };
+                    flexslider = {vars: {}};
 
                 // tiny helper function to add breakpoints
                 function getGridSize() {
-                    return (window.innerWidth < 600) ? 2 : (window.innerWidth < 900) ? 3 : 4;
+                    return (window.innerWidth < 768) ? 2 : (window.innerWidth < 992) ? 3 : 4;
                 }
 
-                $(function() {
+                $(function () {
                     SyntaxHighlighter.all();
                 });
 
