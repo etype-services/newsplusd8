@@ -1,7 +1,7 @@
 (function ($, Drupal, drupalSettings) {
     Drupal.behaviors.mtflexsliderBusinessSlider = {
         attach: function (context, settings) {
-            $(context).find("#block-views-block-business-directory-block-1 .flexslider").once("mtflexsliderBusinessSliderInit").each(function () {
+            $(context).find("#business-directory").once("mtflexsliderBusinessSliderInit").each(function () {
                 $(this).flexslider({
                     animation: "slide",
                     slideshowSpeed: 5000,
