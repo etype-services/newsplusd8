@@ -18,10 +18,6 @@
                     return (window.innerWidth < 768) ? 2 : (window.innerWidth < 992) ? 3 : 4;
                 }
 
-                $(function () {
-                    SyntaxHighlighter.all();
-                });
-
                 $(this).flexslider({
                     animation: "slide",
                     slideshowSpeed: 5000,
@@ -34,7 +30,8 @@
                     itemWidth: 210,
                     itemMargin: 5,
                     minItems: getGridSize(), // use function to pull in initial value
-                    maxItems: getGridSize() // use function to pull in initial value
+                    maxItems: getGridSize(), // use function to pull in initial value,
+                    move: 1,
                 });
                 $(this).fadeIn("slow");
 
