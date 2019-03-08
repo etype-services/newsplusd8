@@ -12,4 +12,8 @@
       position: relative;
       top: -2px; }
 
+/* Business Directory block */
+#business-directory .views-field-title {
+  margin-top: 7px; }
+
 /*# sourceMappingURL=local-theme.css.map */
