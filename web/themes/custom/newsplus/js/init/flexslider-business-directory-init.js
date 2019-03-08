@@ -28,7 +28,7 @@
                     controlNav: false,
                     directionNav: false,
                     itemWidth: 210,
-                    itemMargin: 5,
+                    itemMargin: 15,
                     minItems: getGridSize(), // use function to pull in initial value
                     maxItems: getGridSize(), // use function to pull in initial value,
                     move: 1,
