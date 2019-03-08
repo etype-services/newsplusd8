@@ -16,4 +16,11 @@
 #business-directory .views-field-title {
   margin-top: 7px; }
 
+#block-views-block-special-sections-block-1 .view-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start; }
+  #block-views-block-special-sections-block-1 .view-content .views-field-title {
+    margin-top: 7px; }
+
 /*# sourceMappingURL=local-theme.css.map */
