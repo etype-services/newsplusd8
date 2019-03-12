@@ -1,0 +1,8 @@
+name: 'eType Services Classified Importer'
+type: module
+description: 'Import VisionData classified ads to nodes'
+core: 8.x
+package: 'eType Services'
+configure: etype_classified_importer.admin_settings
+dependencies:
+  - ultimate_cron

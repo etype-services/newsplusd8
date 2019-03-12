@@ -12,55 +12,65 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
 
 require_once __DIR__ . '/../Plugin/Encoding.php';
 
-use \ForceUTF8\Encoding;
+use ForceUTF8\Encoding;
 
 /**
  * Class ImportFileMissingException.
  *
  * @package Drupal\etype_xml_importer\Controller
  */
-class ImportFileMissingException extends \Exception
-{
-  /**
-   * Constructs an ImportFileMissingException.
-   */
+class ImportFileMissingException extends \Exception {
 
-  public function __construct()
-  {
+  /**
+   * ImportFileMissingException constructor.
+   */
+  public function __construct() {
     $message = new TranslatableMarkup('No import file(s) defined. See eType XML Importer settings.');
     parent::__construct($message);
   }
-}
 
-class ImportUrlMissingException extends \Exception
-{
-  /**
-   * Constructs an ImportFileMissingException.
-   */
-  public function __construct()
-  {
-    $message = new TranslatableMarkup('No import url defined. See eType XML Importer settings.');
-    parent::__construct($message);
-  }
-}
-
-class XMLIsFalseException extends \Exception
-{
-  /**
-   * Constructs an ImportFileMissingException.
-   */
-  public function __construct()
-  {
-    $message = new TranslatableMarkup('There was a problem extracting XML from the file.');
-    parent::__construct($message);
-  }
 }
 
 /**
- * @inheritdoc
+ * Class ImportUrlMissingException.
+ *
+ * @package Drupal\etype_xml_importer\Controller
  */
-class ImportOliveXMLController
-{
+class ImportUrlMissingException extends \Exception {
+
+  /**
+   * Constructs an ImportFileMissingException.
+   */
+  public function __construct() {
+    $message = new TranslatableMarkup('No import url defined. See eType XML Importer settings.');
+    parent::__construct($message);
+  }
+
+}
+
+/**
+ * Class XMLIsFalseException.
+ *
+ * @package Drupal\etype_xml_importer\Controller
+ */
+class XMLIsFalseException extends \Exception {
+
+  /**
+   * Constructs an ImportFileMissingException.
+   */
+  public function __construct() {
+    $message = new TranslatableMarkup('There was a problem extracting XML from the file.');
+    parent::__construct($message);
+  }
+
+}
+
+/**
+ * Class ImportOliveXMLController.
+ *
+ * @package Drupal\etype_xml_importer\Controller
+ */
+class ImportOliveXMLController {
 
   /**
    * @var
@@ -130,8 +140,7 @@ class ImportOliveXMLController
   /**
    * ImportOliveXMLController constructor.
    */
-  public function __construct()
-  {
+  public function __construct() {
     $this->config = \Drupal::config('etype_xml_importer.settings');
     $this->import_url = $this->config->get('import_url');
     $this->import_files = $this->config->get('import_files');
@@ -150,8 +159,7 @@ class ImportOliveXMLController
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  public function ImportOliveXml()
-  {
+  public function ImportOliveXml() {
 
     /* throw Exception and return empty page with message if no url to import from */
     try {
@@ -195,12 +203,13 @@ class ImportOliveXMLController
       }
 
       /* Extract Zip Archive using PHP core */
-      $zip = new \ZipArchive;
+      $zip = new \ZipArchive();
       $res = $zip->open($zip_file);
-      if ($res === true) {
+      if ($res === TRUE) {
         $zip->extractTo($this->extract_dir);
         $zip->close();
-      } else {
+      }
+      else {
         $message = "eType XML Importer could not open Zip Archive " . $zip_file . ".";
         $this->messenger->addMessage($message, $this->messenger::TYPE_WARNING);
         continue;
@@ -273,8 +282,7 @@ class ImportOliveXMLController
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  protected function ParseItem($item)
-  {
+  protected function ParseItem($item) {
     $array = (array)$item;
 
     // title is not an object if the stub is valid
@@ -407,8 +415,7 @@ class ImportOliveXMLController
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  protected function CreateNode($node)
-  {
+  protected function CreateNode($node) {
     $storage = $this->entity_type_manager->getStorage('node');
     $field_image = [];
     if (isset($node['images'])) {

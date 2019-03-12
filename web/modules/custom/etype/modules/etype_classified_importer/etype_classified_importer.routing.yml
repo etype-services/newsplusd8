@@ -1,0 +1,9 @@
+etype_classified_importer.admin_settings:
+  path: '/admin/config/etype_classified_importer/adminsettings'
+  defaults:
+    _form: '\Drupal\etype_classified_importer\Form\eTypeClassifiedImporterConfigForm'
+    _title: 'eType Classified Importer Configuration'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
