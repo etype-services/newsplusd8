@@ -29,9 +29,9 @@
     }
   ],
   "require": {
-    "ext-SimpleXML": "^7.2",
-    "ext-libxml": "^7.2",
-    "ext-zip": "^1.15",
+    "ext-SimpleXML": "*",
+    "ext-libxml": "*",
+    "ext-zip": "*",
     "composer/installers": "^1.2",
     "cweagans/composer-patches": "^1.6",
     "drupal-composer/drupal-scaffold": "^2.2",
@@ -63,7 +63,8 @@
     "woothemes/flexslider": "~2.0"
   },
   "require-dev": {
-    "webflo/drupal-core-require-dev": "^8.6.0"
+    "webflo/drupal-core-require-dev": "^8.6.0",
+    "friendsofphp/php-cs-fixer": "^2.12"
   },
   "conflict": {
     "drupal/drupal": "*"
@@ -93,6 +94,9 @@
     ],
     "post-update-cmd": [
       "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+    ],
+    "cs-fix": [
+      "php-cs-fixer fix src --rules=@PSR2"
     ]
   },
   "extra": {
