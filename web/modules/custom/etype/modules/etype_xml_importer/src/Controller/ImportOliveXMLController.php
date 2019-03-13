@@ -7,22 +7,37 @@
  */
 
 namespace Drupal\etype_xml_importer\Controller;
+
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 
-require_once (__DIR__ . '/../Plugin/Encoding.php');
-use \ForceUTF8\Encoding;
+require_once __DIR__ . '/../Plugin/Encoding.php';
 
+use ForceUTF8\Encoding;
+
+/**
+ * Class ImportFileMissingException.
+ *
+ * @package Drupal\etype_xml_importer\Controller
+ */
 class ImportFileMissingException extends \Exception {
+
   /**
-   * Constructs an ImportFileMissingException.
+   * ImportFileMissingException constructor.
    */
   public function __construct() {
     $message = new TranslatableMarkup('No import file(s) defined. See eType XML Importer settings.');
     parent::__construct($message);
   }
+
 }
 
+/**
+ * Class ImportUrlMissingException.
+ *
+ * @package Drupal\etype_xml_importer\Controller
+ */
 class ImportUrlMissingException extends \Exception {
+
   /**
    * Constructs an ImportFileMissingException.
    */
@@ -30,9 +45,16 @@ class ImportUrlMissingException extends \Exception {
     $message = new TranslatableMarkup('No import url defined. See eType XML Importer settings.');
     parent::__construct($message);
   }
+
 }
 
+/**
+ * Class XMLIsFalseException.
+ *
+ * @package Drupal\etype_xml_importer\Controller
+ */
 class XMLIsFalseException extends \Exception {
+
   /**
    * Constructs an ImportFileMissingException.
    */
@@ -40,10 +62,13 @@ class XMLIsFalseException extends \Exception {
     $message = new TranslatableMarkup('There was a problem extracting XML from the file.');
     parent::__construct($message);
   }
+
 }
 
 /**
- * @inheritdoc
+ * Class ImportOliveXMLController.
+ *
+ * @package Drupal\etype_xml_importer\Controller
  */
 class ImportOliveXMLController {
 
@@ -141,7 +166,7 @@ class ImportOliveXMLController {
       if (empty($this->import_url)) {
         throw new ImportUrlMissingException();
       }
-    } catch(ImportUrlMissingException $e) {
+    } catch (ImportUrlMissingException $e) {
       $this->messenger->addMessage($e->getMessage(), $this->messenger::TYPE_ERROR);
       return ['#markup' => ''];
     }
@@ -151,7 +176,7 @@ class ImportOliveXMLController {
       if (empty($this->import_files)) {
         throw new ImportFileMissingException();
       }
-    } catch(ImportFileMissingException $e) {
+    } catch (ImportFileMissingException $e) {
       $this->messenger->addMessage($e->getMessage(), $this->messenger::TYPE_ERROR);
       return ['#markup' => ''];
     }
@@ -163,7 +188,6 @@ class ImportOliveXMLController {
 
     /* loop over import files */
     foreach ($import_file_array as $item) {
-
       $markup .= '<p>Started import of ' . $item . '</p>';
 
       $rand = md5(time());
@@ -179,12 +203,13 @@ class ImportOliveXMLController {
       }
 
       /* Extract Zip Archive using PHP core */
-      $zip = new \ZipArchive;
+      $zip = new \ZipArchive();
       $res = $zip->open($zip_file);
       if ($res === TRUE) {
         $zip->extractTo($this->extract_dir);
         $zip->close();
-      } else {
+      }
+      else {
         $message = "eType XML Importer could not open Zip Archive " . $zip_file . ".";
         $this->messenger->addMessage($message, $this->messenger::TYPE_WARNING);
         continue;
@@ -195,7 +220,7 @@ class ImportOliveXMLController {
       $entries = array();
       foreach ($fileSystemIterator as $fileInfo) {
         $entry = $fileInfo->getFilename();
-        if(strpos($entry, 'Section') !== FALSE) {
+        if (strpos($entry, 'Section') !== false) {
           $entries[] = $fileInfo->getFilename();
         }
       }
@@ -203,7 +228,6 @@ class ImportOliveXMLController {
       $this->i = 0;
       $t = 0;
       if (count($entries) > 0) {
-
         $this->values = array(
           'type' => $this->node_type,
           'uid' => 1,
@@ -214,17 +238,16 @@ class ImportOliveXMLController {
         );
 
         foreach ($entries as $entry) {
-
           $markup .= "<p>Extracting articles from $entry section.</p>";
 
           $xml = file_get_contents($this->extract_dir . $entry);
 
           /* throw Exception and return empty page with message if xml is not extractable */
           try {
-            if ($xml === FALSE) {
+            if ($xml === false) {
               throw new XMLIsFalseException();
             }
-          } catch(XMLIsFalseException $e) {
+          } catch (XMLIsFalseException $e) {
             $this->messenger->addMessage($e->getMessage(), $this->messenger::TYPE_ERROR);
             return ['#markup' => ''];
           }
@@ -250,7 +273,6 @@ class ImportOliveXMLController {
     $message = 'eType XML Importer imported $t articles.';
     \Drupal::logger('my_module')->notice($message);
     return ['#markup' => $markup];
-
   }
 
   /**
@@ -261,13 +283,13 @@ class ImportOliveXMLController {
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   protected function ParseItem($item) {
-    $array = (array) $item;
+    $array = (array)$item;
 
     // title is not an object if the stub is valid
     if (!is_object($array['title'])) {
 
       // full article is in the linked file
-      $ar_file =  $array['link'];
+      $ar_file = $array['link'];
       $ar_xml = file_get_contents($this->extract_dir . $ar_file);
 
       /* parse article xhtml from link file */
@@ -291,8 +313,8 @@ class ImportOliveXMLController {
       // s flag makes dot match linebreaks as well
       preg_match("'<body>(.*?)</body>'s", $ar_xml, $coincidencias);
       $body = $coincidencias[1];
-      $body = preg_replace("'<xhtml:h1>(.*?)</xhtml:h1>'s","", $body);
-      $body = preg_replace("'<pam:media>(.*?)</pam:media>'s","", $body);
+      $body = preg_replace("'<xhtml:h1>(.*?)</xhtml:h1>'s", "", $body);
+      $body = preg_replace("'<pam:media>(.*?)</pam:media>'s", "", $body);
       $body = preg_replace("'<xhtml:p prism:class=\"deck\">(.*?)</xhtml:p>'s", "", $body, 1);
       $body = preg_replace("'<xhtml:p prism:class=\"byline\">(.*?)</xhtml:p>'s", "", $body, 1);
       $body = preg_replace("/xhtml:([a-z]?)/", "$1", $body);
@@ -330,7 +352,7 @@ class ImportOliveXMLController {
       $images = array();
       preg_match_all("'<pam:media>(.*?)</pam:media>'s", $ar_xml, $coincidencias);
       // loop over matches and match data
-      if (! empty($coincidencias[1])) {
+      if (!empty($coincidencias[1])) {
         $matches = $coincidencias[1];
         foreach ($matches as $item) {
           preg_match("/<dc:format>([^<]+)/", $item, $imatches);
@@ -376,7 +398,7 @@ class ImportOliveXMLController {
       }
 
       // otherwise field is initiated and shows empty on node page
-      if (! empty($array['pulled_quote'])) {
+      if (!empty($array['pulled_quote'])) {
         $node['field_pulled_quote'] = $array['pulled_quote'];
       }
 
@@ -394,7 +416,6 @@ class ImportOliveXMLController {
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   protected function CreateNode($node) {
-
     $storage = $this->entity_type_manager->getStorage('node');
     $field_image = [];
     if (isset($node['images'])) {
@@ -422,5 +443,4 @@ class ImportOliveXMLController {
     ]);
     $new_entity->save();
   }
-
 }

@@ -1,7 +1,7 @@
 etype_xml_importer.admin_settings:
   path: '/admin/config/etype_xml_importer/adminsettings'
   defaults:
-    _form: '\Drupal\etype_xml_importer\Form\eTypeXMLImporterConfigForm'
+    _form: '\Drupal\etype_xml_importer\Form\EtypeXMLImporterConfigForm'
     _title: 'eType XML Importer Configuration'
   requirements:
     _permission: 'access administration pages'

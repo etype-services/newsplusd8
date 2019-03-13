@@ -1,0 +1,5 @@
+etype_classified_importer.admin_settings:
+  title: 'eType Classified Settings'
+  parent: system.admin_config_etype
+  description: 'Configure eType classified import settings.'
+  route_name: etype_xml_importer.admin_settings

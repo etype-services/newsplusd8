@@ -5,16 +5,15 @@ namespace Drupal\etype\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
 
 /**
- * Provides a 'eType E-edition' Block.
+ * Provides a 'Etype E-edition' Block.
  *
  * @Block(
  *   id = "etype_block",
- *   admin_label = @Translation("eType E-edition"),
- *   category = @Translation("eType"),
+ *   admin_label = @Translation("Etype E-edition"),
+ *   category = @Translation("Etype"),
  * )
  */
-
-class eTypeEeditionBlock extends BlockBase {
+class EtypeEeditionBlock extends BlockBase {
 
   /**
    * {@inheritdoc}

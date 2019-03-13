@@ -1,5 +1,5 @@
 etype_xml_importer.admin_settings:
   title: 'eType XML Importer Settings'
   parent: system.admin_config_etype
-  description: 'Configure eType settings.'
+  description: 'Configure eType XML importer settings.'
   route_name: etype_xml_importer.admin_settings
