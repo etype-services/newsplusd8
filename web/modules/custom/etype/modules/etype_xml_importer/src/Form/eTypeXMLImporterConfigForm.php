@@ -1,16 +1,12 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\etype\Form\eTypeConfigForm.
- */
-
 namespace Drupal\etype_xml_importer\Form;
+
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\NodeType;
 
-class eTypeXMLImporterConfigForm extends ConfigFormBase {
+class EtypeXMLImporterConfigForm extends ConfigFormBase {
 
   /**
    * The entity field manager.
@@ -40,7 +36,7 @@ class eTypeXMLImporterConfigForm extends ConfigFormBase {
   protected $formats = [];
 
   /**
-   * eTypeXMLImporterConfigForm constructor.
+   * EtypeXMLImporterConfigForm constructor.
    */
   public function __construct() {
     parent::__construct($this->configFactory());
@@ -52,7 +48,7 @@ class eTypeXMLImporterConfigForm extends ConfigFormBase {
   }
 
   /**
-   * get node types and make options array
+   * Get node types and make options array.
    */
   protected function getNodeTypeOptions() {
     $node_types = NodeType::loadMultiple();
@@ -62,7 +58,7 @@ class eTypeXMLImporterConfigForm extends ConfigFormBase {
   }
 
   /**
-   * get the fields associated with selected node type
+   * Get the fields associated with selected node type.
    */
   protected function getFields() {
     $fields = $this->entity_field_manager->getFieldDefinitions('node', $this->conf->get('node_type'));
@@ -72,6 +68,9 @@ class eTypeXMLImporterConfigForm extends ConfigFormBase {
     }
   }
 
+  /**
+   * Get the formats.
+   */
   protected function getFormats() {
     $arr = filter_formats();
     $array = array_keys($arr);
@@ -107,7 +106,7 @@ class eTypeXMLImporterConfigForm extends ConfigFormBase {
       '#title' => $this->t('Basic configuration'),
     ];
 
-    $form['importer']['#markup'] = "Edit (and enable) import cron job at the <a href=\"/admin/config/system/cron/jobs/manage/etype_xml_importer_cron\">cron settings page</a>.";
+    $form['importer']['#markup'] = "Enable and edit import cron job at the <a href=\"/admin/config/system/cron/jobs/manage/etype_xml_importer_cron\">cron settings page</a>.";
 
 
     $form['importer']['import_files'] = [
@@ -150,7 +149,7 @@ class eTypeXMLImporterConfigForm extends ConfigFormBase {
       '#description' => $this->t('Url from which to import xml.'),
       '#size' => 55,
       '#default_value' => $this->conf->get('import_url'),
-      '#required' => TRUE
+      '#required' => TRUE,
     ];
 
     $form['importer_advanced']['node_type'] = [

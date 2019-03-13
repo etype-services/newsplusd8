@@ -1,11 +1,6 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\etype\Form\eTypeConfigForm.
- */
-
-namespace \Drupal\etype\Form;
+namespace Drupal\etype\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -15,7 +10,7 @@ use Drupal\Core\Form\FormStateInterface;
  *
  * @package Drupal\etype\Form
  */
-class eTypeConfigForm extends ConfigFormBase {
+class EtypeConfigForm extends ConfigFormBase {
 
   /**
    * {@inheritdoc}
