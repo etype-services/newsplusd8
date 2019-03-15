@@ -60,7 +60,7 @@ class EtypeClassifiedImporterConfigForm extends ConfigFormBase {
     ];
 
     $form['classified_map'] = [
-      '#title' => $this->t('Classifed Cateogry Mapping'),
+      '#title' => $this->t('Classifed Category Mapping'),
       '#type' => 'textarea',
       '#description' => 'Enter VDATA Category Id and matching Classified Ad term id on one line, e.g C101|123.',
       '#default_value' => $this->conf->get('classified_map'),
