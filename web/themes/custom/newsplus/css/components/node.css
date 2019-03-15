@@ -22,7 +22,8 @@
   color: #7d7d7d;
   padding-bottom: 20px;
 }
-.field--name-field-mt-subheader-body p {
+.field--name-field-mt-subheader-body p,
+.field--name-field-kicker p {
   font-size: 18px;
   font-weight: 700;
   line-height: 1.33;
