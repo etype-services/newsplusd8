@@ -67,6 +67,8 @@ class EtypeClassifiedImporterConfigForm extends ConfigFormBase {
       '#required' => TRUE,
     ];
 
+    return parent::buildForm($form, $form_state);
+
   }
 
   /**
