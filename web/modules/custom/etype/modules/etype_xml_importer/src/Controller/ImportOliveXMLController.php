@@ -73,7 +73,9 @@ class XMLIsFalseException extends \Exception {
 class ImportOliveXMLController {
 
   /**
-   * @var
+   * Var Setup.
+   *
+   * @var \Drupal\Core\Config\ImmutableConfig
    */
   protected $config;
 
@@ -166,7 +168,8 @@ class ImportOliveXMLController {
       if (empty($this->import_url)) {
         throw new ImportUrlMissingException();
       }
-    } catch (ImportUrlMissingException $e) {
+    }
+    catch (ImportUrlMissingException $e) {
       $this->messenger->addMessage($e->getMessage(), $this->messenger::TYPE_ERROR);
       return ['#markup' => ''];
     }
@@ -176,7 +179,8 @@ class ImportOliveXMLController {
       if (empty($this->import_files)) {
         throw new ImportFileMissingException();
       }
-    } catch (ImportFileMissingException $e) {
+    }
+    catch (ImportFileMissingException $e) {
       $this->messenger->addMessage($e->getMessage(), $this->messenger::TYPE_ERROR);
       return ['#markup' => ''];
     }
@@ -220,7 +224,7 @@ class ImportOliveXMLController {
       $entries = array();
       foreach ($fileSystemIterator as $fileInfo) {
         $entry = $fileInfo->getFilename();
-        if (strpos($entry, 'Section') !== false) {
+        if (strpos($entry, 'Section') !== FALSE) {
           $entries[] = $fileInfo->getFilename();
         }
       }
@@ -244,17 +248,18 @@ class ImportOliveXMLController {
 
           /* throw Exception and return empty page with message if xml is not extractable */
           try {
-            if ($xml === false) {
+            if ($xml === FALSE) {
               throw new XMLIsFalseException();
             }
-          } catch (XMLIsFalseException $e) {
+          }
+          catch (XMLIsFalseException $e) {
             $this->messenger->addMessage($e->getMessage(), $this->messenger::TYPE_ERROR);
             return ['#markup' => ''];
           }
 
           /* parse xml in each file */
           $obj = simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA);
-          if (sizeof($obj) > 0) {
+          if (count($obj) > 0) {
             /* loop over items in Section file */
             foreach ($obj as $stub) {
               $item = $stub->item;
@@ -276,8 +281,10 @@ class ImportOliveXMLController {
   }
 
   /**
-   * @param $item
+   * Parse XML into importable format.
    *
+   * @param $item
+   *   XML data.
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
@@ -381,7 +388,6 @@ class ImportOliveXMLController {
         'body' => Encoding::toUTF8($array['body']),
         $this->byline_field => substr(Encoding::toUTF8($array['byline']), 0, 255), // trim to field length
         $this->subhead_field => Encoding::toUTF8($array['slugline']),
-        'field_date1' => $pub_date, // Laurel Outlook
       );
 
       $array = [];
