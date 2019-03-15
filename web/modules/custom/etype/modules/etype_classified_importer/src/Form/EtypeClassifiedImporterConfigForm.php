@@ -24,7 +24,7 @@ class EtypeClassifiedImporterConfigForm extends ConfigFormBase {
    */
   public function __construct() {
     parent::__construct($this->configFactory());
-    $this->conf = $this->config('etype_xml_importer.settings');
+    $this->conf = $this->config('etype_classified_importer.settings');
   }
 
   /**
