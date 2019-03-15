@@ -6,6 +6,11 @@ use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\NodeType;
 
+/**
+ * Class EtypeXMLImporterConfigForm.
+ *
+ * @package Drupal\etype_xml_importer\Form
+ */
 class EtypeXMLImporterConfigForm extends ConfigFormBase {
 
   /**
