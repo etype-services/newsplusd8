@@ -44,7 +44,6 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
     $this->entity_field_manager = \Drupal::service('entity_field.manager');
     $this->getNodeTypeOptions();
     $this->getFields();
-    //$this->getFormats();
   }
 
   /**
