@@ -33,8 +33,8 @@ function newsplus_form_system_theme_settings_alter(&$form, &$form_state) {
   );
 
   $form['mtt_settings']['basic_tab']['basic_settings']['header'] = array(
-   '#type' => 'item',
-   '#markup' => t('<div class="theme-settings-title">Header positioning</div>'),
+    '#type' => 'item',
+    '#markup' => t('<div class="theme-settings-title">Header positioning</div>'),
   );
 
   $form['mtt_settings']['basic_tab']['basic_settings']['fixed_header'] = array(
@@ -47,8 +47,8 @@ function newsplus_form_system_theme_settings_alter(&$form, &$form_state) {
   );
 
   $form['mtt_settings']['basic_tab']['basic_settings']['sitename_display'] = array(
-   '#type' => 'item',
-   '#markup' => t('<div class="theme-settings-title">Site Name display</div>'),
+    '#type' => 'item',
+    '#markup' => t('<div class="theme-settings-title">Site Name display</div>'),
   );
 
   $form['mtt_settings']['basic_tab']['basic_settings']['display_fixed_site_name'] = array(
