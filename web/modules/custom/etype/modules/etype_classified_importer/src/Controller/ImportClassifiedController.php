@@ -66,7 +66,7 @@ class XMLIsFalseException extends \Exception {
  *
  * @package Drupal\etype_xml_importer\Controller
  */
-class ImportClassified {
+class ImportClassifiedController {
 
   /**
    * Var Setup.
