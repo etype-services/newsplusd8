@@ -66,20 +66,6 @@ class EtypeClassifiedImporterConfigForm extends ConfigFormBase {
   /**
    * {@inheritdoc}
    */
-  public function validateForm(array &$form, FormStateInterface $form_state) {
-    parent::validateForm($form, $form_state);
-
-    /* check for trailing slash on import_url */
-    $val = $form_state->getValue('import_url');
-    if (substr($val, -1) !== '/') {
-      $val = $val . '/';
-      $form_state->setValue('import_url', $val);
-    }
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     parent::submitForm($form, $form_state);
     $this->config('etype_classified_importer.settings')
