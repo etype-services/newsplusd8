@@ -7,3 +7,13 @@ etype_classified_importer.admin_settings:
     _permission: 'access administration pages'
   options:
     _admin_route: TRUE
+
+etype_xml_importer.classified_import:
+  path: '/admin/content/classified_import'
+  defaults:
+    _title: 'Import Classified Ads'
+    _controller: '\Drupal\etype_classified_importer\Controller\ImportClassifiedController::importClassifiedXml'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE

@@ -4,3 +4,8 @@
  * eType Classified Importer module file.
  */
 
+function _classified_importer() {
+  $job = new \Drupal\etype_classified_importer\Controller\ImportClassifiedController;
+  $job->importClassifiedXml();
+}
+

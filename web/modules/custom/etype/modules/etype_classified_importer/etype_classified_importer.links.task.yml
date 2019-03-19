@@ -1,0 +1,4 @@
+etype_xml_importer.import_olive_xml:
+  title: 'Import Classified'
+  route_name: etype_classified_importer._classified_importer
+  base_route: system.admin_content
