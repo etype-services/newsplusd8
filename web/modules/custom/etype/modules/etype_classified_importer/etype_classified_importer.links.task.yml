@@ -1,4 +1,4 @@
 etype_classified_importer.classified_import:
-  title: 'Import Classified'
+  title: 'Import Classified Ads'
   route_name: etype_classified_importer.classified_import
   base_route: system.admin_content
