@@ -59,14 +59,6 @@ class EtypeClassifiedImporterConfigForm extends ConfigFormBase {
       '#required' => TRUE,
     ];
 
-    $form['classified_map'] = [
-      '#title' => $this->t('Classifed Category Mapping'),
-      '#type' => 'textarea',
-      '#description' => 'Enter VDATA Category Id and matching Classified Ad term id on one line, e.g C101|123.',
-      '#default_value' => $this->conf->get('classified_map'),
-      '#required' => TRUE,
-    ];
-
     return parent::buildForm($form, $form_state);
 
   }
@@ -92,7 +84,6 @@ class EtypeClassifiedImporterConfigForm extends ConfigFormBase {
     parent::submitForm($form, $form_state);
     $this->config('etype_classified_importer.settings')
       ->set('import_url', $form_state->getValue('import_url'))
-      ->set('classified_map', $form_state->getValue('classified_map'))
       ->save();
   }
 
