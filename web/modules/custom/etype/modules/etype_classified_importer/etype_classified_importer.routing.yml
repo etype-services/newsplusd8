@@ -8,7 +8,7 @@ etype_classified_importer.admin_settings:
   options:
     _admin_route: TRUE
 
-etype_xml_importer.classified_import:
+etype_classified_importer.classified_import:
   path: '/admin/content/classified_import'
   defaults:
     _title: 'Import Classified Ads'
