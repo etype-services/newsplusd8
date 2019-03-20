@@ -42,7 +42,7 @@ class EtypeConfigForm extends ConfigFormBase {
     $form['e_edition']['etype_e_edition'] = [
       '#type' => 'textarea',
       '#title' => $this->t('e-Edition'),
-      '#description' => $this->t('For one paper enter the e-Edition like <code>Mitchell%20News-JournalID617</code>, for more than one format like this: <code>Mitchell%20News-JournalID617|Mitchell News Journal,The%20Yorktown%20News-ViewID84|The Yorktown News View</code>'),
+      '#description' => $this->t('For one paper enter the e-Edition like <code>Mitchell%20News-JournalID617</code>, for more than one format like this: <code>Mitchell%20News-JournalID617|Mitchell News Journal,The%20Yorktown%20News-ViewID84|The Yorktown News View</code>.'),
       '#rows' => 2,
       '#cols' => '100',
       '#default_value' => $config->get('etype_e_edition'),
@@ -51,7 +51,7 @@ class EtypeConfigForm extends ConfigFormBase {
     $form['e_edition']['etype_pub'] = [
       '#type' => 'textfield',
       '#title' => $this->t('eType Pub Id'),
-      '#description' => $this->t('Separate multiple entries with a comma, in the same order as the e-Editions'),
+      '#description' => $this->t('Separate multiple entries with a comma, in the same order as the e-Editions.'),
       '#size' => 55,
       '#default_value' => $config->get('etype_pub'),
     ];
@@ -59,7 +59,7 @@ class EtypeConfigForm extends ConfigFormBase {
     $form['e_edition']['etype_ptype'] = [
       '#type' => 'textfield',
       '#title' => $this->t('eType PType'),
-      '#description' => $this->t('Separate multiple entries with a comma, in the same order as the e-Editions'),
+      '#description' => $this->t('Separate multiple entries with a comma, in the same order as the e-Editions.'),
       '#size' => 55,
       '#default_value' => $config->get('etype_ptype'),
     ];
