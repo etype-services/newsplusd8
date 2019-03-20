@@ -43,7 +43,8 @@ class EtypeConfigForm extends ConfigFormBase {
       '#type' => 'textarea',
       '#title' => $this->t('e-Edition'),
       '#description' => $this->t('For one paper enter the e-Edition like <code>Mitchell%20News-JournalID617</code>, for more than one format like this: <code>Mitchell%20News-JournalID617|Mitchell News Journal,The%20Yorktown%20News-ViewID84|The Yorktown News View</code>'),
-      '#size' => 101,
+      '#rows' => 2,
+      '#cols' => '100',
       '#default_value' => $config->get('etype_e_edition'),
     ];
 
