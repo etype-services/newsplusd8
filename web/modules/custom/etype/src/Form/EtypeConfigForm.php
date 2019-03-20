@@ -69,6 +69,14 @@ class EtypeConfigForm extends ConfigFormBase {
       '#title' => $this->t('Other Settings'),
     ];
 
+    $form['other']['mercolocal_id'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('MercoLocal Affiliate Id'),
+      '#size' => 10,
+      '#default_value' => $config->get('mercolocal_id'),
+    ];
+
+
     return parent::buildForm($form, $form_state);
   }
 

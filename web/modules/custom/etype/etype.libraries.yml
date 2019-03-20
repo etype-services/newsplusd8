@@ -1,6 +1,0 @@
-mercolocal:
-  version : 1.x
-  js:
-    https://www.mercolocal.com/js/Embed.js: {type: external, attributes: { defer: true, async: true, h: 600, w: 360, Scroll: v, affiliateId: 6 } }
-  dependencies:
-    - core/drupalSettings

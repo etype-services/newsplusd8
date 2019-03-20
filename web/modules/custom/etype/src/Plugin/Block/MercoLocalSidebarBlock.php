@@ -26,7 +26,8 @@ class MercoLocalSidebarBlock extends BlockBase {
     $config = \Drupal::config('etype.adminsettings');
     $mercolocal_id = $config->get('mercolocal_id');
     if (!empty($mercolocal_id)) {
-      $output = '<var id="MercoLocal"></var>';
+      $output = '<var id="MercoLocal">
+</var>';
     }
     else {
       $output = '<p>Please enter a MercoLocal Affiliate Id at the eType Settings page to show MercoLocal content.</p>';

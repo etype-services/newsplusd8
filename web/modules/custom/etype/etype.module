@@ -1,15 +1,28 @@
 <?php
 
 /**
- * Implements hook_page_attachments().
- * @param array $page
- * {@inheritdoc}
+ * Attach external scripts.
+ *
+ * @param array $attachments
  */
-function etype_page_attachments(array &$page) {
+function etype_page_attachments(array &$attachments) {
   $config = \Drupal::config('etype.adminsettings');
   $mercolocal_id = $config->get('mercolocal_id');
-  $page['#attached']['library'][] = 'etype/mercolocal';
-  $page['#attached']['drupalSettings']['mercolocal']['affiliateId'] = $mercolocal_id;
+  if (! empty ($mercolocal_id)) {
+    $src = 'https://www.mercolocal.com/js/Embed.js?h=600&amp;w=300&amp;Scroll=v&amp;affiliateId=' . $mercolocal_id;
+    $attachments['#attached']['html_head'][] = [
+      [
+        '#type' => 'html_tag',
+        '#tag' => 'script',
+        '#attributes' => [
+          'src' => $src,
+          'id' => 'MercoLocal-script',
+          'data-active' => 'businesses'
+        ],
+      ],
+      'mercolocal-sidebar',
+    ];
+  }
 }
 
 /**
