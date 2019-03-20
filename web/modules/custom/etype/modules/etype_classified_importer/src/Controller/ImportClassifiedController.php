@@ -10,23 +10,6 @@ namespace Drupal\etype_classified_importer\Controller;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 
 /**
- * Class ImportFileMissingException.
- *
- * @package Drupal\etype_classified_importer\Controller
- */
-class ImportFileMissingException extends \Exception {
-
-  /**
-   * ImportFileMissingException constructor.
-   */
-  public function __construct() {
-    $message = new TranslatableMarkup('No import file(s) defined. See eType Classified Importer settings.');
-    parent::__construct($message);
-  }
-
-}
-
-/**
  * Class ImportUrlMissingException.
  *
  * @package Drupal\etype_classified_importer\Controller
@@ -112,17 +95,6 @@ class ImportClassifiedController {
       }
     }
     catch (ImportUrlMissingException $e) {
-      $this->messenger->addMessage($e->getMessage(), $this->messenger::TYPE_ERROR);
-      return ['#markup' => ''];
-    }
-
-    /* throw Exception and return empty page with message if no file to import */
-    try {
-      if (empty($this->import_files)) {
-        throw new ImportFileMissingException();
-      }
-    }
-    catch (ImportFileMissingException $e) {
       $this->messenger->addMessage($e->getMessage(), $this->messenger::TYPE_ERROR);
       return ['#markup' => ''];
     }
