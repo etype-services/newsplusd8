@@ -71,7 +71,7 @@ class EtypeConfigForm extends ConfigFormBase {
 
     $form['other']['willyweather_code'] = [
       '#type' => 'textarea',
-      '#title' => $this->t('WillyWeather URL'),
+      '#title' => $this->t('WillyWeather Code'),
       '#description' => $this->t('Paste in widget code from Willyweather.'),
       '#cols' => '100',
       '#default_value' => $config->get('willyweather_code'),
@@ -98,6 +98,7 @@ class EtypeConfigForm extends ConfigFormBase {
       ->set('etype_pub', $form_state->getValue('etype_pub'))
       ->set('etype_ptype', $form_state->getValue('etype_ptype'))
       ->set('mercolocal_id', $form_state->getValue('mercolocal_id'))
+      ->set('willyweather_code', $form_state->getValue('willyweather_code'))
       ->save();
   }
 
