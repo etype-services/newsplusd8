@@ -20,6 +20,7 @@ class MercoLocalSidebarBlock extends BlockBase {
    * {@inheritdoc}
    *
    * Uses Markup rather than '#markup' to return raw html.
+   * hook_page_attachments gives a console error.
    */
   public function build() {
 
@@ -27,6 +28,8 @@ class MercoLocalSidebarBlock extends BlockBase {
     $mercolocal_id = $config->get('mercolocal_id');
     if (!empty($mercolocal_id)) {
       $output = '<var id="MercoLocal">
+<script id="MercoLocal-script" data-active="businesses" src="https://www.mercolocal.com/js/Embed.js?h=600&amp;w=300&amp;Scroll=v&amp;affiliateId=' .
+        $mercolocal_id . '"></script>
 </var>';
     }
     else {
