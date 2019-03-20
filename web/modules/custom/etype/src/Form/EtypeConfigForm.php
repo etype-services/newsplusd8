@@ -69,13 +69,20 @@ class EtypeConfigForm extends ConfigFormBase {
       '#title' => $this->t('Other Settings'),
     ];
 
+    $form['other']['willyweather_code'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('WillyWeather URL'),
+      '#description' => $this->t('Paste in widget code from Willyweather.'),
+      '#cols' => '100',
+      '#default_value' => $config->get('willyweather_code'),
+    ];
+
     $form['other']['mercolocal_id'] = [
       '#type' => 'textfield',
       '#title' => $this->t('MercoLocal Affiliate Id'),
       '#size' => 10,
       '#default_value' => $config->get('mercolocal_id'),
     ];
-
 
     return parent::buildForm($form, $form_state);
   }
