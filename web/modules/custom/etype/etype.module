@@ -9,7 +9,7 @@ function etype_page_attachments(array &$attachments) {
   $config = \Drupal::config('etype.adminsettings');
   $mercolocal_id = $config->get('mercolocal_id');
   if (! empty ($mercolocal_id)) {
-    $src = 'https://www.mercolocal.com/js/Embed.js?h=600&amp;w=300&amp;Scroll=v&amp;affiliateId=' . $mercolocal_id;
+    $src = 'https://www.mercolocal.com/js/Embed.js?h=600&w=300&Scroll=v&affiliateId=' . $mercolocal_id;
     $attachments['#attached']['html_head'][] = [
       [
         '#type' => 'html_tag',
