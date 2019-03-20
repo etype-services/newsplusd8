@@ -29,7 +29,7 @@ class WillyWeatherWidgetBlock extends BlockBase {
       $output = $willyweather_code;
     }
     else {
-      $output = '<p>Please enter a WillyWeather URL at the eType Settings page to show MercoLocal content.</p>';
+      $output = '<p>Please add WillyWeather code at the eType Settings page to show the weather widget.</p>';
     }
     return [
       '#children' => Markup::create($output),
