@@ -18,16 +18,15 @@ class MercoLocalSidebarBlock extends BlockBase {
 
   /**
    * {@inheritdoc}
+   *
+   * Uses Markup rather than '#markup' to return raw html.
    */
   public function build() {
 
     $config = \Drupal::config('etype.adminsettings');
     $mercolocal_id = $config->get('mercolocal_id');
     if (!empty($mercolocal_id)) {
-      $output = '<var id="MercoLocal">
-<script id="MercoLocal-script" data-active="businesses" src="https://www.mercolocal.com/js/Embed.js?h=600&amp;w=300&amp;Scroll=v&amp;affiliateId=' .
-        $mercolocal_id . '"></script>
-</var>';
+      $output = '<var id="MercoLocal"></var>';
     }
     else {
       $output = '<p>Please enter a MercoLocal Affiliate Id at the eType Settings page to show MercoLocal content.</p>';
