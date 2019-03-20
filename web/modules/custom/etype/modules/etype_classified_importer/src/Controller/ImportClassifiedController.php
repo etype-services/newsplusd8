@@ -2,8 +2,7 @@
 
 /**
  * @file
- * Contains
- * Drupal\etype_xml_importer\Controller\ImportOliveXMLController
+ * Drupal\etype_classifed_importer\Controller\ImportClassifiedController.
  */
 
 namespace Drupal\etype_classified_importer\Controller;
@@ -13,7 +12,7 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
 /**
  * Class ImportFileMissingException.
  *
- * @package Drupal\etype_xml_importer\Controller
+ * @package Drupal\etype_classified_importer\Controller
  */
 class ImportFileMissingException extends \Exception {
 
@@ -21,7 +20,7 @@ class ImportFileMissingException extends \Exception {
    * ImportFileMissingException constructor.
    */
   public function __construct() {
-    $message = new TranslatableMarkup('No import file(s) defined. See eType XML Importer settings.');
+    $message = new TranslatableMarkup('No import file(s) defined. See eType Classified Importer settings.');
     parent::__construct($message);
   }
 
@@ -30,7 +29,7 @@ class ImportFileMissingException extends \Exception {
 /**
  * Class ImportUrlMissingException.
  *
- * @package Drupal\etype_xml_importer\Controller
+ * @package Drupal\etype_classified_importer\Controller
  */
 class ImportUrlMissingException extends \Exception {
 
@@ -38,7 +37,7 @@ class ImportUrlMissingException extends \Exception {
    * Constructs an ImportFileMissingException.
    */
   public function __construct() {
-    $message = new TranslatableMarkup('No import url defined. See eType XML Importer settings.');
+    $message = new TranslatableMarkup('No import url defined. See eType Classified Importer settings.');
     parent::__construct($message);
   }
 
@@ -47,7 +46,7 @@ class ImportUrlMissingException extends \Exception {
 /**
  * Class XMLIsFalseException.
  *
- * @package Drupal\etype_xml_importer\Controller
+ * @package Drupal\etype_classified_importer\Controller
  */
 class XMLIsFalseException extends \Exception {
 
@@ -62,9 +61,9 @@ class XMLIsFalseException extends \Exception {
 }
 
 /**
- * Class ImportOliveXMLController.
+ * Class ImportClassifiedController.
  *
- * @package Drupal\etype_xml_importer\Controller
+ * @package Drupal\etype_classified_importer\Controller
  */
 class ImportClassifiedController {
 
@@ -90,7 +89,7 @@ class ImportClassifiedController {
   protected $messenger;
 
   /**
-   * ImportOliveXMLController constructor.
+   * ImportClassifiedController constructor.
    */
   public function __construct() {
     $this->config = \Drupal::config('etype_classified_importer.settings');
