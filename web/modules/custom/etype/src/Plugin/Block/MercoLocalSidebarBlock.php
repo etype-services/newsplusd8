@@ -3,6 +3,7 @@
 namespace Drupal\etype\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Render\Markup;
 
 /**
  * Provides a 'MercoLocal Sidebar' Block.
@@ -23,14 +24,16 @@ class MercoLocalSidebarBlock extends BlockBase {
     $config = \Drupal::config('etype.adminsettings');
     $mercolocal_id = $config->get('mercolocal_id');
     if (!empty($mercolocal_id)) {
-      $output = '<var id="MercoLocal"><script id="MercoLocal-script" data-active="businesses" src="https://www.mercolocal.com/js/Embed.js?h=600&amp;w=300&amp;Scroll=v&amp;affiliateId=' .
-        $mercolocal_id . '"></script></var>';
+      $output = '<var id="MercoLocal">
+<script id="MercoLocal-script" data-active="businesses" src="https://www.mercolocal.com/js/Embed.js?h=600&amp;w=300&amp;Scroll=v&amp;affiliateId=' .
+        $mercolocal_id . '"></script>
+</var>';
     }
     else {
       $output = '<p>Please enter a MercoLocal Affiliate Id at the eType Settings page to show MercoLocal content.</p>';
     }
     return [
-      '#markup' => $output,
+      '#children' => Markup::create($output),
     ];
   }
 
