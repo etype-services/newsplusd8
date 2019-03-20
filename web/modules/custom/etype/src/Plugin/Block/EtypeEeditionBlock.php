@@ -9,8 +9,8 @@ use Drupal\Core\Block\BlockBase;
  *
  * @Block(
  *   id = "etype_block",
- *   admin_label = @Translation("Etype E-edition"),
- *   category = @Translation("Etype"),
+ *   admin_label = @Translation("eType E-edition"),
+ *   category = @Translation("eType"),
  * )
  */
 class EtypeEeditionBlock extends BlockBase {

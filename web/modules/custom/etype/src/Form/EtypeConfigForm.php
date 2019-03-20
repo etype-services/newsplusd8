@@ -63,15 +63,20 @@ class EtypeConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('etype_ptype'),
     ];
 
+    $form['other'] = [
+      '#type' => 'fieldset',
+      '#title' => $this->t('Other Settings'),
+    ];
+
+    $form['other']['mercolocal_id'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('MercoLocal Affiliate Id'),
+      '#size' => 55,
+      '#default_value' => $config->get('mercolocal_id'),
+    ];
+
 
     return parent::buildForm($form, $form_state);
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function validateForm(array &$form, FormStateInterface $form_state) {
-    parent::validateForm($form, $form_state);
   }
 
   /**
@@ -84,6 +89,7 @@ class EtypeConfigForm extends ConfigFormBase {
       ->set('etype_e_edition', $form_state->getValue('etype_e_edition'))
       ->set('etype_pub', $form_state->getValue('etype_pub'))
       ->set('etype_ptype', $form_state->getValue('etype_ptype'))
+      ->set('mercolocal_id', $form_state->getValue('mercolocal_id'))
       ->save();
   }
 
