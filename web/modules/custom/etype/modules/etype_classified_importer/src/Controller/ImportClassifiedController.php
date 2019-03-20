@@ -99,6 +99,8 @@ class ImportClassifiedController {
       return ['#markup' => ''];
     }
 
+    return ['#markup' => ''];
+
   }
 
 }
