@@ -146,6 +146,7 @@ class ImportClassifiedController {
     $query = \Drupal::entityQuery('node');
     $query->condition('type', 'classified_ad');
     $tids = $query->execute();
+    var_dump($tids);exit;
     $storage_handler = \Drupal::entityTypeManager()->getStorage('node');
     $entities = $storage_handler->loadMultiple($tids);
     $storage_handler->delete($entities);
