@@ -34,10 +34,27 @@ class ImportUrlMissingException extends \Exception {
 class XMLIsFalseException extends \Exception {
 
   /**
-   * Constructs an ImportFileMissingException.
+   * Constructs an XMLIsFalseException.
    */
   public function __construct() {
     $message = new TranslatableMarkup('There was a problem extracting XML from the file.');
+    parent::__construct($message);
+  }
+
+}
+
+/**
+ * Class AdObjectEmptyException.
+ *
+ * @package Drupal\etype_classified_importer\Controller
+ */
+class AdObjectEmptyException extends \Exception {
+
+  /**
+   * Constructs an AdObjectEmptyException.
+   */
+  public function __construct() {
+    $message = new TranslatableMarkup('There do not seem to be any classified ads to import.');
     parent::__construct($message);
   }
 
@@ -81,10 +98,14 @@ class ImportClassifiedController {
   }
 
   /**
-   * Process XML file from VisionData.
+   * Import Classified Ads from nodes.
    *
    * @return array
    *   Nodes.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function importClassifiedXml() {
 
@@ -111,10 +132,22 @@ class ImportClassifiedController {
     }
 
     $ad_obj = simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA);
-    $i = 0;
-    if (count($ad_obj) > 0) {
-      var_dump($ad_obj);
+    try {
+      if (count($ad_obj) == 0) {
+        throw new AdObjectEmptyException();
+      }
     }
+    catch (AdObjectEmptyException $e) {
+      $this->messenger->addMessage($e->getMessage(), $this->messenger::TYPE_ERROR);
+      return ['#markup' => ''];
+    }
+
+    // Deleting old ads.
+    $query = \Drupal::entityQuery('classified_ad');
+    $tids = $query->execute();
+    $storage_handler = \Drupal::entityTypeManager()->getStorage('classified_ad');
+    $entities = $storage_handler->loadMultiple($tids);
+    $storage_handler->delete($entities);
 
     return ['#markup' => ''];
 
