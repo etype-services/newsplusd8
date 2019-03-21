@@ -12,8 +12,8 @@
       position: relative;
       top: -2px; }
 
-/* Business Directory Block */
-#business-directory .views-field-title {
+/* Business Directory & Special Sections Blocks */
+#business-directory .views-field-title, #special-sections .views-field-title {
   margin-top: 7px; }
 
 /* Special Sections Block
