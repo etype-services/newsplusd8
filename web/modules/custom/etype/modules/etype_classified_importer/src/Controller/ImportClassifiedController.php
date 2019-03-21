@@ -194,7 +194,7 @@ class ImportClassifiedController {
       $i++;
     }
     // Log imported.
-    \Drupal::logger('etype_classified_importer')->notice("IMported %num classified ads.", ['%num' => $i]);
+    \Drupal::logger('etype_classified_importer')->notice("Imported %num classified ads.", ['%num' => $i]);
 
     return ['##markup' => '<p>' . $i . ' Classified ads imported</p>'];
 
