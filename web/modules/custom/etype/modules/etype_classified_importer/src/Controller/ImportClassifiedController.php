@@ -156,8 +156,9 @@ class ImportClassifiedController {
     \Drupal::logger('etype_classified_importer')->notice("Deleted %num classified ads.", ['%num' => count($tids)]);
 
     foreach ($obj as $item) {
+      $title = empty($item->ItemTitle) ? substr($item->ItemDesc, 0, 25) : $item->ItemTitle;
       $data = [
-        'title' => $item->ItemTitle,
+        'title' => $title,
         'body' => $item->ItemDesc,
         'id' => $item->ItemId,
         'category' => $item->categoryId,
