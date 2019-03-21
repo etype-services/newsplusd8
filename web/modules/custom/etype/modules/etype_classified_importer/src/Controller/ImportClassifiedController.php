@@ -8,6 +8,7 @@
 namespace Drupal\etype_classified_importer\Controller;
 
 use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\node\Entity\Node;
 
 /**
  * Class ImportUrlMissingException.
@@ -160,6 +161,7 @@ class ImportClassifiedController {
         'body' => $item->ItemDesc,
         'id' => $item->ItemId,
         'category' => $item->categoryId,
+        'date' => $item->StartDate,
       ];
       $this->createNode($data);
     }
@@ -174,13 +176,10 @@ class ImportClassifiedController {
    * @param array $data
    *   Data.
    *
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
-   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   protected function createNode(array $data) {
-    $storage = \Drupal::entityTypeManager()->getStorage('node');
-    $new_entity = $storage->create([
+    $entity = Node::create([
       'type' => 'classified_ad',
       'title' => $data['title'],
       'body' => [
@@ -188,8 +187,11 @@ class ImportClassifiedController {
       ],
       'field_id' => $data['id'],
       'field_category' => $data['category'],
+      'status' => 1,
+      'uid' => 1,
+      'created'  => $data['date'],
     ]);
-    $new_entity->save();
+    $entity->save();
   }
 
 }
