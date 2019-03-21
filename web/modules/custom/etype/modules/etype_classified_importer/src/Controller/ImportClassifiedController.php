@@ -99,6 +99,23 @@ class ImportClassifiedController {
       return ['#markup' => ''];
     }
 
+    $xml = file_get_contents($this->importUrl);
+    try {
+      if ($xml == FALSE) {
+        throw new XMLIsFalseException();
+      }
+    }
+    catch (XMLIsFalseException $e) {
+      $this->messenger->addMessage($e->getMessage(), $this->messenger::TYPE_ERROR);
+      return ['#markup' => ''];
+    }
+
+    $ad_obj = simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA);
+    $i = 0;
+    if (count($ad_obj) > 0) {
+      var_dump($ad_obj);
+    }
+
     return ['#markup' => ''];
 
   }
