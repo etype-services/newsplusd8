@@ -175,7 +175,9 @@ class ImportClassifiedController {
 
     $i = 0;
     foreach ($obj as $item) {
-      $title = empty($item->ItemTitle) ? substr($item->ItemDesc, 0, 25) : $item->ItemTitle;
+      // Ads do not have title, mostly.
+      $str = empty($item->ItemTitle) ? substr($item->ItemDesc, 0, 25) : $item->ItemTitle;
+      $title = preg_replace("/[\n\r]/", "", $str);
       $entity = Node::create([
         'type' => 'classified_ad',
         'title' => $title,
@@ -194,7 +196,7 @@ class ImportClassifiedController {
     // Log imported.
     \Drupal::logger('etype_classified_importer')->notice("IMported %num classified ads.", ['%num' => $i]);
 
-    return ['#plain_text' => '<p>' . $i . ' Classified ads imported</p>'];
+    return ['##markup' => '<p>' . $i . ' Classified ads imported</p>'];
 
   }
 
