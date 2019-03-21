@@ -180,6 +180,5 @@ class ImportClassifiedController {
     ]);
     $new_entity->save();
   }
-}
 
 }
