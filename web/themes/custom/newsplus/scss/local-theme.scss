@@ -40,3 +40,14 @@
     }
   }
 }
+
+/* Images in body field in articles */
+#block-newsplus-content {
+  .node--view-mode-full {
+    .field--name-body {
+      figure.align-left {
+        margin-right: 1em;
+      }
+    }
+  }
+}

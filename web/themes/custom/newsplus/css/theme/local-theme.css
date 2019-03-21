@@ -24,4 +24,8 @@
   #block-views-block-special-sections-block-1 .view-content .views-field-title {
     margin-top: 7px; }
 
+/* Images in body field in articles */
+#block-newsplus-content .node--view-mode-full .field--name-body figure.align-left {
+  margin-right: 1em; }
+
 /*# sourceMappingURL=local-theme.css.map */
