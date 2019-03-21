@@ -32,7 +32,7 @@
   position: absolute;
   width: 490px;
   background-color: rgba(255,255,255,0.8);
-  bottom: 33%;
+  top: 10px;
   left: 0;
   padding: 25px 25px 25px 80px;
   color: #252525;
@@ -41,8 +41,8 @@
   bottom: 7%;
 }
 .banner-caption .caption-title {
-  font-size: 25px;
-  margin-bottom: 5px;
+  font-size: 15px;
+  margin-bottom: 0;
 }
 .banner-caption:after {
   position: absolute;
