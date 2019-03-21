@@ -9,6 +9,7 @@ namespace Drupal\etype_classified_importer\Controller;
 
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\node\Entity\Node;
+use Drupal\Component\Utility\Html;
 
 /**
  * Class ImportUrlMissingException.
@@ -56,6 +57,23 @@ class AdObjectEmptyException extends \Exception {
    */
   public function __construct() {
     $message = new TranslatableMarkup('There do not seem to be any classified ads to import.');
+    parent::__construct($message);
+  }
+
+}
+
+/**
+ * Class NodeSaveException.
+ *
+ * @package Drupal\etype_classified_importer\Controller
+ */
+class NodeSaveException extends \Exception {
+
+  /**
+   * Constructs an AdObjectEmptyException.
+   */
+  public function __construct() {
+    $message = new TranslatableMarkup('Unable to save node.');
     parent::__construct($message);
   }
 
@@ -155,44 +173,29 @@ class ImportClassifiedController {
     // Log deletion.
     \Drupal::logger('etype_classified_importer')->notice("Deleted %num classified ads.", ['%num' => count($tids)]);
 
+    $i = 0;
     foreach ($obj as $item) {
       $title = empty($item->ItemTitle) ? substr($item->ItemDesc, 0, 25) : $item->ItemTitle;
-      $data = [
+      $entity = Node::create([
+        'type' => 'classified_ad',
         'title' => $title,
-        'body' => $item->ItemDesc,
-        'id' => $item->ItemId,
-        'category' => $item->categoryId,
-        'date' => $item->StartDate,
-      ];
-      $this->createNode($data);
+        'body' => [
+          'value' => Html::escape($item->ItemDesc),
+        ],
+        'field_id' => $item->ItemId,
+        'field_category' => $item->categoryId,
+        'status' => 1,
+        'uid' => 1,
+        'created'  => $item->StartDate,
+      ]);
+      $entity->save();
+      $i++;
     }
+    // Log imported.
+    \Drupal::logger('etype_classified_importer')->notice("IMported %num classified ads.", ['%num' => $i]);
 
-    return ['#markup' => ''];
+    return ['#plain_text' => '<p>' . $i . ' Classified ads imported</p>'];
 
-  }
-
-  /**
-   * Create the node.
-   *
-   * @param array $data
-   *   Data.
-   *
-   * @throws \Drupal\Core\Entity\EntityStorageException
-   */
-  protected function createNode(array $data) {
-    $entity = Node::create([
-      'type' => 'classified_ad',
-      'title' => $data['title'],
-      'body' => [
-        'value' => $data['body'],
-      ],
-      'field_id' => $data['id'],
-      'field_category' => $data['category'],
-      'status' => 1,
-      'uid' => 1,
-      'created'  => $data['date'],
-    ]);
-    $entity->save();
   }
 
 }
