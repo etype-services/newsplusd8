@@ -30,7 +30,7 @@
 /*Banner caption*/
 .banner-caption {
   position: absolute;
-  width: 490px;
+  width: 36vw;
   background-color: rgba(255,255,255,0.8);
   top: 10px;
   left: 0;
@@ -41,7 +41,7 @@
   /*bottom: 7%;*/
 }
 .banner-caption .caption-title {
-  font-size: 15px;
+  font-size: 12px;
   margin-bottom: 0;
 }
 .banner-caption:after {
@@ -56,18 +56,15 @@
 }
 @media (max-width: 991px) {
   .banner-caption {
-    width: 460px;
     padding: 15px 15px 15px 60px;
-    bottom: 7%;
   }
   .banner-caption:after {
     font-size: 18px;
     left: 19px;
-    left: 21px;
     margin-top: -7px;
   }
   .banner-caption .caption-title {
-    font-size: 20px;
+    font-size: 12px;
   }
   .banner-caption .caption-body {
     font-size: 13px;
