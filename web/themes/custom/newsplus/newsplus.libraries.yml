@@ -171,6 +171,15 @@ flexslider-business-directory-init:
     - core/drupalSettings
     - core/jquery.once
 
+flexslider-special-sections-init:
+  version: VERSION
+  js:
+    js/init/flexslider-special-sections-init.js: {}
+  dependencies:
+    - newsplus/flexslider-global
+    - core/drupalSettings
+    - core/jquery.once
+
 slider-revolution:
   version: 5.4.8
   css:
