@@ -131,9 +131,9 @@ class ImportClassifiedController {
       return ['#markup' => ''];
     }
 
-    $ad_obj = simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA);
+    $obj = simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA);
     try {
-      if (count($ad_obj) == 0) {
+      if (count($obj) == 0) {
         throw new AdObjectEmptyException();
       }
     }
@@ -154,8 +154,13 @@ class ImportClassifiedController {
     // Log deletion.
     \Drupal::logger('etype_classified_importer')->notice("Deleted %num classified ads.", ['%num' => count($tids)]);
 
-    foreach ($ad_obj as $ad) {
-      var_dump($ad);
+    foreach ($obj as $item) {
+      $data = [
+        'title' => $item->ItemTitle,
+        'body' => $item->ItemDesc,
+        'id' => $item->ItemId,
+        'category' => $item->categoryId,
+      ];
     }
 
     return ['#markup' => ''];
@@ -180,6 +185,8 @@ class ImportClassifiedController {
       'body' => [
         'value' => $data['body'],
       ],
+      'field_id' => $data['id'],
+      'field_category' => $data['category'],
     ]);
     $new_entity->save();
   }
