@@ -177,7 +177,7 @@ class ImportClassifiedController {
     foreach ($obj as $item) {
       // Ads do not have title, mostly.
       $str = empty($item->ItemTitle) ? substr($item->ItemDesc, 0, 25) : $item->ItemTitle;
-      $title = preg_replace("/[\n\r]/", "", $str);
+      $title = preg_replace("/[\n\r]/", " ", $str);
       $entity = Node::create([
         'type' => 'classified_ad',
         'title' => $title,
