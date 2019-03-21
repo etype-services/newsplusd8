@@ -143,7 +143,8 @@ class ImportClassifiedController {
     }
 
     // Deleting old ads.
-    $query = \Drupal::entityQuery('classified_ad');
+    $query = \Drupal::entityQuery('node');
+    $query->condition('type', 'classified_ad');
     $tids = $query->execute();
     $storage_handler = \Drupal::entityTypeManager()->getStorage('classified_ad');
     $entities = $storage_handler->loadMultiple($tids);
