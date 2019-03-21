@@ -151,10 +151,35 @@ class ImportClassifiedController {
       $entities = $storage_handler->loadMultiple($tids);
       $storage_handler->delete($entities);
     }
+    // Log deletion.
     \Drupal::logger('etype_classified_importer')->notice("Deleted %num classified ads.", ['%num' => count($tids)]);
+
+    $i=0;
+    foreach ($ad_obj as $ad) {
+      var_dump($ad);
+    }
 
     return ['#markup' => ''];
 
   }
+
+  /**
+   * @param $data
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
+  protected function CreateNode($data) {
+    $storage = \Drupal::entityTypeManager()->getStorage('node');
+    $new_entity = $storage->create([
+      'type' => 'classified_ad',
+      'title' => $data['title'],
+      'body' => [
+        'value' => $data['body'],
+      ],
+    ]);
+    $new_entity->save();
+  }
+}
 
 }
