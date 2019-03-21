@@ -161,6 +161,7 @@ class ImportClassifiedController {
         'id' => $item->ItemId,
         'category' => $item->categoryId,
       ];
+      $this->createNode($data);
     }
 
     return ['#markup' => ''];
