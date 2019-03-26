@@ -183,8 +183,7 @@ class ImportClassifiedController {
       ]);
 
       if ($ad_cat > 0) {
-        echo $ad_cat . "\n";
-        //$node->set('field_ad_category', [$ad_cat]);
+        $node->set('field_ad_category', ['target_id' => $ad_cat]);
       }
       else {
         // Log/warn about missing category relationship.
