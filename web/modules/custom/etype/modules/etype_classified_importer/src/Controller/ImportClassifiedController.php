@@ -180,7 +180,7 @@ class ImportClassifiedController {
       $terms = $query->condition('field_visiondata_category', $item->categoryId)
         ->execute();
       $val = reset($terms);
-      var_dump($val);
+      $ad_cat = $val != FALSE ? $val : NULL;
 
       // Ads do not have title, mostly.
       $str = empty($item->ItemTitle) ? substr($item->ItemDesc, 0, 25) : $item->ItemTitle;
@@ -193,7 +193,7 @@ class ImportClassifiedController {
         ],
         'field_id' => $item->ItemId,
         'field_category' => $item->categoryId,
-        //'field_ad_category' => $ad_cat,
+        'field_ad_category' => $ad_cat,
         'status' => 1,
         'uid' => 1,
         'created'  => $item->StartDate,
