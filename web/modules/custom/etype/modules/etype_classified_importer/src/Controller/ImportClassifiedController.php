@@ -168,42 +168,30 @@ class ImportClassifiedController {
       $terms = $query->condition('field_visiondata_category', $item->categoryId)
         ->execute();
       $ad_cat = reset($terms);
-      var_dump($ad_cat);
-      if ((int) $ad_cat > 0) {
-        $entity = Node::create([
-          'type' => 'classified_ad',
-          'title' => $title,
-          'body' => [
-            'value' => Html::escape($item->ItemDesc),
-          ],
-          'field_id' => $item->ItemId,
-          'field_category' => $item->categoryId,
-          'field_ad_category' => $ad_cat,
-          'status' => 1,
-          'uid' => 1,
-          'created'  => $item->StartDate,
-        ]);
+
+      $node = Node::create([
+        'type' => 'classified_ad',
+        'title' => $title,
+        'body' => [
+          'value' => Html::escape($item->ItemDesc),
+        ],
+        'field_id' => $item->ItemId,
+        'field_category' => $item->categoryId,
+        'status' => 1,
+        'uid' => 1,
+        'created'  => $item->StartDate,
+      ]);
+      $node->save();
+
+      if ($ad_cat > 0) {
+        $node->set('field_ad_category', [$ad_cat]);
       }
       else {
         // Log/warn about missing category relationship.
         $message = sprint("No category match for VisionData category %s.", $item->categoryId);
         \Drupal::logger('etype_classified_importer')->notice($message);
         $this->messenger->addMessage($message, $this->messenger::TYPE_ERROR);
-        $entity = Node::create([
-          'type' => 'classified_ad',
-          'title' => $title,
-          'body' => [
-            'value' => Html::escape($item->ItemDesc),
-          ],
-          'field_id' => $item->ItemId,
-          'field_category' => $item->categoryId,
-          'status' => 1,
-          'uid' => 1,
-          'created'  => $item->StartDate,
-        ]);
       }
-
-      $entity->save();
       $i++;
     }
     // Log imported.
