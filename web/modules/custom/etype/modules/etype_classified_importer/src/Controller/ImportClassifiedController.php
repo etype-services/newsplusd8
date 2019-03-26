@@ -183,6 +183,7 @@ class ImportClassifiedController {
       ]);
 
       if ($ad_cat > 0) {
+        echo $ad_cat . "\n";
         //$node->set('field_ad_category', [$ad_cat]);
       }
       else {
