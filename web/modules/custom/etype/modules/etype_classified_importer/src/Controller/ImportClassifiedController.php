@@ -175,10 +175,11 @@ class ImportClassifiedController {
 
     $i = 0;
     foreach ($obj as $item) {
+      // Get term id that matched VisionData category.
       $query = \Drupal::entityQuery('taxonomy_term');
       $terms = $query->condition('field_visiondata_category', $item->categoryId)
         ->execute();
-      var_dump($terms);
+      $ad_cat = reset($terms);
 
       // Ads do not have title, mostly.
       $str = empty($item->ItemTitle) ? substr($item->ItemDesc, 0, 25) : $item->ItemTitle;
@@ -191,6 +192,7 @@ class ImportClassifiedController {
         ],
         'field_id' => $item->ItemId,
         'field_category' => $item->categoryId,
+        'field_ad_category' => $ad_cat,
         'status' => 1,
         'uid' => 1,
         'created'  => $item->StartDate,
