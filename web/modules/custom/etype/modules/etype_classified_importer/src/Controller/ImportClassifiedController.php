@@ -175,10 +175,10 @@ class ImportClassifiedController {
 
     $i = 0;
     foreach ($obj as $item) {
-      $query->entityCondition('entity_type', 'taxonomy_term')
-        ->fieldCondition('field_category', 'value', $item->categoryId, '=');
-      $result = $query->execute();
-      var_dump($result);
+      $query = \Drupal::entityQuery('taxonomy_term');
+      $terms = $query->condition('field_category', $item->categoryId)
+        ->execute();
+      var_dump($terms);
 
       // Ads do not have title, mostly.
       $str = empty($item->ItemTitle) ? substr($item->ItemDesc, 0, 25) : $item->ItemTitle;
