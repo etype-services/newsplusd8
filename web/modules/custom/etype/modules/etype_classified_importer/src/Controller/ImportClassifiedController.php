@@ -176,7 +176,7 @@ class ImportClassifiedController {
     $i = 0;
     foreach ($obj as $item) {
       $query = \Drupal::entityQuery('taxonomy_term');
-      $terms = $query->condition('category', $item->categoryId)
+      $terms = $query->condition('field_visiondata_category', $item->categoryId)
         ->execute();
       var_dump($terms);
 
