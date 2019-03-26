@@ -168,7 +168,7 @@ class ImportClassifiedController {
       $terms = $query->condition('field_visiondata_category', $item->categoryId)
         ->execute();
       $ad_cat = reset($terms);
-      if ($ad_cat !== FALSE) {
+      if ((int) $ad_cat > 0) {
         $entity = Node::create([
           'type' => 'classified_ad',
           'title' => $title,
