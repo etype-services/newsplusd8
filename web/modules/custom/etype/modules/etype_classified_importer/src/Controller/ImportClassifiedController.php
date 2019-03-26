@@ -190,7 +190,7 @@ class ImportClassifiedController {
         // Log/warn about missing category relationship.
         $message = sprintf("No category match for VisionData category %s.", $item->categoryId);
         \Drupal::logger('etype_classified_importer')->notice($message);
-        $this->messenger->addMessage($message, $this->messenger::TYPE_ERROR);
+        $this->messenger->addMessage($message, $this->messenger::TYPE_WARNING);
       }
       $i++;
     }
