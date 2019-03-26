@@ -181,9 +181,10 @@ class ImportClassifiedController {
         'uid' => 1,
         'created'  => $item->StartDate,
       ]);
-
+      $node->save();
       if ($ad_cat > 0) {
-        $node->set('field_ad_category', ['target_id' => $ad_cat]);
+        $node->field_ad_category->target_id = $ad_cat;
+        $node->save();
       }
       else {
         // Log/warn about missing category relationship.
@@ -191,7 +192,7 @@ class ImportClassifiedController {
         \Drupal::logger('etype_classified_importer')->notice($message);
         $this->messenger->addMessage($message, $this->messenger::TYPE_WARNING);
       }
-      $node->save();
+
       $i++;
     }
     // Log imported.
