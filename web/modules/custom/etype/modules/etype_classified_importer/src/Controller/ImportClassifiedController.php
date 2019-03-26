@@ -193,7 +193,7 @@ class ImportClassifiedController {
         ],
         'field_id' => $item->ItemId,
         'field_category' => $item->categoryId,
-        'field_ad_category' => $ad_cat,
+        //'field_ad_category' => $ad_cat,
         'status' => 1,
         'uid' => 1,
         'created'  => $item->StartDate,
