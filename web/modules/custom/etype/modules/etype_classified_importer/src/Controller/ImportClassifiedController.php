@@ -164,17 +164,22 @@ class ImportClassifiedController {
     // Delete old ads.
     $query = \Drupal::entityQuery('node');
     $query->condition('type', 'classified_ad');
-    $tids = $query->execute();
-    if (count($tids) > 0) {
+    $nids = $query->execute();
+    if (count($nids) > 0) {
       $storage_handler = \Drupal::entityTypeManager()->getStorage('node');
-      $entities = $storage_handler->loadMultiple($tids);
+      $entities = $storage_handler->loadMultiple($nids);
       $storage_handler->delete($entities);
     }
     // Log deletion.
-    \Drupal::logger('etype_classified_importer')->notice("Deleted %num classified ads.", ['%num' => count($tids)]);
+    \Drupal::logger('etype_classified_importer')->notice("Deleted %num classified ads.", ['%num' => count($nids)]);
 
     $i = 0;
     foreach ($obj as $item) {
+      $query->entityCondition('entity_type', 'taxonomy_term')
+        ->fieldCondition('field_category', 'value', $item->categoryId, '=');
+      $result = $query->execute();
+      dpm($result);
+      exit;
       // Ads do not have title, mostly.
       $str = empty($item->ItemTitle) ? substr($item->ItemDesc, 0, 25) : $item->ItemTitle;
       $title = preg_replace("/[\n\r]/", " ", $str);
