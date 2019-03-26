@@ -178,8 +178,8 @@ class ImportClassifiedController {
       $query->entityCondition('entity_type', 'taxonomy_term')
         ->fieldCondition('field_category', 'value', $item->categoryId, '=');
       $result = $query->execute();
-      dpm($result);
-      exit;
+      var_dump($result);
+
       // Ads do not have title, mostly.
       $str = empty($item->ItemTitle) ? substr($item->ItemDesc, 0, 25) : $item->ItemTitle;
       $title = preg_replace("/[\n\r]/", " ", $str);
