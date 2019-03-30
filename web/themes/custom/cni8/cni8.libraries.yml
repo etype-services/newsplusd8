@@ -1,4 +1,4 @@
 global-styling:
   css:
     component:
-      css/theme/style.css: {}
+      css/theme/style.css: {50}
