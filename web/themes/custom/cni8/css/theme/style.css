@@ -4,7 +4,7 @@
 
 /* Override header background color */
 #pre-header, #header-top {
-  background-color: #ffffff; }
+  background-color: #ffffff !important; }
 
 /* Make page full width */
 @media (min-width: 992px) {

@@ -1,4 +1,4 @@
 global-styling:
   css:
     component:
-      css/theme/style.css: { preprocess: FALSE, weight: 110 }
+      css/theme/style.css: { preprocess: FALSE, weight: 100 }
