@@ -1,4 +1,4 @@
 global-styling:
   css:
     component:
-      css/theme/style.css: {50}
+      css/theme/style.css: { weight: 50 }
