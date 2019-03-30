@@ -1,5 +1,11 @@
+/* Copied from News+ and block name replaced */
 .page-node-type-mt-post #block-cni8-page-title {
   display: none;
+}
+
+/* Override header background color */
+#pre-header, #header-top {
+  background-color: #ffffff;
 }
 
 /* Make page full width */
