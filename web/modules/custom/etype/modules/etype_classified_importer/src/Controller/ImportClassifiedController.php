@@ -185,6 +185,7 @@ class ImportClassifiedController {
       ]);
       $node->save();
 
+      /* Can’t make this work as part of Node::create */
       if ($ad_cat > 0) {
         $nid = $node->id();
         $alt = Node::load($nid);
