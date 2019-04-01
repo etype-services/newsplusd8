@@ -7,16 +7,18 @@
 
 namespace Drupal\etype_classified_importer\Controller;
 
+use Drupal;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\node\Entity\Node;
 use Drupal\Component\Utility\Html;
+use Exception;
 
 /**
  * Class ImportUrlMissingException.
  *
  * @package Drupal\etype_classified_importer\Controller
  */
-class ImportUrlMissingException extends \Exception {
+class ImportUrlMissingException extends Exception {
 
   /**
    * Constructs an ImportFileMissingException.
@@ -33,7 +35,7 @@ class ImportUrlMissingException extends \Exception {
  *
  * @package Drupal\etype_classified_importer\Controller
  */
-class XMLIsFalseException extends \Exception {
+class XMLIsFalseException extends Exception {
 
   /**
    * Constructs an XMLIsFalseException.
@@ -50,7 +52,7 @@ class XMLIsFalseException extends \Exception {
  *
  * @package Drupal\etype_classified_importer\Controller
  */
-class AdObjectEmptyException extends \Exception {
+class AdObjectEmptyException extends Exception {
 
   /**
    * Constructs an AdObjectEmptyException.
@@ -94,9 +96,9 @@ class ImportClassifiedController {
    * ImportClassifiedController constructor.
    */
   public function __construct() {
-    $this->config = \Drupal::config('etype_classified_importer.settings');
+    $this->config = Drupal::config('etype_classified_importer.settings');
     $this->importUrl = $this->config->get('import_url');
-    $this->messenger = \Drupal::messenger();
+    $this->messenger = Drupal::messenger();
   }
 
   /**
@@ -145,16 +147,16 @@ class ImportClassifiedController {
     }
 
     // Delete old ads.
-    $query = \Drupal::entityQuery('node');
+    $query = Drupal::entityQuery('node');
     $query->condition('type', 'classified_ad');
     $nids = $query->execute();
     if (count($nids) > 0) {
-      $storage_handler = \Drupal::entityTypeManager()->getStorage('node');
+      $storage_handler = Drupal::entityTypeManager()->getStorage('node');
       $entities = $storage_handler->loadMultiple($nids);
       $storage_handler->delete($entities);
     }
     // Log deletion.
-    \Drupal::logger('etype_classified_importer')->notice("Deleted %num classified ads.", ['%num' => count($nids)]);
+    Drupal::logger('etype_classified_importer')->notice("Deleted %num classified ads.", ['%num' => count($nids)]);
 
     $i = 0;
     foreach ($obj as $item) {
@@ -164,7 +166,7 @@ class ImportClassifiedController {
       $title = preg_replace("/[\n\r]/", " ", $str);
 
       // Get term id that matched VisionData category.
-      $query = \Drupal::entityQuery('taxonomy_term');
+      $query = Drupal::entityQuery('taxonomy_term');
       $terms = $query->condition('field_visiondata_category', $item->categoryId)
         ->execute();
       $ad_cat = reset($terms);
@@ -177,6 +179,7 @@ class ImportClassifiedController {
         ],
         'field_id' => $item->ItemId,
         'field_category' => $item->categoryId,
+        'field_ad_category' => $ad_cat,
         'status' => 1,
         'uid' => 1,
         'created'  => $item->StartDate,
@@ -190,14 +193,14 @@ class ImportClassifiedController {
       else {
         // Log/warn about missing category relationship.
         $message = sprintf("No category match for VisionData category %s.", $item->categoryId);
-        \Drupal::logger('etype_classified_importer')->notice($message);
+        Drupal::logger('etype_classified_importer')->notice($message);
         $this->messenger->addMessage($message, $this->messenger::TYPE_WARNING);
       }
 
       $i++;
     }
     // Log imported.
-    \Drupal::logger('etype_classified_importer')->notice("Imported %num classified ads.", ['%num' => $i]);
+    Drupal::logger('etype_classified_importer')->notice("Imported %num classified ads.", ['%num' => $i]);
 
     return ['#markup' => '<p>' . $i . ' classified ads imported.</p>'];
 
