@@ -182,6 +182,9 @@ class ImportClassifiedController {
         'created'  => $item->StartDate,
       ]);
       $node->save();
+      print $ad_cat;
+      var_dump($node);
+      exit;
       if ($ad_cat > 0) {
         $node->field_ad_category->target_id = $ad_cat;
         $node->save();
