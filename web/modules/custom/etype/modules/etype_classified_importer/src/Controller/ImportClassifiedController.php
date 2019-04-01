@@ -180,7 +180,7 @@ class ImportClassifiedController {
         'field_id' => $item->ItemId,
         'field_category' => $item->categoryId,
         'field_ad_category' => [
-          ['tid' => $ad_cat],
+          ['field_ad_category_target_id' => $ad_cat],
         ],
         'status' => 1,
         'uid' => 1,
