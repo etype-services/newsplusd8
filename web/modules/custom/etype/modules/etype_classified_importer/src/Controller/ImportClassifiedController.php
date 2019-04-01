@@ -179,9 +179,6 @@ class ImportClassifiedController {
         ],
         'field_id' => $item->ItemId,
         'field_category' => $item->categoryId,
-        'field_ad_category' => [
-          ['target_id' => $ad_cat],
-        ],
         'status' => 1,
         'uid' => 1,
         'created'  => $item->StartDate,
@@ -189,7 +186,10 @@ class ImportClassifiedController {
       $node->save();
 
       if ($ad_cat > 0) {
-
+        $nid = $node->id();
+        $alt = Node::load($nid);
+        $alt->field_ad_category->target_id = $ad_cat;
+        $alt->save();
       }
       else {
         // Log/warn about missing category relationship.
