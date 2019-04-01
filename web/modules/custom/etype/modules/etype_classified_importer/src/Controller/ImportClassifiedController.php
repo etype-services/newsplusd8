@@ -185,8 +185,8 @@ class ImportClassifiedController {
       dpm($node);
 
       if ($ad_cat > 0) {
-        $node->field_ad_category->target_id = $ad_cat;
-        $node->save();
+        // $node->field_ad_category->target_id = $ad_cat;
+        // $node->save();
       }
       else {
         // Log/warn about missing category relationship.
