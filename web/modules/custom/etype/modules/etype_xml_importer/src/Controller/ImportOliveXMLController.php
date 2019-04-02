@@ -8,18 +8,22 @@
 
 namespace Drupal\etype_xml_importer\Controller;
 
+use Drupal;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 
 require_once __DIR__ . '/../Plugin/Encoding.php';
 
+use Exception;
+use FilesystemIterator;
 use ForceUTF8\Encoding;
+use ZipArchive;
 
 /**
  * Class ImportFileMissingException.
  *
  * @package Drupal\etype_xml_importer\Controller
  */
-class ImportFileMissingException extends \Exception {
+class ImportFileMissingException extends Exception {
 
   /**
    * ImportFileMissingException constructor.
@@ -36,7 +40,7 @@ class ImportFileMissingException extends \Exception {
  *
  * @package Drupal\etype_xml_importer\Controller
  */
-class ImportUrlMissingException extends \Exception {
+class ImportUrlMissingException extends Exception {
 
   /**
    * Constructs an ImportFileMissingException.
@@ -53,7 +57,7 @@ class ImportUrlMissingException extends \Exception {
  *
  * @package Drupal\etype_xml_importer\Controller
  */
-class XMLIsFalseException extends \Exception {
+class XMLIsFalseException extends Exception {
 
   /**
    * Constructs an ImportFileMissingException.
@@ -80,61 +84,78 @@ class ImportOliveXMLController {
   protected $config;
 
   /**
-   * @var
+   * Var Setup.
+   *
+   * @var ImportOliveXMLController
    */
-  protected $import_files;
+  protected $importFiles;
 
   /**
-   * @var
+   * Var Setup.
+   *
+   * @var ImportOliveXMLController
    */
-  protected $node_type;
+  protected $nodeType;
 
   /**
-   * @var
+   * Var Setup.
+   *
+   * @var ImportOliveXMLController
    */
-  protected $byline_field;
+  protected $bylineField;
 
   /**
-   * @var
+   * Var Setup.
+   *
+   * @var ImportOliveXMLController
    */
-  protected $subhead_field;
+  protected $subheadField;
 
   /**
-   * @var
+   * Var Setup.
+   *
+   * @var ImportOliveXMLController
    */
   protected $import_url;
 
   /**
-   * @var
+   * Var Setup.
+   *
+   * @var ImportOliveXMLController
    */
   protected $import_classifieds;
 
   /**
-   * @var
+   * Var Setup.
+   *
+   * @var ImportOliveXMLController
    */
-  protected $lang_code;
+  protected $langCode;
 
   /**
+   * Var Setup.
+   *
    * @var
    */
   protected $extract_dir;
 
   /**
-   * @var
-   */
-  protected $values;
-
-  /**
+   * Var Setup.
+   *
    * @var \Drupal\Core\Messenger\MessengerInterface
    */
   protected $messenger;
 
   /**
+   * Var Setup.
+   *
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
   protected $entity_type_manager;
 
   /**
+   * Var Setup.
+   *
    * @var
    */
   protected $i;
@@ -143,25 +164,29 @@ class ImportOliveXMLController {
    * ImportOliveXMLController constructor.
    */
   public function __construct() {
-    $this->config = \Drupal::config('etype_xml_importer.settings');
+    $this->config = Drupal::config('etype_xml_importer.settings');
     $this->import_url = $this->config->get('import_url');
-    $this->import_files = $this->config->get('import_files');
-    $this->node_type = $this->config->get('node_type');
-    $this->lang_code = 'en';
-    $this->byline_field = $this->config->get('byline_field');
-    $this->subhead_field = $this->config->get('subhead_field');
+    $this->importFiles = $this->config->get('importFiles');
+    $this->nodeType = $this->config->get('nodeType');
+    $this->langCode = 'en';
+    $this->bylineField = $this->config->get('bylineField');
+    $this->subheadField = $this->config->get('subheadField');
     $this->import_classifieds = $this->config->get('import_classifieds');
-    $this->messenger = \Drupal::messenger();
-    $this->entity_type_manager = \Drupal::entityTypeManager();
+    $this->messenger = Drupal::messenger();
+    $this->entity_type_manager = Drupal::entityTypeManager();
   }
 
   /**
+   * Import OLive XML.
+   *
    * @return array
+   *   Markup
+   *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  public function ImportOliveXml() {
+  public function importOliveXml() {
 
     /* throw Exception and return empty page with message if no url to import from */
     try {
@@ -176,7 +201,7 @@ class ImportOliveXMLController {
 
     /* throw Exception and return empty page with message if no file to import */
     try {
-      if (empty($this->import_files)) {
+      if (empty($this->importFiles)) {
         throw new ImportFileMissingException();
       }
     }
@@ -188,7 +213,7 @@ class ImportOliveXMLController {
     /* initialize markup */
     $markup = '';
 
-    $import_file_array = explode(',', $this->import_files);
+    $import_file_array = explode(',', $this->importFiles);
 
     /* loop over import files */
     foreach ($import_file_array as $item) {
@@ -207,7 +232,7 @@ class ImportOliveXMLController {
       }
 
       /* Extract Zip Archive using PHP core */
-      $zip = new \ZipArchive();
+      $zip = new ZipArchive();
       $res = $zip->open($zip_file);
       if ($res === TRUE) {
         $zip->extractTo($this->extract_dir);
@@ -220,7 +245,7 @@ class ImportOliveXMLController {
       }
 
       /* Loop over directory and get the Files */
-      $fileSystemIterator = new \FilesystemIterator($this->extract_dir);
+      $fileSystemIterator = new FilesystemIterator($this->extract_dir);
       $entries = array();
       foreach ($fileSystemIterator as $fileInfo) {
         $entry = $fileInfo->getFilename();
@@ -232,14 +257,6 @@ class ImportOliveXMLController {
       $this->i = 0;
       $t = 0;
       if (count($entries) > 0) {
-        $this->values = array(
-          'type' => $this->node_type,
-          'uid' => 1,
-          'status' => 0,
-          'comment' => 0,
-          'promote' => 0,
-          'language' => $this->lang_code,
-        );
 
         foreach ($entries as $entry) {
           $markup .= "<p>Extracting articles from $entry section.</p>";
@@ -265,7 +282,7 @@ class ImportOliveXMLController {
               $item = $stub->item;
               /* xml object processing of stub which contains link, title, and description */
               foreach ($item as $k => $v) {
-                $this->ParseItem($v);
+                $this->parseItem($v);
               }
             }
           }
@@ -276,26 +293,27 @@ class ImportOliveXMLController {
     }
 
     $message = 'eType XML Importer imported $t articles.';
-    \Drupal::logger('my_module')->notice($message);
+    Drupal::logger('my_module')->notice($message);
     return ['#markup' => $markup];
   }
 
   /**
    * Parse XML into importable format.
    *
-   * @param $item
+   * @param Object $item
    *   XML data.
+   *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  protected function ParseItem($item) {
-    $array = (array)$item;
+  protected function parseItem(Object $item) {
+    $array = (array) $item;
 
-    // title is not an object if the stub is valid
+    // Title is not an object if the stub is valid.
     if (!is_object($array['title'])) {
 
-      // full article is in the linked file
+      // Full article is in the linked file.
       $ar_file = $array['link'];
       $ar_xml = file_get_contents($this->extract_dir . $ar_file);
 
@@ -311,13 +329,12 @@ class ImportOliveXMLController {
       $array['section'] = $coincidencias[1];
 
       preg_match("/<dc:title>([^<]+)/", $ar_xml, $coincidencias);
-      // echo 'title should be: ' . $coincidencias[1] . "\n";
       $array['title'] = substr($coincidencias[1], 0, 255);
 
       preg_match("/<prism:coverDate>([^<]+)/", $ar_xml, $coincidencias);
       $array['pub_date'] = $coincidencias[1];
 
-      // s flag makes dot match linebreaks as well
+      // Note: s flag makes dot match linebreaks as well.
       preg_match("'<body>(.*?)</body>'s", $ar_xml, $coincidencias);
       $body = $coincidencias[1];
       $body = preg_replace("'<xhtml:h1>(.*?)</xhtml:h1>'s", "", $body);
@@ -325,40 +342,43 @@ class ImportOliveXMLController {
       $body = preg_replace("'<xhtml:p prism:class=\"deck\">(.*?)</xhtml:p>'s", "", $body, 1);
       $body = preg_replace("'<xhtml:p prism:class=\"byline\">(.*?)</xhtml:p>'s", "", $body, 1);
       $body = preg_replace("/xhtml:([a-z]?)/", "$1", $body);
-      // fix tags
+      // Fix tags.
       $array['body'] = trim($body);
 
-      // get the slugline
+      // Get the slugline.
       preg_match("'<xhtml:p prism:class=\"deck\">(.*?)</xhtml:p>'s", $ar_xml, $coincidencias);
       if (isset($coincidencias[1])) {
         $array['slugline'] = trim(strip_tags($coincidencias[1]));
-      } else {
+      }
+      else {
         $array['slugline'] = '';
       }
 
-      // get the byline
+      // Get the byline.
       preg_match("'<xhtml:p prism:class=\"byline\">(.*?)</xhtml:b>'s", $ar_xml, $coincidencias);
       if (isset($coincidencias[1])) {
         $temp = preg_replace("/<xhtml:br \\/>/", " ", $coincidencias[1]);
         $temp = trim(strip_tags($temp));
         $temp = preg_replace("/^by\s*/i", "", $temp);
         $array['byline'] = ucwords(strtolower($temp));
-      } else {
+      }
+      else {
         $array['byline'] = '';
       }
 
-      // get the pull quote
+      // Get the pull quote.
       preg_match("'<xhtml:p prism:class=\"pullQuote\">(.*?)</xhtml:b>'s", $ar_xml, $coincidencias);
       if (isset($coincidencias[1])) {
         $array['pulled_quote'] = trim(ucwords(strtolower(strip_tags($coincidencias[1]))));
-      } else {
+      }
+      else {
         $array['pulled_quote'] = '';
       }
 
       /* Images */
       $images = array();
       preg_match_all("'<pam:media>(.*?)</pam:media>'s", $ar_xml, $coincidencias);
-      // loop over matches and match data
+      // Loop over matches and match data.
       if (!empty($coincidencias[1])) {
         $matches = $coincidencias[1];
         foreach ($matches as $item) {
@@ -371,7 +391,8 @@ class ImportOliveXMLController {
               preg_match("'<pam:caption>(.*?)</pam:caption>'s", $item, $arr);
               if (isset($arr[1])) {
                 $iarray['caption'] = trim(strip_tags($arr[1]));
-              } else {
+              }
+              else {
                 $iarray['caption'] = '';
               }
               $images[] = $iarray;
@@ -386,8 +407,8 @@ class ImportOliveXMLController {
         'title' => Encoding::toUTF8($array['title']),
         'summary' => strip_tags(Encoding::toUTF8($array['description'])),
         'body' => Encoding::toUTF8($array['body']),
-        $this->byline_field => substr(Encoding::toUTF8($array['byline']), 0, 255), // trim to field length
-        $this->subhead_field => Encoding::toUTF8($array['slugline']),
+        $this->bylineField => substr(Encoding::toUTF8($array['byline']), 0, 255),
+        $this->subheadField => Encoding::toUTF8($array['slugline']),
       );
 
       $array = [];
@@ -403,29 +424,33 @@ class ImportOliveXMLController {
         $node['images'] = $array;
       }
 
-      // otherwise field is initiated and shows empty on node page
+      // Otherwise field is initiated and shows empty on node page.
       if (!empty($array['pulled_quote'])) {
         $node['field_pulled_quote'] = $array['pulled_quote'];
       }
 
-      $this->values['created'] = $pub_date;
-      $this->CreateNode($node);
+      $node['created'] = $pub_date;
+      $this->createNode($node);
       $this->i++;
     }
   }
 
   /**
-   * @param $node
+   * Create a Node.
+   *
+   * @param array $node
+   *   Node array.
    *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
+   * TODO: Add user creation.
    */
-  protected function CreateNode($node) {
+  protected function createNode(array $node) {
     $storage = $this->entity_type_manager->getStorage('node');
     $field_image = [];
     if (isset($node['images'])) {
-      $rand = substr(md5(uniqid(mt_rand(), true)), 0, 10);
+      $rand = substr(md5(uniqid(mt_rand(), TRUE)), 0, 10);
       foreach ($node['images'] as $image) {
         // Create file object from remote URL.
         $data = file_get_contents($image['path']);
@@ -438,7 +463,7 @@ class ImportOliveXMLController {
       }
     }
     $new_entity = $storage->create([
-      'type' => $this->node_type,
+      'type' => $this->nodeType,
       'title' => $node['title'],
       'body' => [
         'value' => $node['body'],
@@ -446,6 +471,11 @@ class ImportOliveXMLController {
         'format' => 'full_html',
       ],
       'field_image' => $field_image,
+      'uid' => 1,
+      'status' => 0,
+      'comment' => 0,
+      'promote' => 0,
+      'language' => $this->langCode,
     ]);
     $new_entity->save();
   }
