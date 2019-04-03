@@ -23,12 +23,7 @@ function _etype_wire_content_node_export() {
  * @return bool
  */
 function _etype_wire_content_check_connection() {
-  $has_connection = (bool) Database::getConnectionInfo('wire');
-  var_dump($has_connection);
-  if (empty ($databases['default']['wire']['database'] || !isset
-    ($databases['default']['wire']['database']))) {
-    return FALSE;
-  } else {
-    return TRUE;
-  }
+  $wired = (bool) Database::getConnectionInfo('wire');
+  var_dump($wired);
+  return FALSE;
 }
