@@ -1,0 +1,9 @@
+etype_wire_content.admin_settings:
+  path: '/admin/config/etype_wire_content/adminsettings'
+  defaults:
+    _form: '\Drupal\etype_wire_content\Form\EtypeWireContentConfigForm'
+    _title: 'eType Wire Content Configuration'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
