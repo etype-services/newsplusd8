@@ -15,3 +15,17 @@ function _etype_wire_content_node_export() {
   $job = new Drupal\etype_xml_importer\Controller\ImportOliveXMLController;
   $job->ImportOliveXml();
 }
+
+
+/**
+ * @return bool
+ */
+function _etype_wire_check_connection() {
+  global $databases;
+  if (empty ($databases['default']['wire']['database'] || !isset
+    ($databases['default']['wire']['database']))) {
+    return FALSE;
+  } else {
+    return TRUE;
+  }
+}

@@ -4,8 +4,28 @@ namespace Drupal\etype_wire_content\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\etype_xml_importer\Controller\ImportFileMissingException;
 use Drupal\node\Entity\NodeType;
+use Exception;
 
+
+/**
+ * Class WireConnectionException.
+ *
+ * @package Drupal\etype_wire_content\Form
+ */
+class WireConnectionException extends Exception {
+
+  /**
+   * WireConnectionException constructor.
+   */
+  public function __construct() {
+    $message = new TranslatableMarkup('Wire database connection settings are missing.');
+    parent::__construct($message);
+  }
+
+}
 /**
  * Class EtypeWireContentConfigForm.
  *
@@ -45,6 +65,17 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
    * EtypeWireContentConfigForm constructor.
    */
   public function __construct() {
+    /* throw Exception and return empty page with message if the wire database setings are missing */
+    try {
+      $check = _etype_wire_check_connection();
+      if ($check === FALSE) {
+        throw new WireConnectionException();
+      }
+    }
+    catch (WireConnectionException $e) {
+      $this->messenger->addMessage($e->getMessage(), $this->messenger::TYPE_ERROR);
+      return ['#markup' => ''];
+    }
     parent::__construct($this->configFactory());
     $this->conf = $this->config('etype_wire_content.settings');
     $this->entityFieldManager = \Drupal::service('entity_field.manager');

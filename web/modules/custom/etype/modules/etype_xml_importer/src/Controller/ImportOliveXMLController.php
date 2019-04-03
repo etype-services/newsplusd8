@@ -43,7 +43,7 @@ class ImportFileMissingException extends Exception {
 class ImportUrlMissingException extends Exception {
 
   /**
-   * Constructs an ImportFileMissingException.
+   * Constructs an ImportUrlMissingException.
    */
   public function __construct() {
     $message = new TranslatableMarkup('No import url defined. See eType XML Importer settings.');
@@ -60,7 +60,7 @@ class ImportUrlMissingException extends Exception {
 class XMLIsFalseException extends Exception {
 
   /**
-   * Constructs an ImportFileMissingException.
+   * Constructs an XMLIsFalseException.
    */
   public function __construct() {
     $message = new TranslatableMarkup('There was a problem extracting XML from the file.');
@@ -135,9 +135,9 @@ class ImportOliveXMLController {
   /**
    * Var Setup.
    *
-   * @var
+   * @var ImportOliveXMLController
    */
-  protected $extract_dir;
+  protected $extractDir;
 
   /**
    * Var Setup.
@@ -151,12 +151,12 @@ class ImportOliveXMLController {
    *
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
-  protected $entity_type_manager;
+  protected $entityTypeManager;
 
   /**
    * Var Setup.
    *
-   * @var
+   * @var ImportOliveXMLController
    */
   protected $i;
 
@@ -173,7 +173,7 @@ class ImportOliveXMLController {
     $this->subheadField = $this->config->get('subheadField');
     $this->import_classifieds = $this->config->get('import_classifieds');
     $this->messenger = Drupal::messenger();
-    $this->entity_type_manager = Drupal::entityTypeManager();
+    $this->entityTypeManager = Drupal::entityTypeManager();
   }
 
   /**
@@ -221,7 +221,7 @@ class ImportOliveXMLController {
 
       $rand = md5(time());
       $zip_file = "/tmp/" . $rand . ".zip";
-      $this->extract_dir = '/tmp/' . $rand . '/';
+      $this->extractDir = '/tmp/' . $rand . '/';
 
       /* Copy Zip file from url */
       $import_file = $this->import_url . trim($item);
@@ -235,7 +235,7 @@ class ImportOliveXMLController {
       $zip = new ZipArchive();
       $res = $zip->open($zip_file);
       if ($res === TRUE) {
-        $zip->extractTo($this->extract_dir);
+        $zip->extractTo($this->extractDir);
         $zip->close();
       }
       else {
@@ -245,7 +245,7 @@ class ImportOliveXMLController {
       }
 
       /* Loop over directory and get the Files */
-      $fileSystemIterator = new FilesystemIterator($this->extract_dir);
+      $fileSystemIterator = new FilesystemIterator($this->extractDir);
       $entries = array();
       foreach ($fileSystemIterator as $fileInfo) {
         $entry = $fileInfo->getFilename();
@@ -261,7 +261,7 @@ class ImportOliveXMLController {
         foreach ($entries as $entry) {
           $markup .= "<p>Extracting articles from $entry section.</p>";
 
-          $xml = file_get_contents($this->extract_dir . $entry);
+          $xml = file_get_contents($this->extractDir . $entry);
 
           /* throw Exception and return empty page with message if xml is not extractable */
           try {
@@ -315,7 +315,7 @@ class ImportOliveXMLController {
 
       // Full article is in the linked file.
       $ar_file = $array['link'];
-      $ar_xml = file_get_contents($this->extract_dir . $ar_file);
+      $ar_xml = file_get_contents($this->extractDir . $ar_file);
 
       /* parse article xhtml from link file */
       preg_match("/<prism:section>([^<]+)/", $ar_xml, $coincidencias);
@@ -414,7 +414,7 @@ class ImportOliveXMLController {
       $array = [];
       if (count($images) > 0) {
         foreach ($images as $image) {
-          $ipath = $this->extract_dir . 'img/' . $image['image'];
+          $ipath = $this->extractDir . 'img/' . $image['image'];
           $array[] = [
             'name' => $image['image'],
             'path' => $ipath,
@@ -447,7 +447,7 @@ class ImportOliveXMLController {
    * TODO: Add user creation.
    */
   protected function createNode(array $node) {
-    $storage = $this->entity_type_manager->getStorage('node');
+    $storage = $this->entityTypeManager->getStorage('node');
     $field_image = [];
     if (isset($node['images'])) {
       $rand = substr(md5(uniqid(mt_rand(), TRUE)), 0, 10);
