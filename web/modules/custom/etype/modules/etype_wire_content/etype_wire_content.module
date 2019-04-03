@@ -20,7 +20,7 @@ function _etype_wire_content_node_export() {
 /**
  * @return bool
  */
-function _etype_wire_check_connection() {
+function _etype_wire_content_check_connection() {
   global $databases;
   if (empty ($databases['default']['wire']['database'] || !isset
     ($databases['default']['wire']['database']))) {
