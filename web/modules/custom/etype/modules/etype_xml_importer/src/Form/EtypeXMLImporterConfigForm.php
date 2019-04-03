@@ -18,7 +18,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
    *
    * @var \Drupal\Core\Entity\EntityFieldManager
    */
-  protected $entity_field_manager;
+  protected $entityFieldManager;
 
   /**
    * @var
@@ -46,7 +46,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
   public function __construct() {
     parent::__construct($this->configFactory());
     $this->conf = $this->config('etype_xml_importer.settings');
-    $this->entity_field_manager = \Drupal::service('entity_field.manager');
+    $this->entityFieldManager = \Drupal::service('entity_field.manager');
     $this->getNodeTypeOptions();
     $this->getFields();
   }
@@ -65,7 +65,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
    * Get the fields associated with selected node type.
    */
   protected function getFields() {
-    $fields = $this->entity_field_manager->getFieldDefinitions('node', $this->conf->get('node_type'));
+    $fields = $this->entityFieldManager->getFieldDefinitions('node', $this->conf->get('node_type'));
     $arr = array_keys($fields);
     foreach ($arr as $key) {
       $this->fields[] = $key;

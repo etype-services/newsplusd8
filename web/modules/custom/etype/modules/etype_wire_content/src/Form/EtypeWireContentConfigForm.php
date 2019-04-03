@@ -2,6 +2,7 @@
 
 namespace Drupal\etype_wire_content\Form;
 
+use Drupal;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
@@ -71,6 +72,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
    */
   public function __construct() {
     parent::__construct($this->configFactory());
+    $this->messenger = Drupal::messenger();
     $this->conf = $this->config('etype_wire_content.settings');
     $this->entityFieldManager = \Drupal::service('entity_field.manager');
     $this->getnodeTypeOptions();

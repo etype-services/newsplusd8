@@ -116,14 +116,14 @@ class ImportOliveXMLController {
    *
    * @var ImportOliveXMLController
    */
-  protected $import_url;
+  protected $importUrl;
 
   /**
    * Var Setup.
    *
    * @var ImportOliveXMLController
    */
-  protected $import_classifieds;
+  protected $importClassifieds;
 
   /**
    * Var Setup.
@@ -165,13 +165,13 @@ class ImportOliveXMLController {
    */
   public function __construct() {
     $this->config = Drupal::config('etype_xml_importer.settings');
-    $this->import_url = $this->config->get('import_url');
+    $this->importUrl = $this->config->get('importUrl');
     $this->importFiles = $this->config->get('importFiles');
     $this->nodeType = $this->config->get('nodeType');
     $this->langCode = 'en';
     $this->bylineField = $this->config->get('bylineField');
     $this->subheadField = $this->config->get('subheadField');
-    $this->import_classifieds = $this->config->get('import_classifieds');
+    $this->importClassifieds = $this->config->get('importClassifieds');
     $this->messenger = Drupal::messenger();
     $this->entityTypeManager = Drupal::entityTypeManager();
   }
@@ -190,7 +190,7 @@ class ImportOliveXMLController {
 
     /* throw Exception and return empty page with message if no url to import from */
     try {
-      if (empty($this->import_url)) {
+      if (empty($this->importUrl)) {
         throw new ImportUrlMissingException();
       }
     }
@@ -224,7 +224,7 @@ class ImportOliveXMLController {
       $this->extractDir = '/tmp/' . $rand . '/';
 
       /* Copy Zip file from url */
-      $import_file = $this->import_url . trim($item);
+      $import_file = $this->importUrl . trim($item);
       if (!file_put_contents($zip_file, file_get_contents($import_file))) {
         $message = "eType XML Importer could not import " . $import_file . ".";
         $this->messenger->addMessage($message, $this->messenger::TYPE_WARNING);
@@ -321,7 +321,7 @@ class ImportOliveXMLController {
       preg_match("/<prism:section>([^<]+)/", $ar_xml, $coincidencias);
 
       /* ignore if classifieds? */
-      if ($this->import_classifieds !== 1) {
+      if ($this->importClassifieds !== 1) {
         if ($coincidencias[1] == 'Classifieds') {
           return;
         }
