@@ -63,17 +63,6 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
    * EtypeWireContentConfigForm constructor.
    */
   public function __construct() {
-    /* throw Exception and return empty page with message if the wire database setings are missing */
-    try {
-      $check = _etype_wire_check_connection();
-      if ($check === FALSE) {
-        throw new WireConnectionException();
-      }
-    }
-    catch (WireConnectionException $e) {
-      $this->messenger->addMessage($e->getMessage(), $this->messenger::TYPE_ERROR);
-      return ['#markup' => ''];
-    }
     parent::__construct($this->configFactory());
     $this->conf = $this->config('etype_wire_content.settings');
     $this->entityFieldManager = \Drupal::service('entity_field.manager');
@@ -122,6 +111,18 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+
+    /* throw Exception and return empty page with message if the wire database setings are missing */
+    try {
+      $check = _etype_wire_check_connection();
+      if ($check === FALSE) {
+        throw new WireConnectionException();
+      }
+    }
+    catch (WireConnectionException $e) {
+      $this->messenger->addMessage($e->getMessage(), $this->messenger::TYPE_ERROR);
+      return ['#markup' => ''];
+    }
 
     /* importer settings */
     $form['wire_content'] = [
