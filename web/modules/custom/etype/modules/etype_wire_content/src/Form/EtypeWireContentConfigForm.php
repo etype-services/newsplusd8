@@ -20,7 +20,7 @@ class WireConnectionException extends Exception {
    * WireConnectionException constructor.
    */
   public function __construct() {
-    $message = new TranslatableMarkup('Wire database connection settings are missing.');
+    $message = new TranslatableMarkup('Wire database connection settings are missing. Please add them in this site’s settings.php.');
     parent::__construct($message);
   }
 
