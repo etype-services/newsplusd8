@@ -124,7 +124,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
     $check = _etype_wire_content_check_connection();
     /* throw Exception and return empty page with message if the wire database setings are missing */
     try {
-      if ($check === FALSE) {
+      if ($check === 0) {
         throw new WireConnectionException();
       }
     }
