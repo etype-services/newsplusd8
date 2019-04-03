@@ -32,6 +32,13 @@ class WireConnectionException extends Exception {
 class EtypeWireContentConfigForm extends ConfigFormBase {
 
   /**
+   * Var Setup.
+   *
+   * @var \Drupal\Core\Messenger\MessengerInterface
+   */
+  protected $messenger;
+
+  /**
    * The entity field manager.
    *
    * @var \Drupal\Core\Entity\EntityFieldManager
