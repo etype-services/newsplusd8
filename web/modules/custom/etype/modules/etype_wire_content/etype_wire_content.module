@@ -20,6 +20,8 @@ function _etype_wire_content_node_export() {
 
 
 /**
+ * Check database settings exist.
+ *
  * @return bool
  */
 function _etype_wire_content_check_connection() {
