@@ -22,6 +22,7 @@ function _etype_wire_content_node_export() {
  */
 function _etype_wire_content_check_connection() {
   global $databases;
+  var_dump($databases);
   if (empty ($databases['default']['wire']['database'] || !isset
     ($databases['default']['wire']['database']))) {
     return FALSE;
