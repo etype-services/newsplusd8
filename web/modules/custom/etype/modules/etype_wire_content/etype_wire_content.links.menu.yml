@@ -1,0 +1,5 @@
+etype_wire_content.admin_settings:
+  title: 'eType Wire Content Settings'
+  parent: system.admin_config_etype
+  description: 'Configure eType Wire Content settings.'
+  route_name: etype_wire_content.admin_settings

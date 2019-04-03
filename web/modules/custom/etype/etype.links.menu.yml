@@ -9,7 +9,7 @@ system.admin_config_etype:
 etype.admin_settings:
   title: 'eType Settings'
   parent: system.admin_config_etype
-  description: 'Configure eType settings.'
+  description: 'Configure eType settings, including e-Edition, Willyweather code, and MercoLocal id.'
   route_name: etype.admin_settings_form
 
 etype.e_edition:
