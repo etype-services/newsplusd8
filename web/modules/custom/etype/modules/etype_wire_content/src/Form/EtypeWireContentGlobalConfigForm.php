@@ -10,27 +10,11 @@ use Drupal\node\Entity\NodeType;
 use Exception;
 
 /**
- * Class WireConnectionException.
+ * Class EtypeWireContentGlobalConfigForm.
  *
  * @package Drupal\etype_wire_content\Form
  */
-class WireConnectionException extends Exception {
-
-  /**
-   * WireConnectionException constructor.
-   */
-  public function __construct() {
-    $message = new TranslatableMarkup('Wire database connection settings are missing. Please add them in this site’s settings.php.');
-    parent::__construct($message);
-  }
-
-}
-/**
- * Class EtypeWireContentConfigForm.
- *
- * @package Drupal\etype_wire_content\Form
- */
-class EtypeWireContentConfigForm extends ConfigFormBase {
+class EtypeWireContentGlobalConfigForm extends ConfigFormBase {
 
   /**
    * Var Setup.
@@ -49,55 +33,32 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
   /**
    * The config settings.
    *
-   * @var EtypeWireContentConfigForm
+   * @var EtypeWireContentGlobalConfigForm
    */
   protected $conf;
 
   /**
    * Node Types for select.
    *
-   * @var EtypeWireContentConfigForm
+   * @var EtypeWireContentGlobalConfigForm
    */
   protected $nodeTypeOptions = [];
 
   /**
    * Fields attached to selected Node Type.
    *
-   * @var EtypeWireContentConfigForm
+   * @var EtypeWireContentGlobalConfigForm
    */
   protected $fields = [];
 
   /**
-   * EtypeWireContentConfigForm constructor.
+   * EtypeWireContentGlobalConfigForm constructor.
    */
   public function __construct() {
     parent::__construct($this->configFactory());
     $this->messenger = Drupal::messenger();
     $this->conf = $this->config('etype_wire_content.settings');
     $this->entityFieldManager = \Drupal::service('entity_field.manager');
-    $this->getnodeTypeOptions();
-    $this->getFields();
-  }
-
-  /**
-   * Get node types and make options array.
-   */
-  protected function getnodeTypeOptions() {
-    $node_types = NodeType::loadMultiple();
-    foreach ($node_types as $node_type) {
-      $this->nodeTypeOptions[$node_type->id()] = $node_type->label();
-    }
-  }
-
-  /**
-   * Get the fields associated with selected node type.
-   */
-  protected function getFields() {
-    $fields = $this->entityFieldManager->getFieldDefinitions('node', $this->conf->get('node_type'));
-    $arr = array_keys($fields);
-    foreach ($arr as $key) {
-      $this->fields[] = $key;
-    }
   }
 
   /**
@@ -113,7 +74,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'etype_wire_content_admin_form';
+    return 'etype_wire_content_global_admin_form';
   }
 
   /**
@@ -133,14 +94,11 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
       return ['#markup' => ''];
     }
 
-    /* importer settings */
+    /* Group settings. */
     $form['groups'] = [
       '#type' => 'fieldset',
       '#title' => $this->t('Groups'),
     ];
-
-    $form['groups']['#markup'] = "Enable and edit import cron job at the <a href=\"/admin/config/system/cron/jobs/manage/etype_wire_content_cron\">cron settings page</a>.";
-
 
     $form['wire_content']['import_files'] = [
       '#type' => 'textfield',
