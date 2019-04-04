@@ -100,15 +100,6 @@ class EtypeWireContentGlobalConfigForm extends ConfigFormBase {
       '#title' => $this->t('Groups'),
     ];
 
-    $form['wire_content']['import_files'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Import File(s)'),
-      '#description' => $this->t('Enter the file name or names to import. Separate multiple files with a comma.'),
-      '#size' => 55,
-      '#default_value' => $this->conf->get('import_files'),
-      '#required' => TRUE,
-    ];
-
     return parent::buildForm($form, $form_state);
   }
 
