@@ -1,0 +1,4 @@
+etype_wire_content.admin_settings.global:
+  title: 'Global Settings'
+  route_name: etype_wire_content.admin_settings.global
+  base_route: etype_wire_content.admin_settings
