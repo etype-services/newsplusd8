@@ -134,12 +134,12 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
     }
 
     /* importer settings */
-    $form['wire_content'] = [
+    $form['groups'] = [
       '#type' => 'fieldset',
-      '#title' => $this->t('Basic configuration'),
+      '#title' => $this->t('Groups'),
     ];
 
-    $form['wire_content']['#markup'] = "Enable and edit import cron job at the <a href=\"/admin/config/system/cron/jobs/manage/etype_wire_content_cron\">cron settings page</a>.";
+    $form['groups']['#markup'] = "Enable and edit import cron job at the <a href=\"/admin/config/system/cron/jobs/manage/etype_wire_content_cron\">cron settings page</a>.";
 
 
     $form['wire_content']['import_files'] = [
