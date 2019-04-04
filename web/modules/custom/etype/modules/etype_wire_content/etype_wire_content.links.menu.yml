@@ -3,3 +3,9 @@ etype_wire_content.admin_settings:
   parent: system.admin_config_etype
   description: 'Configure eType Wire Content settings.'
   route_name: etype_wire_content.admin_settings
+
+etype_wire_content.admin_settings.global:
+  title: 'eType Wire Content Global Settings'
+  parent: etype_wire_content.admin_settings
+  description: 'Configure eType Wire Content Global settings.'
+  route_name: etype_wire_content.admin_settings.global
