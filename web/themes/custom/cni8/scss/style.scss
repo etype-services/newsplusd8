@@ -8,6 +8,14 @@
   background-color: #ffffff!important;
 }
 
+#block-cni8-secondarymenu-2 {
+  .superfish-secondary-menu {
+    li {
+      background-color: #555555;
+    }
+  }
+}
+
 /* Make page full width */
 @media (min-width: 992px) {
   .page-node-type-mt-post {
