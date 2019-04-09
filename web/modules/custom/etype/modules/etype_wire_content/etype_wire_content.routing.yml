@@ -24,6 +24,6 @@ etype_wire_content.wire_content:
     _title: 'Wire Content'
     _controller: '\Drupal\etype_classified_importer\Controller\ImportClassifiedController::importClassifiedXml'
   requirements:
-    _permission: 'access wire content'
+    _permission: 'access administration pages'
   options:
     _admin_route: TRUE
