@@ -17,3 +17,13 @@ etype_wire_content.admin_settings.global:
     _permission: 'access administration pages'
   options:
     _admin_route: TRUE
+
+etype_wire_content.wire_content:
+  path: '/admin/content/wire_content'
+  defaults:
+    _title: 'Wire Content'
+    _controller: '\Drupal\etype_classified_importer\Controller\ImportClassifiedController::importClassifiedXml'
+  requirements:
+    _permission: 'access wire content'
+  options:
+    _admin_route: TRUE
