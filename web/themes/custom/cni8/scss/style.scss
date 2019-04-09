@@ -8,6 +8,7 @@
   background-color: #ffffff!important;
 }
 
+/* But put back for upper menu */
 #superfish-secondary-menu {
   li {
     background-color: #555555;
@@ -18,7 +19,8 @@
 @media (min-width: 992px) {
   .page-node-type-mt-post {
     #main-content section.col-md-8 {
-      width: 80%;
+      width: 95%;
+      margin-left: 0;
     }
   }
 }
