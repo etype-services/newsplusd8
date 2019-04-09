@@ -81,14 +81,14 @@ class ImportClassifiedController {
   /**
    * Var Setup.
    *
-   * @var \Drupal\Core\Config\ImmutableConfig
+   * @var ImportClassifiedController
    */
   protected $importUrl;
 
   /**
    * Var Setup.
    *
-   * @var \Drupal\Core\Config\ImmutableConfig
+   * @var ImportClassifiedController
    */
   protected $messenger;
 

@@ -22,7 +22,7 @@ etype_wire_content.wire_content:
   path: '/admin/content/wire_content'
   defaults:
     _title: 'Wire Content'
-    _controller: '\Drupal\etype_classified_importer\Controller\ImportClassifiedController::importClassifiedXml'
+    _controller: '\Drupal\etype_wire_content\Controller\WireContentController::wireContent'
   requirements:
     _permission: 'access wire content'
   options:
