@@ -5,7 +5,7 @@ namespace Drupal\etype_wire_content\Controller;
 use Drupal;
 
 /**
- * Class ImportClassifiedController.
+ * Class WireContentController.
  *
  * @package Drupal\etype_wire_content\Controller
  */
@@ -26,7 +26,7 @@ class WireContentController {
   protected $messenger;
 
   /**
-   * ImportClassifiedController constructor.
+   * WireContentController constructor.
    */
   public function __construct() {
     $this->config = Drupal::config('etype_wire_content.settings');
