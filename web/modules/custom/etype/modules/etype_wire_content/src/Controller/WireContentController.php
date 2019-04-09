@@ -23,13 +23,6 @@ class WireContentController {
    *
    * @var WireContentController
    */
-  protected $importUrl;
-
-  /**
-   * Var Setup.
-   *
-   * @var WireContentController
-   */
   protected $messenger;
 
   /**
@@ -37,7 +30,6 @@ class WireContentController {
    */
   public function __construct() {
     $this->config = Drupal::config('etype_wire_content.settings');
-    $this->importUrl = $this->config->get('import_url');
     $this->messenger = Drupal::messenger();
   }
 
