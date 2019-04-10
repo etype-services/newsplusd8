@@ -83,11 +83,6 @@ class EtypeWireContentGlobalConfigForm extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-    Database::setActiveConnection('wire');
-    $db = Drupal::database();
-    $data = $db->select('settings', 't')->fields('t, [data]')->execute();
-    dump($data);
-
     $check = _etype_wire_content_check_connection();
     /* throw Exception and return empty page with message if the wire database setings are missing */
     try {
@@ -99,6 +94,11 @@ class EtypeWireContentGlobalConfigForm extends ConfigFormBase {
       $this->messenger->addMessage($e->getMessage(), $this->messenger::TYPE_ERROR);
       return ['#markup' => ''];
     }
+
+    Database::setActiveConnection('wire');
+    $db = Drupal::database();
+    $data = $db->select('settings', 't')->fields('t, [data]')->execute();
+    dump($data);
 
     /* Group settings. */
     $form['groups'] = [
