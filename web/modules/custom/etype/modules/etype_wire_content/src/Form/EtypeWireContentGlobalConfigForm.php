@@ -58,7 +58,7 @@ class EtypeWireContentGlobalConfigForm extends ConfigFormBase {
     parent::__construct($this->configFactory());
     $this->messenger = Drupal::messenger();
     $this->conf = $this->config('etype_wire_content.settings');
-    $this->entityFieldManager = \Drupal::service('entity_field.manager');
+    $this->entityFieldManager = Drupal::service('entity_field.manager');
   }
 
   /**
@@ -82,6 +82,11 @@ class EtypeWireContentGlobalConfigForm extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
+    $connection = Drupal::database('wire');
+    $query = $connection->query("SELECT `data` FROM {settings}");
+    $result = $query->fetchAll();
+    dump($result);
+
     $check = _etype_wire_content_check_connection();
     /* throw Exception and return empty page with message if the wire database setings are missing */
     try {
@@ -100,6 +105,14 @@ class EtypeWireContentGlobalConfigForm extends ConfigFormBase {
       '#title' => $this->t('Groups'),
     ];
 
+    $form['groups']['groups'] = [
+      '#type' => 'textarea',
+      '#title' => t('Group Options'),
+      '#description' => t('Add or remove group options for all sites. Options should be on one line, with machine_name and name separated by |.'),
+      '#default_value' => '',
+      '#required' => TRUE,
+    ];
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -115,9 +128,6 @@ class EtypeWireContentGlobalConfigForm extends ConfigFormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     parent::submitForm($form, $form_state);
-    $this->config('etype_wire_content.settings')
-      ->set('import_files', $form_state->getValue('import_files'))
-      ->save();
   }
 
 }
