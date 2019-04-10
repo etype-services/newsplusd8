@@ -166,7 +166,7 @@ class EtypeWireContentGlobalConfigForm extends ConfigFormBase {
     /* Connect to wire database and save settings. */
     Database::setActiveConnection('wire');
     $db = Database::getConnection();
-    $db->merge('settings')
+    $db->update('settings')
       ->fields([
         'data' => $serialized,
       ])
