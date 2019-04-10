@@ -97,9 +97,12 @@ class EtypeWireContentGlobalConfigForm extends ConfigFormBase {
 
     Database::setActiveConnection('wire');
     $db = Database::getConnection();
-    $data = $db->select('settings', 's')->fields('s', ['data'])->execute();
-    var_dump($data);
+    $data = $db->select('settings', 's')->fields('s', ['data'])
+      ->execute()
+      ->fetchAll();
     Database::setActiveConnection();
+
+    var_dump($data);
 
     /* Group settings. */
     $form['groups'] = [
