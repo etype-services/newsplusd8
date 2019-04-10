@@ -103,7 +103,7 @@ class EtypeWireContentGlobalConfigForm extends ConfigFormBase {
 
     /* Set Group Options */
     $options = '';
-    $data = [];
+    $data = ['cluster', 'sections', 'taxonomy'];
     if (isset($result[0]->data)) {
       $data = unserialize($result[0]->data);
       if (!empty($data['cluster'])) {
