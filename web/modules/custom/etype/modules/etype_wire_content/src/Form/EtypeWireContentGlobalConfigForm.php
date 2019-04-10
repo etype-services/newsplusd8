@@ -97,7 +97,7 @@ class EtypeWireContentGlobalConfigForm extends ConfigFormBase {
 
     Database::setActiveConnection('wire');
     $db = Drupal::database();
-    $data = $db->select('settings', 't')->fields('t, [data]')->execute();
+    $data = $db->select('settings')->fields('data')->execute();
     dump($data);
 
     /* Group settings. */
