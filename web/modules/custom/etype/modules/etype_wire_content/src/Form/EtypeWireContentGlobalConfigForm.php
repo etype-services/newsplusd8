@@ -5,9 +5,6 @@ namespace Drupal\etype_wire_content\Form;
 use Drupal;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\StringTranslation\TranslatableMarkup;
-use Drupal\node\Entity\NodeType;
-use Exception;
 use Drupal\Core\Database\Database;
 
 /**
@@ -95,14 +92,27 @@ class EtypeWireContentGlobalConfigForm extends ConfigFormBase {
       return ['#markup' => ''];
     }
 
+    /* Connect to wire database and get settings. */
     Database::setActiveConnection('wire');
     $db = Database::getConnection();
-    $data = $db->select('settings', 's')->fields('s', ['data'])
+    $result = $db->select('settings', 's')->fields('s', ['data'])
       ->execute()
       ->fetchAll();
+    /* Reset connection. */
     Database::setActiveConnection();
 
-    var_dump($data);
+    /* Set Group Options */
+    $options = '';
+    if (isset($result[0]->data)) {
+      $data = unserialize($result[0]->data);
+      if (!empty($data['cluster'])) {
+        $groups = $data['cluster'];
+        foreach ($groups as $k => $v) {
+          $options .= "$k|$v\n";
+        }
+      }
+    }
+
 
     /* Group settings. */
     $form['groups'] = [
@@ -114,7 +124,7 @@ class EtypeWireContentGlobalConfigForm extends ConfigFormBase {
       '#type' => 'textarea',
       '#title' => t('Group Options'),
       '#description' => t('Add or remove group options for all sites. Options should be on one line, with machine_name and name separated by |.'),
-      '#default_value' => '',
+      '#default_value' => $options,
       '#required' => TRUE,
     ];
 
