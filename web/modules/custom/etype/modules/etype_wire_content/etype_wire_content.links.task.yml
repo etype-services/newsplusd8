@@ -12,3 +12,8 @@ etype_wire_content.wire_content:
   title: 'Wire Content'
   route_name: etype_wire_content.wire_content
   base_route: system.admin_content
+
+etype_wire_content.export_wire_content:
+  title: 'Export Wire Content'
+  route_name: etype_wire_content.export_wire_content
+  base_route: system.admin_content
