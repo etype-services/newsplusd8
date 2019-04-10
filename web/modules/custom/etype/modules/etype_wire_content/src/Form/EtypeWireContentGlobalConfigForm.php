@@ -8,6 +8,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\node\Entity\NodeType;
 use Exception;
+use Drupal\Core\Database\Database;
 
 /**
  * Class EtypeWireContentGlobalConfigForm.
@@ -82,10 +83,10 @@ class EtypeWireContentGlobalConfigForm extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-    $connection = Drupal::database('wire');
-    $query = $connection->query("SELECT `data` FROM {settings}");
-    $result = $query->fetchAll();
-    dump($result);
+    Database::setActiveConnection('wire');
+    $db = Drupal::database();
+    $data = $db->select('settings', 't')->fields('t, [data]')->execute();
+    dump($data);
 
     $check = _etype_wire_content_check_connection();
     /* throw Exception and return empty page with message if the wire database setings are missing */
