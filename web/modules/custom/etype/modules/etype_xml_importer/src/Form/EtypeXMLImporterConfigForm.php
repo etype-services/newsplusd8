@@ -2,6 +2,7 @@
 
 namespace Drupal\etype_xml_importer\Form;
 
+use Drupal;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\NodeType;
@@ -21,14 +22,16 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
   protected $entityFieldManager;
 
   /**
-   * @var
+   * The entity field manager.
+   *
+   * @var \Drupal\etype_xml_importer\Form
    */
   protected $conf;
 
   /**
    * @var
    */
-  protected $node_type_options = [];
+  protected $nodeTypeOptions = [];
 
   /**
    * @var
@@ -46,7 +49,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
   public function __construct() {
     parent::__construct($this->configFactory());
     $this->conf = $this->config('etype_xml_importer.settings');
-    $this->entityFieldManager = \Drupal::service('entity_field.manager');
+    $this->entityFieldManager = Drupal::service('entity_field.manager');
     $this->getNodeTypeOptions();
     $this->getFields();
   }
@@ -57,7 +60,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
   protected function getNodeTypeOptions() {
     $node_types = NodeType::loadMultiple();
     foreach ($node_types as $node_type) {
-      $this->node_type_options[$node_type->id()] = $node_type->label();
+      $this->nodeTypeOptions[$node_type->id()] = $node_type->label();
     }
   }
 
@@ -160,7 +163,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       '#title' => $this->t('Content Type'),
       '#type' => 'select',
       '#description' => $this->t('Choose a content type into which to import stories.'),
-      '#options' => $this->node_type_options,
+      '#options' => $this->nodeTypeOptions,
       '#default_value' => $this->conf->get('node_type'),
     ];
 

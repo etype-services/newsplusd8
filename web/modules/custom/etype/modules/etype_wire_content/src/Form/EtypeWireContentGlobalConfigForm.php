@@ -103,6 +103,7 @@ class EtypeWireContentGlobalConfigForm extends ConfigFormBase {
 
     /* Set Group Options */
     $options = '';
+    $data = [];
     if (isset($result[0]->data)) {
       $data = unserialize($result[0]->data);
       if (!empty($data['cluster'])) {
@@ -113,7 +114,6 @@ class EtypeWireContentGlobalConfigForm extends ConfigFormBase {
       }
     }
 
-
     /* Group settings. */
     $form['groups'] = [
       '#type' => 'fieldset',
@@ -122,10 +122,30 @@ class EtypeWireContentGlobalConfigForm extends ConfigFormBase {
 
     $form['groups']['groups'] = [
       '#type' => 'textarea',
-      '#title' => t('Group Options'),
-      '#description' => t('Add or remove group options for all sites. Options should be on one line, with machine_name and name separated by |.'),
+      '#title' => $this->t('Global Groups'),
+      '#description' => $this->t('Add or remove groups for all sites. Groups should be on one line, with machine_name and name separated by |.'),
       '#default_value' => $options,
       '#required' => TRUE,
+    ];
+
+    /* Section settings. */
+    $form['sections'] = [
+      '#type' => 'fieldset',
+      '#title' => $this->t('Sections'),
+    ];
+
+    $form['sections']['sections'] = [
+      '#type' => 'textfield',
+      '#title' => t('Sections or Categories'),
+      '#description' => $this->t('Article section tags to match using regex when exporting nodes to the wire database. Separated by |.'),
+      '#default_value' => $data['sections'],
+    ];
+
+    $form['sections']['taxonomy'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Taxonomy Field'),
+      '#description' => $this->t('The name of the field used to describe article sections or categories.'),
+      '#default_value' => $data['taxonomy'],
     ];
 
     return parent::buildForm($form, $form_state);
@@ -161,6 +181,8 @@ class EtypeWireContentGlobalConfigForm extends ConfigFormBase {
     }
 
     $data['cluster'] = $arr;
+    $data['sections'] = $form_state->getValue('sections');
+    $data['taxonomy'] = $form_state->getValue('taxonomy');
     $serialized = serialize($data);
 
     /* Connect to wire database and save settings. */
