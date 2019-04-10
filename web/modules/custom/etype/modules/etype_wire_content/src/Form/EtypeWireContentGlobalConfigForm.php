@@ -132,17 +132,48 @@ class EtypeWireContentGlobalConfigForm extends ConfigFormBase {
   }
 
   /**
-   * {@inheritdoc}
-   */
-  public function validateForm(array &$form, FormStateInterface $form_state) {
-    parent::validateForm($form, $form_state);
-  }
-
-  /**
-   * {@inheritdoc}
+   * Form Submit.
+   *
+   * @param array $form
+   *   Config Form.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   Drupal Config Form.
+   *
+   * @throws \Exception
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     parent::submitForm($form, $form_state);
+
+    /* Prepare form data for insert into wire db. */
+    $data = [];
+    $arr = [];
+    $string = $form_state->getValue('groups');
+    $split = preg_split("/\n/", $string);
+    if (count($split) > 0) {
+      foreach ($split as $item) {
+        $tmp = explode("|", $item);
+        $machine_name = trim($tmp[0]);
+        if (!empty($machine_name)) {
+          $name = trim($tmp[1]);
+          $arr[$machine_name] = $name;
+        }
+      }
+    }
+
+    $data['cluster'] = $arr;
+    $serialized = serialize($data);
+
+    /* Connect to wire database and save settings. */
+    Database::setActiveConnection('wire');
+    $db = Database::getConnection();
+    $db->merge('settings')
+      ->fields([
+        'data' => $serialized,
+      ])
+      ->execute();
+    /* Reset connection. */
+    Database::setActiveConnection();
+
   }
 
 }
