@@ -160,7 +160,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
       '#weight' => '1',
       '#type' => 'checkboxes',
       '#options' => $options,
-      '#default_value' => $this->conf->get('groups') ?: [],
+      '#default_value' => $this->conf->get('groups'),
     ];
 
     return parent::buildForm($form, $form_state);
