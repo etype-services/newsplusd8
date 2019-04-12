@@ -38,4 +38,10 @@
   width: 728px;
   padding-top: 15px; }
 
+/* Internal Banner Image Caption */
+#block-views-block-mt-internal-banner-block-2 {
+  padding-bottom: 0; }
+  #block-views-block-mt-internal-banner-block-2 p:last-child {
+    padding-bottom: 0; }
+
 /*# sourceMappingURL=style.css.map */
