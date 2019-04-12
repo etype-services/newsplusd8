@@ -144,7 +144,6 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
     Database::setActiveConnection();
     $data = unserialize($result[0]->data);
     $options = $data['cluster'];
-    $default = empty($this->conf->get('groups')) ? reset($options) : $this->conf->get('groups');
 
     $form['groups']['#markup'] = "Enable and edit import cron job at the <a href=\"/admin/config/system/cron/jobs/manage/etype_wire_content_cron\">cron settings page</a>.";
 
@@ -161,7 +160,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
       '#weight' => '1',
       '#type' => 'checkboxes',
       '#options' => $options,
-      '#default_value' => $default,
+      '#default_value' => $this->conf->get('groups') ?: [],
     ];
 
     return parent::buildForm($form, $form_state);
