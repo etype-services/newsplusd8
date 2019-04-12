@@ -3,7 +3,7 @@ status: false
 dependencies:
   module:
     - etype_wire_content
-title: 'Syndicates Content'
+title: 'Refreshes Wire Content'
 id: etype_wire_content_cron
 module: etype_wire_content
 callback: _etype_wire_content_node_export

@@ -3,6 +3,7 @@
 namespace Drupal\etype_wire_content\Form;
 
 use Drupal;
+use Drupal\Core\Database\Database;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
@@ -133,16 +134,33 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
       return ['#markup' => ''];
     }
 
+    /* Connect to wire database and get settings. */
+    Database::setActiveConnection('wire');
+    $db = Database::getConnection();
+    $result = $db->select('settings', 's')->fields('s', ['data'])
+      ->execute()
+      ->fetchAll();
+    /* Reset connection. */
+    Database::setActiveConnection();
+    $data = unserialize($result[0]->data);
+    $options = $data['cluster'];
+
     $form['groups']['#markup'] = "Enable and edit import cron job at the <a href=\"/admin/config/system/cron/jobs/manage/etype_wire_content_cron\">cron settings page</a>.";
 
+    /* Group settings. */
+    $form['groups'] = [
+      '#type' => 'fieldset',
+      '#title' => $this->t('Groups'),
+    ];
 
-    $form['wire_content']['import_files'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Import File(s)'),
-      '#description' => $this->t('Enter the file name or names to import. Separate multiple files with a comma.'),
-      '#size' => 55,
-      '#default_value' => $this->conf->get('import_files'),
-      '#required' => TRUE,
+    $form['groups']['groups'] = [
+      '#title' => t('Site Group(s)'),
+      '#multiple' => TRUE,
+      '#description' => t("The group(s) that this site belongs to. Sites can belong to one or more groups and will only show wire content from checked groups."),
+      '#weight' => '1',
+      '#type' => 'checkboxes',
+      '#options' => $options,
+      '#default_value' => $this->conf->get('groups'),
     ];
 
     return parent::buildForm($form, $form_state);
