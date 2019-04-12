@@ -160,7 +160,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
       '#weight' => '1',
       '#type' => 'checkboxes',
       '#options' => $options,
-      '#default_value' => $this->conf->get('groups'),
+      '#default_value' => $this->conf->get('groups') ?: [],
     ];
 
     return parent::buildForm($form, $form_state);
@@ -172,7 +172,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     parent::submitForm($form, $form_state);
     $this->config('etype_wire_content.settings')
-      ->set('import_files', $form_state->getValue('import_files'))
+      ->set('groups', $form_state->getValue('groups'))
       ->save();
   }
 
