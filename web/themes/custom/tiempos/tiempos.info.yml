@@ -1,0 +1,12 @@
+name: Tiempos+
+type: theme
+description: 'Drupal 8 theme based on Bulma.'
+version: 8.0.1
+core: 8.x
+regions:
+  top_bar: 'Top Bar'
+  header: 'Header'
+  navigation: 'Navigation'
+  top_content: 'Top Content'
+  content: 'Content'
+  footer: 'Footer'

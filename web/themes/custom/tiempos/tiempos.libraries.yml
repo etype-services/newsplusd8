@@ -1,0 +1,5 @@
+bulma:
+  version: VERSION
+  css:
+    base:
+      node_modules/bulma/css/bulma.min.css: { weight: 0 }
