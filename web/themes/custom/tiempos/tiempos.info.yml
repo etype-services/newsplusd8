@@ -10,3 +10,5 @@ regions:
   top_content: 'Top Content'
   content: 'Content'
   footer: 'Footer'
+libraries:
+  - tiempos/bulma
