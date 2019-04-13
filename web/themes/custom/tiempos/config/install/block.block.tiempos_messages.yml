@@ -1,8 +1,8 @@
-uuid: 1495e5ab-af0b-4697-a305-5ac90e3c5296
 langcode: en
 status: true
 dependencies:
   module:
+    - block_class
     - system
   theme:
     - tiempos
