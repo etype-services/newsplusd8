@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @param $variables
+ */
+function tiempos_preprocess_block(&$variables) {
+  $variables['attributes']['class'][] = 'column';
+}
+
+/**
+ * @param $variables
+ */
+function tiempos_preprocess_region(&$variables) {
+  $variables['attributes']['class'][] = 'columns';
+}

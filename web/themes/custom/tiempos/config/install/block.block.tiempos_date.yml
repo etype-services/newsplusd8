@@ -1,0 +1,19 @@
+uuid: 1a2f61e9-7435-4b1c-8300-ce603er3b687
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - tiempos
+id: tiempos_date
+theme: tiempos
+region: header
+weight: -6
+provider: null
+settings:
+  id: date_block
+  label: 'Date Block'
+  provider: system
+  label_display: '0'
+visibility: {  }
