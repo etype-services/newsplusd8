@@ -3,3 +3,10 @@ bulma:
   css:
     base:
       node_modules/bulma/css/bulma.min.css: { weight: 10 }
+
+global-styling:
+  version: VERSION
+  css:
+    base:
+      css/base.css: { weight: 1 }
+      css/regions.css: { weight: 1 }
