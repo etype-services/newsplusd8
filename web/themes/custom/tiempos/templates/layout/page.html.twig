@@ -46,21 +46,21 @@
     {{ page.header }}
   </header>
 
-  <nav role="navigation">
+  <nav class="navbar" role="navigation">
     {{ page.navigation }}
   </nav>
 
   {{ page.breadcrumb }}
 
-  <main role="main">
+  <main role="main" class="columns">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
-    <div class="layout-content">
+    <div class="layout-content column">
       {{ page.content }}
     </div>{# /.layout-content #}
 
     {% if page.sidebar %}
-      <aside class="layout-sidebar" role="complementary">
+      <aside class="layout-sidebar column is-one-quarter" role="complementary">
         {{ page.sidebar }}
       </aside>
     {% endif %}
