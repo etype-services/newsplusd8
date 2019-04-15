@@ -30,7 +30,7 @@
   {% import _self as menus %}
   {% if items %}
     <nav role="navigation" aria-label="user navigation" class="column">
-      <div class="navbar-menu is-active is-pulled-right is-paddingless is-shadowless">
+      <div class="navbar-menu is-active is-pulled-right-desktop is-paddingless is-shadowless">
     {% for item in items %}
         {{ link(item.title, item.url, { 'class':['button has-background-info has-text-white-ter is-size-7
         is-uppercase'] }) }}

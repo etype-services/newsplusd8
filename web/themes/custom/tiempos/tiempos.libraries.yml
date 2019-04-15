@@ -1,3 +1,9 @@
+bulma:
+  version: 0.7.4
+  css:
+    base:
+      node_modules/bulma/css/bulma.min.css: { weight: -10 }
+
 global-styling:
   version: VERSION
   css:
@@ -15,17 +21,6 @@ global-scripts:
   dependencies:
     - core/jquery.once
     - core/drupal
-
-bulma:
-  version: 0.7.4
-  remote: //cdn.jsdelivr.net/npm/bulma@0.7.4/css
-  css:
-    base:
-      //cdn.jsdelivr.net/npm/bulma@0.7.4/css/bulma.min.css: { type: external }
-  license:
-    name: MIT License
-    url: //github.com/jgthms/bulma
-    gpl-compatible: true
 
 petrona:
   version: VERSION

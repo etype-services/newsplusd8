@@ -5,3 +5,9 @@
   visibility: hidden;
   display: none;
 }
+
+@media screen and (min-width: $desktop) {
+  .is-pulled-right-desktop {
+    float: right
+  }
+}
