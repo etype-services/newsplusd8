@@ -1,5 +1,7 @@
-.region-header .block {
-  margin-bottom: 0; }
+.region-header {
+  border-bottom: 1px solid #b5b5b5; }
+  .region-header .block {
+    margin-bottom: 0; }
 
 .region-content {
   flex-wrap: wrap; }

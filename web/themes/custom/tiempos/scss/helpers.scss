@@ -1,13 +1,13 @@
 @import "../node_modules/bulma/sass/utilities/initial-variables";
 
-/* Helper Classes */
+/* Additional Helper Classes */
 .is-really-invisible {
   visibility: hidden;
   display: none;
 }
 
-@media screen and (min-width: $desktop) {
+@media screen and (min-width: $tablet) {
   .is-pulled-right-desktop {
-    float: right
+    float: right;
   }
 }
