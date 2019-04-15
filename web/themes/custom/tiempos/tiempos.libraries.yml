@@ -8,6 +8,14 @@ global-styling:
       css/navigation.css: { weight: 1 }
       css/helpers.css: { weight: 1 }
 
+global-scripts:
+  version: VERSION
+  js:
+    js/theme.js: { minified: true }
+  dependencies:
+    - core/jquery
+    - core/drupal
+
 bulma:
   version: 0.7.4
   remote: //cdn.jsdelivr.net/npm/bulma@0.7.4/css

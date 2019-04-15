@@ -17,5 +17,6 @@ regions:
 libraries:
   - tiempos/bulma
   - tiempos/global-styling
+  - tiempos/global-scripts
   - tiempos/petrona
   - tiempos/fontawesome
