@@ -13,7 +13,7 @@ global-scripts:
   js:
     js/theme.js: { minified: true }
   dependencies:
-    - core/jquery
+    - core/jquery.once
     - core/drupal
 
 bulma:
