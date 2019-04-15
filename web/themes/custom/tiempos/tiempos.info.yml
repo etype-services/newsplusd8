@@ -13,6 +13,7 @@ regions:
   content: 'Content'
   sidebar: 'Sidebar'
   footer: 'Footer'
+  hidden_blocks: 'Hidden Blocks'
 libraries:
   - tiempos/bulma
   - tiempos/global-styling

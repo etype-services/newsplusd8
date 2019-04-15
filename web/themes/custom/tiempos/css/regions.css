@@ -1,3 +1,6 @@
+.region-header .block {
+  margin-bottom: 0; }
+
 .region-content {
   flex-wrap: wrap; }
 
