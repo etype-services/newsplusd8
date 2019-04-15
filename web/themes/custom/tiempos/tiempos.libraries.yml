@@ -6,6 +6,7 @@ global-styling:
       css/regions.css: { weight: 1 }
       css/typography.css: { weight: 1 }
       css/navigation.css: { weight: 1 }
+      css/helpers.css: { weight: 1 }
 
 bulma:
   version: 0.7.4
