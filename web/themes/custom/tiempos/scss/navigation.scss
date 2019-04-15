@@ -1,16 +1,18 @@
 @import "../node_modules/bulma/sass/utilities/initial-variables";
 
+#block-date {
+  .navbar-burger {
+    position: relative;
+    margin-left: 0;
+    span {
+      height: 2px;
+    }
+  }
+}
+
 #main-nav {
   .navbar {
     border-bottom: 1px solid $grey-light;
-    .navbar-brand {
-      .navbar-burger {
-        margin-left: 0;
-        span {
-          height: 2px;
-        }
-      }
-    }
     .navbar-start {
       position: fixed;
       top: 0;
@@ -37,6 +39,25 @@
           }
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet - 1px) {
+  #block-date {
+    .navbar-burger {
+      position: fixed;
+      top: 0;
+      right: 0;
+    }
+  }
+}
+
+@media screen and (max-width: $desktop - 1px) {
+  #main-nav {
+    .navbar {
+      min-height: 0;
+      border-bottom: 0;
     }
   }
 }

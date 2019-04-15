@@ -31,13 +31,6 @@
   {% if items %}
 <nav role="navigation" id="main-nav" aria-label="user navigation" class="column">
   <div class="navbar">
-    <div class="navbar-brand">
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
     <div class="navbar-menu has-text-weight-semibold">
       {% for item in items %}
         {{ link(item.title, item.url, { 'class':['navbar-item'] }) }}

@@ -40,7 +40,11 @@
   {% endif %}
   {{ title_suffix }}
   {% block content %}
-  {{ "now"|date("F jS \\a\\t g:ia") }
-    {{ content }}
+    <p class="is-size-7">{{ "now"|date("F jS Y") }}</p>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
   {% endblock %}
 </div>

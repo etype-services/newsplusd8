@@ -2,7 +2,7 @@
     "use strict";
     Drupal.behaviors.tiemposBehavior = {
         attach: function (context, settings) {
-            $(".navbar-burger", context).once("tiemposBehavior").click(function () {
+            $(".navbar-burger").once("tiemposBehavior").click(function () {
                 $(".navbar-start").toggleClass("is-really-invisible");
             });
         }

@@ -1,6 +1,9 @@
 header {
   border-bottom: 1px solid #b5b5b5; }
 
+@media screen and (max-width: 768px) {
+  header {
+    padding-bottom: 1rem; } }
 .region-header .block {
   margin-bottom: 0; }
 
