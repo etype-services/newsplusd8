@@ -4,10 +4,12 @@
  * @param $variables
  */
 function tiempos_preprocess_block(&$variables) {
-  switch ($variables['elements']['#id']) {
-    case 'tiempos_page_title':
-    case 'tiempos_content':
-      $variables['attributes']['class'][] = 'is-full';
-      break;
+  if (isset($variables['elements']['#id'])) {
+    switch ($variables['elements']['#id']) {
+      case 'tiempos_page_title':
+      case 'tiempos_content':
+        $variables['attributes']['class'][] = 'is-full';
+        break;
+    }
   }
 }
