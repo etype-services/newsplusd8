@@ -1,0 +1,21 @@
+@import "../node_modules/bulma/sass/utilities/initial-variables";
+
+header {
+  border-bottom: 1px solid $grey-light;
+}
+
+@media screen and (max-width: $tablet - 1px) {
+  header {
+    padding-bottom: 1rem;
+  }
+}
+
+.region-header {
+  .block {
+    margin-bottom: 0;
+  }
+}
+
+.region-content {
+  flex-wrap: wrap;
+}

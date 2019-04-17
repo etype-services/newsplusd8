@@ -1,0 +1,45 @@
+bulma:
+  version: 0.7.4
+  css:
+    base:
+      node_modules/bulma/css/bulma.min.css: { weight: -10 }
+
+global-styling:
+  version: VERSION
+  css:
+    base:
+      css/base.css: { weight: 1 }
+      css/regions.css: { weight: 1 }
+      css/typography.css: { weight: 1 }
+      css/navigation.css: { weight: 1 }
+      css/helpers.css: { weight: 1 }
+      css/views.css: { weight: 1 }
+
+global-scripts:
+  version: VERSION
+  js:
+    js/theme.js: { minified: true }
+  dependencies:
+    - core/jquery.once
+    - core/drupal
+
+petrona:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Petrona: { type: external }
+  license:
+    name: Open Font License
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+fontawesome:
+  version: 5.8.1
+  remote: //use.fontawesome.com/
+  js:
+    //use.fontawesome.com/releases/v5.8.1/js/all.js: { type: external, attributes: { defer: true } }
+  license:
+    name: MIT
+    url: //opensource.org/licenses/mit-license.html
+    gpl-compatible: true

@@ -1,0 +1,4 @@
+File: drupal8.site.yml
+local:
+  root: /vagrant_data/newsplusd8
+  uri: http://local.drupal8.com

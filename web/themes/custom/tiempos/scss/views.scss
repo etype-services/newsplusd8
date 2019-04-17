@@ -1,0 +1,6 @@
+@import "./vars";
+
+/* Emulate column css for Front Page View top-level divs. */
+.view-id-frontpage.columns > .attachment, .view-id-frontpage.columns > .view-content {
+  @include column;
+}

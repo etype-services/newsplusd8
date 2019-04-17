@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * Preprocess blocks.
+ *
+ * @param $variables
+ */
+function tiempos_preprocess_block(&$variables) {
+  if (isset($variables['elements']['#id'])) {
+    switch ($variables['elements']['#id']) {
+      /* Add classes to some blocks. */
+      case 'tiempos_page_title':
+      case 'tiempos_content':
+        $variables['attributes']['class'][] = 'is-full';
+        break;
+    }
+  }
+}
+
+/**
+ * Preprocess views.
+ *
+ * @param $variables
+ */
+function tiempos_preprocess_views_view(&$variables) {
+  $view = $variables['view'];
+  $id = $view->storage->id();
+}
