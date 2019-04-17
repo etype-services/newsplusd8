@@ -13,6 +13,7 @@ global-styling:
       css/typography.css: { weight: 1 }
       css/navigation.css: { weight: 1 }
       css/helpers.css: { weight: 1 }
+      css/views.css: { weight: 1 }
 
 global-scripts:
   version: VERSION

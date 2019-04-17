@@ -1,0 +1,9 @@
+/* Emulate column css for Front Page View top-level divs. */
+.view-id-frontpage.columns > .attachment, .view-id-frontpage.columns > .view-content {
+  display: block;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 0.75rem; }
+
+/*# sourceMappingURL=views.css.map */
