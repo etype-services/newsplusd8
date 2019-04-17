@@ -16,3 +16,20 @@ function tiempos_preprocess_block(&$variables) {
     }
   }
 }
+
+/**
+ * Preprocess views.
+ *
+ * @param $variables
+ */
+function tiempos_preprocess_views_view(&$variables) {
+  $view = $variables['view'];
+  $id = $view->storage->id();
+  switch ($id) {
+    /* Add classes to some views. */
+    case 'frontpage':
+      $variables['attributes']['class'][] = 'columns';
+      $variables['attributes']['class'][] = 'is-marginless';
+      break;
+  }
+}
