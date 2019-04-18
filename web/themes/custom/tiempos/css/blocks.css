@@ -1,69 +1,37 @@
-/*
-Error: Undefined mixin 'border-light'.
-        on line 49 of blocks.scss, in `border-light'
-        from line 49 of blocks.scss
+/* Main content. */
+#block-tiempos-content {
+  padding-top: 0; }
 
-44:     }
-45:   }
-46: }
-47: 
-48: #block-etypeeedition {
-49:   @include border-light;
-50:   flex-basis: 100%;
-51:   p {
-52:     font-size: 0.8rem;
-53:   }
-54: }
+/* Top left "Date" block. */
+#block-date .navbar-burger {
+  /* Flex to center fontawsone icon. */
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  #block-date .navbar-burger span {
+    height: 2px; }
+#block-date .block-search #search-block-form {
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
+  /* Match navbar-burger. */
+  height: 3.25rem; }
+  #block-date .block-search #search-block-form #edit-submit {
+    cursor: pointer;
+    margin-right: 0.5rem; }
+  #block-date .block-search #search-block-form #edit-keys {
+    width: 70%; }
 
-Backtrace:
-blocks.scss:49:in `border-light'
-blocks.scss:49
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:352:in `block in visit_mixin'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:98:in `block in with_mixin'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:135:in `with_frame'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:98:in `with_mixin'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:350:in `visit_mixin'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `block in with_base'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:135:in `with_frame'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `with_base'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:444:in `block (2 levels) in visit_rule'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:444:in `map'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:444:in `block in visit_rule'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:442:in `visit_rule'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `block in with_base'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:135:in `with_frame'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `with_base'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:52:in `map'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:171:in `block in visit_children'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:170:in `visit_children'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:190:in `visit_root'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:161:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:10:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/root_node.rb:36:in `css_tree'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/engine.rb:389:in `_render_with_sourcemap'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/engine.rb:307:in `render_with_sourcemap'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/exec/sass_scss.rb:391:in `run'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/exec/sass_scss.rb:63:in `process_result'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/exec/base.rb:52:in `parse'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/exec/base.rb:19:in `parse!'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/bin/scss:13:in `<top (required)>'
-/Users/charlie/.rbenv/versions/2.2.3/bin/scss:23:in `load'
-/Users/charlie/.rbenv/versions/2.2.3/bin/scss:23:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Undefined mixin 'border-light'.\A         on line 49 of blocks.scss, in `border-light'\A         from line 49 of blocks.scss\A \A 44:     }\A 45:   }\A 46: }\A 47: \A 48: #block-etypeeedition {\A 49:   @include border-light;\A 50:   flex-basis: 100%;\A 51:   p {\A 52:     font-size: 0.8rem;\A 53:   }\A 54: }"; }
+@media screen and (min-width: 1088px) {
+  #block-date {
+    /* Indent search when Hamburger hidden. */ }
+    #block-date .block-search {
+      margin-left: 0.5rem; } }
+#block-etypeeedition {
+  border: 1px solid #b5b5b5;
+  flex-basis: 100%; }
+  #block-etypeeedition p {
+    font-size: 0.8rem; }
+
+/*# sourceMappingURL=blocks.css.map */
