@@ -1,4 +1,5 @@
 @import "../node_modules/bulma/sass/utilities/initial-variables";
+@import "./vars";
 
 /* Main content. */
 #block-tiempos-content {
@@ -39,7 +40,17 @@
   #block-date {
     /* Indent search when Hamburger hidden. */
     .block-search {
-      margin-left: 1.5rem;
+      margin-left: 0.5rem;
     }
+  }
+}
+
+#block-etypeeedition {
+  flex-basis: 100%;
+  img {
+    float: left;
+    width: 50%;
+    margin-right: 0.5rem;
+    font-family: $lato;
   }
 }

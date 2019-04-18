@@ -6,6 +6,13 @@
   @include column;
 }
 
+/* Hide attachment-before on mobile. */
+@media screen and (max-width: $tablet - 1px ) {
+  .view-id-frontpage.columns > .attachment-before {
+    display: none;
+  }
+}
+
 .view {
   h2 {
     font-size: 1.2rem;

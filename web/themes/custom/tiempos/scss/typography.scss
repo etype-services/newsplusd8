@@ -1,9 +1,11 @@
+@import "./vars";
+
 body {
-  font-family: 'Petrona', serif;
+  font-family: $petrona;
 }
 
 input {
-  font-family: 'Lato', sans-serif;
+  font-family: $lato;
   &:focus {
     outline: none;
   }

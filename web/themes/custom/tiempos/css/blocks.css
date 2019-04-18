@@ -27,6 +27,13 @@
   #block-date {
     /* Indent search when Hamburger hidden. */ }
     #block-date .block-search {
-      margin-left: 1.5rem; } }
+      margin-left: 0.5rem; } }
+#block-etypeeedition {
+  flex-basis: 100%; }
+  #block-etypeeedition img {
+    float: left;
+    width: 50%;
+    margin-right: 0.5rem;
+    font-family: "Lato", sans-serif; }
 
 /*# sourceMappingURL=blocks.css.map */

@@ -6,6 +6,10 @@
   flex-shrink: 1;
   padding: 0.75rem; }
 
+/* Hide attachment-before on mobile. */
+@media screen and (max-width: 768px) {
+  .view-id-frontpage.columns > .attachment-before {
+    display: none; } }
 .view {
   /* For unformatted Views without default classes */ }
   .view h2 {
