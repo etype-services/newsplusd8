@@ -4,4 +4,11 @@ body {
 
 input {
   font-family: 'Lato', sans-serif;
+  &:focus {
+    outline: none;
+  }
+}
+
+svg {
+  outline: none;
 }

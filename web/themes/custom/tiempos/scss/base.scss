@@ -1,7 +1,12 @@
+@import "../node_modules/bulma/sass/utilities/initial-variables";
+
 .layout-container {
   margin: 1rem;
 }
 
-#block-tiempos-content {
-  padding-top: 0;
+@media screen and (max-width: $tablet ) {
+  .region-header > div {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 }

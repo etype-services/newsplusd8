@@ -3,5 +3,10 @@ body {
 
 input {
   font-family: 'Lato', sans-serif; }
+  input:focus {
+    outline: none; }
+
+svg {
+  outline: none; }
 
 /*# sourceMappingURL=typography.css.map */

@@ -1,4 +1,10 @@
+/* Main content. */
+#block-tiempos-content {
+  padding-top: 0; }
+
+/* Top left "Date" block. */
 #block-date .navbar-burger {
+  /* Flex to center fontawsone icon. */
   float: left;
   display: flex;
   justify-content: center;
@@ -8,6 +14,7 @@
 #block-date .block-search #search-block-form {
   display: flex;
   align-items: center;
+  margin-left: 0.5rem;
   /* Match navbar-burger. */
   height: 3.25rem; }
   #block-date .block-search #search-block-form #edit-submit {
@@ -15,5 +22,11 @@
     margin-right: 0.5rem; }
   #block-date .block-search #search-block-form #edit-keys {
     width: 70%; }
+
+@media screen and (min-width: 1088px) {
+  #block-date {
+    /* Indent search when Hamburger hidden. */ }
+    #block-date .block-search {
+      margin-left: 1.5rem; } }
 
 /*# sourceMappingURL=blocks.css.map */

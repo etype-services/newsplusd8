@@ -1,7 +1,9 @@
 .layout-container {
   margin: 1rem; }
 
-#block-tiempos-content {
-  padding-top: 0; }
+@media screen and (max-width: 769px) {
+  .region-header > div {
+    padding-top: 0;
+    padding-bottom: 0; } }
 
 /*# sourceMappingURL=base.css.map */
