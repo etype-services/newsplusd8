@@ -15,10 +15,6 @@
   .view h2 {
     font-size: 1.2rem;
     font-weight: 600; }
-    .view h2 a {
-      color: #121212; }
-      .view h2 a:hover {
-        color: #209cee; }
   .view .view-content > div {
     margin-bottom: 1rem; }
     .view .view-content > div:last-child {

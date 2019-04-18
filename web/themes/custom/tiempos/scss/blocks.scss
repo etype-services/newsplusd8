@@ -46,11 +46,9 @@
 }
 
 #block-etypeeedition {
+  @include border-light;
   flex-basis: 100%;
-  img {
-    float: left;
-    width: 50%;
-    margin-right: 0.5rem;
-    font-family: $lato;
+  p {
+    font-size: 0.8rem;
   }
 }

@@ -17,12 +17,6 @@
   h2 {
     font-size: 1.2rem;
     font-weight: $weight-semibold;
-    a {
-      color: $black-bis;
-      &:hover {
-        color: $cyan;
-      }
-    }
   }
 
   /* For unformatted Views without default classes */

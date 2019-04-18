@@ -34,5 +34,8 @@
   #main-nav .navbar {
     min-height: 0;
     border-bottom: 0; } }
+.user-menu .button, .user-menu .button:first-child {
+  margin-left: 0.5rem;
+  margin-right: 0; }
 
 /*# sourceMappingURL=navigation.css.map */

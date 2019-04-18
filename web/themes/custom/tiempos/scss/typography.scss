@@ -1,3 +1,4 @@
+@import "../node_modules/bulma/sass/utilities/initial-variables";
 @import "./vars";
 
 body {
@@ -8,9 +9,14 @@ input {
   font-family: $lato;
   &:focus {
     outline: none;
+    box-shadow: none;
   }
 }
 
 svg {
   outline: none;
+}
+
+a {
+  color: $black-bis;
 }

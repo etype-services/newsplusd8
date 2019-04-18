@@ -7,7 +7,7 @@ header {
 .region-header .block {
   margin-bottom: 0; }
 
-.region-content {
+.region-content, .region-sidebar {
   flex-wrap: wrap; }
 
 /*# sourceMappingURL=regions.css.map */

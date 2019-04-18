@@ -1,8 +1,9 @@
 @import "../node_modules/bulma/sass/utilities/initial-variables";
+@import "./vars";
 
 #main-nav {
   .navbar {
-    border-bottom: 1px solid $grey-light;
+    @include border-bottom-light;
     .navbar-start {
       position: fixed;
       top: 0;
@@ -56,5 +57,12 @@
       min-height: 0;
       border-bottom: 0;
     }
+  }
+}
+
+.user-menu {
+  .button, .button:first-child {
+    margin-left: 0.5rem;
+    margin-right: 0;
   }
 }
