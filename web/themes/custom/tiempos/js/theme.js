@@ -12,7 +12,7 @@
                 var keys = $("#search-block-form > #edit-keys");
                 var reg = /[a-z]+/;
                 if (keys.hasClass("is-really-invisible")) {
-                    keys.removeClass("is-really-invisible");
+                    keys.removeClass("is-really-invisible").focus();
                 } else {
                     if (reg.test(keys.val())) {
                         $("#search-block-form").submit();

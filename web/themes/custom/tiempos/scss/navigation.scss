@@ -17,7 +17,7 @@
       .navbar-burger {
         position: fixed;
         top: 0.5rem;
-        right: 0.5rem;
+        left: 0.5rem;
       }
       .block-system-branding-block {
         text-align: center;
@@ -28,22 +28,8 @@
         z-index: -1;
         .site-logo {
           img {
-            width: 38vw;
+            width: 30vw;
           }
-        }
-      }
-    }
-  }
-}
-
-/* Move menu below admin toolbar. */
-.toolbar-fixed {
-  #main-nav {
-    .navbar {
-      .navbar-start {
-        padding-top: 3rem;
-        .navbar-burger {
-          top: 3rem;
         }
       }
     }
@@ -56,6 +42,23 @@
     .navbar {
       min-height: 0;
       border-bottom: 0;
+      /* Show User Menu in pop-up, using is-hidden-touch to identify the menu. */
+      .navbar-start > .is-hidden-touch {
+        display: block!important;
+        position: fixed;
+        top: 3rem;
+        right: 1rem;
+        /* Align buttons right. */
+        .navbar-menu {
+          text-align: right;
+          .button, .button:first-child {
+            display: block;
+          }
+        }
+      }
+      .navbar-start {
+        padding-top: 5rem;
+      }
     }
   }
 }
@@ -66,5 +69,19 @@
     margin-right: 0;
     font-family: $lato;
     font-size: 0.7rem;
+  }
+}
+
+/* Move menu below admin toolbar. */
+.toolbar-fixed, .toolbar-vertical {
+  #main-nav {
+    .navbar {
+      .navbar-start {
+        padding-top: 7rem;
+        .navbar-burger {
+          top: 3rem;
+        }
+      }
+    }
   }
 }

@@ -12,7 +12,7 @@
     #main-nav .navbar .navbar-start .navbar-burger {
       position: fixed;
       top: 0.5rem;
-      right: 0.5rem; }
+      left: 0.5rem; }
     #main-nav .navbar .navbar-start .block-system-branding-block {
       text-align: center;
       position: absolute;
@@ -21,23 +21,36 @@
       width: 100%;
       z-index: -1; }
       #main-nav .navbar .navbar-start .block-system-branding-block .site-logo img {
-        width: 38vw; }
-
-/* Move menu below admin toolbar. */
-.toolbar-fixed #main-nav .navbar .navbar-start {
-  padding-top: 3rem; }
-  .toolbar-fixed #main-nav .navbar .navbar-start .navbar-burger {
-    top: 3rem; }
+        width: 30vw; }
 
 @media screen and (max-width: 1087px) {
   /* Make sure navbar completely hidden */
   #main-nav .navbar {
     min-height: 0;
-    border-bottom: 0; } }
+    border-bottom: 0;
+    /* Show User Menu in pop-up, using is-hidden-touch to identify the menu. */ }
+    #main-nav .navbar .navbar-start > .is-hidden-touch {
+      display: block !important;
+      position: fixed;
+      top: 3rem;
+      right: 1rem;
+      /* Align buttons right. */ }
+      #main-nav .navbar .navbar-start > .is-hidden-touch .navbar-menu {
+        text-align: right; }
+        #main-nav .navbar .navbar-start > .is-hidden-touch .navbar-menu .button, #main-nav .navbar .navbar-start > .is-hidden-touch .navbar-menu .button:first-child {
+          display: block; }
+    #main-nav .navbar .navbar-start {
+      padding-top: 5rem; } }
 .user-menu .button, .user-menu .button:first-child {
   margin-left: 0.5rem;
   margin-right: 0;
   font-family: "Lato", sans-serif;
   font-size: 0.7rem; }
+
+/* Move menu below admin toolbar. */
+.toolbar-fixed #main-nav .navbar .navbar-start, .toolbar-vertical #main-nav .navbar .navbar-start {
+  padding-top: 7rem; }
+  .toolbar-fixed #main-nav .navbar .navbar-start .navbar-burger, .toolbar-vertical #main-nav .navbar .navbar-start .navbar-burger {
+    top: 3rem; }
 
 /*# sourceMappingURL=navigation.css.map */

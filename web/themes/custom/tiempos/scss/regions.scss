@@ -1,4 +1,5 @@
 @import "../node_modules/bulma/sass/utilities/initial-variables";
+@import "./vars";
 
 header {
   border-bottom: 1px solid $grey-light;
@@ -16,6 +17,11 @@ header {
   }
 }
 
-.region-content, .region-sidebar {
+.region-content {
   flex-wrap: wrap;
+}
+
+.region-sidebar {
+  flex-wrap: wrap;
+  @include border-left-light;
 }
