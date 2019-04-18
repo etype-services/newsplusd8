@@ -45,6 +45,16 @@
   }
 }
 
+@media screen and (max-width: $tablet - 1px) {
+  /* Align date with hamburger and search on mobile. */
+  #block-date > p {
+    float: left;
+    margin-top: 0.35rem;
+    margin-right: 0;
+    padding-right: 0;
+  }
+}
+
 #block-etypeeedition {
   @include border-light;
   flex-basis: 100%;

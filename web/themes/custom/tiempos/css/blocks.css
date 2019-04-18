@@ -28,6 +28,13 @@
     /* Indent search when Hamburger hidden. */ }
     #block-date .block-search {
       margin-left: 0.5rem; } }
+@media screen and (max-width: 768px) {
+  /* Align date with hamburger and search on mobile. */
+  #block-date > p {
+    float: left;
+    margin-top: 0.35rem;
+    margin-right: 0;
+    padding-right: 0; } }
 #block-etypeeedition {
   border: 1px solid #b5b5b5;
   flex-basis: 100%; }
