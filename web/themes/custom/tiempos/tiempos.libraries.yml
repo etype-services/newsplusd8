@@ -14,6 +14,7 @@ global-styling:
       css/navigation.css: { weight: 1 }
       css/helpers.css: { weight: 1 }
       css/views.css: { weight: 1 }
+      css/blocks.css: { weight: 1 }
 
 global-scripts:
   version: VERSION
@@ -29,6 +30,17 @@ petrona:
   css:
     theme:
       //fonts.googleapis.com/css?family=Petrona: { type: external }
+  license:
+    name: Open Font License
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
+lato:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Lato: { type: external }
   license:
     name: Open Font License
     url: //scripts.sil.org/OFL

@@ -1,15 +1,5 @@
 @import "../node_modules/bulma/sass/utilities/initial-variables";
 
-#block-date {
-  .navbar-burger {
-    position: relative;
-    margin-left: 0;
-    span {
-      height: 2px;
-    }
-  }
-}
-
 #main-nav {
   .navbar {
     border-bottom: 1px solid $grey-light;
@@ -22,9 +12,6 @@
       background-color: $white;
       .navbar-item {
         width: fit-content;
-      }
-      .navbar-burger {
-        z-index: 999;
       }
       .block-system-branding-block {
         text-align: center;
@@ -39,16 +26,6 @@
           }
         }
       }
-    }
-  }
-}
-
-@media screen and (max-width: $tablet - 1px) {
-  #block-date {
-    .navbar-burger {
-      position: fixed;
-      top: 0;
-      right: 0;
     }
   }
 }

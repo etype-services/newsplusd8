@@ -19,4 +19,5 @@ libraries:
   - tiempos/global-styling
   - tiempos/global-scripts
   - tiempos/petrona
+  - tiempos/lato
   - tiempos/fontawesome

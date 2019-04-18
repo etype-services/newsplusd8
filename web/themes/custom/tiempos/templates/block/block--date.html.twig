@@ -41,9 +41,11 @@
   {{ title_suffix }}
   {% block content %}
     <p class="is-size-7 column">{{ "now"|date("F jS Y") }}</p>
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <i class="fas fa-bars"></i>
-    </a>
-    {{ drupal_block('search_form_block') }}
+    <div>
+      <a role="button" class="navbar-burger is-hidden-desktop" aria-label="menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </a>
+      {{ drupal_block('search_form_block') }}
+    </div>
   {% endblock %}
 </div>

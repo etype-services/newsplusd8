@@ -40,11 +40,6 @@
       {% endfor %}
     </div>
     <div class="navbar-start is-really-invisible is-hidden-desktop">
-      <a role="button" class="navbar-burger is-pulled-right is-active" aria-label="menu" aria-expanded="false">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
       {% for item in items %}
         {{ link(item.title, item.url, { 'class':['navbar-item'] }) }}
         {% if item.below %}

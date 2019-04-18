@@ -1,0 +1,28 @@
+@import "../node_modules/bulma/sass/utilities/initial-variables";
+
+#block-date {
+  .navbar-burger {
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span {
+      height: 2px;
+    }
+  }
+  .block-search {
+    #search-block-form {
+      display: flex;
+      align-items: center;
+      /* Match navbar-burger. */
+      height: 3.25rem;
+      #edit-submit {
+        cursor: pointer;
+        margin-right: 0.5rem;
+      }
+      #edit-keys {
+        width: 70%;
+      }
+    }
+  }
+}
