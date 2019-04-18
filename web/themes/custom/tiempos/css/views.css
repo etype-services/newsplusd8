@@ -1,9 +1,23 @@
-/* Emulate column css for Front Page View top-level divs. */
+/* Emulate column css for Front Page View top-level divs. See vars.sass. */
 .view-id-frontpage.columns > .attachment, .view-id-frontpage.columns > .view-content {
   display: block;
   flex-basis: 0;
   flex-grow: 1;
   flex-shrink: 1;
   padding: 0.75rem; }
+
+.view {
+  /* For unformatted Views without default classes */ }
+  .view h2 {
+    font-size: 1.2rem;
+    font-weight: 600; }
+    .view h2 a {
+      color: #121212; }
+      .view h2 a:hover {
+        color: #209cee; }
+  .view .view-content > div {
+    margin-bottom: 1rem; }
+    .view .view-content > div:last-child {
+      margin-bottom: 0; }
 
 /*# sourceMappingURL=views.css.map */
