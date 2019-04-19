@@ -1,3 +1,6 @@
+/**
+ * Styles build on and modify bulma nav component.
+ */
 #main-nav .navbar {
   border-bottom: 1px solid #b5b5b5; }
   #main-nav .navbar .navbar-start {

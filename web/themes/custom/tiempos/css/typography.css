@@ -12,5 +12,7 @@ svg, img {
 
 a {
   color: #121212; }
+  a:hover {
+    color: #209cee; }
 
 /*# sourceMappingURL=typography.css.map */

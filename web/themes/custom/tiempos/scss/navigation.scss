@@ -1,6 +1,10 @@
 @import "../node_modules/bulma/sass/utilities/initial-variables";
 @import "./vars";
 
+/**
+ * Styles build on and modify bulma nav component.
+ */
+
 #main-nav {
   .navbar {
     @include border-bottom-light;
