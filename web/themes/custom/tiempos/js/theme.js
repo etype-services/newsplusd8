@@ -4,12 +4,12 @@
         attach: function (context, settings) {
 
             /* Menu toggle. */
-            $(".navbar-burger").click(function () {
+            $(".navbar-burger").once("tiemposBehavior").click(function () {
                 $(".navbar-start").toggleClass("is-really-invisible");
             });
 
             /* Search form. */
-            $(".search-block-form > .form-submit").click(function () {
+            $(".search-block-form > .form-submit").once("tiemposBehavior").click(function () {
                 var keys = $(".search-block-form > .form-search");
                 var reg = /[a-z]+/;
                 // console.log("clicked");
@@ -25,7 +25,7 @@
             });
 
             /* User menu buttons. */
-            $(".user-menu .button").hover(function () {
+            $(".user-menu .button").once("tiemposBehavior").hover(function () {
                 $(this).removeClass("has-background-grey").addClass("has-background-link");
             }, function () {
                 $(this).removeClass("has-background-link").addClass("has-background-grey");
