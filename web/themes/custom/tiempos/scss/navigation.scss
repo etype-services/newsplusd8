@@ -49,6 +49,7 @@
     .navbar {
       /* Make sure navbar completely hidden */
       min-height: 0;
+      border-bottom: 0;
       /* Show User Menu in pop-up, using is-hidden-touch to identify the menu. */
       .navbar-start > .is-hidden-touch {
         display: block!important;
@@ -71,6 +72,14 @@
           line-height: 2rem;
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet - 1px ) {
+  #main-nav {
+    .navbar {
+      border-top: 0;
     }
   }
 }

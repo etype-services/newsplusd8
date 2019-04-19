@@ -19,6 +19,13 @@
     font-weight: $weight-semibold;
   }
 
+  /* Make image fill defined space, might cause upscaling */
+  .field--type-image {
+    img {
+      width: 100%;
+    }
+  }
+
   /* For unformatted Views without default classes */
   .view-content > div {
     margin-bottom: 1rem;

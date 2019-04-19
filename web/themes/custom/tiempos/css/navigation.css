@@ -35,6 +35,7 @@
   #main-nav .navbar {
     /* Make sure navbar completely hidden */
     min-height: 0;
+    border-bottom: 0;
     /* Show User Menu in pop-up, using is-hidden-touch to identify the menu. */ }
     #main-nav .navbar .navbar-start > .is-hidden-touch {
       display: block !important;
@@ -52,6 +53,9 @@
       #main-nav .navbar .navbar-start #search-block-form {
         /* Stop search icon from jumping. */
         line-height: 2rem; } }
+@media screen and (max-width: 768px) {
+  #main-nav .navbar {
+    border-top: 0; } }
 .user-menu .button, .user-menu .button:first-child {
   margin-left: 0.5rem;
   margin-right: 0;

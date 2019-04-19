@@ -9,15 +9,13 @@ header {
   position: relative;
 }
 
-@media screen and (max-width: $tablet - 1px) {
-  header {
-    padding-bottom: $column-gap;
-  }
-}
-
 @media screen and (max-width: $tablet - 1px ) {
   .region-header > div {
     padding-top: 0;
     padding-bottom: 0;
+  }
+  .region-sidebar {
+    display: none;
+    visibility: hidden;
   }
 }

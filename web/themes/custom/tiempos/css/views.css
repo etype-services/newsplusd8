@@ -11,10 +11,13 @@
   .view-id-frontpage.columns > .attachment-before {
     display: none; } }
 .view {
+  /* Make image fill defined space, might cause upscaling */
   /* For unformatted Views without default classes */ }
   .view h2 {
     font-size: 1.2rem;
     font-weight: 600; }
+  .view .field--type-image img {
+    width: 100%; }
   .view .view-content > div {
     margin-bottom: 1rem; }
     .view .view-content > div:last-child {
