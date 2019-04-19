@@ -1,7 +1,7 @@
 (function ($, Drupal) {
     "use strict";
     Drupal.behaviors.tiemposBehavior = {
-        attach: function (context, settings) {
+        attach: function () {
 
             /* Menu toggle. */
             $(".navbar-burger").once("tiemposBehavior").click(function () {
@@ -9,8 +9,8 @@
             });
 
             /* Search form. */
-            $("#search-block-form > #edit-submit").once("tiemposBehavior").click(function () {
-                var keys = $("#search-block-form > #edit-keys");
+            $('[data-drupal-selector="search-edit-submit"]').once("tiemposBehavior").click(function () {
+                var keys = $('[data-drupal-selector="search-edit-keys"]');
                 var reg = /[a-z]+/;
                 if (keys.hasClass("is-really-invisible")) {
                     keys.removeClass("is-really-invisible").focus();
@@ -24,7 +24,7 @@
             });
 
             /* User menu buttons. */
-            $(".user-menu .button").hover(function () {
+            $(".user-menu .button").once("tiemposBehavior").hover(function () {
                 $(this).removeClass("has-background-grey").addClass("has-background-link");
             }, function () {
                 $(this).removeClass("has-background-link").addClass("has-background-grey");

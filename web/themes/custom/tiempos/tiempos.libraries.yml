@@ -19,10 +19,12 @@ global-styling:
 global-scripts:
   version: VERSION
   js:
-    js/theme.js: { minified: true }
+    js/theme.js:
   dependencies:
+    - core/jquery
     - core/jquery.once
     - core/drupal
+    - core/drupalSettings
 
 petrona:
   version: VERSION

@@ -50,9 +50,12 @@
           display: block; }
     #main-nav .navbar .navbar-start {
       padding-top: 5rem; }
-      #main-nav .navbar .navbar-start #search-block-form {
+      #main-nav .navbar .navbar-start [data-drupal-selector=search-block-form] {
         /* Stop search icon from jumping. */
-        line-height: 2rem; } }
+        line-height: 2rem; }
+      #main-nav .navbar .navbar-start [data-drupal-selector=search-edit-submit] {
+        cursor: pointer;
+        margin-right: 0.5rem; } }
 @media screen and (max-width: 768px) {
   #main-nav .navbar {
     border-top: 0; } }

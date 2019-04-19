@@ -7,15 +7,15 @@
   align-items: center; }
   #block-date .navbar-burger span {
     height: 2px; }
-#block-date .block-search #search-block-form {
+#block-date .block-search [data-drupal-selector=search-block-form] {
   display: flex;
   align-items: center;
   /* Match navbar-burger. */
   height: 3.25rem; }
-  #block-date .block-search #search-block-form #edit-submit {
+  #block-date .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-submit] {
     cursor: pointer;
     margin-right: 0.5rem; }
-  #block-date .block-search #search-block-form #edit-keys {
+  #block-date .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-keys] {
     width: 70%; }
 
 @media screen and (max-width: 1087px) {

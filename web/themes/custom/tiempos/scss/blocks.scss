@@ -14,16 +14,16 @@
     }
   }
   .block-search {
-    #search-block-form {
+    [data-drupal-selector=search-block-form] {
       display: flex;
       align-items: center;
       /* Match navbar-burger. */
       height: 3.25rem;
-      #edit-submit {
+      [data-drupal-selector=search-edit-submit] {
         cursor: pointer;
         margin-right: 0.5rem;
       }
-      #edit-keys {
+      [data-drupal-selector=search-edit-keys] {
         width: 70%;
       }
     }
