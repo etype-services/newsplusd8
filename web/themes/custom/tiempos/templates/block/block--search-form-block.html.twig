@@ -37,8 +37,10 @@
 <div{{ attributes.addClass(classes) }}>
   <form class="search-block-form" data-drupal-selector="search-block-form" action="/search/node" method="get"
         accept-charset="UTF-8" data-drupal-form-fields="search-edit-keys">
-      <input class="fas fa-search js-form-submit form-submit" data-drupal-selector="search-edit-submit" type="submit"
-             value="Search" />
+      <div class="search-edit-submit">
+          <input class="fas fa-search js-form-submit form-submit" data-drupal-selector="search-edit-submit"
+                 type="submit" value="Search" />
+      </div>
       <input title="Enter the terms you wish to search for." data-drupal-selector="search-edit-keys" type="search"
              name="keys" value="" size="15" maxlength="128" class="form-search is-really-invisible">
   </form>

@@ -9,15 +9,15 @@
             });
 
             /* Search form. */
-            $(".search-block-form > .form-submit").once("tiemposBehavior").click(function () {
-                var keys = $(".search-block-form > .form-search");
+            $(".search-edit-submit").once("tiemposBehavior").click(function () {
+                var keys = $('[data-drupal-selector="search-edit-keys"]');
                 var reg = /[a-z]+/;
                 // console.log("clicked");
                 if (keys.hasClass("is-really-invisible")) {
                     keys.removeClass("is-really-invisible").focus();
                 } else {
                     if (reg.test(keys.val())) {
-                        $("#search-block-form").submit();
+                        $('[data-drupal-selector="search-block-form"]').submit();
                     } else {
                         keys.addClass("is-really-invisible");
                     }
