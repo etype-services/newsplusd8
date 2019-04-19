@@ -1,7 +1,3 @@
-/* Main content. */
-#block-tiempos-content {
-  padding-top: 0; }
-
 /* Top left "Date" block. */
 #block-date .navbar-burger {
   /* Flex to center fontawsone icon. */
@@ -14,7 +10,6 @@
 #block-date .block-search #search-block-form {
   display: flex;
   align-items: center;
-  margin-left: 0.5rem;
   /* Match navbar-burger. */
   height: 3.25rem; }
   #block-date .block-search #search-block-form #edit-submit {
@@ -23,18 +18,18 @@
   #block-date .block-search #search-block-form #edit-keys {
     width: 70%; }
 
-@media screen and (min-width: 1088px) {
-  #block-date {
-    /* Indent search when Hamburger hidden. */ }
-    #block-date .block-search {
-      margin-left: 0.5rem; } }
+@media screen and (max-width: 1087px) {
+  #block-date .block-search {
+    /* Hide search, goes in navbar-start */
+    display: none; } }
 @media screen and (max-width: 768px) {
-  /* Align date with hamburger and search on mobile. */
-  #block-date > p {
-    float: left;
-    margin-top: 0.35rem;
-    margin-right: 0;
-    padding-right: 0; } }
+  #block-date {
+    /* Align date with hamburger and search on mobile. */ }
+    #block-date p {
+      float: left;
+      margin-top: 1.1rem;
+      margin-right: 0;
+      padding-right: 0; } }
 #block-etypeeedition {
   flex-basis: 100%; }
   #block-etypeeedition p {

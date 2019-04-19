@@ -30,7 +30,6 @@
     'block',
     'block-' ~ configuration.provider|clean_class,
     'block-' ~ plugin_id|clean_class,
-    'column',
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
@@ -40,7 +39,7 @@
   {% endif %}
   {{ title_suffix }}
   {% block content %}
-    <p class="is-size-7 column">{{ "now"|date("F jS Y") }}</p>
+    <p class="is-size-7">{{ "now"|date("F jS Y") }}</p>
     <div>
       <a role="button" class="navbar-burger is-hidden-desktop" aria-label="menu" aria-expanded="false">
         <i class="fas fa-bars"></i>

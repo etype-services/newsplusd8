@@ -42,12 +42,14 @@
 #}
 <div class="layout-container">
   <div class="container">
-    <header role="banner">
-      {{ page.header }}
+    {{ page.top_bar }}
+    <header role="banner" class="columns">
+      {{ page.header_left }}
+      {{ page.header_center }}
+      {{ page.header_right }}
     </header>
 
     {{ page.navigation }}
-
     {{ page.breadcrumb }}
 
     <main role="main" class="columns">

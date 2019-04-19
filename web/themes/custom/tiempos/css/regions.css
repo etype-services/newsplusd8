@@ -1,11 +1,15 @@
-header {
-  border-bottom: 1px solid #b5b5b5; }
+.region-header-left, .region-header-center, .region-header-right {
+  padding-bottom: 0; }
+  .region-header-left .block, .region-header-center .block, .region-header-right .block {
+    margin-bottom: 0; }
 
-@media screen and (max-width: 768px) {
-  header {
-    padding-bottom: 1rem; } }
-.region-header .block {
-  margin-bottom: 0; }
+.region-header-left {
+  /* Adjust spacing to line up date. */
+  padding: 1.5rem 0.75rem 0 1.5rem; }
+
+.region-header-right {
+  text-align: right;
+  padding: 1.5rem 1.5rem 0 0.75rem; }
 
 .region-content {
   flex-wrap: wrap; }
@@ -13,5 +17,20 @@ header {
 .region-sidebar {
   flex-wrap: wrap;
   border-left: 1px solid #b5b5b5; }
+
+@media screen and (max-width: 768px) {
+  .region-header-left {
+    padding: 0.75rem 0.75rem 0 0.75rem;
+    height: 3.5rem; }
+
+  .region-header-right {
+    padding: 0.75rem 0.75rem 0 0.75rem;
+    position: absolute;
+    top: 0;
+    right: 0; } }
+@media screen and (min-width: 769px) and (max-width: 1088px) {
+  .region-header-right {
+    /* Fine tuning weather widget */
+    padding: 0.5rem 0.75rem 0 0.75rem; } }
 
 /*# sourceMappingURL=regions.css.map */

@@ -3,7 +3,7 @@
 
 /* Emulate column css for Front Page View top-level divs. See vars.sass. */
 .view-id-frontpage.columns > .attachment, .view-id-frontpage.columns > .view-content {
-  @include column;
+  @include column-no-padding-top;
 }
 
 /* Hide attachment-before on mobile. */

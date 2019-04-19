@@ -11,10 +11,31 @@ $column-gap: 0.75rem !default
   flex-shrink: 1
   padding: $column-gap
 
+@mixin column-no-padding-top
+  display: block
+  flex-basis: 0
+  flex-grow: 1
+  flex-shrink: 1
+  padding: 0 $column-gap $column-gap $column-gap
+
+@mixin column-no-padding-bottom
+  display: block
+  flex-basis: 0
+  flex-grow: 1
+  flex-shrink: 1
+  padding: $column-gap $column-gap 0 $column-gap
+
 @mixin border-light
   border: 1px solid $grey-light
 
 @mixin border-bottom-light
+  border-bottom: 1px solid $grey-light
+
+@mixin border-top-light
+  border-top: 1px solid $grey-light
+
+@mixin border-top-bottom-light
+  border-top: 1px solid $grey-light
   border-bottom: 1px solid $grey-light
 
 @mixin border-left-light

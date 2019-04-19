@@ -1,11 +1,6 @@
 @import "../node_modules/bulma/sass/utilities/initial-variables";
 @import "./vars";
 
-/* Main content. */
-#block-tiempos-content {
-  padding-top: 0;
-}
-
 /* Top left "Date" block. */
 #block-date {
   .navbar-burger {
@@ -22,7 +17,6 @@
     #search-block-form {
       display: flex;
       align-items: center;
-      margin-left: 0.5rem;
       /* Match navbar-burger. */
       height: 3.25rem;
       #edit-submit {
@@ -36,22 +30,24 @@
   }
 }
 
-@media screen and (min-width: $desktop ) {
+@media screen and (max-width: $desktop - 1px) {
   #block-date {
-    /* Indent search when Hamburger hidden. */
     .block-search {
-      margin-left: 0.5rem;
+      /* Hide search, goes in navbar-start */
+      display: none;
     }
   }
 }
 
 @media screen and (max-width: $tablet - 1px) {
-  /* Align date with hamburger and search on mobile. */
-  #block-date > p {
-    float: left;
-    margin-top: 0.35rem;
-    margin-right: 0;
-    padding-right: 0;
+  #block-date {
+    /* Align date with hamburger and search on mobile. */
+    p {
+      float: left;
+      margin-top: 1.1rem;
+      margin-right: 0;
+      padding-right: 0;
+    }
   }
 }
 

@@ -1,20 +1,21 @@
 @import "../node_modules/bulma/sass/utilities/initial-variables";
 @import "./vars";
 
-header {
-  border-bottom: 1px solid $grey-light;
-}
-
-@media screen and (max-width: $tablet - 1px) {
-  header {
-    padding-bottom: 1rem;
-  }
-}
-
-.region-header {
+.region-header-left, .region-header-center, .region-header-right {
+  padding-bottom: 0;
   .block {
     margin-bottom: 0;
   }
+}
+
+.region-header-left {
+  /* Adjust spacing to line up date. */
+  padding: 1.5rem 0.75rem 0 1.5rem;
+}
+
+.region-header-right {
+  text-align: right;
+  padding: 1.5rem 1.5rem 0 0.75rem;;
 }
 
 .region-content {
@@ -24,4 +25,24 @@ header {
 .region-sidebar {
   flex-wrap: wrap;
   @include border-left-light;
+}
+
+@media screen and (max-width: $tablet - 1px) {
+  .region-header-left {
+    padding: $column-gap $column-gap 0 $column-gap;
+    height: 3.5rem;
+  }
+  .region-header-right {
+    padding: $column-gap $column-gap 0 $column-gap;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+@media screen and (min-width: $tablet) and (max-width: $desktop) {
+  .region-header-right {
+    /* Fine tuning weather widget */
+    padding: 0.5rem $column-gap 0 $column-gap;
+  }
 }

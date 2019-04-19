@@ -46,6 +46,7 @@
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </a>
+      {{ drupal_block('search_form_block') }}
       {% for item in items %}
         {{ link(item.title, item.url, { 'class':['navbar-item'] }) }}
         {% if item.below %}

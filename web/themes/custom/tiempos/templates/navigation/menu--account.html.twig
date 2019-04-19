@@ -29,7 +29,7 @@
 {% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
   {% if items %}
-    <nav role="navigation" aria-label="user navigation" class="column user-menu is-hidden-touch">
+    <nav role="navigation" aria-label="user navigation" class="user-menu is-hidden-touch">
       <div class="navbar-menu is-active is-pulled-right-desktop is-paddingless is-shadowless">
     {% for item in items %}
         {{ link(item.title, item.url, { 'class':['button has-text-white-ter

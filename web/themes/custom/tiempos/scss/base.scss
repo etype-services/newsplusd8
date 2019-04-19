@@ -1,7 +1,18 @@
 @import "../node_modules/bulma/sass/utilities/initial-variables";
+@import "./vars";
 
 .layout-container {
-  margin: 1rem;
+  margin: $column-gap;
+}
+
+header {
+  position: relative;
+}
+
+@media screen and (max-width: $tablet - 1px) {
+  header {
+    padding-bottom: $column-gap;
+  }
 }
 
 @media screen and (max-width: $tablet - 1px ) {

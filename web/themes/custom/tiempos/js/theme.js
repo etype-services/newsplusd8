@@ -29,6 +29,7 @@
             }, function () {
                 $(this).removeClass("has-background-link").addClass("has-background-grey");
             });
+
         }
     };
 })(jQuery, Drupal);
