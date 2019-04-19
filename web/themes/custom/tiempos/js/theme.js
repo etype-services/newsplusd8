@@ -1,17 +1,18 @@
 (function ($, Drupal) {
     "use strict";
     Drupal.behaviors.tiemposBehavior = {
-        attach: function () {
+        attach: function (context, settings) {
 
             /* Menu toggle. */
-            $(".navbar-burger").once("tiemposBehavior").click(function () {
+            $(".navbar-burger").click(function () {
                 $(".navbar-start").toggleClass("is-really-invisible");
             });
 
             /* Search form. */
-            $('[data-drupal-selector="search-edit-submit"]').once("tiemposBehavior").click(function () {
-                var keys = $('[data-drupal-selector="search-edit-keys"]');
+            $(".search-block-form > .form-submit").click(function () {
+                var keys = $(".search-block-form > .form-search");
                 var reg = /[a-z]+/;
+                // console.log("clicked");
                 if (keys.hasClass("is-really-invisible")) {
                     keys.removeClass("is-really-invisible").focus();
                 } else {
@@ -24,7 +25,7 @@
             });
 
             /* User menu buttons. */
-            $(".user-menu .button").once("tiemposBehavior").hover(function () {
+            $(".user-menu .button").hover(function () {
                 $(this).removeClass("has-background-grey").addClass("has-background-link");
             }, function () {
                 $(this).removeClass("has-background-link").addClass("has-background-grey");

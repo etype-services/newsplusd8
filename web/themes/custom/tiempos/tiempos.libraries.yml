@@ -21,8 +21,10 @@ global-scripts:
   js:
     js/theme.js:
   dependencies:
-    - core/jquery.once
+    - core/jquery
     - core/drupal
+    - core/jquery.once
+    - core/drupalSettings
 
 petrona:
   version: VERSION
