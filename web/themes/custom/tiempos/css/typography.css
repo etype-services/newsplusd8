@@ -11,8 +11,9 @@ svg, img {
   outline: none; }
 
 a {
-  color: #121212; }
+  color: #121212;
+  box-shadow: none; }
   a:hover {
-    color: #209cee; }
+    color: #3273dc; }
 
 /*# sourceMappingURL=typography.css.map */

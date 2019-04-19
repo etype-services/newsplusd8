@@ -2,6 +2,7 @@
     "use strict";
     Drupal.behaviors.tiemposBehavior = {
         attach: function (context, settings) {
+
             /* Menu toggle. */
             $(".navbar-burger").once("tiemposBehavior").click(function () {
                 $(".navbar-start").toggleClass("is-really-invisible");
@@ -20,6 +21,13 @@
                         keys.addClass("is-really-invisible");
                     }
                 }
+            });
+
+            /* User menu buttons. */
+            $(".user-menu .button").hover(function () {
+                $(this).removeClass("has-background-grey").addClass("has-background-link");
+            }, function () {
+                $(this).removeClass("has-background-link").addClass("has-background-grey");
             });
         }
     };

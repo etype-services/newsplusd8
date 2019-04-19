@@ -6,15 +6,15 @@ use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Render\Markup;
 
 /**
- * Provides a 'WillyWeather Widget' Block.
+ * Provides a Weather Widget Block.
  *
  * @Block(
- *   id = "willyweatherwidget_block",
- *   admin_label = @Translation("WillyWeather Widget"),
+ *   id = "weatherwidget_block",
+ *   admin_label = @Translation("Weather Widget"),
  *   category = @Translation("eType"),
  * )
  */
-class WillyWeatherWidgetBlock extends BlockBase {
+class WeatherWidgetBlock extends BlockBase {
 
   /**
    * {@inheritdoc}
@@ -24,12 +24,12 @@ class WillyWeatherWidgetBlock extends BlockBase {
   public function build() {
 
     $config = \Drupal::config('etype.adminsettings');
-    $willyweather_code = $config->get('willyweather_code');
-    if (!empty($willyweather_code)) {
-      $output = $willyweather_code;
+    $weather_code = $config->get('weather_code');
+    if (!empty($weather_code)) {
+      $output = $weather_code;
     }
     else {
-      $output = '<p>Please add WillyWeather code at the eType Settings page to show the weather widget.</p>';
+      $output = '<p>Please add weather code at the eType Settings page to show the weather widget.</p>';
     }
     return [
       '#children' => Markup::create($output),

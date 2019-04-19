@@ -19,7 +19,8 @@ svg, img {
 
 a {
   color: $black-bis;
+  box-shadow: none;
   &:hover {
-    color: $cyan;
+    color: $blue;
   }
 }
