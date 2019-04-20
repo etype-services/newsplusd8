@@ -9,11 +9,6 @@ header {
   position: relative;
 }
 
-footer {
-  font-size: $size-7;
-  font-family: $lato;
-}
-
 @media screen and (min-width: $desktop) {
   /* Override columns formatting to get correct border width. */
   footer {

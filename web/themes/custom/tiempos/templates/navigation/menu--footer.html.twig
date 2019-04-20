@@ -37,14 +37,11 @@
       item.is_expanded ? 'menu-item--expanded',
       item.is_collapsed ? 'menu-item--collapsed',
       item.in_active_trail ? 'menu-item--active-trail',
-      'button',
     ]
     %}
     <li{{ item.attributes.addClass(classes) }}>
-      {{ link(item.title, item.url) }}
-      {% if item.below %}
-        {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-      {% endif %}
+      {{ link(item.title, item.url, { 'class':['button', 'is-size-7', 'has-text-white-ter',
+          'has-background-grey-light', 'is-uppercase'] }) }}
     </li>
   {% endfor %}
 </ul>

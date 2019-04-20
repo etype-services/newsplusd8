@@ -23,14 +23,6 @@
                     }
                 }
             });
-
-            /* User menu buttons. */
-            $(".user-menu .button").once("tiemposBehavior").hover(function () {
-                $(this).removeClass("has-background-grey").addClass("has-background-link");
-            }, function () {
-                $(this).removeClass("has-background-link").addClass("has-background-grey");
-            });
-
         }
     };
 })(jQuery, Drupal);

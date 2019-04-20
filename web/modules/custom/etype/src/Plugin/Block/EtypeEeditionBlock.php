@@ -25,7 +25,7 @@ class EtypeEeditionBlock extends BlockBase {
     foreach ($e_editions as $e_edition) {
       $output .= '
 <div><a href="' . $e_edition['path'] . '" target="_blank"><img src="' . $e_edition['image'] . '"></a></div>
-<p><a href="' . $e_edition['path'] . '" target="_blank">Click here to read ' . $e_edition['site_name'] . '</a></p>
+<p><a href="' . $e_edition['path'] . '" target="_blank">Read ' . $e_edition['site_name'] . '</a></p>
 ';
     }
     return [

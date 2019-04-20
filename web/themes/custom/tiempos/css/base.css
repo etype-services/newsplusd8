@@ -4,10 +4,6 @@
 header {
   position: relative; }
 
-footer {
-  font-size: 0.75rem;
-  font-family: "Lato", sans-serif; }
-
 @media screen and (min-width: 1088px) {
   /* Override columns formatting to get correct border width. */
   footer {

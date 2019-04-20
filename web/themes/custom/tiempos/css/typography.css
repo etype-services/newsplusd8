@@ -16,4 +16,8 @@ a {
   a:hover {
     color: #3273dc !important; }
 
+footer {
+  font-size: 0.75rem;
+  font-family: "Lato", sans-serif; }
+
 /*# sourceMappingURL=typography.css.map */
