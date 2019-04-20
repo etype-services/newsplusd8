@@ -73,24 +73,24 @@
         margin-left: 0.5rem; } }
 /* Mobile */
 @media screen and (max-width: 768px) {
-  #main-nav {
+  #main-nav .navbar {
+    border-top: 0;
     /* Social Icons */ }
-    #main-nav .navbar {
-      border-top: 0; }
-    #main-nav .navbar-end {
+    #main-nav .navbar .navbar-end {
       position: absolute;
       top: -1rem;
       width: 100%;
       justify-content: flex-end;
       display: flex;
-      padding-right: 0.75rem; } }
+      padding-right: 0; } }
+/* User Menu */
 .user-menu .button, .user-menu .button:first-child {
   margin-left: 0.5rem;
   margin-right: 0;
   font-family: "Lato", sans-serif;
   font-size: 0.7rem; }
 
-/* Move menu below admin toolbar. */
+/* Move menus below admin toolbar. */
 .toolbar-fixed #main-nav .navbar .navbar-start, .toolbar-vertical #main-nav .navbar .navbar-start {
   padding-top: 7rem; }
   .toolbar-fixed #main-nav .navbar .navbar-start .navbar-burger, .toolbar-vertical #main-nav .navbar .navbar-start .navbar-burger {

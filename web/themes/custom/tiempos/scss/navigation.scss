@@ -104,19 +104,20 @@
   #main-nav {
     .navbar {
       border-top: 0;
-    }
-    /* Social Icons */
-    .navbar-end {
-      position: absolute;
-      top: -1rem;
-      width: 100%;
-      justify-content: flex-end;
-      display: flex;
-      padding-right: $column-gap;
+      /* Social Icons */
+      .navbar-end {
+        position: absolute;
+        top: -1rem;
+        width: 100%;
+        justify-content: flex-end;
+        display: flex;
+        padding-right: 0;
+      }
     }
   }
 }
 
+/* User Menu */
 .user-menu {
   .button, .button:first-child {
     margin-left: 0.5rem;
@@ -126,7 +127,7 @@
   }
 }
 
-/* Move menu below admin toolbar. */
+/* Move menus below admin toolbar. */
 .toolbar-fixed, .toolbar-vertical {
   #main-nav {
     .navbar {

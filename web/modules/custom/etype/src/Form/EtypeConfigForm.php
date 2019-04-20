@@ -64,6 +64,27 @@ class EtypeConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('etype_ptype'),
     ];
 
+    $form['social'] = [
+      '#type' => 'fieldset',
+      '#title' => $this->t('Social Media'),
+    ];
+
+    $form['social']['facebook'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Facebook URL'),
+      '#description' => $this->t('Enter the complete web address.'),
+      '#size' => 55,
+      '#default_value' => $config->get('facebook'),
+    ];
+
+    $form['social']['twitter'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Twitter URL'),
+      '#description' => $this->t('Enter the complete web address.'),
+      '#size' => 55,
+      '#default_value' => $config->get('twitter'),
+    ];
+
     $form['other'] = [
       '#type' => 'fieldset',
       '#title' => $this->t('Other Settings'),
@@ -97,6 +118,8 @@ class EtypeConfigForm extends ConfigFormBase {
       ->set('etype_e_edition', $form_state->getValue('etype_e_edition'))
       ->set('etype_pub', $form_state->getValue('etype_pub'))
       ->set('etype_ptype', $form_state->getValue('etype_ptype'))
+      ->set('facebook', $form_state->getValue('facebook'))
+      ->set('twitter', $form_state->getValue('twitter'))
       ->set('mercolocal_id', $form_state->getValue('mercolocal_id'))
       ->set('weather_code', $form_state->getValue('weather_code'))
       ->save();

@@ -14,6 +14,6 @@ a {
   color: #121212;
   box-shadow: none; }
   a:hover {
-    color: #3273dc; }
+    color: #3273dc !important; }
 
 /*# sourceMappingURL=typography.css.map */

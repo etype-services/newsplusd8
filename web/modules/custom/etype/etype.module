@@ -5,13 +5,13 @@
  */
 function etype_e_editions() {
 
-  $logged_in = \Drupal::currentUser()->isAuthenticated();
-  $config = \Drupal::config('etype.adminsettings');
+  $logged_in = Drupal::currentUser()->isAuthenticated();
+  $config = Drupal::config('etype.adminsettings');
   $e_edition = $config->get('etype_e_edition');
   $pub = $config->get('etype_pub');
   $ptype = $config->get('etype_ptype');
 
-  $config = \Drupal::config('system.site');
+  $config = Drupal::config('system.site');
   $site = $config->get('name');
 
   /* because Lutcher has a comma */
@@ -47,7 +47,7 @@ function etype_e_editions() {
 
     if ($logged_in > 0) {
       if (!empty ($pub)) {
-        $account = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+        $account = Drupal\user\Entity\User::load(Drupal::currentUser()->id());
         $name = $account->get('name')->value;
         $path = 'https://etypeservices.com/ReadTheEdition.aspx?Username=' . $name . "&Pub=" . $pub . "&PType=" . $ptype;
       } else {

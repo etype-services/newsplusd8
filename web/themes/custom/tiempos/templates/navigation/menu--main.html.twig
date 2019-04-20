@@ -31,18 +31,6 @@
   {% if items %}
 <nav role="navigation" id="main-nav" aria-label="user navigation" class="column">
   <div class="navbar">
-    <div class="navbar-menu has-text-weight-semibold">
-      {% for item in items %}
-        {{ link(item.title, item.url, { 'class':['navbar-item'] }) }}
-        {% if item.below %}
-          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-        {% endif %}
-      {% endfor %}
-    </div>
-    <div class="navbar-end">
-      <a href=""><i class="fab fa-facebook is-size-3"></i></a>
-      <a href=""><i class="fab fa-twitter is-size-3"></i></a>
-    </div>
     <div class="navbar-start is-really-invisible is-hidden-desktop">
       {{ drupal_block('system_menu_block:account') }}
       <a role="button" class="navbar-burger is-active" aria-label="menu" aria-expanded="false">
@@ -58,6 +46,17 @@
         {% endif %}
       {% endfor %}
       {{ drupal_block('system_branding_block', {use_site_name: false}) }}
+    </div>
+    <div class="navbar-menu has-text-weight-semibold">
+      {% for item in items %}
+        {{ link(item.title, item.url, { 'class':['navbar-item'] }) }}
+        {% if item.below %}
+          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="navbar-end">
+      {{ drupal_block('socialmedia') }}
     </div>
   </div>
 </nav>

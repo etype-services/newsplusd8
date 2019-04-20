@@ -2,6 +2,7 @@
 
 namespace Drupal\etype\Plugin\Block;
 
+use Drupal;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Render\Markup;
 
@@ -24,7 +25,7 @@ class MercoLocalSidebarBlock extends BlockBase {
    */
   public function build() {
 
-    $config = \Drupal::config('etype.adminsettings');
+    $config = Drupal::config('etype.adminsettings');
     $mercolocal_id = $config->get('mercolocal_id');
     if (!empty($mercolocal_id)) {
       $output = '<var id="MercoLocal">

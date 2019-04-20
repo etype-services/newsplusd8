@@ -7,15 +7,15 @@ use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Render\Markup;
 
 /**
- * Provides a Weather Widget Block.
+ * Provides a Social Media Block.
  *
  * @Block(
- *   id = "weatherwidget_block",
- *   admin_label = @Translation("Weather Widget"),
+ *   id = "socialmedia_block",
+ *   admin_label = @Translation("Social Media"),
  *   category = @Translation("eType"),
  * )
  */
-class WeatherWidgetBlock extends BlockBase {
+class SocialMediaBlock extends BlockBase {
 
   /**
    * {@inheritdoc}
@@ -25,12 +25,12 @@ class WeatherWidgetBlock extends BlockBase {
   public function build() {
 
     $config = Drupal::config('etype.adminsettings');
-    $weather_code = $config->get('weather_code');
-    if (!empty($weather_code)) {
-      $output = $weather_code;
-    }
-    else {
-      $output = '<p>Please add weather code at the eType Settings page to show the weather widget.</p>';
+    $links = [];
+    $links['facebook'] = $config->get('facebook');
+    $links['twitter'] = $config->get('twitter');
+    $output = '';
+    foreach ($links as $k => $v) {
+      $output .= "<a href=\"$v\" class=\"has-text-grey\"><i class=\"fab fa-$k is-size-3\"></i></a>";
     }
     return [
       '#children' => Markup::create($output),
