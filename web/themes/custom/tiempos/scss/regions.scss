@@ -40,9 +40,9 @@
   }
 }
 
-@media screen and (min-width: $tablet) and (max-width: $desktop) {
+@media screen and (max-width: $desktop) {
   .region-header-right {
     /* Fine tuning weather widget */
-    padding: 0.5rem $column-gap 0 $column-gap;
+    padding: 0.5rem calc(#{$column-gap} * 2) 0 $column-gap;
   }
 }

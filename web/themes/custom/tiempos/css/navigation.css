@@ -1,6 +1,7 @@
 /**
  * Styles build on and modify bulma nav component.
  */
+/* Default (Wide Screen) Desktop */
 #main-nav .navbar {
   border-top: 1px solid #b5b5b5;
   border-bottom: 1px solid #b5b5b5;
@@ -30,13 +31,21 @@
       z-index: -1; }
       #main-nav .navbar .navbar-start .block-system-branding-block .site-logo img {
         width: 30vw; }
+  #main-nav .navbar .navbar-end {
+    /* Social Icons */
+    position: inherit;
+    align-items: center; }
+    #main-nav .navbar .navbar-end svg {
+      margin-left: 0.75rem; }
 
+/* Tablet */
 @media screen and (max-width: 1087px) {
   #main-nav .navbar {
     /* Make sure navbar completely hidden */
     min-height: 0;
     border-bottom: 0;
-    /* Show User Menu in pop-up, using is-hidden-touch to identify the menu. */ }
+    /* Show User Menu in pop-up, using is-hidden-touch to identify the menu. */
+    /* Social Icons */ }
     #main-nav .navbar .navbar-start > .is-hidden-touch {
       display: block !important;
       position: fixed;
@@ -55,10 +64,26 @@
         line-height: 2rem; }
       #main-nav .navbar .navbar-start [data-drupal-selector=search-edit-submit] {
         cursor: pointer;
-        margin-right: 0.5rem; } }
+        margin-right: 0.5rem; }
+    #main-nav .navbar .navbar-end {
+      position: absolute;
+      top: -2.5rem;
+      right: calc(0.75rem * 2); }
+      #main-nav .navbar .navbar-end svg {
+        margin-left: 0.5rem; } }
+/* Mobile */
 @media screen and (max-width: 768px) {
-  #main-nav .navbar {
-    border-top: 0; } }
+  #main-nav {
+    /* Social Icons */ }
+    #main-nav .navbar {
+      border-top: 0; }
+    #main-nav .navbar-end {
+      position: absolute;
+      top: -1rem;
+      width: 100%;
+      justify-content: flex-end;
+      display: flex;
+      padding-right: 0.75rem; } }
 .user-menu .button, .user-menu .button:first-child {
   margin-left: 0.5rem;
   margin-right: 0;

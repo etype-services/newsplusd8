@@ -5,6 +5,7 @@
  * Styles build on and modify bulma nav component.
  */
 
+/* Default (Wide Screen) Desktop */
 #main-nav {
   .navbar {
     @include border-top-bottom-light;
@@ -41,9 +42,18 @@
         }
       }
     }
+    .navbar-end {
+      /* Social Icons */
+      position: inherit;
+      align-items: center;
+      svg {
+        margin-left: $column-gap;
+      }
+    }
   }
 }
 
+/* Tablet */
 @media screen and (max-width: $desktop - 1px) {
   #main-nav {
     .navbar {
@@ -76,14 +86,33 @@
           margin-right: 0.5rem;
         }
       }
+      /* Social Icons */
+      .navbar-end {
+        position: absolute;
+        top: -2.5rem;
+        right: calc(#{$column-gap} * 2);
+        svg {
+          margin-left: 0.5rem;
+        }
+      }
     }
   }
 }
 
+/* Mobile */
 @media screen and (max-width: $tablet - 1px ) {
   #main-nav {
     .navbar {
       border-top: 0;
+    }
+    /* Social Icons */
+    .navbar-end {
+      position: absolute;
+      top: -1rem;
+      width: 100%;
+      justify-content: flex-end;
+      display: flex;
+      padding-right: $column-gap;
     }
   }
 }

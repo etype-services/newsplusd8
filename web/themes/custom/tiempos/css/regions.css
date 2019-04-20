@@ -28,9 +28,9 @@
     position: absolute;
     top: 0;
     right: 0; } }
-@media screen and (min-width: 769px) and (max-width: 1088px) {
+@media screen and (max-width: 1088px) {
   .region-header-right {
     /* Fine tuning weather widget */
-    padding: 0.5rem 0.75rem 0 0.75rem; } }
+    padding: 0.5rem calc(0.75rem * 2) 0 0.75rem; } }
 
 /*# sourceMappingURL=regions.css.map */
