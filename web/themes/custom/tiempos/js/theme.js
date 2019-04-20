@@ -8,7 +8,7 @@
                 $(".navbar-start").toggleClass("is-really-invisible");
             });
 
-            /* Search form. */
+            /* Search form. (No ids because the form is repeated.) */
             $(".search-edit-submit").once("tiemposBehavior").click(function () {
                 var keys = $('[data-drupal-selector="search-edit-keys"]');
                 var reg = /[a-z]+/;
