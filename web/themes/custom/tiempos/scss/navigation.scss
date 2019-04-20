@@ -46,7 +46,7 @@
       /* Social Icons */
       position: inherit;
       align-items: center;
-      svg {
+      a {
         margin-left: $column-gap;
       }
     }
@@ -91,9 +91,6 @@
         position: absolute;
         top: -2.5rem;
         right: calc(#{$column-gap} * 2);
-        svg {
-          margin-left: 0.5rem;
-        }
       }
     }
   }
@@ -112,6 +109,12 @@
         justify-content: flex-end;
         display: flex;
         padding-right: 0;
+        a {
+          margin-left: 0.5rem;
+          .is-size-3 {
+            font-size: 1.5rem!important;
+          }
+        }
       }
     }
   }

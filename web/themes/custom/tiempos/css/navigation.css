@@ -35,7 +35,7 @@
     /* Social Icons */
     position: inherit;
     align-items: center; }
-    #main-nav .navbar .navbar-end svg {
+    #main-nav .navbar .navbar-end a {
       margin-left: 0.75rem; }
 
 /* Tablet */
@@ -68,9 +68,7 @@
     #main-nav .navbar .navbar-end {
       position: absolute;
       top: -2.5rem;
-      right: calc(0.75rem * 2); }
-      #main-nav .navbar .navbar-end svg {
-        margin-left: 0.5rem; } }
+      right: calc(0.75rem * 2); } }
 /* Mobile */
 @media screen and (max-width: 768px) {
   #main-nav .navbar {
@@ -82,7 +80,11 @@
       width: 100%;
       justify-content: flex-end;
       display: flex;
-      padding-right: 0; } }
+      padding-right: 0; }
+      #main-nav .navbar .navbar-end a {
+        margin-left: 0.5rem; }
+        #main-nav .navbar .navbar-end a .is-size-3 {
+          font-size: 1.5rem !important; } }
 /* User Menu */
 .user-menu .button, .user-menu .button:first-child {
   margin-left: 0.5rem;
