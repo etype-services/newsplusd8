@@ -25,7 +25,7 @@ class CopyrightBlock extends BlockBase {
   public function build() {
     $config = Drupal::config('system.site');
     $name = $config->get('name');
-    $output = '<p>&copy;&nbsp;' . date("Y") . '&nbsp;' . $name . '</p>';
+    $output = '<p class="has-text-centered">&copy;&nbsp;' . date("Y") . '&nbsp;' . $name . '</p>';
     return [
       '#children' => Markup::create($output),
     ];
