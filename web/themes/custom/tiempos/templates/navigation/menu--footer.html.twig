@@ -29,7 +29,7 @@
 {% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
   {% if items %}
-<ul class="menu is-pulled-right">
+<ul class="menu footer-menu is-pulled-right">
   {% for item in items %}
     {%
       set classes = [
@@ -41,7 +41,7 @@
     %}
     <li{{ item.attributes.addClass(classes) }}>
       {{ link(item.title, item.url, { 'class':['button', 'is-size-7', 'has-text-white-ter',
-          'has-background-grey-light', 'is-uppercase'] }) }}
+          'has-background-grey-light', 'is-uppercase', 'is-lato'] }) }}
     </li>
   {% endfor %}
 </ul>

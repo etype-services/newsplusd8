@@ -1,5 +1,5 @@
 /**
- * Styles build on and modify bulma nav component.
+ * Styles build on bulma nav component.
  */
 /* Default (Wide Screen) Desktop */
 #main-nav .navbar {
@@ -70,7 +70,8 @@
       position: absolute;
       top: -2.5rem;
       right: calc(0.75rem * 2);
-      margin-right: 0; } }
+      margin-right: 0;
+      z-index: -1; } }
 /* Mobile */
 @media screen and (max-width: 768px) {
   #main-nav .navbar {
@@ -91,9 +92,7 @@
 /* User Menu */
 .user-menu .button, .user-menu .button:first-child {
   margin-left: 0.5rem;
-  margin-right: 0;
-  font-family: "Lato", sans-serif;
-  font-size: 0.7rem; }
+  margin-right: 0; }
 
 /* Move menus below admin toolbar. */
 .toolbar-fixed #main-nav .navbar .navbar-start, .toolbar-vertical #main-nav .navbar .navbar-start {

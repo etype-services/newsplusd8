@@ -7,6 +7,10 @@
 .border-top-light {
   border-top: 1px solid #b5b5b5; }
 
+/* Match font */
+.is-lato {
+  font-family: "Lato", sans-serif; }
+
 @media screen and (min-width: 769px) {
   .is-pulled-right-desktop {
     float: right; } }

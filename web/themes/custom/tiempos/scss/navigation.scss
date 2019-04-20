@@ -2,7 +2,7 @@
 @import "./vars";
 
 /**
- * Styles build on and modify bulma nav component.
+ * Styles build on bulma nav component.
  */
 
 /* Default (Wide Screen) Desktop */
@@ -93,6 +93,7 @@
         top: -2.5rem;
         right: calc(#{$column-gap} * 2);
         margin-right: 0;
+        z-index: -1; // Prevent display in "pop-up" menu
       }
     }
   }
@@ -128,8 +129,6 @@
   .button, .button:first-child {
     margin-left: 0.5rem;
     margin-right: 0;
-    font-family: $lato;
-    font-size: 0.7rem;
   }
 }
 
