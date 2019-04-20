@@ -111,6 +111,7 @@
         display: flex;
         justify-content: flex-end;
         margin-right: 0;
+        z-index: -1; // Prevent display in "pop-up" menu
         a {
           margin-left: 0.5rem;
           .is-size-3 {

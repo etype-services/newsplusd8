@@ -5,7 +5,11 @@ header {
   position: relative; }
 
 @media screen and (min-width: 1088px) {
-  /* Override columns formatting to get correct border width. */
+  .region-sidebar {
+    /* Make border go to the bottom. */
+    height: 100%; }
+
+  /* Override Bulma 'columns' formatting to get correct border width. */
   footer {
     margin: 0 !important; } }
 @media screen and (max-width: 768px) {
@@ -13,7 +17,7 @@ header {
     padding-top: 0;
     padding-bottom: 0; }
 
-  .region-sidebar {
+  .region-sidebar, .region-footer-right {
     display: none;
     visibility: hidden; } }
 
