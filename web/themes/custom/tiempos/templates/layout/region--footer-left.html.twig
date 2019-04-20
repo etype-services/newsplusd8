@@ -10,15 +10,13 @@
  *   .info.yml file.
  *
  * @see template_preprocess_region()
- *
- * columns class used to add margins for layout.
  */
 #}
 {%
   set classes = [
     'region',
     'region-' ~ region|clean_class,
-    'columns'
+    'column',
   ]
 %}
 {% if content %}

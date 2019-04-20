@@ -68,8 +68,10 @@
     </main>
 
     {% if page.footer %}
-      <footer role="contentinfo">
-        {{ page.footer }}
+      <footer role="contentinfo" class="columns">
+        {{ page.footer_left }}
+        {{ page.footer_center }}
+        {{ page.footer_right }}
       </footer>
     {% endif %}
   </div>
