@@ -35,4 +35,19 @@
   #block-etypeeedition p {
     font-size: 0.8rem; }
 
+/* Weather Widget */
+.weatherwidget {
+  width: 220px;
+  margin-right: 0.1rem;
+  float: right;
+  height: 56px;
+  overflow: hidden;
+  margin-top: 0.1rem; }
+
+@media screen and (max-width: 768px) {
+  .weatherwidget {
+    width: 220px;
+    margin-right: 0;
+    float: none; } }
+
 /*# sourceMappingURL=blocks.css.map */

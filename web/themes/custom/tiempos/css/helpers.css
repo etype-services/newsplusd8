@@ -6,17 +6,5 @@
 @media screen and (min-width: 769px) {
   .is-pulled-right-desktop {
     float: right; } }
-.weatherwidget {
-  width: 220px;
-  margin-right: 0.1rem;
-  float: right;
-  height: 58px;
-  overflow: hidden; }
-
-@media screen and (max-width: 768px) {
-  .weatherwidget {
-    width: 220px;
-    margin-right: 0;
-    float: none; } }
 
 /*# sourceMappingURL=helpers.css.map */

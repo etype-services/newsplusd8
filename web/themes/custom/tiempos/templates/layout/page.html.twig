@@ -67,12 +67,17 @@
 
     </main>
 
-    {% if page.footer %}
-      <footer role="contentinfo" class="columns">
+    <footer role="contentinfo" class="columns">
+      {% if page.footer_left %}
         {{ page.footer_left }}
+      {% endif %}
+      {% if page.footer_center %}
         {{ page.footer_center }}
+      {% endif %}
+      {% if page.footer_right %}
         {{ page.footer_right }}
-      </footer>
-    {% endif %}
+      {% endif %}
+    </footer>
+
   </div>
 </div>{# /.layout-container #}

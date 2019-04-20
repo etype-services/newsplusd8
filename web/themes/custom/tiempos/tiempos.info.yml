@@ -14,7 +14,9 @@ regions:
   top_content: 'Top Content'
   content: 'Content'
   sidebar: 'Sidebar'
-  footer: 'Footer'
+  footer_left: 'Footer Left'
+  footer_center: 'Footer Center'
+  footer_right: 'Footer Right'
   hidden_blocks: 'Hidden Blocks'
 libraries:
   - tiempos/bulma

@@ -11,19 +11,3 @@
     float: right;
   }
 }
-
-.weatherwidget {
-  width: 220px;
-  margin-right: 0.1rem;
-  float: right;
-  height: 58px;
-  overflow: hidden;
-}
-
-@media screen and (max-width: $tablet - 1px) {
-  .weatherwidget {
-    width: 220px;
-    margin-right: 0;
-    float: none;
-  }
-}
