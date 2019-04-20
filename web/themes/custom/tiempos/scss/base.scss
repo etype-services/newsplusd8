@@ -9,6 +9,18 @@ header {
   position: relative;
 }
 
+footer {
+  font-size: $size-7;
+  font-family: $lato;
+}
+
+@media screen and (min-width: $desktop) {
+  /* Override columns formatting to get correct border width. */
+  footer {
+    margin: 0!important;
+  }
+}
+
 @media screen and (max-width: $tablet - 1px ) {
   .region-header > div {
     padding-top: 0;

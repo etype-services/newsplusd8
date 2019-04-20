@@ -34,7 +34,8 @@
   #main-nav .navbar .navbar-end {
     /* Social Icons */
     position: inherit;
-    align-items: center; }
+    align-items: center;
+    margin-right: 0.75rem; }
     #main-nav .navbar .navbar-end a {
       margin-left: 0.75rem; }
 
@@ -68,7 +69,8 @@
     #main-nav .navbar .navbar-end {
       position: absolute;
       top: -2.5rem;
-      right: calc(0.75rem * 2); } }
+      right: calc(0.75rem * 2);
+      margin-right: 0; } }
 /* Mobile */
 @media screen and (max-width: 768px) {
   #main-nav .navbar {
@@ -78,9 +80,9 @@
       position: absolute;
       top: -1rem;
       width: 100%;
-      justify-content: flex-end;
       display: flex;
-      padding-right: 0; }
+      justify-content: flex-end;
+      margin-right: 0; }
       #main-nav .navbar .navbar-end a {
         margin-left: 0.5rem; }
         #main-nav .navbar .navbar-end a .is-size-3 {

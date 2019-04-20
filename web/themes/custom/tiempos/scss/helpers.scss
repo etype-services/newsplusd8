@@ -1,9 +1,14 @@
 @import "../node_modules/bulma/sass/utilities/initial-variables";
 
-/* Additional Helper Classes */
+/* Additional Helper Classes. */
 .is-really-invisible {
   visibility: hidden;
   display: none;
+}
+
+/* Match mixin. */
+.border-top-light {
+  border-top: 1px solid $grey-light
 }
 
 @media screen and (min-width: $tablet) {

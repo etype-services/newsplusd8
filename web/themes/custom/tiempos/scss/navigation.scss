@@ -46,6 +46,7 @@
       /* Social Icons */
       position: inherit;
       align-items: center;
+      margin-right: $column-gap;
       a {
         margin-left: $column-gap;
       }
@@ -91,6 +92,7 @@
         position: absolute;
         top: -2.5rem;
         right: calc(#{$column-gap} * 2);
+        margin-right: 0;
       }
     }
   }
@@ -106,9 +108,9 @@
         position: absolute;
         top: -1rem;
         width: 100%;
-        justify-content: flex-end;
         display: flex;
-        padding-right: 0;
+        justify-content: flex-end;
+        margin-right: 0;
         a {
           margin-left: 0.5rem;
           .is-size-3 {
