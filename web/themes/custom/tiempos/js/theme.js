@@ -2,6 +2,7 @@
     "use strict";
     Drupal.behaviors.tiemposBehavior = {
         attach: function (context, settings) {
+            var caption = $(".page-node-type-article .is-three-quarters img").attr("alt");
 
             /* Menu toggle. */
             $(".navbar-burger").once("tiemposBehavior").click(function () {
@@ -28,6 +29,10 @@
 
             /* Add arrows to section header. */
             $(".section-tag-heading").once("tiemposBehavior").append("&nbsp;<i class=\"fas fa-angle-right\"></i>");
+
+            /* Image captions */
+            $(".main-caption").html(caption);
+
         }
     };
 })(jQuery, Drupal);

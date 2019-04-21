@@ -47,6 +47,7 @@
 #block-views-block-front-page-sections-block-1 {
   .view-content {
     display: flex;
+    margin-right: -$column-gap;
   }
   .view-content > div {
     @include column;
@@ -65,7 +66,7 @@
       display: block;
     }
     .view-content > div {
-      @include column;
+      @include column-no-padding-right;
     }
   }
 }

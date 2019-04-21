@@ -15,6 +15,7 @@ global-styling:
       css/helpers.css: { weight: 1 }
       css/views.css: { weight: 1 }
       css/blocks.css: { weight: 1 }
+      css/content.css: { weight: 1 }
 
 global-scripts:
   version: VERSION
