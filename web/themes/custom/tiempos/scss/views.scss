@@ -1,4 +1,3 @@
-@import "../node_modules/bulma/sass/utilities/initial-variables";
 @import "./vars";
 
 /* Emulate column css for Front Page View top-level divs. See vars.sass. */
@@ -40,5 +39,11 @@
     .field--name-body {
       margin-bottom: 0;
     }
+  }
+}
+
+.views-element-container {
+  h2 {
+    @include section-tag-heading
   }
 }

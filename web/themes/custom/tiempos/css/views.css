@@ -26,4 +26,12 @@
 .view-id-frontpage .node--view-mode-teaser .field--name-body {
   margin-bottom: 0; }
 
+.views-element-container h2 {
+  text-transform: uppercase;
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  color: #121212;
+  border-bottom: 1px solid #b5b5b5; }
+
 /*# sourceMappingURL=views.css.map */
