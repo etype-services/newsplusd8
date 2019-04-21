@@ -1,3 +1,6 @@
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600; }
+
 body {
   font-family: "Petrona", serif; }
 
@@ -15,6 +18,23 @@ a {
   box-shadow: none; }
   a:hover {
     color: #3273dc !important; }
+
+.section-tag-heading {
+  text-transform: uppercase;
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  color: #4a4a4a;
+  border-bottom: 1px solid #b5b5b5; }
+
+.submitted {
+  color: #7a7a7a;
+  font-size: 0.6rem;
+  font-family: "Lato", sans-serif;
+  margin-top: 0.2rem; }
+
+.region-sidebar p:not(.submitted) {
+  font-size: 0.9rem; }
 
 footer {
   font-size: 0.75rem;

@@ -29,13 +29,11 @@
 {% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
   {% if items %}
-    <nav role="navigation" aria-label="user navigation" class="user-menu is-hidden-touch">
-      <div class="navbar-menu is-active is-pulled-right-desktop is-paddingless is-shadowless">
+    <div class="user-menu navbar-menu is-active is-pulled-right-desktop is-paddingless is-shadowless is-hidden-touch">
     {% for item in items %}
-        {{ link(item.title, item.url, { 'class':['button', 'has-text-white-ter'
+        {{ link(item.title, item.url, { 'class':['button', 'has-text-white-ter',
         'has-background-grey-light', 'is-uppercase','is-size-7', 'is-lato'] }) }}
     {% endfor %}
-      </div>
-    </nav>
+    </div>
   {% endif %}
 {% endmacro %}

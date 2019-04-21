@@ -16,7 +16,8 @@
 
 .region-sidebar {
   flex-wrap: wrap;
-  border-left: 1px solid #b5b5b5; }
+  border-left: 1px solid #b5b5b5;
+  padding-top: 0; }
 
 @media screen and (max-width: 768px) {
   .region-header-left {

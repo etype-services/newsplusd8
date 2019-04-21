@@ -12,7 +12,6 @@
             $(".search-edit-submit").once("tiemposBehavior").click(function () {
                 var keys = $('[data-drupal-selector="search-edit-keys"]');
                 var reg = /[a-z]+/;
-                // console.log("clicked");
                 if (keys.hasClass("is-really-invisible")) {
                     keys.removeClass("is-really-invisible").focus();
                 } else {
@@ -23,6 +22,9 @@
                     }
                 }
             });
+
+            /* Add footer menu to user-menu */
+            $(".footer-menu li > a").once("tiemposBehavior").clone().addClass("is-hidden-desktop").appendTo($(".user-menu"));
         }
     };
 })(jQuery, Drupal);

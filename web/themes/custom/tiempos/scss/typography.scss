@@ -1,6 +1,10 @@
 @import "../node_modules/bulma/sass/utilities/initial-variables";
 @import "./vars";
 
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $weight-semibold;
+}
+
 body {
   font-family: $petrona;
 }
@@ -22,6 +26,20 @@ a {
   box-shadow: none;
   &:hover {
     color: $blue!important;
+  }
+}
+
+.section-tag-heading {
+  @include section-tag-heading;
+}
+
+.submitted {
+  @include submitted;
+}
+
+.region-sidebar {
+  p:not(.submitted) {
+    font-size: 0.9rem;
   }
 }
 

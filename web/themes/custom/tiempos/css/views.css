@@ -14,8 +14,7 @@
   /* Make image fill defined space, might cause upscaling */
   /* For unformatted Views without default classes */ }
   .view h2 {
-    font-size: 1.2rem;
-    font-weight: 600; }
+    font-size: 1.2rem; }
   .view .field--type-image img {
     width: 100%; }
   .view .view-content > div {

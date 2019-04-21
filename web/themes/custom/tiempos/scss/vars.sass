@@ -44,3 +44,17 @@ $column-gap: 0.75rem !default
 // Fonts
 $petrona: "Petrona", serif
 $lato: "Lato", sans-serif
+
+@mixin section-tag-heading
+  text-transform: uppercase
+  padding-bottom: 0.3rem
+  margin-bottom: 0.3rem
+  font-size: 0.9rem
+  color: $black-bis
+  @include border-bottom-light
+
+@mixin submitted
+  color: $grey
+  font-size: 0.6rem
+  font-family: $lato
+  margin-top: 0.2rem
