@@ -1,69 +1,62 @@
-/*
-Error: Undefined mixin 'column-no-padding-top-right'.
-        on line 9 of views.scss, in `column-no-padding-top-right'
-        from line 9 of views.scss
+/* Emulate column css for Front Page View top-level divs. See vars.sass. */
+.view-id-frontpage.columns > .attachment {
+  display: block;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 0 0.75rem 0.75rem 0.75rem; }
 
-4: .view-id-frontpage.columns > .attachment {
-5:   @include column-no-padding-top;
-6: }
-7: 
-8: .view-id-frontpage.columns > .view-content {
-9:   @include column-no-padding-top-right;
-10: }
-11: 
-12: .view {
-13:   h2 {
-14:     font-size: 1.2rem;
+.view-id-frontpage.columns > .view-content {
+  display: block;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 0 0 0.75rem 0.75rem; }
 
-Backtrace:
-views.scss:9:in `column-no-padding-top-right'
-views.scss:9
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:352:in `block in visit_mixin'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:98:in `block in with_mixin'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:135:in `with_frame'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:98:in `with_mixin'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:350:in `visit_mixin'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `block in with_base'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:135:in `with_frame'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `with_base'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:444:in `block (2 levels) in visit_rule'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:444:in `map'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:444:in `block in visit_rule'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:442:in `visit_rule'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `block in with_base'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:135:in `with_frame'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `with_base'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:52:in `map'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:171:in `block in visit_children'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:170:in `visit_children'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:190:in `visit_root'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:161:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:10:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/root_node.rb:36:in `css_tree'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/engine.rb:389:in `_render_with_sourcemap'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/engine.rb:307:in `render_with_sourcemap'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/exec/sass_scss.rb:391:in `run'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/exec/sass_scss.rb:63:in `process_result'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/exec/base.rb:52:in `parse'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/exec/base.rb:19:in `parse!'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/bin/scss:13:in `<top (required)>'
-/Users/charlie/.rbenv/versions/2.2.3/bin/scss:23:in `load'
-/Users/charlie/.rbenv/versions/2.2.3/bin/scss:23:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Undefined mixin 'column-no-padding-top-right'.\A         on line 9 of views.scss, in `column-no-padding-top-right'\A         from line 9 of views.scss\A \A 4: .view-id-frontpage.columns > .attachment {\A 5:   @include column-no-padding-top;\A 6: }\A 7: \A 8: .view-id-frontpage.columns > .view-content {\A 9:   @include column-no-padding-top-right;\A 10: }\A 11: \A 12: .view {\A 13:   h2 {\A 14:     font-size: 1.2rem;"; }
+.view {
+  /* Make image fill defined space, might cause upscaling */
+  /* For unformatted Views without default classes */ }
+  .view h2 {
+    font-size: 1.2rem; }
+  .view .field--type-image img {
+    width: 100%; }
+  .view .view-content > div {
+    margin-bottom: 1rem; }
+    .view .view-content > div:last-child {
+      margin-bottom: 0; }
+
+/* Make sure image is as wide as page for tablet. */
+.region-content #block-tiempos-content .view-content img {
+  width: 100%; }
+.region-content .views-element-container {
+  /* Adjust section header */ }
+  .region-content .views-element-container h3.section-tag-heading {
+    margin-left: 0.75rem; }
+
+/* Front Page Sections */
+#block-views-block-front-page-sections-block-1 .view-content {
+  display: flex;
+  margin-right: -0.75rem; }
+#block-views-block-front-page-sections-block-1 .view-content > div {
+  display: block;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 0.75rem; }
+
+@media screen and (max-width: 768px) {
+  /* Hide attachment-before on mobile. */
+  .view-id-frontpage.columns > .attachment-before {
+    display: none; }
+
+  /* Emulate columns for front page sections. */
+  #block-views-block-front-page-sections-block-1 .view-content {
+    display: block; }
+  #block-views-block-front-page-sections-block-1 .view-content > div {
+    display: block;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: 0.75rem; } }
+
+/*# sourceMappingURL=views.css.map */

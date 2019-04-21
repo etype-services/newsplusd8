@@ -26,7 +26,7 @@
     }
     .is-full {
       .main-caption {
-        margin: auto;
+        margin: 0.5rem auto auto;
         color: $black;
       }
       .node__content {
@@ -51,8 +51,7 @@
           figcaption {
             font-family: $lato;
             font-size: $size-7;
-            margin-left: 3rem;
-            margin-bottom: 2rem;
+            margin: 0.5rem auto 3rem 3rem;
             color: $black
           }
         }
