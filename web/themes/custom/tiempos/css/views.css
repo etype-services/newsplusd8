@@ -1,21 +1,23 @@
 /*
-Error: Undefined mixin 'column-no-padding-right'.
-        on line 69 of views.scss, in `column-no-padding-right'
-        from line 69 of views.scss
+Error: Undefined mixin 'column-no-padding-top-right'.
+        on line 9 of views.scss, in `column-no-padding-top-right'
+        from line 9 of views.scss
 
-64:   #block-views-block-front-page-sections-block-1 {
-65:     .view-content {
-66:       display: block;
-67:     }
-68:     .view-content > div {
-69:       @include column-no-padding-right;
-70:     }
-71:   }
-72: }
+4: .view-id-frontpage.columns > .attachment {
+5:   @include column-no-padding-top;
+6: }
+7: 
+8: .view-id-frontpage.columns > .view-content {
+9:   @include column-no-padding-top-right;
+10: }
+11: 
+12: .view {
+13:   h2 {
+14:     font-size: 1.2rem;
 
 Backtrace:
-views.scss:69:in `column-no-padding-right'
-views.scss:69
+views.scss:9:in `column-no-padding-top-right'
+views.scss:9
 /Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:352:in `block in visit_mixin'
 /Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:98:in `block in with_mixin'
 /Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:135:in `with_frame'
@@ -32,31 +34,6 @@ views.scss:69
 /Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:444:in `block in visit_rule'
 /Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
 /Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:442:in `visit_rule'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `block in with_base'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:135:in `with_frame'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `with_base'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:444:in `block (2 levels) in visit_rule'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:444:in `map'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:444:in `block in visit_rule'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:442:in `visit_rule'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `block in with_base'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:135:in `with_frame'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `with_base'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:52:in `map'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:171:in `block in visit_children'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:170:in `visit_children'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:528:in `visit_media'
 /Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `visit'
 /Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
 /Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `block in with_base'
@@ -89,4 +66,4 @@ views.scss:69
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'column-no-padding-right'.\A         on line 69 of views.scss, in `column-no-padding-right'\A         from line 69 of views.scss\A \A 64:   #block-views-block-front-page-sections-block-1 {\A 65:     .view-content {\A 66:       display: block;\A 67:     }\A 68:     .view-content > div {\A 69:       @include column-no-padding-right;\A 70:     }\A 71:   }\A 72: }"; }
+  content: "Error: Undefined mixin 'column-no-padding-top-right'.\A         on line 9 of views.scss, in `column-no-padding-top-right'\A         from line 9 of views.scss\A \A 4: .view-id-frontpage.columns > .attachment {\A 5:   @include column-no-padding-top;\A 6: }\A 7: \A 8: .view-id-frontpage.columns > .view-content {\A 9:   @include column-no-padding-top-right;\A 10: }\A 11: \A 12: .view {\A 13:   h2 {\A 14:     font-size: 1.2rem;"; }

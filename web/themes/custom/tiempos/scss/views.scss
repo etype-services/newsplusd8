@@ -1,8 +1,12 @@
 @import "./vars";
 
 /* Emulate column css for Front Page View top-level divs. See vars.sass. */
-.view-id-frontpage.columns > .attachment, .view-id-frontpage.columns > .view-content {
+.view-id-frontpage.columns > .attachment {
   @include column-no-padding-top;
+}
+
+.view-id-frontpage.columns > .view-content {
+  @include column-no-padding-top-right;
 }
 
 .view {
@@ -66,7 +70,7 @@
       display: block;
     }
     .view-content > div {
-      @include column-no-padding-right;
+      @include column;
     }
   }
 }
