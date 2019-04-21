@@ -19,6 +19,7 @@ function tiempos_preprocess_block(&$variables) {
 
 /**
  * Implements hook_theme_suggestions_page_alter().
+ * Enables templates like page--article.html.twig.
  *
  * @param array $suggestions
  * @param array $variables
