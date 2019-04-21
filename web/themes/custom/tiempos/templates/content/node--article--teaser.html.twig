@@ -85,7 +85,7 @@
     <div{{ content_attributes.addClass('node__content') }}>
         {{ content.field_image[0] }}
         <h2{{ title_attributes }}>
-            <a href="{{ url }}" rel="bookmark" class="is-size-4">{{ label }}</a>
+            <a href="{{ url }}" rel="bookmark">{{ label }}</a>
         </h2>
         {{ content.body }}
         <p class="submitted">{{ node.created.value|format_date('teaser') }}</p>

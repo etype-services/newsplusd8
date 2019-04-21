@@ -94,7 +94,7 @@
     {{ title_suffix }}
     {% if display_submitted %}
       <div{{ author_attributes.addClass('node__submitted') }}>
-        <div>{{ date }}/div>
+        <div>{{ node.created.value|format_date('teaser') }}</div>
         <div>{% trans %}By {{ author_name }}{% endtrans %}</div>
         {{ metadata }}
       </div>
@@ -106,7 +106,7 @@
   </div>
 
   <div{{ content_attributes.addClass('node__content') }}>
-    {{ content|without('field_image') }}
+    {{ content|without('field_image[0]') }}
   </div>
 
 </article>
