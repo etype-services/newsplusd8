@@ -34,13 +34,8 @@ a {
   font-size: 0.6rem;
   margin-top: 0.2rem; }
 
-.region-sidebar {
-  /* Why is there an extra gap? */ }
-  .region-sidebar p:not(.submitted) {
-    font-size: 0.9rem; }
-  .region-sidebar h3.section-tag-heading > svg {
-    position: relative;
-    left: -3px; }
+.region-sidebar p:not(.submitted) {
+  font-size: 0.9rem; }
 
 footer {
   font-size: 0.75rem;
