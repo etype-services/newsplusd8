@@ -83,22 +83,13 @@
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
 
-    {% if display_submitted %}
-        <footer class="node__meta">
-            {{ author_picture }}
-            <div{{ author_attributes.addClass('node__submitted') }}>
-                {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-                {{ metadata }}
-            </div>
-        </footer>
-    {% endif %}
-
     <div{{ content_attributes.addClass('node__content') }}>
         {{ content.field_image }}
         <h2{{ title_attributes }}>
             <a href="{{ url }}" rel="bookmark" class="is-size-4">{{ label }}</a>
         </h2>
         {{ content.body }}
+        <p class="submitted">{{ node.created.value|format_date('teaser') }}</p>
     </div>
 
 </article>

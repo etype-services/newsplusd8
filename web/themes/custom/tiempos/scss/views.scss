@@ -33,3 +33,12 @@
     }
   }
 }
+
+/* Override default margin for the Home Page Featured item. */
+.view-id-frontpage {
+  .node--view-mode-teaser {
+    .field--name-body {
+      margin-bottom: 0;
+    }
+  }
+}

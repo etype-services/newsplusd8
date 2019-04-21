@@ -26,11 +26,12 @@ a {
   font-size: 0.9rem;
   color: #121212;
   border-bottom: 1px solid #b5b5b5; }
+  .section-tag-heading svg {
+    font-size: 0.8rem; }
 
 .submitted {
   color: #7a7a7a;
   font-size: 0.6rem;
-  font-family: "Lato", sans-serif;
   margin-top: 0.2rem; }
 
 .region-sidebar p:not(.submitted) {

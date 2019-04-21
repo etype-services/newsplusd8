@@ -31,6 +31,9 @@ a {
 
 .section-tag-heading {
   @include section-tag-heading;
+  svg {
+    font-size: 0.8rem;
+  }
 }
 
 .submitted {

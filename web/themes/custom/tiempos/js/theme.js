@@ -25,6 +25,10 @@
 
             /* Add footer menu to user-menu */
             $(".footer-menu li > a").once("tiemposBehavior").clone().addClass("is-hidden-desktop").appendTo($(".user-menu"));
+
+            /* Add arrows to section header. */
+            $(".section-tag-heading").once("tiemposBehavior").append("<i" +
+                " class=\"fas fa-angle-right\"></i>");
         }
     };
 })(jQuery, Drupal);

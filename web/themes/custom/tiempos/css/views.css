@@ -22,4 +22,8 @@
     .view .view-content > div:last-child {
       margin-bottom: 0; }
 
+/* Override default margin for the Home Page Featured item. */
+.view-id-frontpage .node--view-mode-teaser .field--name-body {
+  margin-bottom: 0; }
+
 /*# sourceMappingURL=views.css.map */

@@ -11,7 +11,7 @@ header {
 
   /* Override Bulma 'columns' formatting to get correct border width. */
   footer {
-    margin: 0 !important; } }
+    margin: 0 0 2rem 0 !important; } }
 @media screen and (max-width: 768px) {
   .region-header > div {
     padding-top: 0;
