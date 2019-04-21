@@ -43,9 +43,20 @@ a {
   p:not(.submitted) {
     font-size: 0.9rem;
   }
+  /* Why is there an extra gap? */
+  h3.section-tag-heading > svg {
+    position: relative;
+    left: -3px;
+  }
 }
 
 footer {
   font-size: $size-7;
   font-family: $lato;
+  .footer-menu {
+    li > a {
+      /* Fix padding. */
+      padding-top: .375em;
+    }
+  }
 }

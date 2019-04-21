@@ -6,10 +6,6 @@
   flex-shrink: 1;
   padding: 0 0.75rem 0.75rem 0.75rem; }
 
-/* Hide attachment-before on mobile. */
-@media screen and (max-width: 768px) {
-  .view-id-frontpage.columns > .attachment-before {
-    display: none; } }
 .view {
   /* Make image fill defined space, might cause upscaling */
   /* For unformatted Views without default classes */ }
@@ -22,16 +18,37 @@
     .view .view-content > div:last-child {
       margin-bottom: 0; }
 
-/* Override default margin for the Home Page Featured item. */
-.view-id-frontpage .node--view-mode-teaser .field--name-body {
-  margin-bottom: 0; }
+/* Make sure image is as wide as page for tablet. */
+.region-content #block-tiempos-content .view-content img {
+  width: 100%; }
+.region-content .views-element-container {
+  /* Adjust section header */ }
+  .region-content .views-element-container h3.section-tag-heading {
+    margin-left: 0.75rem; }
 
-.views-element-container h2 {
-  text-transform: uppercase;
-  padding-bottom: 0.3rem;
-  margin-bottom: 0.3rem;
-  font-size: 0.9rem;
-  color: #121212;
-  border-bottom: 1px solid #b5b5b5; }
+/* Front Page Sections */
+#block-views-block-front-page-sections-block-1 .view-content {
+  display: flex; }
+#block-views-block-front-page-sections-block-1 .view-content > div {
+  display: block;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 0.75rem; }
+
+@media screen and (max-width: 768px) {
+  /* Hide attachment-before on mobile. */
+  .view-id-frontpage.columns > .attachment-before {
+    display: none; }
+
+  /* Emulate columns for front page sections. */
+  #block-views-block-front-page-sections-block-1 .view-content {
+    display: block; }
+  #block-views-block-front-page-sections-block-1 .view-content > div {
+    display: block;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: 0.75rem; } }
 
 /*# sourceMappingURL=views.css.map */

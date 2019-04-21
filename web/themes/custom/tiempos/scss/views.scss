@@ -5,13 +5,6 @@
   @include column-no-padding-top;
 }
 
-/* Hide attachment-before on mobile. */
-@media screen and (max-width: $tablet - 1px ) {
-  .view-id-frontpage.columns > .attachment-before {
-    display: none;
-  }
-}
-
 .view {
   h2 {
     font-size: 1.2rem;
@@ -33,17 +26,46 @@
   }
 }
 
-/* Override default margin for the Home Page Featured item. */
-.view-id-frontpage {
-  .node--view-mode-teaser {
-    .field--name-body {
-      margin-bottom: 0;
+/* Make sure image is as wide as page for tablet. */
+.region-content {
+  #block-tiempos-content {
+    .view-content {
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .views-element-container {
+    /* Adjust section header */
+    h3.section-tag-heading {
+      margin-left: $column-gap;
     }
   }
 }
 
-.views-element-container {
-  h2 {
-    @include section-tag-heading
+/* Front Page Sections */
+#block-views-block-front-page-sections-block-1 {
+  .view-content {
+    display: flex;
+  }
+  .view-content > div {
+    @include column;
+  }
+}
+
+@media screen and (max-width: $tablet - 1px ) {
+  /* Hide attachment-before on mobile. */
+  .view-id-frontpage.columns > .attachment-before {
+    display: none;
+  }
+
+  /* Emulate columns for front page sections. */
+  #block-views-block-front-page-sections-block-1 {
+    .view-content {
+      display: block;
+    }
+    .view-content > div {
+      @include column;
+    }
   }
 }
