@@ -121,6 +121,12 @@
 
 /* Wider screen overrides for Article nodes. */
 @media screen and (min-width: 1088px) {
+  #main-nav .navbar {
+    /* Can't use is-hidden-desktop because of Article formatting. */ }
+    #main-nav .navbar .navbar-start {
+      visibility: hidden !important;
+      display: none !important; }
+
   .page-node-type-article #main-nav .navbar {
     /* Keep main menu hidden. */ }
     .page-node-type-article #main-nav .navbar .navbar-start {
