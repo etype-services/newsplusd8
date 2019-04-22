@@ -113,11 +113,7 @@
   .page-node-type-article #main-nav .navbar {
     /* Make sure navbar completely hidden, overriding bulma min-height. */
     min-height: 0;
-    border: 0;
-    /* Hide main menu always. */ }
-    .page-node-type-article #main-nav .navbar .navbar-menu {
-      visibility: hidden !important;
-      display: none !important; }
+    border: 0; }
 
 /* Move menus below admin toolbar. */
 .toolbar-fixed #main-nav .navbar .navbar-start, .toolbar-vertical #main-nav .navbar .navbar-start {
