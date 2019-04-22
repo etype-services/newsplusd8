@@ -153,8 +153,8 @@
       /* Make sure navbar completely hidden, overriding bulma min-height. */
       min-height: 0;
       border: 0;
-      /* Hide main menu and Social Links always. */
-      .navbar-menu, .navbar-end {
+      /* Hide main menu always. */
+      .navbar-menu {
         @include is-really-invisible;
       }
     }

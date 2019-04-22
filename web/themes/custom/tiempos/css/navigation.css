@@ -114,8 +114,8 @@
     /* Make sure navbar completely hidden, overriding bulma min-height. */
     min-height: 0;
     border: 0;
-    /* Hide main menu and Social Links always. */ }
-    .page-node-type-article #main-nav .navbar .navbar-menu, .page-node-type-article #main-nav .navbar .navbar-end {
+    /* Hide main menu always. */ }
+    .page-node-type-article #main-nav .navbar .navbar-menu {
       visibility: hidden !important;
       display: none !important; }
 
