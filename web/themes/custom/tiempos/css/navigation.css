@@ -121,28 +121,28 @@
 
 /* Wider screen overrides for Article nodes. */
 @media screen and (min-width: 1088px) {
-  #main-nav .navbar {
+  body:not(.page-node-type-article) #main-nav .navbar {
     /* Can't use is-hidden-desktop because of Article formatting. */ }
-    #main-nav .navbar .navbar-start {
+    body:not(.page-node-type-article) #main-nav .navbar .navbar-start {
       visibility: hidden !important;
       display: none !important; }
 
-  .page-node-type-article #main-nav .navbar {
+  body.page-node-type-article #main-nav .navbar {
     /* Keep main menu hidden. */ }
-    .page-node-type-article #main-nav .navbar .navbar-start {
+    body.page-node-type-article #main-nav .navbar .navbar-start {
       display: block;
       padding-top: 5rem; }
-      .page-node-type-article #main-nav .navbar .navbar-start .user-menu {
+      body.page-node-type-article #main-nav .navbar .navbar-start .user-menu {
         position: fixed;
         top: 1rem;
         right: calc(0.75rem * 2);
         height: fit-content;
         flex-flow: column; }
-      .page-node-type-article #main-nav .navbar .navbar-start .search-block-form {
+      body.page-node-type-article #main-nav .navbar .navbar-start .search-block-form {
         line-height: 2rem; }
-    .page-node-type-article #main-nav .navbar .navbar-burger {
+    body.page-node-type-article #main-nav .navbar .navbar-burger {
       display: block; }
-    .page-node-type-article #main-nav .navbar #main-navbar-menu {
+    body.page-node-type-article #main-nav .navbar #main-navbar-menu {
       visibility: hidden !important;
       display: none !important; } }
 /* Move menus below admin toolbar. */

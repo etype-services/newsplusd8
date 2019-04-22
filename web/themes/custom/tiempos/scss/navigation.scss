@@ -163,15 +163,17 @@
 
 /* Wider screen overrides for Article nodes. */
 @media screen and (min-width: $desktop) {
-  #main-nav {
-    .navbar {
-      /* Can't use is-hidden-desktop because of Article formatting. */
-      .navbar-start {
-        @include is-really-invisible;
+  body:not(.page-node-type-article) {
+    #main-nav {
+      .navbar {
+        /* Can't use is-hidden-desktop because of Article formatting. */
+        .navbar-start {
+          @include is-really-invisible;
+        }
       }
     }
   }
-  .page-node-type-article {
+  body.page-node-type-article {
     #main-nav {
       .navbar {
         .navbar-start {
