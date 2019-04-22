@@ -153,6 +153,23 @@
       /* Make sure navbar completely hidden, overriding bulma min-height. */
       min-height: 0;
       border: 0;
+      /* Hide main menu and social icons always. */
+      .navbar-end {
+        @include is-really-invisible;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  .page-node-type-article {
+    #main-nav {
+      .navbar {
+        /* Keep main menu hidden. */
+        #main-navbar-menu {
+          @include is-really-visible;
+        }
+      }
     }
   }
 }

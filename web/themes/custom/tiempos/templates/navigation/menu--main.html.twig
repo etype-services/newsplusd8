@@ -47,7 +47,7 @@
       {% endfor %}
       {{ drupal_block('system_branding_block', {use_site_name: false}) }}
     </div>
-    <div class="navbar-menu has-text-weight-semibold">
+    <div id="main-navbar-menu" class="navbar-menu has-text-weight-semibold">
       {% for item in items %}
         {{ link(item.title, item.url, { 'class':['navbar-item'] }) }}
         {% if item.below %}
