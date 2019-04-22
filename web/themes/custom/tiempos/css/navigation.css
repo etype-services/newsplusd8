@@ -147,7 +147,9 @@
       display: none !important; } }
 /* Move menus below admin toolbar. */
 .toolbar-fixed #main-nav .navbar .navbar-start, .toolbar-vertical #main-nav .navbar .navbar-start {
-  padding-top: 7rem; }
+  padding-top: 7rem !important; }
+  .toolbar-fixed #main-nav .navbar .navbar-start .user-menu, .toolbar-vertical #main-nav .navbar .navbar-start .user-menu {
+    top: 4rem !important; }
   .toolbar-fixed #main-nav .navbar .navbar-start .navbar-burger, .toolbar-vertical #main-nav .navbar .navbar-start .navbar-burger {
     top: 3rem; }
 

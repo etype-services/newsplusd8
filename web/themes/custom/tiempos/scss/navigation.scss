@@ -207,7 +207,10 @@
   #main-nav {
     .navbar {
       .navbar-start {
-        padding-top: 7rem;
+        padding-top: 7rem!important;
+        .user-menu {
+          top: 4rem!important;
+        }
         .navbar-burger {
           top: 3rem;
         }
