@@ -5,7 +5,7 @@ body {
   font-family: "Petrona", serif; }
 
 input {
-  font-family: "Lato", sans-serif; }
+  font-family: "Open Sans", sans-serif; }
   input:focus {
     outline: none;
     box-shadow: none; }
@@ -39,7 +39,7 @@ a {
 
 footer {
   font-size: 0.75rem;
-  font-family: "Lato", sans-serif; }
+  font-family: "Open Sans", sans-serif; }
   footer .footer-menu li > a {
     /* Fix padding. */
     padding-top: .375em; }
