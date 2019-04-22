@@ -98,6 +98,27 @@
         margin-left: 0.5rem; }
         #main-nav .navbar .navbar-end a .is-size-3 {
           font-size: 1.5rem !important; } }
+/* Overrides for Article nodes */
+.page-node-type-article #navbar-burger {
+  display: block;
+  color: #ffffff;
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  margin: auto;
+  height: 3.25rem;
+  width: 3.25rem; }
+.page-node-type-article #main-nav {
+  padding: 0; }
+  .page-node-type-article #main-nav .navbar {
+    /* Make sure navbar completely hidden, overriding bulma min-height. */
+    min-height: 0;
+    border: 0;
+    /* Hide main menu and Social Links always. */ }
+    .page-node-type-article #main-nav .navbar .navbar-menu, .page-node-type-article #main-nav .navbar .navbar-end {
+      visibility: hidden !important;
+      display: none !important; }
+
 /* Move menus below admin toolbar. */
 .toolbar-fixed #main-nav .navbar .navbar-start, .toolbar-vertical #main-nav .navbar .navbar-start {
   padding-top: 7rem; }

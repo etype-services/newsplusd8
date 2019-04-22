@@ -13,6 +13,8 @@
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between; }
+    .page-node-type-article article .is-one-quarter .page-title {
+      margin-top: 2rem; }
   .page-node-type-article article .is-three-quarters img {
     width: 100%; }
   .page-node-type-article article .is-full .main-caption {
@@ -46,5 +48,9 @@
         color: #0a0a0a; }
   .page-node-type-article article .node__submitted a {
     color: whitesmoke; }
+
+@media screen and (max-width: 768px) {
+  .page-node-type-article article .is-full .node__content p {
+    margin: 0 4rem 0.75rem 4rem; } }
 
 /*# sourceMappingURL=content.css.map */

@@ -18,6 +18,9 @@
       flex-wrap: wrap;
       flex-direction: column;
       justify-content: space-between;
+      .page-title {
+        margin-top: 2rem;
+      }
     }
     .is-three-quarters {
       img {
@@ -60,6 +63,20 @@
     .node__submitted {
       a {
         color: $white-ter;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet - 1px ) {
+  .page-node-type-article {
+    article {
+      .is-full {
+        .node__content {
+          p {
+            margin: 0 4rem $column-gap 4rem;
+          }
+        }
       }
     }
   }

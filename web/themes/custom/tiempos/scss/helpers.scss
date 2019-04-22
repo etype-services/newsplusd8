@@ -2,8 +2,8 @@
 
 /* Additional Helper Classes. */
 .is-really-invisible {
-  visibility: hidden;
-  display: none;
+  visibility: hidden!important;
+  display: none!important;
 }
 
 /* Match mixin. */

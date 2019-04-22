@@ -1,65 +1,18 @@
-/*
-Error: Undefined variable: "$sans-serif".
-        on line 16 of helpers.scss
+/* Additional Helper Classes. */
+.is-really-invisible {
+  visibility: hidden !important;
+  display: none !important; }
 
-11:   border-top: 1px solid $grey-light
-12: }
-13: 
-14: /* Match font *\/
-15: .is-lato {
-16:   font-family: $sans-serif;
-17: }
-18: 
-19: 
-20: @media screen and (min-width: $tablet) {
-21:   .is-pulled-right-desktop {
+/* Match mixin. */
+.border-top-light {
+  border-top: 1px solid #b5b5b5; }
 
-Backtrace:
-helpers.scss:16
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/script/tree/variable.rb:49:in `_perform'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/script/tree/node.rb:50:in `perform'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `block in with_base'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:135:in `with_frame'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `with_base'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:444:in `block (2 levels) in visit_rule'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:444:in `map'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:444:in `block in visit_rule'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:442:in `visit_rule'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `block in with_base'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:135:in `with_frame'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `with_base'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:52:in `map'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:171:in `block in visit_children'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:170:in `visit_children'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:190:in `visit_root'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:161:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:10:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/root_node.rb:36:in `css_tree'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/engine.rb:389:in `_render_with_sourcemap'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/engine.rb:307:in `render_with_sourcemap'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/exec/sass_scss.rb:391:in `run'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/exec/sass_scss.rb:63:in `process_result'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/exec/base.rb:52:in `parse'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/exec/base.rb:19:in `parse!'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/bin/scss:13:in `<top (required)>'
-/Users/charlie/.rbenv/versions/2.2.3/bin/scss:23:in `load'
-/Users/charlie/.rbenv/versions/2.2.3/bin/scss:23:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Undefined variable: \"$sans-serif\".\A         on line 16 of helpers.scss\A \A 11:   border-top: 1px solid $grey-light\A 12: }\A 13: \A 14: /* Match font */\A 15: .is-lato {\A 16:   font-family: $sans-serif;\A 17: }\A 18: \A 19: \A 20: @media screen and (min-width: $tablet) {\A 21:   .is-pulled-right-desktop {"; }
+/* Match font */
+.is-lato {
+  font-family: "Open Sans", sans-serif; }
+
+@media screen and (min-width: 769px) {
+  .is-pulled-right-desktop {
+    float: right; } }
+
+/*# sourceMappingURL=helpers.css.map */
