@@ -102,7 +102,7 @@
 .page-node-type-article #navbar-burger {
   display: block;
   color: #ffffff;
-  position: fixed;
+  position: absolute;
   top: 0.75rem;
   left: 0.75rem;
   margin: auto;
