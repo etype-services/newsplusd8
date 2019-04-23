@@ -104,6 +104,10 @@
 
 /* NAV */
 
+#main-navbar-menu {
+  justify-content: center;
+}
+
 /* Nav overrides for Article nodes. */
 .page-node-type-article {
   #navbar-burger {
@@ -122,10 +126,6 @@
       /* Make sure navbar completely hidden, overriding bulma min-height. */
       min-height: 0;
       border: 0;
-      /* Hide main menu and social icons always. */
-      .navbar-end {
-        @include is-really-invisible;
-      }
     }
   }
 }
@@ -136,11 +136,6 @@
     #main-nav {
       .navbar {
         /* Center main menu. */
-        #main-navbar-menu {
-          justify-content: center;
-          /* TODO: auto-adjust to number of social icons, to center NAv */
-          padding-left: calc(0.875rem + 0.75rem);
-        }
         /* Can't use is-hidden-desktop because of Article formatting. */
         .navbar-start {
           @include is-really-invisible;
@@ -166,13 +161,17 @@
           }
         }
         .navbar-burger {
-          display: block;
-        }
-        /* Keep main menu hidden. */
-        #main-navbar-menu {
           @include is-really-invisible;
         }
+        #main-navbar-menu {
+          /* Keep social icons out of scroll bar. */
+          margin: auto 1rem;
+        }
       }
+    }
+    .page-title {
+      /* No hamburger. */
+      margin-top: 0;
     }
   }
 }
@@ -189,6 +188,9 @@
       border: none;
     }
   }
+  .page-title {
+    margin-top: 2rem;
+  }
   article {
     flex-wrap: wrap;
     margin: 0;
@@ -199,9 +201,6 @@
       justify-content: space-between;
       .navbar-burger {
         position: absolute;
-      }
-      .page-title {
-        margin-top: 2rem;
       }
     }
     .is-three-quarters {

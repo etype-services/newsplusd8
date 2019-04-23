@@ -76,6 +76,9 @@
     flex-shrink: 1;
     padding: 0.75rem; } }
 /* NAV */
+#main-navbar-menu {
+  justify-content: center; }
+
 /* Nav overrides for Article nodes. */
 .page-node-type-article #navbar-burger {
   display: block;
@@ -91,43 +94,37 @@
   .page-node-type-article #main-nav .navbar {
     /* Make sure navbar completely hidden, overriding bulma min-height. */
     min-height: 0;
-    border: 0;
-    /* Hide main menu and social icons always. */ }
-    .page-node-type-article #main-nav .navbar .navbar-end {
-      visibility: hidden !important;
-      display: none !important; }
+    border: 0; }
 
 /* Wider screen overrides for Article nodes. */
 @media screen and (min-width: 1088px) {
   body:not(.page-node-type-article) #main-nav .navbar {
     /* Center main menu. */
     /* Can't use is-hidden-desktop because of Article formatting. */ }
-    body:not(.page-node-type-article) #main-nav .navbar #main-navbar-menu {
-      justify-content: center;
-      /* TODO: auto-adjust to number of social icons, to center NAv */
-      padding-left: calc(0.875rem + 0.75rem); }
     body:not(.page-node-type-article) #main-nav .navbar .navbar-start {
       visibility: hidden !important;
       display: none !important; }
 
-  body.page-node-type-article #main-nav .navbar {
-    /* Keep main menu hidden. */ }
-    body.page-node-type-article #main-nav .navbar .navbar-start {
-      display: block;
-      padding-top: 5rem; }
-      body.page-node-type-article #main-nav .navbar .navbar-start .user-menu {
-        position: fixed;
-        top: 1rem;
-        right: calc(0.75rem * 2);
-        height: fit-content;
-        flex-flow: column; }
-      body.page-node-type-article #main-nav .navbar .navbar-start .search-block-form {
-        line-height: 2rem; }
-    body.page-node-type-article #main-nav .navbar .navbar-burger {
-      display: block; }
-    body.page-node-type-article #main-nav .navbar #main-navbar-menu {
-      visibility: hidden !important;
-      display: none !important; } }
+  body.page-node-type-article #main-nav .navbar .navbar-start {
+    display: block;
+    padding-top: 5rem; }
+    body.page-node-type-article #main-nav .navbar .navbar-start .user-menu {
+      position: fixed;
+      top: 1rem;
+      right: calc(0.75rem * 2);
+      height: fit-content;
+      flex-flow: column; }
+    body.page-node-type-article #main-nav .navbar .navbar-start .search-block-form {
+      line-height: 2rem; }
+  body.page-node-type-article #main-nav .navbar .navbar-burger {
+    visibility: hidden !important;
+    display: none !important; }
+  body.page-node-type-article #main-nav .navbar #main-navbar-menu {
+    /* Keep social icons out of scroll bar. */
+    margin: auto 1rem; }
+  body.page-node-type-article .page-title {
+    /* No hamburger. */
+    margin-top: 0; } }
 /* CONTENT */
 /* Article formatting. */
 .page-node-type-article #block-tabs, .page-node-type-article #block-tabs-2 {
@@ -136,6 +133,8 @@
   .page-node-type-article #block-tabs .tabs, .page-node-type-article #block-tabs-2 .tabs {
     margin: 0;
     border: none; }
+.page-node-type-article .page-title {
+  margin-top: 2rem; }
 .page-node-type-article article {
   flex-wrap: wrap;
   margin: 0; }
@@ -146,8 +145,6 @@
     justify-content: space-between; }
     .page-node-type-article article .is-one-quarter .navbar-burger {
       position: absolute; }
-    .page-node-type-article article .is-one-quarter .page-title {
-      margin-top: 2rem; }
   .page-node-type-article article .is-three-quarters img {
     width: 100%; }
   .page-node-type-article article .is-full .main-caption {
