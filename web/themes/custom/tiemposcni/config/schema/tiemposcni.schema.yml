@@ -1,5 +1,3 @@
 # Schema for the configuration files of the Tiempos theme.
 
-tiempos_cni.settings:
-  type: theme_settings
-  label: 'Tiempos CNI settings'
+
