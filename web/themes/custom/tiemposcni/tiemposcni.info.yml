@@ -12,6 +12,7 @@ regions:
   header_right: 'Header Right'
   navigation: 'Navigation'
   breadcrumb: 'Breadcrumb'
+  leaderboard: 'Leaderboard'
   top_content: 'Top Content'
   content: 'Content'
   sidebar: 'Sidebar'

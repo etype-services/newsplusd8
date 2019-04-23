@@ -7,10 +7,20 @@
   height: 200px; }
 
 .region-header-right .sample-ad-block {
-  margin-top: 0.75rem;
+  margin-top: calc(0.75rem * 2);
   width: 200px;
   height: 60px;
   float: right; }
+
+.region-leaderboard .sample-ad-block {
+  width: 728px;
+  height: 90px;
+  margin: 0 auto calc(0.75rem * 2); }
+
+.region-content .sample-ad-block {
+  width: 728px;
+  height: 90px;
+  margin: 0 auto calc(0.75rem * 2) 0.75rem; }
 
 .region-sidebar .sample-ad-block {
   width: 120px;

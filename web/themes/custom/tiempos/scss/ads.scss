@@ -13,10 +13,26 @@
 
 .region-header-right {
   .sample-ad-block {
-    margin-top: $column-gap;
+    margin-top: calc(#{$column-gap} * 2);
     width: 200px;
     height: 60px;
     float: right;
+  }
+}
+
+.region-leaderboard {
+  .sample-ad-block {
+    width: 728px;
+    height: 90px;
+    margin: 0 auto calc(#{$column-gap} * 2);
+  }
+}
+
+.region-content {
+  .sample-ad-block {
+    width: 728px;
+    height: 90px;
+    margin: 0 auto calc(#{$column-gap} * 2) $column-gap;
   }
 }
 
