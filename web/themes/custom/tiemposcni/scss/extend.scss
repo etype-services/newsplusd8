@@ -126,6 +126,10 @@
   body:not(.page-node-type-article) {
     #main-nav {
       .navbar {
+        /* Center main menu. */
+        #main-navbar-menu {
+          justify-content: center;
+        }
         /* Can't use is-hidden-desktop because of Article formatting. */
         .navbar-start {
           @include is-really-invisible;

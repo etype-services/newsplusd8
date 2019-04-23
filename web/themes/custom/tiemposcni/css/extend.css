@@ -89,7 +89,10 @@
 /* Wider screen overrides for Article nodes. */
 @media screen and (min-width: 1088px) {
   body:not(.page-node-type-article) #main-nav .navbar {
+    /* Center main menu. */
     /* Can't use is-hidden-desktop because of Article formatting. */ }
+    body:not(.page-node-type-article) #main-nav .navbar #main-navbar-menu {
+      justify-content: center; }
     body:not(.page-node-type-article) #main-nav .navbar .navbar-start {
       visibility: hidden !important;
       display: none !important; }
