@@ -1,3 +1,4 @@
+/* Center column for tiemposcni theme */
 /**
  * Styles build on bulma nav component.
  */
@@ -6,6 +7,9 @@
   margin-left: 0.5rem;
   margin-right: 0; }
 
+@media screen and (min-width: 1088px) {
+  .user-menu {
+    justify-content: flex-end; } }
 /* Default (Wide Screen) Desktop */
 #main-nav .navbar {
   border-top: 1px solid #b5b5b5;

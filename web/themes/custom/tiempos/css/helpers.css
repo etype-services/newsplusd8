@@ -1,3 +1,4 @@
+/* Center column for tiemposcni theme */
 /* Additional Helper Classes. */
 .is-really-invisible {
   visibility: hidden !important;
@@ -8,7 +9,7 @@
   border-top: 1px solid #b5b5b5; }
 
 /* Match font */
-.is-lato {
+.is-sans-serif {
   font-family: "Open Sans", sans-serif; }
 
 @media screen and (min-width: 769px) {

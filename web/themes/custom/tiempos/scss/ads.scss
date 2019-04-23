@@ -1,0 +1,13 @@
+@import "./vars";
+
+.sample-ad-block {
+  padding: 1rem;
+}
+
+.region-header-right {
+  .sample-ad-block {
+    margin-top: $column-gap;
+    width: 120px;
+    height: 60px;
+  }
+}
