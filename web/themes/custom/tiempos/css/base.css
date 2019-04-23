@@ -4,7 +4,7 @@
 
 header {
   position: relative;
-  align-items: center; }
+  align-items: top; }
 
 @media screen and (min-width: 1088px) {
   .region-sidebar {

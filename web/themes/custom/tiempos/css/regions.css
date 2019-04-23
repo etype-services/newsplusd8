@@ -6,7 +6,7 @@
 
 .region-header-left {
   /* Adjust spacing to line up text. */
-  padding: 1.5rem 0.75rem 0 1.5rem; }
+  padding: calc(column-gap * 2) 0.75rem 0 calc(column-gap * 2); }
 
 .region-header-center {
   /* Make logo bigger */
@@ -14,7 +14,7 @@
 
 .region-header-right {
   /* No top padding becuase header aligns center. */
-  padding: 0 1.5rem 0 0.75rem; }
+  padding: 0.75rem calc(column-gap * 2) 0 0.75rem; }
 
 .region-content {
   flex-wrap: wrap; }
