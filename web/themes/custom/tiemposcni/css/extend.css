@@ -1,3 +1,66 @@
+/* Blocks */
+/* Top left "Date" block. */
+#block-date-2 .navbar-burger {
+  /* Flex to center fontawsone icon. */
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  #block-date-2 .navbar-burger span {
+    height: 2px; }
+#block-date-2 .block-search [data-drupal-selector=search-block-form] {
+  display: flex;
+  align-items: center;
+  /* Match navbar-burger. */
+  height: 3.25rem; }
+  #block-date-2 .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-submit] {
+    cursor: pointer;
+    margin-right: 0.5rem; }
+  #block-date-2 .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-keys] {
+    width: 70%; }
+
+@media screen and (max-width: 1087px) {
+  #block-date-2 .block-search {
+    /* Hide search, goes in navbar-start */
+    display: none; } }
+@media screen and (max-width: 768px) {
+  #block-date-2 {
+    /* Align date with hamburger and search on mobile. */ }
+    #block-date-2 p {
+      float: left;
+      margin-top: 1.1rem;
+      margin-right: 0;
+      padding-right: 0; } }
+/* Make sure image is as wide as page for tablet. */
+.region-content #block-tiemposcni-content .view-content img {
+  width: 100%; }
+
+/* Front Page Sections */
+#block-views-block-front-page-sections-block-1-2 .view-content, #block-views-block-front-page-sections-block-2-2 .view-content {
+  display: flex;
+  margin-right: -0.75rem; }
+#block-views-block-front-page-sections-block-1-2 .view-content > div, #block-views-block-front-page-sections-block-2-2 .view-content > div {
+  display: block;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 0.75rem; }
+
+@media screen and (max-width: 768px) {
+  /* Hide attachment-before on mobile. */
+  .view-id-frontpage.columns > .attachment-before {
+    display: none; }
+
+  /* Emulate columns for front page sections. */
+  #block-views-block-front-page-sections-block-1-2 .view-content, #block-views-block-front-page-sections-block-2-2 .view-content {
+    display: block; }
+  #block-views-block-front-page-sections-block-1-2 .view-content > div, #block-views-block-front-page-sections-block-2-2 .view-content > div {
+    display: block;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: 0.75rem; } }
+/* Nav */
 /* Nav overrides for Article nodes. */
 .page-node-type-article #navbar-burger {
   display: block;
@@ -45,11 +108,12 @@
     body.page-node-type-article #main-nav .navbar #main-navbar-menu {
       visibility: hidden !important;
       display: none !important; } }
+/* Content */
 /* Article formatting. */
-.page-node-type-article #block-tiempos-local-tasks {
+.page-node-type-article #block-tabs {
   background-color: #0a0a0a;
   margin-bottom: 0; }
-  .page-node-type-article #block-tiempos-local-tasks .tabs {
+  .page-node-type-article #block-tabs .tabs {
     margin: 0;
     border: none; }
 .page-node-type-article article {

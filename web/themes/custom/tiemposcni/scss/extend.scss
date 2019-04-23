@@ -1,5 +1,98 @@
 @import "../../tiempos/scss/vars";
 
+/* Blocks */
+
+/* Top left "Date" block. */
+#block-date-2 {
+  .navbar-burger {
+    /* Flex to center fontawsone icon. */
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span {
+      height: 2px;
+    }
+  }
+  .block-search {
+    [data-drupal-selector=search-block-form] {
+      display: flex;
+      align-items: center;
+      /* Match navbar-burger. */
+      height: 3.25rem;
+      [data-drupal-selector=search-edit-submit] {
+        cursor: pointer;
+        margin-right: 0.5rem;
+      }
+      [data-drupal-selector=search-edit-keys] {
+        width: 70%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $desktop - 1px) {
+  #block-date-2 {
+    .block-search {
+      /* Hide search, goes in navbar-start */
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: $tablet - 1px) {
+  #block-date-2 {
+    /* Align date with hamburger and search on mobile. */
+    p {
+      float: left;
+      margin-top: 1.1rem;
+      margin-right: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+/* Make sure image is as wide as page for tablet. */
+.region-content {
+  #block-tiemposcni-content {
+    .view-content {
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/* Front Page Sections */
+#block-views-block-front-page-sections-block-1-2, #block-views-block-front-page-sections-block-2-2 {
+  .view-content {
+    display: flex;
+    margin-right: -$column-gap;
+  }
+  .view-content > div {
+    @include column;
+  }
+}
+
+@media screen and (max-width: $tablet - 1px ) {
+  /* Hide attachment-before on mobile. */
+  .view-id-frontpage.columns > .attachment-before {
+    display: none;
+  }
+
+  /* Emulate columns for front page sections. */
+  #block-views-block-front-page-sections-block-1-2, #block-views-block-front-page-sections-block-2-2 {
+    .view-content {
+      display: block;
+    }
+    .view-content > div {
+      @include column;
+    }
+  }
+}
+
+/* Nav */
+
 /* Nav overrides for Article nodes. */
 .page-node-type-article {
   #navbar-burger {
@@ -67,9 +160,11 @@
   }
 }
 
+/* Content */
+
 /* Article formatting. */
 .page-node-type-article {
-  #block-tiempos-local-tasks {
+  #block-tabs {
     background-color: $black;
     margin-bottom: 0;
     .tabs {
