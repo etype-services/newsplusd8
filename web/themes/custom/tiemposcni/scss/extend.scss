@@ -170,7 +170,7 @@
 
 /* Article formatting. */
 .page-node-type-article {
-  #block-tabs-2 {
+  #block-tabs, #block-tabs-2 {
     background-color: $black;
     margin-bottom: 0;
     .tabs {
@@ -226,7 +226,8 @@
             font-family: $sans-serif;
             font-size: $size-7;
             margin: 0.5rem auto 3rem 3rem;
-            color: $black
+            color: $black;
+            text-align: center;
           }
         }
       }

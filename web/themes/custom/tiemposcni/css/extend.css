@@ -117,10 +117,10 @@
       display: none !important; } }
 /* Content */
 /* Article formatting. */
-.page-node-type-article #block-tabs-2 {
+.page-node-type-article #block-tabs, .page-node-type-article #block-tabs-2 {
   background-color: #0a0a0a;
   margin-bottom: 0; }
-  .page-node-type-article #block-tabs-2 .tabs {
+  .page-node-type-article #block-tabs .tabs, .page-node-type-article #block-tabs-2 .tabs {
     margin: 0;
     border: none; }
 .page-node-type-article article {
@@ -165,7 +165,8 @@
         font-family: "Open Sans", sans-serif;
         font-size: 0.75rem;
         margin: 0.5rem auto 3rem 3rem;
-        color: #0a0a0a; }
+        color: #0a0a0a;
+        text-align: center; }
   .page-node-type-article article .node__submitted a {
     color: whitesmoke; }
 
