@@ -1,0 +1,22 @@
+name: Tiempos for CNI
+type: theme
+base theme: tiempos
+description: 'Drupal 8 theme based on Bulma, modified for CNI Group.'
+version: 8.1.1
+core: 8.x
+regions:
+  top_bar: 'Top Bar'
+  header_left: 'Header Left'
+  header_center: 'Header Center'
+  header_right: 'Header Right'
+  navigation: 'Navigation'
+  breadcrumb: 'Breadcrumb'
+  top_content: 'Top Content'
+  content: 'Content'
+  sidebar: 'Sidebar'
+  footer_left: 'Footer Left'
+  footer_center: 'Footer Center'
+  footer_right: 'Footer Right'
+  hidden_blocks: 'Hidden Blocks'
+libraries:
+  - tiempos_cni/global-styling
