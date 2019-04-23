@@ -30,7 +30,9 @@ class SocialMediaBlock extends BlockBase {
     $links['twitter'] = $config->get('twitter');
     $output = '';
     foreach ($links as $k => $v) {
-      $output .= "<a href=\"$v\" class=\"has-text-grey-dark\"><i class=\"fab fa-$k is-size-3\"></i></a>";
+      if (!empty($v)) {
+        $output .= "<a href=\"$v\" class=\"has-text-grey-dark\"><i class=\"fab fa-$k is-size-3\"></i></a>";
+      }
     }
     return [
       '#children' => Markup::create($output),

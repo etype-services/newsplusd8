@@ -102,7 +102,9 @@
     /* Center main menu. */
     /* Can't use is-hidden-desktop because of Article formatting. */ }
     body:not(.page-node-type-article) #main-nav .navbar #main-navbar-menu {
-      justify-content: center; }
+      justify-content: center;
+      /* TODO: auto-adjust to number of social icons, to center NAv */
+      padding-left: calc(0.875rem + 0.75rem); }
     body:not(.page-node-type-article) #main-nav .navbar .navbar-start {
       visibility: hidden !important;
       display: none !important; }

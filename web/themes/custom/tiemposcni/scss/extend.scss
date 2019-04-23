@@ -135,6 +135,8 @@
         /* Center main menu. */
         #main-navbar-menu {
           justify-content: center;
+          /* TODO: auto-adjust to number of social icons, to center NAv */
+          padding-left: calc(0.875rem + 0.75rem);
         }
         /* Can't use is-hidden-desktop because of Article formatting. */
         .navbar-start {
