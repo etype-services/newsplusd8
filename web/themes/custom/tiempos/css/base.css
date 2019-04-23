@@ -1,8 +1,10 @@
+/* Center column for tiemposcni theme */
 .layout-container {
   margin: 0.75rem; }
 
 header {
-  position: relative; }
+  position: relative;
+  align-items: center; }
 
 @media screen and (min-width: 1088px) {
   .region-sidebar {

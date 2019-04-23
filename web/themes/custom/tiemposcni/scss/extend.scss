@@ -1,6 +1,8 @@
 @import "../../tiempos/scss/vars";
 
-/* Blocks */
+/* REGIONS */
+
+/* BLOCKS */
 
 /* Top left "Date" block. */
 #block-date-2 {
@@ -63,7 +65,8 @@
   }
 }
 
-/* Views */
+/* VIEWS */
+
 .view-id-frontpage.columns > .view-content {
   /* flex-grow: 2. */
   @include column-no-padding-top-right-grow;
@@ -99,7 +102,7 @@
   }
 }
 
-/* Nav */
+/* NAV */
 
 /* Nav overrides for Article nodes. */
 .page-node-type-article {
@@ -174,7 +177,7 @@
   }
 }
 
-/* Content */
+/* CONTENT */
 
 /* Article formatting. */
 .page-node-type-article {

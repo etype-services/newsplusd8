@@ -1,3 +1,4 @@
+/* Center column for tiemposcni theme */
 .region-header-left, .region-header-center, .region-header-right {
   padding-bottom: 0; }
   .region-header-left .block, .region-header-center .block, .region-header-right .block {
@@ -6,6 +7,10 @@
 .region-header-left {
   /* Adjust spacing to line up text. */
   padding: 1.5rem 0.75rem 0 1.5rem; }
+
+.region-header-center {
+  /* Make logo bigger */
+  flex-grow: 2; }
 
 .region-header-right {
   text-align: right;

@@ -1,5 +1,6 @@
 /* Center column for tiemposcni theme */
-/* Blocks */
+/* REGIONS */
+/* BLOCKS */
 /* Top left "Date" block. */
 #block-date-2 .navbar-burger {
   /* Flex to center fontawsone icon. */
@@ -36,7 +37,7 @@
 .region-content #block-tiemposcni-content .view-content img {
   width: 100%; }
 
-/* Views */
+/* VIEWS */
 .view-id-frontpage.columns > .view-content {
   /* flex-grow: 2. */
   display: block;
@@ -74,7 +75,7 @@
     flex-grow: 1;
     flex-shrink: 1;
     padding: 0.75rem; } }
-/* Nav */
+/* NAV */
 /* Nav overrides for Article nodes. */
 .page-node-type-article #navbar-burger {
   display: block;
@@ -127,7 +128,7 @@
     body.page-node-type-article #main-nav .navbar #main-navbar-menu {
       visibility: hidden !important;
       display: none !important; } }
-/* Content */
+/* CONTENT */
 /* Article formatting. */
 .page-node-type-article #block-tabs, .page-node-type-article #block-tabs-2 {
   background-color: #0a0a0a;
