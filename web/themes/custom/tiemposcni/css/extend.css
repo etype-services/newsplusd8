@@ -36,10 +36,12 @@
   width: 100%; }
 
 /* Front Page Sections */
-#block-views-block-front-page-sections-block-1-2 .view-content, #block-views-block-front-page-sections-block-2-2 .view-content {
+#block-views-block-front-page-sections-block-1-* .view-content,
+#block-views-block-front-page-sections-block-2-2 .view-content {
   display: flex;
   margin-right: -0.75rem; }
-#block-views-block-front-page-sections-block-1-2 .view-content > div, #block-views-block-front-page-sections-block-2-2 .view-content > div {
+#block-views-block-front-page-sections-block-1-* .view-content > div,
+#block-views-block-front-page-sections-block-2-2 .view-content > div {
   display: block;
   flex-basis: 0;
   flex-grow: 1;
