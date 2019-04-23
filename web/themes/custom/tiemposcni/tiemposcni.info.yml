@@ -20,3 +20,4 @@ regions:
   hidden_blocks: 'Hidden Blocks'
 libraries:
   - tiemposcni/global-styling
+  - tiemposcni/global-scripts
