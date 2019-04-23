@@ -107,11 +107,11 @@
 
   body.page-node-type-article main {
     position: relative;
-    top: 42px;
-    z-index: -1; }
+    top: 42px; }
   body.page-node-type-article #main-nav {
     position: fixed;
-    width: 100%; }
+    width: 100%;
+    z-index: 9; }
     body.page-node-type-article #main-nav .navbar {
       border-top: 1px solid #b5b5b5;
       border-bottom: 1px solid #b5b5b5;

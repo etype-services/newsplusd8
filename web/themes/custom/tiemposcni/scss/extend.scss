@@ -147,11 +147,11 @@
     main {
       position: relative;
       top: 42px;
-      z-index: -1;
     }
     #main-nav {
       position: fixed;
       width: 100%;
+      z-index: 9;
       .navbar {
         @include border-top-bottom-light;
         background-color: $white;
