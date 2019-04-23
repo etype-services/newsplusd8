@@ -8,7 +8,7 @@
   margin-bottom: calc(0.75rem * 2); }
 
 .region-header-right .sample-ad-block {
-  margin-top: calc(0.75rem * 2);
+  margin-top: 0.75rem;
   width: 200px;
   height: 60px;
   float: right; }

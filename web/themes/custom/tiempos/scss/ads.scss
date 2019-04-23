@@ -14,7 +14,7 @@
 
 .region-header-right {
   .sample-ad-block {
-    margin-top: calc(#{$column-gap} * 2);
+    margin-top: $column-gap;
     width: 200px;
     height: 60px;
     float: right;
