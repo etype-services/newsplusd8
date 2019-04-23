@@ -123,7 +123,7 @@
     /* Keep social icons out of scroll bar. */
     margin: auto 1rem; }
   body.page-node-type-article .page-title {
-    /* No hamburger. */
+    /* No hamburger, so move to top. */
     margin-top: 0; } }
 /* CONTENT */
 /* Article formatting. */
