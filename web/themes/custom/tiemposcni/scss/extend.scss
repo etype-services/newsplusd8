@@ -64,8 +64,8 @@
 }
 
 /* Front Page Sections */
-#block-views-block-front-page-sections-block-1-*,
-#block-views-block-front-page-sections-block-2-2 {
+#block-views-block-front-page-sections-block-1,
+#block-views-block-front-page-sections-block-2 {
   .view-content {
     display: flex;
     margin-right: -$column-gap;
@@ -82,8 +82,8 @@
   }
 
   /* Emulate columns for front page sections. */
-  #block-views-block-front-page-sections-block-1-*,
-  #block-views-block-front-page-sections-block-2-2 {
+  #block-views-block-front-page-sections-block-1,
+  #block-views-block-front-page-sections-block-2 {
     .view-content {
       display: block;
     }
