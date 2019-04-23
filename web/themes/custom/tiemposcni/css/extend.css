@@ -117,10 +117,10 @@
       display: none !important; } }
 /* Content */
 /* Article formatting. */
-.page-node-type-article #block-tabs {
+.page-node-type-article #block-tabs-2 {
   background-color: #0a0a0a;
   margin-bottom: 0; }
-  .page-node-type-article #block-tabs .tabs {
+  .page-node-type-article #block-tabs-2 .tabs {
     margin: 0;
     border: none; }
 .page-node-type-article article {
