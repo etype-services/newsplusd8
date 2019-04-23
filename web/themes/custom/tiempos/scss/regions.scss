@@ -18,8 +18,8 @@
 }
 
 .region-header-right {
-  text-align: right;
-  padding: 1.5rem 1.5rem 0 0.75rem;;
+  /* No top padding becuase header aligns center. */
+  padding: 0 1.5rem 0 0.75rem;;
 }
 
 .region-content {
