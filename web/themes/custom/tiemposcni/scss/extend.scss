@@ -63,6 +63,11 @@
   }
 }
 
+/* Views */
+.view-id-frontpage.columns > .view-content {
+  @include column-no-padding-top-right-grow;
+}
+
 /* Front Page Sections */
 #block-views-block-front-page-sections-block-1-2,
 #block-views-block-front-page-sections-block-1-3 {
