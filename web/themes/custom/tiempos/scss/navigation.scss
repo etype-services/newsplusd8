@@ -30,22 +30,20 @@
       left: 0;
       height:100%;
       width: 100%;
-      padding: 1rem;
+      padding: 0.5rem 1.5rem 1rem 1rem;
       background-color: $white;
       .navbar-item {
         width: fit-content;
       }
-      /* To close "pop-up" */
+      /* Used to close "pop-up", override bulma margin. */
       .navbar-burger {
-        position: fixed;
-        top: 0.5rem;
-        left: 0.5rem;
+        margin-left: 0;
       }
       /* The logo. */
       .block-system-branding-block {
         text-align: center;
         position: absolute;
-        top: 3rem;
+        top: calc(#{$column-gap} * 2);
         margin: auto;
         width: 100%;
         z-index: -1;
@@ -80,10 +78,9 @@
         /* Align menu to right. */
         .navbar-menu {
           display: block!important;
-          position: fixed;
-          top: 1rem;
-          right: calc(#{$column-gap} * 2);
           height: fit-content;
+          width: fit-content;
+          float: right;
           .button, .button:first-child {
             display: block;
             width: 100%;
@@ -94,7 +91,6 @@
         }
       }
       .navbar-start {
-        padding-top: 5rem;
         [data-drupal-selector=search-block-form] {
           /* Stop search icon from jumping. */
           line-height: 2rem;
@@ -143,17 +139,18 @@
 
 /* Move menus below admin toolbar. */
 .toolbar-fixed, .toolbar-vertical {
-  #main-nav {
-    .navbar {
-      .navbar-start {
-        padding-top: 7rem!important;
-        .user-menu {
-          top: 4rem!important;
-        }
-        .navbar-burger {
-          top: 3rem;
-        }
-      }
+  .navbar-start {
+    margin-top: 39px;
+    .block-system-branding-block {
+      margin-top: 39px;
+    }
+  }
+}
+.toolbar-fixed.toolbar-horizontal.toolbar-tray-open {
+  .navbar-start {
+    margin-top: 79px;
+    .block-system-branding-block {
+      margin-top: 79px;
     }
   }
 }

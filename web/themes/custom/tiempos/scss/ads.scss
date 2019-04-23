@@ -4,10 +4,26 @@
   padding: 1rem;
 }
 
+.region-large-ad {
+  .sample-ad-block {
+    width: 100%;
+    height: 200px;
+  }
+}
+
 .region-header-right {
   .sample-ad-block {
     margin-top: $column-gap;
-    width: 120px;
+    width: 200px;
     height: 60px;
+    float: right;
+  }
+}
+
+.region-sidebar {
+  .sample-ad-block {
+    width: 120px;
+    height: 600px;
+    margin: auto;
   }
 }

@@ -105,23 +105,35 @@
       visibility: hidden !important;
       display: none !important; }
 
-  body.page-node-type-article #main-nav .navbar .navbar-start {
-    display: block;
-    padding-top: 5rem; }
-    body.page-node-type-article #main-nav .navbar .navbar-start .user-menu {
-      position: fixed;
-      top: 1rem;
-      right: calc(0.75rem * 2);
-      height: fit-content;
-      flex-flow: column; }
-    body.page-node-type-article #main-nav .navbar .navbar-start .search-block-form {
-      line-height: 2rem; }
-  body.page-node-type-article #main-nav .navbar .navbar-burger {
-    visibility: hidden !important;
-    display: none !important; }
-  body.page-node-type-article #main-nav .navbar #main-navbar-menu {
-    /* Keep social icons out of scroll bar. */
-    margin: auto 1rem; }
+  body.page-node-type-article main {
+    position: relative;
+    top: 42px;
+    z-index: -1; }
+  body.page-node-type-article #main-nav {
+    position: fixed;
+    width: 100%; }
+    body.page-node-type-article #main-nav .navbar {
+      border-top: 1px solid #b5b5b5;
+      border-bottom: 1px solid #b5b5b5;
+      background-color: white;
+      padding: 0 1rem; }
+      body.page-node-type-article #main-nav .navbar .navbar-start {
+        visibility: hidden !important;
+        display: none !important; }
+        body.page-node-type-article #main-nav .navbar .navbar-start .user-menu {
+          position: fixed;
+          top: 1rem;
+          right: calc(0.75rem * 2);
+          height: fit-content;
+          flex-flow: column; }
+        body.page-node-type-article #main-nav .navbar .navbar-start .search-block-form {
+          line-height: 2rem; }
+      body.page-node-type-article #main-nav .navbar .navbar-burger {
+        visibility: hidden !important;
+        display: none !important; }
+      body.page-node-type-article #main-nav .navbar #main-navbar-menu {
+        /* Keep social icons out of scroll bar. */
+        margin: auto 1rem; }
   body.page-node-type-article .page-title {
     /* No hamburger, so move to top. */
     margin-top: 0; } }
@@ -183,6 +195,5 @@
 @media screen and (max-width: 768px) {
   .page-node-type-article article .is-full .node__content p {
     margin: 0 4rem 0.75rem 4rem; } }
-/* AD BLOCKS */
 
 /*# sourceMappingURL=extend.css.map */

@@ -144,11 +144,20 @@
     }
   }
   body.page-node-type-article {
+    main {
+      position: relative;
+      top: 42px;
+      z-index: -1;
+    }
     #main-nav {
+      position: fixed;
+      width: 100%;
       .navbar {
+        @include border-top-bottom-light;
+        background-color: $white;
+        padding: 0 1rem;
         .navbar-start {
-          display: block;
-          padding-top: 5rem;
+          @include is-really-invisible;
           .user-menu {
             position: fixed;
             top: 1rem;
@@ -262,9 +271,4 @@
       }
     }
   }
-}
-
-/* AD BLOCKS */
-.sample-ad-block {
-
 }

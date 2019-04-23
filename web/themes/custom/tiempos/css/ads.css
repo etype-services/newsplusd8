@@ -2,9 +2,19 @@
 .sample-ad-block {
   padding: 1rem; }
 
+.region-large-ad .sample-ad-block {
+  width: 100%;
+  height: 200px; }
+
 .region-header-right .sample-ad-block {
   margin-top: 0.75rem;
+  width: 200px;
+  height: 60px;
+  float: right; }
+
+.region-sidebar .sample-ad-block {
   width: 120px;
-  height: 60px; }
+  height: 600px;
+  margin: auto; }
 
 /*# sourceMappingURL=ads.css.map */
