@@ -4,7 +4,8 @@
 
 .region-large-ad .sample-ad-block {
   width: 100%;
-  height: 200px; }
+  height: 200px;
+  margin-bottom: calc(0.75rem * 2); }
 
 .region-header-right .sample-ad-block {
   margin-top: calc(0.75rem * 2);
