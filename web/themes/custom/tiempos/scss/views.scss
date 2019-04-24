@@ -71,12 +71,7 @@
   #block-views-block-front-page-sections-block-2,
   #block-views-block-front-page-sections-block-1-2,
   #block-views-block-front-page-sections-block-1-3 {
-    .view-content {
-      display: block;
-    }
-    .view-content > div {
-      @include column;
-    }
+    @include is-really-invisible;
   }
   #block-views-block-mobile-front-page-block-1 {
     .view {
