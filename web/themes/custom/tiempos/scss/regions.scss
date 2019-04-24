@@ -9,7 +9,7 @@
 
 .region-header-left {
   /* Adjust spacing to line up text. */
-  padding: calc(#{column-gap} * 2) $column-gap 0 calc(#{column-gap} * 2);
+  padding: calc(#{$column-gap} * 2) $column-gap 0 calc(#{column-gap} * 2);
 }
 
 .region-header-center {
@@ -19,7 +19,7 @@
 
 .region-header-right {
   /* No top padding because header aligns center. */
-  padding: $column-gap calc(#{column-gap} * 2) 0 $column-gap;
+  padding: $column-gap calc(#{$column-gap} * 2) 0 $column-gap;
 }
 
 .region-content {
@@ -30,7 +30,7 @@
   flex-wrap: wrap;
   flex: 0 0 332px; /* Fixed size, does not grow or shrink. */
   @include border-left-light;
-  padding-left: calc(#{column-gap} * 2);
+  padding-left: calc(#{$column-gap} * 2);
   margin-left: $column-gap;
 }
 

@@ -6,7 +6,7 @@
 
 .region-header-left {
   /* Adjust spacing to line up text. */
-  padding: calc(column-gap * 2) 0.75rem 0 calc(column-gap * 2); }
+  padding: calc(0.75rem * 2) 0.75rem 0 calc(column-gap * 2); }
 
 .region-header-center {
   /* Make logo bigger */
@@ -14,7 +14,7 @@
 
 .region-header-right {
   /* No top padding because header aligns center. */
-  padding: 0.75rem calc(column-gap * 2) 0 0.75rem; }
+  padding: 0.75rem calc(0.75rem * 2) 0 0.75rem; }
 
 .region-content {
   flex-wrap: wrap; }
@@ -24,7 +24,7 @@
   flex: 0 0 332px;
   /* Fixed size, does not grow or shrink. */
   border-left: 1px solid #b5b5b5;
-  padding-left: calc(column-gap * 2);
+  padding-left: calc(0.75rem * 2);
   margin-left: 0.75rem; }
 
 @media screen and (max-width: 768px) {
