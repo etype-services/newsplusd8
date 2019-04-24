@@ -145,12 +145,11 @@
     max-width: 90vw; }
   .page-node-type-featured article .is-one-quarter .site-logo {
     position: absolute;
-    right: calc(0.75rem * 2);
-    top: 0.75rem;
-    width: 40vw;
-    margin-bottom: 0; }
+    right: 49px;
+    top: 0.7rem;
+    width: 40vw; }
   .page-node-type-featured article .is-full .node__content {
-    margin-top: 2rem; }
+    padding-top: 2rem; }
     .page-node-type-featured article .is-full .node__content p {
       margin: 0 4rem 0.75rem 4rem; } }
 

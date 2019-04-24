@@ -199,15 +199,14 @@
         }
         .site-logo {
           position: absolute;
-          right: calc(#{$column-gap} * 2);
-          top: $column-gap;
+          right: 49px;
+          top: 0.7rem;
           width: 40vw;
-          margin-bottom: 0;
         }
       }
       .is-full {
         .node__content {
-          margin-top: 2rem;
+          padding-top: 2rem;
           p {
             margin: 0 4rem $column-gap 4rem;
           }
