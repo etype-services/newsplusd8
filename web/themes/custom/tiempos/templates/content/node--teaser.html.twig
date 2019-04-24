@@ -87,7 +87,7 @@
         <h2{{ title_attributes }}>
             <a href="{{ url }}" rel="bookmark">{{ label }}</a>
         </h2>
-        {{ content.body }}
         <p class="submitted">{{ node.created.value|format_date('teaser') }}</p>
+        {{ content.body }}
     </div>
 </article>

@@ -80,8 +80,9 @@
   }
   #block-views-block-mobile-front-page-block-1 {
     .node--view-mode-teaser {
+      min-height: 30vw;
       &:not(last-child) {
-        margin-bottom: 0.75rem;
+        margin-bottom: $column-gap;
       }
       img {
         float: left;
@@ -91,6 +92,7 @@
       }
       .field--name-body {
         margin-bottom: 0;
+        display: table-cell;
       }
     }
   }

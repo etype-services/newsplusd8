@@ -73,15 +73,18 @@
     flex-shrink: 1;
     padding: 0.75rem; }
 
-  #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser:not(last-child) {
-    margin-bottom: 0.75rem; }
-  #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser img {
-    float: left;
-    width: 48%;
-    margin-right: 0.75rem;
-    margin-top: 0.3rem; }
-  #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser .field--name-body {
-    margin-bottom: 0; } }
+  #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser {
+    min-height: 30vw; }
+    #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser:not(last-child) {
+      margin-bottom: 0.75rem; }
+    #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser img {
+      float: left;
+      width: 48%;
+      margin-right: 0.75rem;
+      margin-top: 0.3rem; }
+    #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser .field--name-body {
+      margin-bottom: 0;
+      display: table-cell; } }
 /* Taxonomy Pages */
 .view-taxonomy-term .view-content {
   display: flex;
