@@ -46,6 +46,9 @@
     top: 0;
     right: 0;
   }
+  .region-content {
+    padding-top: 0;
+  }
 }
 
 @media screen and (max-width: $desktop - 1px) {
