@@ -53,9 +53,9 @@
     margin-bottom: 0;
     border-left: none !important; }
 
-  .region-footer-right {
-    display: none;
-    visibility: hidden; } }
+  .region-header-right, .region-footer-right {
+    visibility: hidden !important;
+    display: none !important; } }
 @media screen and (max-width: 1087px) {
   .region-header-right {
     /* Fine tuning weather widget */

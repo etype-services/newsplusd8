@@ -61,9 +61,8 @@
     margin-bottom: 0;
     border-left: none!important;
   }
-  .region-footer-right {
-    display: none;
-    visibility: hidden;
+  .region-header-right, .region-footer-right {
+    @include is-really-invisible;
   }
 }
 
