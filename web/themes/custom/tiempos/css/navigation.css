@@ -12,7 +12,9 @@
 
 /* Breadcrumbs */
 .breadcrumb {
-  margin-bottom: calc(0.75rem * 2) !important; }
+  /* Override Drupal default css. */
+  margin-bottom: calc(0.75rem * 2) !important;
+  padding-bottom: 0 !important; }
   .breadcrumb li {
     /* Override Drupal default css. */
     display: flex !important; }

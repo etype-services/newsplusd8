@@ -18,7 +18,9 @@
 
 /* Breadcrumbs */
 .breadcrumb {
+  /* Override Drupal default css. */
   margin-bottom: calc(#{$column-gap} * 2)!important;
+  padding-bottom: 0!important;
   li {
     /* Override Drupal default css. */
     display: flex !important;
