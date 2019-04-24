@@ -13,7 +13,7 @@
   flex-grow: 2; }
 
 .region-header-right {
-  /* No top padding becuase header aligns center. */
+  /* No top padding because header aligns center. */
   padding: 0.75rem calc(column-gap * 2) 0 0.75rem; }
 
 .region-content {
@@ -22,6 +22,7 @@
 .region-sidebar {
   flex-wrap: wrap;
   flex: 0 0 332px;
+  /* Fixed size, does not grow or shrink. */
   border-left: 1px solid #b5b5b5;
   padding-left: calc(column-gap * 2);
   margin-left: 0.75rem; }

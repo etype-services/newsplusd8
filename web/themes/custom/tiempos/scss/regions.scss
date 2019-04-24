@@ -18,7 +18,7 @@
 }
 
 .region-header-right {
-  /* No top padding becuase header aligns center. */
+  /* No top padding because header aligns center. */
   padding: $column-gap calc(#{column-gap} * 2) 0 $column-gap;
 }
 
@@ -28,7 +28,7 @@
 
 .region-sidebar {
   flex-wrap: wrap;
-  flex: 0 0 332px;
+  flex: 0 0 332px; /* Fixed size, does not grow or shrink. */
   @include border-left-light;
   padding-left: calc(#{column-gap} * 2);
   margin-left: $column-gap;

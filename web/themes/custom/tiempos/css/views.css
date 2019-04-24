@@ -1,3 +1,4 @@
+/* Center column for tiemposcni theme */
 /* Emulate column css for Front Page View top-level divs. See vars.sass. */
 .view-id-frontpage.columns > .attachment {
   display: block;
@@ -9,7 +10,7 @@
 .view-id-frontpage.columns > .view-content {
   display: block;
   flex-basis: 0;
-  flex-grow: 1;
+  flex-grow: 2;
   flex-shrink: 1;
   padding: 0 0 0.75rem 0.75rem; }
 
@@ -26,7 +27,7 @@
       margin-bottom: 0; }
 
 /* Make sure image is as wide as page for tablet. */
-.region-content #block-tiempos-content .view-content img {
+.region-content #block-tiempos-content .view-content img, .region-content #block-tiemposcni-content .view-content img {
   width: 100%; }
 .region-content .views-element-container {
   /* Adjust section header */ }
@@ -35,11 +36,15 @@
 
 /* Front Page Sections */
 #block-views-block-front-page-sections-block-1 .view-content,
-#block-views-block-front-page-sections-block-2 .view-content {
+#block-views-block-front-page-sections-block-2 .view-content,
+#block-views-block-front-page-sections-block-1-2 .view-content,
+#block-views-block-front-page-sections-block-1-3 .view-content {
   display: flex;
   margin-right: -0.75rem; }
 #block-views-block-front-page-sections-block-1 .view-content > div,
-#block-views-block-front-page-sections-block-2 .view-content > div {
+#block-views-block-front-page-sections-block-2 .view-content > div,
+#block-views-block-front-page-sections-block-1-2 .view-content > div,
+#block-views-block-front-page-sections-block-1-3 .view-content > div {
   display: block;
   flex-basis: 0;
   flex-grow: 1;
@@ -53,10 +58,14 @@
 
   /* Emulate columns for front page sections. */
   #block-views-block-front-page-sections-block-1 .view-content,
-  #block-views-block-front-page-sections-block-2 .view-content {
+  #block-views-block-front-page-sections-block-2 .view-content,
+  #block-views-block-front-page-sections-block-1-2 .view-content,
+  #block-views-block-front-page-sections-block-1-3 .view-content {
     display: block; }
   #block-views-block-front-page-sections-block-1 .view-content > div,
-  #block-views-block-front-page-sections-block-2 .view-content > div {
+  #block-views-block-front-page-sections-block-2 .view-content > div,
+  #block-views-block-front-page-sections-block-1-2 .view-content > div,
+  #block-views-block-front-page-sections-block-1-3 .view-content > div {
     display: block;
     flex-basis: 0;
     flex-grow: 1;

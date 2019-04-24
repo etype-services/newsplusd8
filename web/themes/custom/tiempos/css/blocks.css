@@ -1,31 +1,32 @@
+/* Center column for tiemposcni theme */
 /* Top left "Date" block. */
-#block-date .navbar-burger {
+#block-date .navbar-burger, #block-date-2 .navbar-burger {
   /* Flex to center fontawsone icon. */
   float: left;
   display: flex;
   justify-content: center;
   align-items: center; }
-  #block-date .navbar-burger span {
+  #block-date .navbar-burger span, #block-date-2 .navbar-burger span {
     height: 2px; }
-#block-date .block-search [data-drupal-selector=search-block-form] {
+#block-date .block-search [data-drupal-selector=search-block-form], #block-date-2 .block-search [data-drupal-selector=search-block-form] {
   display: flex;
   align-items: center;
   /* Match navbar-burger. */
   height: 3.25rem; }
-  #block-date .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-submit] {
+  #block-date .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-submit], #block-date-2 .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-submit] {
     cursor: pointer;
     margin-right: 0.5rem; }
-  #block-date .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-keys] {
+  #block-date .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-keys], #block-date-2 .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-keys] {
     width: 70%; }
 
 @media screen and (max-width: 1087px) {
-  #block-date .block-search {
+  #block-date .block-search, #block-date-2 .block-search {
     /* Hide search, goes in navbar-start */
     display: none; } }
 @media screen and (max-width: 768px) {
-  #block-date {
+  #block-date, #block-date-2 {
     /* Align date with hamburger and search on mobile. */ }
-    #block-date p {
+    #block-date p, #block-date-2 p {
       float: left;
       margin-top: 1.1rem;
       margin-right: 0;

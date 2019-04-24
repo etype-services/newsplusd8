@@ -3,8 +3,7 @@
   margin: 0.75rem; }
 
 header {
-  position: relative;
-  align-items: center; }
+  position: relative; }
 
 @media screen and (min-width: 1088px) {
   .region-sidebar {

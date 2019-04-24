@@ -1,7 +1,7 @@
 @import "./vars";
 
 /* Top left "Date" block. */
-#block-date {
+#block-date, #block-date-2 {
   .navbar-burger {
     /* Flex to center fontawsone icon. */
     float: left;
@@ -30,7 +30,7 @@
 }
 
 @media screen and (max-width: $desktop - 1px) {
-  #block-date {
+  #block-date, #block-date-2 {
     .block-search {
       /* Hide search, goes in navbar-start */
       display: none;
@@ -39,7 +39,7 @@
 }
 
 @media screen and (max-width: $tablet - 1px) {
-  #block-date {
+  #block-date, #block-date-2 {
     /* Align date with hamburger and search on mobile. */
     p {
       float: left;
