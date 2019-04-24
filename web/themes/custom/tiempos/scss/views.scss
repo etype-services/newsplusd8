@@ -62,6 +62,10 @@
 }
 
 @media screen and (max-width: $tablet - 1px ) {
+  /* Hide attachment-before on mobile. */
+  .view-id-frontpage.columns > .attachment-before {
+    @include is-really-invisible;
+  }
   /* Emulate columns for front page sections. */
   #block-views-block-front-page-sections-block-1,
   #block-views-block-front-page-sections-block-2,
@@ -72,6 +76,22 @@
     }
     .view-content > div {
       @include column;
+    }
+  }
+  #block-views-block-mobile-front-page-block-1 {
+    .node--view-mode-teaser {
+      &:not(last-child) {
+        margin-bottom: 0.75rem;
+      }
+      img {
+        float: left;
+        width: 48%;
+        margin-right: 0.75rem;
+        margin-top: 0.3rem;
+      }
+      .field--name-body {
+        margin-bottom: 0;
+      }
     }
   }
 }
