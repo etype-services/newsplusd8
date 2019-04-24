@@ -53,11 +53,7 @@
 
 @media screen and (max-width: 768px) {
   /* Hide attachment-before on mobile. */
-  .view-id-frontpage.columns > .attachment-before {
-    visibility: hidden !important;
-    display: none !important; }
-
-  /* Emulate columns for front page sections. */
+  .view-id-frontpage,
   #block-views-block-front-page-sections-block-1,
   #block-views-block-front-page-sections-block-2,
   #block-views-block-front-page-sections-block-1-2,
