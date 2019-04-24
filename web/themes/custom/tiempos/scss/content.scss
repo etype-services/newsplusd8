@@ -26,6 +26,9 @@
 
 /* Article formatting. */
 .page-node-type-featured {
+  .region-content {
+    padding: 0;
+  }
   #block-tabs, #block-tabs-2 {
     background-color: $black;
     margin-bottom: 0;

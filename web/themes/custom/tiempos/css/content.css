@@ -18,6 +18,8 @@
 
 /* CONTENT */
 /* Article formatting. */
+.page-node-type-featured .region-content {
+  padding: 0; }
 .page-node-type-featured #block-tabs, .page-node-type-featured #block-tabs-2 {
   background-color: #0a0a0a;
   margin-bottom: 0; }
