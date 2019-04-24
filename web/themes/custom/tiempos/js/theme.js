@@ -2,7 +2,10 @@
     "use strict";
     Drupal.behaviors.tiemposBehavior = {
         attach: function (context, settings) {
-            var caption = $(".page-node-type-article .is-three-quarters img").attr("alt");
+            var img = $(".page-node-type-article .field--name-field-image img");
+            var text = img.attr("alt");
+            var caption = $(".page-node-type-featured .is-three-quarters img").attr("alt");
+            var article_caption = '<p class="caption">' + text + '</p>';
 
             /* Menu toggle. */
             $(".navbar-burger").once("tiemposBehavior").click(function () {
@@ -32,6 +35,7 @@
 
             /* Image captions */
             $(".main-caption").html(caption);
+            $(".page-node-type-article .field--name-field-image").append(article_caption);
 
         }
     };
