@@ -88,8 +88,9 @@
         padding: 5rem 0 3rem;
         .addtoany_list {
           position: absolute;
-          top: -1.5rem;
-          right: calc(#{$column-gap} * 2);
+          top: 5rem;
+          left: 0.4rem;
+          width: 32px;
           svg {
             background-color: $grey!important;
           }
