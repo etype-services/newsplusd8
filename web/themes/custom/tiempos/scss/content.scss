@@ -45,6 +45,18 @@
   }
 }
 
+@media screen and (max-width: $tablet - 1px) {
+  .page-node-type-article {
+    .field--name-field-image {page-node-type-article article .field--name-field-image {
+      float: none;
+      margin-right: 0;
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      width: 100%;
+    }
+  }
+}
+
 @media screen and (min-width: $tablet ) {
   .page-node-type-article {
     .field--name-field-image {
