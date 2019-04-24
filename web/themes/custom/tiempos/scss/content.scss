@@ -4,7 +4,7 @@
 .page-node-type-featured {
   #navbar-burger {
     display: block;
-    color: #ffffff;
+    color: $white;
     position: absolute;
     top: 0.75rem;
     left: 0.75rem;
@@ -90,6 +90,9 @@
           position: absolute;
           top: -1.5rem;
           right: 0.5rem;
+          svg {
+            background-color: $grey-dark!important;
+          }
         }
         p {
           margin: 0 4rem $column-gap 13rem;

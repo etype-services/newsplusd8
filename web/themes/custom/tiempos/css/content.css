@@ -2,7 +2,7 @@
 /* Nav overrides for Featured nodes. */
 .page-node-type-featured #navbar-burger {
   display: block;
-  color: #ffffff;
+  color: white;
   position: absolute;
   top: 0.75rem;
   left: 0.75rem;
@@ -64,6 +64,8 @@
       position: absolute;
       top: -1.5rem;
       right: 0.5rem; }
+      .page-node-type-featured article .is-full .node__content .addtoany_list svg {
+        background-color: #4a4a4a !important; }
     .page-node-type-featured article .is-full .node__content p {
       margin: 0 4rem 0.75rem 13rem;
       font-size: 1.2rem;
