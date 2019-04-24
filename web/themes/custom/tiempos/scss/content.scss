@@ -27,7 +27,13 @@
 /* Article formatting. */
 
 .page-node-type-article {
+  #block-pagetitle-2 {
+    margin-bottom: 0;
+  }
   article {
+    .node__meta {
+      margin-bottom: calc(#{$column-gap} * 2);
+    }
     .field--name-field-image {
       float: left;
       margin-right: 0.75rem;

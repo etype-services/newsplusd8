@@ -18,6 +18,10 @@
 
 /* CONTENT */
 /* Article formatting. */
+.page-node-type-article #block-pagetitle-2 {
+  margin-bottom: 0; }
+.page-node-type-article article .node__meta {
+  margin-bottom: calc(0.75rem * 2); }
 .page-node-type-article article .field--name-field-image {
   float: left;
   margin-right: 0.75rem;
