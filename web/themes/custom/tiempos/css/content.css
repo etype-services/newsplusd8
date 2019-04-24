@@ -15,7 +15,7 @@
     /* Make sure navbar completely hidden, overriding bulma min-height. */
     min-height: 0;
     border: 0; }
-.page-node-type-featured #navbar-end {
+.page-node-type-featured .navbar-end {
   visibility: hidden !important;
   display: none !important; }
 
