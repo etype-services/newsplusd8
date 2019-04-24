@@ -18,6 +18,11 @@
 
 /* CONTENT */
 /* Article formatting. */
+.page-node-type-article article .field--name-field-image {
+  float: left;
+  margin-right: 0.75rem;
+  margin-top: 0.4rem; }
+
 .page-node-type-featured .region-content {
   padding: 0; }
 .page-node-type-featured #block-tabs, .page-node-type-featured #block-tabs-2 {
