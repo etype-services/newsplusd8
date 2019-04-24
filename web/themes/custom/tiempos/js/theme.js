@@ -5,7 +5,7 @@
             var img = $(".page-node-type-article article .field--name-field-image img");
             var text = img.attr("alt");
             var caption = $(".page-node-type-featured .is-three-quarters img").attr("alt");
-            var article_caption = '<p class="caption">' + text + '</p>';
+            var article_caption = '<p class="caption is-serif is-size-7">' + text + '</p>';
 
             /* Menu toggle. */
             $(".navbar-burger").once("tiemposBehavior").click(function () {
