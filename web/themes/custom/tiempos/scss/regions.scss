@@ -61,7 +61,7 @@
     margin-bottom: 0;
     border-left: none!important;
   }
-  .region-header-right, .region-footer-right {
+  .region-footer-left, .region-footer-right {
     @include is-really-invisible;
   }
 }
