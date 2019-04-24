@@ -48,20 +48,25 @@
 /* Control image width */
 @media screen and (max-width: $mobile) {
   .page-node-type-article {
-    .field--name-field-image {
-      float: none;
-      margin-right: 0;
-      margin-top: 0;
-      margin-bottom: 0.75rem;
-      width: 100%;
+    article {
+      .field--name-field-image {
+        float: none;
+        margin-right: 0;
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+        width: 100%;
+      }
     }
   }
 }
 
+/* Control image width */
 @media screen and (min-width: $mobile - 1px ) {
   .page-node-type-article {
-    .field--name-field-image {
-      max-width: 70%;
+    article {
+      .field--name-field-image {
+        max-width: 70%;
+      }
     }
   }
 }

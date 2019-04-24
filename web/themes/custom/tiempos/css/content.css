@@ -33,14 +33,15 @@
 
 /* Control image width */
 @media screen and (max-width: 467px) {
-  .page-node-type-article .field--name-field-image {
+  .page-node-type-article article .field--name-field-image {
     float: none;
     margin-right: 0;
     margin-top: 0;
     margin-bottom: 0.75rem;
     width: 100%; } }
+/* Control image width */
 @media screen and (min-width: 466px) {
-  .page-node-type-article .field--name-field-image {
+  .page-node-type-article article .field--name-field-image {
     max-width: 70%; } }
 /* Feature formatting. */
 .page-node-type-featured .region-content {
