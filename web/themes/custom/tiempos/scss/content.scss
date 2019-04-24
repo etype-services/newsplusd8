@@ -86,6 +86,9 @@
     }
   }
   #block-tabs, #block-tabs-2 {
+    @include is-really-invisible;
+  }
+  #block-tabs, #block-tabs-2 {
     background-color: $black;
     margin-bottom: 0;
     .tabs {

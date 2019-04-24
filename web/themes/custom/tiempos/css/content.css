@@ -54,6 +54,9 @@
   .page-node-type-featured .addtoany_list svg {
     background-color: #7a7a7a !important; }
 .page-node-type-featured #block-tabs, .page-node-type-featured #block-tabs-2 {
+  visibility: hidden !important;
+  display: none !important; }
+.page-node-type-featured #block-tabs, .page-node-type-featured #block-tabs-2 {
   background-color: #0a0a0a;
   margin-bottom: 0; }
   .page-node-type-featured #block-tabs .tabs, .page-node-type-featured #block-tabs-2 .tabs {
