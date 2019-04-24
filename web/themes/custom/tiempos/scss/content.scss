@@ -79,7 +79,8 @@
     }
     .is-full {
       .main-caption {
-        margin: 0.5rem auto auto;
+        /* The left/right margin is to keep caption away from share icons. */
+        margin: 0.5rem 7rem auto;
         color: $black;
       }
       .node__content {

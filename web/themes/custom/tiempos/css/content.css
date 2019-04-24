@@ -54,7 +54,8 @@
   .page-node-type-featured article .is-three-quarters img {
     width: 100%; }
   .page-node-type-featured article .is-full .main-caption {
-    margin: 0.5rem auto auto;
+    /* The left/right margin is to keep caption away from share icons. */
+    margin: 0.5rem 7rem auto;
     color: #0a0a0a; }
   .page-node-type-featured article .is-full .node__content {
     position: relative;
