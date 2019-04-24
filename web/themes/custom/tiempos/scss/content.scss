@@ -50,6 +50,15 @@
   .region-content {
     padding: 0;
   }
+  .addtoany_list {
+    position: fixed;
+    top: 0.15rem;
+    right: 0.75rem;
+    z-index: 999;
+    svg {
+      background-color: $grey !important;
+    }
+  }
   #block-tabs, #block-tabs-2 {
     background-color: $black;
     margin-bottom: 0;
@@ -78,15 +87,6 @@
     .is-three-quarters {
       img {
         width: 100%;
-      }
-      .addtoany_list {
-        position: absolute;
-        top: 0.5rem;
-        left: 1.5rem;
-        width: 32px;
-        svg {
-          background-color: $grey!important;
-        }
       }
     }
     .is-full {

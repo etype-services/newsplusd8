@@ -82,6 +82,7 @@
   ]
 %}
 {{ attach_library('classy/node') }}
+{{ content.addtoany }}
 <article{{ attributes.addClass(classes) }}>
   <div class="column is-one-quarter has-background-black">
     {# ID to distinguish from other navbar-burgers. #}
@@ -104,7 +105,6 @@
   </div>
 
   <div class="column is-three-quarters has-background-black is-paddingless">
-    {{ content.addtoany }}
     {{ content.field_image[0] }}
   </div>
 
