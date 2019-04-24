@@ -89,7 +89,7 @@
         .addtoany_list {
           position: absolute;
           top: -1.5rem;
-          right: 0.5rem;
+          right: calc(#{$column-gap} * 2);
           svg {
             background-color: $grey!important;
           }
