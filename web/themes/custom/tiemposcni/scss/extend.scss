@@ -130,61 +130,6 @@
   }
 }
 
-/* Wider screen overrides for Article nodes. */
-@media screen and (min-width: $desktop) {
-  body:not(.page-node-type-article) {
-    #main-nav {
-      .navbar {
-        /* Center main menu. */
-        /* Can't use is-hidden-desktop because of Article formatting. */
-        .navbar-start {
-          @include is-really-invisible;
-        }
-      }
-    }
-  }
-  body.page-node-type-article {
-    main {
-      position: relative;
-      top: 42px;
-    }
-    #main-nav {
-      position: fixed;
-      width: 100%;
-      z-index: 9;
-      .navbar {
-        @include border-top-bottom-light;
-        background-color: $white;
-        padding: 0 1rem;
-        .navbar-start {
-          @include is-really-invisible;
-          .user-menu {
-            position: fixed;
-            top: 1rem;
-            right: calc(0.75rem * 2);
-            height: fit-content;
-            flex-flow: column;
-          }
-          .search-block-form {
-            line-height: 2rem;
-          }
-        }
-        .navbar-burger {
-          @include is-really-invisible;
-        }
-        #main-navbar-menu {
-          /* Keep social icons out of scroll bar. */
-          margin: auto 1rem;
-        }
-      }
-    }
-    .page-title {
-      /* No hamburger, so move to top. */
-      margin-top: 0;
-    }
-  }
-}
-
 /* CONTENT */
 
 /* Article formatting. */
@@ -197,9 +142,6 @@
       border: none;
     }
   }
-  .page-title {
-    margin-top: 2rem;
-  }
   article {
     flex-wrap: wrap;
     margin: 0;
@@ -208,8 +150,13 @@
       flex-wrap: wrap;
       flex-direction: column;
       justify-content: space-between;
+      padding-top: 3.5rem;
       .navbar-burger {
         position: absolute;
+      }
+      .site-logo {
+        display: block;
+        margin-bottom: 1rem;
       }
     }
     .is-three-quarters {
@@ -259,9 +206,73 @@
   }
 }
 
+/* Wider screen overrides for Article nodes. */
+@media screen and (min-width: $desktop) {
+  body:not(.page-node-type-article) {
+    #main-nav {
+      .navbar {
+        /* Center main menu. */
+        /* Can't use is-hidden-desktop because of Article formatting. */
+        .navbar-start {
+          @include is-really-invisible;
+        }
+      }
+    }
+  }
+  body.page-node-type-article {
+    main {
+      position: relative;
+      top: 42px;
+    }
+    #main-nav {
+      position: fixed;
+      width: 100%;
+      z-index: 9;
+      .navbar {
+        @include border-top-bottom-light;
+        background-color: $white;
+        padding: 0 1rem;
+        .navbar-start {
+          @include is-really-invisible;
+          .user-menu {
+            position: fixed;
+            top: 1rem;
+            right: calc(0.75rem * 2);
+            height: fit-content;
+            flex-flow: column;
+          }
+          .search-block-form {
+            line-height: 2rem;
+          }
+        }
+        .navbar-burger {
+          @include is-really-invisible;
+        }
+        #main-navbar-menu {
+          /* Keep social icons out of scroll bar. */
+          margin: auto 1rem;
+        }
+      }
+    }
+    .is-one-quarter {
+      /* No hamburger, so move up. */
+      padding-top: 1.5em;
+    }
+  }
+}
+
 @media screen and (max-width: $tablet - 1px ) {
   .page-node-type-article {
     article {
+      .is-one-quarter {
+        .site-logo {
+          position: absolute;
+          right: calc(#{$column-gap} * 2);
+          top: $column-gap;
+          width: 40vw;
+          margin-bottom: 0;
+        }
+      }
       .is-full {
         .node__content {
           p {

@@ -88,7 +88,12 @@
     <a role="button" id="navbar-burger" class="navbar-burger is-hidden-desktop" aria-label="menu" aria-expanded="false">
       <i class="fas fa-bars"></i>
     </a>
-    <h1 class="page-title has-text-white-ter is-size-3">{{ label }}</h1>
+    <div>
+      <a href="/" title="Home" rel="home" class="site-logo">
+        <img src="/themes/custom/tiemposcni/logo-reverse.png" alt="Home">
+      </a>
+      <h1 class="page-title has-text-white-ter is-size-3">{{ label }}</h1>
+    </div>
     {% if display_submitted %}
       <div{{ author_attributes.addClass('node__submitted has-text-white-ter') }}>
         <div class="submitted has-text-white-ter">{{ node.created.value|format_date('teaser') }}</div>
