@@ -27,6 +27,12 @@
   }
 }
 
+/* Pager */
+.pager {
+  font-family: $sans-serif;
+  font-size: $size-7;
+}
+
 @media screen and (min-width: $desktop) {
   .user-menu {
     justify-content: flex-end;

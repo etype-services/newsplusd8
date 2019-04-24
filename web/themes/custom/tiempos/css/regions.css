@@ -45,10 +45,7 @@
   .region-navigation {
     position: absolute;
     top: 70px;
-    right: 10px; }
-
-  .region-content {
-    padding-top: 0; } }
+    right: 10px; } }
 @media screen and (max-width: 1087px) {
   .region-header-right {
     /* Fine tuning weather widget */

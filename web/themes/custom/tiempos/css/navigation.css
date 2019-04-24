@@ -19,6 +19,11 @@
     /* Override Drupal default css. */
     display: flex !important; }
 
+/* Pager */
+.pager {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem; }
+
 @media screen and (min-width: 1088px) {
   .user-menu {
     justify-content: flex-end; } }
