@@ -31,13 +31,15 @@
   margin-top: 0.4rem;
   margin-bottom: 0; }
 
-@media screen and (max-width: 768px) {
-  .page-node-type-article .field--name-field-image page-node-type-article article .field--name-field-image {
+/* Control image width */
+@media screen and (max-width: 420px) {
+  .page-node-type-article .field--name-field-image {
     float: none;
     margin-right: 0;
     margin-top: 0;
-    margin-bottom: 0.75rem; } }
-@media screen and (min-width: 769px) {
+    margin-bottom: 0.75rem;
+    width: 100%; } }
+@media screen and (min-width: 419px) {
   .page-node-type-article .field--name-field-image {
     max-width: 70%; } }
 /* Feature formatting. */

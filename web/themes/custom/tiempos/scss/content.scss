@@ -45,9 +45,10 @@
   }
 }
 
-@media screen and (max-width: $tablet - 1px) {
+/* Control image width */
+@media screen and (max-width: $mobile) {
   .page-node-type-article {
-    .field--name-field-image {page-node-type-article article .field--name-field-image {
+    .field--name-field-image {
       float: none;
       margin-right: 0;
       margin-top: 0;
@@ -57,7 +58,7 @@
   }
 }
 
-@media screen and (min-width: $tablet ) {
+@media screen and (min-width: $mobile - 1px ) {
   .page-node-type-article {
     .field--name-field-image {
       max-width: 70%;
