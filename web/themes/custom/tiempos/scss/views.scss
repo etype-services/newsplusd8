@@ -88,12 +88,12 @@
     flex-wrap: wrap;
   }
   .views-row {
-    flex-basis: calc(50% - calc(#{$column-gap} * 2));
+    flex-basis: calc(50% - #{$column-gap});
     &:nth-child(odd) {
-      margin: 0 $column-gap $column-gap 0
+      margin: 0 $column-gap $column-gap 0;
     }
     &:nth-child(even) {
-      margin: 0 0 $column-gap $column-gap
+      margin: 0 0 $column-gap $column-gap;
     }
   }
 }
