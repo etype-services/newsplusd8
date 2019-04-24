@@ -17,12 +17,10 @@
     'region',
     'region-' ~ region|clean_class,
     'column',
-    'layout-sidebar',
-    'column',
   ]
 %}
 {% if content %}
-  <aside{{ attributes.addClass(classes) }}  role="complementary">
+  <div{{ attributes.addClass(classes) }}>
     {{ content }}
-  </aside>
+  </div>
 {% endif %}

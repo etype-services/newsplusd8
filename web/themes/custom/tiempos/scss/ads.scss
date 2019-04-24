@@ -39,8 +39,8 @@
 
 .region-sidebar {
   .sample-ad-block {
-    width: 160px;
-    height: 600px;
-    margin: auto;
+    width: 300px;
+    height: 250px;
+    margin: auto auto calc(#{$column-gap} * 2) 0;
   }
 }

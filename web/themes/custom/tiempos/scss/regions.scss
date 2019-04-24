@@ -28,6 +28,7 @@
 
 .region-sidebar {
   flex-wrap: wrap;
+  flex: 0 0 300px;
   @include border-left-light;
   padding-top: 0;
 }

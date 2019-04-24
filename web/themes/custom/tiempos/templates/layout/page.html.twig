@@ -57,14 +57,12 @@
     <main role="main" class="columns">
       <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
-      <div class="layout-content column">
+      {% if page.content %}
         {{ page.content }}
-      </div>{# /.layout-content #}
+      {% endif %}
 
       {% if page.sidebar %}
-        <aside class="layout-sidebar column is-one-quarter" role="complementary">
-          {{ page.sidebar }}
-        </aside>
+        {{ page.sidebar }}
       {% endif %}
 
     </main>
