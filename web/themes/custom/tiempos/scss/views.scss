@@ -88,7 +88,7 @@
     flex-wrap: wrap;
   }
   .views-row {
-    flex-basis: 45%;
+    flex-basis: calc(50% - calc(#{$column-gap} * 2));
     &:nth-child(odd) {
       margin: 0 $column-gap $column-gap 0
     }

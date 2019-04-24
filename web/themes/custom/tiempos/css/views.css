@@ -76,7 +76,7 @@
   display: flex;
   flex-wrap: wrap; }
 .view-taxonomy-term .views-row {
-  flex-basis: 45%; }
+  flex-basis: calc(50% - calc(0.75rem * 2)); }
   .view-taxonomy-term .views-row:nth-child(odd) {
     margin: 0 0.75rem 0.75rem 0; }
   .view-taxonomy-term .views-row:nth-child(even) {
