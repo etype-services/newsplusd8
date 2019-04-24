@@ -189,8 +189,14 @@
 
 @media screen and (max-width: $tablet - 1px ) {
   .page-node-type-featured {
+    .addtoany_list {
+      width: 32px;
+    }
     article {
       .is-one-quarter {
+        .page-title {
+          max-width: 90vw;
+        }
         .site-logo {
           position: absolute;
           right: calc(#{$column-gap} * 2);
@@ -201,6 +207,7 @@
       }
       .is-full {
         .node__content {
+          margin-top: 2rem;
           p {
             margin: 0 4rem $column-gap 4rem;
           }
