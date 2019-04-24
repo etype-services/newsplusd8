@@ -19,7 +19,7 @@
 /* Breadcrumbs */
 .breadcrumb li {
   /* Override Drupal default css. */
-  display: flex;
+  display: flex!important;
 }
 
 @media screen and (min-width: $desktop) {
