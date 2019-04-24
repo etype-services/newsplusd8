@@ -61,6 +61,23 @@
   }
 }
 
+/* Taxonomy Pages */
+.view-taxonomy-term {
+  .view-content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .views-row {
+    flex-basis: calc(50% - #{$column-gap});
+    &:nth-child(odd) {
+      margin: 0 $column-gap $column-gap 0;
+    }
+    &:nth-child(even) {
+      margin: 0 0 $column-gap $column-gap;
+    }
+  }
+}
+
 @media screen and (max-width: $tablet - 1px ) {
   /* Hide attachment-before on mobile. */
   .view-id-frontpage,
@@ -95,21 +112,14 @@
       }
     }
   }
-}
 
-/* Taxonomy Pages */
-.view-taxonomy-term {
-  .view-content {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .views-row {
-    flex-basis: calc(50% - #{$column-gap});
-    &:nth-child(odd) {
-      margin: 0 $column-gap $column-gap 0;
+  /* Taxonomy Pages */
+  .view-taxonomy-term {
+    .view-content {
+      display: block;
     }
-    &:nth-child(even) {
-      margin: 0 0 $column-gap $column-gap;
+    .views-row {
+      margin: 0 $column-gap;
     }
   }
 }
