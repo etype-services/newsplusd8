@@ -45,6 +45,14 @@
   }
 }
 
+@media screen and (min-width: $tablet ) {
+  .page-node-type-article {
+    .field--name-field-image {
+      max-width: 70%;
+    }
+  }
+}
+
 /* Feature formatting. */
 .page-node-type-featured {
   .region-content {
@@ -137,7 +145,6 @@
   body:not(.page-node-type-featured) {
     #main-nav {
       .navbar {
-        /* Center main menu. */
         /* Can't use is-hidden-desktop because of Article formatting. */
         .navbar-start {
           @include is-really-invisible;
