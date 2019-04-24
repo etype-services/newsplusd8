@@ -17,10 +17,12 @@
 }
 
 /* Breadcrumbs */
-.breadcrumb li {
-  /* Override Drupal default css. */
-  display: flex!important;
-  margin-bottom: calc(#{$column-gap} * 2);
+.breadcrumb {
+  margin-bottom: calc(#{$column-gap} * 2)!important;
+  li {
+    /* Override Drupal default css. */
+    display: flex !important;
+  }
 }
 
 @media screen and (min-width: $desktop) {

@@ -11,10 +11,11 @@
   margin-right: 0; }
 
 /* Breadcrumbs */
-.breadcrumb li {
-  /* Override Drupal default css. */
-  display: flex !important;
-  margin-bottom: calc(0.75rem * 2); }
+.breadcrumb {
+  margin-bottom: calc(0.75rem * 2) !important; }
+  .breadcrumb li {
+    /* Override Drupal default css. */
+    display: flex !important; }
 
 @media screen and (min-width: 1088px) {
   .user-menu {
