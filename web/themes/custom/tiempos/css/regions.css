@@ -25,7 +25,8 @@
   /* Fixed size, does not grow or shrink. */
   border-left: 1px solid #b5b5b5;
   padding-left: calc(0.75rem * 2);
-  margin-left: 0.75rem; }
+  margin-left: 0.75rem;
+  margin-bottom: 0.75rem; }
 
 @media screen and (max-width: 768px) {
   .region-header-left {

@@ -32,6 +32,7 @@
   @include border-left-light;
   padding-left: calc(#{$column-gap} * 2);
   margin-left: $column-gap;
+  margin-bottom: $column-gap;
 }
 
 @media screen and (max-width: $tablet - 1px) {
