@@ -35,6 +35,7 @@
     "composer/installers": "^1.2",
     "cweagans/composer-patches": "^1.6",
     "drupal-composer/drupal-scaffold": "^2.2",
+    "drupal/addtoany": "^1.12",
     "drupal/admin_toolbar": "^1.26",
     "drupal/clamav": "^1.0",
     "drupal/console": "^1.0.2",
