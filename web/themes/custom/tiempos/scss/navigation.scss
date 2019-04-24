@@ -124,11 +124,8 @@
       /* Social Icons */
       .navbar-end {
         position: absolute;
-        top: -1rem;
-        width: 100%;
-        display: flex;
-        justify-content: flex-end;
-        margin-right: 0;
+        top: -2.6rem;
+        right: 0;
         z-index: -1; // Prevent display in "pop-up" menu
         a {
           margin-left: 0.5rem;

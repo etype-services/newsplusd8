@@ -90,11 +90,8 @@
     /* Social Icons */ }
     #main-nav .navbar .navbar-end {
       position: absolute;
-      top: -1rem;
-      width: 100%;
-      display: flex;
-      justify-content: flex-end;
-      margin-right: 0;
+      top: -2.6rem;
+      right: 0;
       z-index: -1; }
       #main-nav .navbar .navbar-end a {
         margin-left: 0.5rem; }
