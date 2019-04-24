@@ -13,7 +13,8 @@
 /* Breadcrumbs */
 .breadcrumb li {
   /* Override Drupal default css. */
-  display: flex !important; }
+  display: flex !important;
+  margin-bottom: calc(0.75rem * 2); }
 
 @media screen and (min-width: 1088px) {
   .user-menu {

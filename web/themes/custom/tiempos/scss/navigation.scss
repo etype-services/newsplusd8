@@ -20,6 +20,7 @@
 .breadcrumb li {
   /* Override Drupal default css. */
   display: flex!important;
+  margin-bottom: calc(#{$column-gap} * 2);
 }
 
 @media screen and (min-width: $desktop) {
