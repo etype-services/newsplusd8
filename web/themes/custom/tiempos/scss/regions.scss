@@ -28,9 +28,10 @@
 
 .region-sidebar {
   flex-wrap: wrap;
-  flex: 0 0 300px;
+  flex: 0 0 332px;
   @include border-left-light;
-  padding-top: 0;
+  padding-left: calc(#{column-gap} * 2);
+  margin-left: $column-gap;
 }
 
 @media screen and (max-width: $tablet - 1px) {

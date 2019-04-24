@@ -21,9 +21,10 @@
 
 .region-sidebar {
   flex-wrap: wrap;
-  flex: 0 0 300px;
+  flex: 0 0 332px;
   border-left: 1px solid #b5b5b5;
-  padding-top: 0; }
+  padding-left: calc(column-gap * 2);
+  margin-left: 0.75rem; }
 
 @media screen and (max-width: 768px) {
   .region-header-left {
