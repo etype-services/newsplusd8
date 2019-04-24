@@ -119,7 +119,12 @@
       display: block;
     }
     .views-row {
-      margin: 0 $column-gap;
+      &:nth-child(odd) {
+        margin: 0 $column-gap;
+      }
+      &:nth-child(even) {
+        margin: 0 $column-gap;
+      }
     }
   }
 }

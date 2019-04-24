@@ -93,7 +93,9 @@
   /* Taxonomy Pages */
   .view-taxonomy-term .view-content {
     display: block; }
-  .view-taxonomy-term .views-row {
+  .view-taxonomy-term .views-row:nth-child(odd) {
+    margin: 0 0.75rem; }
+  .view-taxonomy-term .views-row:nth-child(even) {
     margin: 0 0.75rem; } }
 
 /*# sourceMappingURL=views.css.map */
