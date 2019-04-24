@@ -79,6 +79,15 @@
       img {
         width: 100%;
       }
+      .addtoany_list {
+        position: absolute;
+        top: 0.5rem;
+        left: 1.5rem;
+        width: 32px;
+        svg {
+          background-color: $grey!important;
+        }
+      }
     }
     .is-full {
       .main-caption {
@@ -88,15 +97,6 @@
       }
       .node__content {
         padding: 5rem 0 3rem;
-        .addtoany_list {
-          position: absolute;
-          top: 5rem;
-          left: 0.4rem;
-          width: 32px;
-          svg {
-            background-color: $grey!important;
-          }
-        }
         p {
           margin: 0 4rem $column-gap 13rem;
           font-size: 1.2rem;
