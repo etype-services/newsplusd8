@@ -41,6 +41,6 @@
   .sample-ad-block {
     width: 300px;
     height: 250px;
-    margin: auto auto calc(#{$column-gap} * 2) 0;
+    margin: auto auto calc(#{$column-gap} * 2) auto;
   }
 }

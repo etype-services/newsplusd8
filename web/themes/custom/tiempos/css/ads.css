@@ -26,6 +26,6 @@
 .region-sidebar .sample-ad-block {
   width: 300px;
   height: 250px;
-  margin: auto auto calc(0.75rem * 2) 0; }
+  margin: auto auto calc(0.75rem * 2) auto; }
 
 /*# sourceMappingURL=ads.css.map */
