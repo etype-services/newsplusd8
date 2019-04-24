@@ -4,7 +4,6 @@
  * Styles build on bulma nav component.
  */
 
-
 #main-navbar-menu {
   justify-content: center;
 }
@@ -15,6 +14,12 @@
     margin-left: 0.5rem;
     margin-right: 0;
   }
+}
+
+/* Breadcrumbs */
+.breadcrumb li {
+  /* Override Drupal default css. */
+  display: flex;
 }
 
 @media screen and (min-width: $desktop) {
