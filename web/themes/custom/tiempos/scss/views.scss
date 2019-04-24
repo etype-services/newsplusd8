@@ -79,6 +79,9 @@
     }
   }
   #block-views-block-mobile-front-page-block-1 {
+    .view {
+      padding: 0 0.75rem;
+    }
     .node--view-mode-teaser {
       min-height: 30vw;
       &:not(last-child) {
@@ -94,6 +97,7 @@
         margin-bottom: 0;
         display: inline;
         p {
+          /* Fine-tuning. */
           line-height: 1.4;
         }
       }
