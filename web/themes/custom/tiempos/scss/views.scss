@@ -92,7 +92,10 @@
       }
       .field--name-body {
         margin-bottom: 0;
-        display: table-cell;
+        display: inline;
+        p {
+          line-height: 1.4;
+        }
       }
     }
   }

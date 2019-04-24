@@ -84,7 +84,9 @@
       margin-top: 0.3rem; }
     #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser .field--name-body {
       margin-bottom: 0;
-      display: table-cell; } }
+      display: inline; }
+      #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser .field--name-body p {
+        line-height: 1.4; } }
 /* Taxonomy Pages */
 .view-taxonomy-term .view-content {
   display: flex;
