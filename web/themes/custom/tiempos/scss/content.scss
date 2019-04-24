@@ -86,7 +86,7 @@
     }
   }
   /* Block config "negate Content Types" does not work. */
-  #block-pagetitle, #block-pagetitle2 {
+  #block-pagetitle, #block-pagetitle-2 {
     @include is-really-invisible;
   }
   #block-tabs, #block-tabs-2 {
