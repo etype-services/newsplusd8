@@ -16,13 +16,6 @@ header {
 @media screen and (max-width: 768px) {
   .region-header > div {
     padding-top: 0;
-    padding-bottom: 0; }
-
-  .region-sidebar {
-    border-left: none !important; }
-
-  .region-footer-right {
-    display: none;
-    visibility: hidden; } }
+    padding-bottom: 0; } }
 
 /*# sourceMappingURL=base.css.map */

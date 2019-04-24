@@ -55,6 +55,16 @@
     top: 70px;
     right: 10px;
   }
+  .region-sidebar {
+    padding-left: 0;
+    margin-left: 0;
+    margin-bottom: 0;
+    border-left: none!important;
+  }
+  .region-footer-right {
+    display: none;
+    visibility: hidden;
+  }
 }
 
 @media screen and (max-width: $desktop - 1px) {
