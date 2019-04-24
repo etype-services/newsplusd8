@@ -25,7 +25,6 @@
 /* CONTENT */
 
 /* Article formatting. */
-
 .page-node-type-article {
   #block-pagetitle-2 {
     margin-bottom: 0;
@@ -43,6 +42,7 @@
   }
 }
 
+/* Feature formatting. */
 .page-node-type-featured {
   .region-content {
     padding: 0;
@@ -83,7 +83,13 @@
         color: $black;
       }
       .node__content {
+        position: relative;
         padding: 5rem 0 3rem;
+        .addtoany_list {
+          position: absolute;
+          top: -1.5rem;
+          right: 0.5rem;
+        }
         p {
           margin: 0 4rem $column-gap 13rem;
           font-size: 1.2rem;
