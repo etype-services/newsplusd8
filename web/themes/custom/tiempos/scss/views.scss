@@ -87,6 +87,7 @@
   #block-views-block-front-page-sections-block-1-3 {
     @include is-really-invisible;
   }
+  /* Teaser formatting. */
   #block-views-block-mobile-front-page-block-1, .view-taxonomy-term  {
     .view {
       padding: 0 0.75rem;

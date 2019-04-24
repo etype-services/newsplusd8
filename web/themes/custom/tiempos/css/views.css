@@ -72,6 +72,7 @@
     visibility: hidden !important;
     display: none !important; }
 
+  /* Teaser formatting. */
   #block-views-block-mobile-front-page-block-1 .view, .view-taxonomy-term .view {
     padding: 0 0.75rem; }
   #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser, .view-taxonomy-term .node--view-mode-teaser {
