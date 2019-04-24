@@ -63,10 +63,7 @@
 
 @media screen and (max-width: $tablet - 1px ) {
   /* Hide attachment-before on mobile. */
-  .view-id-frontpage.columns > .attachment-before {
-    @include is-really-invisible;
-  }
-  /* Emulate columns for front page sections. */
+  .view-id-frontpage {
   #block-views-block-front-page-sections-block-1,
   #block-views-block-front-page-sections-block-2,
   #block-views-block-front-page-sections-block-1-2,
