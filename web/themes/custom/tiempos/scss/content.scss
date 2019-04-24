@@ -1,1 +1,177 @@
 @import "./vars";
+
+/* Nav overrides for Featured nodes. */
+.page-node-type-featured {
+  #navbar-burger {
+    display: block;
+    color: #ffffff;
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    margin: auto;
+    height: 3.25rem;
+    width: 3.25rem;
+  }
+  #main-nav {
+    padding: 0;
+    .navbar {
+      /* Make sure navbar completely hidden, overriding bulma min-height. */
+      min-height: 0;
+      border: 0;
+    }
+  }
+}
+
+/* CONTENT */
+
+/* Article formatting. */
+.page-node-type-featured {
+  #block-tabs, #block-tabs-2 {
+    background-color: $black;
+    margin-bottom: 0;
+    .tabs {
+      margin: 0;
+      border: none;
+    }
+  }
+  article {
+    flex-wrap: wrap;
+    margin: 0;
+    .is-one-quarter {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-top: 3.5rem;
+      .navbar-burger {
+        position: absolute;
+      }
+      .site-logo {
+        display: block;
+        margin-bottom: 1rem;
+      }
+    }
+    .is-three-quarters {
+      img {
+        width: 100%;
+      }
+    }
+    .is-full {
+      .main-caption {
+        margin: 0.5rem auto auto;
+        color: $black;
+      }
+      .node__content {
+        padding: 5rem 0 3rem;
+        p {
+          margin: 0 4rem $column-gap 13rem;
+          font-size: 1.2rem;
+          line-height: 2rem;
+        }
+        figure {
+          width: 100%;
+          width: -moz-available;          /* WebKit-based browsers will ignore this. */
+          width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+          width: stretch;
+          img {
+            width: 100%;
+            width: -moz-available;          /* WebKit-based browsers will ignore this. */
+            width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+            width: stretch;
+            height: auto;
+          }
+          figcaption {
+            font-family: $sans-serif;
+            font-size: $size-7;
+            margin: 0.5rem auto 3rem 3rem;
+            color: $black;
+            text-align: center;
+          }
+        }
+      }
+    }
+    .node__submitted {
+      a {
+        color: $white-ter;
+      }
+    }
+  }
+}
+
+/* Wider screen overrides for Article nodes. */
+@media screen and (min-width: $desktop) {
+  body:not(.page-node-type-featured) {
+    #main-nav {
+      .navbar {
+        /* Center main menu. */
+        /* Can't use is-hidden-desktop because of Article formatting. */
+        .navbar-start {
+          @include is-really-invisible;
+        }
+      }
+    }
+  }
+  body.page-node-type-featured {
+    main {
+      position: relative;
+      top: 42px;
+    }
+    #main-nav {
+      position: fixed;
+      width: 100%;
+      z-index: 9;
+      .navbar {
+        @include border-top-bottom-light;
+        background-color: $white;
+        padding: 0 1rem;
+        .navbar-start {
+          @include is-really-invisible;
+          .user-menu {
+            position: fixed;
+            top: 1rem;
+            right: calc(0.75rem * 2);
+            height: fit-content;
+            flex-flow: column;
+          }
+          .search-block-form {
+            line-height: 2rem;
+          }
+        }
+        .navbar-burger {
+          @include is-really-invisible;
+        }
+        #main-navbar-menu {
+          /* Keep social icons out of scroll bar. */
+          margin: auto 1rem;
+        }
+      }
+    }
+    .is-one-quarter {
+      /* No hamburger, so move up. */
+      padding-top: 1.5em;
+    }
+  }
+}
+
+@media screen and (max-width: $tablet - 1px ) {
+  .page-node-type-featured {
+    article {
+      .is-one-quarter {
+        .site-logo {
+          position: absolute;
+          right: calc(#{$column-gap} * 2);
+          top: $column-gap;
+          width: 40vw;
+          margin-bottom: 0;
+        }
+      }
+      .is-full {
+        .node__content {
+          p {
+            margin: 0 4rem $column-gap 4rem;
+          }
+        }
+      }
+    }
+  }
+}

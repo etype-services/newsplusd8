@@ -1,3 +1,127 @@
+/* Center column for tiemposcni theme */
+/* Nav overrides for Featured nodes. */
+.page-node-type-featured #navbar-burger {
+  display: block;
+  color: #ffffff;
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  margin: auto;
+  height: 3.25rem;
+  width: 3.25rem; }
+.page-node-type-featured #main-nav {
+  padding: 0; }
+  .page-node-type-featured #main-nav .navbar {
+    /* Make sure navbar completely hidden, overriding bulma min-height. */
+    min-height: 0;
+    border: 0; }
 
+/* CONTENT */
+/* Article formatting. */
+.page-node-type-featured #block-tabs, .page-node-type-featured #block-tabs-2 {
+  background-color: #0a0a0a;
+  margin-bottom: 0; }
+  .page-node-type-featured #block-tabs .tabs, .page-node-type-featured #block-tabs-2 .tabs {
+    margin: 0;
+    border: none; }
+.page-node-type-featured article {
+  flex-wrap: wrap;
+  margin: 0; }
+  .page-node-type-featured article .is-one-quarter {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 3.5rem; }
+    .page-node-type-featured article .is-one-quarter .navbar-burger {
+      position: absolute; }
+    .page-node-type-featured article .is-one-quarter .site-logo {
+      display: block;
+      margin-bottom: 1rem; }
+  .page-node-type-featured article .is-three-quarters img {
+    width: 100%; }
+  .page-node-type-featured article .is-full .main-caption {
+    margin: 0.5rem auto auto;
+    color: #0a0a0a; }
+  .page-node-type-featured article .is-full .node__content {
+    padding: 5rem 0 3rem; }
+    .page-node-type-featured article .is-full .node__content p {
+      margin: 0 4rem 0.75rem 13rem;
+      font-size: 1.2rem;
+      line-height: 2rem; }
+    .page-node-type-featured article .is-full .node__content figure {
+      width: 100%;
+      width: -moz-available;
+      /* WebKit-based browsers will ignore this. */
+      width: -webkit-fill-available;
+      /* Mozilla-based browsers will ignore this. */
+      width: stretch; }
+      .page-node-type-featured article .is-full .node__content figure img {
+        width: 100%;
+        width: -moz-available;
+        /* WebKit-based browsers will ignore this. */
+        width: -webkit-fill-available;
+        /* Mozilla-based browsers will ignore this. */
+        width: stretch;
+        height: auto; }
+      .page-node-type-featured article .is-full .node__content figure figcaption {
+        font-family: "Open Sans", sans-serif;
+        font-size: 0.75rem;
+        margin: 0.5rem auto 3rem 3rem;
+        color: #0a0a0a;
+        text-align: center; }
+  .page-node-type-featured article .node__submitted a {
+    color: whitesmoke; }
+
+/* Wider screen overrides for Article nodes. */
+@media screen and (min-width: 1088px) {
+  body:not(.page-node-type-featured) #main-nav .navbar {
+    /* Center main menu. */
+    /* Can't use is-hidden-desktop because of Article formatting. */ }
+    body:not(.page-node-type-featured) #main-nav .navbar .navbar-start {
+      visibility: hidden !important;
+      display: none !important; }
+
+  body.page-node-type-featured main {
+    position: relative;
+    top: 42px; }
+  body.page-node-type-featured #main-nav {
+    position: fixed;
+    width: 100%;
+    z-index: 9; }
+    body.page-node-type-featured #main-nav .navbar {
+      border-top: 1px solid #b5b5b5;
+      border-bottom: 1px solid #b5b5b5;
+      background-color: white;
+      padding: 0 1rem; }
+      body.page-node-type-featured #main-nav .navbar .navbar-start {
+        visibility: hidden !important;
+        display: none !important; }
+        body.page-node-type-featured #main-nav .navbar .navbar-start .user-menu {
+          position: fixed;
+          top: 1rem;
+          right: calc(0.75rem * 2);
+          height: fit-content;
+          flex-flow: column; }
+        body.page-node-type-featured #main-nav .navbar .navbar-start .search-block-form {
+          line-height: 2rem; }
+      body.page-node-type-featured #main-nav .navbar .navbar-burger {
+        visibility: hidden !important;
+        display: none !important; }
+      body.page-node-type-featured #main-nav .navbar #main-navbar-menu {
+        /* Keep social icons out of scroll bar. */
+        margin: auto 1rem; }
+  body.page-node-type-featured .is-one-quarter {
+    /* No hamburger, so move up. */
+    padding-top: 1.5em; } }
+@media screen and (max-width: 768px) {
+  .page-node-type-featured article .is-one-quarter .site-logo {
+    position: absolute;
+    right: calc(0.75rem * 2);
+    top: 0.75rem;
+    width: 40vw;
+    margin-bottom: 0; }
+  .page-node-type-featured article .is-full .node__content p {
+    margin: 0 4rem 0.75rem 4rem; } }
 
 /*# sourceMappingURL=content.css.map */

@@ -2,6 +2,9 @@
 /**
  * Styles build on bulma nav component.
  */
+#main-navbar-menu {
+  justify-content: center; }
+
 /* User Menu */
 .user-menu .button, .user-menu .button:first-child {
   margin-left: 0.5rem;
