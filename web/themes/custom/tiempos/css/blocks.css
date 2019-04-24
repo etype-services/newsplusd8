@@ -48,6 +48,10 @@
   .weatherwidget {
     width: 220px;
     margin-right: 0;
-    float: none; } }
+    float: none; }
+
+  #block-etypeeedition, #block-etypeeedition-2 {
+    visibility: hidden !important;
+    display: none !important; } }
 
 /*# sourceMappingURL=blocks.css.map */

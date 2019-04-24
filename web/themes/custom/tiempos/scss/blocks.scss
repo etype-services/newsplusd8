@@ -72,4 +72,7 @@
     margin-right: 0;
     float: none;
   }
+  #block-etypeeedition, #block-etypeeedition-2 {
+    @include is-really-invisible;
+  }
 }
