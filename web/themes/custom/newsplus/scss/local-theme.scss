@@ -23,22 +23,8 @@
 }
 
 /* Business Directory & Special Sections Blocks */
-#business-directory, #special-sections {
-  .views-field-title {
-    margin-top: 7px;
-  }
-}
-
-/* Images in body field in articles */
-#block-newsplus-content {
-  .node--view-mode-full {
-    .field--name-body {
-      figure.align-left {
-        margin-right: 1em;
-      }
-      figure.align-right {
-        margin-left: 1em;
-      }
-    }
+#block-views-block-special-sections-block-1 {
+  .view-images {
+    margin: 0;
   }
 }
