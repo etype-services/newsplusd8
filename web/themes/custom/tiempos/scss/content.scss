@@ -143,6 +143,7 @@
           width: -moz-available;          /* WebKit-based browsers will ignore this. */
           width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
           width: stretch;
+          margin: 3rem auto 3rem auto;
           img {
             width: 100%;
             width: -moz-available;          /* WebKit-based browsers will ignore this. */
@@ -153,7 +154,7 @@
           figcaption {
             font-family: $sans-serif;
             font-size: $size-7;
-            margin: 0.5rem auto 3rem 3rem;
+            margin: 0.5rem auto 0.5rem 3rem;
             color: $black;
             text-align: center;
           }

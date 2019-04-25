@@ -95,7 +95,8 @@
       /* WebKit-based browsers will ignore this. */
       width: -webkit-fill-available;
       /* Mozilla-based browsers will ignore this. */
-      width: stretch; }
+      width: stretch;
+      margin: 3rem auto 3rem auto; }
       .page-node-type-feature article .is-full .node__content figure img {
         width: 100%;
         width: -moz-available;
@@ -107,7 +108,7 @@
       .page-node-type-feature article .is-full .node__content figure figcaption {
         font-family: "Open Sans", sans-serif;
         font-size: 0.75rem;
-        margin: 0.5rem auto 3rem 3rem;
+        margin: 0.5rem auto 0.5rem 3rem;
         color: #0a0a0a;
         text-align: center; }
   .page-node-type-feature article .node__submitted a {
