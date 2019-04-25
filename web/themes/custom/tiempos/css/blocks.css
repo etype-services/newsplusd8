@@ -31,10 +31,15 @@
       margin-top: 1.1rem;
       margin-right: 0;
       padding-right: 0; } }
+/* e-Edition */
 #block-etypeeedition {
   flex-basis: 100%; }
   #block-etypeeedition p {
     font-size: 0.8rem; }
+
+/* Custom Blocks */
+#block-friends2followsidebar iframe {
+  height: 600px; }
 
 /* Weather Widget */
 .weatherwidget {

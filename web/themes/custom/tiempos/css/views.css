@@ -6,6 +6,22 @@
   flex-grow: 1;
   flex-shrink: 1;
   padding: 0 0.75rem 0.75rem 0.75rem; }
+  .view-id-frontpage.columns > .attachment .node--view-mode-teaser {
+    margin-bottom: 0; }
+    .view-id-frontpage.columns > .attachment .node--view-mode-teaser h2 {
+      font-size: 1rem; }
+    .view-id-frontpage.columns > .attachment .node--view-mode-teaser img {
+      float: left;
+      width: 40%;
+      margin-right: 0.5rem;
+      margin-top: 0.3rem; }
+    .view-id-frontpage.columns > .attachment .node--view-mode-teaser .field--name-body {
+      margin-bottom: 0;
+      display: inline; }
+      .view-id-frontpage.columns > .attachment .node--view-mode-teaser .field--name-body p {
+        /* Fine-tuning. */
+        font-size: 0.9rem;
+        line-height: 1.4; }
 
 .view-id-frontpage.columns > .view-content {
   display: block;
@@ -13,6 +29,8 @@
   flex-grow: 2;
   flex-shrink: 1;
   padding: 0 0 0.75rem 0.75rem; }
+  .view-id-frontpage.columns > .view-content img {
+    width: 100%; }
 
 .view {
   /* Make image fill defined space, might cause upscaling */
@@ -27,8 +45,6 @@
       margin-bottom: 0; }
 
 /* Make sure image is as wide as page for tablet. */
-.region-content #block-tiempos-content .view-content img, .region-content #block-tiemposcni-content .view-content img {
-  width: 100%; }
 .region-content .views-element-container {
   /* Adjust section header */ }
   .region-content .views-element-container h3.section-tag-heading {

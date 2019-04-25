@@ -50,10 +50,18 @@
   }
 }
 
+/* e-Edition */
 #block-etypeeedition {
   flex-basis: 100%;
   p {
     font-size: 0.8rem;
+  }
+}
+
+/* Custom Blocks */
+#block-friends2followsidebar {
+  iframe {
+    height: 600px;
   }
 }
 
