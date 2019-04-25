@@ -1,69 +1,125 @@
-/*
-Error: Undefined mixin 'column-no-padding-top-left-bottom'.
-        on line 6 of views.scss, in `column-no-padding-top-left-bottom'
-        from line 6 of views.scss
+/* Center column for tiempos theme */
+/* Front Page Attachment View (left-hand column). */
+.view-id-frontpage.columns > .attachment {
+  /* Emulate column css. */
+  display: block;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 0 0.75rem 0 0;
+  /* Teaser formatting */ }
+  .view-id-frontpage.columns > .attachment .node--view-mode-teaser {
+    margin-bottom: 0; }
+    .view-id-frontpage.columns > .attachment .node--view-mode-teaser h2 {
+      font-size: 1.1rem;
+      line-height: 1.4; }
+    .view-id-frontpage.columns > .attachment .node--view-mode-teaser img {
+      float: left;
+      width: 40%;
+      margin-right: 0.5rem;
+      margin-top: 0.3rem; }
+    .view-id-frontpage.columns > .attachment .node--view-mode-teaser .field--name-body {
+      margin-bottom: 0;
+      /* Fine-tuning. TODO: Why does Feature not have p tag? */
+      line-height: 1.3; }
+      .view-id-frontpage.columns > .attachment .node--view-mode-teaser .field--name-body p {
+        /* Fine-tuning. */
+        line-height: 1.3; }
 
-1: @import "./vars";
-2: 
-3: /* Front Page Attachment View (left-hand column). *\/
-4: .view-id-frontpage.columns > .attachment {
-5:   /* Emulate column css. *\/
-6:   @include column-no-padding-top-left-bottom;
-7:   /* Teaser formatting *\/
-8:   .node--view-mode-teaser {
-9:     margin-bottom: 0;
-10:     h2 {
-11:       font-size: 1.1rem;
+/* Front Page Featured View (center column). */
+.view-id-frontpage.columns > .view-content {
+  display: block;
+  flex-basis: 0;
+  flex-grow: 2;
+  flex-shrink: 1;
+  padding: 0 0 0 0.75rem; }
+  .view-id-frontpage.columns > .view-content img {
+    width: 100%; }
 
-Backtrace:
-views.scss:6:in `column-no-padding-top-left-bottom'
-views.scss:6
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:352:in `block in visit_mixin'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:98:in `block in with_mixin'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:135:in `with_frame'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:98:in `with_mixin'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:350:in `visit_mixin'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `block in with_base'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:135:in `with_frame'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `with_base'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:444:in `block (2 levels) in visit_rule'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:444:in `map'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:444:in `block in visit_rule'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:442:in `visit_rule'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `block in with_base'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:135:in `with_frame'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `with_base'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:52:in `map'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:171:in `block in visit_children'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:170:in `visit_children'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:190:in `visit_root'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:161:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:10:in `visit'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/root_node.rb:36:in `css_tree'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/engine.rb:389:in `_render_with_sourcemap'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/engine.rb:307:in `render_with_sourcemap'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/exec/sass_scss.rb:391:in `run'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/exec/sass_scss.rb:63:in `process_result'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/exec/base.rb:52:in `parse'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/lib/sass/exec/base.rb:19:in `parse!'
-/Users/charlie/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.5.6/bin/scss:13:in `<top (required)>'
-/Users/charlie/.rbenv/versions/2.2.3/bin/scss:23:in `load'
-/Users/charlie/.rbenv/versions/2.2.3/bin/scss:23:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Undefined mixin 'column-no-padding-top-left-bottom'.\A         on line 6 of views.scss, in `column-no-padding-top-left-bottom'\A         from line 6 of views.scss\A \A 1: @import \"./vars\";\A 2: \A 3: /* Front Page Attachment View (left-hand column). */\A 4: .view-id-frontpage.columns > .attachment {\A 5:   /* Emulate column css. */\A 6:   @include column-no-padding-top-left-bottom;\A 7:   /* Teaser formatting */\A 8:   .node--view-mode-teaser {\A 9:     margin-bottom: 0;\A 10:     h2 {\A 11:       font-size: 1.1rem;"; }
+.view {
+  /* Make image fill defined space, might cause upscaling */
+  /* For unformatted Views without default classes */ }
+  .view h2 {
+    font-size: 1.2rem; }
+  .view .field--type-image img {
+    width: 100%; }
+  .view .view-content > div {
+    margin-bottom: 1rem; }
+    .view .view-content > div:last-child {
+      margin-bottom: 0; }
+
+/* Make sure image is as wide as page for tablet. */
+.region-content .views-element-container {
+  /* Adjust section header */ }
+  .region-content .views-element-container h3.section-tag-heading {
+    margin-left: 0.75rem; }
+
+/* Front Page Sections */
+#block-views-block-front-page-sections-block-1 .view-content,
+#block-views-block-front-page-sections-block-2 .view-content,
+#block-views-block-front-page-sections-block-1-2 .view-content,
+#block-views-block-front-page-sections-block-1-3 .view-content,
+#block-views-block-front-page-sections-block-2-2 .view-content {
+  display: flex;
+  margin-right: -0.75rem; }
+#block-views-block-front-page-sections-block-1 .view-content > div,
+#block-views-block-front-page-sections-block-2 .view-content > div,
+#block-views-block-front-page-sections-block-1-2 .view-content > div,
+#block-views-block-front-page-sections-block-1-3 .view-content > div,
+#block-views-block-front-page-sections-block-2-2 .view-content > div {
+  display: block;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 0.75rem; }
+
+/* Taxonomy Pages */
+.view-taxonomy-term .view-content {
+  display: flex;
+  flex-wrap: wrap; }
+.view-taxonomy-term .views-row {
+  flex-basis: calc(50% - 0.75rem); }
+  .view-taxonomy-term .views-row:nth-child(odd) {
+    margin: 0 0.75rem 0.75rem 0; }
+  .view-taxonomy-term .views-row:nth-child(even) {
+    margin: 0 0 0.75rem 0.75rem; }
+
+@media screen and (max-width: 768px) {
+  /* Hide attachment-before on mobile. */
+  .view-id-frontpage,
+  #block-views-block-front-page-sections-block-1,
+  #block-views-block-front-page-sections-block-2,
+  #block-views-block-front-page-sections-block-1-2,
+  #block-views-block-front-page-sections-block-1-3,
+  #block-views-block-front-page-sections-block-2-2 {
+    visibility: hidden !important;
+    display: none !important; }
+
+  /* Teaser formatting. */
+  #block-views-block-mobile-front-page-block-1 .view, .view-taxonomy-term .view {
+    padding: 0 0.75rem; }
+  #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser, .view-taxonomy-term .node--view-mode-teaser {
+    min-height: 30vw; }
+    #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser:not(last-child), .view-taxonomy-term .node--view-mode-teaser:not(last-child) {
+      margin-bottom: 0.75rem; }
+    #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser img, .view-taxonomy-term .node--view-mode-teaser img {
+      float: left;
+      width: 48%;
+      margin-right: 0.75rem;
+      margin-top: 0.3rem; }
+    #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser .field--name-body, .view-taxonomy-term .node--view-mode-teaser .field--name-body {
+      margin-bottom: 0;
+      display: inline; }
+      #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser .field--name-body p, .view-taxonomy-term .node--view-mode-teaser .field--name-body p {
+        /* Fine-tuning. */
+        line-height: 1.4; }
+
+  /* Taxonomy Pages */
+  .view-taxonomy-term .view-content {
+    display: block; }
+  .view-taxonomy-term .views-row:nth-child(odd) {
+    margin: 0; }
+  .view-taxonomy-term .views-row:nth-child(even) {
+    margin: 0; } }
+
+/*# sourceMappingURL=views.css.map */
