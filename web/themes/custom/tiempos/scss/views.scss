@@ -91,6 +91,12 @@
   }
 }
 
+@media screen and (min-width: $tablet) {
+  #block-views-block-mobile-front-page-block-1 {
+    @include is-really-invisible;
+  }
+}
+
 @media screen and (max-width: $tablet - 1px ) {
   /* Hide attachment-before on mobile. */
   .view-id-frontpage,
