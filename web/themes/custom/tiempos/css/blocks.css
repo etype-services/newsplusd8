@@ -38,7 +38,7 @@
     font-size: 0.8rem; }
 
 /* Custom Blocks */
-#block-friends2followsidebar iframe {
+#block-friends2followsidebar iframe, #block-friends2followsidebar-2 iframe {
   height: 600px; }
 
 /* Weather Widget */
