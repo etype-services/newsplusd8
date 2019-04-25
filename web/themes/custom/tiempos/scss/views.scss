@@ -3,7 +3,7 @@
 /* Front Page Attachment View (left-hand column). */
 .view-id-frontpage.columns > .attachment {
   /* Emulate column css. */
-  @include column-no-padding-top;
+  @include column-no-padding-top-left-bottom;
   /* Teaser formatting */
   .node--view-mode-teaser {
     margin-bottom: 0;
@@ -31,7 +31,7 @@
 
 /* Front Page Featured View (center column). */
 .view-id-frontpage.columns > .view-content {
-  @include column-no-padding-top-right-grow;
+  @include column-no-padding-top-right-bottom-grow;
   img {
     width: 100%;
   }

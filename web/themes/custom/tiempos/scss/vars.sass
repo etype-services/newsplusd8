@@ -28,6 +28,13 @@ $mobile: 467px
   flex-shrink: 1
   padding: $column-gap $column-gap 0 $column-gap
 
+@mixin column-no-padding-top-left-bottom
+  display: block
+  flex-basis: 0
+  flex-grow: 1
+  flex-shrink: 1
+  padding: 0 $column-gap 0 0
+
 @mixin column-no-padding-top-right
   display: block
   flex-basis: 0
@@ -36,12 +43,12 @@ $mobile: 467px
   padding: 0 0 $column-gap $column-gap
 
 /* Center column for tiempos theme */
-@mixin column-no-padding-top-right-grow
+@mixin column-no-padding-top-right-bottom-grow
   display: block
   flex-basis: 0
   flex-grow: 2
   flex-shrink: 1
-  padding: 0 0 $column-gap $column-gap
+  padding: 0 0 0 $column-gap
 
 @mixin border-light
   border: 1px solid $grey-light
