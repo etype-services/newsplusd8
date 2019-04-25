@@ -80,7 +80,11 @@
     margin-right: 0;
     float: none;
   }
-  #block-etypeeedition, #block-etypeeedition-2 {
+  /* Hide content on mobile */
+  #block-etypeeedition,
+  #block-etypeeedition-2,
+  #block-friends2followsidebar,
+  #block-friends2followsidebar-2 {
     @include is-really-invisible;
   }
 }
