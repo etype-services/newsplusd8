@@ -87,11 +87,8 @@
   }
   &.toolbar-fixed {
     .addtoany_list {
-      top: 83px;
-  }
-  /* Block config "negate Content Types" does not work. */
-  #block-pagetitle, #block-pagetitle-2 {
-    @include is-really-invisible;
+      top: 82px;
+    }
   }
   #block-tiempos-local-tasks {
     background-color: $black;
