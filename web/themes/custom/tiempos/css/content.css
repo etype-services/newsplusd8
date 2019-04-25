@@ -54,9 +54,9 @@
   .page-node-type-feature .addtoany_list svg {
     background-color: #7a7a7a !important; }
 .page-node-type-feature.toolbar-fixed .addtoany_list {
-  top: 83px; }
+  top: 42px; }
 .page-node-type-feature.toolbar-fixed.toolbar-tray-open .addtoany_list {
-  top: 166px; }
+  top: 82px; }
 .page-node-type-feature #block-tiempos-local-tasks {
   background-color: #0a0a0a;
   margin-bottom: 0; }
