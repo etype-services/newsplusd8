@@ -2,14 +2,6 @@
 .page-node-type-mt-post #block-cni8-page-title {
   display: none; }
 
-/* Override header background color */
-#pre-header, #header-top {
-  background-color: #ffffff !important; }
-
-/* But put back for upper menu */
-#superfish-secondary-menu li {
-  background-color: #555555; }
-
 /* Make page full width */
 @media (min-width: 992px) {
   .page-node-type-mt-post #main-content section.col-md-8 {
@@ -21,17 +13,6 @@
 #block-cni8-content .node--view-mode-full .field--name-body figure.align-right {
   margin-left: 1em; }
 
-/* Special Sections Block
-#block-views-block-special-sections-block-1 {
-  .view-content {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    .views-field-title {
-      margin-top: 7px;
-    }
-  }
-} */
 /* DFP Ads */
 #block-dfptagcnidahlonegaleaderboard {
   margin: auto;
