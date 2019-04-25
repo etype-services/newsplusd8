@@ -4,7 +4,7 @@
         attach: function (context, settings) {
             var img = $(".page-node-type-article article .field--name-field-image img");
             var text = img.attr("alt");
-            var caption = $(".page-node-type-featured .is-three-quarters img").attr("alt");
+            var caption = $(".page-node-type-feature .is-three-quarters img").attr("alt");
             var article_caption = '<p class="caption is-sans-serif is-size-7">' + text + '</p>';
 
             /* Menu toggle. */
