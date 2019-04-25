@@ -9,7 +9,7 @@
 
 .region-header-left {
   /* Adjust spacing to line up text. */
-  padding: calc(#{$column-gap} * 2) $column-gap 0 calc(#{column-gap} * 2);
+  padding: calc(#{$column-gap} * 2) $column-gap 0 calc(#{$column-gap} * 2);
 }
 
 .region-header-center {
@@ -28,14 +28,12 @@
 
 .region-content {
   flex-wrap: wrap;
+  @include border-right-light;
 }
 
 .region-sidebar {
   flex-wrap: wrap;
-  flex: 0 0 332px; /* Fixed size, does not grow or shrink. */
-  @include border-left-light;
-  padding-left: calc(#{$column-gap} * 2);
-  margin-left: $column-gap;
+  flex: 0 0 calc(300px + #{$column-gap} * 2); /* Fixed size, does not grow or shrink. */
   margin-bottom: $column-gap;
 }
 

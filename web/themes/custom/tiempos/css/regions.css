@@ -1,4 +1,4 @@
-/* Center column for tiemposcni theme */
+/* Center column for tiempos theme */
 .region-header-left, .region-header-center, .region-header-right {
   padding-bottom: 0; }
   .region-header-left .block, .region-header-center .block, .region-header-right .block {
@@ -6,7 +6,7 @@
 
 .region-header-left {
   /* Adjust spacing to line up text. */
-  padding: calc(0.75rem * 2) 0.75rem 0 calc(column-gap * 2); }
+  padding: calc(0.75rem * 2) 0.75rem 0 calc(0.75rem * 2); }
 
 .region-header-center {
   /* Make logo bigger */
@@ -20,15 +20,13 @@
   position: initial; }
 
 .region-content {
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  border-left: 1px solid #b5b5b5; }
 
 .region-sidebar {
   flex-wrap: wrap;
-  flex: 0 0 332px;
+  flex: 0 0 calc(300px + 0.75rem * 2);
   /* Fixed size, does not grow or shrink. */
-  border-left: 1px solid #b5b5b5;
-  padding-left: calc(0.75rem * 2);
-  margin-left: 0.75rem;
   margin-bottom: 0.75rem; }
 
 @media screen and (max-width: 768px) {
