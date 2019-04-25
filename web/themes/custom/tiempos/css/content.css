@@ -55,6 +55,8 @@
     background-color: #7a7a7a !important; }
 .page-node-type-feature.toolbar-fixed .addtoany_list {
   top: 83px; }
+.page-node-type-feature.toolbar-fixed.toolbar-tray-open .addtoany_list {
+  top: 166px; }
 .page-node-type-feature #block-tiempos-local-tasks {
   background-color: #0a0a0a;
   margin-bottom: 0; }
