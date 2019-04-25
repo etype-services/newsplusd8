@@ -1,4 +1,4 @@
-/* Center column for tiemposcni theme */
+/* Center column for tiempos theme */
 /* Nav overrides for Feature nodes. */
 .page-node-type-feature #navbar-burger {
   display: block;
@@ -58,10 +58,10 @@
   .page-node-type-feature #block-pagetitle, .page-node-type-feature #block-pagetitle-2 {
     visibility: hidden !important;
     display: none !important; }
-  .page-node-type-feature #block-tabs, .page-node-type-feature #block-tabs-2 {
+  .page-node-type-feature #block-tiempos-local-tasks {
     background-color: #0a0a0a;
     margin-bottom: 0; }
-    .page-node-type-feature #block-tabs .tabs, .page-node-type-feature #block-tabs-2 .tabs {
+    .page-node-type-feature #block-tiempos-local-tasks .tabs {
       margin: 0;
       border: none; }
   .page-node-type-feature article {
