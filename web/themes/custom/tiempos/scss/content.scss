@@ -73,6 +73,10 @@
 
 /* Feature formatting. */
 .page-node-type-feature {
+  /* Hide system page title */
+  #block-tiempos-page-title {
+    @include is-really-invisible;
+  }
   .region-content {
     padding: 0;
   }
