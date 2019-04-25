@@ -1,7 +1,7 @@
 @import "./vars";
 
-/* Nav overrides for Featured nodes. */
-.page-node-type-featured {
+/* Nav overrides for Feature nodes. */
+.page-node-type-feature {
   #navbar-burger {
     display: block;
     color: $white;
@@ -72,7 +72,7 @@
 }
 
 /* Feature formatting. */
-.page-node-type-featured {
+.page-node-type-feature {
   .region-content {
     padding: 0;
   }
@@ -164,7 +164,7 @@
 
 /* Wider screen overrides for Article nodes. */
 @media screen and (min-width: $desktop) {
-  body:not(.page-node-type-featured) {
+  body:not(.page-node-type-feature) {
     #main-nav {
       .navbar {
         /* Can't use is-hidden-desktop because of Article formatting. */
@@ -174,7 +174,7 @@
       }
     }
   }
-  body.page-node-type-featured {
+  body.page-node-type-feature {
     main {
       position: relative;
       top: 42px;
@@ -217,7 +217,7 @@
 }
 
 @media screen and (max-width: $tablet - 1px ) {
-  .page-node-type-featured {
+  .page-node-type-feature {
     .addtoany_list {
       width: 32px;
     }
