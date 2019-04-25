@@ -1,4 +1,4 @@
-/* Center column for tiemposcni theme */
+/* Center column for tiempos theme */
 /* Front Page Attachment View (left-hand column). */
 .view-id-frontpage.columns > .attachment {
   /* Emulate column css. */
@@ -11,7 +11,8 @@
   .view-id-frontpage.columns > .attachment .node--view-mode-teaser {
     margin-bottom: 0; }
     .view-id-frontpage.columns > .attachment .node--view-mode-teaser h2 {
-      font-size: 1.1rem; }
+      font-size: 1.1rem;
+      line-height: 1.4; }
     .view-id-frontpage.columns > .attachment .node--view-mode-teaser img {
       float: left;
       width: 40%;
@@ -19,7 +20,9 @@
       margin-top: 0.3rem; }
     .view-id-frontpage.columns > .attachment .node--view-mode-teaser .field--name-body {
       margin-bottom: 0;
-      display: inline; }
+      display: inline;
+      /* Fine-tuning. TODO: Why does Feature not have p tag? */
+      line-height: 1.4; }
       .view-id-frontpage.columns > .attachment .node--view-mode-teaser .field--name-body p {
         /* Fine-tuning. */
         line-height: 1.4; }

@@ -9,6 +9,7 @@
     margin-bottom: 0;
     h2 {
       font-size: 1.1rem;
+      line-height: 1.4;
     }
     img {
       float: left;
@@ -19,6 +20,8 @@
     .field--name-body {
       margin-bottom: 0;
       display: inline;
+      /* Fine-tuning. TODO: Why does Feature not have p tag? */
+      line-height: 1.4;
       p {
         /* Fine-tuning. */
         line-height: 1.4;
