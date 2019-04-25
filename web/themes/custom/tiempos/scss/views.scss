@@ -27,6 +27,7 @@
   }
 }
 
+/* Front Page Featured View (center column). */
 .view-id-frontpage.columns > .view-content {
   @include column-no-padding-top-right-grow;
   img {

@@ -24,6 +24,7 @@
         /* Fine-tuning. */
         line-height: 1.4; }
 
+/* Front Page Featured View (center column). */
 .view-id-frontpage.columns > .view-content {
   display: block;
   flex-basis: 0;
