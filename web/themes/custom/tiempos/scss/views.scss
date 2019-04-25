@@ -58,16 +58,6 @@
   }
 }
 
-/* Make sure image is as wide as page for tablet. */
-.region-content {
-  .views-element-container {
-    /* Adjust section header */
-    h3.section-tag-heading {
-      margin-left: $column-gap;
-    }
-  }
-}
-
 /* Front Page Sections */
 #block-views-block-front-page-sections-block-1,
 #block-views-block-front-page-sections-block-2,
@@ -76,6 +66,7 @@
 #block-views-block-front-page-sections-block-2-2 {
   .view-content {
     display: flex;
+    margin-left: -$column-gap;
     margin-right: -$column-gap;
   }
   .view-content > div {

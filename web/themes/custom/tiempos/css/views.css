@@ -48,12 +48,6 @@
     .view .view-content > div:last-child {
       margin-bottom: 0; }
 
-/* Make sure image is as wide as page for tablet. */
-.region-content .views-element-container {
-  /* Adjust section header */ }
-  .region-content .views-element-container h3.section-tag-heading {
-    margin-left: 0.75rem; }
-
 /* Front Page Sections */
 #block-views-block-front-page-sections-block-1 .view-content,
 #block-views-block-front-page-sections-block-2 .view-content,
@@ -61,6 +55,7 @@
 #block-views-block-front-page-sections-block-1-3 .view-content,
 #block-views-block-front-page-sections-block-2-2 .view-content {
   display: flex;
+  margin-left: -0.75rem;
   margin-right: -0.75rem; }
 #block-views-block-front-page-sections-block-1 .view-content > div,
 #block-views-block-front-page-sections-block-2 .view-content > div,
