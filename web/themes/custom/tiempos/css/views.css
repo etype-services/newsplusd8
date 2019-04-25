@@ -1,11 +1,13 @@
 /* Center column for tiemposcni theme */
-/* Emulate column css for Front Page View top-level divs. See vars.sass. */
+/* Front Page Attachment View (left-hand column). */
 .view-id-frontpage.columns > .attachment {
+  /* Emulate column css. */
   display: block;
   flex-basis: 0;
   flex-grow: 1;
   flex-shrink: 1;
-  padding: 0 0.75rem 0.75rem 0.75rem; }
+  padding: 0 0.75rem 0.75rem 0.75rem;
+  /* Teaser formatting */ }
   .view-id-frontpage.columns > .attachment .node--view-mode-teaser {
     margin-bottom: 0; }
     .view-id-frontpage.columns > .attachment .node--view-mode-teaser h2 {
@@ -20,7 +22,6 @@
       display: inline; }
       .view-id-frontpage.columns > .attachment .node--view-mode-teaser .field--name-body p {
         /* Fine-tuning. */
-        font-size: 0.9rem;
         line-height: 1.4; }
 
 .view-id-frontpage.columns > .view-content {

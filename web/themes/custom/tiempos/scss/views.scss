@@ -1,8 +1,10 @@
 @import "./vars";
 
-/* Emulate column css for Front Page View top-level divs. See vars.sass. */
+/* Front Page Attachment View (left-hand column). */
 .view-id-frontpage.columns > .attachment {
+  /* Emulate column css. */
   @include column-no-padding-top;
+  /* Teaser formatting */
   .node--view-mode-teaser {
     margin-bottom: 0;
     h2 {
