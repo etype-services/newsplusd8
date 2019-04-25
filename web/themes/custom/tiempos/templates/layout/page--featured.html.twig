@@ -45,4 +45,9 @@
     <main role="main" class="columns">
         {{ page.content }}
     </main>
+    <footer role="contentinfo" class="columns border-top-light">
+        {% if page.footer_center %}
+            {{ page.footer_center }}
+        {% endif %}
+    </footer>
 </div>{# /.layout-container #}
