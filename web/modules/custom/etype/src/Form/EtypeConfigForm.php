@@ -67,7 +67,7 @@ class EtypeConfigForm extends ConfigFormBase {
     $form['e_edition']['premium_content_message'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Premium Content Message'),
-      '#description' => $this->t('Message shown to unanuthenticated users attempting to access premium content nodes.'),
+      '#description' => $this->t('Message shown to unauthenticated users attempting to access premium content nodes.'),
       '#cols' => '100',
       '#default_value' => $config->get('premium_content_message'),
     ];
