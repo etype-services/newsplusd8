@@ -86,8 +86,7 @@
     <p class="submitted">{{ node.created.value|format_date('teaser') }}</p>
   {% endif %}
   <div{{ content_attributes.addClass('node__content') }}>
-    {{ dump(content) }}
-    {% if 'Legals' in content.field_ad_category.value %}
+    {% if content.field_ad_category.value = 'Legals' %}
       {{ content|without('field_ad_category') }}
     {% else %}
       {{ content }}
