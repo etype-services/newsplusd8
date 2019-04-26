@@ -23,7 +23,7 @@ function tiempos_form_system_theme_settings_alter(array &$form, &$form_state) {
     '#collapsed' => FALSE,
   );
 
-  $form['edit_logo']['inverted_logo'] = [
+  $form['tiempos_settings']['inverted_logo'] = [
     '#type'     => 'managed_file',
     '#title'    => t('Inverted logo for Feature pages with dark background.'),
     '#required' => FALSE,
