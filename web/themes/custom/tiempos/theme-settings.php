@@ -39,22 +39,3 @@ function tiempos_form_system_theme_settings_alter(array &$form, &$form_state) {
   $form['#submit'][] = 'tiempos_settings_form_submit';
 
 }
-
-/**
- * Submit handler.
- *
- * @param array $form
- *   Form.
- * @param object $form_state
- *   Form.
- *
- * @throws \Drupal\Core\Entity\EntityStorageException
- */
-function tiempos_settings_form_submit(array &$form, $form_state) {
-  $fid = $form_state['values']['inverted_logo'];
-  $image = File::load($fid);
-  if (is_object($image)) {
-    $image->set('status', FILE_STATUS_PERMANENT);
-    $image->save();
-  }
-}
