@@ -37,7 +37,8 @@ function tiempos_form_system_theme_settings_alter(array &$form, &$form_state) {
   ];
 
   $form['#submit'][] = 'tiempos_settings_form_submit';
-  $themes = list_themes();
+  $theme_handler = Drupal::service('theme_handler');
+  $themes = $theme_handler->listInfo();
   $active_theme = $GLOBALS['theme_key'];
   $form_state['build_info']['files'][] = str_replace("/$active_theme.info", '', $themes[$active_theme]->filename) . '/theme-settings.php';
 
