@@ -86,6 +86,7 @@
     <p class="submitted">{{ node.created.value|format_date('teaser') }}</p>
   {% endif %}
   {{ dump(content) }}
+  {{ content.field_ad_category.0 }}
   <div{{ content_attributes.addClass('node__content') }}>
     {% if 'Legals' in content.field_ad_category.0 %}
       {{ content|without('field_ad_category') }}
