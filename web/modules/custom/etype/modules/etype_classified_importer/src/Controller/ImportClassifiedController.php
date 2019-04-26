@@ -12,6 +12,7 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\node\Entity\Node;
 use Drupal\Component\Utility\Html;
 use Exception;
+use DateTime;
 
 /**
  * Class ImportUrlMissingException.
@@ -171,6 +172,8 @@ class ImportClassifiedController {
         ->execute();
       $ad_cat = reset($terms);
 
+      $dateTime = DateTime::createFromFormat('m/d/Y', '$item->StartDate');
+      $newDateString = $dateTime->format('Y-m-d\TH:i:s');
       $node = Node::create([
         'type' => 'classified_ad',
         'title' => $title,
@@ -181,7 +184,7 @@ class ImportClassifiedController {
         'field_visiondata_category' => $item->categoryId,
         'status' => 1,
         'uid' => 1,
-        'created'  => strtotime($item->StartDate),
+        'created'  => $newDateString,
       ]);
       $node->save();
 
@@ -204,7 +207,7 @@ class ImportClassifiedController {
     // Log imported.
     Drupal::logger('etype_classified_importer')->notice("Imported %num classified ads.", ['%num' => $i]);
 
-    return ['#markup' => '<p>' . $i . ' classified ads imported.</p>'];
+    return ['#markup' => '<p>' . $i . ' classified ads were imported.</p>'];
 
   }
 
