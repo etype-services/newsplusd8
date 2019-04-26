@@ -11,10 +11,10 @@
  *
  * @param array $form
  *   Form array.
- * @param array $form_state
+ * @param object $form_state
  *   Form state array.
  */
-function tiempos_form_system_theme_settings_alter(array &$form, array &$form_state) {
+function tiempos_form_system_theme_settings_alter(array &$form, &$form_state) {
 
   $form['theme_settings']['inverted_logo'] = [
     '#type'     => 'managed_file',
