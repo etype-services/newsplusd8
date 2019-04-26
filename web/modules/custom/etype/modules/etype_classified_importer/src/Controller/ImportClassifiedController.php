@@ -172,6 +172,8 @@ class ImportClassifiedController {
         ->execute();
       $ad_cat = reset($terms);
 
+      $dateTime = DateTime::createFromFormat('m/d/Y', $item->startDate);
+      $newDateString = $dateTime->format('Y-m-d\TH:i:s');
       $node = Node::create([
         'type' => 'classified_ad',
         'title' => $title,
@@ -182,7 +184,7 @@ class ImportClassifiedController {
         'field_visiondata_category' => $item->categoryId,
         'status' => 1,
         'uid' => 1,
-        'created'  => strtotime($item->startDate),
+        'updated'  => $newDateString,
       ]);
       $node->save();
 
