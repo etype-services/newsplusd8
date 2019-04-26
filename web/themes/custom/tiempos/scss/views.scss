@@ -76,7 +76,15 @@
 
 /* Taxonomy Pages */
 .view-taxonomy-term {
-  /* Teaser formatting */
+  /* Page title. */
+  h1 {
+    margin-bottom: 1rem;
+  }
+  /* Add margint to last item. */
+  .view-content > div:last-child {
+    margin-bottom: 1rem;
+  }
+  /* Teaser formatting. */
   .node--view-mode-teaser {
     img {
       float: left;

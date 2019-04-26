@@ -70,7 +70,13 @@
 
 /* Taxonomy Pages */
 .view-taxonomy-term {
-  /* Teaser formatting */ }
+  /* Page title. */
+  /* Add margint to last item. */
+  /* Teaser formatting. */ }
+  .view-taxonomy-term h1 {
+    margin-bottom: 1rem; }
+  .view-taxonomy-term .view-content > div:last-child {
+    margin-bottom: 1rem; }
   .view-taxonomy-term .node--view-mode-teaser img {
     float: left;
     width: 45%;
