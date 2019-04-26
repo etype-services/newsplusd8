@@ -25,7 +25,7 @@ function tiempos_preprocess_block(&$variables) {
  * @param $variables
  */
 function tiempos_preprocess_node(&$variables) {
-  $variables['premium_message'] = Drupal::config('etype.settings')->get('premium_message');
+  $variables['premium_message'] = Drupal::config('etype.adminsettings')->get('premium_message');
   switch ($variables['node']->getType()) {
     case 'feature':
       $fid = theme_get_setting('inverted_logo');
