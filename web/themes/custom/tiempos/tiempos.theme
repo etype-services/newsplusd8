@@ -28,9 +28,11 @@ function tiempos_preprocess_node(&$variables) {
   switch ($variables['node']->getType()) {
     case 'feature':
       $fid = theme_get_setting('inverted_logo');
-      $obj= File::load($fid[0]);
-      $inverted_logo = $obj->getFileUri();
-      $variables["inverted_logo"] = file_create_url($inverted_logo);
+      if (!empty($fid)) {
+        $obj= File::load($fid[0]);
+        $inverted_logo = $obj->getFileUri();
+        $variables["inverted_logo"] = file_create_url($inverted_logo);
+      }
   }
 }
 

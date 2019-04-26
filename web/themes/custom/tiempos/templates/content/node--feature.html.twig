@@ -90,9 +90,11 @@
       <i class="fas fa-bars"></i>
     </a>
     <div>
+      {% if inverted_logo %}
       <a href="/" title="Home" rel="home" class="site-logo">
         <img src="{{ inverted_logo }}" alt="Home">
       </a>
+      {% endif %}
       <h1 class="page-title has-text-white-ter is-size-3">{{ label }}</h1>
     </div>
     {% if display_submitted %}
