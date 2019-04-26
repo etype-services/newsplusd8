@@ -83,7 +83,7 @@
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
   {% if display_submitted %}
-      {{ node.created.value|format_date('teaser') }}
+    <p class="submitted">{{ node.created.value|format_date('teaser') }}</p>
   {% endif %}
   <div{{ content_attributes.addClass('node__content') }}>
     {{ content }}
