@@ -184,7 +184,7 @@ class ImportClassifiedController {
         'field_visiondata_category' => $item->categoryId,
         'status' => 1,
         'uid' => 1,
-        'created'  => $newDateString,
+        'created'  => $item->startDate,
       ]);
       $node->save();
 
