@@ -74,10 +74,14 @@
   }
 }
 
-/* Taxonomy Pages */
+/* Classified Page. */
 .path-classified{
   .view-content {
+    h3 {
+      @include section-tag-heading;
+    }
     .views-view-grid {
+      display: flex;
       &:first-child {
         /* Hide first row of top-level terms */
         @include is-really-invisible;
@@ -88,13 +92,15 @@
     }
   }
 }
+/* Taxonomy Pages. */
 .view-taxonomy-term {
   /* Page title is faked in View header. */
   #block-tiempos-page-title {
     @include is-really-invisible;
   }
   .view-header {
-    margin-bottom: 1rem;
+    /* Emulate page title. */
+    margin-bottom: 1.5rem;
   }
   /* Add margint to last item. */
   .view-content > div:last-child {

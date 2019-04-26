@@ -68,14 +68,24 @@
   flex-shrink: 1;
   padding: 0.75rem; }
 
-/* Taxonomy Pages */
-.path-classified .view-content .views-view-grid:first-child {
-  /* Hide first row of top-level terms */
-  visibility: hidden !important;
-  display: none !important; }
+/* Classified Page. */
+.path-classified .view-content h3 {
+  text-transform: uppercase;
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  color: #121212;
+  border-bottom: 1px solid #b5b5b5; }
+.path-classified .view-content .views-view-grid {
+  display: flex; }
+  .path-classified .view-content .views-view-grid:first-child {
+    /* Hide first row of top-level terms */
+    visibility: hidden !important;
+    display: none !important; }
 .path-classified .view-content .views-view-grid > div {
   flex-basis: 50%; }
 
+/* Taxonomy Pages. */
 .view-taxonomy-term {
   /* Page title is faked in View header. */
   /* Add margint to last item. */
@@ -84,7 +94,8 @@
     visibility: hidden !important;
     display: none !important; }
   .view-taxonomy-term .view-header {
-    margin-bottom: 1rem; }
+    /* Emulate page title. */
+    margin-bottom: 1.5rem; }
   .view-taxonomy-term .view-content > div:last-child {
     margin-bottom: 1rem; }
   .view-taxonomy-term .node--view-mode-teaser img {
