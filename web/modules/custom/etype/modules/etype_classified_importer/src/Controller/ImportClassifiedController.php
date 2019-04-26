@@ -184,9 +184,9 @@ class ImportClassifiedController {
         'field_visiondata_category' => $item->categoryId,
         'status' => 1,
         'uid' => 1,
-        'updated'  => $newDateString,
       ]);
       $node->save();
+      $node->setCreatedTime(strtotime($item->startDate));
 
       /* Can’t make this work as part of Node::create */
       if ($ad_cat > 0) {
