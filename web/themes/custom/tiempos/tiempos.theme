@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\file\Entity\File;
+
 /**
  * Preprocess Blocks.
  *
@@ -23,7 +25,13 @@ function tiempos_preprocess_block(&$variables) {
  * @param $variables
  */
 function tiempos_preprocess_node(&$variables) {
-  $variables['inverted_logo'] =  theme_get_setting('inverted_logo');
+  switch ($variables['node']->getType()) {
+    case 'feature':
+      $fid = theme_get_setting('inverted_logo');
+      $obj= File::load($fid[0]);
+      $inverted_logo = $obj->getFileUri();
+      $variables["inverted_logo"] = file_create_url($inverted_logo);
+  }
 }
 
 

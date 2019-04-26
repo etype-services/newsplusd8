@@ -34,6 +34,4 @@ function tiempos_form_system_theme_settings_alter(array &$form, &$form_state) {
     ],
   ];
 
-  $form['#submit'][] = 'tiempos_settings_form_submit';
-
 }
