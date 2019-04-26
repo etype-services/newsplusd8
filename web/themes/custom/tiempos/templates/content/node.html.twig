@@ -102,10 +102,14 @@
   {% endif %}
 
   <div{{ content_attributes.addClass('node__content') }}>
-    {%  if node.premium_content.0.value == 1 %}
-      <p>Please log in to view this content.</p>
-    {% else %}
+    {% if logged_in %}
       {{ content }}
+    {% else %}
+      {%  if node.premium_content.0.value == 1 %}
+        <p>Please log in to view this content.</p>
+      {% else %}
+        {{ content }}
+      {% endif %}
     {% endif %}
   </div>
 
