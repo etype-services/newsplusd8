@@ -75,6 +75,19 @@
 }
 
 /* Taxonomy Pages */
+.path-classified{
+  .view-content {
+    .views-view-grid {
+      &:first-child {
+        /* Hide first row of top-level terms */
+        @include is-really-invisible;
+      }
+    }
+    .views-view-grid > div {
+      flex-basis: 50%;
+    }
+  }
+}
 .view-taxonomy-term {
   /* Page title is faked in View header. */
   #block-tiempos-page-title {

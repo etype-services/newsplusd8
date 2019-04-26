@@ -69,6 +69,13 @@
   padding: 0.75rem; }
 
 /* Taxonomy Pages */
+.path-classified .view-content .views-view-grid:first-child {
+  /* Hide first row of top-level terms */
+  visibility: hidden !important;
+  display: none !important; }
+.path-classified .view-content .views-view-grid > div {
+  flex-basis: 50%; }
+
 .view-taxonomy-term {
   /* Page title is faked in View header. */
   /* Add margint to last item. */
