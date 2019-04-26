@@ -167,7 +167,7 @@ class ImportClassifiedController {
 
       // Get term id that matched VisionData category.
       $query = Drupal::entityQuery('taxonomy_term');
-      $terms = $query->condition('node__field_visiondata_category', $item->categoryId)
+      $terms = $query->condition('field_category', $item->categoryId)
         ->execute();
       $ad_cat = reset($terms);
 
@@ -178,7 +178,7 @@ class ImportClassifiedController {
           'value' => Html::escape($item->ItemDesc),
         ],
         'field_id' => $item->ItemId,
-        'field_visiondata_category' => $item->categoryId,
+        'field_category' => $item->categoryId,
         'status' => 1,
         'uid' => 1,
         'created'  => $item->StartDate,
