@@ -172,6 +172,7 @@ class ImportClassifiedController {
         ->execute();
       $ad_cat = reset($terms);
 
+      var_dump($item);
       echo $item->StartDate;
       $dateTime = DateTime::createFromFormat('m/d/Y', '$item->StartDate');
       echo$dateTime;
