@@ -186,14 +186,12 @@ class ImportClassifiedController {
         'uid' => 1,
       ]);
       $node->save();
-      $node->setCreatedTime(strtotime($item->startDate));
+      $nid = $node->id();
+      $alt = Node::load($nid);
+      $alt->setCreatedTime(strtotime($item->startDate));
 
-      /* Can’t make this work as part of Node::create */
       if ($ad_cat > 0) {
-        $nid = $node->id();
-        $alt = Node::load($nid);
         $alt->field_ad_category->target_id = $ad_cat;
-        $alt->save();
       }
       else {
         // Log/warn about missing category relationship.
@@ -201,6 +199,8 @@ class ImportClassifiedController {
         Drupal::logger('etype_classified_importer')->notice($message);
         $this->messenger->addMessage($message, $this->messenger::TYPE_WARNING);
       }
+
+      $alt->save();
 
       $i++;
     }
