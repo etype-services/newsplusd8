@@ -18,6 +18,16 @@ function tiempos_preprocess_block(&$variables) {
 }
 
 /**
+ * Preprocess Nodes.
+ *
+ * @param $variables
+ */
+function tiempos_preprocess_node(&$variables) {
+  $variables['inverted_logo'] =  theme_get_setting('inverted_logo');
+}
+
+
+/**
  * Implements hook_theme_suggestions_page_alter().
  * Enables templates like page--article.html.twig.
  *
