@@ -50,7 +50,8 @@
     visibility: hidden !important;
     display: none !important; }
   .page-node-type-feature .region-content {
-    padding: 0; }
+    padding: 0;
+    border-right: none; }
   .page-node-type-feature .addtoany_list {
     position: fixed;
     top: 0.15rem;

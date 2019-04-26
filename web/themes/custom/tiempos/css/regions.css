@@ -21,7 +21,8 @@
 
 .region-content {
   flex-wrap: wrap;
-  border-right: 1px solid #b5b5b5; }
+  border-right: 1px solid #b5b5b5;
+  margin-bottom: 0.75rem; }
 
 .region-sidebar {
   flex-wrap: wrap;

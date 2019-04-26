@@ -29,6 +29,7 @@
 .region-content {
   flex-wrap: wrap;
   @include border-right-light;
+  margin-bottom: $column-gap;
 }
 
 .region-sidebar {
