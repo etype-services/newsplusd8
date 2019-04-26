@@ -70,10 +70,13 @@
 
 /* Taxonomy Pages */
 .view-taxonomy-term {
-  /* Page title. */
+  /* Page title is faked in View header. */
   /* Add margint to last item. */
   /* Teaser formatting. */ }
-  .view-taxonomy-term h1 {
+  .view-taxonomy-term #block-tiempos-page-title {
+    visibility: hidden !important;
+    display: none !important; }
+  .view-taxonomy-term .view-header {
     margin-bottom: 1rem; }
   .view-taxonomy-term .view-content > div:last-child {
     margin-bottom: 1rem; }

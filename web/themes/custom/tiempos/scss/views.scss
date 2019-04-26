@@ -76,8 +76,11 @@
 
 /* Taxonomy Pages */
 .view-taxonomy-term {
-  /* Page title. */
-  h1 {
+  /* Page title is faked in View header. */
+  #block-tiempos-page-title {
+    @include is-really-invisible;
+  }
+  .view-header {
     margin-bottom: 1rem;
   }
   /* Add margint to last item. */
