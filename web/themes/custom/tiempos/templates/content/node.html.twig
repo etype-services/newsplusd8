@@ -102,7 +102,7 @@
   {% endif %}
 
   <div{{ content_attributes.addClass('node__content') }}>
-    {%  if {{ node.premium_content.0.value }} == 1 %}
+    {%  if node.premium_content.0.value == 1 %}
       <p>Please log in to view this content.</p>
     {% else %}
       {{ content }}
