@@ -105,7 +105,7 @@
       {{ content }}
     {% else %}
       {%  if node.premium_content.0.value == 1 %}
-        <p>Please log in to view this content.</p>
+    <div class="premium_message is-sans-serif">{{ premium_message }}</div>
       {% else %}
         {{ content }}
       {% endif %}
