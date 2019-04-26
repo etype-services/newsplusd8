@@ -64,6 +64,14 @@ class EtypeConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('etype_ptype'),
     ];
 
+    $form['e_edition']['premium_content_message'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Premium Content Message'),
+      '#description' => $this->t('Message shown to unanuthenticated users attempting to access premium content nodes.'),
+      '#cols' => '100',
+      '#default_value' => $config->get('premium_content_message'),
+    ];
+
     $form['social'] = [
       '#type' => 'fieldset',
       '#title' => $this->t('Social Media'),
@@ -118,6 +126,7 @@ class EtypeConfigForm extends ConfigFormBase {
       ->set('etype_e_edition', $form_state->getValue('etype_e_edition'))
       ->set('etype_pub', $form_state->getValue('etype_pub'))
       ->set('etype_ptype', $form_state->getValue('etype_ptype'))
+      ->set('premium_content_message', $form_state->getValue('premium_content_message'))
       ->set('facebook', $form_state->getValue('facebook'))
       ->set('twitter', $form_state->getValue('twitter'))
       ->set('mercolocal_id', $form_state->getValue('mercolocal_id'))
