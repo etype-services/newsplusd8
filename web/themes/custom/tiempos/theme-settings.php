@@ -44,22 +44,20 @@ function tiempos_form_system_theme_settings_alter(array &$form, &$form_state) {
 }
 
 /**
+ * Submit handler.
+ *
  * @param array $form
  *   Form.
  * @param object $form_state
  *   Form.
+ *
  * @throws \Drupal\Core\Entity\EntityStorageException
  */
 function tiempos_settings_form_submit(array &$form, $form_state) {
   $fid = $form_state['values']['inverted_logo'];
   $image = File::load($fid);
   if (is_object($image)) {
-    // Check to make sure that the file is set to be permanent.
-    if ($image->status == 0) {
-      // Update the status.
-      $image->status = FILE_STATUS_PERMANENT;
-      // Save the update.
-      File::save($image);
-    }
+    $image->set('status', FILE_STATUS_PERMANENT);
+    $image->save();
   }
 }
