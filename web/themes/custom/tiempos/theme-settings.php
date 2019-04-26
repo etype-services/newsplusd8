@@ -27,7 +27,7 @@ function tiempos_form_system_theme_settings_alter(array &$form, &$form_state) {
     '#type'     => 'managed_file',
     '#title'    => t('Inverted logo for Feature pages with dark background.'),
     '#required' => FALSE,
-    '#upload_location' => file_default_scheme(),
+    '#upload_location' => file_default_scheme() . '://theme/',
     '#default_value' => theme_get_setting('inverted_logo'),
     '#upload_validators' => [
       'file_validate_extensions' => ['gif png jpg jpeg'],
