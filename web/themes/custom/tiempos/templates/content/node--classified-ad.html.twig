@@ -83,9 +83,7 @@
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
   {% if display_submitted %}
-    <footer class="node__meta">
       {{ node.created.value|format_date('teaser') }}
-    </footer>
   {% endif %}
   <div{{ content_attributes.addClass('node__content') }}>
     {{ content }}
