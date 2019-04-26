@@ -6,8 +6,6 @@
  * Tiempos theme settings.
  */
 
-use Drupal\file\Entity\File;
-
 /**
  * Add themes settings.
  *
