@@ -108,6 +108,10 @@
   }
   /* Teaser formatting. */
   .node--view-mode-teaser {
+    .field--name-field-ad-category {
+      font-family: $sans-serif;
+      font-size: $size-7;
+    }
     img {
       float: left;
       width: 45%;

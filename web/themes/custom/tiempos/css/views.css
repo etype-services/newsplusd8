@@ -98,6 +98,9 @@
     margin-bottom: 1.5rem; }
   .view-taxonomy-term .view-content > div:last-child {
     margin-bottom: 1rem; }
+  .view-taxonomy-term .node--view-mode-teaser .field--name-field-ad-category {
+    font-family: "Open Sans", sans-serif;
+    font-size: 0.75rem; }
   .view-taxonomy-term .node--view-mode-teaser img {
     float: left;
     width: 45%;
