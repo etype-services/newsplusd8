@@ -21,20 +21,13 @@
 
 .region-content {
   flex-wrap: wrap;
-  /* Because of Merco Local */ }
-  .region-content.path-frontpage {
-    border-right: 1px solid #b5b5b5; }
+  border-right: 1px solid #b5b5b5; }
 
 .region-sidebar {
   flex-wrap: wrap;
   flex: 0 0 calc(300px + 0.75rem * 2);
   /* Fixed size, does not grow or shrink. */
-  margin-bottom: 0.75rem;
-  border-left: 1px solid #b5b5b5;
-  height: 100%;
-  /* Because of Merco Local */ }
-  .region-sidebar.path-frontpage {
-    border-left: none; }
+  margin-bottom: 0.75rem; }
 
 @media screen and (max-width: 768px) {
   .region-header-left {

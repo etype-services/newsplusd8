@@ -28,22 +28,13 @@
 
 .region-content {
   flex-wrap: wrap;
-  /* Because of Merco Local */
-  &.path-frontpage {
-    @include border-right-light;
-  }
+  @include border-right-light;
 }
 
 .region-sidebar {
   flex-wrap: wrap;
   flex: 0 0 calc(300px + #{$column-gap} * 2); /* Fixed size, does not grow or shrink. */
   margin-bottom: $column-gap;
-  @include border-left-light;
-  height: 100%;
-  /* Because of Merco Local */
-  &.path-frontpage {
-    border-left: none;
-  }
 }
 
 @media screen and (max-width: $tablet - 1px) {
