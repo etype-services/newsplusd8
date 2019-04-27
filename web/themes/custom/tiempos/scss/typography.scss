@@ -40,6 +40,10 @@ a {
 }
 
 .node--view-mode-full {
+  .field--name-subhead {
+    color: $cyan;
+    font-size: $size-5;
+  }
   .field--name-body {
     p {
       margin-bottom: 0.5rem;

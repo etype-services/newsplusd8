@@ -35,6 +35,9 @@ a {
   font-size: 0.6rem;
   margin-top: 0.2rem; }
 
+.node--view-mode-full .field--name-subhead {
+  color: #209cee;
+  font-size: 1.25rem; }
 .node--view-mode-full .field--name-body p {
   margin-bottom: 0.5rem; }
 
