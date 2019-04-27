@@ -2,9 +2,9 @@
 
 /**
  * @file
- *
- * Tiempos theme settings.
  */
+
+use Drupal\file\Entity\File;
 
 /**
  * Add themes settings.
@@ -34,4 +34,22 @@ function tiempos_form_system_theme_settings_alter(array &$form, &$form_state) {
     ],
   ];
 
+  $form['#submit'][] = 'tiempos_settings_form_submit';
+
+}
+
+/**
+ * Implements hook_settings_form_submit().
+ *
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
+function tiempos_settings_form_submit(array &$form, $form_state) {
+  $fid = $form_state->getValue('inverted_logo');
+  if ($fid[0] > 0) {
+    $image = File::load($fid[0]);
+    $image->setPermanent();
+    $image->save();
+    $file_usage = Drupal::service('file.usage');
+    $file_usage->add($image, 'tiempos', 'file', $fid[0]);
+  }
 }
