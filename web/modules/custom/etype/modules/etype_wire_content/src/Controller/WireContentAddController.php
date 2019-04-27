@@ -28,11 +28,19 @@ class WireContentAddController {
   protected $messenger;
 
   /**
+   * Var Setup.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  /**
    * WireContentAddController constructor.
    */
   public function __construct() {
     $this->config = Drupal::config('etype_wire_content.settings');
     $this->messenger = Drupal::messenger();
+    $this->entityTypeManager = Drupal::entityTypeManager();
   }
 
   /**
@@ -43,8 +51,12 @@ class WireContentAddController {
    * @param int $nid
    *   Node Identifier.
    *
-   * @return null
-   *   Return something.
+   * @return array
+   *   Markup.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function addWireContent(int $nid) {
     $check = _etype_wire_content_check_connection();
@@ -72,22 +84,20 @@ class WireContentAddController {
     $storage = $this->entityTypeManager->getStorage('node');
 
     $new_entity = $storage->create([
-      'type' => 'article',
-      'title' => $node['title'],
+      'type' => $data->type,
+      'title' => $data->title,
       'body' => [
-        'value' => $node['body'],
-        'summary' => $node['summary'],
+        'value' => $data->body,
+        'summary' => '',
         'format' => 'full_html',
       ],
-      'field_image' => $field_image,
       'uid' => 1,
       'status' => 0,
       'comment' => 0,
       'promote' => 0,
-      'language' => $this->langCode,
+      'language' => $data->language,
     ]);
     $new_entity->save();
-
 
     /* Reset connection. */
     Database::setActiveConnection();

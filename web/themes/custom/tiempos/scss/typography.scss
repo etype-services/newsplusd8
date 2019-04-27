@@ -39,6 +39,14 @@ a {
   @include submitted;
 }
 
+.node--view-mode-full {
+  .field--name-body {
+    p {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
 .region-sidebar {
   p:not(.submitted) {
     font-size: 0.9rem;

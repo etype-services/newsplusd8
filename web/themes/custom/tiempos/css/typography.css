@@ -1,3 +1,4 @@
+/* Center column for tiempos theme */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600; }
 
@@ -33,6 +34,9 @@ a {
   color: #7a7a7a;
   font-size: 0.6rem;
   margin-top: 0.2rem; }
+
+.node--view-mode-full .field--name-body p {
+  margin-bottom: 0.5rem; }
 
 .region-sidebar p:not(.submitted) {
   font-size: 0.9rem; }

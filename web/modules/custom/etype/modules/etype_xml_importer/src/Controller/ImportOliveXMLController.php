@@ -10,13 +10,13 @@ namespace Drupal\etype_xml_importer\Controller;
 
 use Drupal;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
-
-require_once __DIR__ . '/../Plugin/Encoding.php';
-
 use Exception;
 use FilesystemIterator;
 use ForceUTF8\Encoding;
 use ZipArchive;
+
+require_once __DIR__ . '/../Plugin/Encoding.php';
+
 
 /**
  * Class ImportFileMissingException.
