@@ -38,6 +38,8 @@ class WireContentAddController {
   /**
    * Add Wire Content.
    *
+   * TODO: make Node Type configurable.
+   *
    * @param int $nid
    *   Node Identifier.
    *
@@ -65,7 +67,26 @@ class WireContentAddController {
       ->condition('nid', $nid, '=')
       ->execute()
       ->fetchAll();
-    kint($result);
+    $data = $result[0];
+
+    $storage = $this->entityTypeManager->getStorage('node');
+
+    $new_entity = $storage->create([
+      'type' => 'article',
+      'title' => $node['title'],
+      'body' => [
+        'value' => $node['body'],
+        'summary' => $node['summary'],
+        'format' => 'full_html',
+      ],
+      'field_image' => $field_image,
+      'uid' => 1,
+      'status' => 0,
+      'comment' => 0,
+      'promote' => 0,
+      'language' => $this->langCode,
+    ]);
+    $new_entity->save();
 
 
     /* Reset connection. */
