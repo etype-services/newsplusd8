@@ -84,14 +84,30 @@ class WireContentAddController {
 
     $storage = $this->entityTypeManager->getStorage('node');
 
+    /* Image */
+    $field_image = [];
+    if (!empty($data->file)) {
+      $img = file_get_contents($data->file);
+      $arr = explode("/", $data->file);
+      $file = file_save_data($img, 'public://' . end($arr), FILE_EXISTS_RENAME);
+      $field_image[] = [
+        'target_id' => $file->id(),
+        'alt' => $data->caption,
+        'title' => $data->caption,
+      ];
+    }
+
+    /* Use custom etype function */
+    $summary = substrwords($data->body, 300);
     $new_entity = $storage->create([
       'type' => $data->type,
       'title' => $data->title,
       'body' => [
         'value' => $data->body,
-        'summary' => '',
+        'summary' => $summary,
         'format' => 'full_html',
       ],
+      'field_image' => $field_image,
       'uid' => 1,
       'status' => 0,
       'comment' => 0,
@@ -102,7 +118,7 @@ class WireContentAddController {
 
     /* Reset connection. */
     Database::setActiveConnection();
-    return ['#markup' => '<p>' . $data->title . ' added .</p>'];
+    return ['#markup' => '<p>The story <a href="/node/' . $new_entity->id() . '">' . $data->title . '</a>  added.</p>'];
   }
 
 }
