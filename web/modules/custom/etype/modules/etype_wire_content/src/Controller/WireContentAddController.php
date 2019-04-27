@@ -97,7 +97,7 @@ class WireContentAddController {
       ];
     }
 
-    /* Use custom etype function */
+    /* Use custom etype function in etype.module. */
     $summary = substrwords($data->body, 300);
     $new_entity = $storage->create([
       'type' => $data->type,
@@ -118,7 +118,7 @@ class WireContentAddController {
 
     /* Reset connection. */
     Database::setActiveConnection();
-    return ['#markup' => '<p>The story <a href="/node/' . $new_entity->id() . '">' . $data->title . '</a>  added.</p>'];
+    return ['#markup' => '<p>The story <strong><a href="/node/' . $new_entity->id() . '">' . $data->title . '</a></strong> was added.</p>'];
   }
 
 }
