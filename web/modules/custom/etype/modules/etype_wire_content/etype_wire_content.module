@@ -7,14 +7,6 @@
 use Drupal\Core\Database\Database;
 
 /**
- * Implements hook_views_data_alter().
- */
-function etype_wire_views_data_alter(array &$data) {
-  var_dump($data);
-  exit;
-}
-
-/**
  * Callback function for the cron job.
  *
  * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
