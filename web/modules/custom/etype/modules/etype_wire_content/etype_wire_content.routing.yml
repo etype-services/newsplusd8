@@ -18,16 +18,6 @@ etype_wire_content.admin_settings.global:
   options:
     _admin_route: TRUE
 
-etype_wire_content.wire_content:
-  path: '/admin/content/wire_content'
-  defaults:
-    _title: 'Wire Content'
-    _controller: '\Drupal\etype_wire_content\Controller\WireContentController::wireContent'
-  requirements:
-    _permission: 'access wire content'
-  options:
-    _admin_route: TRUE
-
 etype_wire_content.export_wire_content:
   path: '/admin/content/export_wire_content'
   defaults:

@@ -6,3 +6,4 @@ package: 'eType Services'
 configure: etype_wire_content.admin_settings
 dependencies:
   - ultimate_cron
+  - views_database_connector

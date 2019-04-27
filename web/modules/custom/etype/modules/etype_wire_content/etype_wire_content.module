@@ -27,3 +27,11 @@ function _etype_wire_content_node_export() {
 function _etype_wire_content_check_connection() {
   return (bool) Database::getConnectionInfo('wire');
 }
+
+/**
+ * @param array $data
+ */
+function etype_wire_views_data_alter(array &$data) {
+  var_dump($data);
+  exit;
+}
