@@ -78,10 +78,20 @@ display:
           summary: ''
           description: ''
           columns:
+            site: site
             nid: nid
             title: title
             site_name: site_name
+            changed: changed
+            nothing: nothing
           info:
+            site:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             nid:
               sortable: false
               default_sort_order: asc
@@ -98,6 +108,20 @@ display:
               responsive: ''
             site_name:
               sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            changed:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            nothing:
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
@@ -489,6 +513,48 @@ display:
             use_operator: false
             operator: site_name_op
             identifier: site_name
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              editor: '0'
+              reporter: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          plugin_id: string
+        cluster:
+          id: cluster
+          table: node
+          field: cluster
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: coastal
+          group: 1
+          exposed: false
+          expose:
+            operator_id: cluster_op
+            label: Group
+            description: ''
+            use_operator: false
+            operator: cluster_op
+            identifier: cluster
             required: false
             remember: false
             multiple: false
