@@ -7,6 +7,14 @@
 use Drupal\Core\Database\Database;
 
 /**
+ * Implements hook_views_data_alter().
+ */
+function etype_wire_views_data_alter(array &$data) {
+  var_dump($data);
+  exit;
+}
+
+/**
  * Callback function for the cron job.
  *
  * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
@@ -26,12 +34,4 @@ function _etype_wire_content_node_export() {
  */
 function _etype_wire_content_check_connection() {
   return (bool) Database::getConnectionInfo('wire');
-}
-
-/**
- * @param array $data
- */
-function etype_wire_views_data_alter(array &$data) {
-  var_dump($data);
-  exit;
 }
