@@ -47,6 +47,7 @@ class WireContentAddController {
    * Add Wire Content.
    *
    * TODO: make Node Type configurable.
+   * TODO: Make Images work.
    *
    * @param int $nid
    *   Node Identifier.
@@ -101,7 +102,7 @@ class WireContentAddController {
 
     /* Reset connection. */
     Database::setActiveConnection();
-    return ['#markup' => "<p>$nid added.</p>"];
+    return ['#markup' => '<p>' . $data->title . ' added .</p>'];
   }
 
 }
