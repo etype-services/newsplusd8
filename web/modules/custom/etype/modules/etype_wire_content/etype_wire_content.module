@@ -11,13 +11,11 @@ use Drupal\Core\Database\Database;
  *
  * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
  * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
- * @throws \Drupal\Core\Entity\EntityStorageException
  */
 function _etype_wire_content_node_export() {
-  $job = new Drupal\etype_xml_importer\Controller\ImportOliveXMLController;
-  $job->ImportOliveXml();
+  $job = new Drupal\etype_wire_content\Controller\WireContentExportController;
+  $job->exportWireContent();
 }
-
 
 /**
  * Check database settings exist.

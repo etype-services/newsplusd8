@@ -13,5 +13,5 @@
  */
 function _etype_xml_importer_olive_import() {
   $job = new Drupal\etype_xml_importer\Controller\ImportOliveXMLController;
-  $job->ImportOliveXml();
+  $job->importOliveXml();
 }
