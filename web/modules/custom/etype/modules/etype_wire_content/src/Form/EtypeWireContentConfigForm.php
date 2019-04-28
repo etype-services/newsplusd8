@@ -133,6 +133,8 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
    * Apparently node::load is better than any entityFieldQuery.
    */
   protected function getFields() {
+    kint($this->node);
+    exit;
     $arr = array_keys($this->node->getFieldDefinitions());
     foreach ($arr as $key) {
       $this->fields[] = $key;
@@ -143,8 +145,6 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
    * Get terms for related taxonomy.
    */
   protected function getSections() {
-    kint($this->node);
-    exit;
     if (is_object($this->node)) {
       $arr = array_keys($this->node->getFieldDefinitions());
       $this->fieldName = $arr[$this->conf->get('field')];
