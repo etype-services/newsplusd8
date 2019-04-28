@@ -111,6 +111,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
       ->condition('type', $this->conf->get('content_type'))
       ->range('0', '1')
       ->execute();
+    kint($nids);
     $this->node = Node::load($nids[1]);
     $this->getnodeTypeOptions();
     $this->getFields();
