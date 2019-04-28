@@ -111,7 +111,6 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
       ->condition('type', $this->conf->get('content_type'))
       ->range('0', '1')
       ->execute();
-    kint($nids);
     $this->node = Node::load($nids[1]);
     $this->getnodeTypeOptions();
     $this->getFields();
@@ -144,16 +143,18 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
    * Get terms for related taxonomy.
    */
   protected function getSections() {
-    $arr = array_keys($this->node->getFieldDefinitions());
-    $this->fieldName = $arr[$this->conf->get('field')];
-    $term = Term::load($this->node->get($this->fieldName)->target_id);
-    $vid = $term->bundle();
-    $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree($vid);
-    $term_data = [];
-    foreach ($terms as $term) {
-      $term_data[$term->tid] = $term->name;
+    if (is_object($this->node)) {
+      $arr = array_keys($this->node->getFieldDefinitions());
+      $this->fieldName = $arr[$this->conf->get('field')];
+      $term = Term::load($this->node->get($this->fieldName)->target_id);
+      $vid = $term->bundle();
+      $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree($vid);
+      $term_data = [];
+      foreach ($terms as $term) {
+        $term_data[$term->tid] = $term->name;
+      }
+      $this->sections = $term_data;
     }
-    $this->sections = $term_data;
   }
 
   /**
