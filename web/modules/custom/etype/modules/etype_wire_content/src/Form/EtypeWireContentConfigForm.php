@@ -114,18 +114,15 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
     $this->conf = $this->config('etype_wire_content.settings');
     $this->entityFieldManager = Drupal::service('entity_field.manager');
     $this->entityTypeManager = Drupal::service('entity_type.manager');
-    $type = $this->conf->get('content_type');
-    if (!empty($type)) {
-      $nids = Drupal::entityQuery('node')
-        ->condition('type', $this->conf->get('content_type'))
-        ->range('0', '1')
-        ->execute();
-      $this->node = Node::load($nids[1]);
-      $this->fieldDefinitions = array_keys($this->node->getFieldDefinitions());
-      $this->getnodeTypeOptions();
-      $this->getFields();
-      $this->getSections();
-    }
+    $nids = Drupal::entityQuery('node')
+      ->condition('type', $this->conf->get('content_type'))
+      ->range('0', '1')
+      ->execute();
+    $this->node = Node::load($nids[1]);
+    $this->fieldDefinitions = array_keys($this->node->getFieldDefinitions());
+    $this->getnodeTypeOptions();
+    $this->getFields();
+    $this->getSections();
   }
 
   /**
