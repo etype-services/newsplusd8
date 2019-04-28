@@ -107,6 +107,11 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
     $this->conf = $this->config('etype_wire_content.settings');
     $this->entityFieldManager = Drupal::service('entity_field.manager');
     $this->entityTypeManager = Drupal::service('entity_type.manager');
+    $nids = Drupal::entityQuery('node')
+      ->condition('type', $this->conf->get('content_type'))
+      ->range('0', '1')
+      ->execute();
+    $this->node= Node::load($nids[1]);
     $this->getnodeTypeOptions();
     $this->getFields();
     $this->getSections();
@@ -128,13 +133,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
    * Apparently node::load is better than any entityFieldQuery.
    */
   protected function getFields() {
-    $nids = Drupal::entityQuery('node')
-      ->condition('type', $this->conf->get('content_type'))
-      ->range('0', '1')
-      ->execute();
-    $node = Node::load($nids[1]);
-    $this->node = $node;
-    $arr = array_keys($node->getFieldDefinitions());
+    $arr = array_keys($this->node->getFieldDefinitions());
     foreach ($arr as $key) {
       $this->fields[] = $key;
     }

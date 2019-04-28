@@ -1,2 +1,2 @@
-node_type: 'article'
-field: 'field_section'
+content_type: 'article'
+fieldName: 'field_section'
