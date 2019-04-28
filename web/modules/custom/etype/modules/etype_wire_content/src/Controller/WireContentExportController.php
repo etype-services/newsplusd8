@@ -65,10 +65,11 @@ class WireContentExportController {
    */
   public function exportWireContent() {
     /* Find nodes to export. */
+    $ptr = 0;
     $date_diff = strtotime("-20 days");
     $nids = Drupal::entityQuery('node')
       ->condition('type', $this->config->get('content_type'))
-      ->condition($this->config->get('field'), [1, 2, 10], "IN")
+      ->condition($this->config->get('fieldName'), $this->config->get('sections'), "IN")
       ->condition('status', '1')
       ->condition('changed', $date_diff, '>')
       ->sort('changed', 'DESC')
@@ -88,7 +89,9 @@ class WireContentExportController {
         try {
           $groups = implode(',', $this->config->get('groups'));
           $url = '';
+          $caption = '';
           if ($node->get('field_image')->target_id > 0) {
+            $caption = $node->get('field_image')->alt;
             $obj = File::load($node->get('field_image')->target_id);
             if (is_object($obj)) {
               $uri = $obj->getFileUri();
@@ -104,6 +107,8 @@ class WireContentExportController {
               'title' => $node->get('title')->value,
               'body' => $node->get('body')->value,
               'file' => $url,
+              'kicker' => '',
+              'caption' => $caption,
               'uid' => 1,
               'status' => 0,
               'created' => $node->get('created')->value,
@@ -114,6 +119,7 @@ class WireContentExportController {
               'cluster' => $groups,
             ])
             ->execute();
+          $ptr++;
         }
         catch (Exception $e) {
           // Log the exception.
@@ -123,7 +129,7 @@ class WireContentExportController {
       /* Reset connection. */
       Database::setActiveConnection();
     }
-    return ['#markup' => '<p>Hello.</p>'];
+    return ['#markup' => '<p>Exported ' . $ptr . ' nodes.</p>'];
   }
 
 }

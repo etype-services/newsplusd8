@@ -78,6 +78,13 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
   protected $fields = [];
 
   /**
+   * Fieldname attached to taxonomy, to get sections.
+   *
+   * @var EtypeWireContentConfigForm
+   */
+  protected $fieldName = '';
+
+  /**
    * Sections to filter export.
    *
    * @var EtypeWireContentConfigForm
@@ -137,7 +144,9 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
    * Get terms for related taxonomy.
    */
   protected function getSections() {
-    $term = Term::load($this->node->get('field_section')->target_id);
+    $arr = array_keys($this->node->getFieldDefinitions());
+    $this->fieldName = $arr[$this->conf->get('field')];
+    $term = Term::load($this->node->get($this->fieldName)->target_id);
     $vid = $term->bundle();
     $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree($vid);
     $term_data = [];
@@ -247,6 +256,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
       ->set('groups', $form_state->getValue('groups'))
       ->set('content_type', $form_state->getValue('content_type'))
       ->set('field', $form_state->getValue('field'))
+      ->set('fieldName', $this->fieldName)
       ->set('sections', $form_state->getValue('sections'))
       ->save();
   }
