@@ -78,6 +78,13 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
   protected $fields = [];
 
   /**
+   * Field definitions for content type.
+   *
+   * @var EtypeWireContentConfigForm
+   */
+  protected $fieldDefinitions = [];
+
+  /**
    * Fieldname attached to taxonomy, to get sections.
    *
    * @var EtypeWireContentConfigForm
@@ -107,14 +114,18 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
     $this->conf = $this->config('etype_wire_content.settings');
     $this->entityFieldManager = Drupal::service('entity_field.manager');
     $this->entityTypeManager = Drupal::service('entity_type.manager');
-    $nids = Drupal::entityQuery('node')
-      ->condition('type', $this->conf->get('content_type'))
-      ->range('0', '1')
-      ->execute();
-    $this->node = Node::load($nids[1]);
-    $this->getnodeTypeOptions();
-    $this->getFields();
-    $this->getSections();
+    $type = $this->conf->get('content_type');
+    if (!empty($type)) {
+      $nids = Drupal::entityQuery('node')
+        ->condition('type', $this->conf->get('content_type'))
+        ->range('0', '1')
+        ->execute();
+      $this->node = Node::load($nids[1]);
+      $this->fieldDefinitions = array_keys($this->node->getFieldDefinitions());
+      $this->getnodeTypeOptions();
+      $this->getFields();
+      $this->getSections();
+    }
   }
 
   /**
@@ -133,10 +144,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
    * Apparently node::load is better than any entityFieldQuery.
    */
   protected function getFields() {
-    kint($this->node);
-    exit;
-    $arr = array_keys($this->node->getFieldDefinitions());
-    foreach ($arr as $key) {
+    foreach ($this->fieldDefinitions as $key) {
       $this->fields[] = $key;
     }
   }
@@ -145,18 +153,15 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
    * Get terms for related taxonomy.
    */
   protected function getSections() {
-    if (is_object($this->node)) {
-      $arr = array_keys($this->node->getFieldDefinitions());
-      $this->fieldName = $arr[$this->conf->get('field')];
-      $term = Term::load($this->node->get($this->fieldName)->target_id);
-      $vid = $term->bundle();
-      $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree($vid);
-      $term_data = [];
-      foreach ($terms as $term) {
-        $term_data[$term->tid] = $term->name;
-      }
-      $this->sections = $term_data;
+    $this->fieldName = $this->fieldDefinitions[$this->conf->get('field')];
+    $term = Term::load($this->node->get($this->fieldName)->target_id);
+    $vid = $term->bundle();
+    $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree($vid);
+    $term_data = [];
+    foreach ($terms as $term) {
+      $term_data[$term->tid] = $term->name;
     }
+    $this->sections = $term_data;
   }
 
   /**
