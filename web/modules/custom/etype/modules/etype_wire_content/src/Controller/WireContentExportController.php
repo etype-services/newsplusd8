@@ -4,6 +4,7 @@ namespace Drupal\etype_wire_content\Controller;
 
 use Drupal;
 use Drupal\Core\Database\Database;
+use Drupal\file\Entity\File;
 use \Exception;
 
 /**
@@ -85,13 +86,32 @@ class WireContentExportController {
         ->execute();
       foreach ($nodes as $node) {
         try {
+          $groups = implode(',', $this->config->get('groups'));
+          $url = '';
+          if ($node->get('field_image')->target_id > 0) {
+            $obj = File::load($node->get('field_image')->target_id);
+            if (is_object($obj)) {
+              $uri = $obj->getFileUri();
+              $url = file_create_url($uri);
+            }
+          }
           $db->insert('node')
             ->fields([
               'nid' => $node->id(),
-              'title' => $node->get('title')->value,
+              'vid' => $node->get('vid')->value,
               'type' => $node->getType(),
               'language' => $node->get('langcode')->value,
+              'title' => $node->get('title')->value,
+              'body' => $node->get('body')->value,
+              'file' => $url,
+              'uid' => 1,
+              'status' => 0,
+              'created' => $node->get('created')->value,
+              'changed' => $node->get('changed')->value,
+              'uuid' => $node->get('uuid')->value,
+              'site' => Drupal::request()->getSchemeAndHttpHost(),
               'site_name' => $site_name,
+              'cluster' => $groups,
             ])
             ->execute();
         }
