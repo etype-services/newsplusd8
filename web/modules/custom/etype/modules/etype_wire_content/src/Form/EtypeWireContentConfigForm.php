@@ -143,6 +143,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
    * Get terms for related taxonomy.
    */
   protected function getSections() {
+    kint($this->node);
     if (is_object($this->node)) {
       $arr = array_keys($this->node->getFieldDefinitions());
       $this->fieldName = $arr[$this->conf->get('field')];
