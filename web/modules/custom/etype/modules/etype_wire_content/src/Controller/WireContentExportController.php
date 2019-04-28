@@ -5,7 +5,7 @@ namespace Drupal\etype_wire_content\Controller;
 use Drupal;
 use Drupal\Core\Database\Database;
 use Drupal\file\Entity\File;
-use \Exception;
+use Exception;
 
 /**
  * Class WireContentExportController.
