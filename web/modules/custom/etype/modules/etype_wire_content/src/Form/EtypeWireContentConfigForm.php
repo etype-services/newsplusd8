@@ -150,15 +150,18 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
    * Get terms for related taxonomy.
    */
   protected function getSections() {
-    $this->fieldName = $this->fieldDefinitions[$this->conf->get('field')];
-    $term = Term::load($this->node->get($this->fieldName)->target_id);
-    $vid = $term->bundle();
-    $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree($vid);
-    $term_data = [];
-    foreach ($terms as $term) {
-      $term_data[$term->tid] = $term->name;
+    $field = $this->conf->get('field');
+    if (!empty($field)) {
+      $this->fieldName = $this->fieldDefinitions[$this->conf->get('field')];
+      $term = Term::load($this->node->get($this->fieldName)->target_id);
+      $vid = $term->bundle();
+      $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree($vid);
+      $term_data = [];
+      foreach ($terms as $term) {
+        $term_data[$term->tid] = $term->name;
+      }
+      $this->sections = $term_data;
     }
-    $this->sections = $term_data;
   }
 
   /**
@@ -242,12 +245,14 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
       '#options' => $this->fields,
     );
 
-    $form['settings']['sections'] = array(
-      '#type' => 'checkboxes',
-      '#title' => t('Choose which taxonomy terms use to filter exports.'),
-      '#default_value' => $this->conf->get('sections') ?: [],
-      '#options' => $this->sections,
-    );
+    if (count($this->sections) > 1) {
+      $form['settings']['sections'] = array(
+        '#type' => 'checkboxes',
+        '#title' => t('Choose which taxonomy terms use to filter exports.'),
+        '#default_value' => $this->conf->get('sections') ?: [],
+        '#options' => $this->sections,
+      );
+    }
 
     return parent::buildForm($form, $form_state);
   }
