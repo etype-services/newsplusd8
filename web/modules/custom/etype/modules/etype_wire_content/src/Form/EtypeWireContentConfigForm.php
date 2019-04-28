@@ -144,6 +144,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
    */
   protected function getSections() {
     kint($this->node);
+    exit;
     if (is_object($this->node)) {
       $arr = array_keys($this->node->getFieldDefinitions());
       $this->fieldName = $arr[$this->conf->get('field')];
