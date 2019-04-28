@@ -4,6 +4,7 @@ namespace Drupal\etype_wire_content\Controller;
 
 use Drupal;
 use Drupal\Core\Database\Database;
+use \Exception;
 
 /**
  * Class WireContentExportController.
@@ -27,11 +28,27 @@ class WireContentExportController {
   protected $messenger;
 
   /**
+   * Var Setup.
+   *
+   * @var WireContentExportController
+   */
+  protected $entityTypeManager;
+
+  /**
+   * Var Setup.
+   *
+   * @var WireContentExportController
+   */
+  protected $logger;
+
+  /**
    * WireContentExportController constructor.
    */
   public function __construct() {
     $this->config = Drupal::config('etype_wire_content.settings');
     $this->messenger = Drupal::messenger();
+    $this->entityTypeManager = Drupal::entityTypeManager();
+    $this->logger = Drupal::logger('etype_wire_content');
   }
 
   /**
@@ -42,17 +59,20 @@ class WireContentExportController {
    *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   *
+   * TODO: Set variables in Config form.
    */
   public function exportWireContent() {
     /* Find nodes to export. */
+    $date_diff = strtotime("-20 days");
     $nids = Drupal::entityQuery('node')
       ->condition('type', 'article')
       ->condition('field_section', [1, 2, 10], "IN")
       ->condition('status', '1')
+      ->condition('changed', $date_diff, '>')
       ->sort('changed', 'DESC')
-      ->range(0, 20)
       ->execute();
-    $storage_handler = Drupal::entityTypeManager()->getStorage('node');
+    $storage_handler = $this->entityTypeManager->getStorage('node');
     $nodes = $storage_handler->loadMultiple($nids);
     if (count($nodes) > 0) {
       /* Delete current matching rows in wire.node */
@@ -64,7 +84,21 @@ class WireContentExportController {
         ->condition('site_name', $site_name)
         ->execute();
       foreach ($nodes as $node) {
-        var_dump($node->get('title')->value);
+        try {
+          $db->insert('node')
+            ->fields([
+              'nid' => $node->id(),
+              'title' => $node->get('title')->value,
+              'type' => $node->getType(),
+              'language' => $node->get('langcode')->value,
+              'site_name' => $site_name,
+            ])
+            ->execute();
+        }
+        catch (Exception $e) {
+          // Log the exception.
+          $this->logger->error($e->getMessage());
+        }
       }
       /* Reset connection. */
       Database::setActiveConnection();
