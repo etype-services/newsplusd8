@@ -8,6 +8,8 @@ use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\node\Entity\NodeType;
+use Drupal\node\Entity\Node;
+use Drupal\taxonomy\Entity\Term;
 use Exception;
 
 /**
@@ -48,6 +50,13 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
   protected $entityFieldManager;
 
   /**
+   * The entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityFieldManager
+   */
+  protected $entityTypeManager;
+
+  /**
    * The config settings.
    *
    * @var EtypeWireContentConfigForm
@@ -69,15 +78,31 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
   protected $fields = [];
 
   /**
+   * Sections to filter export.
+   *
+   * @var EtypeWireContentConfigForm
+   */
+  protected $sections = [];
+
+  /**
+   * Any node, used to get info.
+   *
+   * @var EtypeWireContentConfigForm
+   */
+  protected $node = [];
+
+  /**
    * EtypeWireContentConfigForm constructor.
    */
   public function __construct() {
     parent::__construct($this->configFactory());
     $this->messenger = Drupal::messenger();
     $this->conf = $this->config('etype_wire_content.settings');
-    $this->entityFieldManager = \Drupal::service('entity_field.manager');
+    $this->entityFieldManager = Drupal::service('entity_field.manager');
+    $this->entityTypeManager = Drupal::service('entity_type.manager');
     $this->getnodeTypeOptions();
     $this->getFields();
+    $this->getSections();
   }
 
   /**
@@ -92,13 +117,34 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
 
   /**
    * Get the fields associated with selected node type.
+   *
+   * Apparently node::load is better than any entityFieldQuery.
    */
   protected function getFields() {
-    $fields = $this->entityFieldManager->getFieldDefinitions('node', $this->conf->get('node_type'));
-    $arr = array_keys($fields);
+    $nids = Drupal::entityQuery('node')
+      ->condition('type', $this->conf->get('content_type'))
+      ->range('0', '1')
+      ->execute();
+    $node = Node::load($nids[1]);
+    $this->node = $node;
+    $arr = array_keys($node->getFieldDefinitions());
     foreach ($arr as $key) {
       $this->fields[] = $key;
     }
+  }
+
+  /**
+   * Get terms for related taxonomy.
+   */
+  protected function getSections() {
+    $term = Term::load($this->node->get('field_section')->target_id);
+    $vid = $term->bundle();
+    $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree($vid);
+    $term_data = [];
+    foreach ($terms as $term) {
+      $term_data[$term->tid] = $term->name;
+    }
+    $this->sections = $term_data;
   }
 
   /**
@@ -163,6 +209,32 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
       '#default_value' => $this->conf->get('groups') ?: [],
     ];
 
+    $form['settings'] = [
+      '#type' => 'fieldset',
+      '#title' => $this->t('Other Settings'),
+    ];
+
+    $form['settings']['content_type'] = array(
+      '#type' => 'select',
+      '#title' => t('Choose which content type to import and export.'),
+      '#default_value' => $this->conf->get('content_type') ?: 'article',
+      '#options' => $this->nodeTypeOptions,
+    );
+
+    $form['settings']['field'] = array(
+      '#type' => 'select',
+      '#title' => t('Choose which field to use to filter exports.'),
+      '#default_value' => $this->conf->get('field') ?: 'field_section',
+      '#options' => $this->fields,
+    );
+
+    $form['settings']['sections'] = array(
+      '#type' => 'checkboxes',
+      '#title' => t('Choose which taxonomy terms use to filter exports.'),
+      '#default_value' => $this->conf->get('sections') ?: [],
+      '#options' => $this->sections,
+    );
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -173,6 +245,9 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
     parent::submitForm($form, $form_state);
     $this->config('etype_wire_content.settings')
       ->set('groups', $form_state->getValue('groups'))
+      ->set('content_type', $form_state->getValue('content_type'))
+      ->set('field', $form_state->getValue('field'))
+      ->set('sections', $form_state->getValue('sections'))
       ->save();
   }
 

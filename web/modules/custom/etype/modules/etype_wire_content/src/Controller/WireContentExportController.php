@@ -67,8 +67,8 @@ class WireContentExportController {
     /* Find nodes to export. */
     $date_diff = strtotime("-20 days");
     $nids = Drupal::entityQuery('node')
-      ->condition('type', 'article')
-      ->condition('field_section', [1, 2, 10], "IN")
+      ->condition('type', $this->config->get('content_type'))
+      ->condition($this->config->get('field'), [1, 2, 10], "IN")
       ->condition('status', '1')
       ->condition('changed', $date_diff, '>')
       ->sort('changed', 'DESC')
