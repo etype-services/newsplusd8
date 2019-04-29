@@ -42,6 +42,15 @@
       margin-top: 0.4rem;
       margin-bottom: 0;
     }
+    .field--name-body {
+      .blockquote {
+        font-size: large;
+        font-weight: bold;
+        margin-right: 3rem;
+        margin-left: -1rem;
+        font-style: italic;
+      }
+    }
   }
 }
 
