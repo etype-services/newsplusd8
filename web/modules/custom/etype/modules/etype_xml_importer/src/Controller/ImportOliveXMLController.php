@@ -226,7 +226,7 @@ class ImportOliveXMLController {
           $this->i = 0;
           $markup .= "<p>Extracting articles from $entry.</p>";
 
-          $xml = file_get_contents($this->extractDir . $entry);
+          $xml = file_get_contents((string) $this->extractDir . $entry);
 
           /* throw Exception and return empty page with message if xml is not extractable */
           try {
@@ -280,7 +280,7 @@ class ImportOliveXMLController {
 
       // Full article is in the linked file.
       $ar_file = $array['link'];
-      $ar_xml = file_get_contents($this->extractDir . $ar_file);
+      $ar_xml = file_get_contents((string) $this->extractDir . $ar_file);
 
       /* parse article xhtml from link file */
       preg_match("/<prism:section>([^<]+)/", $ar_xml, $coincidencias);
@@ -383,7 +383,7 @@ class ImportOliveXMLController {
       $array = [];
       if (count($images) > 0) {
         foreach ($images as $image) {
-          $ipath = $this->extractDir . 'img/' . $image['image'];
+          $ipath = (string) $this->extractDir . 'img/' . $image['image'];
           $array[] = [
             'name' => $image['image'],
             'path' => $ipath,
