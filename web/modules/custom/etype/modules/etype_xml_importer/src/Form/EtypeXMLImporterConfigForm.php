@@ -170,6 +170,15 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       '#default_value' => $this->conf->get('byline_field'),
     ];
 
+    $form['uid'] = [
+      '#title' => $this->t('User Id'),
+      '#type' => 'textfield',
+      '#description' => 'The User Id to set as Author of the imported content.',
+      '#maxlength' => 4,
+      '#size' => 4,
+      '#default_value' => $this->conf->get('uid'),
+    ];
+
     $form['import_classifieds'] = [
       '#title' => $this->t('Check to import Olive classified section.'),
       '#type' => 'checkbox',
@@ -201,6 +210,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
     $this->config('etype_xml_importer.settings')
       ->set('importUrls', $form_state->getValue('importUrls'))
       ->set('nodeType', $form_state->getValue('nodeType'))
+      ->set('uid', $form_state->getValue('uid'))
       ->set('fields', $this->fields)
       ->set('subhead_field', $form_state->getValue('subhead_field'))
       ->set('byline_field', $form_state->getValue('byline_field'))

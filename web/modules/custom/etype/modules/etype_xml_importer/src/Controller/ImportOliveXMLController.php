@@ -14,6 +14,7 @@ use Exception;
 use FilesystemIterator;
 use ForceUTF8\Encoding;
 use ZipArchive;
+use SimpleXMLElement;
 
 require_once __DIR__ . '/../Plugin/Encoding.php';
 
@@ -218,12 +219,12 @@ class ImportOliveXMLController {
         }
       }
       /* Loop over found files and do the extraction */
-      $this->i = 0;
       $t = 0;
       if (count($entries) > 0) {
 
         foreach ($entries as $entry) {
-          $markup .= "<p>Extracting articles from $entry section.</p>";
+          $this->i = 0;
+          $markup .= "<p>Extracting articles from $entry.</p>";
 
           $xml = file_get_contents($this->extractDir . $entry);
 
@@ -264,14 +265,14 @@ class ImportOliveXMLController {
   /**
    * Parse XML into importable format.
    *
-   * @param Object $item
+   * @param \SimpleXMLElement $item
    *   XML data.
    *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  protected function parseItem(Object $item) {
+  protected function parseItem(SimpleXMLElement $item) {
     $array = (array) $item;
 
     // Title is not an object if the stub is valid.
@@ -439,7 +440,7 @@ class ImportOliveXMLController {
         'format' => 'full_html',
       ],
       'field_image' => $field_image,
-      'uid' => 1,
+      'uid' => $this->config->get('uid'),
       'status' => 0,
       'comment' => 0,
       'promote' => 0,
