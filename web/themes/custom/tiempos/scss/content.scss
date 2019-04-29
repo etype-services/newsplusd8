@@ -173,6 +173,15 @@
             text-align: center;
           }
         }
+        .field--name-body {
+          blockquote {
+            font-size: large;
+            font-weight: bold;
+            margin-right: 3rem;
+            margin-left: 0.5rem;
+            font-style: italic;
+          }
+        }
       }
     }
     .node__submitted {

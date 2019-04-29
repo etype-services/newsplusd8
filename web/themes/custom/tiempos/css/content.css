@@ -123,6 +123,12 @@
           margin: 0.5rem auto 0.5rem 3rem;
           color: #0a0a0a;
           text-align: center; }
+      .page-node-type-feature article .is-full .node__content .field--name-body blockquote {
+        font-size: large;
+        font-weight: bold;
+        margin-right: 3rem;
+        margin-left: 0.5rem;
+        font-style: italic; }
     .page-node-type-feature article .node__submitted a {
       color: whitesmoke; }
 
