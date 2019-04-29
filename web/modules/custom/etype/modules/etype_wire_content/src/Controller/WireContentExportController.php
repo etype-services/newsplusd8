@@ -68,7 +68,7 @@ class WireContentExportController {
     $ptr = 0;
     $date_diff = strtotime("-20 days");
     $nids = Drupal::entityQuery('node')
-      ->condition('type', $this->config->get('content_type'))
+      ->condition('type', $this->config->get('nodeType'))
       ->condition($this->config->get('fieldName'), $this->config->get('sections'), "IN")
       ->condition('status', '1')
       ->condition('changed', $date_diff, '>')

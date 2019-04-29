@@ -128,26 +128,6 @@ class EtypeWireContentGlobalConfigForm extends ConfigFormBase {
       '#required' => TRUE,
     ];
 
-    /* Section settings. */
-    $form['sections'] = [
-      '#type' => 'fieldset',
-      '#title' => $this->t('Sections'),
-    ];
-
-    $form['sections']['sections'] = [
-      '#type' => 'textfield',
-      '#title' => t('Sections or Categories'),
-      '#description' => $this->t('Article section tags to match using regex when exporting nodes to the wire database. Separated by |.'),
-      '#default_value' => $data['sections'],
-    ];
-
-    $form['sections']['taxonomy'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Taxonomy Field'),
-      '#description' => $this->t('The name of the field used to describe article sections or categories.'),
-      '#default_value' => $data['taxonomy'],
-    ];
-
     return parent::buildForm($form, $form_state);
   }
 
