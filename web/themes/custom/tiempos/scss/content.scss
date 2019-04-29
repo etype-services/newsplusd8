@@ -55,10 +55,11 @@
   }
 }
 
-/* Control image width */
+/* Mobile */
 @media screen and (max-width: $mobile) {
   .page-node-type-article {
     article {
+      /* Control image width */
       .field--name-field-image {
         float: none;
         margin-right: 0;
@@ -75,8 +76,14 @@
           margin: 0.5rem;
           font-size: 0.9rem;
         }
-        .node__content > * {
+        .node__content > .field {
           margin: 2rem 1rem 1rem;
+        }
+        .node__content > .field--name-body {
+          margin: 0;
+          p, blockquote {
+            margin: 1rem;
+          }
         }
       }
     }
