@@ -175,11 +175,13 @@
         }
         .field--name-body {
           blockquote {
-            font-size: 1.4rem;
-            font-weight: bold;
-            margin-right: 3rem;
-            margin-left: -3rem;
-            font-style: italic;
+            margin: $column-gap 4rem $column-gap 8rem;
+            p {
+              margin: 0 0 $column-gap 0;
+              font-size: 1.4rem;
+              font-weight: bold;
+              font-style: italic;
+            }
           }
         }
       }
@@ -271,8 +273,10 @@
           }
           .field--name-body {
             blockquote {
-              margin-right: 0.5rem;
-              margin-left: 0.5rem;
+              margin: $column-gap 4rem $column-gap 4rem;
+              p {
+                margin: 0 0 $column-gap 0;
+              }
             }
           }
         }
