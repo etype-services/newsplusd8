@@ -152,11 +152,13 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
       $field = $this->conf->get('field');
       /* First time loading form $this->conf->get('field') might not be set */
       if (!empty($field)) {
+        kint($this->conf->get('nodeType'));
         $nids = Drupal::entityQuery('node')
           ->condition('type', $this->conf->get('nodeType'))
           ->range('0', '1')
           ->execute();
         $nid = reset($nids);
+        kint($nid);
         if (isset($nid)) {
           $this->node = Node::load($nid);
           if (is_object($this->node)) {
