@@ -94,7 +94,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
     $this->entityFieldManager = Drupal::service('entity_field.manager');
     $this->entityTypeManager = Drupal::service('entity_type.manager');
     $this->setnodeTypeOptions();
-    $this->setNode();
+    //$this->setNode();
     $this->setSections();
   }
 
@@ -142,17 +142,28 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
   protected function setSections() {
     $field = $this->conf->get('field');
     if (!empty($field)) {
-      $term = Term::load($this->node->get($field)->target_id);
-      if ($term != NULL) {
-        $vid = $term->bundle();
-        $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree($vid);
-        $term_data = [];
-        foreach ($terms as $term) {
-          $term_data[$term->tid] = $term->name;
-        }
-        $this->sections = $term_data;
-        if (count($this->conf->get('sections')) == 0) {
-          $this->conf->set('sections', $this->sections);
+      $nids = Drupal::entityQuery('node')
+        ->condition('type', $this->conf->get('nodeType'))
+        ->condition('field_section', 0, '>')
+        ->range('0', '1')
+        ->execute();
+      $nid = reset($nids);
+      if (isset($nid)) {
+        $node = Node::Load($nid);
+        if (is_object($node)) {
+          $term = Term::load($node->get($field)->target_id);
+          if ($term != NULL) {
+            $vid = $term->bundle();
+            $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree($vid);
+            $term_data = [];
+            foreach ($terms as $term) {
+              $term_data[$term->tid] = $term->name;
+            }
+            $this->sections = $term_data;
+            if (count($this->conf->get('sections')) == 0) {
+              $this->conf->set('sections', $this->sections);
+            }
+          }
         }
       }
     }
