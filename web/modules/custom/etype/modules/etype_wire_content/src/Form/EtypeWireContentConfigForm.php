@@ -159,17 +159,19 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
         $nid = reset($nids);
         if (isset($nid)) {
           $this->node = Node::load($nid);
-          $this->fieldDefinitions = array_keys($this->node->getFieldDefinitions());
-          $this->fieldName = $this->fieldDefinitions[$field];
-          $term = Term::load($this->node->get($this->fieldName)->target_id);
-          if ($term != NULL) {
-            $vid = $term->bundle();
-            $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree($vid);
-            $term_data = [];
-            foreach ($terms as $term) {
-              $term_data[$term->tid] = $term->name;
+          if (is_object($this->node)) {
+            $this->fieldDefinitions = array_keys($this->node->getFieldDefinitions());
+            $this->fieldName = $this->fieldDefinitions[$field];
+            $term = Term::load($this->node->get($this->fieldName)->target_id);
+            if ($term != NULL) {
+              $vid = $term->bundle();
+              $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree($vid);
+              $term_data = [];
+              foreach ($terms as $term) {
+                $term_data[$term->tid] = $term->name;
+              }
+              $this->sections = $term_data;
             }
-            $this->sections = $term_data;
           }
         }
       }
