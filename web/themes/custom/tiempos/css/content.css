@@ -44,7 +44,15 @@
     margin-right: 0;
     margin-top: 0;
     margin-bottom: 0.75rem;
-    width: 100%; } }
+    width: 100%; }
+
+  .page-node-type-feature article .is-full .main-caption {
+    margin: 0.5rem;
+    font-size: 0.9rem; }
+  .page-node-type-feature article .node__content {
+    padding: 2rem 1rem 1rem; }
+    .page-node-type-feature article .node__content p {
+      margin: 0; } }
 /* Control image width */
 @media screen and (min-width: 466px) {
   .page-node-type-article article .field--name-field-image {
@@ -92,7 +100,6 @@
     .page-node-type-feature article .is-three-quarters img {
       width: 100%; }
     .page-node-type-feature article .is-full .main-caption {
-      /* The left/right margin is to keep caption away from share icons. */
       margin: 0.5rem 7rem auto;
       color: #0a0a0a; }
     .page-node-type-feature article .is-full .node__content {

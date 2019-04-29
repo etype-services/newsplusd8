@@ -68,6 +68,22 @@
       }
     }
   }
+  .page-node-type-feature {
+    article {
+      .is-full {
+        .main-caption {
+          margin: 0.5rem;
+          font-size: 0.9rem;
+        }
+      }
+      .node__content {
+        padding: 2rem 1rem 1rem;
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
 }
 
 /* Control image width */
@@ -142,7 +158,6 @@
     }
     .is-full {
       .main-caption {
-        /* The left/right margin is to keep caption away from share icons. */
         margin: 0.5rem 7rem auto;
         color: $black;
       }
