@@ -30,21 +30,21 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
   protected $conf;
 
   /**
-   * Node Type Options.
+   * Array of Node Types, used to choose which to import into.
    *
    * @var EtypeXMLImporterConfigForm
    */
   protected $nodeTypeOptions = [];
 
   /**
-   * Fields.
+   * Fields, array of field names associated with selected content type.
    *
    * @var EtypeXMLImporterConfigForm
    */
   protected $fields = [];
 
   /**
-   * Formats.
+   * Formats, deprecated.
    *
    * @var EtypeXMLImporterConfigForm
    */
@@ -75,13 +75,17 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
    * Get the fields associated with selected node type.
    */
   protected function getFields() {
+    /* fields is array of names of fields in nodeType */
     $fields = $this->conf->get('fields');
     /* If set, use setting. */
     if (is_array($fields) && count($fields) > 0) {
       $this->fields = $fields;
     }
     else {
-      /* Check for nodeType */
+      /* Check for nodeType. If it exists load a node */
+      /* Use that to get nodeType FieldDefinitions */
+      /* fields is array of FieldDefinitions keys */
+      /* Used to build options array to select byline and subhead fields for import. */
       $type = $this->conf->get('nodeType');
       if (!empty($type)) {
         $nids = Drupal::entityQuery('node')
