@@ -42,30 +42,6 @@
     font-weight: bold;
     font-style: italic; }
 
-/* Mobile */
-@media screen and (max-width: 467px) {
-  .page-node-type-article article {
-    /* Control image width */ }
-    .page-node-type-article article .field--name-field-image {
-      float: none;
-      margin-right: 0;
-      margin-top: 0;
-      margin-bottom: 0.75rem;
-      width: 100%; }
-
-  .page-node-type-feature article .is-full .main-caption {
-    margin: 0.5rem;
-    font-size: 0.9rem; }
-  .page-node-type-feature article .is-full .node__content > .field {
-    margin: 2rem 1rem 1rem; }
-  .page-node-type-feature article .is-full .node__content > .field--name-body {
-    margin: 0; }
-    .page-node-type-feature article .is-full .node__content > .field--name-body p, .page-node-type-feature article .is-full .node__content > .field--name-body blockquote {
-      margin: 1rem; } }
-/* Control image width */
-@media screen and (min-width: 466px) {
-  .page-node-type-article article .field--name-field-image {
-    max-width: 70%; } }
 /* Feature formatting. */
 .page-node-type-feature {
   /* Hide system page title */ }
@@ -207,5 +183,29 @@
       margin: 0.75rem 4rem 0.75rem 4rem; }
       .page-node-type-feature article .is-full .node__content .field--name-body blockquote p {
         margin: 0 0 0.75rem 0; } }
+/* Control image width */
+@media screen and (min-width: 466px) {
+  .page-node-type-article article .field--name-field-image {
+    max-width: 70%; } }
+/* Mobile */
+@media screen and (max-width: 467px) {
+  .page-node-type-article article {
+    /* Control image width */ }
+    .page-node-type-article article .field--name-field-image {
+      float: none;
+      margin-right: 0;
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      width: 100%; }
+
+  .page-node-type-feature article .is-full .main-caption {
+    margin: 0.5rem;
+    font-size: 0.9rem; }
+  .page-node-type-feature article .is-full .node__content > .field {
+    margin: 2rem 1rem 1rem; }
+  .page-node-type-feature article .is-full .node__content > .field--name-body {
+    margin: 0; }
+    .page-node-type-feature article .is-full .node__content > .field--name-body p, .page-node-type-feature article .is-full .node__content > .field--name-body blockquote {
+      margin: 1rem; } }
 
 /*# sourceMappingURL=content.css.map */

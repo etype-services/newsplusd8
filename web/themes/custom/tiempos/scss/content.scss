@@ -35,6 +35,7 @@
     }
   }
 }
+
 /* Article formatting. */
 .page-node-type-article {
   #block-pagetitle-2 {
@@ -58,52 +59,6 @@
           font-weight: bold;
           font-style: italic;
         }
-      }
-    }
-  }
-}
-
-/* Mobile */
-@media screen and (max-width: $mobile) {
-  .page-node-type-article {
-    article {
-      /* Control image width */
-      .field--name-field-image {
-        float: none;
-        margin-right: 0;
-        margin-top: 0;
-        margin-bottom: 0.75rem;
-        width: 100%;
-      }
-    }
-  }
-  .page-node-type-feature {
-    article {
-      .is-full {
-        .main-caption {
-          margin: 0.5rem;
-          font-size: 0.9rem;
-        }
-        .node__content > .field {
-          margin: 2rem 1rem 1rem;
-        }
-        .node__content > .field--name-body {
-          margin: 0;
-          p, blockquote {
-            margin: 1rem;
-          }
-        }
-      }
-    }
-  }
-}
-
-/* Control image width */
-@media screen and (min-width: $mobile - 1px ) {
-  .page-node-type-article {
-    article {
-      .field--name-field-image {
-        max-width: 70%;
       }
     }
   }
@@ -306,6 +261,52 @@
                 margin: 0 0 $column-gap 0;
               }
             }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Control image width */
+@media screen and (min-width: $mobile - 1px ) {
+  .page-node-type-article {
+    article {
+      .field--name-field-image {
+        max-width: 70%;
+      }
+    }
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: $mobile) {
+  .page-node-type-article {
+    article {
+      /* Control image width */
+      .field--name-field-image {
+        float: none;
+        margin-right: 0;
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+        width: 100%;
+      }
+    }
+  }
+  .page-node-type-feature {
+    article {
+      .is-full {
+        .main-caption {
+          margin: 0.5rem;
+          font-size: 0.9rem;
+        }
+        .node__content > .field {
+          margin: 2rem 1rem 1rem;
+        }
+        .node__content > .field--name-body {
+          margin: 0;
+          p, blockquote {
+            margin: 1rem;
           }
         }
       }
