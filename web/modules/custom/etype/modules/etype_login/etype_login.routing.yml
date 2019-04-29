@@ -1,0 +1,7 @@
+etype_xml_importer.etype_login:
+  path: '/etype-login'
+  defaults:
+    _title: 'Subscriber Login'
+    _form: '\Drupal\etype_login\Form\EtypeLoginForm'
+  requirements:
+    _permission: 'access content'

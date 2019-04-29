@@ -41,6 +41,26 @@ function tiempos_preprocess_node(&$variables) {
   }
 }
 
+/**
+ * @inheritDoc
+ *
+ * @param $variables
+ */
+function tiempos_preprocess_input(&$variables) {
+  /* Add bulma classes to form elements. */
+  switch($variables['attributes']['type']) {
+    case "submit":
+      $variables['attributes']['class'][] = 'button';
+      $variables['attributes']['class'][] = 'is-link';
+      break;
+
+    case "text":
+    case "password":
+    $variables['attributes']['class'][] = 'input';
+  }
+
+}
+
 
 /**
  * Implements hook_theme_suggestions_page_alter().
