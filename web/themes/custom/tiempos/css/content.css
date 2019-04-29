@@ -182,6 +182,7 @@
       margin: 0 4rem 0.75rem 4rem; }
 
   .page-node-type-article article .field--name-body blockquote {
-    margin-left: 0.5rem; } }
+    margin-left: 0.5rem;
+    margin-right: 0; } }
 
 /*# sourceMappingURL=content.css.map */
