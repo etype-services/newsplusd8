@@ -151,8 +151,9 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
    */
   protected function getSections() {
     $field = $this->conf->get('field');
+    /* First time loading form $this->conf->get('field') might not be set */
     if (!empty($field)) {
-      $this->fieldName = $this->fieldDefinitions[$this->conf->get('field')];
+      $this->fieldName = $this->fieldDefinitions[$field];
       $term = Term::load($this->node->get($this->fieldName)->target_id);
       $vid = $term->bundle();
       $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree($vid);
