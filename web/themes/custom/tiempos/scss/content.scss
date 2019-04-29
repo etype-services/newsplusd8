@@ -30,7 +30,7 @@
 .field--name-field-tags {
   display: flex;
   .field__label {
-    margin-right: $column-gap;
+    margin-right: 0.2rem;
     &:after {
       content: ":";
     }
@@ -38,7 +38,7 @@
   .field__items {
     display: flex;
     .field__item {
-      margin-right: $column-gap;
+      margin-right: 0.2rem;
     }
   }
 }
