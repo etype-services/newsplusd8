@@ -48,7 +48,10 @@ class EtypeClassifiedImporterConfigForm extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-    $form['#markup'] = "Enable and edit import cron job at the <a href=\"/admin/config/system/cron/jobs/manage/etype_classified_importer_cron\">cron settings page</a>.";
+    $form['help'] = [
+      '#type' => 'item',
+      '#markup' => t('Enable and edit import cron job at the <a href="/admin/config/system/cron/jobs/manage/etype_classified_importer_cron">cron settings page</a>.'),
+    ];
 
     $form['import_url'] = [
       '#type' => 'textfield',

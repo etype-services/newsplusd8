@@ -213,7 +213,10 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
     $data = unserialize($result[0]->data);
     $options = $data['cluster'];
 
-    $form['groups']['#markup'] = "Enable and edit import cron job at the <a href=\"/admin/config/system/cron/jobs/manage/etype_wire_content_cron\">cron settings page</a>.";
+    $form['help'] = [
+      '#type' => 'item',
+      '#markup' => t('Enable and edit import cron job at the <a href="/admin/config/system/cron/jobs/manage/etype_wire_content_cron">cron settings page</a>.'),
+    ];
 
     /* Group settings. */
     $form['groups'] = [
