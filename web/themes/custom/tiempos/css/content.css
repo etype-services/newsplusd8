@@ -124,7 +124,7 @@
           color: #0a0a0a;
           text-align: center; }
       .page-node-type-feature article .is-full .node__content .field--name-body blockquote {
-        ffont-size: 1.6rem;
+        font-size: 1.4rem;
         font-weight: bold;
         margin-right: 3rem;
         margin-left: -3rem;
@@ -187,10 +187,7 @@
     .page-node-type-feature article .is-full .node__content p {
       margin: 0 4rem 0.75rem 4rem; }
     .page-node-type-feature article .is-full .node__content .field--name-body blockquote {
-      ffont-size: 1.6rem;
-      font-weight: bold;
       margin-right: 0.5rem;
-      margin-left: 0.5rem;
-      font-style: italic; } }
+      margin-left: 0.5rem; } }
 
 /*# sourceMappingURL=content.css.map */
