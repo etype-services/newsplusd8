@@ -264,4 +264,13 @@
       }
     }
   }
+  .page-node-type-article {
+    article {
+      .field--name-body {
+        blockquote {
+          margin-left: 0.5rem;
+        }
+      }
+    }
+  }
 }

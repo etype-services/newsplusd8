@@ -179,6 +179,9 @@
   .page-node-type-feature article .is-full .node__content {
     padding-top: 2rem; }
     .page-node-type-feature article .is-full .node__content p {
-      margin: 0 4rem 0.75rem 4rem; } }
+      margin: 0 4rem 0.75rem 4rem; }
+
+  .page-node-type-article article .field--name-body blockquote {
+    margin-left: 0.5rem; } }
 
 /*# sourceMappingURL=content.css.map */
