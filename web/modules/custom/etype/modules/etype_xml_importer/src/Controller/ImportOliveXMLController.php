@@ -224,7 +224,7 @@ class ImportOliveXMLController {
 
         foreach ($entries as $entry) {
           $this->i = 0;
-          $markup .= "<p>Extracting articles from $entry.</p>";
+          $markup .= "<p>Extracting articles from $entry.<br />";
 
           $xml = file_get_contents((string) $this->extractDir . $entry);
 
@@ -251,13 +251,14 @@ class ImportOliveXMLController {
               }
             }
           }
-          $markup .= "<p>eType XML Importer found $this->i articles to import.</p>";
+          $markup .= "eType XML Importer found $this->i articles to import in $entry.</p>";
           $t += $this->i;
         } /* end foreach $entry */
       }
     }
 
     $message = 'eType XML Importer imported $t articles.';
+    $markup .= "<p>$message</p>";
     Drupal::logger('my_module')->notice($message);
     return ['#markup' => $markup];
   }
