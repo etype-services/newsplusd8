@@ -31,11 +31,11 @@
   margin-top: 0.4rem;
   margin-bottom: 0; }
 .page-node-type-article article .field--name-body blockquote {
-  font-size: 1.6rem;
-  font-weight: bold;
-  margin-right: 3rem;
-  margin-left: 0.5rem;
-  font-style: italic; }
+  margin: 0.75rem 3rem 0.75rem 0.5rem; }
+  .page-node-type-article article .field--name-body blockquote p {
+    font-size: 1.6rem;
+    font-weight: bold;
+    font-style: italic; }
 
 /* Control image width */
 @media screen and (max-width: 467px) {
@@ -127,7 +127,7 @@
         margin: 0.75rem 4rem 0.75rem 8rem; }
         .page-node-type-feature article .is-full .node__content .field--name-body blockquote p {
           margin: 0 0 0.75rem 0;
-          font-size: 1.4rem;
+          font-size: 1.6rem;
           font-weight: bold;
           font-style: italic; }
     .page-node-type-feature article .node__submitted a {
