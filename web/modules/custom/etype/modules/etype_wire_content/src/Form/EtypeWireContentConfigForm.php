@@ -160,7 +160,9 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
               $term_data[$term->tid] = $term->name;
             }
             $this->sections = $term_data;
-            if (count($this->conf->get('sections')) == 0) {
+            $arr = $this->conf->get('sections');
+            kint($arr);
+            if (count() == 0) {
               $this->conf->set('sections', $this->sections);
             }
           }
