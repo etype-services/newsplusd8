@@ -59,51 +59,30 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
   /**
    * The config settings.
    *
-   * @var EtypeWireContentConfigForm
+   * @var object
    */
   protected $conf;
 
   /**
+   * Random node used to get fieldDefinitions and sections.
+   *
+   * @var Object
+   */
+  protected $node;
+
+  /**
    * Node Types for select.
    *
-   * @var EtypeWireContentConfigForm
+   * @var array
    */
   protected $nodeTypeOptions = [];
 
   /**
-   * Fields attached to selected Node Type.
-   *
-   * @var EtypeWireContentConfigForm
-   */
-  protected $fields = [];
-
-  /**
-   * Field definitions for content type.
-   *
-   * @var EtypeWireContentConfigForm
-   */
-  protected $fieldDefinitions = [];
-
-  /**
-   * Fieldname attached to taxonomy, to get sections.
-   *
-   * @var EtypeWireContentConfigForm
-   */
-  protected $fieldName = '';
-
-  /**
    * Sections to filter export.
    *
-   * @var EtypeWireContentConfigForm
+   * @var array
    */
   protected $sections = [];
-
-  /**
-   * Any node, used to get info.
-   *
-   * @var EtypeWireContentConfigForm
-   */
-  protected $node = [];
 
   /**
    * EtypeWireContentConfigForm constructor.
@@ -114,15 +93,15 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
     $this->conf = $this->config('etype_wire_content.settings');
     $this->entityFieldManager = Drupal::service('entity_field.manager');
     $this->entityTypeManager = Drupal::service('entity_type.manager');
-    $this->getnodeTypeOptions();
-    $this->getSections();
-    $this->getFields();
+    $this->setnodeTypeOptions();
+    $this->setNode();
+    $this->setSections();
   }
 
   /**
    * Get node types and make options array.
    */
-  protected function getnodeTypeOptions() {
+  protected function setnodeTypeOptions() {
     $node_types = NodeType::loadMultiple();
     foreach ($node_types as $node_type) {
       $this->nodeTypeOptions[$node_type->id()] = $node_type->label();
@@ -132,41 +111,38 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
   /**
    * Get the fields associated with selected node type.
    *
+   * Using to set the node object.
+   * Getting strange errors when attemtpting to loogk over field definitions.
+   *
    * Apparently node::load is better than any entityFieldQuery.
    */
-  protected function getFields() {
-    foreach ($this->fieldDefinitions as $key) {
-      $this->fields[] = $key;
+  protected function setNode() {
+    $nids = Drupal::entityQuery('node')
+      ->condition('type', $this->conf->get('nodeType'))
+      ->condition('field_section', 0, '>')
+      ->range('0', '1')
+      ->execute();
+    $nid = reset($nids);
+    if (isset($nid)) {
+      $node = Node::Load($nid);
+      if (is_object($node)) {
+        $this->node = $node;
+        /* Gives strange array_flip error */
+        /* $arr = $node->getFieldDefinitions();
+        foreach ($arr as $k => $v) {
+        $this->fields[] = $k;
+         */
+      }
     }
   }
 
   /**
    * Get terms for related taxonomy.
    */
-  protected function getSections() {
-    $fieldDefinitions = $this->conf->get('fieldDefinitions');
+  protected function setSections() {
     $field = $this->conf->get('field');
-    if (is_array($fieldDefinitions) && count($fieldDefinitions) > 0) {
-      $this->fieldDefinitions = $fieldDefinitions;
-    }
-    else {
-      /* First time loading form $this->conf->get('field') might not be set */
-      if (!empty($field)) {
-        $nids = Drupal::entityQuery('node')
-          ->condition('type', $this->conf->get('nodeType'))
-          ->range('0', '1')
-          ->execute();
-        $nid = reset($nids);
-        if (isset($nid)) {
-          if (is_object($this->node)) {
-            $this->fieldDefinitions = array_keys($this->node->getFieldDefinitions());
-          }
-        }
-      }
-    }
-    if (is_array($fieldDefinitions) && count($fieldDefinitions) > 0) {
-      $this->fieldName = $this->fieldDefinitions[$field];
-      $term = Term::load($this->node->get($this->fieldName)->target_id);
+    if (!empty($field)) {
+      $term = Term::load($this->node->get($field)->target_id);
       if ($term != NULL) {
         $vid = $term->bundle();
         $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree($vid);
@@ -175,6 +151,9 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
           $term_data[$term->tid] = $term->name;
         }
         $this->sections = $term_data;
+        if (count($this->conf->get('sections')) == 0) {
+          $this->conf->set('sections', $this->sections);
+        }
       }
     }
   }
@@ -249,15 +228,14 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
     $form['settings']['nodeType'] = array(
       '#type' => 'select',
       '#title' => t('Choose which content type to import and export.'),
-      '#default_value' => $this->conf->get('nodeType') ?: 'article',
+      '#default_value' => $this->conf->get('nodeType'),
       '#options' => $this->nodeTypeOptions,
     );
 
     $form['settings']['field'] = array(
-      '#type' => 'select',
-      '#title' => t('Choose which field to use to filter exports.'),
-      '#default_value' => $this->conf->get('field') ?: 'field_section',
-      '#options' => $this->fields,
+      '#type' => 'textfield',
+      '#title' => t('Enter the machine_name field to use to filter exports.'),
+      '#default_value' => $this->conf->get('field'),
     );
 
     if (count($this->sections) > 1) {
@@ -281,8 +259,6 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
       ->set('groups', $form_state->getValue('groups'))
       ->set('nodeType', $form_state->getValue('nodeType'))
       ->set('field', $form_state->getValue('field'))
-      ->set('fieldDefinitions', $this->fieldDefinitions)
-      ->set('fieldName', $this->fieldName)
       ->set('sections', $form_state->getValue('sections'))
       ->save();
   }
