@@ -138,9 +138,9 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
 
 
     $form['importUrls'] = [
-      '#type' => 'textfield',
+      '#type' => 'textarea',
       '#title' => $this->t('Import Urls(s)'),
-      '#description' => $this->t('Enter the full url or urls from which to import XML. Separate multiple files with a comma.'),
+      '#description' => $this->t('Enter the full url or urls from which to import XML. PUt multiple files on separate lines.'),
       '#size' => 55,
       '#default_value' => $this->conf->get('importUrls'),
       '#required' => TRUE,
