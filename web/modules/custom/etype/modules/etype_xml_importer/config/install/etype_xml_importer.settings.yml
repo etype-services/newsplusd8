@@ -1,2 +1,2 @@
-import_url: 'http://www.etypeclassifieds.com/'
-classified_map: ''
+node_type: 'article'
+import_files: 'http://www.etypeclassifieds.com/'

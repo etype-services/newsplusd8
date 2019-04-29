@@ -5,6 +5,7 @@ namespace Drupal\etype_xml_importer\Form;
 use Drupal;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\Entity\Node;
 use Drupal\node\Entity\NodeType;
 
 /**
@@ -22,24 +23,30 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
   protected $entityFieldManager;
 
   /**
-   * The entity field manager.
+   * Config.
    *
-   * @var \Drupal\etype_xml_importer\Form
+   * @var EtypeXMLImporterConfigForm
    */
   protected $conf;
 
   /**
-   * @var
+   * Node Type Options.
+   *
+   * @var EtypeXMLImporterConfigForm
    */
   protected $nodeTypeOptions = [];
 
   /**
-   * @var
+   * Fields.
+   *
+   * @var EtypeXMLImporterConfigForm
    */
   protected $fields = [];
 
   /**
-   * @var array
+   * Formats.
+   *
+   * @var EtypeXMLImporterConfigForm
    */
   protected $formats = [];
 
@@ -68,10 +75,18 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
    * Get the fields associated with selected node type.
    */
   protected function getFields() {
-    $fields = $this->entityFieldManager->getFieldDefinitions('node', $this->conf->get('node_type'));
-    $arr = array_keys($fields);
-    foreach ($arr as $key) {
-      $this->fields[] = $key;
+    $type = $this->conf->get('content_type');
+    if (!empty($type)) {
+      $nids = Drupal::entityQuery('node')
+        ->condition('type', $this->conf->get('content_type'))
+        ->range('0', '1')
+        ->execute();
+      $node = Node::load($nids[1]);
+      $fieldDefinitions = array_keys($node->getFieldDefinitions());
+      $this->fields[] = "None";
+      foreach ($fieldDefinitions as $key) {
+        $this->fields[] = $key;
+      }
     }
   }
 
@@ -107,16 +122,10 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-    /* importer settings */
-    $form['importer'] = [
-      '#type' => 'fieldset',
-      '#title' => $this->t('Basic configuration'),
-    ];
-
-    $form['importer']['#markup'] = "Enable and edit import cron job at the <a href=\"/admin/config/system/cron/jobs/manage/etype_xml_importer_cron\">cron settings page</a>.";
+    $form['#markup'] = "Enable and edit import cron job at the <a href=\"/admin/config/system/cron/jobs/manage/etype_xml_importer_cron\">cron settings page</a>.";
 
 
-    $form['importer']['import_files'] = [
+    $form['import_files'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Import File(s)'),
       '#description' => $this->t('Enter the file name or names to import. Separate multiple files with a comma.'),
@@ -125,49 +134,31 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       '#required' => TRUE,
     ];
 
-    $form['importer']['subhead_field'] = [
-      '#title' => $this->t('Subhead field'),
-      '#type' => 'select',
-      '#description' => 'The Drupal field to use for the imported subhead.',
-      '#options' => $this->fields,
-      '#default_value' => $this->conf->get('subhead_field'),
-    ];
-
-    $form['importer']['byline_field'] = [
-      '#title' => $this->t('Byline field'),
-      '#type' => 'select',
-      '#description' => 'The Drupal field to use for the imported byline.',
-      '#options' => $this->fields,
-      '#default_value' => $this->conf->get('byline_field'),
-    ];
-
-
-    /* advanced importer settings */
-    $form['importer_advanced'] = [
-      '#type' => 'fieldset',
-      '#title' => $this->t('Advanced configuration'),
-      '#collapsible' => TRUE,
-      '#collapsed' => FALSE,
-    ];
-
-    $form['importer_advanced']['import_url'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Base Import Url'),
-      '#description' => $this->t('Url from which to import xml.'),
-      '#size' => 55,
-      '#default_value' => $this->conf->get('import_url'),
-      '#required' => TRUE,
-    ];
-
-    $form['importer_advanced']['node_type'] = [
+    $form['content_type'] = [
       '#title' => $this->t('Content Type'),
       '#type' => 'select',
       '#description' => $this->t('Choose a content type into which to import stories.'),
       '#options' => $this->nodeTypeOptions,
-      '#default_value' => $this->conf->get('node_type'),
+      '#default_value' => $this->conf->get('content_type'),
     ];
 
-    $form['importer_advanced']['import_classifieds'] = [
+    $type = $this->conf->get('content_type');
+    if (!empty($type)) {
+      $form['subhead_field'] = [
+        '#title' => $this->t('Subhead field'),
+        '#type' => 'select',
+        '#description' => 'The Drupal field to use for the imported subhead.',
+        '#options' => $this->fields,
+        '#default_value' => $this->conf->get('subhead_field'),
+      ];
+
+      $form['byline_field'] = [
+        '#type' => 'hidden',
+        '#default_value' => $this->conf->get('byline_field'),
+      ];
+    }
+
+    $form['import_classifieds'] = [
       '#title' => $this->t('Check to import Olive classified section.'),
       '#type' => 'checkbox',
       '#default_value' => $this->conf->get('import_classifieds'),
@@ -198,7 +189,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
     $this->config('etype_xml_importer.settings')
       ->set('import_files', $form_state->getValue('import_files'))
       ->set('import_url', $form_state->getValue('import_url'))
-      ->set('node_type', $form_state->getValue('node_type'))
+      ->set('content_type', $form_state->getValue('content_type'))
       ->set('subhead_field', $form_state->getValue('subhead_field'))
       ->set('byline_field', $form_state->getValue('byline_field'))
       ->set('import_classifieds', $form_state->getValue('import_classifieds'))
