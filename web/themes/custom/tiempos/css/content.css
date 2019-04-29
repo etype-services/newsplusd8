@@ -49,10 +49,8 @@
   .page-node-type-feature article .is-full .main-caption {
     margin: 0.5rem;
     font-size: 0.9rem; }
-  .page-node-type-feature article .node__content {
-    padding: 2rem 1rem 1rem; }
-    .page-node-type-feature article .node__content p {
-      margin: 0; } }
+  .page-node-type-feature article .is-full .node__content > * {
+    margin: 2rem 1rem 1rem; } }
 /* Control image width */
 @media screen and (min-width: 466px) {
   .page-node-type-article article .field--name-field-image {
