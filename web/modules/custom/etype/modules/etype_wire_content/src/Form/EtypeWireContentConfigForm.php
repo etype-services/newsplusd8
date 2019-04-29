@@ -144,7 +144,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
    * Get terms for related taxonomy.
    */
   protected function getSections() {
-    $fieldDefinitions = $field = $this->conf->get('fieldDefinitions');
+    $fieldDefinitions = $this->conf->get('fieldDefinitions');
     if (is_array($fieldDefinitions) && count($fieldDefinitions) > 0) {
       $this->fieldDefinitions = $fieldDefinitions;
     }
@@ -158,9 +158,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
           ->range('0', '1')
           ->execute();
         $nid = reset($nids);
-        kint($nid);
         if (isset($nid)) {
-          $this->node = Node::load($nid);
           if (is_object($this->node)) {
             $this->fieldDefinitions = array_keys($this->node->getFieldDefinitions());
             $this->fieldName = $this->fieldDefinitions[$field];
