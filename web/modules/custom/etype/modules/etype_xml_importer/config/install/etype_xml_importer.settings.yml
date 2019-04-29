@@ -1,2 +1,2 @@
-node_type: 'article'
-import_files: 'http://www.etypeclassifieds.com/'
+nodeType: 'article'
+importUrls: 'http://olivexml.etypeservices.com/olivexml/'

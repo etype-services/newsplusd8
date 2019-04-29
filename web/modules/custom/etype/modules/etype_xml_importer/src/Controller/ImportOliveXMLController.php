@@ -36,23 +36,6 @@ class ImportFileMissingException extends Exception {
 }
 
 /**
- * Class ImportUrlMissingException.
- *
- * @package Drupal\etype_xml_importer\Controller
- */
-class ImportUrlMissingException extends Exception {
-
-  /**
-   * Constructs an ImportUrlMissingException.
-   */
-  public function __construct() {
-    $message = new TranslatableMarkup('No import url defined. See eType XML Importer settings.');
-    parent::__construct($message);
-  }
-
-}
-
-/**
  * Class XMLIsFalseException.
  *
  * @package Drupal\etype_xml_importer\Controller
@@ -88,7 +71,7 @@ class ImportOliveXMLController {
    *
    * @var ImportOliveXMLController
    */
-  protected $importFiles;
+  protected $importUrls;
 
   /**
    * Var Setup.
@@ -110,13 +93,6 @@ class ImportOliveXMLController {
    * @var ImportOliveXMLController
    */
   protected $subheadField;
-
-  /**
-   * Var Setup.
-   *
-   * @var ImportOliveXMLController
-   */
-  protected $importUrl;
 
   /**
    * Var Setup.
@@ -165,8 +141,7 @@ class ImportOliveXMLController {
    */
   public function __construct() {
     $this->config = Drupal::config('etype_xml_importer.settings');
-    $this->importUrl = $this->config->get('importUrl');
-    $this->importFiles = $this->config->get('importFiles');
+    $this->importUrls = $this->config->get('importUrls');
     $this->nodeType = $this->config->get('nodeType');
     $this->langCode = 'en';
     $this->bylineField = $this->config->get('bylineField');
@@ -188,20 +163,9 @@ class ImportOliveXMLController {
    */
   public function importOliveXml() {
 
-    /* throw Exception and return empty page with message if no url to import from */
-    try {
-      if (empty($this->importUrl)) {
-        throw new ImportUrlMissingException();
-      }
-    }
-    catch (ImportUrlMissingException $e) {
-      $this->messenger->addMessage($e->getMessage(), $this->messenger::TYPE_ERROR);
-      return ['#markup' => ''];
-    }
-
     /* throw Exception and return empty page with message if no file to import */
     try {
-      if (empty($this->importFiles)) {
+      if (empty($this->importUrls)) {
         throw new ImportFileMissingException();
       }
     }
@@ -213,7 +177,7 @@ class ImportOliveXMLController {
     /* initialize markup */
     $markup = '';
 
-    $import_file_array = explode(',', $this->importFiles);
+    $import_file_array = explode(',', $this->importUrls);
 
     /* loop over import files */
     foreach ($import_file_array as $item) {
@@ -224,7 +188,7 @@ class ImportOliveXMLController {
       $this->extractDir = '/tmp/' . $rand . '/';
 
       /* Copy Zip file from url */
-      $import_file = $this->importUrl . trim($item);
+      $import_file = trim($item);
       if (!file_put_contents($zip_file, file_get_contents($import_file))) {
         $message = "eType XML Importer could not import " . $import_file . ".";
         $this->messenger->addMessage($message, $this->messenger::TYPE_WARNING);
@@ -407,9 +371,13 @@ class ImportOliveXMLController {
         'title' => Encoding::toUTF8($array['title']),
         'summary' => strip_tags(Encoding::toUTF8($array['description'])),
         'body' => Encoding::toUTF8($array['body']),
-        $this->bylineField => substr(Encoding::toUTF8($array['byline']), 0, 255),
-        $this->subheadField => Encoding::toUTF8($array['slugline']),
       );
+      if ($this->bylineField !== "None") {
+        $node[$this->bylineField] = substr(Encoding::toUTF8($array['byline']), 0, 255);
+      }
+      if ($this->subheadField !== "None") {
+        $node[$this->subheadField] = Encoding::toUTF8($array['slugline']);
+      }
 
       $array = [];
       if (count($images) > 0) {
