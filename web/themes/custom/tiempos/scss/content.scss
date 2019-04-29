@@ -28,7 +28,6 @@
 /* CONTENT */
 
 .field--name-field-tags {
-  margin: 0 2rem $column-gap 2rem;
   .field__items {
     display: flex;
     .field__item {
@@ -61,6 +60,9 @@
           font-style: italic;
         }
       }
+    }
+    .field--name-field-tags {
+      margin-top: 4rem;
     }
   }
 }
@@ -167,6 +169,9 @@
             }
           }
         }
+        .field--name-field-tags {
+          margin: 4rem 4rem $column-gap 13rem;
+        }
       }
     }
     .node__submitted {
@@ -261,6 +266,9 @@
                 margin: 0 0 $column-gap 0;
               }
             }
+          }
+          .field--name-field-tags {
+            margin: 3rem 4rem $column-gap 4rem;
           }
         }
       }
