@@ -31,7 +31,7 @@
   margin-top: 0.4rem;
   margin-bottom: 0; }
 .page-node-type-article article .field--name-body blockquote {
-  font-size: large;
+  font-size: 1.6rem;
   font-weight: bold;
   margin-right: 3rem;
   margin-left: 0.5rem;
@@ -124,10 +124,10 @@
           color: #0a0a0a;
           text-align: center; }
       .page-node-type-feature article .is-full .node__content .field--name-body blockquote {
-        font-size: large;
+        ffont-size: 1.6rem;
         font-weight: bold;
         margin-right: 3rem;
-        margin-left: 0.5rem;
+        margin-left: -3rem;
         font-style: italic; }
     .page-node-type-feature article .node__submitted a {
       color: whitesmoke; }
@@ -185,6 +185,12 @@
   .page-node-type-feature article .is-full .node__content {
     padding-top: 2rem; }
     .page-node-type-feature article .is-full .node__content p {
-      margin: 0 4rem 0.75rem 4rem; } }
+      margin: 0 4rem 0.75rem 4rem; }
+    .page-node-type-feature article .is-full .node__content .field--name-body blockquote {
+      ffont-size: 1.6rem;
+      font-weight: bold;
+      margin-right: 0.5rem;
+      margin-left: 0.5rem;
+      font-style: italic; } }
 
 /*# sourceMappingURL=content.css.map */
