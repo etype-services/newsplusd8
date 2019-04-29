@@ -4,7 +4,12 @@
  * eType Classified Importer module file.
  */
 
+/**
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
 function _classified_importer() {
-  $job = new \Drupal\etype_classified_importer\Controller\ImportClassifiedController;
+  $job = new Drupal\etype_classified_importer\Controller\ImportClassifiedController;
   $job->importClassifiedXml();
 }
