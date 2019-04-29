@@ -20,10 +20,16 @@
   display: none !important; }
 
 /* CONTENT */
-.field--name-field-tags .field__items {
+.field--name-field-tags {
   display: flex; }
-  .field--name-field-tags .field__items .field__item {
+  .field--name-field-tags .field__label {
     margin-right: 0.75rem; }
+    .field--name-field-tags .field__label:after {
+      content: ":"; }
+  .field--name-field-tags .field__items {
+    display: flex; }
+    .field--name-field-tags .field__items .field__item {
+      margin-right: 0.75rem; }
 
 /* Article formatting. */
 .page-node-type-article #block-pagetitle-2 {

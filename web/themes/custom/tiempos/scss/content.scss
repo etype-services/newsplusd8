@@ -28,6 +28,13 @@
 /* CONTENT */
 
 .field--name-field-tags {
+  display: flex;
+  .field__label {
+    margin-right: $column-gap;
+    &:after {
+      content: ":";
+    }
+  }
   .field__items {
     display: flex;
     .field__item {
