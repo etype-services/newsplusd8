@@ -28,9 +28,10 @@
 /* CONTENT */
 
 .field--name-field-tags {
+  margin: 0 2rem $column-gap 2rem;
   .field__items {
     display: flex;
-    .field-item {
+    .field__item {
       margin-right: $column-gap;
     }
   }
