@@ -145,15 +145,13 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
    */
   protected function getSections() {
     $fieldDefinitions = $this->conf->get('fieldDefinitions');
-    kint($fieldDefinitions);
+    $field = $this->conf->get('field');
     if (is_array($fieldDefinitions) && count($fieldDefinitions) > 0) {
       $this->fieldDefinitions = $fieldDefinitions;
     }
     else {
-      $field = $this->conf->get('field');
       /* First time loading form $this->conf->get('field') might not be set */
       if (!empty($field)) {
-        kint($this->conf->get('nodeType'));
         $nids = Drupal::entityQuery('node')
           ->condition('type', $this->conf->get('nodeType'))
           ->range('0', '1')
@@ -162,19 +160,21 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
         if (isset($nid)) {
           if (is_object($this->node)) {
             $this->fieldDefinitions = array_keys($this->node->getFieldDefinitions());
-            $this->fieldName = $this->fieldDefinitions[$field];
-            $term = Term::load($this->node->get($this->fieldName)->target_id);
-            if ($term != NULL) {
-              $vid = $term->bundle();
-              $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree($vid);
-              $term_data = [];
-              foreach ($terms as $term) {
-                $term_data[$term->tid] = $term->name;
-              }
-              $this->sections = $term_data;
-            }
           }
         }
+      }
+    }
+    if (is_array($fieldDefinitions) && count($fieldDefinitions) > 0) {
+      $this->fieldName = $this->fieldDefinitions[$field];
+      $term = Term::load($this->node->get($this->fieldName)->target_id);
+      if ($term != NULL) {
+        $vid = $term->bundle();
+        $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree($vid);
+        $term_data = [];
+        foreach ($terms as $term) {
+          $term_data[$term->tid] = $term->name;
+        }
+        $this->sections = $term_data;
       }
     }
   }
