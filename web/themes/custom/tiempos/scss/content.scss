@@ -47,7 +47,7 @@
         font-size: large;
         font-weight: bold;
         margin-right: 3rem;
-        margin-left: -1rem;
+        margin-left: 0.5rem;
         font-style: italic;
       }
     }
@@ -260,16 +260,6 @@
           p {
             margin: 0 4rem $column-gap 4rem;
           }
-        }
-      }
-    }
-  }
-  .page-node-type-article {
-    article {
-      .field--name-body {
-        blockquote {
-          margin-left: 0.5rem;
-          margin-right: 0;
         }
       }
     }

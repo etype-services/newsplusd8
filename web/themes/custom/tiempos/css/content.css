@@ -34,7 +34,7 @@
   font-size: large;
   font-weight: bold;
   margin-right: 3rem;
-  margin-left: -1rem;
+  margin-left: 0.5rem;
   font-style: italic; }
 
 /* Control image width */
@@ -179,10 +179,6 @@
   .page-node-type-feature article .is-full .node__content {
     padding-top: 2rem; }
     .page-node-type-feature article .is-full .node__content p {
-      margin: 0 4rem 0.75rem 4rem; }
-
-  .page-node-type-article article .field--name-body blockquote {
-    margin-left: 0.5rem;
-    margin-right: 0; } }
+      margin: 0 4rem 0.75rem 4rem; } }
 
 /*# sourceMappingURL=content.css.map */
