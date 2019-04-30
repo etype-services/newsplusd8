@@ -1,0 +1,7 @@
+etype_login:
+  version: VERSION
+  js:
+    js/etype_login.js:
+  dependencies:
+    - core/drupal
+    - core/jquery.once
