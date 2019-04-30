@@ -3,12 +3,11 @@
 namespace Drupal\etype_login\Form;
 
 use Drupal;
+use Drupal\Core\Url;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\user\Entity\User;
-use Drupal\Core\Session\SessionManagerInterface;
 use SoapClient;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Class EtypeLoginForm.
@@ -25,30 +24,10 @@ class EtypeLoginForm extends FormBase {
   protected $config;
 
   /**
-   * The session manager service.
-   *
-   * @var \Drupal\Core\Session\SessionManagerInterface
-   */
-  protected $sessionManager;
-
-  /**
    * EtypeLoginForm constructor.
-   *
-   * @param \Drupal\Core\Session\SessionManagerInterface $session_manager
-   *   The session manager service.
    */
-  public function __construct(SessionManagerInterface $session_manager) {
+  public function __construct() {
     $this->config = $config = Drupal::config('etype.adminsettings');
-    $this->sessionManager = $session_manager;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function create(ContainerInterface $container) {
-    return new static(
-      $container->get('session_manager')
-    );
   }
 
   /**
@@ -92,11 +71,17 @@ class EtypeLoginForm extends FormBase {
   }
 
   /**
-   * {@inheritdoc}
+   * Submit handler.
+   *
+   * @param array $form
+   *   The form.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   The form state.
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   * @throws \SoapFault
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $validateSubscriberResult = 0;
-    $getSubscriberEmailResult = '';
     $username = $form_state->getValue('username');
     $password = $form_state->getValue('password');
 
@@ -122,49 +107,45 @@ class EtypeLoginForm extends FormBase {
         $response1 = $client1->GetSubscriberEmail($param1);
         $validateSubscriberResult = $response->ValidateSubscriberResult;
         $getSubscriberEmailResult = $response1->GetSubscriberEmailResult;
-        Drupal::messenger()->addMessage($validateSubscriberResult);
-        Drupal::messenger()->addMessage($getSubscriberEmailResult);
-        break;
-    }
 
-    switch ($validateSubscriberResult) {
-      case "-1":
-        $message1 = "It looks like your subscription has expired. <a href='https://www.etypeservices.com/Subscriber/SignIn.aspx?ReturnUrl=https://www.etypeservices.com/Subscriber/ReSubscribe.aspx?PubID=$pubId'>Re-subscribe now!</a> .";
-        Drupal::messenger()->addMessage($message1);
-        break;
+        switch ($validateSubscriberResult) {
+          case "-1":
+            $message1 = "It looks like your subscription has expired. <a href='https://www.etypeservices.com/Subscriber/SignIn.aspx?ReturnUrl=https://www.etypeservices.com/Subscriber/ReSubscribe.aspx?PubID=$pubId'>Re-subscribe now!</a> .";
+            Drupal::messenger()->addMessage($message1);
+            break;
 
-      case "-5":
-        Drupal::messenger()->addMessage($message);
-        break;
-
-      default:
-        $user = user_load_by_mail($getSubscriberEmailResult);
-        kint($user);
-        if ($user) {
-          $check = user_load_by_name($username);
-          if ($check == FALSE) {
-            $user = User::create();
-            $user->setPassword($password);
-            $user->enforceIsNew();
-            $user->setEmail($getSubscriberEmailResult);
-            $user->setUsername($username);
-            $user->save();
-            $newuser = User::load($user->id());
-            kint($newuser);
-            exit;
-            user_login_finalize($newuser);
-          }
-          else {
-            $message = "We can‘t create an account for you on this website because the user name $username already exists in this system. Please email <a href=\"mailto:support@etypeservices.com\">support@etypeservices.com</a> for assistance.";
+          case "-5":
             Drupal::messenger()->addMessage($message);
-          }
+            break;
+
+          default:
+            if (($user = user_load_by_mail($getSubscriberEmailResult)) === FALSE) {
+              $check = user_load_by_name($username);
+              if ($check == FALSE) {
+                $user = User::create();
+                $user->setPassword($password);
+                $user->enforceIsNew();
+                $user->setEmail($getSubscriberEmailResult);
+                $user->setUsername($username);
+                $user->activate();
+                $user->save();
+                user_login_finalize($user);
+              }
+              else {
+                $message = "We can‘t create an account for you on this website because the user name $username already exists in this system. Please email support@etypeservices.com for assistance.";
+                Drupal::messenger()->addMessage($message);
+              }
+            }
+            else {
+              $account = user_load_by_mail($getSubscriberEmailResult);
+              $user = User::load($account->id());
+              user_login_finalize($user);
+            }
+            $url = Url::fromRoute('<front>');
+            $form_state->setRedirectUrl($url);
         }
-        else {
-          echo "no";
-          kint($user);
-          exit;
-          //user_login_finalize($user);
-        }
+
+        break;
     }
   }
 
