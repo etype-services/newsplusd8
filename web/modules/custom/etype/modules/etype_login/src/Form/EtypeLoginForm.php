@@ -138,9 +138,10 @@ class EtypeLoginForm extends FormBase {
         break;
 
       default:
-        if ($user = user_load_by_mail($getSubscriberEmailResult) == FALSE) {
+        $user = user_load_by_mail($getSubscriberEmailResult);
+        kint($user);
+        if ($user) {
           $check = user_load_by_name($username);
-
           if ($check == FALSE) {
             $user = User::create();
             $user->setPassword($password);
@@ -149,6 +150,8 @@ class EtypeLoginForm extends FormBase {
             $user->setUsername($username);
             $user->save();
             $newuser = User::load($user->id());
+            kint($newuser);
+            exit;
             user_login_finalize($newuser);
           }
           else {
@@ -156,7 +159,12 @@ class EtypeLoginForm extends FormBase {
             Drupal::messenger()->addMessage($message);
           }
         }
-
+        else {
+          echo "no";
+          kint($user);
+          exit;
+          //user_login_finalize($user);
+        }
     }
   }
 
