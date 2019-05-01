@@ -5,3 +5,9 @@ etype_login:
   dependencies:
     - core/drupal
     - core/jquery.once
+
+global-styling:
+  version: VERSION
+  css:
+    state:
+      css/etype_login.css: {}

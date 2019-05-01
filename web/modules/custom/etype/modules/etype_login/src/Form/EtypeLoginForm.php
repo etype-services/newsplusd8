@@ -47,7 +47,6 @@ class EtypeLoginForm extends FormBase {
       '#title' => $this->t('User Name'),
       '#required' => TRUE,
       '#attributes' => ['tabindex' => 20],
-      '#default_value' => 'Jamculp',
     ];
 
     $form['password'] = [
@@ -55,7 +54,6 @@ class EtypeLoginForm extends FormBase {
       '#title' => $this->t('Password'),
       '#required' => TRUE,
       '#attributes' => ['tabindex' => 21],
-      '#default_value' => 'Bruno1941',
     ];
 
     $form['#attached']['library'][] = 'etype_login/etype_login';

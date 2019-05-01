@@ -1,10 +1,11 @@
 <?php
 
-use Drupal\Core\Form\FormStateInterface;
-
 /**
- * Implements hook_form_alter().
+ * Implements hook_page_attachments().
+ * css hides system login link.
+ *
+ * @param array $page
  */
-function etype_login_form_etype_login_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  //
+function etype_login_page_attachments(array &$page) {
+  $page['#attached']['library'][] = 'etype_login/global-styling';
 }

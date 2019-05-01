@@ -1,0 +1,3 @@
+.user-menu > [data-drupal-link-system-path="user/login"] {
+  display: none;
+}
