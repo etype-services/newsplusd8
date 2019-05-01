@@ -1,7 +1,7 @@
-etype_xml_importer.etype_login:
+etype_login.login:
   path: '/etype-login'
   defaults:
     _title: 'Subscriber Login'
     _form: '\Drupal\etype_login\Form\EtypeLoginForm'
   requirements:
-    _role: 'anonymous user'
+    _user_is_logged_in: 'FALSE'

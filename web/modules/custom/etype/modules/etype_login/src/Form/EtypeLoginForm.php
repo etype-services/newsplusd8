@@ -12,7 +12,7 @@ use SoapClient;
 /**
  * Class EtypeLoginForm.
  *
- * @package Drupal\etype_xml_importer\Form
+ * @package Drupal\etype_login\Form
  */
 class EtypeLoginForm extends FormBase {
 
