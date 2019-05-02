@@ -67,6 +67,16 @@
           font-style: italic;
         }
       }
+      figure {
+        margin-right: $column-gap;
+
+        figcaption {
+          font-family: $sans-serif;
+          font-size: $size-6;
+          font-style: oblique;
+          color: $black;
+        }
+      }
     }
     .field--name-field-tags {
       margin-top: 2rem;

@@ -47,6 +47,13 @@
     font-size: 1.6rem;
     font-weight: bold;
     font-style: italic; }
+.page-node-type-article article .field--name-body figure {
+  margin-right: 0.75rem; }
+  .page-node-type-article article .field--name-body figure figcaption {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+    font-style: oblique;
+    color: #0a0a0a; }
 .page-node-type-article article .field--name-field-tags {
   margin-top: 2rem; }
 
