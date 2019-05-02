@@ -52,6 +52,11 @@
     .node__meta {
       margin-bottom: calc(#{$column-gap} * 2);
     }
+    .flex-caption {
+      font-family: $sans-serif;
+      font-size: $size-7;
+      color: $black;
+    }
     .field--name-field-image {
       float: left;
       margin-right: 0.75rem;

@@ -36,6 +36,10 @@
   margin-bottom: 0; }
 .page-node-type-article article .node__meta {
   margin-bottom: calc(0.75rem * 2); }
+.page-node-type-article article .flex-caption {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  color: #0a0a0a; }
 .page-node-type-article article .field--name-field-image {
   float: left;
   margin-right: 0.75rem;
