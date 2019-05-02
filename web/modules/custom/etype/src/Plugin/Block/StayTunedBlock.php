@@ -7,15 +7,15 @@ use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Render\Markup;
 
 /**
- * Provides a Social Media Block.
+ * Provides a Stay Tuned Block.
  *
  * @Block(
  *   id = "socialmedia_block",
- *   admin_label = @Translation("Social Media Block for Tiempos theme"),
+ *   admin_label = @Translation("Social Media Icon Block for News+ theme"),
  *   category = @Translation("eType"),
  * )
  */
-class SocialMediaBlock extends BlockBase {
+class StayTunedBlock extends BlockBase {
 
   /**
    * {@inheritdoc}
@@ -28,12 +28,13 @@ class SocialMediaBlock extends BlockBase {
     $links = [];
     $links['facebook'] = $config->get('facebook');
     $links['twitter'] = $config->get('twitter');
-    $output = '';
+    $output = '<ul class="icons-list">';
     foreach ($links as $k => $v) {
       if (!empty($v)) {
-        $output .= "<a href=\"$v\" class=\"has-text-grey-dark\"><i class=\"fab fa-$k is-size-3\"></i></a>";
+        $output .= "<a href=\"$v\"></a><i class=\"fa fa-$k\"></i><span class=\"sr-only\">" . ucfirst($k) . "</span></a>";
       }
     }
+    $output .= '</ul>';
     return [
       '#children' => Markup::create($output),
     ];
