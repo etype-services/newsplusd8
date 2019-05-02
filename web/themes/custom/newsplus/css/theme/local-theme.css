@@ -1,4 +1,13 @@
 /* Use this file to override theme CSS rules */
+/* Header Icons and Search Positioning */
+#block-socialiconblockforheaderinnewstheme {
+  position: absolute; }
+
+#block-searchformdropdown {
+  position: absolute;
+  width: 100%;
+  padding: 0; }
+
 /* Second Sidebar */
 .region-sidebar-second {
   /* Most Recent Poll Block */ }
