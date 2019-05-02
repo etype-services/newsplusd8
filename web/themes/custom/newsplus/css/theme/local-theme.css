@@ -1,11 +1,11 @@
 /* Use this file to override theme CSS rules */
 /* Header Icons and Search Positioning */
 #block-socialiconblockforheaderinnewstheme {
-  position: absolute; }
+  float: left;
+  width: fit-content;
+  z-index: 9999; }
 
 #block-searchformdropdown {
-  position: absolute;
-  width: 100%;
   padding: 0; }
 
 /* Second Sidebar */
