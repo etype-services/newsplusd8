@@ -31,7 +31,7 @@ class StayTunedBlock extends BlockBase {
     $output = '<ul class="icons-list">';
     foreach ($links as $k => $v) {
       if (!empty($v)) {
-        $output .= "<a href=\"$v\"></a><i class=\"fa fa-$k\"></i><span class=\"sr-only\">" . ucfirst($k) . "</span></a>";
+        $output .= "<a href=\"$v\"><i class=\"fa fa-$k\"></i></a><span class=\"sr-only\">" . ucfirst($k) . "</span></a>";
       }
     }
     $output .= '</ul>';
