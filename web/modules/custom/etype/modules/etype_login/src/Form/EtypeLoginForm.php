@@ -85,6 +85,7 @@ class EtypeLoginForm extends FormBase {
 
     $pubId = $this->config->get('etype_pub');
     $message = "We‘re sorry, either your user name or password is incorrect.";
+    $success_message = "You are now logged in!";
 
     $client = new soapclient('https://www.etypeservices.com/service_GetPublicationIDByUserName.asmx?WSDL');
     $param = ['UserName' => $username];
@@ -131,13 +132,14 @@ class EtypeLoginForm extends FormBase {
               }
               else {
                 $message = "We can‘t create an account for you on this website because the user name $username already exists in this system. Please email support@etypeservices.com for assistance.";
-                Drupal::messenger()->addMessage($message);
+                Drupal::messenger()->addMessage($success_message);
               }
             }
             else {
               $account = user_load_by_mail($getSubscriberEmailResult);
               $user = User::load($account->id());
               user_login_finalize($user);
+              Drupal::messenger()->addMessage($success_message);
             }
             $url = Url::fromRoute('<front>');
             $form_state->setRedirectUrl($url);
