@@ -8,6 +8,10 @@ header {
   position: relative;
 }
 
+.messages {
+  margin: 0 0 $column-gap 1.4rem;
+}
+
 @media screen and (min-width: $desktop) {
   .region-sidebar {
     /* Make border go to the bottom. */
