@@ -30,7 +30,7 @@ class StayTunedContactBlock extends BlockBase {
     $links['twitter'] = $config->get('twitter');
     $output = '<h3 class="title">Stay tuned with us</h3>
 <p>You can connect with us through our social media accounts by clicking on a logo.</p>
-<<ul class="icons-list large">';
+<ul class="icons-list large">';
     foreach ($links as $k => $v) {
       if (!empty($v)) {
         $output .= "<li><a href=\"$v\"><i class=\"fa fa-$k\"></i></a><span class=\"sr-only\">" . ucfirst($k) . "</span></a></li>";
