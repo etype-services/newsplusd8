@@ -129,10 +129,11 @@ class EtypeLoginForm extends FormBase {
                 $user->activate();
                 $user->save();
                 user_login_finalize($user);
+                Drupal::messenger()->addMessage($success_message);
               }
               else {
                 $message = "We can‘t create an account for you on this website because the user name $username already exists in this system. Please email support@etypeservices.com for assistance.";
-                Drupal::messenger()->addMessage($success_message);
+                Drupal::messenger()->addMessage($message);
               }
             }
             else {
