@@ -10,7 +10,7 @@ use Drupal\Core\Render\Markup;
  * Provides a Stay Tuned Block.
  *
  * @Block(
- *   id = "socialmedia_block",
+ *   id = "staytuned_block",
  *   admin_label = @Translation("Social Media Icon Block for News+ theme"),
  *   category = @Translation("eType"),
  * )
