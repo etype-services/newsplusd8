@@ -199,5 +199,13 @@
   {% endif %}
 {% endblock %}
 {% block content %}
-  {{ content|without('links', 'field_mt_post_categories') }}
+    {% if logged_in %}
+        {{ content|without('links', 'field_mt_post_categories') }}
+    {% else %}
+        {%  if node.premium_content.0.value == 1 %}
+            <div class="premium_message">{{ premium_content_message }}</div>
+        {% else %}
+            {{ content|without('links', 'field_mt_post_categories') }}
+        {% endif %}
+    {% endif %}
 {% endblock %}
