@@ -166,13 +166,13 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       '#default_value' => $this->conf->get('subheadField'),
     ];
 
-    $form['bylineField'] = [
+    /*$form['bylineField'] = [
       '#title' => $this->t('Byline field'),
       '#type' => 'select',
       '#description' => 'The Drupal field to use for the imported byline.',
       '#options' => $this->fields,
       '#default_value' => $this->conf->get('bylineField'),
-    ];
+    ];*/
 
     $form['imageField'] = [
       '#title' => $this->t('Image field'),
@@ -225,7 +225,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       ->set('uid', $form_state->getValue('uid'))
       ->set('fields', $this->fields)
       ->set('subheadField', $form_state->getValue('subheadField'))
-      ->set('bylineField', $form_state->getValue('bylineField'))
+      //->set('bylineField', $form_state->getValue('bylineField'))
       ->set('importClassifieds', $form_state->getValue('importClassifieds'))
       ->save();
   }

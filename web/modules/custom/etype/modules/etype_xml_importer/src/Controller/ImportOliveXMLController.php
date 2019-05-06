@@ -382,9 +382,9 @@ class ImportOliveXMLController {
         'summary' => strip_tags(Encoding::toUTF8($array['description'])),
         'body' => Encoding::toUTF8($array['body']),
       );
-      if ($this->bylineField !== "None") {
+      /*if ($this->bylineField !== "None") {
         $node[$this->bylineField] = substr(Encoding::toUTF8($array['byline']), 0, 255);
-      }
+      }*/
       if ($this->subheadField !== "None") {
         $node[$this->subheadField] = Encoding::toUTF8($array['slugline']);
       }
@@ -440,7 +440,7 @@ class ImportOliveXMLController {
         ];
       }
     }
-    $new_entity = $storage->create([
+    $insert = [
       'type' => $this->nodeType,
       'title' => $node['title'],
       'body' => [
@@ -448,15 +448,19 @@ class ImportOliveXMLController {
         'summary' => $node['summary'],
         'format' => 'full_html',
       ],
-      /*$this->bylineField => $node[$this->bylineField],*/
-      $this->subheadField => $node[$this->subheadField],
-      $this->imageField => $field_image,
       'uid' => $this->config->get('uid'),
       'status' => 0,
       'comment' => 0,
       'promote' => 0,
       'language' => $this->langCode,
-    ]);
+    ];
+    if (isset($node[$this->subheadField])) {
+      $insert[$this->subheadField] = $node[$this->subheadField];
+    }
+    if (count($field_image) > 0) {
+      $insert[$this->imageField] = $field_image;
+    }
+    $new_entity = $storage->create($insert);
     $new_entity->save();
   }
 
