@@ -448,6 +448,8 @@ class ImportOliveXMLController {
         'summary' => $node['summary'],
         'format' => 'full_html',
       ],
+      $this->bylineField => $node[$this->bylineField],
+      $this->subheadField => $node[$this->subheadField],
       $this->imageField => $field_image,
       'uid' => $this->config->get('uid'),
       'status' => 0,
