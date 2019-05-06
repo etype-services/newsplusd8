@@ -36,7 +36,10 @@ class EtypeConfigForm extends ConfigFormBase {
 
     $config = $this->config('etype.adminsettings');
     $uid = $config->get('author');
-    $author = User::load($uid);
+    $author = '';
+    if ($uid > 0) {
+      $author = User::load($uid);
+    }
 
     $form['e_edition'] = [
       '#type' => 'fieldset',
@@ -123,8 +126,11 @@ class EtypeConfigForm extends ConfigFormBase {
       '#size' => 30,
       '#maxlength' => 60,
       '#target_type' => 'user',
-      '#default_value' => $author,
     ];
+
+    if ($uid > 0) {
+      $form['other']['author']['#default_value'] = $author;
+    }
 
     return parent::buildForm($form, $form_state);
   }
