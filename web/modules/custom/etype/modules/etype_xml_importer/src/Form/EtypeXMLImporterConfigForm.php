@@ -226,6 +226,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       ->set('fields', $this->fields)
       ->set('subheadField', $form_state->getValue('subheadField'))
       //->set('bylineField', $form_state->getValue('bylineField'))
+      ->set('imageField', $form_state->getValue('imageField'))
       ->set('importClassifieds', $form_state->getValue('importClassifieds'))
       ->save();
   }
