@@ -117,6 +117,7 @@ function etype_form_alter(&$form, &$form_state, $form_id) {
       $uid = $config->get('author');
       if ($uid > 0 && $node_uid == 1) {
         $author = User::load($uid);
+        kint($author);
         $name = $author->getAccountName();
         $form['#attached']['drupalSettings']['etype']['author'] = $name .  ' (' . $uid . ')';
         $form['#attached']['library'][] = 'etype/etype';
