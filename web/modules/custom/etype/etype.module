@@ -107,6 +107,7 @@ function substrwords($text, $maxchar, $end='...') {
  * Implements hook_form_alter().
  */
 function etype_form_alter(&$form, &$form_state, $form_id) {
+  kint($form_id);
   if ($form_id == 'node_article_edit_form') {
     $nid = $form_state->getformObject()->getEntity()->id();
     $node = Node::load($nid);
