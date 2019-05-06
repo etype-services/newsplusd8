@@ -111,13 +111,16 @@ function etype_form_alter(&$form, &$form_state, $form_id) {
     $nid = $form_state->getformObject()->getEntity()->id();
     $node = Node::load($nid);
     $node_uid = $node->getOwnerId();
-    $config = Drupal::config('etype.adminsettings');
-    $uid = $config->get('author');
-    if ($uid > 0 && $node_uid == 1) {
-      $author = User::load($uid);
-      $name = $author->getAccountName();
-      $form['#attached']['drupalSettings']['etype']['author'] = $name .  ' (' . $uid . ')';
-      $form['#attached']['library'][] = 'etype/etype';
+    $type = $node->getType();
+    if ($type == 'article') {
+      $config = Drupal::config('etype.adminsettings');
+      $uid = $config->get('author');
+      if ($uid > 0 && $node_uid == 1) {
+        $author = User::load($uid);
+        $name = $author->getAccountName();
+        $form['#attached']['drupalSettings']['etype']['author'] = $name .  ' (' . $uid . ')';
+        $form['#attached']['library'][] = 'etype/etype';
+      }
     }
   }
 }
