@@ -4,6 +4,7 @@ namespace Drupal\etype\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\user\Entity\User;
 
 /**
  * Class eTypeConfigForm.
@@ -34,6 +35,8 @@ class EtypeConfigForm extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
 
     $config = $this->config('etype.adminsettings');
+    $uid = $config->get('author');
+    $author = User::load($uid);
 
     $form['e_edition'] = [
       '#type' => 'fieldset',
@@ -114,6 +117,15 @@ class EtypeConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('mercolocal_id'),
     ];
 
+    $form['other']['author'] = [
+      '#type' => 'entity_autocomplete',
+      '#title' => t('Default Author'),
+      '#size' => 30,
+      '#maxlength' => 60,
+      '#target_type' => 'user',
+      '#default_value' => $author,
+    ];
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -132,6 +144,7 @@ class EtypeConfigForm extends ConfigFormBase {
       ->set('twitter', $form_state->getValue('twitter'))
       ->set('mercolocal_id', $form_state->getValue('mercolocal_id'))
       ->set('weather_code', $form_state->getValue('weather_code'))
+      ->set('author', $form_state->getValue('author'))
       ->save();
   }
 

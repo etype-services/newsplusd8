@@ -1,0 +1,8 @@
+etype:
+  version: VERSION
+  js:
+    js/etype.js:
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once

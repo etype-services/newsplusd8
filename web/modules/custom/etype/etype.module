@@ -1,5 +1,8 @@
 <?php
 
+use Drupal\user\Entity\User;
+use Drupal\node\Entity\Node;
+
 /**
  * {@inheritdoc}
  */
@@ -98,4 +101,23 @@ function substrwords($text, $maxchar, $end='...') {
     $output = $text;
   }
   return $output;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function etype_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'node_article_edit_form') {
+    $nid = $form_state->getformObject()->getEntity()->id();
+    $node = Node::load($nid);
+    $node_uid = $node->getOwnerId();
+    $config = Drupal::config('etype.adminsettings');
+    $uid = $config->get('author');
+    if ($uid > 0 && $node_uid == 1) {
+      $author = User::load($uid);
+      $name = $author->getAccountName();
+      $form['#attached']['drupalSettings']['etype']['author'] = $name .  ' (' . $uid . ')';
+      $form['#attached']['library'][] = 'etype/etype';
+    }
+  }
 }
