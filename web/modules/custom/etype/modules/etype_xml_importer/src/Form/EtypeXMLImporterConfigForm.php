@@ -158,20 +158,28 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       '#default_value' => $this->conf->get('nodeType'),
     ];
 
-    $form['subhead_field'] = [
+    $form['subheadField'] = [
       '#title' => $this->t('Subhead field'),
       '#type' => 'select',
       '#description' => 'The Drupal field to use for the imported subhead.',
       '#options' => $this->fields,
-      '#default_value' => $this->conf->get('subhead_field'),
+      '#default_value' => $this->conf->get('subheadField'),
     ];
 
-    $form['byline_field'] = [
+    $form['bylineField'] = [
       '#title' => $this->t('Byline field'),
       '#type' => 'select',
       '#description' => 'The Drupal field to use for the imported byline.',
       '#options' => $this->fields,
-      '#default_value' => $this->conf->get('byline_field'),
+      '#default_value' => $this->conf->get('bylineField'),
+    ];
+
+    $form['imageField'] = [
+      '#title' => $this->t('Image field'),
+      '#type' => 'select',
+      '#description' => 'The Drupal field to use for the imported image(s).',
+      '#options' => $this->fields,
+      '#default_value' => $this->conf->get('imageField'),
     ];
 
     $form['uid'] = [
@@ -183,10 +191,10 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       '#default_value' => $this->conf->get('uid'),
     ];
 
-    $form['import_classifieds'] = [
+    $form['importClassifieds'] = [
       '#title' => $this->t('Check to import Olive classified section.'),
       '#type' => 'checkbox',
-      '#default_value' => $this->conf->get('import_classifieds'),
+      '#default_value' => $this->conf->get('importClassifieds'),
     ];
 
     return parent::buildForm($form, $form_state);
@@ -216,9 +224,9 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       ->set('nodeType', $form_state->getValue('nodeType'))
       ->set('uid', $form_state->getValue('uid'))
       ->set('fields', $this->fields)
-      ->set('subhead_field', $form_state->getValue('subhead_field'))
-      ->set('byline_field', $form_state->getValue('byline_field'))
-      ->set('import_classifieds', $form_state->getValue('import_classifieds'))
+      ->set('subheadField', $form_state->getValue('subheadField'))
+      ->set('bylineField', $form_state->getValue('bylineField'))
+      ->set('importClassifieds', $form_state->getValue('importClassifieds'))
       ->save();
   }
 

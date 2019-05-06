@@ -100,6 +100,13 @@ class ImportOliveXMLController {
    *
    * @var ImportOliveXMLController
    */
+  protected $imageField;
+
+  /**
+   * Var Setup.
+   *
+   * @var ImportOliveXMLController
+   */
   protected $importClassifieds;
 
   /**
@@ -146,6 +153,7 @@ class ImportOliveXMLController {
     $this->nodeType = $this->config->get('nodeType');
     $this->langCode = 'en';
     $this->bylineField = $this->config->get('bylineField');
+    $this->imageField = $this->config->get('imageField');
     $this->subheadField = $this->config->get('subheadField');
     $this->importClassifieds = $this->config->get('importClassifieds');
     $this->messenger = Drupal::messenger();
@@ -440,7 +448,7 @@ class ImportOliveXMLController {
         'summary' => $node['summary'],
         'format' => 'full_html',
       ],
-      'field_image' => $field_image,
+      $this->imageField => $field_image,
       'uid' => $this->config->get('uid'),
       'status' => 0,
       'comment' => 0,
