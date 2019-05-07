@@ -172,8 +172,6 @@ class ImportClassifiedController {
         ->execute();
       $ad_cat = reset($terms);
 
-      $dateTime = DateTime::createFromFormat('m/d/Y', $item->startDate);
-      $newDateString = $dateTime->format('Y-m-d\TH:i:s');
       $node = Node::create([
         'type' => 'classified_ad',
         'title' => $title,
@@ -195,7 +193,7 @@ class ImportClassifiedController {
       }
       else {
         // Log/warn about missing category relationship.
-        $message = sprintf("No category match for VisionData category %s.<br />%s", $item->categoryId, $item->ItemDesc);
+        $message = sprintf("No category match for VisionData category %s.\n%s", $item->categoryId, $item->ItemDesc);
         Drupal::logger('etype_classified_importer')->notice($message);
         $this->messenger->addMessage($message, $this->messenger::TYPE_WARNING);
       }
