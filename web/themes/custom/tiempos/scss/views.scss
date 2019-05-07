@@ -82,10 +82,6 @@
     }
     .views-view-grid {
       display: flex;
-      &:first-child {
-        /* Hide first row of top-level terms */
-        @include is-really-invisible;
-      }
     }
     .views-view-grid > div {
       flex-basis: 50%;

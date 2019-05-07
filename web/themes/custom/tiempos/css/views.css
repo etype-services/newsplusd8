@@ -78,10 +78,6 @@
   border-bottom: 1px solid #b5b5b5; }
 .path-classified .view-content .views-view-grid {
   display: flex; }
-  .path-classified .view-content .views-view-grid:first-child {
-    /* Hide first row of top-level terms */
-    visibility: hidden !important;
-    display: none !important; }
 .path-classified .view-content .views-view-grid > div {
   flex-basis: 50%; }
 
