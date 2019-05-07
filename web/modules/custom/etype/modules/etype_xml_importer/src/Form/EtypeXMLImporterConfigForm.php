@@ -7,6 +7,7 @@ use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\Node;
 use Drupal\node\Entity\NodeType;
+use Drupal\user\Entity\User;
 
 /**
  * Class EtypeXMLImporterConfigForm.
@@ -174,14 +175,19 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       '#default_value' => $this->conf->get('imageField'),
     ];
 
-    $form['uid'] = [
-      '#title' => $this->t('User Id'),
-      '#type' => 'textfield',
-      '#description' => 'The User Id to set as Author of the imported content.',
-      '#maxlength' => 4,
-      '#size' => 4,
-      '#default_value' => $this->conf->get('uid'),
+    $form['author'] = [
+      '#type' => 'entity_autocomplete',
+      '#title' => t('Default Author'),
+      '#size' => 30,
+      '#maxlength' => 60,
+      '#target_type' => 'user',
     ];
+
+    $uid = $this->conf->get('author');
+    if ($uid > 0) {
+      $author = User::load($uid);
+      $form['other']['author']['#default_value'] = $author;
+    }
 
     $form['importClassifieds'] = [
       '#title' => $this->t('Check to import Olive classified section.'),
@@ -214,11 +220,11 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
     $this->config('etype_xml_importer.settings')
       ->set('importUrls', $form_state->getValue('importUrls'))
       ->set('nodeType', $form_state->getValue('nodeType'))
-      ->set('uid', $form_state->getValue('uid'))
       ->set('fields', $this->fields)
       ->set('subheadField', $form_state->getValue('subheadField'))
       ->set('imageField', $form_state->getValue('imageField'))
       ->set('importClassifieds', $form_state->getValue('importClassifieds'))
+      ->set('author', $form_state->getValue('author'))
       ->save();
   }
 

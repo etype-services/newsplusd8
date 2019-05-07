@@ -108,6 +108,13 @@ class ImportOliveXMLController {
    *
    * @var ImportOliveXMLController
    */
+  protected $author;
+
+  /**
+   * Var Setup.
+   *
+   * @var ImportOliveXMLController
+   */
   protected $langCode;
 
   /**
@@ -147,6 +154,7 @@ class ImportOliveXMLController {
     $this->nodeType = $this->config->get('nodeType');
     $this->langCode = 'en';
     $this->imageField = $this->config->get('imageField');
+    $this->author = $this->config->get('author');
     $this->subheadField = $this->config->get('subheadField');
     $this->importClassifieds = $this->config->get('importClassifieds');
     $this->messenger = Drupal::messenger();
@@ -377,7 +385,7 @@ class ImportOliveXMLController {
       );
 
       /* Create User based on byline */
-      $node['uid'] = 0;
+      $node['uid'] = $this->author;
       $byline = trim(Encoding::toUTF8($array['byline']));
       $byline = preg_replace('/by\s/i', '', $byline);
       if (!empty($byline)) {
@@ -396,7 +404,6 @@ class ImportOliveXMLController {
           $node['uid'] = $user->id();
         }
       }
-
 
       if ($this->subheadField !== "None") {
         $node[$this->subheadField] = Encoding::toUTF8($array['slugline']);
