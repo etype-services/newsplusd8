@@ -115,7 +115,8 @@ function etype_form_alter(&$form, &$form_state, $form_id) {
       $config = Drupal::config('etype.adminsettings');
       $uid = $config->get('author');
       $user = Drupal::currentUser();
-      if ($uid > 0 && $user->id() == 1) {
+      $roles = $user->getRoles();
+      if ($uid > 0 && in_array('administrator', $roles)) {
         $author = User::load($uid);
         $name = $author->getAccountName();
         $form['#attached']['drupalSettings']['etype']['author'] = $name .  ' (' . $uid . ')';
