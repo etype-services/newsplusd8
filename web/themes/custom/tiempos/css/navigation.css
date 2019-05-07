@@ -1,4 +1,4 @@
-/* Center column for tiemposcni theme */
+/* Center column for tiempos theme */
 /**
  * Styles build on bulma nav component.
  */
@@ -9,6 +9,9 @@
 .user-menu .button, .user-menu .button:first-child {
   margin-left: 0.5rem;
   margin-right: 0; }
+
+.footer-menu .menu-item {
+  text-align: right; }
 
 /* Breadcrumbs */
 .breadcrumb {
