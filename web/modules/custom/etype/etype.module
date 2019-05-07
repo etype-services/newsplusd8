@@ -104,6 +104,15 @@ function substrwords($text, $maxchar, $end='...') {
 }
 
 /**
+ * @param $needles
+ * @param $haystack
+ * @return bool
+ */
+function in_array_any($needles, $haystack) {
+  return (bool)(array_intersect($needles, $haystack));
+}
+
+/**
  * Implements hook_form_alter().
  */
 function etype_form_alter(&$form, &$form_state, $form_id) {
@@ -116,7 +125,7 @@ function etype_form_alter(&$form, &$form_state, $form_id) {
       $uid = $config->get('author');
       $user = Drupal::currentUser();
       $roles = $user->getRoles();
-      if ($uid > 0 && in_array('administrator', $roles)) {
+      if ($uid > 0 && in_array_any(['administrator', 'editor'], $roles)) {
         $author = User::load($uid);
         $name = $author->getAccountName();
         $form['#attached']['drupalSettings']['etype']['author'] = $name .  ' (' . $uid . ')';
