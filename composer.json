@@ -31,8 +31,8 @@
   "require": {
     "ext-SimpleXML": "*",
     "ext-libxml": "*",
-    "ext-zip": "*",
     "ext-soap": "*",
+    "ext-zip": "*",
     "composer/installers": "^1.2",
     "cweagans/composer-patches": "^1.6",
     "drupal-composer/drupal-scaffold": "^2.2",
@@ -63,6 +63,7 @@
     "drupal/token": "^1.5",
     "drupal/twig_tweak": "^2.1",
     "drupal/ultimate_cron": "^2.0",
+    "drupal/video_embed_field": "^1.5",
     "drupal/views_database_connector": "^1.1",
     "drupal/views_slideshow": "^4.6",
     "drupal/weather_block": "^1.1",

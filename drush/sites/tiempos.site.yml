@@ -1,0 +1,4 @@
+File: tiempos.site.yml
+dev:
+  root: /mnt/data/web/public/newsplusd8/web
+  uri: https://tiempos.etypegoogle7.com

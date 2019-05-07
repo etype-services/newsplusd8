@@ -1,4 +1,4 @@
 File: thedahloneganugget.site.yml
-dev:
+prod:
   root: /mnt/data/web/public/newsplusd8/web
   uri: http://thedahloneganugget.etypegoogle7.com
