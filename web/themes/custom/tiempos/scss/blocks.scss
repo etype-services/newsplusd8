@@ -29,6 +29,14 @@
   }
 }
 
+/* Poll block formatting */
+.block-poll-recent-block {
+  input[type=radio] {
+    height: 1.2rem;
+    width: 1.2rem;
+  }
+}
+
 @media screen and (max-width: $desktop - 1px) {
   #block-date, #block-date-2 {
     .block-search {
