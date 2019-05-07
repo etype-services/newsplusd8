@@ -4,7 +4,7 @@
 /web/core/
 /web/modules/contrib/
 /web/profiles/contrib/
-/web/libraries/
+#/web/libraries/
 
 # Ignore services files with dev settings
 /web/sites/*/services.yml

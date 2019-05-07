@@ -58,3 +58,13 @@ fontawesome:
     name: MIT
     url: //opensource.org/licenses/mit-license.html
     gpl-compatible: true
+
+libraries.jquery.cycle:
+  remote: http://malsup.github.io/jquery.cycle.all.js
+  version: 3.0.3
+  license:
+    name: MIT
+    url: malsup.github.io
+    gpl-compatible: true
+  js:
+    /libraries/jquery.cycle/jquery.cycle.all.js: {}

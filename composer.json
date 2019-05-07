@@ -52,6 +52,7 @@
     "drupal/google_analytics": "^3.0",
     "drupal/honeypot": "^1.29",
     "drupal/imce": "^1.7",
+    "drupal/jquery_view_ticker": "^1.0",
     "drupal/metatag": "^1.8",
     "drupal/paragraphs": "^1.6",
     "drupal/pathauto": "^1.3",
