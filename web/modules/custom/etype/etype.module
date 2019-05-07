@@ -104,6 +104,8 @@ function substrwords($text, $maxchar, $end='...') {
 }
 
 /**
+ * Helper function.
+ *
  * @param $needles
  * @param $haystack
  * @return bool
