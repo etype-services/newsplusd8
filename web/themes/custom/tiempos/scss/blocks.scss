@@ -31,6 +31,9 @@
 
 /* Poll block formatting */
 .block-poll-recent-block {
+  h2 {
+    @include section-tag-heading;
+  }
   input[type=radio] {
     height: 1.2rem;
     width: 1.2rem;
