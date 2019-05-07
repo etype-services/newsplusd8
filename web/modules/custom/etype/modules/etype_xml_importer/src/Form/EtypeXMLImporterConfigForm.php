@@ -85,7 +85,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       /* Check for nodeType. If it exists load a node */
       /* Use that to get nodeType FieldDefinitions */
       /* fields is array of FieldDefinitions keys */
-      /* Used to build options array to select byline and subhead fields for import. */
+      /* Used to build options array to select subhead fields for import. */
       $type = $this->conf->get('nodeType');
       if (!empty($type)) {
         $nids = Drupal::entityQuery('node')
@@ -166,14 +166,6 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       '#default_value' => $this->conf->get('subheadField'),
     ];
 
-    /*$form['bylineField'] = [
-      '#title' => $this->t('Byline field'),
-      '#type' => 'select',
-      '#description' => 'The Drupal field to use for the imported byline.',
-      '#options' => $this->fields,
-      '#default_value' => $this->conf->get('bylineField'),
-    ];*/
-
     $form['imageField'] = [
       '#title' => $this->t('Image field'),
       '#type' => 'select',
@@ -225,7 +217,6 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       ->set('uid', $form_state->getValue('uid'))
       ->set('fields', $this->fields)
       ->set('subheadField', $form_state->getValue('subheadField'))
-      //->set('bylineField', $form_state->getValue('bylineField'))
       ->set('imageField', $form_state->getValue('imageField'))
       ->set('importClassifieds', $form_state->getValue('importClassifieds'))
       ->save();

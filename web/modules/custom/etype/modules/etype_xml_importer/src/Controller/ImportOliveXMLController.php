@@ -10,6 +10,7 @@ namespace Drupal\etype_xml_importer\Controller;
 
 use Drupal;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\user\Entity\User;
 use Exception;
 use FilesystemIterator;
 use ForceUTF8\Encoding;
@@ -86,13 +87,6 @@ class ImportOliveXMLController {
    *
    * @var ImportOliveXMLController
    */
-  protected $bylineField;
-
-  /**
-   * Var Setup.
-   *
-   * @var ImportOliveXMLController
-   */
   protected $subheadField;
 
   /**
@@ -152,7 +146,6 @@ class ImportOliveXMLController {
     $this->importUrls = $this->config->get('importUrls');
     $this->nodeType = $this->config->get('nodeType');
     $this->langCode = 'en';
-    $this->bylineField = $this->config->get('bylineField');
     $this->imageField = $this->config->get('imageField');
     $this->subheadField = $this->config->get('subheadField');
     $this->importClassifieds = $this->config->get('importClassifieds');
@@ -382,9 +375,29 @@ class ImportOliveXMLController {
         'summary' => strip_tags(Encoding::toUTF8($array['description'])),
         'body' => Encoding::toUTF8($array['body']),
       );
-      /*if ($this->bylineField !== "None") {
-        $node[$this->bylineField] = substr(Encoding::toUTF8($array['byline']), 0, 255);
-      }*/
+
+      /* Create User based on byline */
+      $node['uid'] = 0;
+      $byline = trim(Encoding::toUTF8($array['byline']));
+      $byline = preg_replace('/by\s/i', '', $byline);
+      if (!empty($byline)) {
+        $user = user_load_by_name($byline);
+        if ($user === FALSE) {
+          $rand = substr(md5(uniqid(mt_rand(), TRUE)), 0, 5);
+          $user = User::create();
+          $user->setPassword('goats random love ' . $rand);
+          $user->enforceIsNew();
+          $user->setUsername($byline);
+          $user->activate();
+          $user->save();
+          $node['uid'] = $user->id();
+        }
+        else {
+          $node['uid'] = $user->id();
+        }
+      }
+
+
       if ($this->subheadField !== "None") {
         $node[$this->subheadField] = Encoding::toUTF8($array['slugline']);
       }
@@ -448,7 +461,6 @@ class ImportOliveXMLController {
         'summary' => $node['summary'],
         'format' => 'full_html',
       ],
-      'uid' => $this->config->get('uid'),
       'status' => 0,
       'comment' => 0,
       'promote' => 0,
@@ -459,6 +471,9 @@ class ImportOliveXMLController {
     }
     if (count($field_image) > 0) {
       $insert[$this->imageField] = $field_image;
+    }
+    if ($node['uid'] > 0) {
+      $insert['uid'] = $node['uid'];
     }
     $new_entity = $storage->create($insert);
     $new_entity->save();
