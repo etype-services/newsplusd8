@@ -120,7 +120,8 @@ function in_array_any($needles, $haystack) {
 function etype_form_alter(&$form, &$form_state, $form_id) {
   /* Set default author information. */
   $arr = ['node_mt_post_form', 'node_article_edit_form', 'node_article_form', 'node_business_directory_form'];
-  if (in_array($form_id, $arr)) {
+  //if (in_array($form_id, $arr)) {
+  if (preg_match("/^node_.+form$/", $form_id))
     $nid = $form_state->getformObject()->getEntity()->id();
     if (is_null($nid)) {
       /* only on new nodes */
