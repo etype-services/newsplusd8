@@ -41,16 +41,16 @@
 }
 
 .block-views-blockbreaking-news-block-1 {
-  display: flex;
-  justify-content: center;
-  h2 {
-    margin-right: calc(#{$column-gap} / 2);
-    &::after {
-      content: ":";
+  .view-id-breaking_news {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0; /* to hide with no content */
+    h4 {
+      margin-right: calc(#{$column-gap} / 2);
     }
-  }
-  a {
-    white-space: nowrap;
+    a {
+      white-space: nowrap;
+    }
   }
 }
 
