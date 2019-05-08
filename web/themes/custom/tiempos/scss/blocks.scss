@@ -40,6 +40,20 @@
   }
 }
 
+.block-views-blockbreaking-news-block-1 {
+  display: flex;
+  justify-content: center;
+  h2 {
+    margin-right: calc(#{$column-gap} / 2);
+    &::after {
+      content: ":";
+    }
+  }
+  a {
+    white-space: nowrap;
+  }
+}
+
 @media screen and (max-width: $desktop - 1px) {
   #block-date, #block-date-2 {
     .block-search {
