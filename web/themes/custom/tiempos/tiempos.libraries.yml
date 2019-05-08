@@ -52,19 +52,25 @@ lato:
 fontawesome:
   version: 5.8.1
   remote: //use.fontawesome.com/
-  js:
-    //use.fontawesome.com/releases/v5.8.1/js/all.js: { type: external, attributes: { defer: true } }
   license:
     name: MIT
     url: //opensource.org/licenses/mit-license.html
     gpl-compatible: true
+  js:
+    //use.fontawesome.com/releases/v5.8.1/js/all.js: { type: external, attributes: { defer: true } }
 
-libraries.jquery.cycle:
-  remote: http://malsup.github.io/jquery.cycle.all.js
-  version: 3.0.3
+owl.carousel:
+  remote: //github.com/OwlCarousel2/OwlCarousel2
+  version: 2.3.4
   license:
     name: MIT
-    url: malsup.github.io
+    url: //github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE
     gpl-compatible: true
+  css:
+    theme:
+      node_modules/owl.carousel/dist/assets/owl.carousel.min.css: {}
   js:
-    /libraries/jquery.cycle/jquery.cycle.all.js: {}
+    node_modules/owl.carousel/dist/owl.carousel.min.js: {}
+    js/business_directory.js: {}
+  dependencies:
+    - core/jquery
