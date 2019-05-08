@@ -8,6 +8,11 @@ header {
   position: relative;
 }
 
+main {
+  /* Override .columns default margin */
+  margin-top: 0!important;
+}
+
 .messages {
   margin: 0 0 $column-gap 0.5rem;
 }
