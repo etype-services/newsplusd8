@@ -58,12 +58,13 @@
   }
 }
 
-/* Front Page Sections */
+/* Front Page Sections & business Directory. */
 #block-views-block-front-page-sections-block-1,
 #block-views-block-front-page-sections-block-2,
 #block-views-block-front-page-sections-block-1-2,
 #block-views-block-front-page-sections-block-1-3,
-#block-views-block-front-page-sections-block-2-2 {
+#block-views-block-front-page-sections-block-2-2,
+#block-views-block-business-directory-block-1 {
   .view-content {
     display: flex;
     margin-left: -$column-gap;
