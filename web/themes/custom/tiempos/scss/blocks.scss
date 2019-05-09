@@ -44,8 +44,11 @@
   margin-bottom: 0!important;
   .view-id-breaking_news {
     display: flex;
-    justify-content: center;
     margin-bottom: $column-gap;
+    overflow: hidden;
+    .view-header {
+      white-space: nowrap;
+    }
     h4 {
       margin-right: calc(#{$column-gap} / 2);
     }

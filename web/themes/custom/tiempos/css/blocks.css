@@ -35,8 +35,10 @@
   margin-bottom: 0 !important; }
   .block-views-blockbreaking-news-block-1 .view-id-breaking_news {
     display: flex;
-    justify-content: center;
-    margin-bottom: 0.75rem; }
+    margin-bottom: 0.75rem;
+    overflow: hidden; }
+    .block-views-blockbreaking-news-block-1 .view-id-breaking_news .view-header {
+      white-space: nowrap; }
     .block-views-blockbreaking-news-block-1 .view-id-breaking_news h4 {
       margin-right: calc(0.75rem / 2); }
     .block-views-blockbreaking-news-block-1 .view-id-breaking_news a {

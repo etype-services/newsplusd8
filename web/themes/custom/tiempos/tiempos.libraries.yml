@@ -71,6 +71,20 @@ owl.carousel:
       node_modules/owl.carousel/dist/assets/owl.carousel.min.css: {}
   js:
     node_modules/owl.carousel/dist/owl.carousel.min.js: {}
-    js/business_directory.js: {}
   dependencies:
     - core/jquery
+    - core/jquery.once
+
+breaking_news:
+  version: VERSION
+  js:
+    js/breaking_news.js: {}
+  dependencies:
+    - tiempos/owl.carousel
+
+business_directory:
+  version: VERSION
+  js:
+    js/business_directory.js: {}
+  dependencies:
+    - tiempos/owl.carousel

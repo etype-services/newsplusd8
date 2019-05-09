@@ -1,6 +1,6 @@
 (function ($, Drupal) {
     "use strict";
-    Drupal.behaviors.tiemposCarousel = {
+    Drupal.behaviors.tiemposBusinessDirectory = {
         attach: function (context, settings) {
             $("#business-directory").owlCarousel({
                 loop: true,
