@@ -1,3 +1,4 @@
+// See https://jsfiddle.net/43g1c395/
 (function ($, Drupal) {
     "use strict";
     Drupal.behaviors.tiemposBreakingNews = {
@@ -11,7 +12,7 @@
                 checkVisible: false,
                 items: 1,
                 loop: true,
-                autoplayTimeout: 6015,
+                autoplayTimeout: 6100,
                 smartSpeed: 6000,
             });
         }
