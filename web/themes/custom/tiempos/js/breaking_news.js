@@ -12,7 +12,7 @@
                 checkVisible: false,
                 items: 1,
                 loop: true,
-                autoplayTimeout: 6100,
+                autoplayTimeout: 6200,
                 smartSpeed: 6000,
             });
         }
