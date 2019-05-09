@@ -22,7 +22,10 @@
 .region-content {
   flex-wrap: wrap;
   border-right: 1px solid #b5b5b5;
-  margin-bottom: 0.75rem; }
+  overflow: hidden;
+  /* For owl carousel in Business Directory. */
+  margin-bottom: 0;
+  padding-bottom: 0; }
 
 .region-sidebar {
   flex-wrap: wrap;
