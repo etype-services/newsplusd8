@@ -64,7 +64,7 @@
 #block-friends2followsidebar iframe, #block-friends2followsidebar-2 iframe {
   height: 600px; }
 
-#block-mercobannerblock-2 {
+#block-mercobannerblock, #block-mercobannerblock-2 {
   margin-bottom: 0;
   display: flex;
   justify-content: space-around;
