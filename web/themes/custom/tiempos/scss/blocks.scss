@@ -46,6 +46,7 @@
     display: flex;
     margin-bottom: $column-gap;
     overflow: hidden;
+    font-size: 0.9rem;
     .view-header {
       white-space: nowrap;
       margin-right: calc(#{$column-gap} / 2);
