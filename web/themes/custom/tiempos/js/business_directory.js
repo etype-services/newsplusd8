@@ -12,16 +12,13 @@
                 checkVisible: false,
                 responsive:{
                     0:{
-                        items: 1
-                    },
-                    768:{
                         items: 2
                     },
-                    1087:{
+                    768:{
                         items: 3
-                    }
+                    },
                 }
-            })
+            });
         }
     };
 })(jQuery, Drupal);
