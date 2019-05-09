@@ -29,7 +29,9 @@
 .region-content {
   flex-wrap: wrap;
   @include border-right-light;
-  margin-bottom: $column-gap;
+  overflow: hidden; /* For owl carousel in Business Directory. */
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .region-sidebar {
