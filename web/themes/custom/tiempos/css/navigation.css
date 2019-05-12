@@ -4,6 +4,20 @@
  */
 #main-navbar-menu {
   justify-content: center; }
+  #main-navbar-menu a {
+    height: 100%; }
+  #main-navbar-menu .dropdown > div {
+    height: 100%; }
+  #main-navbar-menu .dropdown .dropdown-menu {
+    padding-top: 2px; }
+    #main-navbar-menu .dropdown .dropdown-menu .dropdown-content {
+      border-radius: 0;
+      box-shadow: none;
+      padding-bottom: 0;
+      padding-top: 0;
+      display: flex;
+      width: fit-content;
+      border-bottom: 1px solid #b5b5b5; }
 
 /* User Menu */
 .user-menu .button, .user-menu .button:first-child {

@@ -6,6 +6,26 @@
 
 #main-navbar-menu {
   justify-content: center;
+  a {
+    height: 100%;
+  }
+  .dropdown {
+    > div {
+      height: 100%;
+    }
+    .dropdown-menu {
+      padding-top: 2px;
+      .dropdown-content {
+        border-radius: 0;
+        box-shadow: none;
+        padding-bottom: 0;
+        padding-top: 0;
+        display: flex;
+        width: fit-content;
+        @include border-bottom-light;
+      }
+    }
+  }
 }
 
 /* User Menu */

@@ -18,37 +18,6 @@
  *   - in_active_trail: TRUE if the link is in the active trail.
  */
 #}
-
-<div class="dropdown>
-    <div class="dropdown-trigger">
-        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-            <span>Dropdown button</span>
-            <span class="icon is-small">
-        <i class="fas fa-angle-down" aria-hidden="true"></i>
-      </span>
-        </button>
-    </div>
-    <div class="dropdown-menu" id="dropdown-menu" role="menu">
-        <div class="dropdown-content">
-            <a href="#" class="dropdown-item">
-                Dropdown item
-            </a>
-            <a class="dropdown-item">
-                Other dropdown item
-            </a>
-            <a href="#" class="dropdown-item is-active">
-                Active dropdown item
-            </a>
-            <a href="#" class="dropdown-item">
-                Other dropdown item
-            </a>
-            <hr class="dropdown-divider">
-            <a href="#" class="dropdown-item">
-                With a divider
-            </a>
-        </div>
-    </div>
-</div>
 <nav role="navigation" id="main-nav" aria-label="user navigation" class="column">
     <div class="navbar">
         <div class="navbar-start is-really-invisible">
@@ -67,27 +36,43 @@
             {% endfor %}
             {{ drupal_block('system_branding_block', {use_site_name: false}) }}
         </div>
-        <div id="main-navbar-menu" class="navbar-menu has-text-weight-semibold dropdown is-active">
-{% import _self as menus %}
-{#
-We call a macro which calls itself to render the full tree.
-@see http://twig.sensiolabs.org/doc/tags/macro.html
-#}
-{{ menus.menu_links(items, attributes, 0) }}
-{% macro menu_links(items, attributes, menu_level) %}
-  {% import _self as menus %}
-  {% if items %}
-      {% for item in items %}
-          <div>{{ link(item.title, item.url, { 'class':['navbar-item'] }) }}</div>
-        {% if item.below %}
-            {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-        {% endif %}
-      {% endfor %}
-  {% endif %}
-{% endmacro %}
+        <div id="main-navbar-menu" class="navbar-menu has-text-weight-semibold">
+            {% import _self as menus %}
+            {#
+            We call a macro which calls itself to render the full tree.
+            @see http://twig.sensiolabs.org/doc/tags/macro.html
+            #}
+            {{ menus.menu_links(items, attributes, 0) }}
+            {% macro menu_links(items, attributes, menu_level) %}
+                {% import _self as menus %}
+                {% if items %}
+                    {% for item in items %}
+                        {% if menu_level == 0 %}
+                            {% if item.below %}
+                        <div class="dropdown is-hoverable">
+                            <div class="dropdown-trigger">
+                                {{ link(item.title, item.url, { 'class':['navbar-item'] }) }}
+                            </div>
+                            <div class="dropdown-menu" role="menu">
+                                <div class="dropdown-content">
+                                    {{ menus.menu_links(item.below, menu_level + 1) }}
+                                </div>
+                            </div>
+                        </div>
+                            {% else %}
+                                {{ link(item.title, item.url, { 'class':['navbar-item'] }) }}
+                            {% endif %}
+                        {% else %}
+                         <div class="dropdown-item">
+                             {{ link(item.title, item.url, { 'class':['navbar-item'] }) }}
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endmacro %}
         </div>
         <div class="navbar-end">
-      {{ drupal_block('socialmedia_block') }}
+            {{ drupal_block('socialmedia_block') }}
         </div>
     </div>
 </nav>
