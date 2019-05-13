@@ -26,7 +26,6 @@ function tiempos_preprocess_block(&$variables) {
  */
 function tiempos_preprocess_node(&$variables) {
   //$site_path = Drupal::service('file_system')->realpath(file_default_scheme() . "://");
-  //kint($site_path);
   $config = Drupal::config('etype.adminsettings');
   $variables['premium_content_message'] = $config->get('premium_content_message');
   switch ($variables['node']->getType()) {
@@ -39,7 +38,7 @@ function tiempos_preprocess_node(&$variables) {
           $variables["inverted_logo"] = file_create_url($inverted_logo);
         }
       }
-
+      break;
   }
 }
 

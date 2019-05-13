@@ -120,6 +120,15 @@
   }
 }
 
+/* Advertisement Blocks */
+.view-advertisements {
+  margin-bottom: $column-gap;
+  .views-row {
+    display: flex;
+    justify-content: center;
+  }
+}
+
 @media screen and (min-width: $tablet) {
   #block-views-block-mobile-front-page-block-1 {
     @include is-really-invisible;
