@@ -24,8 +24,14 @@
   margin-left: 0.5rem;
   margin-right: 0; }
 
-.footer-menu .menu-item {
-  text-align: right; }
+.footer-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+  .footer-menu .menu-item {
+    flex: 1 1 30%; }
+    .footer-menu .menu-item a {
+      width: 100%; }
 
 /* Breadcrumbs */
 .breadcrumb {

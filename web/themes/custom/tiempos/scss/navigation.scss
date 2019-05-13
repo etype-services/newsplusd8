@@ -37,8 +37,14 @@
 }
 
 .footer-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   .menu-item {
-    text-align: right;
+    flex: 1 1 30%;
+    a {
+      width: 100%;
+    }
   }
 }
 
