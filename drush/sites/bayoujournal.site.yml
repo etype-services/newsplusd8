@@ -1,4 +1,4 @@
 File: bayoujournal.site.yml
 prod:
-  root: /mnt/data/web/public/newsplusd8/web
+  root: /mnt/data/web/public/teddy/drupal/web
   uri: http://bayoujournal.etypegoogle7.com
