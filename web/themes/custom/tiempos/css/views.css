@@ -1,6 +1,10 @@
 /* Center column for tiempos theme */
 /* Front Page Attachment View (left-hand column). */
 .view-id-frontpage.columns > .attachment {
+  /* Double column gap because padding stripeed from .view-id-frontpage.columns > .view-content
+   * in case there is no attachment
+   */
+  padding: 0 calc(0.75rem * 2) 0 0;
   /* Emulate column css. */
   display: block;
   flex-basis: 0;
@@ -28,11 +32,7 @@
 
 /* Front Page Featured View (center column). */
 .view-id-frontpage.columns > .view-content {
-  display: block;
-  flex-basis: 0;
-  flex-grow: 2;
-  flex-shrink: 1;
-  padding: 0 0 0 0.75rem; }
+  padding: 0; }
   .view-id-frontpage.columns > .view-content img {
     width: 100%; }
 
