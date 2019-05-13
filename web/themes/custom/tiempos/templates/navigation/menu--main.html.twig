@@ -18,6 +18,7 @@
  *   - in_active_trail: TRUE if the link is in the active trail.
  */
 #}
+{% import _self as menus %}
 <nav role="navigation" id="main-nav" aria-label="user navigation" class="column">
     <div class="navbar">
         {# .navbar-start contains the menu that shows up when the hamburger is clicked #}
@@ -33,7 +34,6 @@
             {# Search block #}
             {{ drupal_block('search_form_block') }}
             {# Main menu items with separate macro for sub-links, we don't want all the dropdown classes #}
-            {% import _self as menus %}
             {% for item in items %}
                 {{ link(item.title, item.url, { 'class':['navbar-item'] }) }}
                 {% if item.below %}
