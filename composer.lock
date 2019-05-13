@@ -1,10 +1,14 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "0fa052e156ee43160de8a253763e025f",
+=======
+    "content-hash": "2fd52159063734e5491e162af3bbd83f",
+>>>>>>> 79a71ae6ab66b8019050feed49c2ad4569f491b0
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2166,7 +2170,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.26",
-                    "datestamp": "1549218480",
+                    "datestamp": "1549559402",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3941,7 +3945,7 @@
             "description": "Enables the creation of Paragraphs entities.",
             "homepage": "https://www.drupal.org/project/paragraphs",
             "support": {
-                "source": "http://cgit.drupalcode.org/paragraphs"
+                "source": "https://git.drupalcode.org/project/paragraphs"
             }
         },
         {
@@ -4194,6 +4198,48 @@
             }
         },
         {
+            "name": "drupal/simpleads",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/simpleads.git",
+                "reference": "4281387cacecc567ce73b52251d9340fb846a814"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.x-dev",
+                    "datestamp": "1501462443",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "minnur",
+                    "homepage": "https://www.drupal.org/user/702026"
+                }
+            ],
+            "description": "Advertisements",
+            "homepage": "https://www.drupal.org/project/simpleads",
+            "support": {
+                "source": "https://git.drupalcode.org/project/simpleads"
+            },
+            "time": "2017-07-31T00:52:01+00:00"
+        },
+        {
             "name": "drupal/smtp",
             "version": "1.0.0-beta4",
             "source": {
@@ -4397,7 +4443,7 @@
             ],
             "authors": [
                 {
-                    "name": "Aswathy Ajish",
+                    "name": "AswathyAjish",
                     "homepage": "https://www.drupal.org/user/2584696"
                 },
                 {
@@ -4412,7 +4458,7 @@
             "description": "A module to import taxonomy using CSV or XML file to a user defined vocabulary",
             "homepage": "https://www.drupal.org/project/taxonomy_import",
             "support": {
-                "source": "http://cgit.drupalcode.org/taxonomy_import"
+                "source": "https://git.drupalcode.org/project/taxonomy_import"
             }
         },
         {
@@ -4699,7 +4745,7 @@
             "description": "Weather Block",
             "homepage": "https://www.drupal.org/project/weather_block",
             "support": {
-                "source": "http://cgit.drupalcode.org/weather_block"
+                "source": "https://git.drupalcode.org/project/weather_block"
             }
         },
         {
@@ -11031,7 +11077,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "drupal/simpleads": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
