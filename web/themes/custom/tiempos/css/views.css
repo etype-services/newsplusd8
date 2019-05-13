@@ -3,10 +3,8 @@
 .view-id-frontpage.columns > .attachment {
   /* Emulate column css. */
   display: block;
-  flex-basis: 0;
-  flex-grow: 1;
-  flex-shrink: 1;
-  padding: 0 0.75rem 0 0;
+  flex: 1 1 0;
+  padding: 0 calc(0.75rem * 2) 0 0;
   /* Teaser formatting */ }
   .view-id-frontpage.columns > .attachment .node--view-mode-teaser {
     margin-bottom: 0; }
@@ -29,10 +27,8 @@
 /* Front Page Featured View (center column). */
 .view-id-frontpage.columns > .view-content {
   display: block;
-  flex-basis: 0;
-  flex-grow: 2;
-  flex-shrink: 1;
-  padding: 0 0 0 0.75rem; }
+  flex: 2 1 0;
+  padding: 0; }
   .view-id-frontpage.columns > .view-content img {
     width: 100%; }
 
