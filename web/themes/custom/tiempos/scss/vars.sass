@@ -30,10 +30,8 @@ $mobile: 467px
 
 @mixin column-no-padding-top-left-bottom
   display: block
-  flex-basis: 0
-  flex-grow: 1
-  flex-shrink: 1
-  padding: 0 $column-gap 0 0
+  flex: 1 1 0
+  padding: 0 calc(#{$column-gap} * 2) 0 0
 
 @mixin column-no-padding-top-right
   display: block
@@ -45,10 +43,8 @@ $mobile: 467px
 /* Center column for tiempos theme */
 @mixin column-no-padding-top-right-bottom-grow
   display: block
-  flex-basis: 0
-  flex-grow: 2
-  flex-shrink: 1
-  padding: 0 0 0 $column-gap
+  flex: 1 2 0
+  padding: 0
 
 @mixin border-light
   border: 1px solid $grey-light
