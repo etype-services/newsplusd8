@@ -24,15 +24,15 @@
   display: flex;
   justify-content: center; }
 
-/* Poll block formatting */
-.block-poll-recent-block h2 {
+/* Poll and Video block formatting */
+.block-poll-recent-block h2, #block-views-blockvideos-block-1 h2 {
   text-transform: uppercase;
   padding-bottom: 0.3rem;
   margin-bottom: 0.3rem;
   font-size: 0.9rem;
   color: #121212;
   border-bottom: 1px solid #b5b5b5; }
-.block-poll-recent-block input[type=radio] {
+.block-poll-recent-block input[type=radio], #block-views-blockvideos-block-1 input[type=radio] {
   height: 1.2rem;
   width: 1.2rem; }
 

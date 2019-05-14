@@ -35,8 +35,8 @@
   justify-content: center;
 }
 
-/* Poll block formatting */
-.block-poll-recent-block {
+/* Poll and Video block formatting */
+.block-poll-recent-block, #block-views-blockvideos-block-1 {
   h2 {
     @include section-tag-heading;
   }
