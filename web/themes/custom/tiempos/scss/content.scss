@@ -73,10 +73,10 @@
         }
       }
       figure {
-        .align-left {
+        &.align-left {
           margin-right: $column-gap;
         }
-        .align-right {
+        &.align-right {
           margin-left: $column-gap;
         }
         figcaption {
