@@ -21,7 +21,8 @@
 
 #block-tiempos-branding {
   /* Center logo. */
-  display: flex; }
+  display: flex;
+  justify-content: center; }
 
 /* Poll block formatting */
 .block-poll-recent-block h2 {
