@@ -175,6 +175,14 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       '#default_value' => $this->conf->get('imageField'),
     ];
 
+    $form['imageNumber'] = [
+      '#title' => $this->t('Limit Imported Images'),
+      '#description' => 'Match image field limit on Content Type.',
+      '#type' => 'select',
+      '#options' => ['1', 'Unlimited'],
+      '#default_value' => $this->conf->get('imageNumber'),
+    ];
+
     $form['author'] = [
       '#type' => 'entity_autocomplete',
       '#title' => t('Default Author'),
@@ -223,6 +231,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       ->set('fields', $this->fields)
       ->set('subheadField', $form_state->getValue('subheadField'))
       ->set('imageField', $form_state->getValue('imageField'))
+      ->set('imageNumber', $form_state->getValue('imageNumber'))
       ->set('importClassifieds', $form_state->getValue('importClassifieds'))
       ->set('author', $form_state->getValue('author'))
       ->save();

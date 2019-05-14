@@ -101,6 +101,13 @@ class ImportOliveXMLController {
    *
    * @var ImportOliveXMLController
    */
+  protected $imageNumber;
+
+  /**
+   * Var Setup.
+   *
+   * @var ImportOliveXMLController
+   */
   protected $importClassifieds;
 
   /**
@@ -154,6 +161,7 @@ class ImportOliveXMLController {
     $this->nodeType = $this->config->get('nodeType');
     $this->langCode = 'en';
     $this->imageField = $this->config->get('imageField');
+    $this->imageNumber = $this->config->get('imageNumber');
     $this->author = $this->config->get('author');
     $this->subheadField = $this->config->get('subheadField');
     $this->importClassifieds = $this->config->get('importClassifieds');
@@ -411,6 +419,7 @@ class ImportOliveXMLController {
 
       $array = [];
       if (count($images) > 0) {
+        $ptr = 0;
         foreach ($images as $image) {
           $ipath = (string) $this->extractDir . 'img/' . $image['image'];
           $array[] = [
@@ -418,6 +427,10 @@ class ImportOliveXMLController {
             'path' => $ipath,
             'caption' => Encoding::toUTF8($image['caption']),
           ];
+          $ptr++;
+          if (($this->imageNumber == 1) && ($ptr == 1)) {
+            break;
+          }
         }
         $node['images'] = $array;
       }
