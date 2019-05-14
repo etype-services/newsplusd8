@@ -6,6 +6,7 @@
             var text = img.attr("alt");
             var article_caption = "<p class=\"caption is-sans-serif is-size-7\">" + text + "</p>";
             var caption = $(".page-node-type-feature .is-three-quarters img").attr("alt");
+            var w = $("#main-nav > .navbar > .navbar-end").width();
 
             /* Menu toggle. */
             $(".navbar-burger").once("tiemposBehavior").click(function () {
@@ -26,6 +27,9 @@
                     }
                 }
             });
+
+            /* Main nav margin*/
+            $("#main-navbar-menu").css("margin-left", w);
 
             /* Add footer menu to user-menu */
             $(".footer-menu li > a").once("tiemposBehavior").clone().addClass("is-hidden-desktop").appendTo($(".user-menu"));
