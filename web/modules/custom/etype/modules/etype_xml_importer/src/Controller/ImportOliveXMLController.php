@@ -373,7 +373,7 @@ class ImportOliveXMLController {
               $iarray['image'] = $arr[1];
               preg_match("'<pam:caption>(.*?)</pam:caption>'s", $item, $arr);
               if (isset($arr[1])) {
-                $iarray['caption'] = trim(strip_tags($arr[1]));
+                $iarray['caption'] = substr(trim(strip_tags($arr[1])), 0, 512);
               }
               else {
                 $iarray['caption'] = '';

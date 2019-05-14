@@ -1,7 +1,8 @@
 <?php
 
+use Drupal\Core\Render\Element;
 use Drupal\user\Entity\User;
-use Drupal\node\Entity\Node;
+
 
 /**
  * Implements hook_page_attachments().
@@ -152,15 +153,17 @@ function etype_form_alter(&$form, &$form_state, $form_id) {
 function etype_field_widget_form_alter(&$element, &$form_state, $context) {
   // If this is an image field type
   if (get_class($context['widget']) == "Drupal\image\Plugin\Field\FieldWidget\ImageWidget") {
-    // Loop through the element children (there will always be at least one).
-    $element['alt']['#type'] = 'textarea';
+    foreach (Element::children($element) as $key => $child) {
+      kint($key);
+      $elements[$key]['#process'][] = 'etype_image_field_widget_process';
+    }
   }
 }
 
 function etype_image_field_widget_process($element, &$form_state, $form) {
+  kint($element);
   // Change the title field to a textarea
   $element['alt']['#type'] = 'textarea';
-
   // Return the altered element
   return $element;
 }
