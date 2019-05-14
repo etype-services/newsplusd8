@@ -3,5 +3,5 @@ local:
   root: /vagrant_data/newsplusd8
   uri: http://newsplusd8.local
 dev:
-  root: /mnt/data/web/public/newsplusd8/web
+  root: /mnt/data/web/public/teddy/drupal/web
   uri: http://newsplusd8.etypegoogle7.com
