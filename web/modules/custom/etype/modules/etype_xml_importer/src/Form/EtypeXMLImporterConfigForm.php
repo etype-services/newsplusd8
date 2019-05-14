@@ -194,7 +194,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
     $uid = $this->conf->get('author');
     if ($uid > 0) {
       $author = User::load($uid);
-      $form['other']['author']['#default_value'] = $author;
+      $form['author']['#default_value'] = $author;
     }
 
     $form['importClassifieds'] = [
