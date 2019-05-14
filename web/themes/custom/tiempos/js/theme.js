@@ -34,7 +34,7 @@
             $(".section-tag-heading").once("tiemposBehavior").append("&nbsp;<i class=\"fas fa-angle-right\" aria-hidden=\"true\">></i>");
 
             /* Add down arrows to dropdowns */
-            $("#main-navbar-menu .dropdown-trigger a").append("&nbsp;<i class=\"fas fa-angle-down\" aria-hidden=\"true\"></i>");
+            $(".dropdown-trigger > a").once("tiemposBehavior").append("&nbsp;<i class=\"fas fa-angle-down\" aria-hidden=\"true\"></i>");
 
             /* Image captions for Feature and Article */
             $(".main-caption").html(caption);
