@@ -150,7 +150,7 @@ function etype_form_alter(&$form, &$form_state, $form_id) {
   }
 }
 
-function etype_field_widget_form_alter(&$element, &$form_state, $context) {
+/*function etype_field_widget_form_alter(&$element, &$form_state, $context) {
   // If this is an image field type
   if (get_class($context['widget']) == "Drupal\image\Plugin\Field\FieldWidget\ImageWidget") {
     foreach (Element::children($element) as $key => $child) {
@@ -166,4 +166,4 @@ function etype_image_field_widget_process($element, &$form_state, $form) {
   $element['alt']['#type'] = 'textarea';
   // Return the altered element
   return $element;
-}
+}*/
