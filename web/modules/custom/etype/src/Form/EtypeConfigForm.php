@@ -36,6 +36,7 @@ class EtypeConfigForm extends ConfigFormBase {
 
     $config = $this->config('etype.adminsettings');
     $uid = $config->get('author');
+    $premium_content_message = $config->get('premium_content_message');
     $author = '';
     if ($uid > 0) {
       $author = User::load($uid);
@@ -76,7 +77,7 @@ class EtypeConfigForm extends ConfigFormBase {
       '#title' => $this->t('Premium Content Message'),
       '#description' => $this->t('Message shown to unauthenticated users attempting to access premium content nodes.'),
       '#cols' => '100',
-      '#default_value' => $config->get('premium_content_message'),
+      '#default_value' => $premium_content_message['value'],
       '#text_format' => 'basic_html',
     ];
 
