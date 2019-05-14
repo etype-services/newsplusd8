@@ -73,7 +73,12 @@
         }
       }
       figure {
-        margin-right: $column-gap;
+        .align-left {
+          margin-right: $column-gap;
+        }
+        .align-right {
+          margin-left: $column-gap;
+        }
         figcaption {
           font-family: $sans-serif;
           font-size: $size-7;
