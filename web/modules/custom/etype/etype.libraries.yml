@@ -6,3 +6,9 @@ etype:
     - core/drupal
     - core/drupalSettings
     - core/jquery.once
+
+global-styling:
+  version: VERSION
+  css:
+    state:
+      css/etype.css: {}

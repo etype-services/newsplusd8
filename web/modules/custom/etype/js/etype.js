@@ -1,6 +1,6 @@
 (function ($, Drupal) {
     "use strict";
-    Drupal.behaviors.etypeloginBehavior = {
+    Drupal.behaviors.etypeAuthorBehavior = {
         attach: function (context, settings) {
             var author = drupalSettings.etype.author;
             if (author.length > 0) {

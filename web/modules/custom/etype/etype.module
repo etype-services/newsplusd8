@@ -4,6 +4,16 @@ use Drupal\user\Entity\User;
 use Drupal\node\Entity\Node;
 
 /**
+ * Implements hook_page_attachments().
+ * css hides system login link.
+ *
+ * @param array $page
+ */
+function etype_page_attachments(array &$page) {
+  $page['#attached']['library'][] = 'etype/global-styling';
+}
+
+/**
  * {@inheritdoc}
  */
 function etype_e_editions() {
@@ -119,8 +129,6 @@ function in_array_any($needles, $haystack) {
  */
 function etype_form_alter(&$form, &$form_state, $form_id) {
   /* Set default author information. */
-  $arr = ['node_mt_post_form', 'node_article_edit_form', 'node_article_form', 'node_business_directory_form'];
-  //if (in_array($form_id, $arr)) {
   if (preg_match("/^node_.+form$/", $form_id)) {
     $nid = $form_state->getformObject()->getEntity()->id();
     if (is_null($nid)) {

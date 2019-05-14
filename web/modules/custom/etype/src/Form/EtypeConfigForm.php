@@ -78,7 +78,7 @@ class EtypeConfigForm extends ConfigFormBase {
       '#description' => $this->t('Message shown to unauthenticated users attempting to access premium content nodes.'),
       '#cols' => '100',
       '#default_value' => $premium_content_message['value'],
-      '#text_format' => 'basic_html',
+      '#format' => $premium_content_message['format'],
     ];
 
     $form['e_edition']['premium_preview'] = [
@@ -118,7 +118,7 @@ class EtypeConfigForm extends ConfigFormBase {
     $form['other']['weather_code'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Weather Code'),
-      '#description' => $this->t('Paste in weather widget code. For WillyWeather code, please just change the id at the end of the url.'),
+      '#description' => $this->t('Paste in weather widget code. For WillyWeather code, please just change the id, at the end of the iframe src attribute.'),
       '#cols' => '100',
       '#default_value' => $config->get('weather_code'),
     ];
