@@ -72,11 +72,20 @@ class EtypeConfigForm extends ConfigFormBase {
     ];
 
     $form['e_edition']['premium_content_message'] = [
-      '#type' => 'textarea',
+      '#type' => 'text_format',
       '#title' => $this->t('Premium Content Message'),
       '#description' => $this->t('Message shown to unauthenticated users attempting to access premium content nodes.'),
       '#cols' => '100',
       '#default_value' => $config->get('premium_content_message'),
+      '#text_format' => 'basic_html',
+    ];
+
+    $form['e_edition']['premium_preview'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Premium Preview'),
+      '#description' => $this->t('Enter the number of characters to display before the log in message for Premium Content.'),
+      '#size' => 55,
+      '#default_value' => $config->get('premium_preview'),
     ];
 
     $form['social'] = [
@@ -108,7 +117,7 @@ class EtypeConfigForm extends ConfigFormBase {
     $form['other']['weather_code'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Weather Code'),
-      '#description' => $this->t('Paste in weather widget code.'),
+      '#description' => $this->t('Paste in weather widget code. For WillyWeather code, please just change the id at the end of the url.'),
       '#cols' => '100',
       '#default_value' => $config->get('weather_code'),
     ];
@@ -146,6 +155,7 @@ class EtypeConfigForm extends ConfigFormBase {
       ->set('etype_pub', $form_state->getValue('etype_pub'))
       ->set('etype_ptype', $form_state->getValue('etype_ptype'))
       ->set('premium_content_message', $form_state->getValue('premium_content_message'))
+      ->set('premium_preview', $form_state->getValue('premium_preview'))
       ->set('facebook', $form_state->getValue('facebook'))
       ->set('twitter', $form_state->getValue('twitter'))
       ->set('mercolocal_id', $form_state->getValue('mercolocal_id'))
