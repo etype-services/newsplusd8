@@ -468,8 +468,8 @@ class ImportOliveXMLController {
         $file = file_save_data($data, 'public://' . $rand . '_' . $image['name'], FILE_EXISTS_REPLACE);
         $field_image[] = [
           'target_id' => $file->id(),
-          'alt' => $image['name'],
-          'title' => $image['name'],
+          'alt' => $image['caption'],
+          'title' => $image['caption'],
         ];
       }
     }
