@@ -22,7 +22,10 @@
         padding-top: 0;
         display: flex;
         width: fit-content;
-        @include border-bottom-light;
+        a {
+          @include border-bottom-light;
+          background-color: $white;
+        }
       }
     }
   }

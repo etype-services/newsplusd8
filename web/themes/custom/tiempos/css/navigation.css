@@ -16,8 +16,10 @@
       padding-bottom: 0;
       padding-top: 0;
       display: flex;
-      width: fit-content;
-      border-bottom: 1px solid #b5b5b5; }
+      width: fit-content; }
+      #main-navbar-menu .dropdown .dropdown-menu .dropdown-content a {
+        border-bottom: 1px solid #b5b5b5;
+        background-color: white; }
 
 /* User Menu */
 .user-menu .button, .user-menu .button:first-child {
