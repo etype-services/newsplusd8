@@ -19,6 +19,10 @@
   #block-date .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-keys], #block-date-2 .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-keys] {
     width: 70%; }
 
+#block-tiempos-branding {
+  /* Center logo. */
+  display: flex; }
+
 /* Poll block formatting */
 .block-poll-recent-block h2 {
   text-transform: uppercase;
