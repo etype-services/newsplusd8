@@ -33,6 +33,9 @@
             /* Add arrows to section header. */
             $(".section-tag-heading").once("tiemposBehavior").append("&nbsp;<i class=\"fas fa-angle-right\"></i>");
 
+            /* Add down arrows to dropdowns */
+            $("#main-navbar-menu .dropdown-trigger a").append("&nbsp;<i class=\"fas fa-angle-down\" aria-hidden=\"true\"></i>");
+
             /* Image captions for Feature and Article */
             $(".main-caption").html(caption);
             $(".page-node-type-article .field--name-field-image").once("tiemposBehavior").append(article_caption);
