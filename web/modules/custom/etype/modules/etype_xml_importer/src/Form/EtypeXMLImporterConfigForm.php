@@ -158,9 +158,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       '#default_value' => $this->conf->get('imageField'),
     ];
 
-
-    $term = Term::load($this->conf->get('section'));
-    $form['section'] = array(
+    $form['section'] = [
       '#title' => $this->t('Section'),
       '#description' => 'Enter the section into which to import articles, ie "News".',
       '#type' => 'entity_autocomplete',
@@ -169,8 +167,12 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       '#selection_settings' => [
         'target_bundles' => ['sections'],
       ],
-      '#default_value' => $term,
-    );
+    ];
+    $tid = $this->conf->get('section');
+    if (!empty($tid)) {
+      $term = Term::load($tid);
+      $form['section']['#default_value'] = $term;
+    }
 
     $form['imageNumber'] = [
       '#title' => $this->t('Limit Imported Images'),
