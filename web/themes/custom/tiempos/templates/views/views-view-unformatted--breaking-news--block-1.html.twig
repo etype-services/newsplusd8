@@ -16,9 +16,16 @@
  * @see template_preprocess_views_view_list()
  */
 #}
-
-{{ attach_library('tiempos/breaking_news') }}
-<div id="breaking-news" class="owl-carousel owl-theme">
+{% if rows|length > 1 %}
+    {{ attach_library('tiempos/breaking_news') }}
+    {%
+        set classes = [
+        'owl-carousel',
+        'owl-theme',
+    ]
+    %}
+{% endif %}
+<div id="breaking-news"attributes.addClass(classes)>
     {% for row in rows %}
         <div class="item">
             {{ row.content }}
