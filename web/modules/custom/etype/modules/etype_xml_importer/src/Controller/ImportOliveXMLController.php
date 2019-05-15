@@ -126,6 +126,13 @@ class ImportOliveXMLController {
    *
    * @var ImportOliveXMLController
    */
+  protected $section;
+
+  /**
+   * Var Setup.
+   *
+   * @var ImportOliveXMLController
+   */
   protected $importClassifieds;
 
   /**
@@ -182,6 +189,7 @@ class ImportOliveXMLController {
     $this->imageNumber = $this->config->get('imageNumber');
     $this->author = $this->config->get('author');
     $this->subheadField = $this->config->get('subheadField');
+    $this->section = $this->config->get('section');
     $this->importClassifieds = $this->config->get('importClassifieds');
     $this->messenger = Drupal::messenger();
     $this->entityTypeManager = Drupal::entityTypeManager();
@@ -193,8 +201,6 @@ class ImportOliveXMLController {
    * @return array
    *   Markup
    *
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
-   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function importOliveXml() {
@@ -307,6 +313,8 @@ class ImportOliveXMLController {
    * @return array|string
    *   Markup
    *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   protected function parseItem(SimpleXMLElement $item) {
@@ -515,6 +523,7 @@ class ImportOliveXMLController {
       'comment' => 0,
       'promote' => 0,
       'language' => $this->langCode,
+      'field_section' => [['target_id' => $this->section]],
     ];
     if (isset($node[$this->subheadField])) {
       $insert[$this->subheadField] = $node[$this->subheadField];

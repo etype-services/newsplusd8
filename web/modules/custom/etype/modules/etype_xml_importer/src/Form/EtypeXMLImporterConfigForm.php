@@ -8,6 +8,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\Node;
 use Drupal\node\Entity\NodeType;
 use Drupal\user\Entity\User;
+use Drupal\taxonomy\Entity\Term;
 
 /**
  * Class EtypeXMLImporterConfigForm.
@@ -45,13 +46,6 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
   protected $fields = [];
 
   /**
-   * Formats, deprecated.
-   *
-   * @var EtypeXMLImporterConfigForm
-   */
-  protected $formats = [];
-
-  /**
    * EtypeXMLImporterConfigForm constructor.
    */
   public function __construct() {
@@ -76,20 +70,33 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
    * Get the fields associated with selected node type.
    */
   protected function getFields() {
-    $type = $this->conf->get('nodeType');
-    if (!empty($type)) {
-      $nids = Drupal::entityQuery('node')
-        ->condition('type', $type)
-        ->range('0', '1')
-        ->execute();
-      $nid = reset($nids);
-      /* Code is based on existence of articles, so a bug for new/empty sites. */
-      if (isset($nid)) {
-        $node = Node::load($nid);
-        $fieldDefinitions = array_keys($node->getFieldDefinitions());
-        $this->fields["None"] = "None";
-        foreach ($fieldDefinitions as $key) {
-          $this->fields[$key] = $key;
+    /* fields is array of names of fields in nodeType */
+    $fields = $this->conf->get('fields');
+    /* If set, use setting. */
+    if (is_array($fields) && count($fields) > 0 && array_key_exists("None", $fields)) {
+      $this->fields = $fields;
+    }
+    else {
+      /* Check for nodeType. If it exists load a node */
+      /* Use that to get nodeType FieldDefinitions */
+      /* fields is array of FieldDefinitions keys */
+      /* Used to build options array to select subhead fields for import. */
+      $type = $this->conf->get('nodeType');
+      if (!empty($type)) {
+        $nids = Drupal::entityQuery('node')
+          ->condition('type', $type)
+          ->range('0', '1')
+          ->execute();
+        $nid = reset($nids);
+        /* Code is based on existence of articles, so a bug for new/empty sites. */
+        if (isset($nid)) {
+          $node = Node::load($nid);
+          $fieldDefinitions = array_keys($node->getFieldDefinitions());
+          $this->fields["None"] = "None";
+          foreach ($fieldDefinitions as $key) {
+            echo $key;
+            $this->fields[$key] = $key;
+          }
         }
       }
     }
@@ -152,6 +159,20 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       '#default_value' => $this->conf->get('imageField'),
     ];
 
+
+    $term = Term::load($this->conf->get('section'));
+    $form['section'] = array(
+      '#title' => $this->t('Section'),
+      '#description' => 'Enter the section into which to import articles, ie "News".',
+      '#type' => 'entity_autocomplete',
+      '#target_type' => 'taxonomy_term',
+      '#selection_handler' => 'default',
+      '#selection_settings' => [
+        'target_bundles' => ['sections'],
+      ],
+      '#default_value' => $term,
+    );
+
     $form['imageNumber'] = [
       '#title' => $this->t('Limit Imported Images'),
       '#description' => 'Match image field limit on Content Type.',
@@ -208,6 +229,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       ->set('fields', $this->fields)
       ->set('subheadField', $form_state->getValue('subheadField'))
       ->set('imageField', $form_state->getValue('imageField'))
+      ->set('section', $form_state->getValue('section'))
       ->set('imageNumber', $form_state->getValue('imageNumber'))
       ->set('importClassifieds', $form_state->getValue('importClassifieds'))
       ->set('author', $form_state->getValue('author'))
