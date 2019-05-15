@@ -167,3 +167,4 @@ function etype_image_field_widget_process($element, &$form_state, $form) {
   // Return the altered element
   return $element;
 }*/
+
