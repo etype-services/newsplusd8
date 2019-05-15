@@ -10,6 +10,7 @@ namespace Drupal\etype_xml_importer\Controller;
 
 use Drupal;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\Core\File\FileSystemInterface;
 use Drupal\user\Entity\User;
 use Exception;
 use FilesystemIterator;
@@ -49,6 +50,23 @@ class XMLIsFalseException extends Exception {
    */
   public function __construct() {
     $message = new TranslatableMarkup('There was a problem extracting XML from the file.');
+    parent::__construct($message);
+  }
+
+}
+
+/**
+ * Class UserErrorException.
+ *
+ * @package Drupal\etype_xml_importer\Controller
+ */
+class UserErrorException extends Exception {
+
+  /**
+   * Constructs an XMLIsFalseException.
+   */
+  public function __construct() {
+    $message = new TranslatableMarkup('There was a problem creating the User.');
     parent::__construct($message);
   }
 
@@ -286,8 +304,9 @@ class ImportOliveXMLController {
    * @param \SimpleXMLElement $item
    *   XML data.
    *
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
-   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * @return array|string
+   *   Markup
+   *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   protected function parseItem(SimpleXMLElement $item) {
@@ -306,7 +325,7 @@ class ImportOliveXMLController {
       /* ignore if classifieds? */
       if ($this->importClassifieds !== 1) {
         if ($coincidencias[1] == 'Classifieds') {
-          return;
+          return ['#markup' => ''];
         }
       }
       $array['section'] = $coincidencias[1];
@@ -394,18 +413,30 @@ class ImportOliveXMLController {
 
       /* Create User based on byline */
       $node['uid'] = $this->author;
-      $byline = trim(Encoding::toUTF8($array['byline']));
-      $byline = preg_replace('/by\s/i', '', $byline);
+      $byline = Encoding::toUTF8($array['byline']);
+      $byline = preg_replace('/\s+/i', " ", $byline);
+      $byline = preg_replace('/by\s?/i', "", $byline);
+      $byline = trim($byline);
+      $byline = substr($byline, 0, 60);
       if (!empty($byline)) {
         $user = user_load_by_name($byline);
         if ($user === FALSE) {
+          /* throw Exception and return empty page with message if no file to import */
           $rand = substr(md5(uniqid(mt_rand(), TRUE)), 0, 5);
           $user = User::create();
           $user->setPassword('goats random love ' . $rand);
           $user->enforceIsNew();
           $user->setUsername($byline);
           $user->activate();
-          $user->save();
+          try {
+            if (!$user->save()) {
+              throw new UserErrorException();
+            }
+          }
+          catch (UserErrorException $e) {
+            $this->messenger->addMessage($e->getMessage(), $this->messenger::TYPE_ERROR);
+            return ['#markup' => ''];
+          }
           $node['uid'] = $user->id();
         }
         else {
@@ -455,7 +486,6 @@ class ImportOliveXMLController {
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
-   * TODO: Add user creation.
    */
   protected function createNode(array $node) {
     $storage = $this->entityTypeManager->getStorage('node');
@@ -465,7 +495,7 @@ class ImportOliveXMLController {
       foreach ($node['images'] as $image) {
         // Create file object from remote URL.
         $data = file_get_contents($image['path']);
-        $file = file_save_data($data, 'public://' . $rand . '_' . $image['name'], FILE_EXISTS_REPLACE);
+        $file = file_save_data($data, 'public://' . $rand . '_' . $image['name'], FileSystemInterface::EXISTS_REPLACE);
         $field_image[] = [
           'target_id' => $file->id(),
           'alt' => $image['caption'],
@@ -495,6 +525,7 @@ class ImportOliveXMLController {
     if ($node['uid'] > 0) {
       $insert['uid'] = $node['uid'];
     }
+    // var_dump($insert);
     $new_entity = $storage->create($insert);
     $new_entity->save();
   }

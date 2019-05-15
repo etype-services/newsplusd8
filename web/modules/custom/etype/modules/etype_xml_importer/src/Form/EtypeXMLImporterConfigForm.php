@@ -76,45 +76,22 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
    * Get the fields associated with selected node type.
    */
   protected function getFields() {
-    /* fields is array of names of fields in nodeType */
-    $fields = $this->conf->get('fields');
-    /* If set, use setting. */
-    if (is_array($fields) && count($fields) > 0) {
-      $this->fields = $fields;
-    }
-    else {
-      /* Check for nodeType. If it exists load a node */
-      /* Use that to get nodeType FieldDefinitions */
-      /* fields is array of FieldDefinitions keys */
-      /* Used to build options array to select subhead fields for import. */
-      $type = $this->conf->get('nodeType');
-      if (!empty($type)) {
-        $nids = Drupal::entityQuery('node')
-          ->condition('type', $type)
-          ->range('0', '1')
-          ->execute();
-        $nid = reset($nids);
-        /* Code is based on existence of articles, so a bug for new/empty sites. */
-        if (isset($nid)) {
-          $node = Node::load($nid);
-          $fieldDefinitions = array_keys($node->getFieldDefinitions());
-          $this->fields[] = "None";
-          foreach ($fieldDefinitions as $key) {
-            $this->fields[] = $key;
-          }
+    $type = $this->conf->get('nodeType');
+    if (!empty($type)) {
+      $nids = Drupal::entityQuery('node')
+        ->condition('type', $type)
+        ->range('0', '1')
+        ->execute();
+      $nid = reset($nids);
+      /* Code is based on existence of articles, so a bug for new/empty sites. */
+      if (isset($nid)) {
+        $node = Node::load($nid);
+        $fieldDefinitions = array_keys($node->getFieldDefinitions());
+        $this->fields["None"] = "None";
+        foreach ($fieldDefinitions as $key) {
+          $this->fields[$key] = $key;
         }
       }
-    }
-  }
-
-  /**
-   * Get the formats.
-   */
-  protected function getFormats() {
-    $arr = filter_formats();
-    $array = array_keys($arr);
-    foreach ($array as $key) {
-      $this->formats[] = $key;
     }
   }
 
@@ -145,7 +122,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
     $form['importUrls'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Import Urls(s)'),
-      '#description' => $this->t('Enter the full url or urls from which to import XML. PUt multiple files on separate lines.'),
+      '#description' => $this->t('Enter the full url or urls from which to import XML. Put multiple files on separate lines.'),
       '#size' => 55,
       '#default_value' => $this->conf->get('importUrls'),
       '#required' => TRUE,
