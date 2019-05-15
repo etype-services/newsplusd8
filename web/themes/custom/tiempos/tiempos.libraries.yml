@@ -2,7 +2,7 @@ bulma:
   version: 0.7.4
   css:
     base:
-      node_modules/bulma/css/bulma.css: { weight: -10 }
+      node_modules/bulma/css/bulma.min.css: { weight: -10 }
 
 global-styling:
   version: VERSION
