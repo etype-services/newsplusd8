@@ -1,4 +1,4 @@
-/* Center column for tiemposcni theme */
+/* Center column for tiempos theme */
 .sample-ad-block {
   padding: 1rem; }
 
@@ -27,5 +27,32 @@
   width: 300px;
   height: 250px;
   margin: auto auto calc(0.75rem * 2) auto; }
+
+/* DFP Blocks */
+.block-dfp {
+  display: flex;
+  justify-content: center; }
+  .block-dfp iframe {
+    height: unset; }
+
+/* Advertisement Blocks */
+.view-advertisements {
+  margin-bottom: 0.75rem; }
+  .view-advertisements .views-row {
+    display: flex;
+    justify-content: center; }
+
+/* Classified Page. */
+.path-classified .view-content h3 {
+  text-transform: uppercase;
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  color: #121212;
+  border-bottom: 1px solid #b5b5b5; }
+.path-classified .view-content .views-view-grid {
+  display: flex; }
+.path-classified .view-content .views-view-grid > div {
+  flex-basis: 50%; }
 
 /*# sourceMappingURL=ads.css.map */

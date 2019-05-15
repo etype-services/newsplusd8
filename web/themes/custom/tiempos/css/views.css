@@ -68,19 +68,6 @@
   flex-shrink: 1;
   padding: 0.75rem; }
 
-/* Classified Page. */
-.path-classified .view-content h3 {
-  text-transform: uppercase;
-  padding-bottom: 0.3rem;
-  margin-bottom: 0.3rem;
-  font-size: 0.9rem;
-  color: #121212;
-  border-bottom: 1px solid #b5b5b5; }
-.path-classified .view-content .views-view-grid {
-  display: flex; }
-.path-classified .view-content .views-view-grid > div {
-  flex-basis: 50%; }
-
 /* Taxonomy Pages. */
 .view-taxonomy-term {
   /* Page title is faked in View header. */
@@ -103,13 +90,6 @@
     width: 45%;
     margin-right: 0.5rem;
     margin-top: 0.3rem; }
-
-/* Advertisement Blocks */
-.view-advertisements {
-  margin-bottom: 0.75rem; }
-  .view-advertisements .views-row {
-    display: flex;
-    justify-content: center; }
 
 @media screen and (min-width: 769px) {
   #block-views-block-mobile-front-page-block-1 {

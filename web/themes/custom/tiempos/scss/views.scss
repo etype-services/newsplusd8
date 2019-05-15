@@ -76,20 +76,6 @@
   }
 }
 
-/* Classified Page. */
-.path-classified{
-  .view-content {
-    h3 {
-      @include section-tag-heading;
-    }
-    .views-view-grid {
-      display: flex;
-    }
-    .views-view-grid > div {
-      flex-basis: 50%;
-    }
-  }
-}
 /* Taxonomy Pages. */
 .view-taxonomy-term {
   /* Page title is faked in View header. */
@@ -117,15 +103,6 @@
       margin-right: 0.5rem;
       margin-top: 0.3rem;
     }
-  }
-}
-
-/* Advertisement Blocks */
-.view-advertisements {
-  margin-bottom: $column-gap;
-  .views-row {
-    display: flex;
-    justify-content: center;
   }
 }
 

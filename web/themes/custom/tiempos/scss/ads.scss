@@ -44,3 +44,36 @@
     margin: auto auto calc(#{$column-gap} * 2) auto;
   }
 }
+
+/* DFP Blocks */
+.block-dfp {
+  display: flex;
+  justify-content: center;
+  iframe {
+    height: unset;
+  }
+}
+
+/* Advertisement Blocks */
+.view-advertisements {
+  margin-bottom: $column-gap;
+  .views-row {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Classified Page. */
+.path-classified{
+  .view-content {
+    h3 {
+      @include section-tag-heading;
+    }
+    .views-view-grid {
+      display: flex;
+    }
+    .views-view-grid > div {
+      flex-basis: 50%;
+    }
+  }
+}
