@@ -43,8 +43,6 @@
             /* Image captions for Feature and Article */
             $(".main-caption").html(caption);
             $(".page-node-type-article .field--name-field-image").once("tiemposBehavior").append(article_caption);
-
-            $(".block-dfp iframe").css("height", "");
         }
     };
 })(jQuery, Drupal);
