@@ -83,7 +83,9 @@
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
     <div{{ content_attributes.addClass('node__content') }}>
-        <h2{{ title_attributes }}>{{ label }}</h2>
+        <h2{{ title_attributes }}>
+            <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+        </h2>
         {{ content }}
     </div>
 </article>

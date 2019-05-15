@@ -25,7 +25,7 @@
     ]
     %}
 {% endif %}
-<div id="breaking-news"attributes.addClass(classes)>
+<div id="breaking-news"{{ attributes.addClass(classes) }}>
     {% for row in rows %}
         <div class="item">
             {{ row.content }}
