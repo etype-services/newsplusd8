@@ -84,10 +84,9 @@
   #main-nav .navbar .navbar-end {
     /* Social Icons */
     position: inherit;
-    align-items: center;
-    margin-right: 0.75rem; }
+    align-items: center; }
     #main-nav .navbar .navbar-end a {
-      margin-left: 0.75rem; }
+      margin-right: 0.75rem; }
 
 /* Tablet */
 @media screen and (max-width: 1087px) {

@@ -7,6 +7,7 @@
             var article_caption = "<p class=\"caption is-sans-serif is-size-7\">" + text + "</p>";
             var caption = $(".page-node-type-feature .is-three-quarters img").attr("alt");
             var w = $("#main-nav > .navbar > .navbar-end").width();
+            console.log(w);
 
             /* Menu toggle. */
             $(".navbar-burger").once("tiemposBehavior").click(function () {
