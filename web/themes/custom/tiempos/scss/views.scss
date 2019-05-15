@@ -106,6 +106,15 @@
   }
 }
 
+/* Video Page. */
+.path-videos {
+  .field--name-field-video-embed {
+    float: left;
+    width: 50%;
+    margin: 0.3rem $column-gap 0 0;
+  }
+}
+
 @media screen and (min-width: $tablet) {
   #block-views-block-mobile-front-page-block-1 {
     @include is-really-invisible;
