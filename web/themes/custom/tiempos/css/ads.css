@@ -1,17 +1,17 @@
 /* Center column for tiempos theme */
-/* DFP Blocks */
+/* DFP Blocks. */
 .block-dfp {
   display: flex;
   justify-content: center; }
 
-/* Advertisement Blocks */
+/* Advertisement Blocks. */
 .view-advertisements {
   margin-bottom: 0.75rem; }
   .view-advertisements .views-row {
     display: flex;
     justify-content: center; }
 
-/* Classified Page. */
+/* Main Classified Page. */
 .path-classified .view-content h3 {
   text-transform: uppercase;
   padding-bottom: 0.3rem;

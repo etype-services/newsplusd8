@@ -1,12 +1,12 @@
 @import "./vars";
 
-/* DFP Blocks */
+/* DFP Blocks. */
 .block-dfp {
   display: flex;
   justify-content: center;
 }
 
-/* Advertisement Blocks */
+/* Advertisement Blocks. */
 .view-advertisements {
   margin-bottom: $column-gap;
   .views-row {
@@ -15,7 +15,7 @@
   }
 }
 
-/* Classified Page. */
+/* Main Classified Page. */
 .path-classified{
   .view-content {
     h3 {
