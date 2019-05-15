@@ -94,7 +94,6 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
           $fieldDefinitions = array_keys($node->getFieldDefinitions());
           $this->fields["None"] = "None";
           foreach ($fieldDefinitions as $key) {
-            echo $key;
             $this->fields[$key] = $key;
           }
         }
