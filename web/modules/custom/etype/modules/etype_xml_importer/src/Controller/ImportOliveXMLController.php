@@ -369,7 +369,7 @@ class ImportOliveXMLController {
       if (isset($coincidencias[1])) {
         $temp = preg_replace("/<xhtml:br \\/>/", " ", $coincidencias[1]);
         $temp = trim(strip_tags($temp));
-        $temp = preg_replace("/^by\s*/i", "", $temp);
+        $temp = preg_replace("/^by\s+/i", "", $temp);
         $array['byline'] = ucwords(strtolower($temp));
       }
       else {
@@ -423,9 +423,11 @@ class ImportOliveXMLController {
       $node['uid'] = $this->author;
       $byline = Encoding::toUTF8($array['byline']);
       $byline = preg_replace('/\s+/i', " ", $byline);
-      $byline = preg_replace('/by\s?/i', "", $byline);
       $byline = trim($byline);
-      $byline = substr($byline, 0, 60);
+      /* If the byline is longer than 60 characters it will not store and is most likely a mistake */
+      if (strlen($byline) > 60) {
+        $byline = "";
+      }
       if (!empty($byline)) {
         $user = user_load_by_name($byline);
         if ($user === FALSE) {
