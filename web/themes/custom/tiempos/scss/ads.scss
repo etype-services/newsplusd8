@@ -8,11 +8,14 @@
 
 /* Advertisement Blocks. */
 .view-advertisements {
-  margin-bottom: $column-gap;
   .views-row {
     display: flex;
     justify-content: center;
   }
+}
+
+#block-views-block-advertisements-block-1 {
+  margin-bottom: calc(#{$column-gap} * 2);
 }
 
 /* Main Classified Page. */

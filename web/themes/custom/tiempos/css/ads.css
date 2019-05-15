@@ -5,11 +5,12 @@
   justify-content: center; }
 
 /* Advertisement Blocks. */
-.view-advertisements {
-  margin-bottom: 0.75rem; }
-  .view-advertisements .views-row {
-    display: flex;
-    justify-content: center; }
+.view-advertisements .views-row {
+  display: flex;
+  justify-content: center; }
+
+#block-views-block-advertisements-block-1 {
+  margin-bottom: calc(0.75rem * 2); }
 
 /* Main Classified Page. */
 .path-classified .view-content h3 {

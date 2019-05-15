@@ -37,6 +37,8 @@
 
             /* Add arrows to section header. */
             $(".section-tag-heading").once("tiemposBehavior").append("&nbsp;<i class=\"fas fa-angle-right\" aria-hidden=\"true\">></i>");
+            /* The class is not being sent to the svg?? */
+            $(".section-tag-heading > svg").once("tiemposBehavior").addClass("fa-angle-right");
 
             /* Add down arrows to dropdowns */
             $(".dropdown-trigger > a").once("tiemposBehavior").append("&nbsp;<i class=\"fas fa-angle-down\" aria-hidden=\"true\"></i>");
