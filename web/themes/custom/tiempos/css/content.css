@@ -61,6 +61,8 @@
   color: #0a0a0a; }
 .page-node-type-article article .field--name-field-tags {
   margin-top: 2rem; }
+.page-node-type-article article.obituaries .field--name-body img {
+  max-width: 25vw; }
 
 /* Feature formatting. */
 .page-node-type-feature {

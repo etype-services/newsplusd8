@@ -89,6 +89,13 @@
     .field--name-field-tags {
       margin-top: 2rem;
     }
+    &.obituaries {
+      .field--name-body {
+        img {
+          max-width: 25vw;
+        }
+      }
+    }
   }
 }
 

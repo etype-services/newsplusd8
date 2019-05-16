@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\file\Entity\File;
+use Drupal\taxonomy\Entity\Term;
 
 /**
  * Preprocess Blocks.
@@ -40,6 +41,12 @@ function tiempos_preprocess_node(&$variables) {
           $variables["inverted_logo"] = file_create_url($inverted_logo);
         }
       }
+      break;
+
+    case 'article':
+      $tid = $variables['node']->get('field_section')->getValue();
+      $term = Term::load($tid[0]["target_id"]);
+      $variables['section'] = strtolower($term->getName());
       break;
   }
 }
