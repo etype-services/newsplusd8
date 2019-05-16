@@ -44,9 +44,12 @@ function tiempos_preprocess_node(&$variables) {
       break;
 
     case 'article':
+      $variables['section'] = '';
       $tid = $variables['node']->get('field_section')->getValue();
-      $term = Term::load($tid[0]["target_id"]);
-      $variables['section'] = strtolower($term->getName());
+      if ($tid > 0) {
+        $term = Term::load($tid[0]["target_id"]);
+        $variables['section'] = strtolower($term->getName());
+      }
       break;
   }
 }
