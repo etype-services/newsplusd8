@@ -53,11 +53,11 @@
     font-style: italic; }
     .page-node-type-article article .field--name-body blockquote p.small {
       max-width: 30%; }
-.page-node-type-article article .field--name-body figure.align-left {
+.page-node-type-article article .field--name-body figure.align-left, .page-node-type-article article .field--name-body img.align-left {
   margin-right: 0.75rem; }
-.page-node-type-article article .field--name-body figure.align-right {
+.page-node-type-article article .field--name-body figure.align-right, .page-node-type-article article .field--name-body img.align-right {
   margin-left: 0.75rem; }
-.page-node-type-article article .field--name-body figure figcaption {
+.page-node-type-article article .field--name-body figure figcaption, .page-node-type-article article .field--name-body img figcaption {
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   color: #0a0a0a; }
@@ -114,7 +114,7 @@
         margin: 0 4rem 0.75rem 13rem;
         font-size: 1.2rem;
         line-height: 2rem; }
-      .page-node-type-feature article .is-full .node__content figure {
+      .page-node-type-feature article .is-full .node__content figure, .page-node-type-feature article .is-full .node__content img {
         width: 100%;
         width: -moz-available;
         /* WebKit-based browsers will ignore this. */
@@ -122,7 +122,7 @@
         /* Mozilla-based browsers will ignore this. */
         width: stretch;
         margin: 3rem auto 3rem auto; }
-        .page-node-type-feature article .is-full .node__content figure img {
+        .page-node-type-feature article .is-full .node__content figure img, .page-node-type-feature article .is-full .node__content img img {
           width: 100%;
           width: -moz-available;
           /* WebKit-based browsers will ignore this. */
@@ -130,7 +130,7 @@
           /* Mozilla-based browsers will ignore this. */
           width: stretch;
           height: auto; }
-        .page-node-type-feature article .is-full .node__content figure figcaption {
+        .page-node-type-feature article .is-full .node__content figure figcaption, .page-node-type-feature article .is-full .node__content img figcaption {
           font-family: "Open Sans", sans-serif;
           font-size: 0.75rem;
           margin: 0.5rem auto 0.5rem 3rem;
