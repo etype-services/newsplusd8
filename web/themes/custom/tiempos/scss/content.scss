@@ -70,6 +70,9 @@
           font-size: 1.6rem;
           font-weight: bold;
           font-style: italic;
+          &.small {
+            max-width: 30%;
+          }
         }
       }
       figure {
@@ -78,9 +81,6 @@
         }
         &.align-right {
           margin-left: $column-gap;
-        }
-        &.small {
-          max-width: 30%;
         }
         figcaption {
           font-family: $sans-serif;

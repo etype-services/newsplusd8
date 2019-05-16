@@ -51,12 +51,12 @@
     font-size: 1.6rem;
     font-weight: bold;
     font-style: italic; }
+    .page-node-type-article article .field--name-body blockquote p.small {
+      max-width: 30%; }
 .page-node-type-article article .field--name-body figure.align-left {
   margin-right: 0.75rem; }
 .page-node-type-article article .field--name-body figure.align-right {
   margin-left: 0.75rem; }
-.page-node-type-article article .field--name-body figure.small {
-  max-width: 30%; }
 .page-node-type-article article .field--name-body figure figcaption {
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
