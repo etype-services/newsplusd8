@@ -100,7 +100,7 @@ class WireContentAddController {
     }
 
     /* Use custom etype function in etype.module. */
-    $summary = substrwords($data->body, 300);
+    $summary = substrwords(strip_tags($data->body), 300);
     $new_entity = $storage->create([
       'type' => $data->type,
       'title' => $data->title,
