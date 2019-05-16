@@ -113,6 +113,7 @@ class WireContentAddController {
       'comment' => 0,
       'promote' => 0,
       'language' => $data->language,
+      'field_section' => [['target_id' => $this->config->get('section')]],
     ]);
     $new_entity->save();
 

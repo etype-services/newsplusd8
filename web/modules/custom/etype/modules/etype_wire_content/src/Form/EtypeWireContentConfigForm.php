@@ -94,7 +94,6 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
     $this->entityFieldManager = Drupal::service('entity_field.manager');
     $this->entityTypeManager = Drupal::service('entity_type.manager');
     $this->setnodeTypeOptions();
-    //$this->setNode();
     $this->setSections();
   }
 
@@ -246,16 +245,32 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
       '#options' => $this->nodeTypeOptions,
     );
 
+    $form['settings']['section'] = [
+      '#title' => $this->t('Section'),
+      '#description' => 'Enter the section into which to import articles, ie "Wire Content".',
+      '#type' => 'entity_autocomplete',
+      '#target_type' => 'taxonomy_term',
+      '#selection_handler' => 'default',
+      '#selection_settings' => [
+        'target_bundles' => ['sections'],
+      ],
+    ];
+    $tid = $this->conf->get('section');
+    if ($tid > 0) {
+      $term = Term::load($tid);
+      $form['settings']['section']['#default_value'] = $term;
+    }
+
     $form['settings']['field'] = array(
       '#type' => 'textfield',
-      '#title' => t('Enter the machine_name field to use to filter exports.'),
+      '#title' => t('Enter the field machine_name to use to filter exports.'),
       '#default_value' => $this->conf->get('field'),
     );
 
     if (count($this->sections) > 1) {
       $form['settings']['sections'] = array(
         '#type' => 'checkboxes',
-        '#title' => t('Choose which taxonomy terms use to filter exports.'),
+        '#title' => t('Choose which taxonomy terms to use to filter exports.'),
         '#default_value' => $this->conf->get('sections'),
         '#options' => $this->sections,
       );
@@ -274,6 +289,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
       ->set('nodeType', $form_state->getValue('nodeType'))
       ->set('field', $form_state->getValue('field'))
       ->set('sections', $form_state->getValue('sections'))
+      ->set('section', $form_state->getValue('section'))
       ->save();
   }
 
