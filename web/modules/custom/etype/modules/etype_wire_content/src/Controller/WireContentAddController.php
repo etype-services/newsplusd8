@@ -121,7 +121,7 @@ class WireContentAddController {
 
     /* Reset connection. */
     Database::setActiveConnection();
-    return ['#markup' => '<p>The story <strong><a href="/node/' . $new_entity->id() . '">' . $data->title . '</a></strong> was added.</p>'];
+    return ['#markup' => '<p>The story <strong><a href="/node/' . $new_entity->id() . '/edit">' . $data->title . '</a></strong> was added.</p>'];
   }
 
 }
