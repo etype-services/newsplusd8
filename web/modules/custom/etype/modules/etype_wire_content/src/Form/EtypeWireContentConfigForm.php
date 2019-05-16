@@ -10,6 +10,7 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\node\Entity\NodeType;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
+use Drupal\user\Entity\User;
 use Exception;
 
 /**
@@ -245,6 +246,20 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
       '#options' => $this->nodeTypeOptions,
     );
 
+    $form['settings']['author'] = [
+      '#type' => 'entity_autocomplete',
+      '#title' => t('Default Author'),
+      '#size' => 30,
+      '#maxlength' => 60,
+      '#target_type' => 'user',
+    ];
+
+    $uid = $this->conf->get('author');
+    if ($uid > 0) {
+      $author = User::load($uid);
+      $form['settings']['author']['#default_value'] = $author;
+    }
+
     $form['settings']['section'] = [
       '#title' => $this->t('Section'),
       '#description' => 'Enter the section into which to import articles, ie "Wire Content".',
@@ -288,6 +303,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
       ->set('groups', $form_state->getValue('groups'))
       ->set('nodeType', $form_state->getValue('nodeType'))
       ->set('field', $form_state->getValue('field'))
+      ->set('author', $form_state->getValue('author'))
       ->set('sections', $form_state->getValue('sections'))
       ->set('section', $form_state->getValue('section'))
       ->save();

@@ -6,6 +6,8 @@ use Drupal;
 use Drupal\Core\Database\Database;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\etype_wire_content\Form\WireConnectionException;
+use Drupal\etype_xml_importer\Controller\UserErrorException;
+use Drupal\user\Entity\User;
 
 /**
  * Class WireContentAddController.
@@ -99,18 +101,49 @@ class WireContentAddController {
       ];
     }
 
+    $uid = $this->config->get('author');
+    $body = trim($data->body);
+    $target = trim(strip_tags($body));
+    preg_match("/^by\s+([-A-z‘]+\s+[-A-z‘]+)/i", $target, $matches);
+    if (!empty($matches[1])) {
+      $pattern = "/" . $matches[0] . "/";
+      $body = preg_replace($pattern, "", $body);
+      $target = preg_replace($pattern, "", $target);
+      $user = user_load_by_name($matches[1]);
+      if ($user === FALSE) {
+        /* throw Exception and return empty page with message if no file to import */
+        $rand = substr(md5(uniqid(mt_rand(), TRUE)), 0, 5);
+        $user = User::create();
+        $user->setPassword('goats random love ' . $rand);
+        $user->enforceIsNew();
+        $user->setUsername($matches[1]);
+        $user->activate();
+        try {
+          if (!$user->save()) {
+            throw new UserErrorException();
+          }
+        }
+        catch (UserErrorException $e) {
+          $this->messenger->addMessage($e->getMessage(), $this->messenger::TYPE_ERROR);
+          return ['#markup' => ''];
+        }
+        $uid = $user->id();
+      }
+    }
+
     /* Use custom etype function in etype.module. */
-    $summary = substrwords(strip_tags($data->body), 300);
+    $summary = substrwords(trim($target), 300);
     $new_entity = $storage->create([
       'type' => $data->type,
       'title' => $data->title,
       'body' => [
-        'value' => $data->body,
+        'value' => trim($body),
         'summary' => $summary,
         'format' => 'full_html',
       ],
+      'field_subhead' => $summary,
       'field_image' => $field_image,
-      'uid' => 1,
+      'uid' => $uid,
       'status' => 0,
       'comment' => 0,
       'promote' => 0,
@@ -125,3 +158,4 @@ class WireContentAddController {
   }
 
 }
+
