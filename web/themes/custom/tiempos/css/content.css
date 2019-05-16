@@ -45,6 +45,8 @@
   margin-right: 0.75rem;
   margin-top: 0.4rem;
   margin-bottom: 0; }
+  .page-node-type-article article .field--name-field-image img.restricted {
+    width: 30%; }
 .page-node-type-article article .field--name-body blockquote {
   margin: 0.75rem 3rem 0.75rem 0.5rem; }
   .page-node-type-article article .field--name-body blockquote p {
