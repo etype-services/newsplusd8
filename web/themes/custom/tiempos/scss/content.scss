@@ -62,9 +62,6 @@
       margin-right: 0.75rem;
       margin-top: 0.4rem;
       margin-bottom: 0;
-      img.restricted {
-        width: 30%;
-      }
     }
     .field--name-body {
       blockquote {
@@ -81,6 +78,9 @@
         }
         &.align-right {
           margin-left: $column-gap;
+        }
+        &.small {
+          max-width: 30%;
         }
         figcaption {
           font-family: $sans-serif;
