@@ -1,3 +1,7 @@
+/* Center column for tiempos theme */
+.flexslider {
+  margin: 0 0 0.75rem 0; }
+
 .flex-direction-nav a {
   height: 54px; }
 

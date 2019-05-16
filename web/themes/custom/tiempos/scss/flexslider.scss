@@ -1,3 +1,10 @@
+@import "./vars";
+
+
+.flexslider {
+  margin: 0 0 $column-gap 0;
+}
+
 .flex-direction-nav a {
   height: 54px;
 }

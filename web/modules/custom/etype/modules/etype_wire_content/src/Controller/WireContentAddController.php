@@ -4,6 +4,7 @@ namespace Drupal\etype_wire_content\Controller;
 
 use Drupal;
 use Drupal\Core\Database\Database;
+use Drupal\Core\File\FileSystemInterface;
 use Drupal\etype_wire_content\Form\WireConnectionException;
 
 /**
@@ -89,10 +90,11 @@ class WireContentAddController {
     if (!empty($data->file)) {
       $img = file_get_contents($data->file);
       $arr = explode("/", $data->file);
-      $file = file_save_data($img, 'public://' . end($arr), FILE_EXISTS_RENAME);
+      $file = file_save_data($img, 'public://' . end($arr), FileSystemInterface::EXISTS_REPLACE);
+      $alt = empty($data->caption) ? "Image" : $data->caption;
       $field_image[] = [
         'target_id' => $file->id(),
-        'alt' => $data->caption,
+        'alt' => $alt,
         'title' => $data->caption,
       ];
     }
