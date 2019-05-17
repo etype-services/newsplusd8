@@ -45,10 +45,14 @@ function tiempos_preprocess_node(&$variables) {
 
     case 'article':
       $variables['section'] = '';
-      $tid = $variables['node']->get('field_section')->getValue();
-      if (count($tid) > 0) {
-        $term = Term::load($tid[0]["target_id"]);
-        $variables['section'] = strtolower($term->getName());
+      $arr = [];
+      $tids = $variables['node']->get('field_section')->getValue();
+      if (count($tids) > 0) {
+        foreach ($tids as $tid) {
+          $term = Term::load($tid[0]["target_id"]);
+           $arr[] = ($term->getName());
+        }
+        $variables['section'] = implode(" ", $arr);
       }
       break;
   }
