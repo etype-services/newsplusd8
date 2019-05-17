@@ -44,7 +44,8 @@
   float: left;
   margin-right: 0.75rem;
   margin-top: 0.3rem;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  max-width: 40vh; }
 .page-node-type-article article .field--name-body blockquote {
   margin: 0.75rem 3rem 0.75rem 0.5rem; }
   .page-node-type-article article .field--name-body blockquote p {
