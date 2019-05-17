@@ -64,7 +64,6 @@
 
 {% extends "node.html.twig" %}
 {% block above_header %}
-  {% if has_image %}
     <div class="teaser-image-wrapper">
       {% if content.field_image[0] is defined %}
         {{ content.field_image }}
@@ -72,7 +71,6 @@
         {{ content.field_small_image }}
       {% endif %}
     </div>
-  {% endif %}
 {% endblock %}
 {% block content %}
   <div class="{{content_class}}">
