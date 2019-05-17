@@ -12,7 +12,11 @@
 .view-taxonomy-term .node--view-mode-teaser .field--name-field-image,
 .view-feed .node--view-mode-teaser .field--name-field-image,
 .view-frontpage .node--view-mode-teaser .field--name-field-image,
-.view-archive .node--view-mode-teaser .field--name-field-image {
+.view-archive .node--view-mode-teaser .field--name-field-image,
+.view-taxonomy-term .node--view-mode-teaser .field--name-field-small-image,
+.view-feed .node--view-mode-teaser .field--name-field-small-image,
+.view-frontpage .node--view-mode-teaser .field--name-field-small-image,
+.view-archive .node--view-mode-teaser .field--name-field-small-image {
   float: right;
   margin-left: 30px;
   margin-bottom: 15px;
@@ -30,7 +34,11 @@
   .view-taxonomy-term .node--view-mode-teaser .field--name-field-image,
   .view-feed .node--view-mode-teaser .field--name-field-image,
   .view-frontpage .node--view-mode-teaser .field--name-field-image,
-  .view-archive .node--view-mode-teaser .field--name-field-image {
+  .view-archive .node--view-mode-teaser .field--name-field-image,
+  .view-taxonomy-term .node--view-mode-teaser .field--name-field-small-image,
+  .view-feed .node--view-mode-teaser .field--name-field-small-image,
+  .view-frontpage .node--view-mode-teaser .field--name-field-small-image,
+  .view-archive .node--view-mode-teaser .field--name-field-small-image {
     margin-left: 68px;
     max-width: 275px;
   }
@@ -47,7 +55,11 @@
   .two-sidebars .view-taxonomy-term .field--name-field-image,
   .view-feed-taxonomy-term .field--name-field-image,
   .two-sidebars .view-frontpage .field--name-field-image,
-  .two-sidebars .view-archive .field--name-field-image {
+  .two-sidebars .view-archive .field--name-field-image,
+  .two-sidebars .view-taxonomy-term .field--name-field-small-image,
+  .view-feed-taxonomy-term .field--name-field-small-image,
+  .two-sidebars .view-frontpage .field--name-field-small-image,
+  .two-sidebars .view-archive .field--name-field-small-image {
     max-width: 190px;
     margin-left: 25px;
   }
@@ -64,7 +76,11 @@
   .view-taxonomy-term .field--name-field-image,
   .view-feed .field--name-field-image,
   .view-frontpage .field--name-field-image,
-  .view-archive .field--name-field-image {
+  .view-archive .field--name-field-image,
+  .view-taxonomy-term .field--name-field-small-image,
+  .view-feed .field--name-field-small-image,
+  .view-frontpage .field--name-field-small-image,
+  .view-archive .field--name-field-small-image{
     float: left;
     margin-left: 0;
     max-width: 100%;
@@ -118,7 +134,8 @@
   border-bottom: none;
   margin-bottom: 0;
 }
-.view-feed .promoted-posts .field--name-field-image {
+.view-feed .promoted-posts .field--name-field-image,
+.view-feed .promoted-posts .field--name-field-small-image {
   float: left;
   margin-right: 30px;
   margin-left: 0;
@@ -128,7 +145,8 @@
   margin-left: 220px;
 }
 @media (min-width: 1200px) {
-  .view-feed .promoted-posts .field--name-field-image {
+  .view-feed .promoted-posts .field--name-field-image,
+  .view-feed .promoted-posts .field--name-field-small-image {
     margin-right: 68px;
   }
   .view-feed .promoted-posts .with-image {
@@ -154,7 +172,8 @@
     margin-right: -17.8%;
     padding-right: 17.8%;
   }
-  .layout-two-sidebars .view-feed .promoted-posts .field--name-field-image {
+  .layout-two-sidebars .view-feed .promoted-posts .field--name-field-image,
+  .layout-two-sidebars .view-feed .promoted-posts .field--name-field-small-image {
     margin-right: 25px;
     margin-left: 0;
   }
@@ -176,7 +195,8 @@
   .view-feed .promoted-posts .with-image {
     margin-left: 0;
   }
-  .view-feed .promoted-posts .field--name-field-image{
+  .view-feed .promoted-posts .field--name-field-image,
+  .view-feed .promoted-posts .field--name-field-small-image {
     margin-right: 30px;
   }
 }

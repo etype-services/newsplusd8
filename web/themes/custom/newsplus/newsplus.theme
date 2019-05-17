@@ -340,7 +340,7 @@ function newsplus_preprocess_node(&$variables) {
   } else {
     $variables['has_image'] = false;
   }
-  if ($variables['teaser'] && isset($variables['content']['field_image']['#theme'])) {
+  if ($variables['teaser'] && ( isset($variables['content']['field_image']['#theme'])) || isset($variables['content']['field_small_image']['#theme']) ) {
     $variables['content_class'] = 'with-image';
   } else {
     $variables['content_class'] = 'without-image';

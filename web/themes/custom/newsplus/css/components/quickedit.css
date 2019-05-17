@@ -29,7 +29,9 @@
   width: 26px;
 }
 .view-taxonomy-term .node--view-mode-teaser .quickedit-form  .field--name-field-image,
-.view-frontpage .node--view-mode-teaser .quickedit-form  .field--name-field-image {
+.view-frontpage .node--view-mode-teaser .quickedit-form  .field--name-field-image,
+.view-taxonomy-term .node--view-mode-teaser .quickedit-form  .field--name-field-small-image,
+.view-frontpage .node--view-mode-teaser .quickedit-form  .field--name-field-small-image {
   max-width: 920px;
   margin: 0;
 }
