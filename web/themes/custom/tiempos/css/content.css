@@ -60,7 +60,7 @@
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   color: #0a0a0a; }
-.page-node-type-article article .field--name-field-tags {
+.page-node-type-article article .field--name-field-tags .field__item {
   font-style: oblique; }
 
 /* Feature formatting. */

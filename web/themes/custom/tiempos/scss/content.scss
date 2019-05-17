@@ -88,7 +88,9 @@
       }
     }
     .field--name-field-tags {
-      font-style: oblique;
+      .field__item {
+        font-style: oblique;
+      }
     }
   }
 }
