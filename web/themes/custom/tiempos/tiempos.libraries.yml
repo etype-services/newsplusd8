@@ -92,7 +92,7 @@ business_directory:
 article:
   version: VERSION
   js:
-    js/article.js
+    js/article.js: {}
   dependencies:
     - core/jquery
     - core/jquery.once
