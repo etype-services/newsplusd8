@@ -83,7 +83,7 @@
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
     <div{{ content_attributes.addClass('node__content') }}>
-        {% if content.field_image is defined %}
+        {% if content.field_image[0] is defined %}
             {{ content.field_image[0] }}
         {% elseif content.field_small_image is defined %}
             {{ content.field_small_image }}
