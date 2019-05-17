@@ -40,10 +40,10 @@
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   color: #0a0a0a; }
-.page-node-type-article article .field--name-field-image {
+.page-node-type-article article .field--name-field-small-image {
   float: left;
   margin-right: 0.75rem;
-  margin-top: 0.4rem;
+  margin-top: 0.3rem;
   margin-bottom: 0; }
 .page-node-type-article article .field--name-body blockquote {
   margin: 0.75rem 3rem 0.75rem 0.5rem; }
@@ -61,8 +61,6 @@
   color: #0a0a0a; }
 .page-node-type-article article .field--name-field-tags {
   margin-top: 2rem; }
-.page-node-type-article article.obituaries .field--name-body img {
-  max-width: 25vw; }
 
 /* Feature formatting. */
 .page-node-type-feature {
@@ -208,21 +206,8 @@
         margin: 0 0 0.75rem 0; }
     .page-node-type-feature article .is-full .node__content .field--name-field-tags {
       margin: 3rem 4rem 0.75rem 4rem; } }
-/* Control image width */
-@media screen and (min-width: 466px) {
-  .page-node-type-article article .field--name-field-image {
-    max-width: 70%; } }
 /* Mobile */
 @media screen and (max-width: 467px) {
-  .page-node-type-article article {
-    /* Control image width */ }
-    .page-node-type-article article .field--name-field-image {
-      float: none;
-      margin-right: 0;
-      margin-top: 0;
-      margin-bottom: 0.75rem;
-      width: 100%; }
-
   .page-node-type-feature article .is-full .main-caption {
     margin: 0.5rem;
     font-size: 0.9rem; }

@@ -57,10 +57,10 @@
       font-size: $size-7;
       color: $black;
     }
-    .field--name-field-image {
+    .field--name-field-small-image {
       float: left;
       margin-right: 0.75rem;
-      margin-top: 0.4rem;
+      margin-top: 0.3rem;
       margin-bottom: 0;
     }
     .field--name-body {
@@ -88,13 +88,6 @@
     }
     .field--name-field-tags {
       margin-top: 2rem;
-    }
-    &.obituaries {
-      .field--name-body {
-        img {
-          max-width: 25vw;
-        }
-      }
     }
   }
 }
@@ -308,31 +301,8 @@
   }
 }
 
-/* Control image width */
-@media screen and (min-width: $mobile - 1px ) {
-  .page-node-type-article {
-    article {
-      .field--name-field-image {
-        max-width: 70%;
-      }
-    }
-  }
-}
-
 /* Mobile */
 @media screen and (max-width: $mobile) {
-  .page-node-type-article {
-    article {
-      /* Control image width */
-      .field--name-field-image {
-        float: none;
-        margin-right: 0;
-        margin-top: 0;
-        margin-bottom: 0.75rem;
-        width: 100%;
-      }
-    }
-  }
   .page-node-type-feature {
     article {
       .is-full {
