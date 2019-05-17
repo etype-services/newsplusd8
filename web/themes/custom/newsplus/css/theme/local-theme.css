@@ -21,6 +21,14 @@
       position: relative;
       top: -2px; }
 
+/* Small Images */
+article.node--view-mode-full .field--name-field-small-image {
+  float: left;
+  margin-right: 0.75rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0;
+  max-width: 40vh; }
+
 /* Business Directory & Special Sections Blocks */
 #block-views-block-special-sections-block-1 .view-images {
   margin: 0; }
