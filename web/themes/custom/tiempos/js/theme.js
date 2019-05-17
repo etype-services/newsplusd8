@@ -2,12 +2,8 @@
     "use strict";
     Drupal.behaviors.tiemposBehavior = {
         attach: function (context, settings) {
-            var img = $(".page-node-type-article article .field--name-field-image img");
-            var text = img.attr("alt");
-            var article_caption = "<p class=\"caption is-sans-serif is-size-7\">" + text + "</p>";
             var caption = $(".page-node-type-feature .is-three-quarters img").attr("alt");
             var w = $("#main-nav > .navbar > .navbar-end").width();
-            console.log(w);
 
             /* Menu toggle. */
             $(".navbar-burger").once("tiemposBehavior").click(function () {
@@ -41,9 +37,8 @@
             /* Add down arrows to dropdowns */
             $(".dropdown-trigger > a").once("tiemposBehavior").append("&nbsp;<i class=\"fas fa-angle-down\" aria-hidden=\"true\"></i>");
 
-            /* Image captions for Feature and Article */
+            /* Image captions for Feature */
             $(".main-caption").html(caption);
-            $(".page-node-type-article .field--name-field-image").once("tiemposBehavior").append(article_caption);
         }
     };
 })(jQuery, Drupal);

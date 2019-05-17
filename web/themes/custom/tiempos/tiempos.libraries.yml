@@ -88,3 +88,11 @@ business_directory:
     js/business_directory.js: {}
   dependencies:
     - tiempos/owl.carousel
+
+article:
+  version: VERSION
+  js:
+    js/article.js
+  dependencies:
+    - core/jquery
+    - core/jquery.once
