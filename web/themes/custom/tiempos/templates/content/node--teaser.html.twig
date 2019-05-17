@@ -86,7 +86,7 @@
         {% if content.field_image[0] is defined %}
             {{ content.field_image[0] }}
         {% elseif content.field_small_image is defined %}
-            {{ content.field_small_image }}
+            {{ content.field_small_image[0] }}
         {% endif %}
         <h2{{ title_attributes }}>
             <a href="{{ url }}" rel="bookmark">{{ label }}</a>
