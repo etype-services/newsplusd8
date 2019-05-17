@@ -76,6 +76,6 @@
 {% endblock %}
 {% block content %}
   <div class="{{content_class}}">
-    {{content|without('field_image', 'links')}}
+    {{content|without('field_image', 'field_small_image', 'links')}}
   </div>
 {% endblock %}
