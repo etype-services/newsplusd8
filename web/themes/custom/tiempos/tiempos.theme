@@ -49,8 +49,8 @@ function tiempos_preprocess_node(&$variables) {
       $tids = $variables['node']->get('field_section')->getValue();
       if (count($tids) > 0) {
         foreach ($tids as $tid) {
-          $term = Term::load($tid[0]["target_id"]);
-           $arr[] = ($term->getName());
+          $term = Term::load($tid["target_id"]);
+           $arr[] = strtolower($term->getName());
         }
         $variables['section'] = implode(" ", $arr);
       }
