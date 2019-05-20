@@ -30,7 +30,7 @@ main {
   /* Bulma override */
   .tile.is-child.is-3 {
     &:not(:last-child) {
-      margin-right: 0.5rem;
+      margin-right: 0.5rem!important;
     }
   }
 }
