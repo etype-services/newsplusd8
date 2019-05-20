@@ -16,9 +16,9 @@
  * @see template_preprocess_views_view_list()
  */
 #}
-<div class="tile is-3 is-parent">
+<div class="tile is-parent">
     {% for row in rows %}
-        <div class="tile is-child">
+        <div class="tile is-child is-3">
             {{ row.content }}
         </div>
     {% endfor %}
