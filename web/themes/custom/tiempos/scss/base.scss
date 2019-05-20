@@ -27,6 +27,9 @@ main {
     margin: 0 0 2rem 0!important;
   }
 
+}
+
+@media screen and (min-width: $tablet) {
   /* Bulma override */
   .tile.is-child.is-3 {
     &:not(:last-child) {
