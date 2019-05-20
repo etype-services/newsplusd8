@@ -32,7 +32,7 @@ main {
 @media screen and (min-width: $tablet) {
   /* Bulma overrides. */
   .tile.is-parent {
-    padding: 0 $column-gap 0 0!important;
+    padding: 0;
   }
   .tile.is-child.is-3 {
     &:not(:last-child) {

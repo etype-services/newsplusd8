@@ -19,7 +19,9 @@
 <div class="tile is-parent">
     {% for row in rows %}
         <div class="tile is-child is-3">
-            {{ row.content }}
+            <article class="tile is-child box">
+                {{ row.content }}
+            </article>
         </div>
     {% endfor %}
 </div>
