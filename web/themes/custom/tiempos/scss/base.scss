@@ -26,6 +26,11 @@ main {
   footer {
     margin: 0 0 2rem 0!important;
   }
+
+  /* Bulma override */
+  .tile.is-child.is-3:not(:last-child) {
+    margin-right: 0.5rem;
+  }
 }
 
 @media screen and (max-width: $tablet - 1px ) {
