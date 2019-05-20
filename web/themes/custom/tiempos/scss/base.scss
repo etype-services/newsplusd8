@@ -30,7 +30,10 @@ main {
 }
 
 @media screen and (min-width: $tablet) {
-  /* Bulma override */
+  /* Bulma overrides. */
+  .tile.is-parent {
+    padding: 0 $column-gap 0 0!important;
+  }
   .tile.is-child.is-3 {
     &:not(:last-child) {
       margin-right: 0.5rem!important;

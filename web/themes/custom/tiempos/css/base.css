@@ -21,7 +21,10 @@ main {
   footer {
     margin: 0 0 2rem 0 !important; } }
 @media screen and (min-width: 769px) {
-  /* Bulma override */
+  /* Bulma overrides. */
+  .tile.is-parent {
+    padding: 0 0.75rem 0 0 !important; }
+
   .tile.is-child.is-3:not(:last-child) {
     margin-right: 0.5rem !important; } }
 @media screen and (max-width: 768px) {
