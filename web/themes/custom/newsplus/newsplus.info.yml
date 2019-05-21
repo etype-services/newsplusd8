@@ -19,7 +19,6 @@ regions:
   header: 'Header'
   page_intro: 'Page Intro'
   top_content: 'Top Content'
-  banner: 'Banner'
   highlighted: 'Highlighted'
   promoted: 'Promoted Area'
   content: 'Content'

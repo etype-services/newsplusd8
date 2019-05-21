@@ -41,7 +41,6 @@
  * - page.header: Items for the Header region.
  * - page.page_intro: Items for the Page Intro region.
  * - page.top_content: Items for the Top Content region.
- * - page.banner: Items for the Banner region.
  * - page.highlighted: Items for the Highlighted region.
  * - page.promoted: Items for the Promoted Area region.
  * - page.content: Items for the Content region.
@@ -238,18 +237,6 @@
           {% endif %}
 
           <section class="{{ main_grid_class }}">
-
-            {% if page.banner %}
-              {# #banner #}
-              <div id="banner">
-                {# #banner-inside #}
-                <div id="banner-inside" class="clearfix">
-                  {{ page.banner }}
-                </div>
-                {# EOF:#banner-inside #}
-              </div>
-              {# EOF: #banner #}
-            {% endif %}
 
             {% if page.highlighted %}
               {{ page.highlighted }}
