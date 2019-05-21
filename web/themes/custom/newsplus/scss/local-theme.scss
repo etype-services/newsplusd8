@@ -52,11 +52,16 @@ article {
   }
 }
 
-/* Advertisements */
 /* Advertisement Blocks. */
 .view-advertisements {
   .views-row {
     display: flex;
     justify-content: center;
   }
+}
+
+/* region-page-intro */
+#block-views-block-advertisements-block-3 {
+  padding-top: 15px;
+  margin: 0 15px;
 }
