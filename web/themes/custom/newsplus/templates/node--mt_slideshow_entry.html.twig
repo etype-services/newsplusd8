@@ -92,8 +92,8 @@
         </header>
         <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
             {% block content %}
-                <iframe allowFullScreen="allowFullScreen" src="https://www.youtube.com/embed/{{ content.field_mt_bg_video_youtube }}?ecver=1&amp;iv_load_policy=1&amp;rel=0&amp;yt:stretch=16:9&amp;autohide=1" allowtransparency="true" frameborder="0"><script>function execute_YTvideo(){return youtube.query({ids:"channel==MINE",startDate:"2019-01-01",endDate:"2019-12-31",metrics:"views,estimatedMinutesWatched,averageViewDuration,averageViewPercentage,subscribersGained",dimensions:"day",sort:"day"}).then(function(e){},function(e){console.error("Execute error",e)})}</script></iframe>
-
+                {% dd(content.field_mt_bg_video_youtube) %}
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/IQBC5URoF0s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 {% if page %}
                     {{ content|without('field_mt_bg_video_youtube') }}
                 {% else %}
