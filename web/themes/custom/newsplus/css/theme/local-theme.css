@@ -33,4 +33,10 @@ article.node--view-mode-full .field--name-field-small-image {
 #block-views-block-special-sections-block-1 .view-images {
   margin: 0; }
 
+/* Advertisements */
+/* Advertisement Blocks. */
+.view-advertisements .views-row {
+  display: flex;
+  justify-content: center; }
+
 /*# sourceMappingURL=local-theme.css.map */
