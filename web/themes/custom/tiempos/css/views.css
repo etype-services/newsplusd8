@@ -74,7 +74,6 @@
 /* Taxonomy Pages. */
 .view-taxonomy-term {
   /* Page title is faked in View header. */
-  /* Add margint to last item. */
   /* Teaser formatting. */ }
   .view-taxonomy-term #block-tiempos-page-title {
     visibility: hidden !important;
@@ -82,11 +81,12 @@
   .view-taxonomy-term .view-header {
     /* Emulate page title. */
     margin-bottom: 1.5rem; }
-  .view-taxonomy-term .view-content > div:not(last-child) {
+  .view-taxonomy-term .view-content > div {
     border-bottom: 1px solid #dbdbdb;
     padding-bottom: 1.3rem; }
   .view-taxonomy-term .view-content > div:last-child {
-    margin-bottom: 1rem; }
+    border-bottom: none;
+    padding-bottom: 0; }
   .view-taxonomy-term .node--view-mode-teaser .field--name-field-ad-category {
     margin-bottom: 0;
     font-family: "Open Sans", sans-serif;
