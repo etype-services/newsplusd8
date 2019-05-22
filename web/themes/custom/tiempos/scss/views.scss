@@ -99,8 +99,8 @@
       font-size: $size-7;
     }
     img {
-      float: right;
-      width: 35%;
+      float: left;
+      width: 45%;
       margin-right: 0.5rem;
       margin-top: 0.3rem;
     }
@@ -143,8 +143,8 @@
         margin-bottom: $column-gap;
       }
       img {
-        float: left;
-        width: 48%;
+        float: right;
+        width: 30%;
         margin-right: 0.75rem;
         margin-top: 0.3rem;
       }

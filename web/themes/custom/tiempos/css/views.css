@@ -88,8 +88,8 @@
     font-family: "Open Sans", sans-serif;
     font-size: 0.75rem; }
   .view-taxonomy-term .node--view-mode-teaser img {
-    float: right;
-    width: 35%;
+    float: left;
+    width: 45%;
     margin-right: 0.5rem;
     margin-top: 0.3rem; }
 
@@ -122,8 +122,8 @@
     #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser:not(last-child), .view-taxonomy-term .node--view-mode-teaser:not(last-child) {
       margin-bottom: 0.75rem; }
     #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser img, .view-taxonomy-term .node--view-mode-teaser img {
-      float: left;
-      width: 48%;
+      float: right;
+      width: 30%;
       margin-right: 0.75rem;
       margin-top: 0.3rem; }
     #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser .field--name-body, .view-taxonomy-term .node--view-mode-teaser .field--name-body {
