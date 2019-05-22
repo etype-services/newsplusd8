@@ -471,7 +471,8 @@ function newsplus_preprocess_field__field_mt_video_gallery_slides(&$variables) {
   $paragraphs = $variables['element']['#items']->referencedEntities();
   if (!empty($paragraphs)) {
     foreach ($paragraphs as $key => $paragraph) {
-      $vimeo_id = $paragraph->toArray()['field_mt_vgs_vimeo_id'];
+      // $vimeo_id = $paragraph->toArray()['field_mt_vgs_vimeo_id'];
+      $vimeo_id = '';
       $youtube_id = $paragraph->toArray()['field_mt_vgs_youtube_id'];
       $volume = $paragraph->toArray()['field_mt_vgs_volume'];
       $slide_title = $paragraph->toArray()['field_mt_vgs_slide_title'];
