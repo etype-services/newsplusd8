@@ -49,8 +49,9 @@ main {
     flex-wrap: wrap;
   }
   .tile.is-child.is-3 {
-    &:not(:last-child) {
-      padding-right: 0.5rem!important;
+    padding-right: 0.5rem!important;
+    &:nth-child(4) {
+      padding-right: 0!important;
     }
   }
 }
