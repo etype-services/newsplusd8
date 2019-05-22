@@ -36,6 +36,10 @@ main {
 
 @media screen and (min-width: $tablet) {
   /* Bulma overrides. */
+  .tile {
+    flex-basis: unset;
+    flex-grow: unset;
+  }
   .tile.is-ancestor {
     margin-left: 0;
     margin-right: 0;

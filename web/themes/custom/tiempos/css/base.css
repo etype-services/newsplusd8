@@ -26,6 +26,10 @@ main {
     margin: 0 0 2rem 0 !important; } }
 @media screen and (min-width: 769px) {
   /* Bulma overrides. */
+  .tile {
+    flex-basis: unset;
+    flex-grow: unset; }
+
   .tile.is-ancestor {
     margin-left: 0;
     margin-right: 0; }
