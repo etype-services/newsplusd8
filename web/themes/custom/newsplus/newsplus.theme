@@ -412,13 +412,15 @@ function newsplus_theme_suggestions_form_alter(array &$suggestions, array $varia
 }
 
 /**
- * Implements hook_form_alter() to add classes to the search form.
+ * Implements hook_form_alter().
  *
  * @param $form
  * @param \Drupal\Core\Form\FormStateInterface $form_state
  * @param $form_id
  */
 function newsplus_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  /* Add classes to the search form. */
   if (in_array($form_id, ['search_block_form', 'search_form'])) {
     $key = ($form_id == 'search_block_form') ? 'actions' : 'basic';
     if (!isset($form[$key]['submit']['#attributes'])) {
