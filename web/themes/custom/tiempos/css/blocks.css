@@ -34,7 +34,8 @@
   border-bottom: 1px solid #b5b5b5; }
 .block-poll-recent-block input[type=radio] {
   height: 1.2rem;
-  width: 1.2rem; }
+  width: 1.2rem;
+  vertical-align: middle; }
 
 /* Video Block */
 #block-views-block-videos-block-1 > h2 {

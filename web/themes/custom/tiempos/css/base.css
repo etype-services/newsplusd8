@@ -12,6 +12,10 @@ main {
 .messages {
   margin: 0 0 0.75rem 0.5rem; }
 
+/* Make radio buttons inline. */
+.form-type-radio {
+  display: flex; }
+
 @media screen and (min-width: 1088px) {
   .region-sidebar {
     /* Make border go to the bottom. */

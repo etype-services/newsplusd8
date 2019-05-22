@@ -17,6 +17,11 @@ main {
   margin: 0 0 $column-gap 0.5rem;
 }
 
+/* Make radio buttons inline. */
+.form-type-radio {
+  display: flex;
+}
+
 @media screen and (min-width: $desktop) {
   .region-sidebar {
     /* Make border go to the bottom. */
