@@ -1,4 +1,11 @@
 /* Center column for tiempos theme */
+.page-node-type-article article .flexslider ul.slides {
+  display: block;
+  height: auto;
+  width: initial;
+  max-width: 100%;
+  margin: auto; }
+
 /* Nav overrides for Feature nodes. */
 .page-node-type-feature #navbar-burger {
   display: block;
@@ -36,7 +43,9 @@
   margin-bottom: 0; }
 .page-node-type-article article .node__meta {
   margin-bottom: calc(0.75rem * 2); }
-.page-node-type-article article .flex-caption {
+.page-node-type-article article .flexslider ul.slides img {
+  width: auto; }
+.page-node-type-article article .flexslider .flex-caption {
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   color: #0a0a0a; }

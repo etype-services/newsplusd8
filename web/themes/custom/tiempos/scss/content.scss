@@ -52,10 +52,18 @@
     .node__meta {
       margin-bottom: calc(#{$column-gap} * 2);
     }
-    .flex-caption {
-      font-family: $sans-serif;
-      font-size: $size-7;
-      color: $black;
+    .flexslider {
+      ul.slides {
+        @extend %extend_1;
+        img {
+          width: auto;
+        }
+      }
+      .flex-caption {
+        font-family: $sans-serif;
+        font-size: $size-7;
+        color: $black;
+      }
     }
     .field--name-field-small-image {
       float: left;
