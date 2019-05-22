@@ -29,8 +29,9 @@
   display: block;
   flex: 2 1 0;
   padding: 0; }
-  .view-id-frontpage.columns > .view-content img {
-    margin: auto; }
+  .view-id-frontpage.columns > .view-content > div > a {
+    margin: auto;
+    display: table; }
 
 .view {
   /* Make image fill defined space, might cause upscaling */
