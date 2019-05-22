@@ -123,8 +123,8 @@ function newsplus_preprocess_breadcrumb(&$variables){
  */
 function etype_form_alter(&$form, &$form_state, $form_id) {
   /* Process Video Add form. */
-  if ($form_id == 'node-video-form') {
-    $form['mt-bg-video-youtube-wrapper']['#prefix'] = "
+  if ($form_id == "node-video-form") {
+    $form["field_mt_bg_video_youtube"]["#prefix"] = "
 <h3>The following fields only need to be used if \"Front Page Slideshow\" (under CUSTOM PUBLSHING OPTIONS) is checked.</h3>
 ";
   }
