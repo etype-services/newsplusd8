@@ -32,16 +32,14 @@ main {
 
   .tile.is-ancestor {
     margin-left: 0;
-    margin-right: 0; }
+    margin-right: -0.5rem; }
 
   .tile.is-parent {
     padding: 0;
     flex-wrap: wrap; }
 
   .tile.is-child.is-3 {
-    padding-right: 0.5rem !important; }
-    .tile.is-child.is-3:nth-child(4) {
-      padding-right: 0 !important; } }
+    padding-right: 0.5rem !important; } }
 @media screen and (max-width: 768px) {
   .region-header > div {
     padding-top: 0;

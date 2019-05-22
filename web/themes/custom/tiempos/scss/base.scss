@@ -42,7 +42,7 @@ main {
   }
   .tile.is-ancestor {
     margin-left: 0;
-    margin-right: 0;
+    margin-right: -0.5rem;
   }
   .tile.is-parent {
     padding: 0;
@@ -50,9 +50,6 @@ main {
   }
   .tile.is-child.is-3 {
     padding-right: 0.5rem!important;
-    &:nth-child(4) {
-      padding-right: 0!important;
-    }
   }
 }
 
