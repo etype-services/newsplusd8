@@ -30,7 +30,7 @@
   flex: 2 1 0;
   padding: 0; }
   .view-id-frontpage.columns > .view-content img {
-    width: 100%; }
+    margin: auto; }
 
 .view {
   /* Make image fill defined space, might cause upscaling */

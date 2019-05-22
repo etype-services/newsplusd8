@@ -33,7 +33,7 @@
 .view-id-frontpage.columns > .view-content {
   @include column-no-padding-top-right-bottom-grow;
   img {
-    width: 100%;
+    margin: auto;
   }
 }
 
