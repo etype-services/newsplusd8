@@ -6,11 +6,11 @@
  * Functions to support theming in the newsplus theme.
  */
 
-use Drupal\Core\Theme\ThemeSettings;
 use Drupal\Core\Template\Attribute;
 use Drupal\file\Entity\File;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\Component\Utility\Html;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_preprocess_HOOK() for HTML document templates.
@@ -99,6 +99,9 @@ function newsplus_preprocess_html(&$variables) {
 
 }
 
+/**
+ * @param $variables
+ */
 function newsplus_preprocess_breadcrumb(&$variables){
   $variables['mt_setting']['breadcrumb_separator'] = theme_get_setting('breadcrumb_separator');
   if($variables['breadcrumb']){
@@ -112,6 +115,18 @@ function newsplus_preprocess_breadcrumb(&$variables){
       // Add cache context based on url.
       $variables['#cache']['contexts'][] = 'url';
     }
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function etype_form_alter(&$form, &$form_state, $form_id) {
+  /* Process Video Add form. */
+  if ($form_id == 'node-video-form') {
+    $form['mt-bg-video-youtube-wrapper']['#prefix'] = "
+<h3>The following fields only need to be used if \"Front Page Slideshow\" (under CUSTOM PUBLSHING OPTIONS) is checked.</h3>
+";
   }
 }
 
@@ -409,7 +424,7 @@ function newsplus_theme_suggestions_form_alter(array &$suggestions, array $varia
 /**
  * Implements hook_form_alter() to add classes to the search form.
  */
-function newsplus_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+function newsplus_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   if (in_array($form_id, ['search_block_form', 'search_form'])) {
     $key = ($form_id == 'search_block_form') ? 'actions' : 'basic';
     if (!isset($form[$key]['submit']['#attributes'])) {
@@ -421,7 +436,7 @@ function newsplus_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_
 
 function newsplus_preprocess_field(&$variables) {
   $element = $variables['element'];
-  $variables['view_mode'] = $element['#view_mode']; //Expose node view_mode to field templates
+  $variables['view_mode'] = $element['#view_mode']; // Expose node view_mode to field templates
 }
 
 function newsplus_preprocess_field__entity_reference(&$variables) {
@@ -504,6 +519,7 @@ function newsplus_preprocess_field__field_mt_video_gallery_slides(&$variables) {
     }
   }
 }
+
 function newsplus_theme_suggestions_image_formatter_alter(array &$suggestions, array $variables) {
   $entity = $variables['item']->getEntity();
   $field_name = $variables['item']->getParent()->getName();
