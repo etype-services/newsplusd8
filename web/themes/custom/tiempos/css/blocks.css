@@ -35,7 +35,8 @@
 .block-poll-recent-block input[type=radio] {
   height: 1.2rem;
   width: 1.2rem;
-  vertical-align: middle; }
+  vertical-align: middle;
+  margin-right: 0.5rem; }
 
 /* Video Block */
 #block-views-block-videos-block-1 > h2 {
