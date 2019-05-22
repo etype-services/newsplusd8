@@ -89,13 +89,18 @@
     margin-bottom: 1.5rem;
   }
   /* Add margint to last item. */
-  .view-content > div:last-child {
-    margin-bottom: 1rem;
+
+  .view-content {
+    & > div:not(last-child) {
+      border-bottom: 1px solid $grey-lighter;
+      padding-bottom: 1.3rem;
+    }
+    & > div:last-child {
+      margin-bottom: 1rem;
+    }
   }
   /* Teaser formatting. */
   .node--view-mode-teaser {
-    border-bottom: 1px solid $grey-lighter;
-    padding-bottom: 1.3rem;
     .field--name-field-ad-category {
       margin-bottom: 0;
       font-family: $sans-serif;
