@@ -88,8 +88,8 @@
     font-family: "Open Sans", sans-serif;
     font-size: 0.75rem; }
   .view-taxonomy-term .node--view-mode-teaser img {
-    float: left;
-    width: 45%;
+    float: right;
+    width: 35%;
     margin-right: 0.5rem;
     margin-top: 0.3rem; }
 
