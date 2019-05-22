@@ -46,6 +46,7 @@ main {
   }
   .tile.is-parent {
     padding: 0;
+    flex-wrap: wrap;
   }
   .tile.is-child.is-3 {
     &:not(:last-child) {
