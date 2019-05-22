@@ -96,6 +96,7 @@
     & > div:last-child {
       border-bottom: none;
       padding-bottom: 0;
+      margin-bottom: calc(#{$column-gap} * 2);
     }
   }
   /* Teaser formatting. */
