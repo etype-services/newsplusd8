@@ -94,6 +94,8 @@
   }
   /* Teaser formatting. */
   .node--view-mode-teaser {
+    border-bottom: 1px solid $grey-lighter;
+    padding-bottom: 1.3rem;
     .field--name-field-ad-category {
       margin-bottom: 0;
       font-family: $sans-serif;
