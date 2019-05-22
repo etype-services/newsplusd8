@@ -332,12 +332,13 @@ function newsplus_preprocess_node(&$variables) {
     unset($variables['content']['links']['comment']['#links']['comment-add']);
   }
 
+  $request_time = Drupal::time()->getRequestTime();
   $variables['posted_ago'] = \Drupal::service('date.formatter')
-    ->formatInterval(REQUEST_TIME - $variables['node']
+    ->formatInterval($request_time - $variables['node']
         ->getCreatedTime(), $granularity = 1);
 
   $variables['changed_ago'] = \Drupal::service('date.formatter')
-    ->formatInterval(REQUEST_TIME - $variables['node']
+    ->formatInterval($request_time - $variables['node']
         ->getChangedTime(), $granularity = 1);
 
   if (isset($variables['content']['field_image']['#theme'])){
@@ -427,14 +428,6 @@ function newsplus_form_alter(&$form, FormStateInterface $form_state, $form_id) {
       $form[$key]['submit']['#attributes'] = new Attribute();
     }
     $form[$key]['submit']['#attributes']->addClass('search-form__submit');
-  }
-
-  kint($form_id);
-  /* Process Video Add form. */
-  if ($form_id == "node-video-form") {
-    $form["field_mt_bg_video_youtube"]["#prefix"] = "
-<h3>The following fields only need to be used if \"Front Page Slideshow\" (under CUSTOM PUBLSHING OPTIONS) is checked.</h3>
-";
   }
 }
 
