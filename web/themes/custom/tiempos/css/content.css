@@ -48,7 +48,9 @@
 .page-node-type-article article .flexslider .flex-caption {
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
-  color: #0a0a0a; }
+  color: #0a0a0a;
+  margin: auto;
+  width: fit-content; }
 .page-node-type-article article .field--name-field-small-image {
   float: left;
   margin-right: 0.75rem;
