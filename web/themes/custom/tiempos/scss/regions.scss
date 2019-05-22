@@ -30,7 +30,7 @@
   flex-wrap: wrap;
   @include border-right-light;
   overflow: hidden; /* For owl carousel in Business Directory. */
-  margin-bottom: 0;
+  margin-bottom: $column-gap;
   padding-bottom: 0;
 }
 
