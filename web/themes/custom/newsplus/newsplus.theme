@@ -429,6 +429,7 @@ function newsplus_form_alter(&$form, FormStateInterface $form_state, $form_id) {
     $form[$key]['submit']['#attributes']->addClass('search-form__submit');
   }
 
+  kint($form_id);
   /* Process Video Add form. */
   if ($form_id == "node-video-form") {
     $form["field_mt_bg_video_youtube"]["#prefix"] = "
