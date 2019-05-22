@@ -54,8 +54,8 @@
     }
     .flexslider {
       ul.slides {
-        @extend %extend_1;
         img {
+          @extend %extend_1;
           width: auto;
         }
       }
