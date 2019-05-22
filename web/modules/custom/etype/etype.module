@@ -111,9 +111,11 @@ function etype_form_alter(&$form, &$form_state, $form_id) {
 
   /* Process Video Add form. */
   if ($form_id == "node_video_form") {
-    $form["field_mt_bg_video_youtube"]["#prefix"] = "
-<h3>The following fields only need to be used if \"Front Page Slideshow\" (under CUSTOM PUBLSHING OPTIONS) is checked.</h3>
-";
+    if (isset ($form["field_mt_bg_video_youtube"])) {
+      $form['#attached']['library'][] = 'etype/etype-video';
+      $form["field_mt_bg_video_youtube"]["#prefix"] = "
+<h4>The next three fields only need to be filled out if \"Front Page Slideshow\" (under CUSTOM PUBLSHING OPTIONS) is checked. The defaults should be fine.</h4>";
+    }
   }
 }
 

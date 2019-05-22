@@ -7,6 +7,15 @@ etype:
     - core/drupalSettings
     - core/jquery.once
 
+etype-video:
+  version: VERSION
+  js:
+    js/etype_video.js:
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once
+
 global-styling:
   version: VERSION
   css:
