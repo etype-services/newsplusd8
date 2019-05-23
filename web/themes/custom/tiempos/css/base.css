@@ -55,7 +55,6 @@ main {
     flex-wrap: wrap; }
 
   .tile.is-child.is-3 {
-    padding-right: 0.5rem !important;
-    width: 30%; } }
+    padding-right: 0.5rem !important; } }
 
 /*# sourceMappingURL=base.css.map */
