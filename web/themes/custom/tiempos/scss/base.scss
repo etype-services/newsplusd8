@@ -34,12 +34,14 @@ main {
 
 }
 
+/* Bulma overrides for tiles, for Special Sections. */
+.tile {
+  flex-basis: unset;
+  flex-grow: unset;
+}
+
 @media screen and (min-width: $tablet) {
-  /* Bulma overrides. */
-  .tile {
-    flex-basis: unset;
-    flex-grow: unset;
-  }
+  /* Bulma overrides for tiles, for Special Sections. */
   .tile.is-ancestor {
     margin-left: 0;
     margin-right: -0.5rem;
@@ -57,5 +59,19 @@ main {
   .region-header > div {
     padding-top: 0;
     padding-bottom: 0;
+  }
+
+  /* Bulma overrides for tiles, for Special Sections. */
+  .tile.is-ancestor {
+    margin-left: 0;
+    margin-right: -0.5rem;
+  }
+  .tile.is-parent {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .tile.is-child.is-3 {
+    padding-right: 0.5rem!important;
+    width: 30%;
   }
 }
