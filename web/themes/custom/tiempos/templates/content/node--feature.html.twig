@@ -107,13 +107,13 @@
   </div>
 
   <div class="column is-three-quarters has-background-black is-paddingless">
-    {{ content.field_image[0] }}
+    {{ content.field_spotlight_image[0] }}
   </div>
 
   <div class="column is-full is-paddingless">
     <div class="main-caption is-sans-serif has-text-black has-text-centered is-size-7"></div>
     <div{{ content_attributes.addClass('node__content') }}>
-      {{ content|without('field_image', 'addtoany') }}
+      {{ content|without('field_spotlight_image', 'addtoany') }}
     </div>
   </div>
 
