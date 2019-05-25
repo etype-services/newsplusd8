@@ -145,6 +145,26 @@
   }
 }
 
+@media screen and (min-width: $desktop) {
+  /* Section Pages Formatting */
+  .view-taxonomy-term {
+    article.node--type-feature.node--view-mode-teaser,
+    article.node--type-article.node--view-mode-teaser {
+      position: relative;
+      .node__content {
+        h2, .field--name-body {
+          margin-left: 8rem;
+        }
+        .submitted {
+          position: absolute;
+          top: 0;
+        }
+      }
+    }
+  }
+}
+
+
 @media screen and (max-width: $tablet - 1px ) {
   /* Hide attachment-before on mobile. */
   .view-id-frontpage,
