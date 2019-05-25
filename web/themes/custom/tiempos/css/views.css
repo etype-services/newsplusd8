@@ -11,7 +11,7 @@
     .view-id-frontpage.columns > .attachment .node--view-mode-teaser h2 {
       font-size: 1.1rem;
       line-height: 1.4; }
-    .view-id-frontpage.columns > .attachment .node--view-mode-teaser img {
+    .view-id-frontpage.columns > .attachment .node--view-mode-teaser .image-container {
       float: left;
       width: 40%;
       margin-right: 0.5rem;
@@ -97,6 +97,11 @@
     width: 30%;
     margin-left: 0.5rem;
     margin-top: 0.3rem; }
+
+/* Front Page Sections, class is applied in the View */
+.front-page-sections .image-container {
+  display: flex;
+  align-items: center; }
 
 /* Special Sections Page. */
 .path-special-sections article {

@@ -96,3 +96,11 @@ article:
   dependencies:
     - core/jquery
     - core/jquery.once
+
+front_page_sections:
+  version: VERSION
+  js:
+    js/front_page_sections.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once

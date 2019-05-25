@@ -83,7 +83,7 @@
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
     <div{{ content_attributes.addClass('node__content') }}>
-        {{ content.field_spotlight_image[0] }}
+        <div class="image-container">{{ content.field_spotlight_image[0] }}</div>
         <h2{{ title_attributes }}>
             <a href="{{ url }}" rel="bookmark">{{ label }}</a>
         </h2>

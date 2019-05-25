@@ -84,9 +84,9 @@
 <article{{ attributes.addClass(classes) }}>
     <div{{ content_attributes.addClass('node__content') }}>
         {% if content.field_image[0] is defined %}
-            {{ content.field_image[0] }}
+            <div class="image-container">{{ content.field_image[0] }}</div>
         {% elseif content.field_small_image is defined %}
-            {{ content.field_small_image[0] }}
+            <div class="image-container">{{ content.field_small_image[0] }}</div>
         {% endif %}
         <h2{{ title_attributes }}>
             <a href="{{ url }}" rel="bookmark">{{ label }}</a>

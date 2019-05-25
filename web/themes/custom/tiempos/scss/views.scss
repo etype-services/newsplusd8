@@ -11,7 +11,7 @@
       font-size: 1.1rem;
       line-height: 1.4;
     }
-    img {
+    .image-container {
       float: left;
       width: 40%;
       margin-right: 0.5rem;
@@ -112,6 +112,14 @@
       margin-left: 0.5rem;
       margin-top: 0.3rem;
     }
+  }
+}
+
+/* Front Page Sections, class is applied in the View */
+.front-page-sections {
+  .image-container {
+    display: flex;
+    align-items: center;
   }
 }
 

@@ -2,6 +2,7 @@
 
 use Drupal\file\Entity\File;
 use Drupal\taxonomy\Entity\Term;
+use Drupal\views\ViewExecutable;
 
 /**
  * Preprocess Blocks.
@@ -88,5 +89,16 @@ function tiempos_preprocess_input(&$variables) {
 function tiempos_theme_suggestions_page_alter(array &$suggestions, array $variables) {
   if ($node = Drupal::routeMatch()->getParameter('node')) {
     $suggestions[] = 'page__' . $node->bundle();
+  }
+}
+
+/**
+ * Implements hook_views_pre_render().
+ *
+ * @param ViewExecutable $view
+ */
+function tiempos_views_pre_render(ViewExecutable $view) {
+  if (isset($view) && ($view->storage->id() == 'front_page_sections')) {
+    $view->element['#attached']['library'][] = 'tiempos/front_page_sections';
   }
 }
