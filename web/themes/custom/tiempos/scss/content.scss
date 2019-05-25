@@ -39,6 +39,10 @@
     display: flex;
     .field__item {
       margin-right: 0.2rem;
+      font-style: oblique;
+      &:after {
+        content: ",";
+      }
     }
   }
 }
@@ -50,7 +54,12 @@
   }
   article {
     .node__meta {
+      display: inline-block;
       margin-bottom: calc(#{$column-gap} * 2);
+      .field--name-user-picture {
+        float: left;
+        margin-right: 0.5rem;
+      }
     }
     .flexslider {
       ul.slides {
@@ -95,11 +104,6 @@
           font-size: $size-7;
           color: $black;
         }
-      }
-    }
-    .field--name-field-tags {
-      .field__item {
-        font-style: oblique;
       }
     }
   }
