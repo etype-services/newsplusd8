@@ -83,20 +83,26 @@
     margin-bottom: 1.5rem; }
   .view-taxonomy-term .view-content > div {
     border-bottom: 1px solid #dbdbdb;
-    padding-bottom: 1.3rem; }
+    padding-bottom: 1rem; }
   .view-taxonomy-term .view-content > div:last-child {
     border-bottom: none;
     padding-bottom: 0;
     margin-bottom: calc(0.75rem * 2); }
-  .view-taxonomy-term .node--view-mode-teaser .field--name-field-ad-category {
-    margin-bottom: 0;
-    font-family: "Open Sans", sans-serif;
-    font-size: 0.75rem; }
-  .view-taxonomy-term .node--view-mode-teaser img {
-    float: right;
-    width: 30%;
-    margin-left: 0.5rem;
-    margin-top: 0.3rem; }
+  .view-taxonomy-term .node--view-mode-teaser {
+    /* These items to make teaser full-width and as tall as image. */
+    display: inline-block;
+    width: 100%; }
+    .view-taxonomy-term .node--view-mode-teaser .field--name-field-ad-category {
+      margin-bottom: 0;
+      font-family: "Open Sans", sans-serif;
+      font-size: 0.75rem; }
+    .view-taxonomy-term .node--view-mode-teaser .image-container {
+      float: right;
+      width: 30%;
+      margin-left: 0.5rem;
+      margin-top: 0.3rem; }
+      .view-taxonomy-term .node--view-mode-teaser .image-container img {
+        width: 100%; }
 
 /* Front Page Sections, class is applied in the View */
 .front-page-sections .image-container {
