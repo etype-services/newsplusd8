@@ -40,10 +40,8 @@
     .field__item {
       margin-right: 0.2rem;
       font-style: oblique;
-      &:not(last-child) {
-        &:after {
-          content: ",";
-        }
+      &:after {
+        content: ",";
       }
     }
   }
