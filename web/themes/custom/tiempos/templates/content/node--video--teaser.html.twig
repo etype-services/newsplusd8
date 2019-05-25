@@ -83,9 +83,10 @@
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
     <div{{ content_attributes.addClass('node__content') }}>
+        {{ content.field_video_embed }}
         <h2{{ title_attributes }}>
             <a href="{{ url }}" rel="bookmark">{{ label }}</a>
         </h2>
-        {{ content }}
+        {{ content.body }}
     </div>
 </article>
