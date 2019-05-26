@@ -9,7 +9,7 @@
             img.each(function () {
                 var text = $(this).attr("alt");
                 var articleCaption = "<p class=\"caption is-sans-serif is-size-7\">" + text + "</p>";
-                img.parents(".field").once("tiemposBehavior").append(articleCaption);
+                $(this).parents(".field").once("tiemposBehavior").append(articleCaption);
             });
 
             if (len > 1) {
