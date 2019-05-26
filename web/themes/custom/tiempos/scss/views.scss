@@ -6,14 +6,10 @@
   @include column-no-padding-top-left-bottom;
   & > div > a {
     /* Deal with images that are taller than wide. */
-    margin: auto;
-    display: table;
-    & > img {
-      float: left;
-      width: 40%;
-      margin-right: 0.5rem;
-      margin-top: 0.3rem;
-    }
+    float: left;
+    width: 40%;
+    margin-right: 0.5rem;
+    margin-top: 0.3rem;
   }
   /* Teaser formatting */
   .node--view-mode-teaser {
