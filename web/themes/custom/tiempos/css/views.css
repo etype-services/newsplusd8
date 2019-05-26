@@ -11,7 +11,10 @@
     margin: auto;
     display: table; }
     .view-id-frontpage.columns > .attachment > div > a > img {
-      float: left; }
+      float: left;
+      width: 40%;
+      margin-right: 0.5rem;
+      margin-top: 0.3rem; }
   .view-id-frontpage.columns > .attachment .node--view-mode-teaser {
     margin-bottom: 0; }
     .view-id-frontpage.columns > .attachment .node--view-mode-teaser h2 {
