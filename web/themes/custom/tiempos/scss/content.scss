@@ -107,6 +107,13 @@
           color: $black;
         }
       }
+      ul {
+        list-style-type: disc;
+        @include list;
+      }
+      ol {
+        @include list;
+      }
     }
   }
 }
@@ -211,6 +218,13 @@
               font-weight: bold;
               font-style: italic;
             }
+          }
+          ul {
+            list-style-type: disc;
+            @include list;
+          }
+          ol {
+            @include list;
           }
         }
         .field--name-field-tags {

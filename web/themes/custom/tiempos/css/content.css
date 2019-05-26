@@ -78,6 +78,13 @@
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   color: #0a0a0a; }
+.page-node-type-article article .field--name-body ul {
+  list-style-type: disc;
+  margin: 0.5rem 0 1rem 3rem;
+  font-family: "Open Sans", sans-serif; }
+.page-node-type-article article .field--name-body ol {
+  margin: 0.5rem 0 1rem 3rem;
+  font-family: "Open Sans", sans-serif; }
 
 /* Feature formatting. */
 .page-node-type-feature {
@@ -158,6 +165,13 @@
           font-size: 1.6rem;
           font-weight: bold;
           font-style: italic; }
+      .page-node-type-feature article .is-full .node__content .field--name-body ul {
+        list-style-type: disc;
+        margin: 0.5rem 0 1rem 3rem;
+        font-family: "Open Sans", sans-serif; }
+      .page-node-type-feature article .is-full .node__content .field--name-body ol {
+        margin: 0.5rem 0 1rem 3rem;
+        font-family: "Open Sans", sans-serif; }
       .page-node-type-feature article .is-full .node__content .field--name-field-tags {
         margin: 4rem 4rem 0.75rem 13rem; }
     .page-node-type-feature article .node__submitted a {
