@@ -17,7 +17,7 @@
       margin-bottom: 0; }
       .view-id-frontpage.columns > .attachment .view-content .node--view-mode-teaser h2 {
         font-size: 1.1rem;
-        line-height: 1.4; }
+        line-height: 1.4rem; }
       .view-id-frontpage.columns > .attachment .view-content .node--view-mode-teaser .image-container {
         float: left;
         width: 40%;
@@ -29,7 +29,7 @@
         line-height: 1.3; }
         .view-id-frontpage.columns > .attachment .view-content .node--view-mode-teaser .field--name-body p {
           /* Fine-tuning. */
-          line-height: 1.3; }
+          line-height: 1.3rem; }
 
 /* Front Page Featured View (center column). */
 .view-id-frontpage.columns > .view-content {
@@ -40,6 +40,8 @@
     /* Deal with images that are taller than wide. */
     margin: auto;
     display: table; }
+  .view-id-frontpage.columns > .view-content h2 {
+    line-height: 1.8rem; }
 
 /* Generic. */
 .view {
