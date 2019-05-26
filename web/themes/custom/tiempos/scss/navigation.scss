@@ -94,6 +94,9 @@
       /* Used to close "pop-up", override bulma margin. */
       .navbar-burger {
         margin-left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       /* The logo. */
       .block-system-branding-block {

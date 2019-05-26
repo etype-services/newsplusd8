@@ -71,7 +71,10 @@
     #main-nav .navbar .navbar-start .navbar-item {
       width: fit-content; }
     #main-nav .navbar .navbar-start .navbar-burger {
-      margin-left: 0; }
+      margin-left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
     #main-nav .navbar .navbar-start .block-system-branding-block {
       text-align: center;
       position: absolute;
