@@ -35,6 +35,9 @@
   & > div > a {
     margin: auto;
     display: table;
+    & > img {
+      float: left;
+    }
   }
 }
 

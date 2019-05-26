@@ -32,6 +32,8 @@
   .view-id-frontpage.columns > .view-content > div > a {
     margin: auto;
     display: table; }
+    .view-id-frontpage.columns > .view-content > div > a > img {
+      float: left; }
 
 .view {
   /* Make image fill defined space, might cause upscaling */
