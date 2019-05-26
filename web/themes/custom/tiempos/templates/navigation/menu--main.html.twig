@@ -26,11 +26,7 @@
             {# Add the "User" Menu to show in pop-up div #}
             {{ drupal_block('system_menu_block:account') }}
             {# The hamburger #}
-            <a role="button" class="navbar-burger is-active" aria-label="menu" aria-expanded="false">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
+            <a role="button" class="navbar-burger is-active" aria-label="menu" aria-expanded="false"><i class="fas fa-times"></i></a>
             {# Search block #}
             {{ drupal_block('search_form_block') }}
             {# Main menu items with separate macro for sub-links, we don't want all the dropdown classes #}
