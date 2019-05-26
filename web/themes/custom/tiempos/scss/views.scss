@@ -12,7 +12,11 @@
       margin-right: 0.5rem;
       margin-top: 0.3rem;
     }
-    /* Teaser formatting */
+    h2 {
+      font-size: 1.1rem;
+      line-height: 1.4rem;
+    }
+    /* Teaser formatting, for sites that use it. */
     .node--view-mode-teaser {
       margin-bottom: 0;
       h2 {
@@ -28,7 +32,7 @@
       .field--name-body {
         margin-bottom: 0;
         /* Fine-tuning. TODO: Why does Feature not have p tag? */
-        line-height: 1.3;
+        line-height: 1.3rem;
         p {
           /* Fine-tuning. */
           line-height: 1.3rem;
