@@ -4,33 +4,35 @@
 .view-id-frontpage.columns > .attachment {
   /* Emulate column css. */
   @include column-no-padding-top-left-bottom;
-  & > div > a {
-    /* Deal with images that are taller than wide. */
-    float: left;
-    width: 40%;
-    margin-right: 0.5rem;
-    margin-top: 0.3rem;
-  }
-  /* Teaser formatting */
-  .node--view-mode-teaser {
-    margin-bottom: 0;
-    h2 {
-      font-size: 1.1rem;
-      line-height: 1.4;
-    }
-    .image-container {
+  .view-content {
+    & > div > a {
+      /* Deal with images that are taller than wide. */
       float: left;
       width: 40%;
       margin-right: 0.5rem;
       margin-top: 0.3rem;
     }
-    .field--name-body {
+    /* Teaser formatting */
+    .node--view-mode-teaser {
       margin-bottom: 0;
-      /* Fine-tuning. TODO: Why does Feature not have p tag? */
-      line-height: 1.3;
-      p {
-        /* Fine-tuning. */
+      h2 {
+        font-size: 1.1rem;
+        line-height: 1.4;
+      }
+      .image-container {
+        float: left;
+        width: 40%;
+        margin-right: 0.5rem;
+        margin-top: 0.3rem;
+      }
+      .field--name-body {
+        margin-bottom: 0;
+        /* Fine-tuning. TODO: Why does Feature not have p tag? */
         line-height: 1.3;
+        p {
+          /* Fine-tuning. */
+          line-height: 1.3;
+        }
       }
     }
   }
@@ -46,6 +48,7 @@
   }
 }
 
+/* Generic. */
 .view {
   h2 {
     font-size: 1.2rem;
