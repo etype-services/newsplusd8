@@ -6,8 +6,12 @@
   flex: 1 1 0;
   padding: 0 calc(0.75rem * 2) 0 0;
   /* Teaser formatting */ }
-  .view-id-frontpage.columns > .attachment > div > a > img {
-    float: left; }
+  .view-id-frontpage.columns > .attachment > div > a {
+    /* Deal with images that are taller than wide. */
+    margin: auto;
+    display: table; }
+    .view-id-frontpage.columns > .attachment > div > a > img {
+      float: left; }
   .view-id-frontpage.columns > .attachment .node--view-mode-teaser {
     margin-bottom: 0; }
     .view-id-frontpage.columns > .attachment .node--view-mode-teaser h2 {

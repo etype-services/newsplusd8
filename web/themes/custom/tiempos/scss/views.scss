@@ -4,8 +4,13 @@
 .view-id-frontpage.columns > .attachment {
   /* Emulate column css. */
   @include column-no-padding-top-left-bottom;
-  & > div > a > img {
-    float: left;
+  & > div > a {
+    /* Deal with images that are taller than wide. */
+    margin: auto;
+    display: table;
+    & > img {
+      float: left;
+    }
   }
   /* Teaser formatting */
   .node--view-mode-teaser {
