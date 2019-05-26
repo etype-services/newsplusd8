@@ -121,7 +121,8 @@
 /* Front Page Sections, class is applied in the View */
 .front-page-sections .image-container {
   display: flex;
-  align-items: center; }
+  align-items: center;
+  justify-content: center; }
 
 /* Special Sections Page. */
 .path-special-sections article {
