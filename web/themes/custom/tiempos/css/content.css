@@ -81,6 +81,7 @@
 .page-node-type-article article .field--name-body ul {
   list-style-type: disc;
   margin: 1rem 0 1rem 3rem;
+  margin: 1rem 0 1rem 3rem;
   font-family: "Open Sans", sans-serif; }
 .page-node-type-article article .field--name-body ol {
   margin: 1rem 0 1rem 3rem;
@@ -167,6 +168,7 @@
           font-style: italic; }
       .page-node-type-feature article .is-full .node__content .field--name-body ul {
         list-style-type: disc;
+        margin: 1rem 0 1rem 13rem;
         margin: 1rem 0 1rem 3rem;
         font-family: "Open Sans", sans-serif; }
       .page-node-type-feature article .is-full .node__content .field--name-body ol {
@@ -231,6 +233,8 @@
     padding-top: 2rem; }
     .page-node-type-feature article .is-full .node__content p {
       margin: 0 4rem 0.75rem 4rem; }
+    .page-node-type-feature article .is-full .node__content ul, .page-node-type-feature article .is-full .node__content ol {
+      margin: 1rem 0 1rem 5rem; }
     .page-node-type-feature article .is-full .node__content .field--name-body blockquote {
       margin: 0.75rem 4rem 0.75rem 4rem; }
       .page-node-type-feature article .is-full .node__content .field--name-body blockquote p {
@@ -246,7 +250,7 @@
     margin: 2rem 1rem 1rem; }
   .page-node-type-feature article .is-full .node__content > .field--name-body {
     margin: 0; }
-    .page-node-type-feature article .is-full .node__content > .field--name-body p, .page-node-type-feature article .is-full .node__content > .field--name-body blockquote {
+    .page-node-type-feature article .is-full .node__content > .field--name-body p, .page-node-type-feature article .is-full .node__content > .field--name-body blockquote, .page-node-type-feature article .is-full .node__content > .field--name-body ul, .page-node-type-feature article .is-full .node__content > .field--name-body ol {
       margin: 1rem; } }
 
 /*# sourceMappingURL=content.css.map */
