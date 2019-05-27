@@ -234,8 +234,8 @@
       margin: 0.75rem 4rem 0.75rem 4rem; }
       .page-node-type-feature article .is-full .node__content .field--name-body blockquote p {
         margin: 0 0 0.75rem 0; }
-      .page-node-type-feature article .is-full .node__content .field--name-body blockquote ul, .page-node-type-feature article .is-full .node__content .field--name-body blockquote ol {
-        margin: 0 4rem 0.75rem 6rem; }
+    .page-node-type-feature article .is-full .node__content .field--name-body ul, .page-node-type-feature article .is-full .node__content .field--name-body ol {
+      margin: 0 4rem 0.75rem 6rem; }
     .page-node-type-feature article .is-full .node__content .field--name-field-tags {
       margin: 3rem 4rem 0.75rem 4rem; } }
 /* Mobile */
