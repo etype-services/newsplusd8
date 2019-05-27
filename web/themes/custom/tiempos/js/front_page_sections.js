@@ -13,10 +13,10 @@
                     heights.push(parseInt(height));
                 });
                 // console.log(heights);
-                maxHeight = Math.max.apply(Math, heights);
+                maxHeight = Math.min.apply(Math, heights);
                 // console.log(maxHeight);
                 if (maxHeight > 0) {
-                    $(".image-container", obj).css("height", maxHeight);
+                    $(".image-container, img", obj).css("height", maxHeight);
                 }
             });
         }

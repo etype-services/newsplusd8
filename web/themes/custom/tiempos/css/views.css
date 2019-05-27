@@ -123,6 +123,8 @@
   display: flex;
   align-items: center;
   justify-content: center; }
+  .front-page-sections .image-container img {
+    width: auto; }
 
 /* Special Sections Page. */
 .path-special-sections article {
