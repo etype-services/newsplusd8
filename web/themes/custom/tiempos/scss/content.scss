@@ -110,10 +110,9 @@
       ul {
         list-style-type: disc;
         margin: 1rem 0 1rem 3rem;
-        @include list;
       }
       ol {
-        @include list;
+        margin: 1rem 0 1rem 3rem;
       }
     }
   }
@@ -129,7 +128,7 @@
     padding: 0;
     border-right: none;
   }
-  .addtoany_list {
+  .addtoany {
     position: fixed;
     top: 0.15rem;
     right: 0.75rem;
@@ -223,10 +222,8 @@
           ul {
             list-style-type: disc;
             margin: 1rem 6rem 1rem 15rem;
-            @include list;
           }
           ol {
-            @include list;
             margin: 1rem 6rem 1rem 15rem;
           }
         }
