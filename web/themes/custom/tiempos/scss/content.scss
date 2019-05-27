@@ -222,12 +222,12 @@
           }
           ul {
             list-style-type: disc;
-            margin: 1rem 5rem 1rem 15rem;
+            margin: 1rem 6rem 1rem 15rem;
             @include list;
           }
           ol {
             @include list;
-            margin: 1rem 5rem 1rem 15rem;
+            margin: 1rem 6rem 1rem 15rem;
           }
         }
         .field--name-field-tags {
@@ -320,14 +320,14 @@
           p {
             margin: 0 4rem $column-gap 4rem;
           }
-          ul, ol {
-            margin: 0 4rem 0.75rem 6rem;
-          }
           .field--name-body {
             blockquote {
               margin: $column-gap 4rem $column-gap 4rem;
               p {
                 margin: 0 0 $column-gap 0;
+              }
+              ul, ol {
+                margin: 0 4rem 0.75rem 6rem;
               }
             }
           }
