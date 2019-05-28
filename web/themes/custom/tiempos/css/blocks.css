@@ -91,19 +91,14 @@
 
 /* Weather Widget */
 .weatherwidget {
-  width: 220px;
-  float: right;
-  height: 56px;
+  width: 100%;
+  height: 82px;
   overflow: hidden;
   margin-top: 0.1rem; }
 
 @media screen and (max-width: 768px) {
-  .weatherwidget {
-    width: 220px;
-    margin-right: 0;
-    float: none; }
-
   /* Hide content on mobile */
+  #block-weatherwidget-2,
   #block-etypeeedition,
   #block-etypeeedition-2,
   #block-friends2followsidebar,
