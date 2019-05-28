@@ -11,11 +11,16 @@ use Drupal\views\ViewExecutable;
  */
 function tiempos_preprocess_block(&$variables) {
   if (isset($variables['elements']['#id'])) {
+    echo $variables['elements']['#id'];
     switch ($variables['elements']['#id']) {
       /* Add classes to some blocks. */
       case 'tiempos_page_title':
       case 'tiempos_content':
         $variables['attributes']['class'][] = 'is-full';
+        break;
+
+      case '':
+        $variabless['#cache']['max-age'] = 0;
         break;
     }
   }
