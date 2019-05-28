@@ -27,6 +27,9 @@
   display: none !important; }
 
 /* CONTENT */
+.field--name-user-picture .caption {
+  display: none; }
+
 .field--name-field-tags {
   display: flex; }
   .field--name-field-tags .field__label {

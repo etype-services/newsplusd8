@@ -27,6 +27,12 @@
 
 /* CONTENT */
 
+.field--name-user-picture {
+  .caption {
+    display: none;
+  }
+}
+
 .field--name-field-tags {
   display: flex;
   .field__label {
