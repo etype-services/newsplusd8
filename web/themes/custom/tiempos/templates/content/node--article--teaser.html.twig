@@ -83,6 +83,7 @@
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
     <div{{ content_attributes.addClass('node__content') }}>
+        { dd content.field_image[0] }
         {% if content.field_image[0] is not null %}
             <div class="image-container">{{ content.field_image[0] }}</div>
         {% elseif content.field_small_image is not null %}
