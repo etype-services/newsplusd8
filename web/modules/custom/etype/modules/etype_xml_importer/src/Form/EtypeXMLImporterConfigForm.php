@@ -178,7 +178,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       '#title' => $this->t('Limit Imported Images'),
       '#description' => 'Match image field limit on Content Type.',
       '#type' => 'select',
-      '#options' => ['1', 'Unlimited'],
+      '#options' => ['Unlimited', '1'],
       '#default_value' => $this->conf->get('imageNumber'),
     ];
 
