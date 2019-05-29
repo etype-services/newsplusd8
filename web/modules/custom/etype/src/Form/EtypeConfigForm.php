@@ -36,7 +36,7 @@ class EtypeConfigForm extends ConfigFormBase {
 
     $config = $this->config('etype.adminsettings');
     $uid = $config->get('author');
-    $premium_content_message = empty($config->get('premium_content_message')) ? ['value' => "", 'format' => "basic_html"] : $config->get('premium_content_message');
+    $premium_content_message = empty($config->get('premium_content_message')) ? ['value' => "Massage", 'format' => "basic_html"] : $config->get('premium_content_message');
     $author = '';
     if ($uid > 0) {
       $author = User::load($uid);
