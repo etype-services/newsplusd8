@@ -44,6 +44,7 @@
     "drupal/console": "^1.0.2",
     "drupal/core": "^8.6.0",
     "drupal/custom_pub": "^1.0",
+    "drupal/delete_all": "^1.0",
     "drupal/devel": "^2.0",
     "drupal/dfp": "^1.0",
     "drupal/entity_embed": "^1.0",
