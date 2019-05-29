@@ -386,7 +386,7 @@ class ImportOliveXMLController {
       }
 
       /* Images */
-      $images = array();
+      $images = [];
       preg_match_all("'<pam:media>(.*?)</pam:media>'s", $ar_xml, $coincidencias);
       // Loop over matches and match data.
       if (!empty($coincidencias[1])) {
