@@ -46,6 +46,7 @@ function tiempos_form_system_theme_settings_alter(array &$form, &$form_state) {
 function tiempos_settings_form_submit(array &$form, $form_state) {
   $fid = $form_state->getValue('inverted_logo');
   kint($fid);
+  exit;
   if ($fid[0] > 0) {
     $image = File::load($fid[0]);
     $image->setPermanent();
