@@ -134,7 +134,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
     $form['longCaptionField'] = [
       '#title' => $this->t('Long caption field'),
       '#type' => 'select',
-      '#description' => 'The Drupal field to use for the long caption.',
+      '#description' => 'The Drupal field to use for long captions.',
       '#options' => $this->fields,
       '#default_value' => $this->conf->get('longCaptionField'),
     ];
