@@ -158,6 +158,14 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       '#default_value' => $this->conf->get('imageField'),
     ];
 
+    $form['longCaptionField'] = [
+      '#title' => $this->t('Long caption field'),
+      '#type' => 'select',
+      '#description' => 'The Drupal field to use for the long caption.',
+      '#options' => $this->fields,
+      '#default_value' => $this->conf->get('longCaptionField'),
+    ];
+
     $form['section'] = [
       '#title' => $this->t('Section'),
       '#description' => 'Enter the section into which to import articles, ie "News".',
@@ -230,6 +238,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       ->set('fields', $this->fields)
       ->set('subheadField', $form_state->getValue('subheadField'))
       ->set('imageField', $form_state->getValue('imageField'))
+      ->set('longCaptionField', $form_state->getValue('longCaptionField'))
       ->set('section', $form_state->getValue('section'))
       ->set('imageNumber', $form_state->getValue('imageNumber'))
       ->set('importClassifieds', $form_state->getValue('importClassifieds'))

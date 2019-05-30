@@ -126,6 +126,13 @@ class ImportOliveXMLController {
    *
    * @var ImportOliveXMLController
    */
+  protected $longCaptionField;
+
+  /**
+   * Var Setup.
+   *
+   * @var ImportOliveXMLController
+   */
   protected $section;
 
   /**
@@ -155,6 +162,20 @@ class ImportOliveXMLController {
    * @var ImportOliveXMLController
    */
   protected $extractDir;
+
+  /**
+   * Var Setup.
+   *
+   * @var ImportOliveXMLController
+   */
+  protected $captionLimit = 512;
+
+  /**
+   * Var Setup.
+   *
+   * @var ImportOliveXMLController
+   */
+  protected $longCaption;
 
   /**
    * Var Setup.
@@ -189,6 +210,7 @@ class ImportOliveXMLController {
     $this->imageNumber = $this->config->get('imageNumber');
     $this->author = $this->config->get('author');
     $this->subheadField = $this->config->get('subheadField');
+    $this->longCaptionField = $this->config->get('longCaptionField');
     $this->section = $this->config->get('section');
     $this->importClassifieds = $this->config->get('importClassifieds');
     $this->messenger = Drupal::messenger();
@@ -196,11 +218,13 @@ class ImportOliveXMLController {
   }
 
   /**
-   * Import OLive XML.
+   * Import Olive XML.
    *
    * @return array
    *   Markup
    *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function importOliveXml() {
@@ -400,7 +424,7 @@ class ImportOliveXMLController {
               $iarray['image'] = $arr[1];
               preg_match("'<pam:caption>(.*?)</pam:caption>'s", $item, $arr);
               if (isset($arr[1])) {
-                $iarray['caption'] = substr(trim(strip_tags($arr[1])), 0, 512);
+                $iarray['caption'] = trim(strip_tags($arr[1]));
               }
               else {
                 $iarray['caption'] = '';
@@ -415,7 +439,7 @@ class ImportOliveXMLController {
 
       $node = array(
         'title' => Encoding::toUTF8($array['title']),
-        'summary' => strip_tags(Encoding::toUTF8($array['description'])),
+        'summary' => strip_tags(Encoding::toUTF8(preg_replace("/\s+/", " ", $array['description']))),
         'body' => Encoding::toUTF8($array['body']),
       );
 
@@ -466,7 +490,7 @@ class ImportOliveXMLController {
           $array[] = [
             'name' => $image['image'],
             'path' => $ipath,
-            'caption' => Encoding::toUTF8($image['caption']),
+            'caption' => Encoding::toUTF8(preg_replace("/\s+/", " ", $image['caption'])),
           ];
           $ptr++;
           if (($this->imageNumber == 1) && ($ptr == 1)) {
@@ -502,7 +526,9 @@ class ImportOliveXMLController {
     $field_image = [];
     if (isset($node['images'])) {
       $rand = substr(md5(uniqid(mt_rand(), TRUE)), 0, 10);
-      foreach ($node['images'] as $image) {
+      $processedImages = $this->captions($node['images']);
+
+      foreach ($processedImages as $image) {
         // Create file object from remote URL.
         $data = file_get_contents($image['path']);
         $file = file_save_data($data, 'public://' . $rand . '_' . $image['name'], FileSystemInterface::EXISTS_REPLACE);
@@ -527,11 +553,17 @@ class ImportOliveXMLController {
       'language' => $this->langCode,
       'field_section' => [['target_id' => $this->section]],
     ];
+    /* Add subhead to new entity. */
     if (isset($node[$this->subheadField])) {
       $insert[$this->subheadField] = $node[$this->subheadField];
     }
+    /* Add images to new entity. */
     if (count($field_image) > 0) {
       $insert[$this->imageField] = $field_image;
+    }
+    /* Add long caption to new entity. */
+    if (!empty($this->longCaption)) {
+      $insert[$this->longCaptionField] = $this->longCaption;
     }
     if ($node['uid'] > 0) {
       $insert['uid'] = $node['uid'];
@@ -539,6 +571,51 @@ class ImportOliveXMLController {
     // var_dump($insert);
     $new_entity = $storage->create($insert);
     $new_entity->save();
+
+    $this->longCaption = '';
+  }
+
+  /**
+   * Caption lengths.
+   *
+   * @param array $images
+   *   Image array.
+   *
+   * @return array
+   *   Processed Images.
+   */
+  protected function captions(array $images) {
+
+    $processed = $images;
+
+    foreach ($images as $k) {
+      $length = strlen($k['caption']);
+      /* If any caption is longer than the limit. */
+      if ($length < $this->captionLimit) {
+        $processed = $this->fixCaptions($images);
+        break;
+      }
+    }
+    return $processed;
+  }
+
+  /**
+   * Fix Image Captions.
+   *
+   * @param array $images
+   *   Node Images.
+   *
+   * @return array
+   *   Processed Images.
+   */
+  protected function fixCaptions(array $images) {
+    $processed = [];
+    foreach ($images as $k) {
+      $this->longCaption .= $k['caption'] . ' ';
+      $k['caption'] = '';
+      $processed[] = $k;
+    }
+    return $processed;
   }
 
 }
