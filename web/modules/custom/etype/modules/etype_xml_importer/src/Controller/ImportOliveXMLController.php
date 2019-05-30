@@ -592,7 +592,7 @@ class ImportOliveXMLController {
     foreach ($images as $k) {
       $length = strlen($k['caption']);
       /* If any caption is longer than the limit. */
-      if ($length < $this->captionLimit) {
+      if ($length > $this->captionLimit) {
         $processed = $this->fixCaptions($images);
         break;
       }
