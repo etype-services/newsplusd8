@@ -153,7 +153,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
     ];
 
     $form['section'] = [
-      '#title' => $this->t('Section'),
+      '#title' => $this->t('Default section'),
       '#description' => 'Enter the section into which to import articles, ie "News".',
       '#type' => 'entity_autocomplete',
       '#target_type' => 'taxonomy_term',
