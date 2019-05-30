@@ -77,9 +77,7 @@
         }
       }
       .flex-caption {
-        font-family: $sans-serif;
-        font-size: $size-7;
-        color: $black;
+        @include caption;
         margin: auto;
         width: fit-content;
       }
@@ -90,6 +88,10 @@
       margin-top: 0.3rem;
       margin-bottom: 0;
       max-width: 40vh;
+    }
+    .field--name-field-long-caption {
+      @include caption;
+      margin: auto;
     }
     .field--name-body {
       blockquote {
@@ -108,9 +110,8 @@
           margin-left: $column-gap;
         }
         figcaption {
-          font-family: $sans-serif;
-          font-size: $size-7;
-          color: $black;
+          @include caption;
+          margin: auto;
         }
       }
       ul {
@@ -208,10 +209,8 @@
             height: auto;
           }
           figcaption {
-            font-family: $sans-serif;
-            font-size: $size-7;
+            @include caption;
             margin: 0.5rem auto 0.5rem 3rem;
-            color: $black;
             text-align: center;
           }
         }
