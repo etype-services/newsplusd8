@@ -43,6 +43,16 @@ article {
       max-width: 40vh;
     }
   }
+  .field--name-field-long-caption {
+    font-style: oblique;
+    font-size: 1.4rem;
+    color: #7d7d7d;
+  }
+  .field--name-field-tags {
+    h3 {
+      margin: 1px 0 0;
+    }
+  }
 }
 
 /* Business Directory & Special Sections Blocks */
