@@ -142,7 +142,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
     $taxonomy = $this->conf->get('taxonomy');
     $taxonomies = taxonomy_vocabulary_get_names();
     if (empty($taxonomy)) {
-      $taxonomy = $taxonomies[0];
+      $taxonomy = reset($taxonomies);
     }
     $form['taxonomy'] = [
       '#title' => $this->t('Taxonomy for sections'),
