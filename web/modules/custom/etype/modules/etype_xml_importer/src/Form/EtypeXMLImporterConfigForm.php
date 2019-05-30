@@ -171,7 +171,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
     $form['taxonomy'] = [
       '#title' => $this->t('Taxonomy for sections'),
       '#type' => 'textfield',
-      '#description' => 'The Taxonomy to use for the sectionsn.',
+      '#description' => 'The machine_name of the taxonomy containing the section below'.,
       '#default_value' => $taxonomy,
     ];
 
