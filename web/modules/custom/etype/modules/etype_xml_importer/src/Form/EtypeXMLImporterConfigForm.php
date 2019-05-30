@@ -89,7 +89,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
           ->execute();
         $nid = reset($nids);
         /* Code is based on existence of articles, so a bug for new/empty sites. */
-        if (isset($nid)) {
+        if (isset($nid) && $nid > 0) {
           $node = Node::load($nid);
           $fieldDefinitions = array_keys($node->getFieldDefinitions());
           $this->fields["None"] = "None";
