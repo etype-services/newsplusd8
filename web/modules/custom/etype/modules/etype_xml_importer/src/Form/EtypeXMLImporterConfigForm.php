@@ -70,7 +70,13 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
    * Get the fields associated with selected node type.
    */
   protected function getFields() {
-
+    /* fields is array of names of fields in nodeType */
+    $fields = $this->conf->get('fields');
+    /* If set, use setting. */
+    if (is_array($fields) && count($fields) > 0 && array_key_exists("None", $fields)) {
+      $this->fields = $fields;
+    }
+    else {
       /* Check for nodeType. If it exists load a node */
       /* Use that to get nodeType FieldDefinitions */
       /* fields is array of FieldDefinitions keys */
@@ -91,7 +97,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
             $this->fields[$key] = $key;
           }
         }
-
+      }
     }
   }
 
