@@ -569,9 +569,10 @@ class ImportOliveXMLController {
       $insert['uid'] = $node['uid'];
     }
     // var_dump($insert);
-    $new_entity = $storage->create($insert);
-    $new_entity->save();
+    //$new_entity = $storage->create($insert);
+    //$new_entity->save();
 
+    /* Reset variable for next node. */
     $this->longCaption = '';
   }
 
