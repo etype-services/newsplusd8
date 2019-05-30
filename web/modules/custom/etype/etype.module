@@ -184,5 +184,24 @@ function substrwords($text, $maxchar, $end='...') {
  * @return bool
  */
 function in_array_any($needles, $haystack) {
-  return (bool)(array_intersect($needles, $haystack));
+  return (bool) (array_intersect($needles, $haystack));
+}
+
+/**
+ * Get the fields associated with selected node type.
+ *
+ * @param $nodeType
+ *   The node type for which to get fields.
+ * @return array
+ */
+function getFields($nodeType) {
+  $fields["None"] = "None";
+  if (!empty($nodeType)) {
+    $entityManager = Drupal::service('entity_field.manager');
+    $fieldDefinitions = $entityManager->getFieldDefinitions('node', $nodeType);
+    foreach ($fieldDefinitions as $k => $v) {
+      $fields[$k] = $k;
+    }
+  }
+  return $fields;
 }

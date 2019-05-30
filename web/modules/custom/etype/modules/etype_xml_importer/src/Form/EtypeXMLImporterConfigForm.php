@@ -53,7 +53,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
     $this->conf = $this->config('etype_xml_importer.settings');
     $this->entityFieldManager = Drupal::service('entity_field.manager');
     $this->getNodeTypeOptions();
-    $this->getFields();
+    $this->fields = getFields($this->conf->get('nodeType'));
   }
 
   /**
@@ -63,41 +63,6 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
     $nodeTypes = NodeType::loadMultiple();
     foreach ($nodeTypes as $nodeType) {
       $this->nodeTypeOptions[$nodeType->id()] = $nodeType->label();
-    }
-  }
-
-  /**
-   * Get the fields associated with selected node type.
-   */
-  protected function getFields() {
-    /* fields is array of names of fields in nodeType */
-    $fields = $this->conf->get('fields');
-    /* If set, use setting. */
-    if (is_array($fields) && count($fields) > 0 && array_key_exists("None", $fields)) {
-      $this->fields = $fields;
-    }
-    else {
-      /* Check for nodeType. If it exists load a node */
-      /* Use that to get nodeType FieldDefinitions */
-      /* fields is array of FieldDefinitions keys */
-      /* Used to build options array to select subhead fields for import. */
-      $type = $this->conf->get('nodeType');
-      if (!empty($type)) {
-        $nids = Drupal::entityQuery('node')
-          ->condition('type', $type)
-          ->range('0', '1')
-          ->execute();
-        $nid = reset($nids);
-        /* Code is based on existence of articles, so a bug for new/empty sites. */
-        if (isset($nid) && $nid > 0) {
-          $node = Node::load($nid);
-          $fieldDefinitions = array_keys($node->getFieldDefinitions());
-          $this->fields["None"] = "None";
-          foreach ($fieldDefinitions as $key) {
-            $this->fields[$key] = $key;
-          }
-        }
-      }
     }
   }
 
@@ -121,8 +86,6 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-
-    $taxonomy = empty($this->conf->get('taxonomy')) ? 'sections' : $this->conf->get('taxonomy');
 
     $form['#markup'] = "Enable and edit import cron job at the <a href=\"/admin/config/system/cron/jobs/manage/etype_xml_importer_cron\">cron settings page</a>.";
 
@@ -160,6 +123,14 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       '#default_value' => $this->conf->get('imageField'),
     ];
 
+    $form['imageNumber'] = [
+      '#title' => $this->t('Limit Imported Images'),
+      '#description' => 'Match image field limit on Content Type.',
+      '#type' => 'select',
+      '#options' => ['Unlimited', '1'],
+      '#default_value' => $this->conf->get('imageNumber'),
+    ];
+
     $form['longCaptionField'] = [
       '#title' => $this->t('Long caption field'),
       '#type' => 'select',
@@ -168,10 +139,16 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       '#default_value' => $this->conf->get('longCaptionField'),
     ];
 
+    $taxonomy = $this->conf->get('taxonomy');
+    $taxonomies = taxonomy_vocabulary_get_names();
+    if (empty($taxonomy)) {
+      $taxonomy = $taxonomies[0];
+    }
     $form['taxonomy'] = [
       '#title' => $this->t('Taxonomy for sections'),
-      '#type' => 'textfield',
-      '#description' => 'The machine_name of the taxonomy containing the default section.',
+      '#type' => 'select',
+      '#description' => 'The taxonomy containing the desired default section.',
+      '#options' => $taxonomies,
       '#default_value' => $taxonomy,
     ];
 
@@ -191,12 +168,12 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       $form['section']['#default_value'] = $term;
     }
 
-    $form['imageNumber'] = [
-      '#title' => $this->t('Limit Imported Images'),
-      '#description' => 'Match image field limit on Content Type.',
+    $form['sectionField'] = [
+      '#title' => $this->t('Section field'),
       '#type' => 'select',
-      '#options' => ['Unlimited', '1'],
-      '#default_value' => $this->conf->get('imageNumber'),
+      '#description' => 'The Drupal field used to store the section.',
+      '#options' => $this->fields,
+      '#default_value' => $this->conf->get('sectionField'),
     ];
 
     $form['author'] = [
@@ -244,10 +221,11 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
     $this->config('etype_xml_importer.settings')
       ->set('importUrls', $form_state->getValue('importUrls'))
       ->set('nodeType', $form_state->getValue('nodeType'))
-      ->set('fields', $this->fields)
+      ->set('fields', [])
       ->set('subheadField', $form_state->getValue('subheadField'))
       ->set('imageField', $form_state->getValue('imageField'))
       ->set('longCaptionField', $form_state->getValue('longCaptionField'))
+      ->set('sectionField', $form_state->getValue('sectionField'))
       ->set('taxonomy', $form_state->getValue('taxonomy'))
       ->set('section', $form_state->getValue('section'))
       ->set('imageNumber', $form_state->getValue('imageNumber'))

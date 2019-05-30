@@ -133,20 +133,6 @@ class ImportOliveXMLController {
    *
    * @var ImportOliveXMLController
    */
-  protected $section;
-
-  /**
-   * Var Setup.
-   *
-   * @var ImportOliveXMLController
-   */
-  protected $importClassifieds;
-
-  /**
-   * Var Setup.
-   *
-   * @var ImportOliveXMLController
-   */
   protected $author;
 
   /**
@@ -211,8 +197,6 @@ class ImportOliveXMLController {
     $this->author = $this->config->get('author');
     $this->subheadField = $this->config->get('subheadField');
     $this->longCaptionField = $this->config->get('longCaptionField');
-    $this->section = $this->config->get('section');
-    $this->importClassifieds = $this->config->get('importClassifieds');
     $this->messenger = Drupal::messenger();
     $this->entityTypeManager = Drupal::entityTypeManager();
   }
@@ -355,7 +339,7 @@ class ImportOliveXMLController {
       preg_match("/<prism:section>([^<]+)/", $ar_xml, $coincidencias);
 
       /* ignore if classifieds? */
-      if ($this->importClassifieds !== 1) {
+      if ($this->config->get('importClassifieds') !== 1) {
         if ($coincidencias[1] == 'Classifieds') {
           return ['#markup' => ''];
         }
@@ -551,7 +535,7 @@ class ImportOliveXMLController {
       'comment' => 0,
       'promote' => 0,
       'language' => $this->langCode,
-      'field_section' => [['target_id' => $this->section]],
+      $this->config->get('sectionField') => [['target_id' => $this->config->get('section')]],
     ];
     /* Add subhead to new entity. */
     if (isset($node[$this->subheadField])) {
