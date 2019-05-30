@@ -122,6 +122,8 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
+    $taxonomy = empty($this->conf->get('taxonomy')) ? 'sections' : $this->conf->get('taxonomy');
+
     $form['#markup'] = "Enable and edit import cron job at the <a href=\"/admin/config/system/cron/jobs/manage/etype_xml_importer_cron\">cron settings page</a>.";
 
 
@@ -166,6 +168,13 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       '#default_value' => $this->conf->get('longCaptionField'),
     ];
 
+    $form['taxonomy'] = [
+      '#title' => $this->t('Taxonomy for secitions'),
+      '#type' => 'text_field',
+      '#description' => 'The Taxonomy to use for the sectionsn.',
+      '#default_value' => $taxonomy,
+    ];
+
     $form['section'] = [
       '#title' => $this->t('Section'),
       '#description' => 'Enter the section into which to import articles, ie "News".',
@@ -173,7 +182,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       '#target_type' => 'taxonomy_term',
       '#selection_handler' => 'default',
       '#selection_settings' => [
-        'target_bundles' => ['sections'],
+        'target_bundles' => [$taxonomy],
       ],
     ];
     $tid = $this->conf->get('section');
@@ -239,6 +248,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       ->set('subheadField', $form_state->getValue('subheadField'))
       ->set('imageField', $form_state->getValue('imageField'))
       ->set('longCaptionField', $form_state->getValue('longCaptionField'))
+      ->set('taxonomy', $form_state->getValue('taxonomy'))
       ->set('section', $form_state->getValue('section'))
       ->set('imageNumber', $form_state->getValue('imageNumber'))
       ->set('importClassifieds', $form_state->getValue('importClassifieds'))
