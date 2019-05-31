@@ -55,11 +55,13 @@
 
 /* Statistics Block */
 #block-popularcontent {
-  h2 {
-    @include section-tag-heading;
-  }
   ul {
-    margin: 0;
+    margin: 0 0 0.5rem 0;
+    li {
+      margin: 0 0 0 0.5rem;
+      padding: 0;
+      font-size: $size-7;
+    }
   }
   br {
     display: none;
