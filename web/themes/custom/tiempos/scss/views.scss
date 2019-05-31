@@ -204,6 +204,9 @@
         .submitted {
           position: absolute;
           top: 0;
+          .field--name-uid {
+            font-size: 0.8rem;
+          }
         }
       }
     }
