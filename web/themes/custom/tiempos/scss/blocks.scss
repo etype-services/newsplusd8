@@ -62,13 +62,16 @@
 #block-popularcontent {
   .item-list:not(:last-child) {
     margin: 0 0 0.5rem 0;
-  }
-  ul {
-    margin:0;
-    li {
-      margin: 0 0 0 0.5rem;
-      padding: 0;
-      font-size: $size-6;
+    h3 {
+      font-style: oblique;
+    }
+    ul {
+      margin:0;
+      li {
+        margin: 0 0 0 0.5rem;
+        padding: 0;
+        font-size: $size-6;
+      }
     }
   }
   br {
