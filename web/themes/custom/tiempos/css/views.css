@@ -162,7 +162,8 @@
     .view-taxonomy-term article.node--type-article.node--view-mode-teaser .node__content .submitted {
       position: absolute;
       top: 0;
-      max-width: 7rem; }
+      max-width: 7rem;
+      margin-top: 0; }
       .view-taxonomy-term article.node--type-feature.node--view-mode-teaser .node__content .submitted .field--name-uid,
       .view-taxonomy-term article.node--type-article.node--view-mode-teaser .node__content .submitted .field--name-uid {
         font-size: 0.8rem; } }
