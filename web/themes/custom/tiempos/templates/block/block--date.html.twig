@@ -39,12 +39,7 @@
   {% endif %}
   {{ title_suffix }}
   {% block content %}
-    <p class="is-size-7">{{ "now"|date("F j, Y") }}</p>
-    <div>
-      <a role="button" class="navbar-burger is-hidden-desktop" aria-label="menu" aria-expanded="false">
-        <i class="fas fa-bars"></i>
-      </a>
-      {{ drupal_block('search_form_block') }}
-    </div>
+    {{ content }}
+    {{ drupal_block('search_form_block') }}
   {% endblock %}
 </div>

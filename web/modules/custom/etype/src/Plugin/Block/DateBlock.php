@@ -24,13 +24,23 @@ class DateBlock extends BlockBase {
   public function build() {
 
     $output = '
-<p class="is-size-7">{{ "now"|date("F j, Y") }}</p>
+<p class="is-size-7">' . date("F j, Y") . '</p>
 <div><a role="button" class="navbar-burger is-hidden-desktop" aria-label="menu" aria-expanded="false"><i class="fas fa-bars"></i></a></div>
     ';
 
     return [
       '#children' => Markup::create($output),
     ];
+  }
+
+  /**
+   * Disable Caching.
+   *
+   * @return int
+   *   Boolean
+   */
+  public function getCacheMaxAge() {
+    return 0;
   }
 
 }

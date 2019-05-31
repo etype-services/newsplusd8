@@ -1,23 +1,28 @@
 /* Center column for tiempos theme */
 /* Top left "Date" block. */
-#block-date .navbar-burger, #block-date-2 .navbar-burger {
-  /* Flex to center fontawsone icon. */
-  float: left;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-  #block-date .navbar-burger span, #block-date-2 .navbar-burger span {
-    height: 2px; }
-#block-date .block-search [data-drupal-selector=search-block-form], #block-date-2 .block-search [data-drupal-selector=search-block-form] {
-  display: flex;
-  align-items: center;
-  /* Match navbar-burger. */
-  height: 3.25rem; }
-  #block-date .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-submit], #block-date-2 .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-submit] {
-    cursor: pointer;
-    margin-right: 0.5rem; }
-  #block-date .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-keys], #block-date-2 .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-keys] {
-    width: 70%; }
+#block-date, #block-date-2 {
+  width: fit-content;
+  text-align: center; }
+  #block-date div, #block-date-2 div {
+    width: auto; }
+  #block-date .navbar-burger, #block-date-2 .navbar-burger {
+    /* Flex to center fontawesome icon. */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto; }
+    #block-date .navbar-burger span, #block-date-2 .navbar-burger span {
+      height: 2px; }
+  #block-date .block-search [data-drupal-selector=search-block-form], #block-date-2 .block-search [data-drupal-selector=search-block-form] {
+    display: flex;
+    align-items: center;
+    /* Match navbar-burger. */
+    height: 3.25rem; }
+    #block-date .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-submit], #block-date-2 .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-submit] {
+      cursor: pointer;
+      margin-right: 0.5rem; }
+    #block-date .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-keys], #block-date-2 .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-keys] {
+      width: 70%; }
 
 #block-tiempos-branding {
   /* Center logo. */
@@ -81,7 +86,9 @@
       float: left;
       margin-top: 1.1rem;
       margin-right: 0;
-      padding-right: 0; } }
+      padding-right: 0; }
+    #block-date div, #block-date-2 div {
+      float: left; } }
 /* e-Edition */
 #block-etypeeedition {
   flex-basis: 100%; }

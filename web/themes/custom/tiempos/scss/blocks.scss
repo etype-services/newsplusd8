@@ -2,12 +2,17 @@
 
 /* Top left "Date" block. */
 #block-date, #block-date-2 {
+  width: fit-content;
+  text-align: center;
+  div {
+    width: auto;
+  }
   .navbar-burger {
-    /* Flex to center fontawsone icon. */
-    float: left;
+    /* Flex to center fontawesome icon. */
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: auto;
     span {
       height: 2px;
     }
@@ -102,6 +107,9 @@
       margin-top: 1.1rem;
       margin-right: 0;
       padding-right: 0;
+    }
+    div {
+      float: left;
     }
   }
 }
