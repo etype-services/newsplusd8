@@ -204,6 +204,7 @@
         .submitted {
           position: absolute;
           top: 0;
+          max-width: 7rem;
           .field--name-uid {
             font-size: 0.8rem;
           }
