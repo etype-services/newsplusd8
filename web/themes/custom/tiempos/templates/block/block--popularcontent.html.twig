@@ -35,7 +35,7 @@
 <div{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {% if label %}
-    <h3{{ title_attributes.addClass("section-tag-heading") }}>{{ label }}</h3>
+    <h3{{ title_attributes.addClass("section-tag-heading") }}>{{ label }} <i class="fas fa-angle-right" aria-hidden="true"></i></h3>
   {% endif %}
   {{ title_suffix }}
   {% block content %}
