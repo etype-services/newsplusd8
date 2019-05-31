@@ -35,7 +35,7 @@
   justify-content: center;
 }
 
-/* Poll and Video block formatting */
+/* Poll Block formatting */
 .block-poll-recent-block {
   h2 {
     @include section-tag-heading;
@@ -51,6 +51,19 @@
 /* Video Block */
 #block-views-block-videos-block-1 > h2 {
   @include section-tag-heading;
+}
+
+/* Statistics Block */
+#block-popularcontent {
+  h2 {
+    @include section-tag-heading;
+  }
+  ul {
+    margin: 0;
+  }
+  br {
+    display: none;
+  }
 }
 
 .block-views-blockbreaking-news-block-1 {

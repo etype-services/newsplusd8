@@ -24,7 +24,7 @@
   display: flex;
   justify-content: center; }
 
-/* Poll and Video block formatting */
+/* Poll Block formatting */
 .block-poll-recent-block h2 {
   text-transform: uppercase;
   padding-bottom: 0.3rem;
@@ -46,6 +46,19 @@
   font-size: 0.9rem;
   color: #121212;
   border-bottom: 1px solid #b5b5b5; }
+
+/* Statistics Block */
+#block-popularcontent h2 {
+  text-transform: uppercase;
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  color: #121212;
+  border-bottom: 1px solid #b5b5b5; }
+#block-popularcontent ul {
+  margin: 0; }
+#block-popularcontent br {
+  display: none; }
 
 .block-views-blockbreaking-news-block-1 {
   margin-bottom: 0 !important; }
