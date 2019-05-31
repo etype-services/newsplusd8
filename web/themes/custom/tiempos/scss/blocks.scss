@@ -60,8 +60,11 @@
 
 /* Statistics Block */
 #block-popularcontent {
-  ul {
+  .item-list:not(:last-child) {
     margin: 0 0 0.5rem 0;
+  }
+  ul {
+    margin:0;
     li {
       margin: 0 0 0 0.5rem;
       padding: 0;

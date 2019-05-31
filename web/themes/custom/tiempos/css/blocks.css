@@ -53,8 +53,10 @@
   border-bottom: 1px solid #b5b5b5; }
 
 /* Statistics Block */
-#block-popularcontent ul {
+#block-popularcontent .item-list:not(:last-child) {
   margin: 0 0 0.5rem 0; }
+#block-popularcontent ul {
+  margin: 0; }
   #block-popularcontent ul li {
     margin: 0 0 0 0.5rem;
     padding: 0;
