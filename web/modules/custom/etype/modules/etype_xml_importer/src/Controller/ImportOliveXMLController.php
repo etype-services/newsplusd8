@@ -552,6 +552,9 @@ class ImportOliveXMLController {
     if ($node['uid'] > 0) {
       $insert['uid'] = $node['uid'];
     }
+    if ($this->config->get('importAsPremium') > 0) {
+      $insert['premium_content'] = 1;
+    }
 
     $new_entity = $storage->create($insert);
     $new_entity->save();

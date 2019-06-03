@@ -190,6 +190,12 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       $form['author']['#default_value'] = $author;
     }
 
+    $form['importAsPremium'] = [
+      '#title' => $this->t('Check to mark imported nodes as Premium Content.'),
+      '#type' => 'checkbox',
+      '#default_value' => $this->conf->get('importAsPremium'),
+    ];
+
     $form['importClassifieds'] = [
       '#title' => $this->t('Check to import Olive classified section.'),
       '#type' => 'checkbox',
@@ -230,6 +236,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       ->set('section', $form_state->getValue('section'))
       ->set('imageNumber', $form_state->getValue('imageNumber'))
       ->set('importClassifieds', $form_state->getValue('importClassifieds'))
+      ->set('importAsPremium', $form_state->getValue('importAsPremium'))
       ->set('author', $form_state->getValue('author'))
       ->save();
   }
