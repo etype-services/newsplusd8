@@ -1,0 +1,4 @@
+File: etypeservices.site.yml
+prod:
+  root: /mnt/data/web/public/harold/drupal/web
+  uri: http://etypeservices.etypegoogle7.com

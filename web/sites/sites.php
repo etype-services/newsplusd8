@@ -175,21 +175,16 @@ $sites['giddingstimes.etypegoogle7.com'] = "giddingstimes.etypegoogle7.com";
 $sites['www.giddingstimes.com'] = "giddingstimes.etypegoogle7.com";
 $sites['giddingstimes.com'] = "giddingstimes.etypegoogle7.com";
 
-$sites['colfaxchronicle.etypegoogle7.com'] = "colfaxchronicle.etypegoogle7.com";
 $sites['www.colfaxchronicle.com'] = "colfaxchronicle.etypegoogle7.com";
-$sites['colfaxchronicle.com'] = "colfaxchronicle.etypegoogle7.com";
 
-$sites['columbusnews-report.etypegoogle7.com'] = "columbusnews-report.etypegoogle7.com";
 $sites['www.columbusnews-report.com'] = "columbusnews-report.etypegoogle7.com";
-$sites['columbusnews-report.com'] = "columbusnews-report.etypegoogle7.com";
 
-$sites['rileycountian.etypegoogle7.com'] = "rileycountian.etypegoogle7.com";
 $sites['www.rileycountian.com'] = "rileycountian.etypegoogle7.com";
-$sites['rileycountian.com'] = "rileycountian.etypegoogle7.com";
 
 $sites['unwindnorthgeorgia.etypegoogle7.com'] = "ung.etypegoogle7.com";
 $sites['www.unwindnorthgeorgia.com'] = "ung.etypegoogle7.com";
 $sites['unwindnorthgeorgia.com'] = "ung.etypegoogle7.com";
 
 $sites['www.ssnewstelegram.com'] = 'ssnewstelegram.etypegoogle7.com';
-$sites['ssnewstelegram.etypegoogle7.com'] = 'ssnewstelegram.etypegoogle7.com';
+
+$sites['www.etypeservices.com'] = 'etypeservices.etypegoogle7.com';

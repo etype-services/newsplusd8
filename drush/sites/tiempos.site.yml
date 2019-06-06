@@ -1,4 +1,4 @@
 File: tiempos.site.yml
 dev:
-  root: /mnt/data/web/public/teddy/drupal/web
+  root: /mnt/data/web/public/harold/drupal/web
   uri: https://tiempos.etypegoogle7.com
