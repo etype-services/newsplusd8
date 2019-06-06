@@ -102,13 +102,18 @@
     </footer>
   {% endif %}
 
+  (dd content.body[0])
+
   <div{{ content_attributes.addClass('node__content') }}>
     {% if logged_in %}
       {{ content }}
     {% else %}
       {%  if premium_content == 1 %}
         {{ content.field_subhead }}
-        <div class="field">{{ content.body[0]['#text']|truncate(premium_preview, true, true) }}</div>
+        {% set preview %}
+          {{ content.body[0]['#text']|truncate(premium_preview, true, true) }}
+        {% endset %}
+        <div class="field">{{ content.body[0]|render|striptags|truncate(premium_preview, true, true) }}</div>
         <div class="premium_message is-sans-serif">{{ premium_content_message['value']|raw }}</div>
       {% else %}
         {{ content }}
