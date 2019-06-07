@@ -42,30 +42,47 @@ class EtypeLoginForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-    $form['username'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('User Name'),
-      '#required' => TRUE,
-      '#attributes' => ['tabindex' => 20],
-    ];
+    if (Drupal::currentUser()->isAnonymous()) {
 
-    $form['password'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Password'),
-      '#required' => TRUE,
-      '#attributes' => ['tabindex' => 21],
-    ];
+      $form['username'] = [
+        '#type' => 'textfield',
+        '#title' => $this->t('User Name'),
+        '#required' => TRUE,
+        '#attributes' => ['tabindex' => 20],
+      ];
 
-    $form['#attached']['library'][] = 'etype_login/etype_login';
+      $form['password'] = [
+        '#type' => 'textfield',
+        '#title' => $this->t('Password'),
+        '#required' => TRUE,
+        '#attributes' => ['tabindex' => 21],
+      ];
 
-    $form['actions']['#type'] = 'actions';
+      $form['destination'] = [
+        '#type' => 'hidden',
+        '#default_value' => $_SERVER['HTTP_REFERER'],
+      ];
 
-    $form['actions']['submit'] = array(
-      '#type' => 'submit',
-      '#value' => $this->t('Log In'),
-      '#button_type' => 'primary',
-    );
+      $form['#attached']['library'][] = 'etype_login/etype_login';
+
+      $form['actions']['#type'] = 'actions';
+
+      $form['actions']['submit'] = array(
+        '#type' => 'submit',
+        '#value' => $this->t('Log In'),
+        '#button_type' => 'primary',
+      );
+
+    }
+    else {
+
+      $name = Drupal::currentUser()->getDisplayName();
+      $form['#markup'] = "Hello $name, you are already logged in.";
+
+    }
+
     return $form;
+
   }
 
   /**
@@ -82,6 +99,7 @@ class EtypeLoginForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $username = $form_state->getValue('username');
     $password = $form_state->getValue('password');
+    $destination = $form_state->getValue('destination');
 
     $pubId = $this->config->get('etype_pub');
     $message = "We‘re sorry, either your user name or password is incorrect.";
@@ -142,7 +160,7 @@ class EtypeLoginForm extends FormBase {
               user_login_finalize($user);
               Drupal::messenger()->addMessage($success_message);
             }
-            $url = Url::fromRoute('<front>');
+            $url = Url::fromUri($destination, ['absolute' => TRUE]);
             $form_state->setRedirectUrl($url);
         }
 

@@ -62,7 +62,8 @@ function etype_e_editions() {
       if (!empty ($pub)) {
         $account = Drupal\user\Entity\User::load(Drupal::currentUser()->id());
         $name = $account->get('name')->value;
-        $path = 'https://etypeservices.com/ReadTheEdition.aspx?Username=' . $name . "&Pub=" . $pub . "&PType=" . $ptype;
+        // $path = 'https://etypeservices.com/ReadTheEdition.aspx?Username=' . $name . "&Pub=" . $pub . "&PType=" . $ptype;
+        $path = 'https://etypeservices.com/' . $e_edition . '/';
       } else {
         $path = 'https://etypeservices.com/' . $e_edition . '/';
       }
