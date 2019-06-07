@@ -93,6 +93,8 @@ class EtypeLoginForm extends FormBase {
    * @param \Drupal\Core\Form\FormStateInterface $form_state
    *   The form state.
    *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    * @throws \SoapFault
    */
@@ -160,7 +162,7 @@ class EtypeLoginForm extends FormBase {
               user_login_finalize($user);
               Drupal::messenger()->addMessage($success_message);
             }
-            $url = Url::fromUri($destination, ['absolute' => TRUE]);
+            $url = Url::fromRoute('<front>');
             $form_state->setRedirectUrl($url);
         }
 
