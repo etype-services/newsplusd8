@@ -14,7 +14,7 @@ etype.admin_settings:
 
 etype.e_edition:
   title: 'E-edition'
-  url: 'https://etypeservices.com/e-edition'
+  url: '/e-edition'
   menu_name: account
   options:
     attributes:

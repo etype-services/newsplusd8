@@ -28,6 +28,7 @@ class EtypeLoginForm extends FormBase {
    */
   public function __construct() {
     $this->config = $config = Drupal::config('etype.adminsettings');
+
   }
 
   /**
@@ -49,6 +50,7 @@ class EtypeLoginForm extends FormBase {
         '#title' => $this->t('User Name'),
         '#required' => TRUE,
         '#attributes' => ['tabindex' => 20],
+        '#default_value' => 'sulphurjames',
       ];
 
       $form['password'] = [
@@ -56,11 +58,7 @@ class EtypeLoginForm extends FormBase {
         '#title' => $this->t('Password'),
         '#required' => TRUE,
         '#attributes' => ['tabindex' => 21],
-      ];
-
-      $form['destination'] = [
-        '#type' => 'hidden',
-        '#default_value' => $_SERVER['HTTP_REFERER'],
+        '#default_value' => 'sulphur',
       ];
 
       $form['#attached']['library'][] = 'etype_login/etype_login';
@@ -99,7 +97,6 @@ class EtypeLoginForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $username = $form_state->getValue('username');
     $password = $form_state->getValue('password');
-    $destination = $form_state->getValue('destination');
 
     $pubId = $this->config->get('etype_pub');
     $message = "We‘re sorry, either your user name or password is incorrect.";
@@ -160,7 +157,13 @@ class EtypeLoginForm extends FormBase {
               user_login_finalize($user);
               Drupal::messenger()->addMessage($success_message);
             }
-            $url = Url::fromRoute('<front>');
+            // Clear cache to reset edition links.
+            Drupal::cache('menu')->invalidateAll();
+            Drupal::service('plugin.manager.menu.link')->rebuild();
+            $redirectDestination = $_COOKIE["redirectDestination"];
+            kint($redirectDestination);
+            exit;
+            $url = Url::fromUri($redirectDestination, ['absolute' => TRUE]);
             $form_state->setRedirectUrl($url);
         }
 

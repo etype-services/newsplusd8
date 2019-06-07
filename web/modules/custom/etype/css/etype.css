@@ -1,3 +1,4 @@
-.user-menu > [data-drupal-link-system-path="user/login"] {
-  display: none;
+a[data-drupal-link-system-path="user/login"] {
+  display: none!important;
+  visibility: hidden;
 }

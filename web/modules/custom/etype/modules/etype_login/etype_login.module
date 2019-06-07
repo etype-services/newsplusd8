@@ -1,2 +1,21 @@
 <?php
-/* empty */
+
+/**
+ * Implements hook_page_attachments().
+ * css hides system login link.
+ *
+ * @param array $page
+ */
+function etype_login_page_attachments(array &$page) {
+  $page['#attached']['library'][] = 'etype_login/etype_login_page';
+}
+
+/**
+ * Implements hook_user_logout()
+ * @param $account
+ * Clear menu cache
+ */
+function etype_login_user_logout($account) {
+  Drupal::cache('menu')->invalidateAll();
+  Drupal::service('plugin.manager.menu.link')->rebuild();
+}
