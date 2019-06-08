@@ -95,6 +95,9 @@ class EtypeLoginForm extends FormBase {
    * @throws \SoapFault
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
+
+    global $base_url;
+
     $username = $form_state->getValue('username');
     $password = $form_state->getValue('password');
 
@@ -160,10 +163,8 @@ class EtypeLoginForm extends FormBase {
             // Clear cache to reset edition links.
             Drupal::cache('menu')->invalidateAll();
             Drupal::service('plugin.manager.menu.link')->rebuild();
-            $redirectDestination = $_COOKIE["redirectDestination"];
-            kint($redirectDestination);
-            exit;
-            $url = Url::fromUri($redirectDestination, ['absolute' => TRUE]);
+            $redirectDestination = $base_url . $_COOKIE["redirectDestination"];
+            $url = Url::fromUri($redirectDestination);
             $form_state->setRedirectUrl($url);
         }
 

@@ -13,3 +13,9 @@ etype_login_page:
   dependencies:
     - core/drupal
     - core/jquery.once
+    - etype_login/js.cookie
+
+js.cookie:
+  version: v2.2.0
+  js:
+    /libraries/js.cookie.js:

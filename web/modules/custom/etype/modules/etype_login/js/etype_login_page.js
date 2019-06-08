@@ -2,13 +2,11 @@
     "use strict";
     Drupal.behaviors.etypeloginPageBehavior = {
         attach: function (context, settings) {
-            function setCookie(name, value) {
-                var d = new Date();
-                d.setTime(d.getTime() + (60*1000));
-                document.cookie = name + "=" + value + ";path='/';expires=" + d.toUTCString();
-            }
             $('a[href="/etype-login"]').click(function () {
-                setCookie("redirectDestination", window.location.pathname);
+                Cookies.set("redirectDestination", window.location.pathname);
+            });
+            $('a[href="/user/logout"]').click(function () {
+                Cookies.remove("redirectDestination");
             });
         }
     };
