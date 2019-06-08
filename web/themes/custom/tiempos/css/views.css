@@ -206,7 +206,10 @@
         line-height: 1.4; }
 
   /* Special Sections Page. */
-  .path-special-sections article a {
-    display: table-cell; } }
+  .path-special-sections article {
+    display: flex;
+    flex-wrap: wrap; }
+    .path-special-sections article a {
+      flex: 1 0 100%; } }
 
 /*# sourceMappingURL=views.css.map */

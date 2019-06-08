@@ -266,8 +266,10 @@
   /* Special Sections Page. */
   .path-special-sections {
     article {
+      display: flex;
+      flex-wrap: wrap;
       a {
-        display: table-cell;
+        flex: 1 0 100%;
       }
     }
   }
