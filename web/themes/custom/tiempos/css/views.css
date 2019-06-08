@@ -203,6 +203,10 @@
       display: inline; }
       #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser .field--name-body p, .view-taxonomy-term .node--view-mode-teaser .field--name-body p {
         /* Fine-tuning. */
-        line-height: 1.4; } }
+        line-height: 1.4; }
+
+  /* Special Sections Page. */
+  .path-special-sections article a {
+    display: table-cell; } }
 
 /*# sourceMappingURL=views.css.map */
