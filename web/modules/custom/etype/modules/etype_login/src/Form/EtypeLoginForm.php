@@ -50,7 +50,6 @@ class EtypeLoginForm extends FormBase {
         '#title' => $this->t('User Name'),
         '#required' => TRUE,
         '#attributes' => ['tabindex' => 20],
-        '#default_value' => 'sulphurjames',
       ];
 
       $form['password'] = [
@@ -58,7 +57,6 @@ class EtypeLoginForm extends FormBase {
         '#title' => $this->t('Password'),
         '#required' => TRUE,
         '#attributes' => ['tabindex' => 21],
-        '#default_value' => 'sulphur',
       ];
 
       $form['#attached']['library'][] = 'etype_login/etype_login';
@@ -103,7 +101,7 @@ class EtypeLoginForm extends FormBase {
 
     $pubId = $this->config->get('etype_pub');
     $message = "We‘re sorry, either your user name or password is incorrect.";
-    $success_message = "You are now logged in!";
+    $success_message = "Hello $username, you are now logged in!";
 
     $client = new soapclient('https://www.etypeservices.com/service_GetPublicationIDByUserName.asmx?WSDL');
     $param = ['UserName' => $username];
