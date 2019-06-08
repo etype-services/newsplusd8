@@ -1,4 +1,4 @@
-etype_login.login:
+etype_login.etype_login:
   path: '/etype-login'
   defaults:
     _title: 'Subscriber Login'

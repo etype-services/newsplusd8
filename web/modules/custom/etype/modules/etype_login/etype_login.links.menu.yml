@@ -1,5 +1,5 @@
-etype_login.login:
+etype_login.etype_login:
   title: 'Log In'
   weight: 10
-  route_name: etype_login.login
+  route_name: etype_login.etype_login
   menu_name: account
