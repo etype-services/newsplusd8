@@ -3,3 +3,5 @@ etype_login.login:
   defaults:
     _title: 'Subscriber Login'
     _form: '\Drupal\etype_login\Form\EtypeLoginForm'
+  requirements:
+    _user_is_logged_in: 'FALSE'
