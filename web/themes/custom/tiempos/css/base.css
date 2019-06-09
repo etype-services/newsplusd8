@@ -24,6 +24,9 @@ main {
   /* Override Bulma 'columns' formatting to get correct border width. */
   footer {
     margin: 0 0 2rem 0 !important; } }
+@media screen and (min-width: 467px) and (max-width: 1087px) {
+  footer {
+    margin-top: 0 !important; } }
 /* Bulma overrides for tiles, for Special Sections. */
 .tile {
   flex-basis: unset;

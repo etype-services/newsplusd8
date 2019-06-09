@@ -34,6 +34,12 @@ main {
 
 }
 
+@media screen and (min-width: $mobile) and (max-width: $desktop - 1px) {
+  footer {
+    margin-top: 0!important;
+  }
+}
+
 /* Bulma overrides for tiles, for Special Sections. */
 .tile {
   flex-basis: unset;
