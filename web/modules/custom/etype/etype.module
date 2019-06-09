@@ -2,17 +2,6 @@
 
 use Drupal\user\Entity\User;
 
-
-/**
- * Implements hook_page_attachments().
- * css hides system login link.
- *
- * @param array $page
- */
-function etype_page_attachments(array &$page) {
-  $page['#attached']['library'][] = 'etype/global-styling';
-}
-
 /**
  * {@inheritdoc}
  */

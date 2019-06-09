@@ -4,3 +4,5 @@ description: 'Custom settings for eType Services.'
 core: 8.x
 package: 'eType Services'
 configure: etype.admin_settings
+libraries:
+  - etype/global-styling
