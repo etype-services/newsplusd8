@@ -15,6 +15,12 @@ etype_login_page:
     - core/jquery.once
     - etype_login/js.cookie
 
+global-styling:
+  version: VERSION
+  css:
+    state:
+      css/etype_login.css: {}
+
 js.cookie:
   version: v2.2.0
   js:

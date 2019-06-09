@@ -2,7 +2,3 @@ a[data-drupal-link-system-path="user/login"] {
   display: none!important;
   visibility: hidden;
 }
-.user-logged-in a[data-drupal-link-system-path="etype-login"] {
-  display: none!important;
-  visibility: hidden;
-}
