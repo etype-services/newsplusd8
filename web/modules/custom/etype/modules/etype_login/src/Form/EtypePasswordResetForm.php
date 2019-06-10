@@ -89,7 +89,7 @@ class EtypePasswordResetForm extends FormBase {
     $username = $form_state->getValue('username');
 
     $pubId = $this->config->get('etype_pub');
-    $message = "We‘re sorry, we can‘t find an account for that user name t this publication.";
+    $message = "We‘re sorry, we can‘t find an account for that user name at this publication.";
     $success_message = "Your password has been sent to your email adddress.";
 
     $client = new soapclient('https://www.etypeservices.com/service_GetPublicationIDByUserName.asmx?WSDL');
