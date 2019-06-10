@@ -109,6 +109,11 @@
       {%  if premium_content == 1 %}
         {{ content.field_subhead }}
         {% set preview %}
+          {% if content.field_image[0] is not null %}
+            <div class="image-container">{{ content.field_image[0] }}</div>
+          {% elseif content.field_small_image[0] is not null %}
+            <div class="image-container">{{ content.field_small_image[0] }}</div>
+          {% endif %}
           <div class="field">{{ content.body[0]|render|striptags|truncate(premium_preview, true, true) }}</div>
           <div class="premium_message is-sans-serif">{{ premium_content_message['value']|raw }}</div>
         {% endset %}
