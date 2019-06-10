@@ -240,6 +240,8 @@ class EtypeMyAccountForm extends FormBase {
    *   Markup
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
+
+    // Account Details.
     $param = [
       'FirstName' => $form_state->getValue('firstName'),
       'LastName' => $form_state->getValue('lastName'),
@@ -263,6 +265,9 @@ class EtypeMyAccountForm extends FormBase {
       $this->messenger->addMessage($e->getMessage(), $this->messenger::TYPE_ERROR);
       return ['#markup' => ''];
     }
+
+    // Password Update.
+    $param = [];
 
   }
 
