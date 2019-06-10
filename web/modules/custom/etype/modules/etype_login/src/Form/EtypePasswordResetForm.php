@@ -57,7 +57,7 @@ class EtypePasswordResetForm extends FormBase {
 
       $form['actions']['submit'] = array(
         '#type' => 'submit',
-        '#value' => $this->t('Send me my password!'),
+        '#value' => $this->t('Send me my password'),
         '#button_type' => 'primary',
       );
 

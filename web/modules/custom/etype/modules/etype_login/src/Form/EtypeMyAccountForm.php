@@ -3,11 +3,52 @@
 namespace Drupal\etype_login\Form;
 
 use Drupal;
-use Drupal\Core\Url;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\user\Entity\User;
+use Exception;
 use SoapClient;
+
+/**
+ * Class EtypeLoginException.
+ *
+ * @package Drupal\etype_login\Form
+ */
+class EtypeLoginException extends Exception {
+
+  /**
+   * EtypeLoginException constructor.
+   */
+  public function __construct() {
+    $message = new TranslatableMarkup('We were unable to retrieve your account details. Please try later.');
+    parent::__construct($message);
+  }
+
+}
+
+/**
+ * Class EtypeUpdateException.
+ *
+ * @package Drupal\etype_login\Form
+ */
+class EtypeUpdateException extends Exception {
+
+  /**
+   * Var Setup.
+   *
+   * @var \Drupal\Core\Messenger\MessengerInterface
+   */
+  protected $messenger;
+
+  /**
+   * EtypeUpdateException constructor.
+   */
+  public function __construct() {
+    $message = new TranslatableMarkup('We were unable to updae your account details Please try later.');
+    parent::__construct($message);
+  }
+
+}
 
 /**
  * Class EtypeMyAccountForm.
@@ -28,6 +69,7 @@ class EtypeMyAccountForm extends FormBase {
    */
   public function __construct() {
     $this->config = $config = Drupal::config('etype.adminsettings');
+    $this->messenger = Drupal::messenger();
 
   }
 
@@ -55,8 +97,18 @@ class EtypeMyAccountForm extends FormBase {
 
       $client = new soapclient('https://www.etypeservices.com/Service_GetDetails_ByUserName.asmx?WSDL');
       $response = $client->GetDetailsByUserName($param);
-      $details = $response->GetDetailsByUserNameResult->UserDetails;
-      var_dump($details);
+
+      /* throw Exception and return empty page with message if the wire database setings are missing */
+      try {
+        $details = $response->GetDetailsByUserNameResult->UserDetails;
+        if (empty($details->ID)) {
+          throw new EtypeLoginException();
+        }
+      }
+      catch (EtypeLoginException $e) {
+        $this->messenger->addMessage($e->getMessage(), $this->messenger::TYPE_ERROR);
+        return ['#markup' => ''];
+      }
 
       $form['sid'] = [
         '#type' => 'hidden',
@@ -91,7 +143,7 @@ class EtypeMyAccountForm extends FormBase {
         '#default_value' => $details->LastName,
       ];
 
-      $form['streetAddress'] = [
+      $form['address'] = [
         '#type' => 'textfield',
         '#title' => $this->t('Street address'),
         '#required' => TRUE,
@@ -134,19 +186,16 @@ class EtypeMyAccountForm extends FormBase {
       $form['oldPassword'] = [
         '#type' => 'password',
         '#title' => $this->t('Old password'),
-        '#required' => TRUE,
       ];
 
-      $form['newPassword'] = [
+      $form['password']['newPassword'] = [
         '#type' => 'password',
         '#title' => $this->t('New password'),
-        '#required' => TRUE,
       ];
 
-      $form['confirmPassword'] = [
+      $form['password']['confirmPassword'] = [
         '#type' => 'password',
         '#title' => $this->t('Confirm your new password'),
-        '#required' => TRUE,
       ];
 
       $form['#attached']['library'][] = 'etype_login/etype_login';
@@ -155,7 +204,7 @@ class EtypeMyAccountForm extends FormBase {
 
       $form['actions']['submit'] = array(
         '#type' => 'submit',
-        '#value' => $this->t('Send me my password!'),
+        '#value' => $this->t('Update my information'),
         '#button_type' => 'primary',
       );
 
@@ -163,6 +212,18 @@ class EtypeMyAccountForm extends FormBase {
 
     return $form;
 
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function validateForm(array &$form, FormStateInterface $form_state) {
+    parent::validateForm($form, $form_state);
+    $val = $form_state->getValue('newPassword');
+    $valTwo = $form_state->getValue('confirmPassword');
+    if ($val !== $valTwo) {
+      $form_state->setErrorByName('password', $this->t('The new passwords do not match.'));
+    }
   }
 
   /**
@@ -174,8 +235,34 @@ class EtypeMyAccountForm extends FormBase {
    *   The form state.
    *
    * @throws \SoapFault
+   *
+   * @return array
+   *   Markup
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
+    $param = [
+      'FirstName' => $form_state->getValue('firstName'),
+      'LastName' => $form_state->getValue('lastName'),
+      'StreetAddress' => $form_state->getValue('address'),
+      'City' => $form_state->getValue('city'),
+      'State' => $form_state->getValue('state'),
+      'PostalCode' => $form_state->getValue('zip'),
+      'Phone' => $form_state->getValue('phone'),
+      'SubscriberID' => $form_state->getValue('sid'),
+    ];
+
+    $client = new soapclient('https://www.etypeservices.com/Service_EditSubscriberProfile.asmx?wsdl');
+
+    try {
+      $response = $client->SubscriberUpdateProfile($param);
+      if (is_null($response)) {
+        throw new EtypeUpdateException();
+      }
+    }
+    catch (EtypeUpdateException $e) {
+      $this->messenger->addMessage($e->getMessage(), $this->messenger::TYPE_ERROR);
+      return ['#markup' => ''];
+    }
 
   }
 
