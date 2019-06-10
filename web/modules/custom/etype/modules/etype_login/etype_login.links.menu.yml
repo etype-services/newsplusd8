@@ -3,3 +3,9 @@ etype_login.login:
   weight: 10
   route_name: etype_login.login
   menu_name: account
+
+etype_login.account:
+  title: 'My Account'
+  weight: 10
+  route_name: etype_login.account
+  menu_name: account

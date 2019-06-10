@@ -49,14 +49,12 @@ class EtypeLoginForm extends FormBase {
         '#type' => 'textfield',
         '#title' => $this->t('User Name'),
         '#required' => TRUE,
-        '#attributes' => ['tabindex' => 20],
       ];
 
       $form['password'] = [
         '#type' => 'password',
         '#title' => $this->t('Password'),
         '#required' => TRUE,
-        '#attributes' => ['tabindex' => 21],
       ];
 
       $form['help'] = [
@@ -78,7 +76,13 @@ class EtypeLoginForm extends FormBase {
     else {
 
       $name = Drupal::currentUser()->getDisplayName();
-      $form['#markup'] = "Hello $name, you are already logged in.";
+      $string = t("Hello");
+      $string .= ' ' . $name . ', ';
+      $string .= t("you are already logged in");
+      $form['help'] = [
+        '#type' => 'item',
+        '#markup' => $string,
+      ];
 
     }
 
