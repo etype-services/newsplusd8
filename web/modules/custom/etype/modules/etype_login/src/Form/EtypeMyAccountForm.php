@@ -177,7 +177,7 @@ class EtypeMyAccountForm extends FormBase {
         '#default_value' => $details->Phone,
       ];
 
-      $string = t("Fill out the following fields to change your password:");
+      /*$string = t("Fill out the following fields to change your password:");
       $form['help'] = [
         '#type' => 'item',
         '#markup' => $string,
@@ -196,7 +196,7 @@ class EtypeMyAccountForm extends FormBase {
       $form['password']['confirmPassword'] = [
         '#type' => 'password',
         '#title' => $this->t('Confirm your new password'),
-      ];
+      ];*/
 
       $form['#attached']['library'][] = 'etype_login/etype_login';
 
