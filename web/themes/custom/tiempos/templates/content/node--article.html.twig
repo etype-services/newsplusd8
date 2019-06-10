@@ -109,10 +109,10 @@
       {%  if premium_content == 1 %}
         {{ content.field_subhead }}
         {% set preview %}
-          {{ content.body[0]['#text']|truncate(premium_preview, true, true) }}
+          <div class="field">{{ content.body[0]|render|striptags|truncate(premium_preview, true, true) }}</div>
+          <div class="premium_message is-sans-serif">{{ premium_content_message['value']|raw }}</div>
         {% endset %}
-        <div class="field">{{ content.body[0]|render|striptags|truncate(premium_preview, true, true) }}</div>
-        <div class="premium_message is-sans-serif">{{ premium_content_message['value']|raw }}</div>
+        {{ preview }}
       {% else %}
         {{ content }}
       {% endif %}
