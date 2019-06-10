@@ -53,7 +53,7 @@ class EtypeLoginForm extends FormBase {
       ];
 
       $form['password'] = [
-        '#type' => 'textfield',
+        '#type' => 'password',
         '#title' => $this->t('Password'),
         '#required' => TRUE,
         '#attributes' => ['tabindex' => 21],
