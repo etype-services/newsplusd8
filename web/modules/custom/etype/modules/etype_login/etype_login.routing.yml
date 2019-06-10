@@ -5,3 +5,11 @@ etype_login.login:
     _form: '\Drupal\etype_login\Form\EtypeLoginForm'
   requirements:
     _user_is_logged_in: 'FALSE'
+
+etype_login.forgot:
+  path: '/etype-forgot-password'
+  defaults:
+    _title: 'Password Reset'
+    _form: '\Drupal\etype_login\Form\EtypePasswordResetForm'
+  requirements:
+    _user_is_logged_in: 'FALSE'

@@ -59,6 +59,11 @@ class EtypeLoginForm extends FormBase {
         '#attributes' => ['tabindex' => 21],
       ];
 
+      $form['help'] = [
+        '#type' => 'item',
+        '#markup' => t('<a href="/etype-forgot-password">I forgot my password.</a>'),
+      ];
+
       $form['#attached']['library'][] = 'etype_login/etype_login';
 
       $form['actions']['#type'] = 'actions';

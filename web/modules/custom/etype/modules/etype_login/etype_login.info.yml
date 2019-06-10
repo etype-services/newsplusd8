@@ -3,4 +3,3 @@ type: module
 description: 'Provides login to eType system.'
 core: 8.x
 package: 'eType Services'
-configure: etype_login.admin_settings
