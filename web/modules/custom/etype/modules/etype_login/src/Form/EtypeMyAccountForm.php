@@ -106,7 +106,7 @@ class EtypeMyAccountForm extends FormBase {
         }
       }
       catch (EtypeLoginException $e) {
-        $this->messenger->addMessage($e->getMessage(), $this->messenger::TYPE_ERROR);
+        $this->messenger->addError($e->getMessage());
         return ['#markup' => ''];
       }
 
@@ -262,12 +262,14 @@ class EtypeMyAccountForm extends FormBase {
       }
     }
     catch (EtypeUpdateException $e) {
-      $this->messenger->addMessage($e->getMessage(), $this->messenger::TYPE_ERROR);
+      $this->messenger->addError($e->getMessage());
       return ['#markup' => ''];
     }
 
     // Password Update.
     $param = [];
+
+    $this->messenger->addStatus("Your account was updated successfully.");
 
   }
 
