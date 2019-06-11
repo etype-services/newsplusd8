@@ -51,6 +51,54 @@ class EtypeUpdateException extends Exception {
 }
 
 /**
+ * Class EtypePasswordException.
+ *
+ * @package Drupal\etype_login\Form
+ */
+class EtypePasswordException extends Exception {
+
+  /**
+   * Var Setup.
+   *
+   * @var \Drupal\Core\Messenger\MessengerInterface
+   */
+  protected $messenger;
+
+  /**
+   * EtypeUpdateException constructor.
+   */
+  public function __construct() {
+    $message = new TranslatableMarkup('Your current password does not match our records. Please try again.');
+    parent::__construct($message);
+  }
+
+}
+
+/**
+ * Class EtypePasswordChangeException.
+ *
+ * @package Drupal\etype_login\Form
+ */
+class EtypePasswordChangeException extends Exception {
+
+  /**
+   * Var Setup.
+   *
+   * @var \Drupal\Core\Messenger\MessengerInterface
+   */
+  protected $messenger;
+
+  /**
+   * EtypeUpdateException constructor.
+   */
+  public function __construct() {
+    $message = new TranslatableMarkup('Sorry, we were not able to update your password. Please try again later.');
+    parent::__construct($message);
+  }
+
+}
+
+/**
  * Class EtypeMyAccountForm.
  *
  * @package Drupal\etype_login\Form
@@ -98,7 +146,6 @@ class EtypeMyAccountForm extends FormBase {
       $client = new soapclient('https://www.etypeservices.com/Service_GetDetails_ByUserName.asmx?WSDL');
       $response = $client->GetDetailsByUserName($param);
 
-      /* throw Exception and return empty page with message if the wire database setings are missing */
       try {
         $details = $response->GetDetailsByUserNameResult->UserDetails;
         if (empty($details->ID)) {
@@ -125,6 +172,12 @@ class EtypeMyAccountForm extends FormBase {
       $string = t("Email");
       $string .= ': ' . $details->Email;
       $form['email'] = [
+        '#type' => 'item',
+        '#markup' => $string,
+      ];
+
+      $string = t("Submit the form to update any information below:");
+      $form['help'] = [
         '#type' => 'item',
         '#markup' => $string,
       ];
@@ -177,7 +230,7 @@ class EtypeMyAccountForm extends FormBase {
         '#default_value' => $details->Phone,
       ];
 
-      /*$string = t("Fill out the following fields to change your password:");
+      $string = t("Fill out the next three fields to change your password:");
       $form['help'] = [
         '#type' => 'item',
         '#markup' => $string,
@@ -185,7 +238,7 @@ class EtypeMyAccountForm extends FormBase {
 
       $form['oldPassword'] = [
         '#type' => 'password',
-        '#title' => $this->t('Old password'),
+        '#title' => $this->t('Current password'),
       ];
 
       $form['password']['newPassword'] = [
@@ -196,7 +249,7 @@ class EtypeMyAccountForm extends FormBase {
       $form['password']['confirmPassword'] = [
         '#type' => 'password',
         '#title' => $this->t('Confirm your new password'),
-      ];*/
+      ];
 
       $form['#attached']['library'][] = 'etype_login/etype_login';
 
@@ -241,6 +294,8 @@ class EtypeMyAccountForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
+    $message = "Your account was updated successfully.";
+
     // Account Details.
     $param = [
       'FirstName' => $form_state->getValue('firstName'),
@@ -267,9 +322,42 @@ class EtypeMyAccountForm extends FormBase {
     }
 
     // Password Update.
-    $param = [];
+    $oldPassword = $form_state->getValue('oldPassword');
+    $newPassword = $form_state->getValue('newPassword');
+    $confirmPassword = $form_state->getValue('confirmPassword');
+    if (!empty($oldPassword) && !empty($newPassword) && !empty($confirmPassword)) {
+      $user_name = Drupal::currentUser()->getAccountName();
+      $param = ['UserName' => $user_name];
+      $client = new soapclient('https://www.etypeservices.com/service_GetPasswordByUserName.asmx?WSDL');
+      $response = $client->GetPasswordByUserName($param);
+      try {
+        if ($oldPassword !== $response->GetPasswordByUserNameResult) {
+          throw new EtypePasswordException();
+        }
+      }
+      catch (EtypePasswordException $e) {
+        $this->messenger->addError($e->getMessage());
+        return ['#markup' => ''];
+      }
 
-    $this->messenger->addStatus("Your account was updated successfully.");
+      $param = ['UserName' => $user_name, 'Password' => $newPassword];
+      $client = new soapclient('https://www.etypeservices.com/Service_ChangePassword.asmx?WSDL');
+      $response = $client->ChangePassword($param);
+      try {
+        if ($response->ChangePasswordResult !== 0) {
+          throw new EtypePasswordChangeException();
+        }
+      }
+      catch (EtypePasswordChangeException $e) {
+        $this->messenger->addError($e->getMessage());
+        return ['#markup' => ''];
+      }
+
+      $message .= " Your password was also updated.";
+
+    }
+
+    $this->messenger->addStatus($message);
 
   }
 
