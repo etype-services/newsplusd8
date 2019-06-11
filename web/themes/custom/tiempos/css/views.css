@@ -211,6 +211,7 @@
       float: right;
       width: 48%;
       margin-right: 0;
+      margin-left: 0.75rem;
       margin-top: 0.3rem; }
     #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser .field--name-body, .view-taxonomy-term .node--view-mode-teaser .field--name-body {
       margin-bottom: 0;
