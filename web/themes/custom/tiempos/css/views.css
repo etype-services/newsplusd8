@@ -91,6 +91,8 @@
   flex-shrink: 1;
   flex-wrap: wrap;
   padding: 0.75rem;
+  /* Override defaults - we want the last child to have the same margin, since these are horizontal. */
+  margin-bottom: 1rem !important;
   /* For Special Sections, might have adverse effects elsewhere. */ }
   #block-views-block-front-page-sections-block-1 .view-content > div div,
   #block-views-block-front-page-sections-block-2 .view-content > div div,

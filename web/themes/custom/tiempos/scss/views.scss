@@ -96,6 +96,8 @@
   }
   .view-content > div {
     @include column;
+    /* Override defaults - we want the last child to have the same margin, since these are horizontal. */
+    margin-bottom: 1rem!important;
     /* For Special Sections, might have adverse effects elsewhere. */
     div {
       flex: 1 1 100%;
