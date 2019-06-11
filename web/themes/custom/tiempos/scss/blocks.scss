@@ -91,11 +91,15 @@
       white-space: nowrap;
       margin-right: calc(#{$column-gap} / 2);
       h3 > .svg-inline--fa {
-        vertical-align: -.15em;
+        vertical-align: -.15em!important;
+      }
     }
-    a {
-      white-space: nowrap;
-      color: red;
+    .view-content {
+      margin-top: -0.1rem;
+      a {
+        white-space: nowrap;
+        color: red;
+      }
     }
   }
 }
