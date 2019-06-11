@@ -8,33 +8,33 @@ $mobile: 467px
 
 // emulate bulma .column for elements that are hard to add css classes to
 @mixin column
-  display: block
+  display: flex
   flex-basis: 0
   flex-grow: 1
   flex-shrink: 1
   padding: $column-gap
 
 @mixin column-no-padding-top
-  display: block
+  display: flex
   flex-basis: 0
   flex-grow: 1
   flex-shrink: 1
   padding: 0 $column-gap $column-gap $column-gap
 
 @mixin column-no-padding-bottom
-  display: block
+  display: flex
   flex-basis: 0
   flex-grow: 1
   flex-shrink: 1
   padding: $column-gap $column-gap 0 $column-gap
 
 @mixin column-no-padding-top-left-bottom
-  display: block
+  display: flex
   flex: 1 1 0
   padding: 0 calc(#{$column-gap} * 2) 0 0
 
 @mixin column-no-padding-top-right
-  display: block
+  display: flex
   flex-basis: 0
   flex-grow: 1
   flex-shrink: 1
@@ -42,7 +42,7 @@ $mobile: 467px
 
 /* Center column for tiempos theme */
 @mixin column-no-padding-top-right-bottom-grow
-  display: block
+  display: flex
   flex: 2 1 0
   padding: 0
 
