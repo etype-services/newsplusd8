@@ -79,11 +79,9 @@
       margin-right: calc(0.75rem / 2); }
       .block-views-blockbreaking-news-block-1 .view-id-breaking_news .view-header h3 > .svg-inline--fa {
         vertical-align: -0.15em !important; }
-    .block-views-blockbreaking-news-block-1 .view-id-breaking_news .view-content {
-      margin-top: -0.1rem; }
-      .block-views-blockbreaking-news-block-1 .view-id-breaking_news .view-content a {
-        white-space: nowrap;
-        color: red; }
+    .block-views-blockbreaking-news-block-1 .view-id-breaking_news .view-content a {
+      white-space: nowrap;
+      color: red; }
 
 @media screen and (max-width: 1087px) {
   #block-date .block-search, #block-date-2 .block-search {
