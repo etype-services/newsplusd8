@@ -20,7 +20,7 @@ class EtypeLoginException extends Exception {
    * EtypeLoginException constructor.
    */
   public function __construct() {
-    $message = new TranslatableMarkup('We were unable to retrieve your account details. Please try later.');
+    $message = new TranslatableMarkup('We were unable to retrieve any details for this account. Please contact us.');
     parent::__construct($message);
   }
 
@@ -44,7 +44,7 @@ class EtypeUpdateException extends Exception {
    * EtypeUpdateException constructor.
    */
   public function __construct() {
-    $message = new TranslatableMarkup('We were unable to updae your account details Please try later.');
+    $message = new TranslatableMarkup('We were unable to update your account details Please try later.');
     parent::__construct($message);
   }
 
@@ -147,8 +147,7 @@ class EtypeMyAccountForm extends FormBase {
       $response = $client->GetDetailsByUserName($param);
 
       try {
-        $details = $response->GetDetailsByUserNameResult->UserDetails;
-        if (empty($details->ID)) {
+        if (!isset($response->GetDetailsByUserNameResult->UserDetails)) {
           throw new EtypeLoginException();
         }
       }
@@ -156,6 +155,8 @@ class EtypeMyAccountForm extends FormBase {
         $this->messenger->addError($e->getMessage());
         return ['#markup' => ''];
       }
+
+      $details = $response->GetDetailsByUserNameResult->UserDetails;
 
       $form['sid'] = [
         '#type' => 'hidden',
