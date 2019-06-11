@@ -72,12 +72,14 @@
     display: flex;
     margin-bottom: 0.75rem;
     overflow: hidden;
-    font-size: 0.9rem; }
+    font-size: 1.2rem;
+    align-items: center; }
     .block-views-blockbreaking-news-block-1 .view-id-breaking_news .view-header {
       white-space: nowrap;
       margin-right: calc(0.75rem / 2); }
     .block-views-blockbreaking-news-block-1 .view-id-breaking_news a {
-      white-space: nowrap; }
+      white-space: nowrap;
+      color: red; }
 
 @media screen and (max-width: 1087px) {
   #block-date .block-search, #block-date-2 .block-search {
