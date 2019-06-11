@@ -12,6 +12,7 @@ $mobile: 467px
   flex-basis: 0
   flex-grow: 1
   flex-shrink: 1
+  flex-wrap: wrap
   padding: $column-gap
 
 @mixin column-no-padding-top
@@ -19,6 +20,7 @@ $mobile: 467px
   flex-basis: 0
   flex-grow: 1
   flex-shrink: 1
+  flex-wrap: wrap
   padding: 0 $column-gap $column-gap $column-gap
 
 @mixin column-no-padding-bottom
@@ -26,11 +28,13 @@ $mobile: 467px
   flex-basis: 0
   flex-grow: 1
   flex-shrink: 1
+  flex-wrap: wrap
   padding: $column-gap $column-gap 0 $column-gap
 
 @mixin column-no-padding-top-left-bottom
   display: flex
   flex: 1 1 0
+  flex-wrap: wrap
   padding: 0 calc(#{$column-gap} * 2) 0 0
 
 @mixin column-no-padding-top-right
@@ -38,12 +42,14 @@ $mobile: 467px
   flex-basis: 0
   flex-grow: 1
   flex-shrink: 1
+  flex-wrap: wrap
   padding: 0 0 $column-gap $column-gap
 
 /* Center column for tiempos theme */
 @mixin column-no-padding-top-right-bottom-grow
   display: flex
   flex: 2 1 0
+  flex-wrap: wrap
   padding: 0
 
 @mixin border-light

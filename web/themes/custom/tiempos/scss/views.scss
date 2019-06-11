@@ -96,6 +96,10 @@
   }
   .view-content > div {
     @include column;
+    /* For Special Sections, might have adverse effects elsewhere. */
+    div {
+      flex: 1 1 100%;
+    }
   }
 }
 
