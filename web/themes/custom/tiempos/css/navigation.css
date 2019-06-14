@@ -69,7 +69,9 @@
     /* Used to close "pop-up", override bulma margin. */
     /* The logo. */ }
     #main-nav .navbar .navbar-start .navbar-item {
-      width: fit-content; }
+      width: fit-content;
+      max-width: 50%;
+      /* some browsers do not understand fit-content */ }
     #main-nav .navbar .navbar-start .navbar-burger {
       margin-left: 0;
       display: flex;

@@ -90,6 +90,7 @@
       background-color: $white;
       .navbar-item {
         width: fit-content;
+        max-width: 50%; /* some browsers do not understand fit-content */
       }
       /* Used to close "pop-up", override bulma margin. */
       .navbar-burger {
