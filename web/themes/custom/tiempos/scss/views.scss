@@ -82,11 +82,13 @@
 /* Front Page Sections & Business Directory. */
 #block-views-block-front-page-sections-block-1,
 #block-views-block-front-page-sections-block-2,
-#block-views-block-front-page-sections-block-3,
-#block-views-block-front-page-sections-block-4,
 #block-views-block-front-page-sections-block-1-2,
 #block-views-block-front-page-sections-block-1-3,
 #block-views-block-front-page-sections-block-2-2,
+#block-views-block-front-page-sections-block-3,
+#block-views-block-front-page-sections-block-4,
+#block-views-block-front-page-sections-block-5,
+#block-views-block-front-page-sections-block-5,
 #block-views-block-business-directory-block-1,
 #block-views-block-special-sections-block-1 {
   .view-content {
@@ -239,7 +241,9 @@
   #block-views-block-front-page-sections-block-1-3,
   #block-views-block-front-page-sections-block-2-2,
   #block-views-block-front-page-sections-block-3,
-  #block-views-block-front-page-sections-block-4 {
+  #block-views-block-front-page-sections-block-4,
+  #block-views-block-front-page-sections-block-5,
+  #block-views-block-front-page-sections-block-5 {
     @include is-really-invisible;
   }
   /* Teaser formatting. */

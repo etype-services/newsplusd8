@@ -66,11 +66,13 @@
 /* Front Page Sections & Business Directory. */
 #block-views-block-front-page-sections-block-1 .view-content,
 #block-views-block-front-page-sections-block-2 .view-content,
-#block-views-block-front-page-sections-block-3 .view-content,
-#block-views-block-front-page-sections-block-4 .view-content,
 #block-views-block-front-page-sections-block-1-2 .view-content,
 #block-views-block-front-page-sections-block-1-3 .view-content,
 #block-views-block-front-page-sections-block-2-2 .view-content,
+#block-views-block-front-page-sections-block-3 .view-content,
+#block-views-block-front-page-sections-block-4 .view-content,
+#block-views-block-front-page-sections-block-5 .view-content,
+#block-views-block-front-page-sections-block-5 .view-content,
 #block-views-block-business-directory-block-1 .view-content,
 #block-views-block-special-sections-block-1 .view-content {
   display: flex;
@@ -78,11 +80,13 @@
   margin-right: -0.75rem; }
 #block-views-block-front-page-sections-block-1 .view-content > div,
 #block-views-block-front-page-sections-block-2 .view-content > div,
-#block-views-block-front-page-sections-block-3 .view-content > div,
-#block-views-block-front-page-sections-block-4 .view-content > div,
 #block-views-block-front-page-sections-block-1-2 .view-content > div,
 #block-views-block-front-page-sections-block-1-3 .view-content > div,
 #block-views-block-front-page-sections-block-2-2 .view-content > div,
+#block-views-block-front-page-sections-block-3 .view-content > div,
+#block-views-block-front-page-sections-block-4 .view-content > div,
+#block-views-block-front-page-sections-block-5 .view-content > div,
+#block-views-block-front-page-sections-block-5 .view-content > div,
 #block-views-block-business-directory-block-1 .view-content > div,
 #block-views-block-special-sections-block-1 .view-content > div {
   display: flex;
@@ -96,11 +100,13 @@
   /* For Special Sections, might have adverse effects elsewhere. */ }
   #block-views-block-front-page-sections-block-1 .view-content > div div,
   #block-views-block-front-page-sections-block-2 .view-content > div div,
-  #block-views-block-front-page-sections-block-3 .view-content > div div,
-  #block-views-block-front-page-sections-block-4 .view-content > div div,
   #block-views-block-front-page-sections-block-1-2 .view-content > div div,
   #block-views-block-front-page-sections-block-1-3 .view-content > div div,
   #block-views-block-front-page-sections-block-2-2 .view-content > div div,
+  #block-views-block-front-page-sections-block-3 .view-content > div div,
+  #block-views-block-front-page-sections-block-4 .view-content > div div,
+  #block-views-block-front-page-sections-block-5 .view-content > div div,
+  #block-views-block-front-page-sections-block-5 .view-content > div div,
   #block-views-block-business-directory-block-1 .view-content > div div,
   #block-views-block-special-sections-block-1 .view-content > div div {
     flex: 1 1 100%; }
@@ -198,7 +204,9 @@
   #block-views-block-front-page-sections-block-1-3,
   #block-views-block-front-page-sections-block-2-2,
   #block-views-block-front-page-sections-block-3,
-  #block-views-block-front-page-sections-block-4 {
+  #block-views-block-front-page-sections-block-4,
+  #block-views-block-front-page-sections-block-5,
+  #block-views-block-front-page-sections-block-5 {
     visibility: hidden !important;
     display: none !important; }
 
