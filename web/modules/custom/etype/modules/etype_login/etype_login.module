@@ -17,6 +17,7 @@ function etype_login_page_attachments(array &$page) {
  * Clear menu cache
  */
 function etype_login_user_logout($account) {
-  drupal_flush_all_caches();
+  Drupal::cache('menu')->invalidateAll();
   Drupal::service('plugin.manager.menu.link')->rebuild();
+  drupal_flush_all_caches();
 }
