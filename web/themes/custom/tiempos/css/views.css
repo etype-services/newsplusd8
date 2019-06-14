@@ -72,7 +72,7 @@
 #block-views-block-front-page-sections-block-3 .view-content,
 #block-views-block-front-page-sections-block-4 .view-content,
 #block-views-block-front-page-sections-block-5 .view-content,
-#block-views-block-front-page-sections-block-5 .view-content,
+#block-views-block-front-page-sections-block-5-2 .view-content,
 #block-views-block-business-directory-block-1 .view-content,
 #block-views-block-special-sections-block-1 .view-content {
   display: flex;
@@ -86,7 +86,7 @@
 #block-views-block-front-page-sections-block-3 .view-content > div,
 #block-views-block-front-page-sections-block-4 .view-content > div,
 #block-views-block-front-page-sections-block-5 .view-content > div,
-#block-views-block-front-page-sections-block-5 .view-content > div,
+#block-views-block-front-page-sections-block-5-2 .view-content > div,
 #block-views-block-business-directory-block-1 .view-content > div,
 #block-views-block-special-sections-block-1 .view-content > div {
   display: flex;
@@ -106,7 +106,7 @@
   #block-views-block-front-page-sections-block-3 .view-content > div div,
   #block-views-block-front-page-sections-block-4 .view-content > div div,
   #block-views-block-front-page-sections-block-5 .view-content > div div,
-  #block-views-block-front-page-sections-block-5 .view-content > div div,
+  #block-views-block-front-page-sections-block-5-2 .view-content > div div,
   #block-views-block-business-directory-block-1 .view-content > div div,
   #block-views-block-special-sections-block-1 .view-content > div div {
     flex: 1 1 100%; }
@@ -206,7 +206,7 @@
   #block-views-block-front-page-sections-block-3,
   #block-views-block-front-page-sections-block-4,
   #block-views-block-front-page-sections-block-5,
-  #block-views-block-front-page-sections-block-5 {
+  #block-views-block-front-page-sections-block-5-2 {
     visibility: hidden !important;
     display: none !important; }
 
