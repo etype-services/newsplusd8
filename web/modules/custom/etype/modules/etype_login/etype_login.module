@@ -14,7 +14,7 @@ function etype_login_page_attachments(array &$page) {
 /**
  * Implements hook_user_login()
  * @param $account
- * Set cookie by role for caching/proxy serving
+ * Clear caches to clear e-Edition links
  */
 function etype_login_user_login($account) {
   // Clear cache to reset e-Edition links.
