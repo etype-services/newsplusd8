@@ -167,6 +167,9 @@ class EtypeLoginForm extends FormBase {
               user_login_finalize($user);
               Drupal::messenger()->addMessage($success_message);
             }
+            // Clear cache to reset e-Edition links.
+            Drupal::cache('menu')->invalidateAll();
+            Drupal::service('plugin.manager.menu.link')->rebuild();
             $redirectDestination = str_replace("http://", "http://", $base_url) . $_COOKIE["redirectDestination"];
             $url = Url::fromUri($redirectDestination);
             $form_state->setRedirectUrl($url);

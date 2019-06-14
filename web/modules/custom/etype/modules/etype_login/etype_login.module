@@ -30,6 +30,7 @@ function etype_login_user_login($account) {
  */
 function etype_login_user_logout($account) {
   Drupal::cache()->invalidateAll();
+  Drupal::service('plugin.manager.menu.link')->rebuild();
 }
 
 /**
