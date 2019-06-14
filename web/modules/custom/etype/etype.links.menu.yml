@@ -14,8 +14,9 @@ etype.admin_settings:
 
 etype.e_edition:
   title: 'E-edition'
-  url: '/e-edition'
+  url: '/e-edition-anon'
   menu_name: account
   options:
     attributes:
       target: _blank
+      id: 'etype_e_edition'

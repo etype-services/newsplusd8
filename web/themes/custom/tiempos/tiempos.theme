@@ -9,7 +9,7 @@ use Drupal\views\ViewExecutable;
  *
  * @param $variables
  */
-function tiempos_preprocess_page(&$variables) {
+function tiempos_preprocess_page(&$variables) {;
   if (Drupal::service('path.matcher')->isFrontPage()) {
     $variables['#attached']['library'][] = 'tiempos/front_page_sections';
   }

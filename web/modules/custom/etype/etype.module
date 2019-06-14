@@ -71,6 +71,7 @@ function etype_e_editions() {
     }
     $e_editions[$ptr]['site_name'] = trim($site);
     $e_editions[$ptr]['path'] = $path;
+    $e_editions[$ptr]['path_anon'] = 'https://etypeservices.com/' . $e_edition . '/';
     $ptr++;
   }
   return $e_editions;
@@ -78,10 +79,12 @@ function etype_e_editions() {
 
 /**
  * {@inheritdoc}
+ *
+ *This sets up the logged out e-Edition path
  */
 function etype_menu_links_discovered_alter(&$links) {
   $e_editions = etype_e_editions();
-  $links['etype.e_edition']['url'] = $e_editions[0]['path'];
+  $links['etype.e_edition']['url'] = $e_editions[0]['path_anon'];
 }
 
 /**

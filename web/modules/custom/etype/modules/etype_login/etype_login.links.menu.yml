@@ -1,3 +1,12 @@
+etype_login.e_edition:
+  title: 'E-edition'
+  url: '/e-edition'
+  menu_name: account
+  options:
+    attributes:
+      target: _blank
+      id: 'etype_login_e_edition'
+
 etype_login.login:
   title: 'Log In'
   weight: 10
