@@ -79,16 +79,8 @@
   }
 }
 
-/* Front Page Sections & Business Directory. */
-#block-views-block-front-page-sections-block-1,
-#block-views-block-front-page-sections-block-2,
-#block-views-block-front-page-sections-block-1-2,
-#block-views-block-front-page-sections-block-1-3,
-#block-views-block-front-page-sections-block-2-2,
-#block-views-block-front-page-sections-block-3,
-#block-views-block-front-page-sections-block-4,
-#block-views-block-front-page-sections-block-5,
-#block-views-block-front-page-sections-block-5-2,
+/* Front Page Sections, Business Directory, and Special Sections. */
+.front-page-sections,
 #block-views-block-business-directory-block-1,
 #block-views-block-special-sections-block-1 {
   .view-content {
@@ -233,19 +225,18 @@
 
 
 @media screen and (max-width: $tablet - 1px ) {
-  /* Hide attachment-before on mobile. */
-  .view-id-frontpage,
-  #block-views-block-front-page-sections-block-1,
-  #block-views-block-front-page-sections-block-2,
-  #block-views-block-front-page-sections-block-1-2,
-  #block-views-block-front-page-sections-block-1-3,
-  #block-views-block-front-page-sections-block-2-2,
-  #block-views-block-front-page-sections-block-3,
-  #block-views-block-front-page-sections-block-4,
-  #block-views-block-front-page-sections-block-5,
-  #block-views-block-front-page-sections-block-5-2 {
-    @include is-really-invisible;
+  /* Hide front page blocks on mobile. */
+  .path-frontpage {
+    .region-content {
+      .block {
+        @include is-really-invisible;
+      }
+      #block-views-block-mobile-front-page-block-1 {
+        @include is-really-visible;
+      }
+    }
   }
+
   /* Teaser formatting. */
   #block-views-block-mobile-front-page-block-1, .view-taxonomy-term  {
     .view {
