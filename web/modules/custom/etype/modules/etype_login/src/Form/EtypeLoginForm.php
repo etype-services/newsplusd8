@@ -170,7 +170,7 @@ class EtypeLoginForm extends FormBase {
             // Clear cache to reset e-Edition links.
             Drupal::cache('menu')->invalidateAll();
             Drupal::service('plugin.manager.menu.link')->rebuild();
-            $redirectDestination = str_replace("http://", "https://", $base_url) . $_COOKIE["redirectDestination"];
+            $redirectDestination = str_replace("http://", "http://", $base_url) . $_COOKIE["redirectDestination"];
             $url = Url::fromUri($redirectDestination);
             $form_state->setRedirectUrl($url);
         }
