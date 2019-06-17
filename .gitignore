@@ -6,6 +6,9 @@
 /web/profiles/contrib/
 #/web/libraries/
 
+# Ignore config/sync files
+/config
+
 # Ignore services files with dev settings
 /web/sites/*/services.yml
 
