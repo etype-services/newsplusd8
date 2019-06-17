@@ -1,0 +1,5 @@
+services:
+  convert_content_type.commands:
+    class: \Drupal\convert_content_type\Commands\ConvertContentTypeCommands
+    tags:
+      - { name: drush.command }
