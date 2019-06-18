@@ -186,5 +186,6 @@ $sites['www.unwindnorthgeorgia.com'] = "ung.etypegoogle7.com";
 $sites['unwindnorthgeorgia.com'] = "ung.etypegoogle7.com";
 
 $sites['www.ssnewstelegram.com'] = 'ssnewstelegram.etypegoogle7.com';
+$sites['www.southwestledger.news'] = 'southwestledger.etypegoogle7.com';
 
 $sites['www.etypeservices.com'] = 'etypeservices.etypegoogle7.com';
