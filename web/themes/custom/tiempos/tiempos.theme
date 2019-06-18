@@ -14,9 +14,10 @@ function tiempos_preprocess_page(&$variables) {;
     $variables['#attached']['library'][] = 'tiempos/front_page_sections';
   }
   $path = Drupal::service('path.current')->getPath();
-  if ($path == '/classified') {
+  if (($path == "/classified") || (preg_match("/^\/taxonomy\/term\/.*$/", $path))) {
     $variables['#attached']['library'][] = 'tiempos/classified';
   }
+
 }
 
 /**
