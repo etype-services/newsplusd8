@@ -13,6 +13,10 @@ function tiempos_preprocess_page(&$variables) {;
   if (Drupal::service('path.matcher')->isFrontPage()) {
     $variables['#attached']['library'][] = 'tiempos/front_page_sections';
   }
+  $path = Drupal::service('path.current')->getPath();
+  if ($path == '/classified') {
+    $variables['#attached']['library'][] = 'tiempos/classified';
+  }
 }
 
 /**

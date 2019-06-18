@@ -104,3 +104,11 @@ front_page_sections:
   dependencies:
     - core/jquery
     - core/jquery.once
+
+classified:
+  version: VERSION
+  js:
+    js/classified.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
