@@ -124,6 +124,14 @@ class EtypeConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('weather_code'),
     ];
 
+    $form['other']['ad_script'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Ad Script'),
+      '#description' => $this->t('Any code pasted in here will be added to the site. Please note that third-party scripts may break site functionality and have unexpected results.'),
+      '#cols' => '100',
+      '#default_value' => $config->get('ad_script'),
+    ];
+
     $form['other']['mercolocal_id'] = [
       '#type' => 'textfield',
       '#title' => $this->t('MercoLocal Affiliate Id'),
@@ -162,6 +170,7 @@ class EtypeConfigForm extends ConfigFormBase {
       ->set('twitter', $form_state->getValue('twitter'))
       ->set('mercolocal_id', $form_state->getValue('mercolocal_id'))
       ->set('weather_code', $form_state->getValue('weather_code'))
+      ->set('ad_script', $form_state->getValue('ad_script'))
       ->set('author', $form_state->getValue('author'))
       ->save();
   }

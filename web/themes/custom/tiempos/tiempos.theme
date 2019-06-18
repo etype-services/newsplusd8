@@ -2,7 +2,16 @@
 
 use Drupal\file\Entity\File;
 use Drupal\taxonomy\Entity\Term;
-use Drupal\views\ViewExecutable;
+
+/**
+ * Preprocess html.
+ *
+ * @param $variables
+ */
+function tiempos_preprocess_html(&$variables) {;
+  $config = Drupal::config('etype.adminsettings');
+  $variables['ad_script'] = $config->get('ad_script');
+}
 
 /**
  * Preprocess page.
@@ -17,7 +26,6 @@ function tiempos_preprocess_page(&$variables) {;
   if (($path == "/classified") || (preg_match("/^\/taxonomy\/term\/.*$/", $path))) {
     $variables['#attached']['library'][] = 'tiempos/classified';
   }
-
 }
 
 /**
@@ -47,7 +55,6 @@ function tiempos_preprocess_block(&$variables) {
  * @param $variables
  */
 function tiempos_preprocess_node(&$variables) {
-  //$site_path = Drupal::service('file_system')->realpath(file_default_scheme() . "://");
   $config = Drupal::config('etype.adminsettings');
   $variables['premium_content_message'] = $config->get('premium_content_message');
   $variables['premium_preview'] = $config->get('premium_preview');
