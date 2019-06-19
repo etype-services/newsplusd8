@@ -73,4 +73,22 @@
   padding-left: 71px;
   line-height: 60px; }
 
+/* Dahnolega Ads on Home Page */
+#block-dfptagcnidahlonegamidhome {
+  display: inline-block;
+  float: left; }
+
+#block-dfptagcnidahlonegamidhome2 {
+  display: inline-block;
+  float: right; }
+
+@media screen and (max-width: 950px) {
+  #block-dfptagcnidahlonegamidhome {
+    display: block;
+    text-align: center; }
+
+  #block-dfptagcnidahlonegamidhome2 {
+    display: block;
+    text-align: center; } }
+
 /*# sourceMappingURL=ads.css.map */
