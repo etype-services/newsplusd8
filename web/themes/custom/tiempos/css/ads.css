@@ -85,10 +85,12 @@
 @media screen and (max-width: 950px) {
   #block-dfptagcnidahlonegamidhome {
     display: block;
-    text-align: center; }
+    text-align: center;
+    float: none; }
 
   #block-dfptagcnidahlonegamidhome2 {
     display: block;
-    text-align: center; } }
+    text-align: center;
+    float: none; } }
 
 /*# sourceMappingURL=ads.css.map */
