@@ -93,6 +93,11 @@
   float: right;
 }
 
+/* The block underneath needs to clear float */
+#block-views-block-videos-block-1 {
+  clear: both;
+}
+
 @media screen and (max-width: 950px) {
   #block-dfptagcnidahlonegamidhome {
     display: block;
