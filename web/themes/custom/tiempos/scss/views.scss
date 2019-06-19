@@ -228,9 +228,6 @@
   /* Hide front page blocks on mobile. */
   .path-frontpage {
     .region-content {
-      .block {
-        @include is-really-invisible;
-      }
       #block-views-block-mobile-front-page-block-1 {
         @include is-really-visible;
       }
