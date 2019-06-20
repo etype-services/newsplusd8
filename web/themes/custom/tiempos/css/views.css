@@ -172,10 +172,12 @@
       .view-taxonomy-term article.node--type-article.node--view-mode-teaser .node__content .submitted .field--name-uid {
         font-size: 0.8rem; } }
 @media screen and (max-width: 768px) {
-  /* Hide front page blocks on mobile. */
+  /* Show front page mobile blocks on mobile. */
   .path-frontpage .region-content #block-views-block-mobile-front-page-block-1 {
     visibility: visible !important;
     display: block !important; }
+    .path-frontpage .region-content #block-views-block-mobile-front-page-block-1 .attachment .view-display-id-attachment_1 {
+      padding: 0; }
 
   /* Teaser formatting. */
   #block-views-block-mobile-front-page-block-1 .view, .view-taxonomy-term .view {
