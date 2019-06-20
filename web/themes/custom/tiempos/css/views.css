@@ -176,10 +176,10 @@
   .path-frontpage .region-content #block-views-block-mobile-front-page-block-1 {
     visibility: visible !important;
     display: block !important; }
-    .path-frontpage .region-content #block-views-block-mobile-front-page-block-1 .attachment .view-display-id-attachment_1 {
+    .path-frontpage .region-content #block-views-block-mobile-front-page-block-1 .view-id-mobile_front_page > .view-content {
+      padding-bottom: 0.75rem; }
+    .path-frontpage .region-content #block-views-block-mobile-front-page-block-1 .view-id-mobile_front_page .attachment .view-display-id-attachment_1 {
       padding: 0; }
-  .path-frontpage .region-content #block-views-block-mobile-front-page-block-1 > .view-content {
-    padding-bottom: 0.75rem; }
 
   /* Teaser formatting. */
   #block-views-block-mobile-front-page-block-1 .view, .view-taxonomy-term .view {

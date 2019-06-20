@@ -230,14 +230,16 @@
     .region-content {
       #block-views-block-mobile-front-page-block-1 {
         @include is-really-visible;
-        .attachment {
-          .view-display-id-attachment_1 {
-            padding: 0;
+        .view-id-mobile_front_page {
+          & > .view-content {
+            padding-bottom: $column-gap;
+          }
+          .attachment {
+            .view-display-id-attachment_1 {
+              padding: 0;
+            }
           }
         }
-      }
-      #block-views-block-mobile-front-page-block-1 > .view-content {
-        padding-bottom: $column-gap;
       }
     }
   }
