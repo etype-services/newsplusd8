@@ -118,8 +118,7 @@
 .weatherwidget {
   width: 100%;
   height: 64px;
-  overflow: hidden;
-  margin-bottom: 0 !important; }
+  overflow: hidden; }
 
 #block-etypeeedition-2 {
   visibility: hidden !important;
