@@ -1,0 +1,4 @@
+File: lcherald.site.yml
+prod:
+  root: /mnt/data/web/public/harold/drupal/web
+  uri: http://lcherald.etypegoogle7.com
