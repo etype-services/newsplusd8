@@ -1,0 +1,39 @@
+.user-logged-in a[data-drupal-link-system-path="etype-login"] {
+  display: none!important;
+  visibility: hidden;
+}
+
+/* CSS rules to show or hide the two e-edition links based on logged in status */
+#etype_e_edition, .user-logged-in #etype_login_cni_e_edition {
+  display: block;
+  visibility: visible;
+}
+
+#etype_login_cni_e_edition, .user-logged-in #etype_e_edition {
+  display: none;
+  visibility: hidden;
+}
+
+#etype_e_edition, .user-logged-in #etype_login_cni_e_edition {
+  display: block;
+  visibility: visible;
+}
+
+#etype_login_cni_e_edition, .user-logged-in #etype_e_edition {
+  display: none;
+  visibility: hidden;
+}
+
+@media screen and (max-width: 1087px) {
+  #main-nav .navbar .navbar-start .navbar-menu .button#etype_e_edition,
+  .user-logged-in #main-nav .navbar .navbar-start .navbar-menu .button#etype_login_cni_e_edition{
+    display: block;
+    visibility: visible;
+  }
+
+  .user-logged-in #main-nav .navbar .navbar-start .navbar-menu .button#etype_e_edition,
+  #main-nav .navbar .navbar-start .navbar-menu .button#etype_login_cni_e_edition{
+    display: none;
+    visibility: hidden;
+  }
+}

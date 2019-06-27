@@ -7,8 +7,8 @@
  * @param array $page
  */
 function etype_login_cni_page_attachments(array &$page) {
-  $page['#attached']['library'][] = 'etype_login/global-styling';
-  $page['#attached']['library'][] = 'etype_login/etype_login_page';
+  $page['#attached']['library'][] = 'etype_login_cni/global-styling';
+  $page['#attached']['library'][] = 'etype_login_cni/etype_login_cni_page';
 }
 
 /**

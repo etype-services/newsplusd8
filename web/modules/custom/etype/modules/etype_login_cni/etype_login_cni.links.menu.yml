@@ -5,7 +5,7 @@ etype_login_cni.e_edition:
   options:
     attributes:
       target: _blank
-      id: 'etype_login_e_edition'
+      id: 'etype_login_cni_e_edition'
 
 etype_login_cni.login:
   title: 'Log In'
