@@ -121,6 +121,10 @@
   overflow: hidden;
   margin-bottom: 0 !important; }
 
+#block-etypeeedition-2 {
+  visibility: hidden !important;
+  display: none !important; }
+
 @media screen and (max-width: 768px) {
   /* Hide content on mobile */
   .view-display-id-page_1,
@@ -132,8 +136,13 @@
   #block-views-block-front-page-sections-block-4,
   #block-friends2followsidebar,
   #block-friends2followsidebar-2,
-  #block-mostrecentpoll {
+  #block-mostrecentpoll,
+  #block-etypeeedition {
     visibility: hidden !important;
-    display: none !important; } }
+    display: none !important; }
+
+  #block-etypeeedition-2 {
+    visibility: visible !important;
+    display: block !important; } }
 
 /*# sourceMappingURL=blocks.css.map */

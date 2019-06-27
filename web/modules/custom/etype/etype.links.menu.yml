@@ -11,12 +11,3 @@ etype.admin_settings:
   parent: system.admin_config_etype
   description: 'Configure eType settings, including e-Edition, weather code, and MercoLocal id.'
   route_name: etype.admin_settings_form
-
-etype.e_edition:
-  title: 'E-edition'
-  url: '/e-edition-anon'
-  menu_name: account
-  options:
-    attributes:
-      target: _blank
-      id: 'etype_e_edition'

@@ -158,6 +158,10 @@
 
 }
 
+#block-etypeeedition-2 {
+  @include is-really-invisible;
+}
+
 @media screen and (max-width: $tablet - 1px) {
   /* Hide content on mobile */
   .view-display-id-page_1,
@@ -169,7 +173,12 @@
   #block-views-block-front-page-sections-block-4,
   #block-friends2followsidebar,
   #block-friends2followsidebar-2,
-  #block-mostrecentpoll {
+  #block-mostrecentpoll,
+  #block-etypeeedition {
     @include is-really-invisible;
+  }
+
+  #block-etypeeedition-2 {
+    @include is-really-visible;
   }
 }
