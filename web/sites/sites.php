@@ -166,26 +166,19 @@ $sites['www.wespubco.com'] = "wespubco.etypegoogle7.com";
 $sites['wespubco.com'] = "wespubco.etypegoogle7.com";
 $sites['www.wesnerpublications.com'] = "wespubco.etypegoogle7.com";
 $sites['wesnerpublications.com'] = "wespubco.etypegoogle7.com";
-
-$sites['mosercommedia.etypegoogle7.com'] = "mosercommedia.etypegoogle7.com";
 $sites['www.mosercommedia.com'] = "mosercommedia.etypegoogle7.com";
-$sites['mosercommedia.com'] = "mosercommedia.etypegoogle7.com";
-
-$sites['giddingstimes.etypegoogle7.com'] = "giddingstimes.etypegoogle7.com";
 $sites['www.giddingstimes.com'] = "giddingstimes.etypegoogle7.com";
-$sites['giddingstimes.com'] = "giddingstimes.etypegoogle7.com";
-
 $sites['www.colfaxchronicle.com'] = "colfaxchronicle.etypegoogle7.com";
-
 $sites['www.columbusnews-report.com'] = "columbusnews-report.etypegoogle7.com";
-
 $sites['www.rileycountian.com'] = "rileycountian.etypegoogle7.com";
-
 $sites['unwindnorthgeorgia.etypegoogle7.com'] = "ung.etypegoogle7.com";
 $sites['www.unwindnorthgeorgia.com'] = "ung.etypegoogle7.com";
 $sites['unwindnorthgeorgia.com'] = "ung.etypegoogle7.com";
-
 $sites['www.ssnewstelegram.com'] = 'ssnewstelegram.etypegoogle7.com';
 $sites['www.southwestledger.news'] = 'southwestledger.etypegoogle7.com';
-
 $sites['www.etypeservices.com'] = 'etypeservices.etypegoogle7.com';
+$sites['www.cordellbeacon.com'] = 'cordellbeacon.etypegoogle7.com';
+$sites['www.madillrecord.net'] = 'madillrecord.etypegoogle7.com';
+$sites['www.waltersherald.com'] = 'waltersherald.etypegoogle7.com';
+$sites['www.lcherald.com'] = 'lcherald.etypegoogle7.com';
+$sites['www.thedahloneganugget.com'] = 'thedahloneganugget.etypegoogle7.com';

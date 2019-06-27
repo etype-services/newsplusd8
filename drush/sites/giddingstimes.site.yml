@@ -1,0 +1,4 @@
+File: giddingstimes.site.yml
+prod:
+  root: /mnt/data/web/public/harold/drupal/web
+  uri: http://giddingstimes.etypegoogle7.com
