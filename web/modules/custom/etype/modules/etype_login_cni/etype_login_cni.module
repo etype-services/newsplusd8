@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * Implements hook_page_attachments().
+ * css hides system login link.
+ *
+ * @param array $page
+ */
+function etype_login_cni_page_attachments(array &$page) {
+  $page['#attached']['library'][] = 'etype_login_cni/global-styling';
+  $page['#attached']['library'][] = 'etype_login_cni/etype_login_page';
+}
+
+/**
+ * Implements hook_user_login()
+ * @param $account
+ * Clear caches to clear e-Edition links
+ */
+function etype_login_cni_user_login($account) {
+  // Clear cache to reset e-Edition links.
+  Drupal::cache('menu')->invalidateAll();
+  Drupal::service('plugin.manager.menu.link')->rebuild();
+}
+
+/**
+ * Implements hook_user_logout()
+ * @param $account
+ * Clear caches to set e-Edition links
+ * THis only works on the e-Edition block
+ */
+function etype_login_cni_user_logout($account) {
+  Drupal::cache()->invalidateAll();
+  Drupal::service('plugin.manager.menu.link')->rebuild();
+}
+
+/**
+ * {@inheritdoc}
+ *
+ * This sets up the logged in e-Edition path
+ */
+function etype_login_cni_menu_links_discovered_alter(&$links) {
+  $e_editions = etype_e_editions();
+  $links['etype_login_cni.e_edition']['url'] = $e_editions[0]['path'];
+}

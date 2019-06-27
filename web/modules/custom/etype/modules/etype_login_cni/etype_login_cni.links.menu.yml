@@ -1,0 +1,20 @@
+etype_login_cni.e_edition:
+  title: 'E-edition'
+  url: '/e-edition'
+  menu_name: account
+  options:
+    attributes:
+      target: _blank
+      id: 'etype_login_cni_e_edition'
+
+etype_login_cni.login:
+  title: 'Log In'
+  weight: 10
+  route_name: etype_login_cni.login
+  menu_name: account
+
+etype_login_cni.account:
+  title: 'My Account'
+  weight: 10
+  route_name: etype_login_cni.account
+  menu_name: account

@@ -1,0 +1,23 @@
+etype_login_cni.login:
+  path: '/etype-login'
+  defaults:
+    _title: 'Subscriber Login'
+    _form: '\Drupal\etype_login_cni\Form\EtypeLoginForm'
+  requirements:
+    _user_is_logged_in: 'FALSE'
+
+etype_login_cni.forgot:
+  path: '/etype-forgot-password'
+  defaults:
+    _title: 'Password Reset'
+    _form: '\Drupal\etype_login_cni\Form\EtypePasswordResetForm'
+  requirements:
+    _user_is_logged_in: 'FALSE'
+
+etype_login_cni.account:
+  path: '/etype-my-account'
+  defaults:
+    _title: 'My Account'
+    _form: '\Drupal\etype_login_cni\Form\EtypeMyAccountForm'
+  requirements:
+    _user_is_logged_in: 'TRUE'
