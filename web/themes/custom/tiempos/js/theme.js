@@ -22,6 +22,7 @@
 
             if (GetIEVersion() > 0) {
                 $("head").append('<link rel="stylesheet" type="text/css" href="/themes/custom/tiempos/css/ie.css">');
+                $("#block-iemessage").addClass("is-really-visible");
             }
 
             /* Menu toggle. */

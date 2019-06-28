@@ -29,6 +29,10 @@
   display: flex;
   justify-content: center; }
 
+#block-iemessage {
+  display: none;
+  visibility: hidden; }
+
 /* Poll Block formatting */
 .block-poll-recent-block h2 {
   text-transform: uppercase;

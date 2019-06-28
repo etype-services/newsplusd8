@@ -6,6 +6,11 @@
   display: none!important;
 }
 
+.is-really-visible {
+  visibility: visible!important;
+  display: block!important;
+}
+
 /* Match mixin. */
 .border-top-light {
   border-top: 1px solid $grey-light
