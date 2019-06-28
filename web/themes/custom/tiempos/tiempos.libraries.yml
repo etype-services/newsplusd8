@@ -18,6 +18,7 @@ global-styling:
       css/content.css: { weight: 1 }
       css/flexslider.css: { weight: 1 }
       css/ads.css: { weight: 1 }
+      css/ie.css: { weight: 1 }
 
 global-scripts:
   version: VERSION
