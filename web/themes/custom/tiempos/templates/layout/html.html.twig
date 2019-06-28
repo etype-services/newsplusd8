@@ -34,10 +34,10 @@
 <!DOCTYPE html>
 <html{{ html_attributes }}>
 <head>
-    <head-placeholder token="{{ placeholder_token }}">
-        <title>{{ head_title|safe_join(' | ') }}</title>
-        <css-placeholder token="{{ placeholder_token }}">
-            <js-placeholder token="{{ placeholder_token }}">
+<head-placeholder token="{{ placeholder_token }}">
+<title>{{ head_title|safe_join(' | ') }}</title>
+<css-placeholder token="{{ placeholder_token }}">
+ <js-placeholder token="{{ placeholder_token }}">
 <!--[if IE]>
 <link type="text/css" rel="stylesheet" media="print" href="/themes/tiempos/css/ie.css" />
 <![endif]-->
@@ -54,6 +54,6 @@
 {{ page }}
 {{ page_bottom }}
 <js-bottom-placeholder token="{{ placeholder_token }}">
-    {{ ad_script | raw }}
+{{ ad_script | raw }}
 </body>
 </html>
