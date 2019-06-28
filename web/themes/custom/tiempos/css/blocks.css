@@ -28,11 +28,6 @@
   /* Center logo. */
   display: flex;
   justify-content: center; }
-  #block-tiempos-branding .site-logo > img {
-    width: 100%; }
-
-#block-etypeeedition img, #block-etypeeedition-2 img {
-  width: 100%; }
 
 /* Poll Block formatting */
 .block-poll-recent-block h2 {
