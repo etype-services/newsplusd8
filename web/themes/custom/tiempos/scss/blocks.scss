@@ -38,6 +38,9 @@
   /* Center logo. */
   display: flex;
   justify-content: center;
+  .site-logo > img {
+    width: 100%;
+  }
 }
 
 /* Poll Block formatting */

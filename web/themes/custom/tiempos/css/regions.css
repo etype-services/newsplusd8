@@ -9,7 +9,7 @@
   padding: calc(0.75rem * 2) 0.75rem 0 calc(0.75rem * 2); }
 
 .region-header-center {
-  /* Make logo bigger */
+  /* Make logo area bigger */
   flex-grow: 2; }
 
 .region-header-right {
