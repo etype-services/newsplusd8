@@ -41,6 +41,7 @@
     "drupal/ckeditor_font": "^1.0",
     "drupal/clamav": "^1.0",
     "drupal/colorbutton": "^1.1",
+    "drupal/conditional_styles": "^1.0",
     "drupal/console": "~1.0",
     "drupal/core": "^8.6.0",
     "drupal/custom_pub": "^1.0",
