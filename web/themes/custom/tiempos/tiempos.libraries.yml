@@ -112,3 +112,8 @@ classified:
   dependencies:
     - core/jquery
     - core/jquery.once
+
+conditional-stylesheets:
+  IE:
+    print:
+      css/ie.css: {}
