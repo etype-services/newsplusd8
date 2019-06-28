@@ -47,6 +47,8 @@
     /* Deal with images that are taller than wide. */
     margin: auto;
     display: table; }
+    .view-id-frontpage.columns > .view-content > div > a img {
+      width: 100%; }
   .view-id-frontpage.columns > .view-content h2 {
     line-height: 1.8rem; }
 
