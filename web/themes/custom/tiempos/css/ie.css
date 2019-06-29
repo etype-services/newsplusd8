@@ -17,3 +17,7 @@ img {
 .front-page-sections .view-content > div, #block-views-block-business-directory-block-1 .view-content > div, #block-views-block-special-sections-block-1 .view-content > div {
   display: block;
 }
+
+#block-views-block-special-sections-block-1 .view-content img {
+  max-width: 300px;
+}
