@@ -18,6 +18,7 @@ img {
   display: block;
 }
 
-#block-views-block-special-sections-block-1 .view-content img {
-  max-width: 300px;
+#block-views-block-special-sections-block-1 .view-content div {
+  float: left;
+  width: 24%;
 }
