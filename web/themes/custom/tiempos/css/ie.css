@@ -2,6 +2,10 @@ img {
   width: 100%;
 }
 
+.region-content {
+  border-right: none;
+}
+
 .columns {
   display: block!important;
 }
