@@ -1,3 +1,17 @@
+function getIEVersion() {
+    var sAgent = window.navigator.userAgent;
+    var Idx = sAgent.indexOf("MSIE");
+    // If IE, return version number.
+    if (Idx > 0) {
+        return parseInt(sAgent.substring(Idx + 5, sAgent.indexOf(".", Idx)));
+    } else if (!!navigator.userAgent.match(/Trident\/7\./)) {
+        // If IE 11 then look for Updated user agent string.
+        return 11;
+    } else {
+        return 0; // It is not IE
+    }
+}
+
 (function ($, Drupal) {
     "use strict";
     Drupal.behaviors.tiemposBehavior = {
@@ -5,24 +19,9 @@
             var caption = $(".page-node-type-feature .is-three-quarters img").attr("alt");
             var w = $("#main-nav > .navbar > .navbar-end").width();
 
-            function GetIEVersion() {
-                var sAgent = window.navigator.userAgent;
-                var Idx = sAgent.indexOf("MSIE");
-
-                // If IE, return version number.
-                if (Idx > 0) {
-                    return parseInt(sAgent.substring(Idx + 5, sAgent.indexOf(".", Idx)));
-                } else if (!!navigator.userAgent.match(/Trident\/7\./)) {
-                    // If IE 11 then look for Updated user agent string.
-                    return 11;
-                } else {
-                    return 0; //It is not IE
-                }
-            }
-
-            if (GetIEVersion() > 0) {
-                $("head").append('<link rel="stylesheet" type="text/css" href="/themes/custom/tiempos/css/ie.css">');
-                $("#block-iemessage").addClass("is-really-visible");
+            if (getIEVersion() > 0) {
+                $("head").once("tiemposBehavior").append('<link rel="stylesheet" type="text/css" href="/themes/custom/tiempos/css/ie.css">');
+                $("#block-iemessage").once("tiemposBehavior").addClass("is-really-visible");
             }
 
             /* Menu toggle. */
