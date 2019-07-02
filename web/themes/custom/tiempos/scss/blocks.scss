@@ -152,6 +152,7 @@
   display: flex;
   justify-content: space-around;
   min-height: 257px; /* to set sidebar height because Merco code loads slowly */
+  clear: both;
 }
 
 /* Weather Widget */

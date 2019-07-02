@@ -21,7 +21,7 @@ function getIEVersion() {
 
             if (getIEVersion() > 0) {
                 $("head").once("tiemposBehavior").append('<link rel="stylesheet" type="text/css" href="/themes/custom/tiempos/css/ie.css">');
-                $("#block-iemessage").once("tiemposBehavior").addClass("is-really-visible");
+                // $("#block-iemessage").once("tiemposBehavior").addClass("is-really-visible");
             }
 
             /* Menu toggle. */
