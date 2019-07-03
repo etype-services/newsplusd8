@@ -1,0 +1,5 @@
+etype_paywall.admin_settings:
+  title: 'eType Paywall Settings'
+  parent: system.admin_config_etype
+  description: 'Configure paywall settings.'
+  route_name: etype_paywall.admin_settings
