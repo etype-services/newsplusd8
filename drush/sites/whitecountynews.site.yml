@@ -1,0 +1,4 @@
+File: whitecountynews.site.yml
+prod:
+  root: /mnt/data/web/public/harold/drupal/web
+  uri: http://whitecountynews.etypegoogle7.com

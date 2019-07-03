@@ -1,0 +1,4 @@
+File: theclaytontribune.site.yml
+prod:
+  root: /mnt/data/web/public/harold/drupal/web
+  uri: http://theclaytontribune.etypegoogle7.com
