@@ -1,5 +1,0 @@
-services:
-  delete_all.commands:
-    class: \Drupal\delete_all\Commands\DeleteAllCommands
-    tags:
-      - { name: drush.command }

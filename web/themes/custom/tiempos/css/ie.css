@@ -1,3 +1,27 @@
 img {
   width: 100%;
 }
+
+.region-content {
+  border-right: none;
+}
+
+.columns {
+  display: block!important;
+}
+
+.front-page-sections .view-content, #block-views-block-business-directory-block-1 .view-content, #block-views-block-special-sections-block-1 .view-content {
+  display: block;
+}
+
+.front-page-sections .view-content > div, #block-views-block-business-directory-block-1 .view-content > div, #block-views-block-special-sections-block-1 .view-content > div {
+  display: block;
+}
+
+#block-views-block-special-sections-block-1 .view-content div {
+  float: left;
+  width: 24%;
+}
+#block-views-block-special-sections-block-1 .view-footer {
+  float: left;
+}

@@ -28,11 +28,10 @@
   /* Center logo. */
   display: flex;
   justify-content: center; }
-  #block-tiempos-branding .site-logo > img {
-    width: 100%; }
 
-#block-etypeeedition img, #block-etypeeedition-2 img {
-  width: 100%; }
+#block-iemessage {
+  display: none;
+  visibility: hidden; }
 
 /* Poll Block formatting */
 .block-poll-recent-block h2 {
@@ -117,7 +116,8 @@
   display: flex;
   justify-content: space-around;
   min-height: 257px;
-  /* to set sidebar height because Merco code loads slowly */ }
+  /* to set sidebar height because Merco code loads slowly */
+  clear: both; }
 
 /* Weather Widget */
 .weatherwidget {
