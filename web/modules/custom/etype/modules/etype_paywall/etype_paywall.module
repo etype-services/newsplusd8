@@ -1,0 +1,10 @@
+<?php
+
+function etype_paywall_preprocess_node(&$variables) {
+  $type = $variables['node']->getType();
+  if($type === 'article'){
+    $variables['#attached']['library'][] = 'etype_paywall/etype_paywall';
+    $e_editions = etype_e_editions();
+    $variables['#attached']['drupalSettings']['etype_paywall']['etype_paywall']['subLink'] = $e_editions[0]['path'];
+  }
+}

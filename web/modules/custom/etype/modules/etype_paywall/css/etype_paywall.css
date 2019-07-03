@@ -1,0 +1,19 @@
+#block-paywallblock {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  z-index: 999;
+  padding: 1rem;
+}
+
+.page-node-type-article {
+  padding-bottom: 3rem;
+}
+
+.paywall_blocked {
+
+}

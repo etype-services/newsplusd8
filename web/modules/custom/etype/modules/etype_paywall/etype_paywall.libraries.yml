@@ -1,0 +1,16 @@
+etype_paywall:
+  version: VERSION
+  css:
+    theme:
+      css/etype_paywall.css: {}
+  js:
+    js/etype_paywall.js:
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once
+
+js.cookie:
+  version: v2.2.0
+  js:
+    /libraries/js.cookie.js:

@@ -11,7 +11,7 @@ use Drupal\Core\Render\Markup;
  *
  * @Block(
  *   id = "staytuned_block",
- *   admin_label = @Translation("Social Media Icon Block for News+ theme"),
+ *   admin_label = @Translation("Stay Tuned Block for News+ theme"),
  *   category = @Translation("eType"),
  * )
  */
