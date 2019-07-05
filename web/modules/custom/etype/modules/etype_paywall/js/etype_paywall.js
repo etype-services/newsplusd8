@@ -3,6 +3,8 @@
  */
 var newTotal;
 
+console.log(drupalSettings.etype_paywall.etype_paywall.subLink);
+
 var init = function () {
     "use strict";
     var total = Cookies.get("paywallViewed");

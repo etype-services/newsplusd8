@@ -1,0 +1,9 @@
+etype_paywall.admin_settings:
+  path: '/admin/config/etype_paywall/adminsettings'
+  defaults:
+    _form: '\Drupal\etype_paywall\Form\EtypePaywallConfigForm'
+    _title: 'eType Paywall Configuration'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE

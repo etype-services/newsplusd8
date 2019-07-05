@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\etype\Form;
+namespace Drupal\etype_paywall\Form;
 
 use Drupal;
 use Drupal\Core\Form\ConfigFormBase;
@@ -53,7 +53,7 @@ class EtypePaywallConfigForm extends ConfigFormBase {
 
     $form['freeNumber'] = [
       '#title' => $this->t('Free articles'),
-      '#description' => 'How many articles available for free.',
+      '#description' => 'How many articles a site visitor can read for free.',
       '#type' => 'select',
       '#options' => ['4', '6', '10'],
       '#default_value' => $this->conf->get('freeNumber'),

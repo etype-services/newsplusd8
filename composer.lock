@@ -2827,16 +2827,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "8.7.3",
+            "version": "8.7.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "b8ca92d4274048aff6bb020c329596c0e9b91269"
+                "reference": "a6d447d41545323f54c5034e551fb43b8050eca9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/b8ca92d4274048aff6bb020c329596c0e9b91269",
-                "reference": "b8ca92d4274048aff6bb020c329596c0e9b91269",
+                "url": "https://api.github.com/repos/drupal/core/zipball/a6d447d41545323f54c5034e551fb43b8050eca9",
+                "reference": "a6d447d41545323f54c5034e551fb43b8050eca9",
                 "shasum": ""
             },
             "require": {
@@ -3067,7 +3067,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2019-06-05T19:21:30+00:00"
+            "time": "2019-07-04T07:26:51+00:00"
         },
         {
             "name": "drupal/ctools",
@@ -4760,7 +4760,7 @@
             "description": "Enables the creation of Paragraphs entities.",
             "homepage": "https://www.drupal.org/project/paragraphs",
             "support": {
-                "source": "http://cgit.drupalcode.org/paragraphs"
+                "source": "https://git.drupalcode.org/project/paragraphs"
             }
         },
         {
@@ -5313,7 +5313,7 @@
             ],
             "authors": [
                 {
-                    "name": "Aswathy Ajish",
+                    "name": "AswathyAjish",
                     "homepage": "https://www.drupal.org/user/2584696"
                 },
                 {
@@ -5328,7 +5328,7 @@
             "description": "A module to import taxonomy using CSV or XML file to a user defined vocabulary",
             "homepage": "https://www.drupal.org/project/taxonomy_import",
             "support": {
-                "source": "http://cgit.drupalcode.org/taxonomy_import"
+                "source": "https://git.drupalcode.org/project/taxonomy_import"
             }
         },
         {
@@ -5592,7 +5592,7 @@
                 },
                 "drupal": {
                     "version": "8.x-2.1",
-                    "datestamp": "1557724385",
+                    "datestamp": "1557726644",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5781,7 +5781,7 @@
             "description": "Weather Block",
             "homepage": "https://www.drupal.org/project/weather_block",
             "support": {
-                "source": "http://cgit.drupalcode.org/weather_block"
+                "source": "https://git.drupalcode.org/project/weather_block"
             }
         },
         {
@@ -12065,16 +12065,16 @@
         },
         {
             "name": "webflo/drupal-core-require-dev",
-            "version": "8.7.3",
+            "version": "8.7.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webflo/drupal-core-require-dev.git",
-                "reference": "75d11db587237934914a1cd150e81462665a19aa"
+                "reference": "6ab0d5c54addc3000ed7797bbcddec105d5f4dd9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webflo/drupal-core-require-dev/zipball/75d11db587237934914a1cd150e81462665a19aa",
-                "reference": "75d11db587237934914a1cd150e81462665a19aa",
+                "url": "https://api.github.com/repos/webflo/drupal-core-require-dev/zipball/6ab0d5c54addc3000ed7797bbcddec105d5f4dd9",
+                "reference": "6ab0d5c54addc3000ed7797bbcddec105d5f4dd9",
                 "shasum": ""
             },
             "require": {
@@ -12082,7 +12082,7 @@
                 "behat/mink-goutte-driver": "^1.2",
                 "behat/mink-selenium2-driver": "1.3.x-dev",
                 "drupal/coder": "^8.3.1",
-                "drupal/core": "8.7.3",
+                "drupal/core": "8.7.4",
                 "jcalderonzumba/gastonjs": "^1.0.2",
                 "jcalderonzumba/mink-phantomjs-driver": "^0.3.1",
                 "justinrainbow/json-schema": "^5.2",
@@ -12099,7 +12099,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "require-dev dependencies from drupal/core",
-            "time": "2019-06-05T19:31:46+00:00"
+            "time": "2019-07-04T08:01:42+00:00"
         }
     ],
     "aliases": [],
