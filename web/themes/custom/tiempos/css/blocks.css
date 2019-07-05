@@ -116,7 +116,16 @@
   display: flex;
   justify-content: space-around;
   min-height: 257px;
-  /* to set sidebar height because Merco code loads slowly */
+  /* to set sidebar height because Merco code loads slowly */ }
+
+#block-mercobannerblock,
+#block-mercobannerblock-2
+#block-views-block-front-page-sections-block-1,
+#block-views-block-front-page-sections-block-1-2,
+#block-views-block-front-page-sections-block-2,
+#block-views-block-front-page-sections-block-2-2,
+#block-views-block-front-page-sections-block-3,
+#block-views-block-front-page-sections-block-4 {
   clear: both; }
 
 /* Weather Widget */
