@@ -30,4 +30,14 @@ class PaywallBlock extends BlockBase {
     ];
   }
 
+  /**
+   * Disable Caching.
+   *
+   * @return int
+   *   Boolean
+   */
+  public function getCacheMaxAge() {
+    return 0;
+  }
+
 }

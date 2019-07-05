@@ -3,18 +3,14 @@
  */
 var newTotal;
 
-console.log(drupalSettings.etype_paywall.etype_paywall.subLink);
-
 var init = function () {
     "use strict";
     var total = Cookies.get("paywallViewed");
-    // console.log(total);
     if (isNaN(total)) {
         newTotal = 1;
     } else {
         newTotal = parseInt(total) + 1;
     }
-    // console.log(newTotal);
     Cookies.set("paywallViewed", newTotal, {expires: 30});
 };
 
