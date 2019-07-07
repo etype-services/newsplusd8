@@ -24,7 +24,11 @@ class PaywallBlock extends BlockBase {
    */
   public function build() {
 
-    $output = '<p>You have read ' . $_COOKIE['paywallViewed'] . ' of 4 free articles available this month.</p>';
+    $output = '';
+    if (isset($_COOKIE['paywallViewed'])) {
+      $output = '<p>You have read ' . $_COOKIE['paywallViewed'] . ' of 4 free articles available this month.</p>';
+    }
+
     return [
       '#children' => Markup::create($output),
     ];

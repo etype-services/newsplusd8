@@ -1,6 +1,7 @@
 /*
  * Paywall for eType
  */
+
 var newTotal;
 
 var init = function () {
@@ -11,7 +12,6 @@ var init = function () {
     } else {
         newTotal = parseInt(total) + 1;
     }
-    Cookies.set("paywallViewed", newTotal, {expires: 30});
 };
 
 init();
@@ -23,7 +23,10 @@ init();
             if (newTotal > 4) {
                 var subLink = drupalSettings.etype_paywall.etype_paywall.subLink;
                 $(".field--name-body").once("etypePaywallPageBehavior").addClass("paywall_blocked").html("You‘ve read all your free articles for this month. Please <a href=\"" + subLink + "\">subscribe</a> to read more.");
+            } else {
+                $("#block-paywallblock").html("<p>You have read " + newTotal + " of 4 free articles available this month.</p>");
             }
+            Cookies.set("paywallViewed", newTotal, {expires: 30});
         }
     };
 })(jQuery, Drupal);
