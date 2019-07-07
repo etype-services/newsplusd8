@@ -8,7 +8,7 @@ var init = function () {
     "use strict";
     var total = Cookies.get("paywallViewed");
     if (isNaN(total)) {
-        newTotal = 1;
+        newTotal = 0;
     } else {
         newTotal = parseInt(total) + 1;
     }
