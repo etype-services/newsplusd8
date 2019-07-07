@@ -9,6 +9,7 @@ etype_paywall:
     - core/drupal
     - core/drupalSettings
     - core/jquery.once
+    - etype_paywall/js.cookie
 
 js.cookie:
   version: v2.2.0
