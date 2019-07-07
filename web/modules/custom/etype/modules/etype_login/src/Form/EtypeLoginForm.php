@@ -66,11 +66,11 @@ class EtypeLoginForm extends FormBase {
 
       $form['actions']['#type'] = 'actions';
 
-      $form['actions']['submit'] = array(
+      $form['actions']['submit'] = [
         '#type' => 'submit',
         '#value' => $this->t('Log In'),
         '#button_type' => 'primary',
-      );
+      ];
 
     }
     else {
