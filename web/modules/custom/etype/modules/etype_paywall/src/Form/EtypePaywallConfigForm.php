@@ -55,8 +55,16 @@ class EtypePaywallConfigForm extends ConfigFormBase {
       '#title' => $this->t('Free articles'),
       '#description' => 'How many articles a site visitor can read for free.',
       '#type' => 'select',
-      '#options' => ['4', '6', '10'],
+      '#options' => ['4' => '4', '6' => '6', '10' => '10'],
       '#default_value' => $this->conf->get('freeNumber'),
+    ];
+
+    $form['expiresNumber'] = [
+      '#title' => $this->t('Cookie expiration'),
+      '#description' => 'How many days before the cookie expires and the user can read free articles again.',
+      '#type' => 'select',
+      '#options' => ['10' => '10', '20' => '20', '30' => '30'],
+      '#default_value' => $this->conf->get('expiresNumber'),
     ];
 
     return parent::buildForm($form, $form_state);
@@ -70,7 +78,10 @@ class EtypePaywallConfigForm extends ConfigFormBase {
 
     $this->config('etype_paywall.settings')
       ->set('freeNumber', $form_state->getValue('freeNumber'))
+      ->set('expiresNumber', $form_state->getValue('expiresNumber'))
       ->save();
+
+    Drupal::cache('menu')->invalidateAll();
   }
 
 }
