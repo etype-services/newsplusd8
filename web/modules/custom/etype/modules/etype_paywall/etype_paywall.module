@@ -2,14 +2,16 @@
 
 function etype_paywall_preprocess_node(&$variables) {
   if (Drupal::currentUser()->isAnonymous()) {
-    $type = $variables['node']->getType();
-    if($type === 'article'){
-      $config = Drupal::config('etype_paywall.settings');
-      $variables['#attached']['library'][] = 'etype_paywall/etype_paywall';
-      $e_editions = etype_e_editions();
-      $variables['#attached']['drupalSettings']['etype_paywall']['etype_paywall']['subLink'] = $e_editions[0]['path'];
-      $variables['#attached']['drupalSettings']['etype_paywall']['etype_paywall']['freeNumber'] = $config->get('freeNumber');
-      $variables['#attached']['drupalSettings']['etype_paywall']['etype_paywall']['expiresNumber'] = $config->get('expiresNumber');
+    if (node_is_page($variables['node'])) {
+      $type = $variables['node']->getType();
+      if($type === 'article'){
+        $config = Drupal::config('etype_paywall.settings');
+        $variables['#attached']['library'][] = 'etype_paywall/etype_paywall';
+        $e_editions = etype_e_editions();
+        $variables['#attached']['drupalSettings']['etype_paywall']['etype_paywall']['subLink'] = $e_editions[0]['path'];
+        $variables['#attached']['drupalSettings']['etype_paywall']['etype_paywall']['freeNumber'] = $config->get('freeNumber');
+        $variables['#attached']['drupalSettings']['etype_paywall']['etype_paywall']['expiresNumber'] = $config->get('expiresNumber');
+      }
     }
   }
 }
