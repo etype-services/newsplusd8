@@ -117,8 +117,10 @@
     .navbar-end {
       /* Social Icons */
       display: flex;
-      position: inherit;
+      position: absolute;
       align-items: center;
+      top: -40px;
+      right: 0;
       a {
         margin-right: $column-gap;
       }

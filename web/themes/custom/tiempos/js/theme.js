@@ -17,9 +17,9 @@ function getIEVersion() {
     Drupal.behaviors.tiemposBehavior = {
         attach: function (context, settings) {
             var caption = $(".page-node-type-feature .is-three-quarters img").attr("alt");
-            var w = $("#main-nav > .navbar > .navbar-end").width();
-            var t = $("#main-navbar-menu").children().length;
-            var check = w > 40 ? 10 : 11;
+            // var w = $("#main-nav > .navbar > .navbar-end").width();
+            // var t = $("#main-navbar-menu").children().length;
+            // var check = w > 40 ? 10 : 11;
 
             if (getIEVersion() > 0) {
                 $("head").once("tiemposBehavior").append('<link rel="stylesheet" type="text/css" href="/themes/custom/tiempos/css/ie.css">');
@@ -46,10 +46,11 @@ function getIEVersion() {
                 }
             });
 
-            /* Main nav margin if enough room */
+            /* Main nav margin if enough room
             if (t < check) {
                 $("#main-navbar-menu").css("margin-left", w);
             }
+            */
 
             /* Add footer menu to user-menu */
             $(".footer-menu li > a").once("tiemposBehavior").clone().addClass("is-hidden-desktop").appendTo($(".user-menu"));

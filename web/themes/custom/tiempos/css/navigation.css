@@ -89,8 +89,10 @@
   #main-nav .navbar .navbar-end {
     /* Social Icons */
     display: flex;
-    position: inherit;
-    align-items: center; }
+    position: absolute;
+    align-items: center;
+    top: -40px;
+    right: 0; }
     #main-nav .navbar .navbar-end a {
       margin-right: 0.75rem; }
 
