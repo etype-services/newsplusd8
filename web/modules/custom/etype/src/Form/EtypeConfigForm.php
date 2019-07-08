@@ -111,6 +111,14 @@ class EtypeConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('twitter'),
     ];
 
+    $form['social']['instagram'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Instagram URL'),
+      '#description' => $this->t('Enter the complete web address.'),
+      '#size' => 55,
+      '#default_value' => $config->get('instagram'),
+    ];
+
     $form['other'] = [
       '#type' => 'fieldset',
       '#title' => $this->t('Other Settings'),
@@ -168,6 +176,7 @@ class EtypeConfigForm extends ConfigFormBase {
       ->set('premium_preview', $form_state->getValue('premium_preview'))
       ->set('facebook', $form_state->getValue('facebook'))
       ->set('twitter', $form_state->getValue('twitter'))
+      ->set('instagram', $form_state->getValue('instagram'))
       ->set('mercolocal_id', $form_state->getValue('mercolocal_id'))
       ->set('weather_code', $form_state->getValue('weather_code'))
       ->set('ad_script', $form_state->getValue('ad_script'))
