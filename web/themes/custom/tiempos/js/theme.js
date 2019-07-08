@@ -18,13 +18,8 @@ function getIEVersion() {
         attach: function (context, settings) {
             var caption = $(".page-node-type-feature .is-three-quarters img").attr("alt");
             var w = $("#main-nav > .navbar > .navbar-end").width();
-            var wone = $("#main-nav").width();
-            var wtwo = $("#main-navbar-menu").width();
-            var wthree = w + wtwo;
-            // console.log($("#main-nav").width());
-            // console.log($("#main-navbar-menu").width());
-            // console.log(w);
-            // console.log(wthree);
+            var t = $("#main-navbar-menu").children().length;
+            var check = w > 40 ? 10 : 11;
 
             if (getIEVersion() > 0) {
                 $("head").once("tiemposBehavior").append('<link rel="stylesheet" type="text/css" href="/themes/custom/tiempos/css/ie.css">');
@@ -52,8 +47,10 @@ function getIEVersion() {
             });
 
             /* Main nav margin if enough room */
-            if ((wone - wthree) > w) {
-                $("#main-navbar-menu").once("tiemposBehavior").css("margin-left", w);
+            if (t < check) {
+                $("#main-navbar-menu").css("margin-left", w);
+            } else {
+                $("#main-navbar-menu").css("margin-left", 0);
             }
 
             /* Add footer menu to user-menu */
