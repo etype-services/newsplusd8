@@ -28,6 +28,7 @@ class StayTunedContactBlock extends BlockBase {
     $links = [];
     $links['facebook'] = $config->get('facebook');
     $links['twitter'] = $config->get('twitter');
+    $links['instagram'] = $config->get('instagram');
     $output = '<h3 class="title">Stay tuned with us</h3>
 <p>You can connect with us through our social media accounts by clicking on a logo.</p>
 <ul class="icons-list large">';

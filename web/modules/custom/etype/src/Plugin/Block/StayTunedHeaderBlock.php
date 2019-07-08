@@ -28,6 +28,7 @@ class StayTunedHeaderBlock extends BlockBase {
     $links = [];
     $links['facebook'] = $config->get('facebook');
     $links['twitter'] = $config->get('twitter');
+    $links['instagram'] = $config->get('instagram');
     $output = '<ul class="icons-list">';
     foreach ($links as $k => $v) {
       if (!empty($v)) {
