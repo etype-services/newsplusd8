@@ -8,7 +8,7 @@ use Drupal\taxonomy\Entity\Term;
  *
  * @param $variables
  */
-function tiempos_preprocess_html(&$variables) {;
+function tiempos_preprocess_html(&$variables) {
   $config = Drupal::config('etype.adminsettings');
   $variables['ad_script'] = $config->get('ad_script');
 }
