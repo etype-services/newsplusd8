@@ -24,10 +24,10 @@ etype_paywall_init();
             var freeNumber = parseInt(drupalSettings.etype_paywall.etype_paywall.freeNumber);
             var subLink = drupalSettings.etype_paywall.etype_paywall.subLink;
             if (newTotal > freeNumber) {
-                $(".field--name-body").once("etypePaywallPageBehavior").addClass("paywall_blocked").html("You‘ve read all your free articles in this day " + expiresNumber + " day period. Please <a href=\"" + subLink + "\">subscribe</a> to read more.");
+                $(".field--name-body").once("etypePaywallPageBehavior").addClass("paywall_blocked").html("You‘ve read all your free articles in this " + expiresNumber + " day period. Please <a href=\"" + subLink + "\">subscribe</a> to read more.");
                 $("#block-paywallblock").html("<p>You have read all your free articles.</p>");
             } else {
-                $("#block-paywallblock").html("<p>You have read " + newTotal + " of " + freeNumber + " free articles available in this day " + expiresNumber + " day period.</p>");
+                $("#block-paywallblock").html("<p>You have read " + newTotal + " of " + freeNumber + " free articles available in this " + expiresNumber + " day period.</p>");
             }
             Cookies.set("paywallViewed", newTotal, {expires: expiresNumber});
         }
