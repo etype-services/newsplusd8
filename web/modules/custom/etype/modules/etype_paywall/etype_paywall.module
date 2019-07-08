@@ -3,9 +3,15 @@
 function etype_paywall_preprocess_node(&$variables) {
   if (Drupal::currentUser()->isAnonymous()) {
     if (node_is_page($variables['node'])) {
-      $type = $variables['node']->getType();
-      if($type === 'article'){
-        $config = Drupal::config('etype_paywall.settings');
+      $nodeType = $variables['node']->getType();
+      $config = Drupal::config('etype_paywall.settings');
+      $arr = [];
+      foreach ($config->get('nodeType') as $type) {
+        if ($type !== 0) {
+          $arr[] = $type;
+        }
+      }
+      if(in_array($nodeType, $arr)){
         $variables['#attached']['library'][] = 'etype_paywall/etype_paywall';
         $e_editions = etype_e_editions();
         $variables['#attached']['drupalSettings']['etype_paywall']['etype_paywall']['subLink'] = $e_editions[0]['path'];

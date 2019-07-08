@@ -4,7 +4,7 @@
 
 var newTotal;
 
-var init = function () {
+var etype_paywall_init = function () {
     "use strict";
     var total = Cookies.get("paywallViewed");
     if (isNaN(total)) {
@@ -14,7 +14,7 @@ var init = function () {
     }
 };
 
-init();
+etype_paywall_init();
 
 (function ($, Drupal) {
     "use strict";

@@ -5,8 +5,7 @@ namespace Drupal\etype_paywall\Form;
 use Drupal;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\etype_xml_importer\Form\EtypeXMLImporterConfigForm;
-use Drupal\user\Entity\User;
+use Drupal\node\Entity\NodeType;
 
 /**
  * Class eTypeConfigForm.
@@ -23,11 +22,29 @@ class EtypePaywallConfigForm extends ConfigFormBase {
   protected $conf;
 
   /**
+   * Array of Node Types, used to choose which to import into.
+   *
+   * @var EtypePaywallConfigForm
+   */
+  protected $nodeTypeOptions = [];
+
+  /**
    * EtypePaywallConfigForm constructor.
    */
   public function __construct() {
     parent::__construct($this->configFactory());
     $this->conf = $this->config('etype_paywall.settings');
+    $this->getNodeTypeOptions();
+  }
+
+  /**
+   * Get node types and make options array.
+   */
+  protected function getNodeTypeOptions() {
+    $nodeTypes = NodeType::loadMultiple();
+    foreach ($nodeTypes as $nodeType) {
+      $this->nodeTypeOptions[$nodeType->id()] = $nodeType->label();
+    }
   }
 
   /**
@@ -67,6 +84,14 @@ class EtypePaywallConfigForm extends ConfigFormBase {
       '#default_value' => $this->conf->get('expiresNumber'),
     ];
 
+    $form['nodeType'] = [
+      '#title' => $this->t('Content Types'),
+      '#type' => 'checkboxes',
+      '#description' => $this->t('Choose content types to paywall.'),
+      '#options' => $this->nodeTypeOptions,
+      '#default_value' => $this->conf->get('nodeType') ?: [],
+    ];
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -79,6 +104,7 @@ class EtypePaywallConfigForm extends ConfigFormBase {
     $this->config('etype_paywall.settings')
       ->set('freeNumber', $form_state->getValue('freeNumber'))
       ->set('expiresNumber', $form_state->getValue('expiresNumber'))
+      ->set('nodeType', $form_state->getValue('nodeType'))
       ->save();
 
     Drupal::cache('menu')->invalidateAll();
