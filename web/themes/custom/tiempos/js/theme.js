@@ -49,8 +49,6 @@ function getIEVersion() {
             /* Main nav margin if enough room */
             if (t < check) {
                 $("#main-navbar-menu").css("margin-left", w);
-            } else {
-                $("#main-navbar-menu").css("margin-left", 0);
             }
 
             /* Add footer menu to user-menu */
