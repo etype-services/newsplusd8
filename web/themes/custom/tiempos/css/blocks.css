@@ -140,7 +140,7 @@
 
 @media screen and (max-width: 768px) {
   /* Hide content on mobile */
-  .view-display-id-page_1,
+  .path-frontpage .view-display-id-page_1,
   #block-views-block-front-page-sections-block-1,
   #block-views-block-front-page-sections-block-1-2,
   #block-views-block-front-page-sections-block-2,
