@@ -183,4 +183,6 @@ $sites['www.waltersherald.com'] = 'waltersherald.etypegoogle7.com';
 $sites['www.lcherald.com'] = 'lcherald.etypegoogle7.com';
 $sites['www.thedahloneganugget.com'] = 'thedahloneganugget.etypegoogle7.com';
 $sites['www.theclaytontribune.com'] = 'theclaytontribune.etypegoogle7.com';
+$sites['www.ouraynews.com'] = 'ouraynews.etypegoogle7.com';
+$sites['www.cordellbeacon.com'] = 'cordellbeacon.etypegoogle7.com';
 $sites['www.whitecountynews.net'] = 'whitecountynews.etypegoogle7.com';
