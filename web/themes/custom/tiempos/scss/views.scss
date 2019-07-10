@@ -141,6 +141,7 @@
     /* These items to make teaser full-width and as tall as image. */
     display: inline-block;
     width: 100%;
+    /* Add ellipsis after Teaser */
     .field--name-body > p::after {
       content: "...";
     }

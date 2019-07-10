@@ -119,7 +119,8 @@
   .view-taxonomy-term .node--view-mode-teaser {
     /* These items to make teaser full-width and as tall as image. */
     display: inline-block;
-    width: 100%; }
+    width: 100%;
+    /* Add ellipsis after Teaser */ }
     .view-taxonomy-term .node--view-mode-teaser .field--name-body > p::after {
       content: "..."; }
     .view-taxonomy-term .node--view-mode-teaser .field--name-field-ad-category {
