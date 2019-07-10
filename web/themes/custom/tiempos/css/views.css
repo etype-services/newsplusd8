@@ -192,16 +192,16 @@
   /* Teaser formatting. */
   #block-views-block-mobile-front-page-block-1 .view, .view-taxonomy-term .view {
     padding: 0 0.75rem; }
-  #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser, .view-taxonomy-term .node--view-mode-teaser {
-    min-height: 30vw; }
-    #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser:not(last-child), .view-taxonomy-term .node--view-mode-teaser:not(last-child) {
-      margin-bottom: 0.75rem; }
-    #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser img, .view-taxonomy-term .node--view-mode-teaser img {
+    #block-views-block-mobile-front-page-block-1 .view img, .view-taxonomy-term .view img {
       float: right;
       width: 48%;
       margin-right: 0;
       margin-left: 0.75rem;
       margin-top: 0.3rem; }
+  #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser, .view-taxonomy-term .node--view-mode-teaser {
+    min-height: 30vw; }
+    #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser:not(last-child), .view-taxonomy-term .node--view-mode-teaser:not(last-child) {
+      margin-bottom: 0.75rem; }
     #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser .field--name-body, .view-taxonomy-term .node--view-mode-teaser .field--name-body {
       margin-bottom: 0;
       display: inline; }

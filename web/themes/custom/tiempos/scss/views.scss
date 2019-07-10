@@ -257,12 +257,6 @@
   #block-views-block-mobile-front-page-block-1, .view-taxonomy-term  {
     .view {
       padding: 0 0.75rem;
-    }
-    .node--view-mode-teaser {
-      min-height: 30vw;
-      &:not(last-child) {
-        margin-bottom: $column-gap;
-      }
       img {
         float: right;
         width: 48%;
@@ -270,6 +264,13 @@
         margin-left: $column-gap;
         margin-top: 0.3rem;
       }
+    }
+    .node--view-mode-teaser {
+      min-height: 30vw;
+      &:not(last-child) {
+        margin-bottom: $column-gap;
+      }
+
       .field--name-body {
         margin-bottom: 0;
         display: inline;
