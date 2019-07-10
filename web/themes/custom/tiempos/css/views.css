@@ -8,6 +8,8 @@
   padding: 0 calc(0.75rem * 2) 0 0; }
   .view-id-frontpage.columns > .attachment .view-content {
     /* Teaser formatting, for sites that use it. */ }
+    .view-id-frontpage.columns > .attachment .view-content > div {
+      clear: both; }
     .view-id-frontpage.columns > .attachment .view-content > div > a {
       /* Deal with images that are taller than wide. */
       float: left;
@@ -83,6 +85,8 @@
   flex-shrink: 1;
   flex-wrap: wrap;
   padding: 0.75rem;
+  /* For Fields in Views where there is no image */
+  align-content: flex-start;
   /* Override defaults - we want the last child to have the same margin, since these are horizontal. */
   margin-bottom: 1rem !important;
   /* For Special Sections, might have adverse effects elsewhere. */ }

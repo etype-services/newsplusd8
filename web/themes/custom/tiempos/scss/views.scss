@@ -5,6 +5,9 @@
   /* Emulate column css. */
   @include column-no-padding-top-left-bottom;
   .view-content {
+    & > div {
+      clear: both;
+    }
     & > div > a {
       /* Deal with images that are taller than wide. */
       float: left;
@@ -94,6 +97,8 @@
   }
   .view-content > div {
     @include column;
+    /* For Fields in Views where there is no image */
+    align-content: flex-start;
     /* Override defaults - we want the last child to have the same margin, since these are horizontal. */
     margin-bottom: 1rem!important;
     /* For Special Sections, might have adverse effects elsewhere. */
