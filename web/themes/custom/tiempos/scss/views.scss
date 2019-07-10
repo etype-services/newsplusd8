@@ -141,6 +141,9 @@
     /* These items to make teaser full-width and as tall as image. */
     display: inline-block;
     width: 100%;
+    .field--name-body > p::after {
+      content: "...";
+    }
     .field--name-field-ad-category {
       margin-bottom: 0;
       font-family: $sans-serif;
