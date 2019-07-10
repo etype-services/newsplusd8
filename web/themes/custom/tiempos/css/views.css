@@ -198,6 +198,8 @@
       margin-right: 0;
       margin-left: 0.75rem;
       margin-top: 0.3rem; }
+    #block-views-block-mobile-front-page-block-1 .view .views-row, .view-taxonomy-term .view .views-row {
+      clear: both; }
   #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser, .view-taxonomy-term .node--view-mode-teaser {
     min-height: 30vw; }
     #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser:not(last-child), .view-taxonomy-term .node--view-mode-teaser:not(last-child) {

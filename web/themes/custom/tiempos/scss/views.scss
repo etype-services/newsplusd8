@@ -264,6 +264,9 @@
         margin-left: $column-gap;
         margin-top: 0.3rem;
       }
+      .views-row {
+        clear: both;
+      }
     }
     .node--view-mode-teaser {
       min-height: 30vw;
