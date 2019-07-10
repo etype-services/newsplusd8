@@ -47,7 +47,8 @@
 /* Front Page Featured View (center column). */
 .view-id-frontpage.columns > .view-content {
   @include column-no-padding-top-right-bottom-grow;
-  & > div > a {
+  & > div > a,
+  .views-field-field-image a {
     /* Deal with images that are taller than wide. */
     margin: auto;
     display: table;
