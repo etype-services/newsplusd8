@@ -12,6 +12,14 @@
       margin-right: 0.5rem;
       margin-top: 0.2rem;
     }
+    .image-container {
+      float: left;
+      width: 40%;
+      margin-right: 0.5rem;
+      margin-top: 0.1rem;
+      position: relative;
+      top: 0.1rem;
+    }
     h2 {
       font-size: 1.1rem;
       line-height: 1.4rem;
@@ -22,14 +30,6 @@
       h2 {
         font-size: 1.1rem;
         line-height: 1.4rem;
-      }
-      .image-container {
-        float: left;
-        width: 40%;
-        margin-right: 0.5rem;
-        margin-top: 0.1rem;
-        position: relative;
-        top: 0.1rem;
       }
       .field--name-body {
         margin-bottom: 0;

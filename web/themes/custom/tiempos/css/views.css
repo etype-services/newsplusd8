@@ -14,6 +14,13 @@
       width: 40%;
       margin-right: 0.5rem;
       margin-top: 0.2rem; }
+    .view-id-frontpage.columns > .attachment .view-content .image-container {
+      float: left;
+      width: 40%;
+      margin-right: 0.5rem;
+      margin-top: 0.1rem;
+      position: relative;
+      top: 0.1rem; }
     .view-id-frontpage.columns > .attachment .view-content h2 {
       font-size: 1.1rem;
       line-height: 1.4rem; }
@@ -22,13 +29,6 @@
       .view-id-frontpage.columns > .attachment .view-content .node--view-mode-teaser h2 {
         font-size: 1.1rem;
         line-height: 1.4rem; }
-      .view-id-frontpage.columns > .attachment .view-content .node--view-mode-teaser .image-container {
-        float: left;
-        width: 40%;
-        margin-right: 0.5rem;
-        margin-top: 0.1rem;
-        position: relative;
-        top: 0.1rem; }
       .view-id-frontpage.columns > .attachment .view-content .node--view-mode-teaser .field--name-body {
         margin-bottom: 0;
         /* Fine-tuning. TODO: Why does Feature not have p tag? */
