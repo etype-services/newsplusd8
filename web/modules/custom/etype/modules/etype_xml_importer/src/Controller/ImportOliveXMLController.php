@@ -421,11 +421,11 @@ class ImportOliveXMLController {
 
       $pub_date = strtotime($array['pub_date']);
 
-      $node = array(
+      $node = [
         'title' => Encoding::toUTF8($array['title']),
         'summary' => strip_tags(Encoding::toUTF8(preg_replace("/\s+/", " ", $array['description']))),
         'body' => Encoding::toUTF8($array['body']),
-      );
+      ];
 
       /* Create User based on byline */
       $node['uid'] = $this->author;
