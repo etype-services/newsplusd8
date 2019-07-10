@@ -260,6 +260,7 @@
       img {
         float: right;
         width: 48%;
+        /* Bottom margin for stories with no body */
         margin: 0.3rem 0 0.75rem $column-gap;
       }
       .views-row {
