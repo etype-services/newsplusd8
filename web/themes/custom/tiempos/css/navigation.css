@@ -135,6 +135,9 @@
   #main-nav .navbar {
     border-top: 0;
     /* Social Icons */ }
+    #main-nav .navbar .navbar-start .block-system-branding-block {
+      visibility: hidden !important;
+      display: none !important; }
     #main-nav .navbar .navbar-end {
       position: absolute;
       top: -2.6rem;
