@@ -260,10 +260,7 @@
       img {
         float: right;
         width: 48%;
-        margin-right: 0;
-        margin-left: $column-gap;
-        margin-top: 0.3rem;
-        margin-bottom: 0.75rem;
+        margin: 0.3rem 0 0.75rem $column-gap;
       }
       .views-row {
         clear: both;

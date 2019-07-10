@@ -195,10 +195,7 @@
     #block-views-block-mobile-front-page-block-1 .view img, .view-taxonomy-term .view img {
       float: right;
       width: 48%;
-      margin-right: 0;
-      margin-left: 0.75rem;
-      margin-top: 0.3rem;
-      margin-bottom: 0.75rem; }
+      margin: 0.3rem 0 0.75rem 0.75rem; }
     #block-views-block-mobile-front-page-block-1 .view .views-row, .view-taxonomy-term .view .views-row {
       clear: both; }
   #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser, .view-taxonomy-term .node--view-mode-teaser {
