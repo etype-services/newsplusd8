@@ -1,5 +1,9 @@
 @import "./vars";
 
+.region-top-bar {
+  margin-bottom: $column-gap;
+}
+
 .region-header-left, .region-header-center, .region-header-right {
   padding-bottom: 0;
   .block {

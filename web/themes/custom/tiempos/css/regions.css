@@ -1,4 +1,7 @@
 /* Center column for tiempos theme */
+.region-top-bar {
+  margin-bottom: 0.75rem; }
+
 .region-header-left, .region-header-center, .region-header-right {
   padding-bottom: 0; }
   .region-header-left .block, .region-header-center .block, .region-header-right .block {
