@@ -111,3 +111,11 @@
     float: none;
   }
 }
+
+@media screen and (max-width: $tablet - 1px) {
+  /* Hide content on mobile */
+  #block-dfptagcnidahlonegaleaderboard-2 {
+    @include is-really-invisible;
+  }
+
+}

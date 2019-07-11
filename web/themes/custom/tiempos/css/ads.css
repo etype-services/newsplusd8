@@ -96,5 +96,10 @@
     display: block;
     text-align: center;
     float: none; } }
+@media screen and (max-width: 768px) {
+  /* Hide content on mobile */
+  #block-dfptagcnidahlonegaleaderboard-2 {
+    visibility: hidden !important;
+    display: none !important; } }
 
 /*# sourceMappingURL=ads.css.map */
