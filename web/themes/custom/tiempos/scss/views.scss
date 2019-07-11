@@ -89,7 +89,8 @@
 /* Front Page Sections, Business Directory, and Special Sections. */
 .front-page-sections,
 #block-views-block-business-directory-block-1,
-#block-views-block-special-sections-block-1 {
+#block-views-block-special-sections-block-1,
+#block-ouraynews-views-block-special-sections-block-1 {
   .view-content {
     display: flex;
     margin-left: -$column-gap;
@@ -109,7 +110,8 @@
 }
 
 /* Special Sections TODO: remove */
-#block-views-block-special-sections-block-1 {
+#block-views-block-special-sections-block-1,
+#block-ouraynews-views-block-special-sections-block-1 {
   .views-view-grid .views-col {
     padding-right: $column-gap;
   }
