@@ -69,15 +69,15 @@
     .view .view-content > div:last-child {
       margin-bottom: 0; }
 
-/* Front Page Sections, Business Directory, and Special Sections. */
+/* Front Page Sections, Business Directory, and Special Sections (don't use id, for sub-themes). */
 .front-page-sections .view-content,
-#block-views-block-business-directory-block-1 .view-content,
+.block-views-blockbusiness-directory-block-1 .view-content,
 .block-views-blockspecial-sections-block-1 .view-content {
   display: flex;
   margin-left: -0.75rem;
   margin-right: -0.75rem; }
 .front-page-sections .view-content > div,
-#block-views-block-business-directory-block-1 .view-content > div,
+.block-views-blockbusiness-directory-block-1 .view-content > div,
 .block-views-blockspecial-sections-block-1 .view-content > div {
   display: flex;
   flex-basis: 0;
@@ -91,7 +91,7 @@
   margin-bottom: 1rem !important;
   /* For Special Sections, might have adverse effects elsewhere. */ }
   .front-page-sections .view-content > div div,
-  #block-views-block-business-directory-block-1 .view-content > div div,
+  .block-views-blockbusiness-directory-block-1 .view-content > div div,
   .block-views-blockspecial-sections-block-1 .view-content > div div {
     flex: 1 1 100%; }
 

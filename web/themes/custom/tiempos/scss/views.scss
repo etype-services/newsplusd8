@@ -86,9 +86,9 @@
   }
 }
 
-/* Front Page Sections, Business Directory, and Special Sections. */
+/* Front Page Sections, Business Directory, and Special Sections (don't use id, for sub-themes). */
 .front-page-sections,
-#block-views-block-business-directory-block-1,
+.block-views-blockbusiness-directory-block-1,
 .block-views-blockspecial-sections-block-1 {
   .view-content {
     display: flex;
