@@ -10,6 +10,7 @@ regions:
   header_left: 'Header Left'
   header_center: 'Header Center'
   header_right: 'Header Right'
+  header_bottom: 'Header Bottom'
   navigation: 'Navigation'
   breadcrumb: 'Breadcrumb'
   leaderboard: 'Leaderboard'
