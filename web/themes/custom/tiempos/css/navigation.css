@@ -90,7 +90,8 @@
     /* Social Icons */
     display: flex;
     position: absolute;
-    align-items: center; }
+    align-items: center;
+    right: 0; }
     #main-nav .navbar .navbar-end a {
       margin-right: 0.75rem; }
 
