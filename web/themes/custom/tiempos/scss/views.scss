@@ -141,11 +141,6 @@
     /* These items to make teaser full-width and as tall as image. */
     display: inline-block;
     width: 100%;
-    /* Add ellipsis after body content */
-    .field--name-body > p::after,
-    .field--name-body > .field__item::after {
-      content: "...";
-    }
     .field--name-field-ad-category {
       margin-bottom: 0;
       font-family: $sans-serif;

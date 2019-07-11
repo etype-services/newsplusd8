@@ -55,6 +55,15 @@
   }
 }
 
+/* Teaser formatting. */
+.node--view-mode-teaser {
+  /* Add ellipsis after body content */
+  .field--name-body > p::after,
+  .field--name-body > .field__item::after {
+    content: "...";
+  }
+}
+
 /* Article formatting. */
 .page-node-type-article {
   #block-pagetitle-2 {

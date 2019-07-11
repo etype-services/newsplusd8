@@ -44,6 +44,13 @@
       .field--name-field-tags .field__items .field__item:not(:last-child):after {
         content: ","; }
 
+/* Teaser formatting. */
+.node--view-mode-teaser {
+  /* Add ellipsis after body content */ }
+  .node--view-mode-teaser .field--name-body > p::after,
+  .node--view-mode-teaser .field--name-body > .field__item::after {
+    content: "..."; }
+
 /* Article formatting. */
 .page-node-type-article #block-pagetitle-2 {
   margin-bottom: 0; }
