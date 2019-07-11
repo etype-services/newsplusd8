@@ -72,15 +72,13 @@
 /* Front Page Sections, Business Directory, and Special Sections. */
 .front-page-sections .view-content,
 #block-views-block-business-directory-block-1 .view-content,
-#block-views-block-special-sections-block-1 .view-content,
-#block-ouraynews-views-block-special-sections-block-1 .view-content {
+.block-views-blockspecial-sections-block-1 .view-content {
   display: flex;
   margin-left: -0.75rem;
   margin-right: -0.75rem; }
 .front-page-sections .view-content > div,
 #block-views-block-business-directory-block-1 .view-content > div,
-#block-views-block-special-sections-block-1 .view-content > div,
-#block-ouraynews-views-block-special-sections-block-1 .view-content > div {
+.block-views-blockspecial-sections-block-1 .view-content > div {
   display: flex;
   flex-basis: 0;
   flex-grow: 1;
@@ -94,13 +92,11 @@
   /* For Special Sections, might have adverse effects elsewhere. */ }
   .front-page-sections .view-content > div div,
   #block-views-block-business-directory-block-1 .view-content > div div,
-  #block-views-block-special-sections-block-1 .view-content > div div,
-  #block-ouraynews-views-block-special-sections-block-1 .view-content > div div {
+  .block-views-blockspecial-sections-block-1 .view-content > div div {
     flex: 1 1 100%; }
 
 /* Special Sections TODO: remove */
-#block-views-block-special-sections-block-1 .views-view-grid .views-col,
-#block-ouraynews-views-block-special-sections-block-1 .views-view-grid .views-col {
+.block-views-blockspecial-sections-block-1 .views-view-grid .views-col {
   padding-right: 0.75rem; }
 
 /* Taxonomy Pages. */
