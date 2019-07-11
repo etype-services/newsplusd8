@@ -121,7 +121,8 @@
     display: inline-block;
     width: 100%;
     /* Add ellipsis after body content */ }
-    .view-taxonomy-term .node--view-mode-teaser .field--name-body > p::after {
+    .view-taxonomy-term .node--view-mode-teaser .field--name-body > p::after,
+    .view-taxonomy-term .node--view-mode-teaser .field--name-body > .field__item::after {
       content: "..."; }
     .view-taxonomy-term .node--view-mode-teaser .field--name-field-ad-category {
       margin-bottom: 0;

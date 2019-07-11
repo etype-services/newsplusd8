@@ -142,7 +142,8 @@
     display: inline-block;
     width: 100%;
     /* Add ellipsis after body content */
-    .field--name-body > p::after {
+    .field--name-body > p::after,
+    .field--name-body > .field__item::after {
       content: "...";
     }
     .field--name-field-ad-category {
