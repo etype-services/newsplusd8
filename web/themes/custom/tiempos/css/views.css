@@ -190,23 +190,23 @@
       padding: 0; }
 
   /* Teaser formatting. */
-  #block-views-block-mobile-front-page-block-1 .view, .view-taxonomy-term .view {
+  .block-views-blockmobile-front-page-block-1 .view, .view-taxonomy-term .view {
     padding: 0 0.75rem; }
-    #block-views-block-mobile-front-page-block-1 .view img, .view-taxonomy-term .view img {
+    .block-views-blockmobile-front-page-block-1 .view img, .view-taxonomy-term .view img {
       float: right;
       width: 48%;
       /* Bottom margin for stories with no body */
       margin: 0.3rem 0 0.75rem 0.75rem; }
-    #block-views-block-mobile-front-page-block-1 .view .views-row, .view-taxonomy-term .view .views-row {
+    .block-views-blockmobile-front-page-block-1 .view .views-row, .view-taxonomy-term .view .views-row {
       clear: both; }
-  #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser, .view-taxonomy-term .node--view-mode-teaser {
+  .block-views-blockmobile-front-page-block-1 .node--view-mode-teaser, .view-taxonomy-term .node--view-mode-teaser {
     min-height: 30vw; }
-    #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser:not(last-child), .view-taxonomy-term .node--view-mode-teaser:not(last-child) {
+    .block-views-blockmobile-front-page-block-1 .node--view-mode-teaser:not(last-child), .view-taxonomy-term .node--view-mode-teaser:not(last-child) {
       margin-bottom: 0.75rem; }
-    #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser .field--name-body, .view-taxonomy-term .node--view-mode-teaser .field--name-body {
+    .block-views-blockmobile-front-page-block-1 .node--view-mode-teaser .field--name-body, .view-taxonomy-term .node--view-mode-teaser .field--name-body {
       margin-bottom: 0;
       display: inline; }
-      #block-views-block-mobile-front-page-block-1 .node--view-mode-teaser .field--name-body p, .view-taxonomy-term .node--view-mode-teaser .field--name-body p {
+      .block-views-blockmobile-front-page-block-1 .node--view-mode-teaser .field--name-body p, .view-taxonomy-term .node--view-mode-teaser .field--name-body p {
         /* Fine-tuning. */
         line-height: 1.4; }
 
