@@ -102,9 +102,9 @@
     .block-date-block div {
       float: left; } }
 /* e-Edition */
-#block-etypeeedition {
+#block-etypeeedition, #block-tiemposcni-etypeeedition {
   flex-basis: 100%; }
-  #block-etypeeedition p {
+  #block-etypeeedition p, #block-tiemposcni-etypeeedition p {
     font-size: 0.8rem; }
 
 /* Custom Blocks */
@@ -134,7 +134,7 @@
   height: 64px;
   overflow: hidden; }
 
-#block-etypeeedition-2 {
+#block-etypeeedition-2, #block-tiemposcni-etypeeedition-2 {
   visibility: hidden !important;
   display: none !important; }
 
@@ -150,11 +150,11 @@
   #block-friends2followsidebar,
   #block-friends2followsidebar-2,
   #block-mostrecentpoll,
-  #block-etypeeedition {
+  #block-etypeeedition, block-tiemposcni-etypeeedition {
     visibility: hidden !important;
     display: none !important; }
 
-  #block-etypeeedition-2 {
+  #block-etypeeedition-2, #block-tiemposcni-etypeeedition-2 {
     visibility: visible !important;
     display: block !important; } }
 

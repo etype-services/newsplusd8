@@ -133,7 +133,7 @@
 }
 
 /* e-Edition */
-#block-etypeeedition {
+#block-etypeeedition, #block-tiemposcni-etypeeedition {
   flex-basis: 100%;
   p {
     font-size: 0.8rem;
@@ -172,7 +172,7 @@
   overflow: hidden;
 }
 
-#block-etypeeedition-2 {
+#block-etypeeedition-2, #block-tiemposcni-etypeeedition-2 {
   @include is-really-invisible;
 }
 
@@ -188,11 +188,11 @@
   #block-friends2followsidebar,
   #block-friends2followsidebar-2,
   #block-mostrecentpoll,
-  #block-etypeeedition {
+  #block-etypeeedition, block-tiemposcni-etypeeedition {
     @include is-really-invisible;
   }
 
-  #block-etypeeedition-2 {
+  #block-etypeeedition-2, #block-tiemposcni-etypeeedition-2 {
     @include is-really-visible;
   }
 }
