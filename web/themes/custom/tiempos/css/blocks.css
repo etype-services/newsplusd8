@@ -137,7 +137,7 @@
   height: 64px;
   overflow: hidden; }
 
-#block-etypeeedition-2, #block-tiemposcni-etypeeedition-2 {
+.region-content .block-etype-block {
   visibility: hidden !important;
   display: none !important; }
 
@@ -155,11 +155,11 @@
   #block-friends2followsidebar,
   #block-friends2followsidebar-2,
   #block-mostrecentpoll,
-  #block-etypeeedition, #block-tiemposcni-etypeeedition {
+  .region-sidebar .block-etype-block {
     visibility: hidden !important;
     display: none !important; }
 
-  #block-etypeeedition-2, #block-tiemposcni-etypeeedition-2 {
+  .region-content .block-etype-block {
     visibility: visible !important;
     display: block !important; } }
 
