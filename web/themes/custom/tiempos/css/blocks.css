@@ -125,7 +125,10 @@
 #block-views-block-front-page-sections-block-2,
 #block-views-block-front-page-sections-block-2-2,
 #block-views-block-front-page-sections-block-3,
-#block-views-block-front-page-sections-block-4 {
+#block-views-block-front-page-sections-block-3-2,
+#block-views-block-front-page-sections-block-4,
+#block-views-block-front-page-sections-block-4-2,
+.block-views-blockvideos-block-1 {
   clear: both; }
 
 /* Weather Widget */
@@ -146,7 +149,9 @@
   #block-views-block-front-page-sections-block-2,
   #block-views-block-front-page-sections-block-2-2,
   #block-views-block-front-page-sections-block-3,
+  #block-views-block-front-page-sections-block-3-2,
   #block-views-block-front-page-sections-block-4,
+  #block-views-block-front-page-sections-block-4-2,
   #block-friends2followsidebar,
   #block-friends2followsidebar-2,
   #block-mostrecentpoll,

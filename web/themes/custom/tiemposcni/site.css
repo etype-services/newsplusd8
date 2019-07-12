@@ -5,3 +5,8 @@
   }
 }
 
+/* Teaser formatting. */
+.node--view-mode-teaser .field--name-body > p::after,
+.node--view-mode-teaser .field--name-body > .field__item::after {
+  content: "";
+}
