@@ -1,7 +1,7 @@
 @import "./vars";
 
 /* Top left "Date" block. */
-#block-date, #block-date-2 {
+.block-date-block {
   width: fit-content;
   text-align: center;
   div {
@@ -109,7 +109,7 @@
 }
 
 @media screen and (max-width: $desktop - 1px) {
-  #block-date, #block-date-2 {
+  .block-date-block {
     .block-search {
       /* Hide search, goes in navbar-start */
       display: none;
@@ -118,7 +118,7 @@
 }
 
 @media screen and (max-width: $tablet - 1px) {
-  #block-date, #block-date-2 {
+  .block-date-block {
     /* Align date with hamburger and search on mobile. */
     p {
       float: left;
