@@ -34,13 +34,13 @@
   }
 }
 
-#block-tiempos-branding {
+.block-system-branding-block {
   /* Center logo. */
   display: flex;
   justify-content: center;
 }
 
-#block-iemessage {
+.block-iemessage-block {
   display: none;
   visibility: hidden;
 }
@@ -133,7 +133,7 @@
 }
 
 /* e-Edition */
-#block-etypeeedition, #block-tiemposcni-etypeeedition {
+.region-sidebar .block-etype-block {
   flex-basis: 100%;
   p {
     font-size: 0.8rem;

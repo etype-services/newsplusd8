@@ -24,12 +24,12 @@
     .block-date-block .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-keys] {
       width: 70%; }
 
-#block-tiempos-branding {
+.block-system-branding-block {
   /* Center logo. */
   display: flex;
   justify-content: center; }
 
-#block-iemessage {
+.block-iemessage-block {
   display: none;
   visibility: hidden; }
 
@@ -102,9 +102,9 @@
     .block-date-block div {
       float: left; } }
 /* e-Edition */
-#block-etypeeedition, #block-tiemposcni-etypeeedition {
+.region-sidebar .block-etype-block {
   flex-basis: 100%; }
-  #block-etypeeedition p, #block-tiemposcni-etypeeedition p {
+  .region-sidebar .block-etype-block p {
     font-size: 0.8rem; }
 
 /* Custom Blocks */
