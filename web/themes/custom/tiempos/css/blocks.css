@@ -57,17 +57,17 @@
   border-bottom: 1px solid #b5b5b5; }
 
 /* Statistics Block */
-#block-popularcontent .item-list:not(:last-child) {
+.block-statistics-popular-block .item-list:not(:last-child) {
   margin: 0 0 0.5rem 0; }
-  #block-popularcontent .item-list:not(:last-child) h3 {
+  .block-statistics-popular-block .item-list:not(:last-child) h3 {
     font-style: oblique; }
-  #block-popularcontent .item-list:not(:last-child) ul {
+  .block-statistics-popular-block .item-list:not(:last-child) ul {
     margin: 0; }
-    #block-popularcontent .item-list:not(:last-child) ul li {
+    .block-statistics-popular-block .item-list:not(:last-child) ul li {
       margin: 0 0 0 0.5rem;
       padding: 0;
       font-size: 1rem; }
-#block-popularcontent br {
+.block-statistics-popular-block br {
   display: none; }
 
 .block-views-blockbreaking-news-block-1 {
