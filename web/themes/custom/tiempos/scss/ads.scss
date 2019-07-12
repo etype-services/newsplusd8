@@ -82,41 +82,7 @@
   line-height: 60px;
 }
 
-/* Dahlonega Square Ads on Home Page */
-#block-tiemposcni-dfptagcnidahlonegamidhome {
-  display: inline-block;
-  float: left;
-}
-
-#block-tiemposcni-dfptagcnidahlonegamidhome2 {
-  display: inline-block;
-  float: right;
-}
-
 /* The block underneath needs to clear float */
 #block-views-block-videos-block-1 {
   clear: both;
-}
-
-/* Leave in parent theme to access variables */
-@media screen and (max-width: 950px) {
-  #block-tiemposcni-dfptagcnidahlonegamidhome {
-    display: block;
-    text-align: center;
-    float: none;
-  }
-
-  #block-tiemposcni-dfptagcnidahlonegamidhome2 {
-    display: block;
-    text-align: center;
-    float: none;
-  }
-}
-
-@media screen and (max-width: $tablet - 1px) {
-  /* Hide content on mobile */
-  #block-tiemposcni-dfptagcnidahlonegaleaderboard-2 {
-    @include is-really-invisible;
-  }
-
 }

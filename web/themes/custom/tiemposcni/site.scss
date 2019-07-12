@@ -1,37 +1,50 @@
-/* Center column for tiempos theme */
+@import "../tiempos/scss/vars";
+
 @media screen and (min-width: 1088px) {
   #main-nav .navbar .navbar-end {
     /* Social Icons */
-    position: inherit; } }
+    position: inherit;
+  }
+}
+
 /* Teaser formatting. */
-.node--view-mode-teaser .field--name-body > p::after,
-.node--view-mode-teaser .field--name-body > .field__item::after {
-  content: ""; }
+.node--view-mode-teaser{
+  .field--name-body > p::after,
+  .field--name-body > .field__item::after {
+    content: "";
+  }
+}
 
 /* Dahlonega Square Ads on Home Page */
 #block-tiemposcni-dfptagcnidahlonegamidhome {
   display: inline-block;
-  float: left; }
+  float: left;
+}
 
 #block-tiemposcni-dfptagcnidahlonegamidhome2 {
   display: inline-block;
-  float: right; }
+  float: right;
+}
 
 /* Leave in parent theme to access variables */
 @media screen and (max-width: 950px) {
   #block-tiemposcni-dfptagcnidahlonegamidhome {
     display: block;
     text-align: center;
-    float: none; }
+    float: none;
+  }
 
   #block-tiemposcni-dfptagcnidahlonegamidhome2 {
     display: block;
     text-align: center;
-    float: none; } }
-@media screen and (max-width: 768px) {
+    float: none;
+  }
+}
+
+@media screen and (max-width: $tablet - 1px) {
   /* Hide content on mobile */
   #block-tiemposcni-dfptagcnidahlonegaleaderboard-2 {
-    visibility: hidden !important;
-    display: none !important; } }
+    @include is-really-invisible;
+  }
 
-/*# sourceMappingURL=site.css.map */
+}
