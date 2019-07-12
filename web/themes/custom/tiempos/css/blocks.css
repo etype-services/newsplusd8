@@ -29,7 +29,7 @@
   display: flex;
   justify-content: center; }
 
-.block-iemessage-block {
+#block-iemessage {
   display: none;
   visibility: hidden; }
 
