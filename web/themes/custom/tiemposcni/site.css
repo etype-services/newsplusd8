@@ -1,4 +1,5 @@
 #main-nav .navbar .navbar-end {
   /* Social Icons */
-  position: inherit;
+  position: absolute;
+  top: 0;
 }
