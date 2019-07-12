@@ -48,7 +48,7 @@
   margin-right: 0.5rem; }
 
 /* Video Block */
-#block-views-block-videos-block-1 > h2 {
+.block-views-blockvideos-block-1 > h2 {
   text-transform: uppercase;
   padding-bottom: 0.3rem;
   margin-bottom: 0.3rem;
