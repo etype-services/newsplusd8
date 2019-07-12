@@ -83,12 +83,12 @@
 }
 
 /* Dahlonega Square Ads on Home Page */
-#block-dfptagcnidahlonegamidhome {
+#block-tiemposcni-dfptagcnidahlonegamidhome {
   display: inline-block;
   float: left;
 }
 
-#block-dfptagcnidahlonegamidhome2 {
+#block-tiemposcni-dfptagcnidahlonegamidhome2 {
   display: inline-block;
   float: right;
 }
@@ -99,13 +99,13 @@
 }
 
 @media screen and (max-width: 950px) {
-  #block-dfptagcnidahlonegamidhome {
+  #block-tiemposcni-dfptagcnidahlonegamidhome {
     display: block;
     text-align: center;
     float: none;
   }
 
-  #block-dfptagcnidahlonegamidhome2 {
+  #block-tiemposcni-dfptagcnidahlonegamidhome2 {
     display: block;
     text-align: center;
     float: none;
@@ -114,7 +114,7 @@
 
 @media screen and (max-width: $tablet - 1px) {
   /* Hide content on mobile */
-  #block-dfptagcnidahlonegaleaderboard-2 {
+  #block-tiemposcni-dfptagcnidahlonegaleaderboard-2 {
     @include is-really-invisible;
   }
 
