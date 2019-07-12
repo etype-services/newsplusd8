@@ -15,6 +15,8 @@
   }
 }
 
+/* DFP ADS */
+
 /* Dahlonega Square Ads on Home Page */
 #block-tiemposcni-dfptagcnidahlonegamidhome {
   display: inline-block;
@@ -26,7 +28,6 @@
   float: right;
 }
 
-/* Leave in parent theme to access variables */
 @media screen and (max-width: 950px) {
   #block-tiemposcni-dfptagcnidahlonegamidhome {
     display: block;
