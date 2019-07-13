@@ -11,6 +11,11 @@ use Drupal\taxonomy\Entity\Term;
 function tiempos_preprocess_html(&$variables) {
   $config = Drupal::config('etype.adminsettings');
   $variables['ad_script'] = $config->get('ad_script');
+
+  /* Add domain to styles */
+  $host = Drupal::request()->getHost();
+  $arr = explode(".", $host);
+  $variables["host"] = $arr[1];
 }
 
 /**
