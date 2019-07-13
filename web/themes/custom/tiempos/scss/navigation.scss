@@ -118,6 +118,9 @@
       /* Social Icons */
       display: flex;
       align-items: center;
+      position: absolute;
+      top: -40px;
+      right: 0;
       a {
         margin-right: $column-gap;
       }
