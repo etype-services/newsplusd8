@@ -2,7 +2,8 @@
 @media screen and (min-width: 1088px) {
   .thedahloneganugget #main-nav .navbar .navbar-end {
     /* Social Icons */
-    position: inherit; } }
+    position: inherit;
+    top: 0; } }
 /* Teaser formatting. */
 .node--view-mode-teaser .field--name-body > p::after,
 .node--view-mode-teaser .field--name-body > .field__item::after {
