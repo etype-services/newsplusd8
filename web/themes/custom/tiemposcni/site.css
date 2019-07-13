@@ -1,8 +1,8 @@
 /* Center column for tiempos theme */
 @media screen and (min-width: 1088px) {
-  #main-nav .navbar .navbar-end {
+  .thedahloneganugget #main-nav .navbar .navbar-end {
     /* Social Icons */
-    /* position: inherit; */ } }
+    position: inherit; } }
 /* Teaser formatting. */
 .node--view-mode-teaser .field--name-body > p::after,
 .node--view-mode-teaser .field--name-body > .field__item::after {
