@@ -22,7 +22,7 @@ etype_login_cni.account:
 etype_login_cni.subscribe:
   title: 'Subscribe'
   weight: 10
-  route_name: etype_login.subscribe
+  route_name: etype_login_cni.subscribe
   menu_name: account
   options:
     attributes:
