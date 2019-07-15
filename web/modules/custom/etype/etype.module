@@ -72,6 +72,7 @@ function etype_e_editions() {
     $e_editions[$ptr]['site_name'] = trim($site);
     $e_editions[$ptr]['path'] = $path;
     $e_editions[$ptr]['path_anon'] = 'https://etypeservices.com/' . $e_edition . '/';
+    $e_editions[$ptr]['sub_link'] = "https://etypeservices.com/" . $e_edition . "/default.aspx?PubID=" . $pub;
     $ptr++;
   }
   return $e_editions;
