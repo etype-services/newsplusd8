@@ -18,3 +18,9 @@ etype_login.account:
   weight: 10
   route_name: etype_login.account
   menu_name: account
+
+etype_login.subscribe:
+  title: 'Subscribe'
+  weight: 10
+  route_name: etype_login.subscribe
+  menu_name: account
