@@ -24,6 +24,12 @@
   visibility: hidden;
 }
 
+/* CSS rules for etype login Subscibe link */
+.user-logged-in #etype_login_subscribe {
+  display: none;
+  visibility: hidden;
+}
+
 @media screen and (max-width: 1087px) {
   #main-nav .navbar .navbar-start .navbar-menu .button#etype_e_edition,
   .user-logged-in #main-nav .navbar .navbar-start .navbar-menu .button#etype_login_e_edition{

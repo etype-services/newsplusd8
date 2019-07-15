@@ -27,3 +27,4 @@ etype_login.subscribe:
   options:
     attributes:
       target: _blank
+      id: 'etype_login_subscribe'
