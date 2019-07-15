@@ -21,3 +21,8 @@ etype_login.account:
     _form: '\Drupal\etype_login\Form\EtypeMyAccountForm'
   requirements:
     _user_is_logged_in: 'TRUE'
+
+etype_login.subscribe:
+  path: '/etype-subscribe'
+  defaults:
+    _title: 'Subscribe'
