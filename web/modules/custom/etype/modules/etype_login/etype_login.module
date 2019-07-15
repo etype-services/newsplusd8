@@ -41,4 +41,5 @@ function etype_login_user_logout($account) {
 function etype_login_menu_links_discovered_alter(&$links) {
   $e_editions = etype_e_editions();
   $links['etype_login.e_edition']['url'] = $e_editions[0]['path'];
+  $links['etype_login.e_edition']['url'] = $e_editions[0]['sub_link'];
 }
