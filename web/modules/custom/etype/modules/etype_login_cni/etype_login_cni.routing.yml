@@ -21,3 +21,8 @@ etype_login_cni.account:
     _form: '\Drupal\etype_login_cni\Form\EtypeMyAccountForm'
   requirements:
     _user_is_logged_in: 'TRUE'
+
+etype_login_cni.subscribe:
+  path: '/etype-subscribe'
+  defaults:
+    _title: 'Subscribe'

@@ -18,3 +18,13 @@ etype_login_cni.account:
   weight: 10
   route_name: etype_login_cni.account
   menu_name: account
+
+etype_login_cni.subscribe:
+  title: 'Subscribe'
+  weight: 10
+  route_name: etype_login.subscribe
+  menu_name: account
+  options:
+    attributes:
+      target: _blank
+      id: 'etype_login_cni_subscribe'
