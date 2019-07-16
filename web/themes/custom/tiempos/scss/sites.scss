@@ -1,0 +1,11 @@
+@import "./vars";
+
+@media screen and (min-width: $desktop) {
+  .bctribune {
+    #main-nav .navbar .navbar-end {
+      /* Social Icons */
+      position: inherit;
+      top: 0;
+    }
+  }
+}

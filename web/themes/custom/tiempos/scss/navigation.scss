@@ -165,8 +165,8 @@
       /* Social Icons */
       .navbar-end {
         position: absolute;
-        top: -2.5rem;
-        right: calc(#{$column-gap} * 2);
+        top: -2.6rem;
+        right: 0;
         margin-right: 0;
         z-index: -1; // Prevent display in "pop-up" menu
       }

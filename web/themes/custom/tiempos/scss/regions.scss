@@ -59,11 +59,7 @@
     top: 0;
     right: 0;
   }
-  .region-navigation {
-    position: absolute;
-    top: 70px;
-    right: 10px;
-  }
+
   .region-sidebar {
     border-left: none!important;
   }
@@ -76,5 +72,11 @@
   .region-header-right {
     /* Fine tuning weather widget */
     padding: 0.5rem calc(#{$column-gap} * 2) 0 $column-gap;
+  }
+
+  .region-navigation {
+    position: absolute;
+    top: 70px;
+    right: 10px;
   }
 }

@@ -50,11 +50,6 @@
     top: 0;
     right: 0; }
 
-  .region-navigation {
-    position: absolute;
-    top: 70px;
-    right: 10px; }
-
   .region-sidebar {
     border-left: none !important; }
 
@@ -64,6 +59,11 @@
 @media screen and (max-width: 1087px) {
   .region-header-right {
     /* Fine tuning weather widget */
-    padding: 0.5rem calc(0.75rem * 2) 0 0.75rem; } }
+    padding: 0.5rem calc(0.75rem * 2) 0 0.75rem; }
+
+  .region-navigation {
+    position: absolute;
+    top: 70px;
+    right: 10px; } }
 
 /*# sourceMappingURL=regions.css.map */

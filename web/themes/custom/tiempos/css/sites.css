@@ -1,0 +1,8 @@
+/* Center column for tiempos theme */
+@media screen and (min-width: 1088px) {
+  .bctribune #main-nav .navbar .navbar-end {
+    /* Social Icons */
+    position: inherit;
+    top: 0; } }
+
+/*# sourceMappingURL=sites.css.map */

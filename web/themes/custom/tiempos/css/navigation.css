@@ -126,8 +126,8 @@
       margin-right: 0.5rem; }
     #main-nav .navbar .navbar-end {
       position: absolute;
-      top: -2.5rem;
-      right: calc(0.75rem * 2);
+      top: -2.6rem;
+      right: 0;
       margin-right: 0;
       z-index: -1; } }
 /* Mobile */
