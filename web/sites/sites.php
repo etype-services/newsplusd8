@@ -74,3 +74,4 @@ $sites['www.theclaytontribune.com'] = 'theclaytontribune.etypegoogle7.com';
 $sites['www.ouraynews.com'] = 'ouraynews.etypegoogle7.com';
 $sites['www.cordellbeacon.com'] = 'cordellbeacon.etypegoogle7.com';
 $sites['www.whitecountynews.net'] = 'whitecountynews.etypegoogle7.com';
+$sites['www.bctribune.com'] = 'bctribune.etypegoogle7.com';
