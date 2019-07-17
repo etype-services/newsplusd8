@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - etype
+id: set_premium_content
+label: 'Set Node Premium Status'
+type: node
+plugin: set_premium_content
+configuration: {  }
+
