@@ -2,9 +2,12 @@
 
 namespace Drupal\etype\Plugin\Action;
 
+use Drupal;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\views_bulk_operations\Action\ViewsBulkOperationsActionBase;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\node\NodeInterface;
+use Drupal\Core\Entity\EntityStorageException;
 
 /**
  * An example action covering most of the possible options.
@@ -14,7 +17,7 @@ use Drupal\Core\Session\AccountInterface;
  *
  * @Action(
  *   id = "set_premium_content",
- *   label = @Translation("Set Node to Premium"),
+ *   label = @Translation("Set Node Premium Status"),
  *   type = "node",
  *   confirm = FALSE,
  * )
@@ -31,15 +34,25 @@ class SetPremiumContent extends ViewsBulkOperationsActionBase {
      * Data about the view used to select results and optionally
      * the batch context are available in $this->context or externally
      * through the public getContext() method.
-     * The entire ViewExecutable object  with selected result
+     * The entire ViewExecutable object with selected result
      * rows is available in $this->view or externally through
      * the public getView() method.
      */
 
-    // Do some processing..
-    // ...
-    $this->messenger()->addMessage($entity->label() . ' - ' . $entity->language()->getId() . ' - ' . $entity->id());
-    return sprintf('Example action (configuration: %s)', print_r($this->configuration, TRUE));
+    $nid = $entity->id();
+    $node = Drupal::entityTypeManager()->getStorage('node')->load($nid);
+
+    if ($node instanceof NodeInterface) {
+      try {
+        $node->set('premium_content', $this->configuration['set_premium_content']);
+        $node->save();
+      }
+      catch (EntityStorageException $e) {
+        watchdog_exception('setpremium', $e);
+      }
+    }
+    $this->messenger()->addMessage($entity->id());
+
   }
 
   /**
@@ -57,10 +70,10 @@ class SetPremiumContent extends ViewsBulkOperationsActionBase {
    *   The configuration form.
    */
   public function buildConfigurationForm(array $form, FormStateInterface $form_state) {
-    $form['example_config_setting'] = [
-      '#title' => t('Example setting pre-execute'),
-      '#type' => 'textfield',
-      '#default_value' => $form_state->getValue('example_config_setting'),
+    $form['set_premium_content'] = [
+      '#title' => t('Premium Content'),
+      '#type' => 'checkbox',
+      '#default_value' => $form_state->getValue('set_premium_content'),
     ];
     return $form;
   }
@@ -80,7 +93,7 @@ class SetPremiumContent extends ViewsBulkOperationsActionBase {
     // This is not required here, when this method is not defined,
     // form values are assigned to the action configuration by default.
     // This function is a must only when user input processing is needed.
-    $this->configuration['example_config_setting'] = $form_state->getValue('example_config_setting');
+    $this->configuration['set_premium_content'] = $form_state->getValue('set_premium_content');
   }
 
   /**
