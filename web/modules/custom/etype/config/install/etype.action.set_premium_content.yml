@@ -4,7 +4,7 @@ dependencies:
   module:
     - etype
 id: set_premium_content
-label: 'Set Node Premium Status'
+label: 'Set node Premium Content status'
 type: node
 plugin: set_premium_content
 configuration: {  }

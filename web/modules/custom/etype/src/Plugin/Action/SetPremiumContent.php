@@ -17,7 +17,7 @@ use Drupal\Core\Entity\EntityStorageException;
  *
  * @Action(
  *   id = "set_premium_content",
- *   label = @Translation("Set Node Premium Status"),
+ *   label = @Translation("Set node Premium Content status"),
  *   type = "node",
  *   confirm = FALSE,
  * )
