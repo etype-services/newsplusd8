@@ -26,15 +26,16 @@
       width: fit-content;
       margin: 0;
     }
-    .attachment .image-container img {
-      float: right;
-      width: 48%;
-      margin: 0.3rem 0 0.75rem 0.75rem;
-    }
   }
   #block-views-block-front-page-sections-block-2,
   #block-views-block-front-page-sections-block-3-2 {
     @include is-really-visible;
+  }
+  .front-page-sections {
+    .view-content {
+      display: block;
+      margin: 0;
+    }
   }
 }
 
