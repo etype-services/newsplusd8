@@ -77,6 +77,13 @@
         float: left;
         margin-right: 0.5rem;
       }
+      .node__content {
+        .image-container {
+          /* Images on Premium Content pages */
+          display: flex;
+          justify-content: space-around;
+        }
+      }
     }
     .flexslider {
       ul.slides {
