@@ -63,7 +63,8 @@
   .page-node-type-article article .node__meta .node__content .image-container {
     /* Images on Premium Content pages */
     display: flex;
-    justify-content: space-around; }
+    justify-content: space-around;
+    margin-bottom: 0.75rem; }
 .page-node-type-article article .flexslider ul.slides img {
   width: auto; }
 .page-node-type-article article .flexslider .flex-caption {
