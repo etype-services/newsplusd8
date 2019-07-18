@@ -279,7 +279,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
 
     $form['settings']['field'] = [
       '#type' => 'textfield',
-      '#title' => t('Enter the machine_name of the field to use to filter exports. Don‘t change unless you are sure. For Tiempos sites this should be "field_section"'),
+      '#title' => t('Enter the machine_name of the field to use to filter exports. Don‘t change this unless you are sure. For Tiempos sites this should be "field_section".'),
       '#default_value' => $this->conf->get('field'),
     ];
 
