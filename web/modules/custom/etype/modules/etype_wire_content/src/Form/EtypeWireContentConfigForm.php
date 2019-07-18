@@ -240,12 +240,12 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
       '#title' => $this->t('Other Settings'),
     ];
 
-    $form['settings']['nodeType'] = array(
+    $form['settings']['nodeType'] = [
       '#type' => 'select',
       '#title' => t('Choose which content type to import and export.'),
       '#default_value' => $this->conf->get('nodeType'),
       '#options' => $this->nodeTypeOptions,
-    );
+    ];
 
     $form['settings']['author'] = [
       '#type' => 'entity_autocomplete',
