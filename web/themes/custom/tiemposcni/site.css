@@ -23,7 +23,10 @@
 
   .front-page-sections .view-content {
     display: block;
-    margin: 0; } }
+    margin: 0; }
+
+  #block-weatherwidget-2 > iframe {
+    margin: auto; } }
 /* DFP ADS */
 /* Dahlonega Square Ads on Home Page */
 #block-tiemposcni-dfptagcnidahlonegamidhome {
