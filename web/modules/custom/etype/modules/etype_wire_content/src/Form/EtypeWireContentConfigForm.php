@@ -228,7 +228,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
     $form['groups']['groups'] = [
       '#title' => t('Site Group(s)'),
       '#multiple' => TRUE,
-      '#description' => t("The group(s) that this site belongs to. Sites can belong to one or more groups and will only show wire content from checked groups."),
+      '#description' => t("The group(s) that this site belongs to. Sites can belong to one or more groups and will only import wire content from checked groups."),
       '#weight' => '1',
       '#type' => 'checkboxes',
       '#options' => $options,
