@@ -18,7 +18,11 @@
   .block-views-blockmobile-front-page-block-1 .attachment .image-container img {
     float: right;
     width: 48%;
-    margin: 0.3rem 0 0.75rem 0.75rem; } }
+    margin: 0.3rem 0 0.75rem 0.75rem; }
+
+  #block-views-block-front-page-sections-block-3-2 {
+    visibility: visible !important;
+    display: block !important; } }
 /* DFP ADS */
 /* Dahlonega Square Ads on Home Page */
 #block-tiemposcni-dfptagcnidahlonegamidhome {

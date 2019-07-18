@@ -32,6 +32,9 @@
       margin: 0.3rem 0 0.75rem 0.75rem;
     }
   }
+  #block-views-block-front-page-sections-block-3-2 {
+    @include is-really-visible;
+  }
 }
 
 /* DFP ADS */
