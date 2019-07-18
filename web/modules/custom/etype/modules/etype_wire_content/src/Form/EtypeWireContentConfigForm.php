@@ -277,19 +277,19 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
       $form['settings']['section']['#default_value'] = $term;
     }
 
-    $form['settings']['field'] = array(
+    $form['settings']['field'] = [
       '#type' => 'textfield',
-      '#title' => t('Enter the field machine_name to use to filter exports.'),
+      '#title' => t('Enter the machine_name of the field to use to filter exports. Don‘t change unless you are sure. For Tiempos sites this should be "field_section"'),
       '#default_value' => $this->conf->get('field'),
-    );
+    ];
 
     if (count($this->sections) > 1) {
-      $form['settings']['sections'] = array(
+      $form['settings']['sections'] = [
         '#type' => 'checkboxes',
         '#title' => t('Choose which taxonomy terms to use to filter exports.'),
         '#default_value' => $this->conf->get('sections'),
         '#options' => $this->sections,
-      );
+      ];
     }
 
     return parent::buildForm($form, $form_state);
