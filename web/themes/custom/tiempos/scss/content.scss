@@ -77,14 +77,6 @@
         float: left;
         margin-right: 0.5rem;
       }
-      .node__content {
-        .image-container {
-          /* Images on Premium Content pages */
-          display: flex;
-          justify-content: space-around;
-          margin-bottom: $column-gap;
-        }
-      }
     }
     .flexslider {
       ul.slides {
@@ -97,6 +89,14 @@
         @include caption;
         margin: auto;
         width: fit-content;
+      }
+    }
+    .node__content {
+      .image-container {
+        /* Images on Premium Content pages */
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: $column-gap;
       }
     }
     .field--name-field-small-image {

@@ -60,11 +60,6 @@
   .page-node-type-article article .node__meta .field--name-user-picture {
     float: left;
     margin-right: 0.5rem; }
-  .page-node-type-article article .node__meta .node__content .image-container {
-    /* Images on Premium Content pages */
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 0.75rem; }
 .page-node-type-article article .flexslider ul.slides img {
   width: auto; }
 .page-node-type-article article .flexslider .flex-caption {
@@ -73,6 +68,11 @@
   color: #0a0a0a;
   margin: auto;
   width: fit-content; }
+.page-node-type-article article .node__content .image-container {
+  /* Images on Premium Content pages */
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 0.75rem; }
 .page-node-type-article article .field--name-field-small-image {
   float: left;
   margin-right: 0.75rem;
