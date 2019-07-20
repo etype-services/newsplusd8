@@ -290,7 +290,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
         '#default_value' => $this->conf->get('sections'),
         '#options' => $this->sections,
       ];
-    */}
+    }*/
 
     return parent::buildForm($form, $form_state);
   }
