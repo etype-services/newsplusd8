@@ -283,14 +283,14 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
       '#default_value' => $this->conf->get('field'),
     ];
 
-    //if (count($this->sections) > 1) {
+    if (count($this->sections) > 1) {
       $form['settings']['sections'] = [
         '#type' => 'checkboxes',
         '#title' => t('Choose which taxonomy terms to use to filter exports.'),
         '#default_value' => $this->conf->get('sections'),
         '#options' => $this->sections,
       ];
-    //}
+    }
 
     return parent::buildForm($form, $form_state);
   }
