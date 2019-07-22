@@ -1,7 +1,7 @@
 @import "../tiempos/scss/vars";
 
 @media screen and (min-width: 1088px) {
-  .thedahloneganugget {
+  .thedahloneganugget, .thenortheastgeorgian {
     #main-nav .navbar .navbar-end {
       /* Social Icons */
       position: inherit;
@@ -47,24 +47,28 @@
 /* DFP ADS */
 
 /* Dahlonega Square Ads on Home Page */
-#block-tiemposcni-dfptagcnidahlonegamidhome {
+#block-tiemposcni-dfptagcnidahlonegamidhome,
+#block-dfptagcninegmidhome {
   display: inline-block;
   float: left;
 }
 
-#block-tiemposcni-dfptagcnidahlonegamidhome2 {
+#block-tiemposcni-dfptagcnidahlonegamidhome2,
+#block-dfptagcninegmidhome2 {
   display: inline-block;
   float: right;
 }
 
 @media screen and (max-width: 950px) {
-  #block-tiemposcni-dfptagcnidahlonegamidhome {
+  #block-tiemposcni-dfptagcnidahlonegamidhome
+  #block-dfptagcninegmidhome {
     display: block;
     text-align: center;
     float: none;
   }
 
-  #block-tiemposcni-dfptagcnidahlonegamidhome2 {
+  #block-tiemposcni-dfptagcnidahlonegamidhome2,
+  #block-dfptagcninegmidhome2 {
     display: block;
     text-align: center;
     float: none;
