@@ -78,3 +78,4 @@ $sites['www.bctribune.com'] = 'bctribune.etypegoogle7.com';
 $sites['www.fairfield-recorder.com'] = 'fairfield-recorder.etypegoogle7.com';
 $sites['www.thenortheastgeorgian.com'] = 'thenortheastgeorgian.etypegoogle7.com';
 $sites['www.thehartwellsun.com'] = 'thehartwellsun.etypegoogle7.com';
+$sites['www.poncacitynews.com'] = 'poncacitynews.etypegoogle7.com';
