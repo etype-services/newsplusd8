@@ -8,8 +8,10 @@
 
             img.each(function () {
                 var text = $(this).attr("alt");
-                var articleCaption = "<p class=\"caption is-sans-serif is-size-7\">" + text + "</p>";
-                $(this).parents(".field").once("tiemposBehavior").append(articleCaption);
+                if (text !== 'undefined'_ {
+                    var articleCaption = "<p class=\"caption is-sans-serif is-size-7\">" + text + "</p>";
+                    $(this).parents(".field").once("tiemposBehavior").append(articleCaption);
+                }
             });
 
             if (len > 1) {
