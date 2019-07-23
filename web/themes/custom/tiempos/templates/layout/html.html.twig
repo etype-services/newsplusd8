@@ -36,11 +36,7 @@
 <html{{ html_attributes }}>
 <head>
 <head-placeholder token="{{ placeholder_token }}">
-    {% if head_title|length > 1 %}
-        <title>{{ head_title|safe_join(' | ') }}</title>
-    {% else %}
-        <title>{{ head_title|safe_join(' ') }}</title>
-    {% endif %}
+<title>{{ head_title|safe_join(' | ') }}</title>
 <css-placeholder token="{{ placeholder_token }}">
 <js-placeholder token="{{ placeholder_token }}">
 </head>
