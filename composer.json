@@ -62,6 +62,7 @@
     "drupal/imce": "^1.7",
     "drupal/inline_responsive_images": "^2.1",
     "drupal/jquery_view_ticker": "^1.0",
+    "drupal/mailchimp": "^1.9",
     "drupal/metatag": "^1.8",
     "drupal/migrate_plus": "^4.2",
     "drupal/migrate_tools": "^4.1",
