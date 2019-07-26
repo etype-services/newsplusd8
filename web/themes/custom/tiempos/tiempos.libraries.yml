@@ -23,9 +23,10 @@ global-styling:
 global-scripts:
   version: VERSION
   js:
-    js/theme.js:
+    js/theme.js: {}
   dependencies:
     - core/drupal
+    - core/jquery
     - core/jquery.once
 
 petrona:
@@ -72,9 +73,6 @@ owl.carousel:
       node_modules/owl.carousel/dist/assets/owl.carousel.min.css: {}
   js:
     node_modules/owl.carousel/dist/owl.carousel.min.js: {}
-  dependencies:
-    - core/jquery
-    - core/jquery.once
 
 breaking_news:
   version: VERSION
@@ -94,25 +92,13 @@ article:
   version: VERSION
   js:
     js/article.js: {}
-  dependencies:
-    - core/jquery
-    - core/jquery.once
 
 front_page_sections:
   version: VERSION
   js:
     js/front_page_sections.js: {}
-  dependencies:
-    - core/jquery
-    - core/jquery.once
 
 classified:
   version: VERSION
   js:
     js/classified.js: {}
-  dependencies:
-    - core/jquery
-    - core/jquery.once
-
-
-
