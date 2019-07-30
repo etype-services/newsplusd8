@@ -152,7 +152,30 @@ function etype_user_logout($account) {
 }
 
 /**
- * Split string on word boundary.
+ * Implements hook_library_info_build()
+ */
+function etype_library_info_build() {
+  $config = Drupal::config('etype.adminsettings');
+  $mercolocal_id = $config->get('mercolocal_id');
+  $libraries = [];
+  $libraries['etype/mercolocal'] = [
+    'version' => '1.x',
+    'js' => [
+      'https://www.mercolocal.com/js/Embed.js?h=600&amp;w=300&amp;Scroll=v&amp;affiliateId=' .
+      $mercolocal_id => [
+        'type' => 'external',
+        'attributes' => [
+          'id' => 'MercoLocal-script',
+          'data-active' => 'businesses',
+        ],
+      ],
+    ],
+  ];
+  return $libraries;
+}
+
+/**
+ * Helper to split string on word boundary.
  *
  * {@inheritdoc}
  */
