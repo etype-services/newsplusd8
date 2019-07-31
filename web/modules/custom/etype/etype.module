@@ -153,7 +153,8 @@ function etype_user_logout($account) {
 
 /**
  * Implements hook_library_info_build()
- */
+ *
+ * Left as example
 function etype_library_info_build() {
   $config = Drupal::config('etype.adminsettings');
   $mercolocal_id = $config->get('mercolocal_id');
@@ -173,6 +174,7 @@ function etype_library_info_build() {
   ];
   return $libraries;
 }
+ */
 
 /**
  * Helper to split string on word boundary.
