@@ -17,7 +17,7 @@ function tiempos_preprocess_html(&$variables) {
   $tmp = explode(".", $host);
   $arr = array_filter($tmp);
   // var_dump($arr);
-  // TODO: Why is this not working
+  // TODO: Why is this not working?
   // $arr[1] = 'etypegoogle7'? $variables["host"] = $arr[0]: $variables["host"] = $arr[1];
   $variables["host"] = $arr[1];
 }
