@@ -108,7 +108,7 @@ class EtypeLoginForm extends FormBase {
     $username = $form_state->getValue('username');
     $password = $form_state->getValue('password');
 
-    $pubId = $this->config->get('etype_pub');
+    $pubId = (int) $this->config->get('etype_pub');
     $message = "We‘re sorry, either your user name or password is incorrect.";
     $success_message = "Hello $username, you are now logged in!";
 
@@ -116,6 +116,7 @@ class EtypeLoginForm extends FormBase {
     $param = ['UserName' => $username];
     $response = $client->GetPublicationID($param);
     $code = $response->GetPublicationIDResult;
+
     switch ($code) {
       case "-9":
         Drupal::messenger()->addMessage($message);
@@ -179,6 +180,11 @@ class EtypeLoginForm extends FormBase {
         }
 
         break;
+
+      default:
+        $message = "We‘re sorry, something unexpected happened.";
+        Drupal::messenger()->addMessage($message);
+
     }
   }
 
