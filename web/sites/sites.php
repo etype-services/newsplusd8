@@ -86,5 +86,5 @@ $sites['www.schulenburgsticker.com'] = 'schulenburgsticker.etypegoogle7.com';
 /* jackie */
 $sites['www.bellvilletimes.com'] = "bellvilletimes.etypegoogle11.com";
 $sites['www.bookernews.com'] = "bookernews.etypegoogle11.com";
-$sites['www.napoleonvillenews.com'] = "napoleonvillenews.etypegoogle11.com";
 $sites['www.colfaxchronicle.com'] = "colfaxchronicle.etypegoogle11.com";
+$sites['www.edenecho.net'] = "edenecho.etypegoogle11.com";
