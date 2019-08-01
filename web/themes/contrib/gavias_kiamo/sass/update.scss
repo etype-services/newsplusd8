@@ -1,0 +1,72 @@
+@import "vars/_theme_variables";
+
+@import "mixins/mixins";
+@import "mixins/template";
+@import "rtl/rtl"; 
+
+.nav-tabs, .topbar ul , ul.contact-info, ul.menu{
+   list-style: none!important;
+   padding-left: 0;
+}
+.node--view-mode-full{
+   p{
+      margin-bottom: 10px;
+   }
+}
+
+
+body{
+  div.body-page{
+    background-color: #fff;
+  }
+}
+
+.site-branding-logo{
+  max-height: inherit;
+  img{
+    max-height: 80px;
+    width: auto;
+  }
+}
+
+.simpleslider{
+  ul{
+    padding: 0;
+    li{
+      list-style: none;
+    }
+  }
+}
+
+.team-list{
+  .view-content-wrap{
+    .item{
+      float: left;
+      width: 100%;
+      margin-top: 30px;
+    }
+  }
+}
+
+@media(max-width: $screen-sm-max){
+  .gbb-row.gsc-equal-height{
+    .column-content-inner{
+      top: 20px;
+      @include translateY(0);
+    }
+  }
+}
+
+@media(max-width: 800px){
+  .gsc-info-background{
+    .content{
+      width: 100%;
+      padding-top: 310px;
+    }
+    .image{
+      height: 300px;
+      width: 100%;
+      position: relative;
+    }
+  }
+}

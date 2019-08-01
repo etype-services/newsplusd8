@@ -82,3 +82,9 @@ $sites['www.thenortheastgeorgian.com'] = 'thenortheastgeorgian.etypegoogle7.com'
 $sites['www.thehartwellsun.com'] = 'thehartwellsun.etypegoogle7.com';
 $sites['www.poncacitynews.com'] = 'poncacitynews.etypegoogle7.com';
 $sites['www.schulenburgsticker.com'] = 'schulenburgsticker.etypegoogle7.com';
+
+/* jackie */
+$sites['www.bellvilletimes.com'] = "bellvilletimes.etypegoogle11.com";
+$sites['www.bookernews.com'] = "bookernews.etypegoogle11.com";
+$sites['www.napoleonvillenews.com'] = "napoleonvillenews.etypegoogle11.com";
+$sites['www.colfaxchronicle.com'] = "colfaxchronicle.etypegoogle11.com";
