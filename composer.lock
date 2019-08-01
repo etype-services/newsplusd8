@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1c3177dae3f20def58eccd204fab71a5",
+    "content-hash": "62ec68f57160e7a86ef0db30090b87ac",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -5045,7 +5045,7 @@
             "description": "Enables the creation of Paragraphs entities.",
             "homepage": "https://www.drupal.org/project/paragraphs",
             "support": {
-                "source": "https://git.drupalcode.org/project/paragraphs"
+                "source": "http://cgit.drupalcode.org/paragraphs"
             }
         },
         {
@@ -5162,6 +5162,53 @@
             "homepage": "https://www.drupal.org/project/poll",
             "support": {
                 "source": "http://cgit.drupalcode.org/poll"
+            }
+        },
+        {
+            "name": "drupal/rebuild_cache_access",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/rebuild_cache_access.git",
+                "reference": "8.x-1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/rebuild_cache_access-8.x-1.4.zip",
+                "reference": "8.x-1.4",
+                "shasum": "31766f60f6f7dfeb29001f4532d457cfb6cbb3dd"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.4",
+                    "datestamp": "1523998080",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "leymannx",
+                    "homepage": "https://www.drupal.org/user/2482808"
+                }
+            ],
+            "description": "Provide a Rebuild Cache admin toolbar button accessible to every role with the corresponding permission set.",
+            "homepage": "https://www.drupal.org/project/rebuild_cache_access",
+            "support": {
+                "source": "https://git.drupalcode.org/project/rebuild_cache_access"
             }
         },
         {
@@ -5598,7 +5645,7 @@
             ],
             "authors": [
                 {
-                    "name": "AswathyAjish",
+                    "name": "Aswathy Ajish",
                     "homepage": "https://www.drupal.org/user/2584696"
                 },
                 {
@@ -5613,7 +5660,7 @@
             "description": "A module to import taxonomy using CSV or XML file to a user defined vocabulary",
             "homepage": "https://www.drupal.org/project/taxonomy_import",
             "support": {
-                "source": "https://git.drupalcode.org/project/taxonomy_import"
+                "source": "http://cgit.drupalcode.org/taxonomy_import"
             }
         },
         {
@@ -6137,7 +6184,7 @@
             "description": "Weather Block",
             "homepage": "https://www.drupal.org/project/weather_block",
             "support": {
-                "source": "https://git.drupalcode.org/project/weather_block"
+                "source": "http://cgit.drupalcode.org/weather_block"
             }
         },
         {

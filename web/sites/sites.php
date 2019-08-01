@@ -60,7 +60,6 @@ $sites['newsplusd8.local'] = 'newsplusd8.etypegoogle7.com';
 
 $sites['www.bayoujournal.com'] = 'bayoujournal.etypegoogle7.com';
 $sites['www.bayoupioneer.com'] = 'bayoujournal.etypegoogle7.com';
-$sites['www.cninewspapers.com'] = "cninewspapers.etypegoogle7.com";
 $sites['www.giddingstimes.com'] = "giddingstimes.etypegoogle7.com";
 $sites['www.ssnewstelegram.com'] = 'ssnewstelegram.etypegoogle7.com';
 $sites['www.southwestledger.news'] = 'southwestledger.etypegoogle7.com';
@@ -80,3 +79,9 @@ $sites['www.thenortheastgeorgian.com'] = 'thenortheastgeorgian.etypegoogle7.com'
 $sites['www.thehartwellsun.com'] = 'thehartwellsun.etypegoogle7.com';
 $sites['www.poncacitynews.com'] = 'poncacitynews.etypegoogle7.com';
 $sites['www.schulenburgsticker.com'] = 'schulenburgsticker.etypegoogle7.com';
+
+/* jackie */
+$sites['www.bellvilletimes.com'] = "bellvilletimes.etypegoogle11.com";
+$sites['www.bookernews.com'] = "bookernews.etypegoogle11.com";
+$sites['www.napoleonvillenews.com'] = "napoleonvillenews.etypegoogle11.com";
+$sites['www.colfaxchronicle.com'] = "colfaxchronicle.etypegoogle11.com";
