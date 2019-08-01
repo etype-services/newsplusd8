@@ -15,7 +15,8 @@ function tiempos_preprocess_html(&$variables) {
   /* Add domain to styles */
   $host = Drupal::request()->getHost();
   $arr = explode(".", $host);
-  $arr[1] = 'etypegoogle7'? $variables["host"] = $arr[0]: $variables["host"] = $arr[2];
+  kint($arr);
+  $arr[1] = 'etypegoogle7'? $variables["host"] = $arr[0]: $variables["host"] = $arr[3];
 }
 
 /**
