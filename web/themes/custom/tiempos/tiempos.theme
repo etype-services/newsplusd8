@@ -16,7 +16,6 @@ function tiempos_preprocess_html(&$variables) {
   $host = Drupal::request()->getHost();
   $tmp = explode(".", $host);
   $arr = array_filter($tmp);
-  kint($arr);
   $arr[1] = 'etypegoogle7'? $variables["host"] = $arr[0]: $variables["host"] = $arr[1];
 }
 
