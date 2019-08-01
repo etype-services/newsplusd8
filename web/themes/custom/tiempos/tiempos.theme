@@ -16,10 +16,7 @@ function tiempos_preprocess_html(&$variables) {
   $host = Drupal::request()->getHost();
   $tmp = explode(".", $host);
   $arr = array_filter($tmp);
-  // TODO: Why is this not working?
-  // var_dump($arr);
-  // $arr[1] = 'etypegoogle7'? $variables["host"] = $arr[0]: $variables["host"] = $arr[1];
-  $variables["host"] = $arr[1];
+  $arr[1] == 'etypegoogle7'? $variables["host"] = $arr[0]: $variables["host"] = $arr[1];
 }
 
 /**
