@@ -8,7 +8,7 @@
 
             img.each(function () {
                 var text = $(this).attr("alt");
-                if (text !== 'undefined'_ {
+                if (text !== "undefined") {
                     var articleCaption = "<p class=\"caption is-sans-serif is-size-7\">" + text + "</p>";
                     $(this).parents(".field").once("tiemposBehavior").append(articleCaption);
                 }
