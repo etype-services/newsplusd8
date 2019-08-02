@@ -33,12 +33,14 @@
 /* Square Ads on Home Page */
 #block-tiemposcni-dfptagcnidahlonegamidhome,
 #block-dfptagcninegmidhome,
+#block-dfptagcnitoccoamidhome,
 #block-dfptagcnihartwellmidhome {
   display: inline-block;
   float: left; }
 
 #block-tiemposcni-dfptagcnidahlonegamidhome2,
 #block-dfptagcninegmidhome2,
+#block-dfptagcnitoccoamidhome2,
 #block-dfptagcnihartwellmidhome2 {
   display: inline-block;
   float: right; }
@@ -46,6 +48,7 @@
 @media screen and (max-width: 950px) {
   #block-tiemposcni-dfptagcnidahlonegamidhome,
   #block-dfptagcninegmidhome,
+  #block-dfptagcnitoccoamidhome,
   #block-dfptagcnihartwellmidhome {
     display: block;
     text-align: center;
@@ -53,6 +56,7 @@
 
   #block-tiemposcni-dfptagcnidahlonegamidhome2,
   #block-dfptagcninegmidhome2,
+  #block-dfptagcnitoccoamidhome2,
   #block-dfptagcnihartwellmidhome2 {
     display: block;
     text-align: center;
