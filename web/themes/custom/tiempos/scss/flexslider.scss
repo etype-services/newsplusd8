@@ -1,8 +1,8 @@
 @import "./vars";
 
-
 .flexslider {
-  margin: 0 0 $column-gap 0;
+  /* needs space for nav */
+  margin: 0 0 2.75rem 0;
 }
 
 .flex-direction-nav a {
