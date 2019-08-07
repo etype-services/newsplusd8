@@ -2,7 +2,7 @@ etype_login_dev.login:
   path: '/etype-login'
   defaults:
     _title: 'Subscriber Login'
-    _form: '\Drupal\etype_login\Form\EtypeLoginForm'
+    _form: '\Drupal\etype_login_dev\Form\EtypeLoginForm'
   requirements:
     _user_is_logged_in: 'FALSE'
 
@@ -10,7 +10,7 @@ etype_login_dev.forgot:
   path: '/etype-forgot-password'
   defaults:
     _title: 'Password Reset'
-    _form: '\Drupal\etype_login\Form\EtypePasswordResetForm'
+    _form: '\Drupal\etype_login_dev\Form\EtypePasswordResetForm'
   requirements:
     _user_is_logged_in: 'FALSE'
 
@@ -18,7 +18,7 @@ etype_login_dev.account:
   path: '/etype-my-account'
   defaults:
     _title: 'My Account'
-    _form: '\Drupal\etype_login\Form\EtypeMyAccountForm'
+    _form: '\Drupal\etype_login_dev\Form\EtypeMyAccountForm'
   requirements:
     _user_is_logged_in: 'TRUE'
 
