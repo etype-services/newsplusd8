@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\etype_login\Form;
+namespace Drupal\etype_login_dev\Form;
 
 use Drupal;
 use Drupal\Core\Url;
@@ -24,7 +24,7 @@ class EtypeLoginForm extends FormBase {
   protected $config;
 
   /**
-   * EtypeLoginForm constructor.
+   * EtypeLoginDevForm constructor.
    */
   public function __construct() {
     $this->config = $config = Drupal::config('etype.adminsettings');

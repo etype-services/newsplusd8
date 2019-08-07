@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\etype_login\Form;
+namespace Drupal\etype_login_dev\Form;
 
 use Drupal;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
@@ -12,7 +12,7 @@ use SoapClient;
 /**
  * Class EtypeLoginException.
  *
- * @package Drupal\etype_login\Form
+ * @package Drupal\etype_login_dev\Form
  */
 class EtypeLoginException extends Exception {
 
