@@ -143,7 +143,7 @@ class EtypeMyAccountForm extends FormBase {
       $user_name = Drupal::currentUser()->getAccountName();
       $param = ['UserName' => $user_name];
 
-      $client = new soapclient('https://www.etypeservices.com/Service_GetDetails_ByUserName.asmx?WSDL');
+      $client = new soapclient('http://etype.wecode4u.com/webservice.asmx/GetDetails_ByUserName');
       $response = $client->GetDetailsByUserName($param);
 
       try {
@@ -309,7 +309,7 @@ class EtypeMyAccountForm extends FormBase {
       'SubscriberID' => $form_state->getValue('sid'),
     ];
 
-    $client = new soapclient('https://www.etypeservices.com/Service_EditSubscriberProfile.asmx?wsdl');
+    $client = new soapclient('http://etype.wecode4u.com/webservice.asmx/EditSubscriberProfile');
 
     try {
       $response = $client->SubscriberUpdateProfile($param);
@@ -329,7 +329,7 @@ class EtypeMyAccountForm extends FormBase {
     if (!empty($oldPassword) && !empty($newPassword) && !empty($confirmPassword)) {
       $user_name = Drupal::currentUser()->getAccountName();
       $param = ['UserName' => $user_name];
-      $client = new soapclient('https://www.etypeservices.com/service_GetPasswordByUserName.asmx?WSDL');
+      $client = new soapclient('http://etype.wecode4u.com/webservice.asmx/GetPasswordByUserName');
       $response = $client->GetPasswordByUserName($param);
       try {
         if ($oldPassword !== $response->GetPasswordByUserNameResult) {
@@ -342,7 +342,7 @@ class EtypeMyAccountForm extends FormBase {
       }
 
       $param = ['UserName' => $user_name, 'Password' => $newPassword];
-      $client = new soapclient('https://www.etypeservices.com/Service_ChangePassword.asmx?WSDL');
+      $client = new soapclient('http://etype.wecode4u.com/webservice.asmx/ChangePassword');
       $response = $client->ChangePassword($param);
       try {
         if ($response->ChangePasswordResult !== 0) {

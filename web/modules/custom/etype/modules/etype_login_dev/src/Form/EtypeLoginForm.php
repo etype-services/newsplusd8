@@ -112,7 +112,7 @@ class EtypeLoginForm extends FormBase {
     $message = "We‘re sorry, either your user name or password is incorrect.";
     $success_message = "Hello $username, you are now logged in!";
 
-    $client = new soapclient('https://www.etypeservices.com/service_GetPublicationIDByUserName.asmx?WSDL');
+    $client = new soapclient('http://etype.wecode4u.com/webservice.asmx/GetPublicationIDByUserName');
     $param = ['UserName' => $username];
     $response = $client->GetPublicationID($param);
     $code = $response->GetPublicationIDResult;
@@ -126,9 +126,9 @@ class EtypeLoginForm extends FormBase {
       case $pubId:
         $param1 = $param;
         $param['Password'] = $password;
-        $client = new soapclient('https://www.etypeservices.com/Service_SubscriberLogin.asmx?WSDL');
+        $client = new soapclient('http://etype.wecode4u.com/webservice.asmx/SubscriberLogin');
         $response = $client->ValidateSubscriber($param);
-        $client1 = new soapclient('https://www.etypeservices.com/Get_EmailbyUserName.asmx?WSDL');
+        $client1 = new soapclient('http://etype.wecode4u.com/webservice.asmx/Get_EmailbyUserName');
         $response1 = $client1->GetSubscriberEmail($param1);
         $validateSubscriberResult = $response->ValidateSubscriberResult;
         $getSubscriberEmailResult = $response1->GetSubscriberEmailResult;
