@@ -12,7 +12,7 @@
                     var articleCaption = "<p class=\"caption is-sans-serif is-size-7\">" + text + "</p>";
                     //$(this).parents(".field").once("tiemposBehavior").append(articleCaption);
                     // Because we do not know what the parent might be.
-                    $(this).parent().once("tiemposBehavior").append(articleCaption);
+                    $(this).once("tiemposBehavior").after(articleCaption);
                 }
             });
 
