@@ -57,7 +57,7 @@
  */
 
 $sites['newsplusd8.local'] = 'newsplusd8.etypegoogle7.com';
-# for drall updates
+# for *drall* updates
 $sites['cni.etypegoogle7.com'] = "cni.etypegoogle7.com";
 $sites['tiempos.etypegoogle7.com'] = "tiempos.etypegoogle7.com";
 
@@ -86,6 +86,9 @@ $sites['www.thetoccoarecord.com'] = 'thetoccoarecord.etypegoogle7.com';
 $sites['www.palatkadailynews.com'] = 'palatkadailynews.etypegoogle7.com';
 $sites['www.bunabeacon.com'] = 'bunabeacon.etypegoogle7.com';
 $sites['www.canadianrecord.com'] = 'canadianrecord.etypegoogle7.com';
+$sites['www.elrenotribune.com'] = 'elrenotribune.etypegoogle7.com';
+$sites['www.elberton.com'] = 'elberton.etypegoogle7.com';
+$sites['www.franklincountycitizen.com'] = 'franklincountycitizen.etypegoogle7.com';
 
 /* jackie */
 $sites['www.bellvilletimes.com'] = "bellvilletimes.etypegoogle11.com";
