@@ -1,7 +1,7 @@
 /* Center column for tiempos theme */
 @media screen and (min-width: 1088px) {
   /* Move Social icons into Navbar, depends on site main links, logo and number of icons */
-  .bctribune #main-nav .navbar .navbar-end {
+  .bctribune #main-nav .navbar .navbar-end, .schulenburgsticker #main-nav .navbar .navbar-end {
     /* Social Icons */
     position: inherit;
     top: 0; } }
