@@ -57,7 +57,7 @@
  */
 
 $sites['newsplusd8.local'] = 'newsplusd8.etypegoogle7.com';
-# for drall updates
+# for *drall* updates
 $sites['cni.etypegoogle7.com'] = "cni.etypegoogle7.com";
 $sites['tiempos.etypegoogle7.com'] = "tiempos.etypegoogle7.com";
 
