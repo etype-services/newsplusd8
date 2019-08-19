@@ -1,0 +1,4 @@
+File: elrenotribune.site.yml
+prod:
+  root: /mnt/data/web/public/harold/drupal/web
+  uri: http://elrenotribune.etypegoogle7.com
