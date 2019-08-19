@@ -86,6 +86,8 @@ $sites['www.thetoccoarecord.com'] = 'thetoccoarecord.etypegoogle7.com';
 $sites['www.palatkadailynews.com'] = 'palatkadailynews.etypegoogle7.com';
 $sites['www.bunabeacon.com'] = 'bunabeacon.etypegoogle7.com';
 $sites['www.elrenotribune.com'] = 'elrenotribune.etypegoogle7.com';
+$sites['www.elberton.com'] = 'elberton.etypegoogle7.com';
+$sites['www.franklincountycitizen.com'] = 'franklincountycitizen.etypegoogle7.com';
 
 /* jackie */
 $sites['www.bellvilletimes.com'] = "bellvilletimes.etypegoogle11.com";
