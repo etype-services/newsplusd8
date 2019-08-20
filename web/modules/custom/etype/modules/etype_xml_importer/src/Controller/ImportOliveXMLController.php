@@ -517,11 +517,11 @@ class ImportOliveXMLController {
         // Create file object from remote URL.
         $data = file_get_contents($image['path']);
         $file = file_save_data($data, 'public://' . $rand . '_' . $image['name'], FileSystemInterface::EXISTS_REPLACE);
-        /*$field_image[] = [
+        $field_image[] = [
           'target_id' => $file->id(),
           'alt' => $image['caption'],
           'title' => $image['caption'],
-        ];*/
+        ];
       }
     }
     $insert = [
