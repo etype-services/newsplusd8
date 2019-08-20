@@ -1,4 +1,8 @@
 /* Center column for tiempos theme */
+/* Bulma overrides */
+.column {
+  flex-basis: unset; }
+
 .layout-container {
   margin: 0.75rem; }
 
