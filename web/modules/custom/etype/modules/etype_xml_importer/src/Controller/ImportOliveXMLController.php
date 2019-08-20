@@ -300,7 +300,7 @@ class ImportOliveXMLController {
               }
             }
           }
-          $markup .= "eType XML Importer found $this->i articles to import in $entry.</p>";
+          $markup .= "eType XML Importer found " . $this->i . " articles to import in $entry.</p>";
           $t += $this->i;
         } /* end foreach $entry */
       }
