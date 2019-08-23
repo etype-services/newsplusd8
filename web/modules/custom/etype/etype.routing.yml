@@ -21,7 +21,7 @@ etype.admin_settings_form:
 etype.ada_fix:
   path: '/admin/config/etype/ada_fix'
   defaults:
-    _controller: '\Drupal\etype\Form\EtypeConfigForm'
+    _controller: '\Drupal\etype\Controller\ADAComplianceController'
     _title: 'Etype ADA Fix'
   requirements:
     _permission: 'access administration pages'
