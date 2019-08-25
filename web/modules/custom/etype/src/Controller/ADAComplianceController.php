@@ -36,6 +36,7 @@ class ADAComplianceController {
     $fixed = array_unique($fila);
 
     foreach ($fixed as $item) {
+      foreach ($mbd->query("SELECT `body_value` FROM $item.block_content__body WHERE `body_value` REGEXP '<iframe[^>]*>'") as $row) {
         $output .= var_export($row["body_value"], TRUE);
       }
     }
