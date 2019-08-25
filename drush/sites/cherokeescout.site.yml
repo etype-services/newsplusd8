@@ -1,0 +1,4 @@
+File: cherokeescout.site.yml
+prod:
+  root: /mnt/data/web/public/harold/drupal/web
+  uri: http://cherokeescout.etypegoogle7.com
