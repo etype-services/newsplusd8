@@ -23,7 +23,7 @@ class ADAComplianceController {
     $fila = [];
 
     try {
-      $mbd = new PDO('mysql:host=172.28.1.3', 'root', 'fF-N}^@h]uWpw%%>eL~#2o&[0}=;=',
+      $mbd = new PDO('mysql:host=172.28.1.3', 'dbadmin', 'BLJPX3pihAJA1AquXpWzGhaGCZxtxxAD',
       [
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_general_ci',
