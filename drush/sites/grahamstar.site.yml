@@ -1,0 +1,4 @@
+File: grahamstar.site.yml
+prod:
+  root: /mnt/data/web/public/harold/drupal/web
+  uri: http://grahamstar.etypegoogle7.com

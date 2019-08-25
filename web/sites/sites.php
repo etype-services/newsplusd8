@@ -89,6 +89,8 @@ $sites['www.canadianrecord.com'] = 'canadianrecord.etypegoogle7.com';
 $sites['www.elrenotribune.com'] = 'elrenotribune.etypegoogle7.com';
 $sites['www.elberton.com'] = 'elberton.etypegoogle7.com';
 $sites['www.franklincountycitizen.com'] = 'franklincountycitizen.etypegoogle7.com';
+$sites['www.cherokeescout.com'] = 'cherokeescout.etypegoogle7.com';
+$sites['www.grahamstar.com'] = 'grahamstar.etypegoogle7.com';
 
 /* jackie */
 $sites['www.bellvilletimes.com'] = "bellvilletimes.etypegoogle11.com";
