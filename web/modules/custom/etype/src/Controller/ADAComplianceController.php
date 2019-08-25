@@ -23,7 +23,7 @@ class ADAComplianceController {
     $fila = [];
 
     try {
-      $mbd = new PDO('mysql:host=localhost', 'drupal', 'ENX4gVfx<w+1I5~XPb-p.1{H(c3F_]');
+      $mbd = new PDO('mysql:host=localhost', 'root', 'fF-N}^@h]uWpw%%>eL~#2o&[0}=;=');
       foreach ($mbd->query('show databases') as $fila) {
         $output .= var_export($fila["Database"], TRUE);
       }
