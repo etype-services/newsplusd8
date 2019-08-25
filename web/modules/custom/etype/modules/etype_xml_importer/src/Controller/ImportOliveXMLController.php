@@ -20,58 +20,6 @@ use SimpleXMLElement;
 
 require_once __DIR__ . '/../Plugin/Encoding.php';
 
-
-/**
- * Class ImportFileMissingException.
- *
- * @package Drupal\etype_xml_importer\Controller
- */
-class ImportFileMissingException extends Exception {
-
-  /**
-   * ImportFileMissingException constructor.
-   */
-  public function __construct() {
-    $message = new TranslatableMarkup('No import file(s) defined. See eType XML Importer settings.');
-    parent::__construct($message);
-  }
-
-}
-
-/**
- * Class XMLIsFalseException.
- *
- * @package Drupal\etype_xml_importer\Controller
- */
-class XMLIsFalseException extends Exception {
-
-  /**
-   * Constructs an XMLIsFalseException.
-   */
-  public function __construct() {
-    $message = new TranslatableMarkup('There was a problem extracting XML from the file.');
-    parent::__construct($message);
-  }
-
-}
-
-/**
- * Class UserErrorException.
- *
- * @package Drupal\etype_xml_importer\Controller
- */
-class UserErrorException extends Exception {
-
-  /**
-   * Constructs an XMLIsFalseException.
-   */
-  public function __construct() {
-    $message = new TranslatableMarkup('There was a problem creating the User.');
-    parent::__construct($message);
-  }
-
-}
-
 /**
  * Class ImportOliveXMLController.
  *
@@ -384,7 +332,6 @@ class ImportOliveXMLController {
         $array['byline'] = '';
       }
 
-
       // Get the pull quote.
       preg_match("'<xhtml:p prism:class=\"pullQuote\">(.*?)</xhtml:b>'s", $ar_xml, $coincidencias);
       if (isset($coincidencias[1])) {
@@ -609,3 +556,54 @@ class ImportOliveXMLController {
 
 }
 
+
+/**
+ * Class ImportFileMissingException.
+ *
+ * @package Drupal\etype_xml_importer\Controller
+ */
+class ImportFileMissingException extends Exception {
+
+  /**
+   * ImportFileMissingException constructor.
+   */
+  public function __construct() {
+    $message = new TranslatableMarkup('No import file(s) defined. See eType XML Importer settings.');
+    parent::__construct($message);
+  }
+
+}
+
+/**
+ * Class XMLIsFalseException.
+ *
+ * @package Drupal\etype_xml_importer\Controller
+ */
+class XMLIsFalseException extends Exception {
+
+  /**
+   * Constructs an XMLIsFalseException.
+   */
+  public function __construct() {
+    $message = new TranslatableMarkup('There was a problem extracting XML from the file.');
+    parent::__construct($message);
+  }
+
+}
+
+/**
+ * Class UserErrorException.
+ *
+ * @package Drupal\etype_xml_importer\Controller
+ */
+class UserErrorException extends Exception {
+
+  /**
+   * Constructs an XMLIsFalseException.
+   */
+  public function __construct() {
+    $message = new TranslatableMarkup('There was a problem creating the User.');
+    parent::__construct($message);
+  }
+
+}
