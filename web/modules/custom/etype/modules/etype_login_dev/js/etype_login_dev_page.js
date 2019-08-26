@@ -11,7 +11,7 @@
             });
             $("#etype_login_e_edition").once("etypeloginPageBehavior").each(function (key, value) {
                 console.log(key);
-                $(this).attr("id", "etype_login_e_edition_" + e);
+                $(this).attr("id", "etype_login_e_edition_" + key);
             });
         }
     };
