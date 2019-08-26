@@ -27,6 +27,7 @@ function tiempos_preprocess_html(&$variables) {
 function tiempos_preprocess_page(&$variables) {;
   if (Drupal::service('path.matcher')->isFrontPage()) {
     $variables['#attached']['library'][] = 'tiempos/front_page_sections';
+    $variables['#attached']['library'][] = 'tiempos/special_sections';
   }
   $path = Drupal::service('path.current')->getPath();
   if (($path == "/classified") || (preg_match("/^\/taxonomy\/term\/.*$/", $path))) {
