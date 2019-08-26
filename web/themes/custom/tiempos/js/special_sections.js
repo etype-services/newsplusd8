@@ -2,9 +2,10 @@
     "use strict";
     Drupal.behaviors.tiemposSections = {
         attach: function (context, settings) {
+            /* Add aria-label to special sections image links for ada compliance */
             $(".view-special-sections .view-content div").once("tiemposSections").each(function () {
                 var text = $(this).children("a:nth-child(2)").html();
-                console.log(text);
+                $(this).children("a:nth-child(1)").attr("aria-label", text);
             });
         }
     };
