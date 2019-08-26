@@ -29,6 +29,8 @@ function getIEVersion() {
             /* Menu toggle. */
             $(".navbar-burger").once("tiemposBehavior").click(function () {
                 $(".navbar-start").toggleClass("is-really-invisible");
+                $(".user-menu").toggleClass("is-hidden-touch");
+                $("header").toggleClass("z-index-31");
             });
 
             /* Search form. (No ids because the form is repeated.) */

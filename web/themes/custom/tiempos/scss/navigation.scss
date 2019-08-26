@@ -4,6 +4,11 @@
  * Styles build on bulma nav component.
  */
 
+/* To show header */
+.z-index-31 {
+  z-index: 31;
+}
+
 #main-navbar-menu {
   justify-content: center;
   a {
