@@ -130,6 +130,12 @@
 
 /* Tablet */
 @media screen and (max-width: $desktop - 1px) {
+
+  /* To see Account Menu in pop-up */
+  header {
+    z-index: 31;
+  }
+
   #main-nav {
     .navbar {
       /* Make sure navbar completely hidden */
@@ -197,6 +203,14 @@
           }
         }
       }
+    }
+  }
+
+  .user-menu {
+    float: right;
+    width: 3rem;
+    .button {
+      width: 100%;
     }
   }
 }
