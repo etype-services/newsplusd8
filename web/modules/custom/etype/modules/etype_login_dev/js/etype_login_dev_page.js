@@ -10,10 +10,6 @@
             $('a[href*="/user/logout"]').click(function () {
                 Cookies.remove("redirectDestination");
             });
-            $("#etype_login_e_edition").each(function () {
-                $(this).attr("id", "etype_login_e_edition_" + key);
-                key += 1;
-            });
         }
     };
 })(jQuery, Drupal);
