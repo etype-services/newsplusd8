@@ -1,9 +1,10 @@
+/* Hide eType login link based on logged in status. */
 .user-logged-in a[data-drupal-link-system-path="etype-login"] {
   display: none!important;
   visibility: hidden;
 }
 
-/* Show or hide e-Edition link based on logged in status */
+/* Show or hide e-Edition link based on logged in status. */
 .user-logged-in #etype_login_e_edition {
   display: block;
   visibility: visible;
@@ -14,7 +15,7 @@
   visibility: hidden;
 }
 
-/* eType login Subscibe link */
+/* Hide eType login Subscibe link for logged-in users. */
 .user-logged-in #etype_login_subscribe {
   display: none;
   visibility: hidden;
