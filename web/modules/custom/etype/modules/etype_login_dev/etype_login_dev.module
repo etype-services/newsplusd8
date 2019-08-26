@@ -8,7 +8,7 @@
  */
 function etype_login_dev_page_attachments(array &$page) {
   $page['#attached']['library'][] = 'etype_login_dev/global-styling';
-  $page['#attached']['library'][] = 'etype_login_dev/etype_login_page';
+  $page['#attached']['library'][] = 'etype_login_dev/etype_login_dev_page';
 }
 
 /**

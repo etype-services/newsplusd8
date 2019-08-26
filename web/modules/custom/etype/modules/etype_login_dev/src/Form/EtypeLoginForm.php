@@ -1,7 +1,7 @@
 <?php
-
 namespace Drupal\etype_login_dev\Form;
 
+#ini_set("soap.wsdl_cache_enabled", "0");
 use Drupal;
 use Drupal\Core\Url;
 use Drupal\Core\Form\FormBase;
@@ -15,7 +15,6 @@ use SoapClient;
  * @package Drupal\etype_login\Form
  */
 class EtypeLoginForm extends FormBase {
-
   /**
    * Settings holder.
    *
@@ -24,7 +23,7 @@ class EtypeLoginForm extends FormBase {
   protected $config;
 
   /**
-   * EtypeLoginDevForm constructor.
+   * EtypeLoginForm constructor.
    */
   public function __construct() {
     $this->config = $config = Drupal::config('etype.adminsettings');
@@ -108,84 +107,65 @@ class EtypeLoginForm extends FormBase {
     $username = $form_state->getValue('username');
     $password = $form_state->getValue('password');
 
-    $pubId = (int) $this->config->get('etype_pub');
+    $pubId = $this->config->get('etype_pub');
+	$pubId = 2;
     $message = "We‘re sorry, either your user name or password is incorrect.";
     $success_message = "Hello $username, you are now logged in!";
 
-    $client = new soapclient('https://www.etypeservices.com/service_GetPublicationIDByUserName.asmx?WSDL');
-    $param = ['UserName' => $username];
-    $response = $client->GetPublicationID($param);
-    $code = $response->GetPublicationIDResult;
+	$client = new soapclient('http://etype.wecode4u.com/webservice.asmx?WSDL');
+	$param = ['publicationId' => $pubId];
+	$param['username'] = $username;
+	$param['password'] = $password;
+	$response = $client->ValidateSubscriber($param);
+	$validateSubscriberResult = $response->ValidateSubscriberResult;
+	$responseCode = $validateSubscriberResult->TransactionMessage->Message;
 
-    switch ($code) {
-      case "-9":
-        Drupal::messenger()->addMessage($message);
-        $form_state->setRebuild();
-        break;
+	switch ($responseCode) {
+		case "-1":
+		Drupal::messenger()->addMessage($message);
+		break;
 
-      case $pubId:
-        $param1 = $param;
-        $param['Password'] = $password;
-        $client = new soapclient('https://www.etypeservices.com/Service_SubscriberLogin.asmx?WSDL');
-        $response = $client->ValidateSubscriber($param);
-        $client1 = new soapclient('https://www.etypeservices.com/Get_EmailbyUserName.asmx?WSDL');
-        $response1 = $client1->GetSubscriberEmail($param1);
-        $validateSubscriberResult = $response->ValidateSubscriberResult;
-        $getSubscriberEmailResult = $response1->GetSubscriberEmailResult;
+		case "-2":
+		$message1 = "It looks like your subscription has expired. <a href='https://www.etypeservices.com/Subscriber/SignIn.aspx?ReturnUrl=https://www.etypeservices.com/Subscriber/ReSubscribe.aspx?PubID=$pubId'>Re-subscribe now!</a> .";
+		Drupal::messenger()->addMessage($message1);
+		break;
 
-        switch ($validateSubscriberResult) {
-          case "-1":
-            $message1 = "It looks like your subscription has expired. <a href='https://www.etypeservices.com/Subscriber/SignIn.aspx?ReturnUrl=https://www.etypeservices.com/Subscriber/ReSubscribe.aspx?PubID=$pubId'>Re-subscribe now!</a> .";
-            Drupal::messenger()->addMessage($message1);
-            break;
-
-          case "-5":
-            Drupal::messenger()->addMessage($message);
-            break;
-
-          default:
-            if (($user = user_load_by_mail($getSubscriberEmailResult)) === FALSE) {
-              $check = user_load_by_name($username);
-              if ($check == FALSE) {
-                $user = User::create();
-                $user->setPassword($password);
-                $user->enforceIsNew();
-                $user->setEmail($getSubscriberEmailResult);
-                $user->setUsername($username);
-                $user->activate();
-                $user->save();
-                user_login_finalize($user);
-                Drupal::messenger()->addMessage($success_message);
-              }
-              else {
-                $message = "We can‘t create an account for you on this website because the user name $username already exists in this system. Please email support@etypeservices.com for assistance.";
-                Drupal::messenger()->addMessage($message);
-              }
-            }
-            else {
-              $account = user_load_by_mail($getSubscriberEmailResult);
-              $user = User::load($account->id());
-              user_login_finalize($user);
-              Drupal::messenger()->addMessage($success_message);
-            }
-            // Clear cache to reset e-Edition links.
-            Drupal::cache('menu')->invalidateAll();
-            Drupal::service('plugin.manager.menu.link')->rebuild();
-            $redirectDestination = $base_url;
-            if (isset($_COOKIE["redirectDestination"])) {
-              $redirectDestination .= $_COOKIE["redirectDestination"];
-            }
-            $url = Url::fromUri($redirectDestination);
-            $form_state->setRedirectUrl($url);
-        }
-
-        break;
-
-      default:
-        $message = "We‘re sorry, something unexpected happened.";
-        Drupal::messenger()->addMessage($message);
-
-    }
+		default:
+		$subscriberEmail = $validateSubscriberResult->Email;
+		if (($user = user_load_by_mail($subscriberEmail)) === FALSE) {
+		  $check = user_load_by_name($username);
+		  if ($check == FALSE) {
+			$user = User::create();
+			$user->setPassword($password);
+			$user->enforceIsNew();
+			$user->setEmail($subscriberEmail);
+			$user->setUsername($username);
+			$user->activate();
+			$user->save();
+			user_login_finalize($user);
+			Drupal::messenger()->addMessage($success_message);
+		  }
+		  else {
+			$message = "We can‘t create an account for you on this website because the user name $username already exists in this system. Please email support@etypeservices.com for assistance.";
+			Drupal::messenger()->addMessage($message);
+		  }
+		}
+		else {
+		  $account = user_load_by_mail($subscriberEmail);
+		  $user = User::load($account->id());
+		  user_login_finalize($user);
+		  Drupal::messenger()->addMessage($success_message);
+		}
+		// Clear cache to reset e-Edition links.
+		Drupal::cache('menu')->invalidateAll();
+		Drupal::service('plugin.manager.menu.link')->rebuild();
+		$redirectDestination = $base_url;
+		if (isset($_COOKIE["redirectDestination"])) {
+		  $redirectDestination .= $_COOKIE["redirectDestination"];
+		}
+		$url = Url::fromUri($redirectDestination);
+		$form_state->setRedirectUrl($url);
+	}
   }
 
 }

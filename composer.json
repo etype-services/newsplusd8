@@ -29,6 +29,7 @@
     }
   ],
   "require": {
+    "ext-PDO": "^7.2",
     "ext-SimpleXML": "*",
     "ext-libxml": "*",
     "ext-soap": "*",
