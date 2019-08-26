@@ -9,7 +9,7 @@
             $('a[href*="/user/logout"]').click(function () {
                 Cookies.remove("redirectDestination");
             });
-            $("#etype_login_e_edition").once("etypeloginPageBehavior").each(function (key, value) {
+            $("#etype_login_e_edition").each(function (key, value) {
                 console.log(key);
                 $(this).attr("id", "etype_login_e_edition_" + key);
             });
