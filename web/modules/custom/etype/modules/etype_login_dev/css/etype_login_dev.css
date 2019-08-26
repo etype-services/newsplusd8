@@ -1,20 +1,9 @@
-
 .user-logged-in a[data-drupal-link-system-path="etype-login"] {
   display: none!important;
   visibility: hidden;
 }
 
 /* CSS rules to show or hide the two e-edition links based on logged in status */
-#etype_e_edition, .user-logged-in #etype_login_e_edition {
-  display: block;
-  visibility: visible;
-}
-
-#etype_login_e_edition, .user-logged-in #etype_e_edition {
-  display: none;
-  visibility: hidden;
-}
-
 #etype_e_edition, .user-logged-in #etype_login_e_edition {
   display: block;
   visibility: visible;
