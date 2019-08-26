@@ -23,7 +23,18 @@ class ADAComplianceController {
     $fila = [];
 
     try {
-      $mbd = new PDO('mysql:host=localhost', 'drupal', 'ENX4gVfx<w+1I5~XPb-p.1{H(c3F_]');
+      $mbd = new PDO('mysql:host=172.28.1.3:database=66hoursingrants', 'dbadmin', 'BLJPX3pihAJA1AquXpWzGhaGCZxtxxAD',
+      [
+        'charset' => 'utf8mb4',
+        'collation' => 'utf8mb4_general_ci',
+        'pdo' => [
+          PDO::MYSQL_ATTR_SSL_KEY => '/etc/mysql/certs/client-key.pem',
+          PDO::MYSQL_ATTR_SSL_CERT => '/etc/mysql/certs/client-cert.pem',
+          PDO::MYSQL_ATTR_SSL_CA => '/etc/mysql/certs/server-ca.pem',
+          PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => FALSE,
+        ],
+      ]
+      );
       foreach ($mbd->query('show databases') as $fila) {
         $output .= var_export($fila["Database"], TRUE);
       }

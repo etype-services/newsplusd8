@@ -1,5 +1,10 @@
 @import "./vars";
 
+/* Bulma overrides */
+.column {
+  flex-basis: unset;
+}
+
 .layout-container {
   margin: $column-gap;
 }

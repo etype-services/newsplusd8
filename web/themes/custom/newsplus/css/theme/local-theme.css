@@ -49,4 +49,13 @@ article .field--name-field-tags h3 {
   padding: 15px 0;
   margin: 0; }
 
+/* Lightbox images - make wider for long captions */
+.mfp-image-holder .mfp-content {
+  max-width: 100%;
+  width: 60%; }
+
+.premium_message {
+  margin-top: 1rem;
+  font-weight: bold; }
+
 /*# sourceMappingURL=local-theme.css.map */

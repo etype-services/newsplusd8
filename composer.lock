@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bad97bcd6fc86e671bc7f8103d255964",
+    "content-hash": "497534a1947a0a2cbb451f7e8308cfe3",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -12658,7 +12658,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "ext-pdo": "^7.2",
+        "ext-pdo": "^7.1",
         "ext-simplexml": "*",
         "ext-libxml": "*",
         "ext-soap": "*",

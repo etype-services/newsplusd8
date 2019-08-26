@@ -326,6 +326,12 @@ function newsplus_preprocess_maintenance_page(&$variables) {
  * Implements hook_preprocess_HOOK() for node.html.twig.
  */
 function newsplus_preprocess_node(&$variables) {
+
+  $config = Drupal::config('etype.adminsettings');
+  $variables['premium_content_message'] = $config->get('premium_content_message');
+  $variables['premium_preview'] = $config->get('premium_preview');
+  $variables['premium_content'] = $variables['node']->get('premium_content')->value;
+
   // Remove the "Add new comment" link on teasers or when the comment form is
   // displayed on the page.
   if ($variables['teaser'] || !empty($variables['content']['comments']['comment_form'])) {

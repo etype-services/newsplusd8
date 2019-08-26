@@ -1,8 +1,8 @@
 bulma:
-  version: 0.7.4
+  version: 0.7.5
   css:
     base:
-      node_modules/bulma/css/bulma.min.css: { weight: -10 }
+      node_modules/bulma-0.7.5/css/bulma.min.css: { weight: -10 }
 
 global-styling:
   version: VERSION
@@ -97,6 +97,11 @@ front_page_sections:
   version: VERSION
   js:
     js/front_page_sections.js: {}
+
+special_sections:
+  version: VERSION
+  js:
+    js/special_sections.js: {}
 
 classified:
   version: VERSION

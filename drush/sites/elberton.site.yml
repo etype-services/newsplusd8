@@ -1,0 +1,4 @@
+File: elberton.site.yml
+prod:
+  root: /mnt/data/web/public/harold/drupal/web
+  uri: http://elberton.etypegoogle7.com
