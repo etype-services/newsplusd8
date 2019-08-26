@@ -32,7 +32,7 @@ function getIEVersion() {
                 $(".user-menu").toggleClass("is-hidden-touch");
                 $("header").toggleClass("z-index-31");
                 $(".region-header-left").toggleClass("is-hidden-touch");
-                $(".region-header-right").toggleClass("is-hidden-touch");
+                $(".region-header-center").toggleClass("is-hidden-touch");
             });
 
             /* Search form. (No ids because the form is repeated.) */
