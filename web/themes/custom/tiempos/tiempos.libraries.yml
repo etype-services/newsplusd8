@@ -103,6 +103,11 @@ special_sections:
   js:
     js/special_sections.js: {}
 
+special_sections_page:
+  version: VERSION
+  js:
+    js/special_sections_page.js: {}
+
 classified:
   version: VERSION
   js:
