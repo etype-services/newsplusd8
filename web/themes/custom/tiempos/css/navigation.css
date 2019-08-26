@@ -98,10 +98,6 @@
 
 /* Tablet */
 @media screen and (max-width: 1087px) {
-  /* To see Account Menu in pop-up */
-  header {
-    z-index: 31; }
-
   #main-nav .navbar {
     /* Make sure navbar completely hidden */
     min-height: 0;
@@ -150,13 +146,7 @@
       #main-nav .navbar .navbar-end a {
         margin-left: 0.5rem; }
         #main-nav .navbar .navbar-end a .is-size-3 {
-          font-size: 1.5rem !important; }
-
-  .user-menu {
-    float: right;
-    width: 3rem; }
-    .user-menu .button {
-      width: 100%; } }
+          font-size: 1.5rem !important; } }
 /* Move menus below admin toolbar. */
 .toolbar-fixed .navbar-start, .toolbar-vertical .navbar-start {
   margin-top: 39px; }
