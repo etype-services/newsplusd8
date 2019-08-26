@@ -98,6 +98,11 @@ front_page_sections:
   js:
     js/front_page_sections.js: {}
 
+spaecial_sections:
+  version: VERSION
+  js:
+    js/special_sections.js: {}
+
 classified:
   version: VERSION
   js:
