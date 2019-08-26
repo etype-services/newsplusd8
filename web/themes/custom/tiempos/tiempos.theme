@@ -33,9 +33,6 @@ function tiempos_preprocess_page(&$variables) {;
   if (($path == "/classified") || (preg_match("/^\/taxonomy\/term\/.*$/", $path))) {
     $variables['#attached']['library'][] = 'tiempos/classified';
   }
-  if ($path == "/special-sections") {
-    $variables['#attached']['library'][] = 'tiempos/special_sections';
-  }
 }
 
 /**
