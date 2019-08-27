@@ -196,18 +196,12 @@
   /* Move menus below admin toolbar. */
   .toolbar-fixed, .toolbar-vertical {
     .navbar-start {
-      margin-top: 39px;
-      .block-system-branding-block {
-        margin-top: 39px;
-      }
+      margin-top: 20px;
     }
   }
   .toolbar-fixed.toolbar-horizontal.toolbar-tray-open {
     .navbar-start {
-      margin-top: 79px;
-      .block-system-branding-block {
-        margin-top: 79px;
-      }
+      margin-top: 60px;
     }
   }
 }
