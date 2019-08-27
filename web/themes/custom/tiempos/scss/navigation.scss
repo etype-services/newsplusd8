@@ -220,7 +220,7 @@
 
 /* Move menus below admin toolbar. */
 .toolbar-fixed, .toolbar-vertical {
-  .navbar-start {
+  header, .navbar-start {
     margin-top: 39px;
     .block-system-branding-block {
       margin-top: 39px;
@@ -228,7 +228,7 @@
   }
 }
 .toolbar-fixed.toolbar-horizontal.toolbar-tray-open {
-  .navbar-start {
+  header, .navbar-start {
     margin-top: 79px;
     .block-system-branding-block {
       margin-top: 79px;

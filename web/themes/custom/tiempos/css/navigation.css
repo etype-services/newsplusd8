@@ -161,14 +161,14 @@
         #main-nav .navbar .navbar-end a .is-size-3 {
           font-size: 1.5rem !important; } }
 /* Move menus below admin toolbar. */
-.toolbar-fixed .navbar-start, .toolbar-vertical .navbar-start {
+.toolbar-fixed header, .toolbar-fixed .navbar-start, .toolbar-vertical header, .toolbar-vertical .navbar-start {
   margin-top: 39px; }
-  .toolbar-fixed .navbar-start .block-system-branding-block, .toolbar-vertical .navbar-start .block-system-branding-block {
+  .toolbar-fixed header .block-system-branding-block, .toolbar-fixed .navbar-start .block-system-branding-block, .toolbar-vertical header .block-system-branding-block, .toolbar-vertical .navbar-start .block-system-branding-block {
     margin-top: 39px; }
 
-.toolbar-fixed.toolbar-horizontal.toolbar-tray-open .navbar-start {
+.toolbar-fixed.toolbar-horizontal.toolbar-tray-open header, .toolbar-fixed.toolbar-horizontal.toolbar-tray-open .navbar-start {
   margin-top: 79px; }
-  .toolbar-fixed.toolbar-horizontal.toolbar-tray-open .navbar-start .block-system-branding-block {
+  .toolbar-fixed.toolbar-horizontal.toolbar-tray-open header .block-system-branding-block, .toolbar-fixed.toolbar-horizontal.toolbar-tray-open .navbar-start .block-system-branding-block {
     margin-top: 79px; }
 
 /*# sourceMappingURL=navigation.css.map */
