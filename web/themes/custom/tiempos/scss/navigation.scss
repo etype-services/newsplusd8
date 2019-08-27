@@ -107,6 +107,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        max-width: 30%;
       }
       /* The logo. */
       .block-system-branding-block {
@@ -120,6 +121,9 @@
             width: 30vw;
           }
         }
+      }
+      .block-search {
+        max-width: 30%;
       }
     }
     .navbar-end {
