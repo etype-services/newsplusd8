@@ -185,9 +185,28 @@
   .user-menu {
     float: right;
   }
+
   /* Close X in front of user menu */
   .region-navigation {
     z-index: 32;
+  }
+
+  /* Move menus below admin toolbar. */
+  .toolbar-fixed, .toolbar-vertical {
+    header, .navbar-start {
+      margin-top: 39px;
+      .block-system-branding-block {
+        margin-top: 39px;
+      }
+    }
+  }
+  .toolbar-fixed.toolbar-horizontal.toolbar-tray-open {
+    header, .navbar-start {
+      margin-top: 79px;
+      .block-system-branding-block {
+        margin-top: 79px;
+      }
+    }
   }
 }
 
@@ -214,24 +233,6 @@
           }
         }
       }
-    }
-  }
-}
-
-/* Move menus below admin toolbar. */
-.toolbar-fixed, .toolbar-vertical {
-  header, .navbar-start {
-    margin-top: 39px;
-    .block-system-branding-block {
-      margin-top: 39px;
-    }
-  }
-}
-.toolbar-fixed.toolbar-horizontal.toolbar-tray-open {
-  header, .navbar-start {
-    margin-top: 79px;
-    .block-system-branding-block {
-      margin-top: 79px;
     }
   }
 }
