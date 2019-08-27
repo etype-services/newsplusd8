@@ -6,7 +6,7 @@
 
 /* To show header */
 .z-index-31 {
-  z-index: 31;
+  z-index: 35;
   float: right;
   width: fit-content;
   max-width: 30%; /* IE & Edge */
@@ -107,7 +107,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        max-width: 30%;
       }
       /* The logo. */
       .block-system-branding-block {
@@ -123,7 +122,6 @@
         }
       }
       .block-search {
-        max-width: 30%;
       }
     }
     .navbar-end {

@@ -22,26 +22,30 @@
 <nav role="navigation" id="main-nav" aria-label="user navigation" class="column">
     <div class="navbar">
         {# .navbar-start contains the menu that shows up when the hamburger is clicked #}
-        <div class="navbar-start is-really-invisible">
+        <div class="navbar-start is-really-invisible columns">
             {# Add the "User" Menu to show in pop-up div #}
             {# drupal_block('system_menu_block:account') #}
             {# The hamburger #}
-            <a role="button" class="navbar-burger is-active" aria-label="menu" aria-expanded="false"><i class="fas fa-times"></i></a>
-            {# Search block #}
-            {{ drupal_block('search_form_block') }}
-            {# Main menu items with separate macro for sub-links, we don't want all the dropdown classes #}
-            {% for item in items %}
-                {{ link(item.title, item.url, { 'class':['navbar-item'] }) }}
-                {% if item.below %}
-                    {{ menus.submenu_links(item.below) }}
-                {% endif %}
-            {% endfor %}
-            {% macro submenu_links(items) %}
+            <div class="column">
+                <a role="button" class="navbar-burger is-active" aria-label="menu" aria-expanded="false"><i class="fas fa-times"></i></a>
+                {# Search block #}
+                {{ drupal_block('search_form_block') }}
+                {# Main menu items with separate macro for sub-links, we don't want all the dropdown classes #}
                 {% for item in items %}
                     {{ link(item.title, item.url, { 'class':['navbar-item'] }) }}
+                    {% if item.below %}
+                        {{ menus.submenu_links(item.below) }}
+                    {% endif %}
                 {% endfor %}
-            {% endmacro %}
-            {{ drupal_block('system_branding_block', {use_site_name: false}) }}
+                {% macro submenu_links(items) %}
+                    {% for item in items %}
+                        {{ link(item.title, item.url, { 'class':['navbar-item'] }) }}
+                    {% endfor %}
+                {% endmacro %}
+            </div>
+            <div class="column">
+                {{ drupal_block('system_branding_block', {use_site_name: false}) }}
+            </div>
         </div>
         {# Main menu shown at width, uses bulma dropdown classes#}
         <div id="main-navbar-menu" class="navbar-menu has-text-weight-semibold">
