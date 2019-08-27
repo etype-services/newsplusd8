@@ -2,16 +2,6 @@
 /**
  * Styles build on bulma nav component.
  */
-/* To show header in moble menu */
-.z-index-fix {
-  z-index: 35;
-  float: right;
-  width: fit-content;
-  max-width: 30%;
-  /* IE & Edge */
-  position: fixed;
-  right: 0; }
-
 #main-navbar-menu {
   justify-content: center; }
   #main-navbar-menu a {
@@ -151,7 +141,17 @@
     margin-top: 20px; }
 
   .toolbar-fixed.toolbar-horizontal.toolbar-tray-open .navbar-start {
-    margin-top: 60px; } }
+    margin-top: 60px; }
+
+  /* To show header in moble menu */
+  .z-index-fix {
+    z-index: 35;
+    float: right;
+    width: fit-content;
+    max-width: 30%;
+    /* IE & Edge */
+    position: fixed;
+    right: 0; } }
 /* Mobile */
 @media screen and (max-width: 768px) {
   #main-nav .navbar {
