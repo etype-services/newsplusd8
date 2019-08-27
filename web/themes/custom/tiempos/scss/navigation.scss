@@ -41,6 +41,7 @@
   .button, .button:first-child {
     margin-left: 0.5rem;
     margin-right: 0;
+    display: flex;
   }
 }
 
@@ -176,6 +177,9 @@
         z-index: -1; // Prevent display in "pop-up" menu
       }
     }
+  }
+  .user-menu {
+    float: right;
   }
 }
 

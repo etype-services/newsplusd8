@@ -28,7 +28,8 @@
 /* User Menu */
 .user-menu .button, .user-menu .button:first-child {
   margin-left: 0.5rem;
-  margin-right: 0; }
+  margin-right: 0;
+  display: flex; }
 
 .footer-menu {
   display: flex;
@@ -133,7 +134,10 @@
       top: -2.6rem;
       right: 0;
       margin-right: 0;
-      z-index: -1; } }
+      z-index: -1; }
+
+  .user-menu {
+    float: right; } }
 /* Mobile */
 @media screen and (max-width: 768px) {
   #main-nav .navbar {
