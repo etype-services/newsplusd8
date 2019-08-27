@@ -23,10 +23,8 @@
     <div class="navbar">
         {# .navbar-start contains the menu that shows up when the hamburger is clicked #}
         <div class="navbar-start is-really-invisible columns">
-            {# Add the "User" Menu to show in pop-up div #}
-            {# drupal_block('system_menu_block:account') #}
-            {# The hamburger #}
             <div class="column">
+                {# The hamburger #}
                 <a role="button" class="navbar-burger is-active" aria-label="menu" aria-expanded="false"><i class="fas fa-times"></i></a>
                 {# Search block #}
                 {{ drupal_block('search_form_block') }}
