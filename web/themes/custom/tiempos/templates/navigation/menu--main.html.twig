@@ -29,7 +29,7 @@
                 {# Search block #}
                 {{ drupal_block('search_form_block') }}
                 <div id="mobile-nav">
-                    {# Main menu items with separate macro for sub-links, we don't want all the dropdown classes #}
+                    {# Main menu items with separate macro for sub-links, as we don't want all the dropdown classes #}
                     {% for item in items %}
                         {{ link(item.title, item.url, { 'class':['navbar-item'] }) }}
                         {% if item.below %}
