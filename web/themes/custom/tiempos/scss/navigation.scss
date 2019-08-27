@@ -4,12 +4,14 @@
  * Styles build on bulma nav component.
  */
 
-/* To show header */
+/* To show header in moble menu */
 .z-index-fix {
   z-index: 35;
   float: right;
   width: fit-content;
   max-width: 30%; /* IE & Edge */
+  position: fixed;
+  right: 0;
 }
 
 #main-navbar-menu {
