@@ -7,6 +7,9 @@
 /* To show header */
 .z-index-31 {
   z-index: 31;
+  float: right;
+  width: fit-content;
+  max-width: 30%; /* IE & Edge */
 }
 
 #main-navbar-menu {
@@ -112,7 +115,6 @@
         top: calc(#{$column-gap} * 2);
         margin: auto;
         width: 100%;
-        z-index: -1;
         .site-logo {
           img {
             width: 30vw;
@@ -180,6 +182,10 @@
   }
   .user-menu {
     float: right;
+  }
+  /* Close X in front of user menu */
+  .region-navigation {
+    z-index: 32;
   }
 }
 

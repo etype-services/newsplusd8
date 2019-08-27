@@ -4,7 +4,11 @@
  */
 /* To show header */
 .z-index-31 {
-  z-index: 31; }
+  z-index: 31;
+  float: right;
+  width: fit-content;
+  max-width: 30%;
+  /* IE & Edge */ }
 
 #main-navbar-menu {
   justify-content: center; }
@@ -87,8 +91,7 @@
       position: absolute;
       top: calc(0.75rem * 2);
       margin: auto;
-      width: 100%;
-      z-index: -1; }
+      width: 100%; }
       #main-nav .navbar .navbar-start .block-system-branding-block .site-logo img {
         width: 30vw; }
   #main-nav .navbar .navbar-end {
@@ -137,7 +140,11 @@
       z-index: -1; }
 
   .user-menu {
-    float: right; } }
+    float: right; }
+
+  /* Close X in front of user menu */
+  .region-navigation {
+    z-index: 32; } }
 /* Mobile */
 @media screen and (max-width: 768px) {
   #main-nav .navbar {
