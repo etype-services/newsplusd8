@@ -9,7 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto; }
+    margin: auto 0 auto; }
     .block-date-block .navbar-burger span {
       height: 2px; }
   .block-date-block .block-search [data-drupal-selector=search-block-form] {
