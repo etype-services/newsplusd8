@@ -65,5 +65,8 @@
     position: absolute;
     top: 70px;
     right: 10px; } }
+@media screen and (min-width: 1088px) {
+  .region-header-left, .region-header-right {
+    flex-basis: 20%; } }
 
 /*# sourceMappingURL=regions.css.map */
