@@ -1,12 +1,10 @@
 <?php
 
-namespace Drupal\etype_password_reset\Form;
+namespace Drupal\etype_login_dev\Form;
 
 use Drupal;
-use Drupal\Core\Url;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\user\Entity\User;
 use SoapClient;
 
 /**
