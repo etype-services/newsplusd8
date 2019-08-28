@@ -68,6 +68,7 @@
 @media screen and (min-width: 1088px) {
   /* Center logo, prevent search input from shifting logo */
   .region-header-left, .region-header-right {
-    flex-basis: 20%; } }
+    flex-basis: 20%;
+    flex-shrink: 0; } }
 
 /*# sourceMappingURL=regions.css.map */
