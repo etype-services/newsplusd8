@@ -254,9 +254,9 @@ class ImportOliveXMLController {
       }
     }
 
-    $message = 'eType XML Importer imported $t articles.';
+    $message = "eType XML Importer imported $t articles.";
     $markup .= "<p>$message</p>";
-    Drupal::logger('my_module')->notice($message);
+    Drupal::logger('etype_xml_importer')->notice($message);
     return ['#markup' => $markup];
   }
 
