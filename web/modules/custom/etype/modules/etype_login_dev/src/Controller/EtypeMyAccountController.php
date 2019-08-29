@@ -14,7 +14,7 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
 class EtypeMyAccountController extends ControllerBase {
 
   /**
-   * Returns a render-able array.
+   * Returns a renderable array.
    */
   public function content() {
 
