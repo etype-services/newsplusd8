@@ -254,9 +254,9 @@ class ImportOliveXMLController {
       }
     }
 
-    $message = 'eType XML Importer imported $t articles.';
+    $message = "eType XML Importer imported $t articles.";
     $markup .= "<p>$message</p>";
-    Drupal::logger('my_module')->notice($message);
+    Drupal::logger('etype_xml_importer')->notice($message);
     return ['#markup' => $markup];
   }
 
@@ -464,10 +464,11 @@ class ImportOliveXMLController {
         // Create file object from remote URL.
         $data = file_get_contents($image['path']);
         $file = file_save_data($data, 'public://' . $rand . '_' . $image['name'], FileSystemInterface::EXISTS_REPLACE);
+        $caption = empty($image['caption']) ? "Alt Text for Image" : $image['caption'];
         $field_image[] = [
           'target_id' => $file->id(),
-          'alt' => $image['caption'],
-          'title' => $image['caption'],
+          'alt' => $caption,
+          'title' => $caption,
         ];
       }
     }
