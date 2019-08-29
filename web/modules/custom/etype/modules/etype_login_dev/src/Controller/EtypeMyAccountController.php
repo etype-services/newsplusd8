@@ -22,7 +22,8 @@ class EtypeMyAccountController extends ControllerBase {
     $config = Drupal::config('etype.adminsettings');
     $pubId = (int) $config->get('etype_pub');
     $build = [
-      '#children' => "<iframe src='http://etype.wecode4u.com/SubscribersProfile.aspx?pid=" . $pubId . "&uid=" . $user_name . "' width='100%' height='600' scrolling='vertical' title='My Account Update Form'></iframe>",
+      #'#children' => "<iframe src='http://etype.wecode4u.com/subscriber-account?pubId=" . $pubId . "&username=" . $user_name . "' width='100%' height='600' scrolling='vertical' title='My Account Update Form'></iframe>",
+      '#children' => "<iframe src='http://www.wecode4u.com/' width='100%' height='600' scrolling='vertical' title='My Account Update Form'></iframe>",
     ];
     return $build;
   }
