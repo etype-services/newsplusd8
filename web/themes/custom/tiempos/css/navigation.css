@@ -151,7 +151,9 @@
     max-width: 30%;
     /* IE & Edge */
     position: fixed;
-    right: 0; } }
+    right: 0; }
+    .z-index-fix.region-top-bar {
+      margin-right: 0.75rem; } }
 /* Mobile */
 @media screen and (max-width: 768px) {
   #main-nav .navbar {
