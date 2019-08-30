@@ -30,7 +30,7 @@ function getIEVersion() {
             $(".navbar-burger").once("tiemposBehavior").click(function () {
                 $(".navbar-start").toggleClass("is-really-invisible");
                 $(".user-menu, .region-header-left, .region-header-center").toggleClass("is-hidden-touch");
-                $("header").toggleClass("z-index-fix");
+                $("header, .region-top-bar").toggleClass("z-index-fix");
             });
 
             /* Search form. (No ids because the form is repeated.) */
