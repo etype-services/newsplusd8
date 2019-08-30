@@ -53,7 +53,12 @@
 
 @media screen and (min-width: 1088px) {
   .user-menu {
-    justify-content: flex-end; } }
+    justify-content: flex-end; }
+
+  .region-header-right .user-menu {
+    flex-wrap: wrap; }
+    .region-header-right .user-menu .button {
+      width: 9rem; } }
 /* Default (Wide Screen) Desktop */
 #main-nav .navbar {
   border-top: 1px solid #b5b5b5;
