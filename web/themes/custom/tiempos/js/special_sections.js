@@ -7,7 +7,7 @@
             $(".view-special-sections .view-content div").once("tiemposSections").each(function () {
                 text = $(this).children("a:nth-child(2)").html();
                 console.log(text);
-                if (text === "") {
+                if (text === undefined) {
                     text = $(this).children("a:nth-child(1)").attr("title", text);
                 }
                 $(this).children("a:nth-child(1)").attr("aria-label", text);
