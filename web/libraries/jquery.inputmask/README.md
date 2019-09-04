@@ -1,6 +1,6 @@
 # Inputmask
 
-Copyright (c) 2010 - 2018 Robin Herbots Licensed under the MIT license ([http://opensource.org/licenses/mit-license.php](http://opensource.org/licenses/mit-license.php))
+Copyright (c) 2010 - 2019 Robin Herbots Licensed under the MIT license ([http://opensource.org/licenses/mit-license.php](http://opensource.org/licenses/mit-license.php))
 
 [![donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZNR3EB6JTMMSS)
 
@@ -47,34 +47,21 @@ You can choose between:
 ### Classic web with <script\> tag
 Include the js-files which you can find in the `dist` folder.
 
-If you want to include the Inputmask and all extensions. (with jQuery as dependencylib)
+Inputmask with jQuery as dependencylib.
 ```html
 <script src="jquery.js"></script>
-<script src="dist/jquery.inputmask.bundle.js"></script>
-```
-For individual extensions. (with jQuery as dependencylib)
-```html
-<script src="jquery.js"></script>
-<script src="dist/inputmask/inputmask.js"></script>
-<script src="dist/inputmask/inputmask.extensions.js"></script>
-<script src="dist/inputmask/inputmask.numeric.extensions.js"></script>
-<script src="dist/inputmask/inputmask.date.extensions.js"></script>
-<script src="dist/inputmask/jquery.inputmask.js"></script>
+<script src="dist/jquery.inputmask.js"></script>
 ```
 
-For individual extensions. (with vanilla dependencylib)
+Inputmask with vanilla dependencylib.
 ```html
-<script src="dist/inputmask/dependencyLibs/inputmask.dependencyLib.js"></script>
-<script src="dist/inputmask/inputmask.js"></script>
-<script src="dist/inputmask/inputmask.extensions.js"></script>
-<script src="dist/inputmask/inputmask.numeric.extensions.js"></script>
-<script src="dist/inputmask/inputmask.date.extensions.js"></script>
+<script src="dist/inputmask.js"></script>
 ```
 
 If you like to automatically bind the inputmask to the inputs marked with the data-inputmask- ... attributes you may also want to include the inputmask.binding.js
 
 ```html
-<script src="dist/inputmask/bindings/inputmask.binding.js"></script>
+<script src="dist/bindings/inputmask.binding.js"></script>
 ```
 
 ### webpack
@@ -97,17 +84,16 @@ var Inputmask = require('inputmask');
 //es6
 import Inputmask from "inputmask";
 ```
-
 For individual extensions.
 Every extension exports the Inputmask, so you only need to import the extensions.
 See example.
 ```
-require("inputmask/dist/inputmask/inputmask.numeric.extensions");
-var Inputmask = require("inputmask/dist/inputmask/inputmask.date.extensions");
+require("inputmask/lib/extensions/inputmask.numeric.extensions");
+var Inputmask = require("inputmask/lib/extensions/inputmask.date.extensions");
 
 //es6
-import "inputmask/dist/inputmask/inputmask.numeric.extensions";
-import Inputmask from "inputmask/dist/inputmask/inputmask.date.extensions";
+import "inputmask/lib/extensions/inputmask.numeric.extensions";
+import Inputmask from "inputmask/lib/extensions/inputmask.date.extensions";
 ```
 
 #### Selecting the dependencyLib
@@ -122,7 +108,6 @@ by creating an alias in the webpack.config.
     },
 ```
 ## Usage
-
 ### via Inputmask class
 
 ```javascript
@@ -185,6 +170,7 @@ $(document).ready(function(){
 - `<input type="text">`
 - `<input type="search">`
 - `<input type="tel">`
+- `<input type="url">`
 - `<input type="password">`
 - `<div contenteditable="true">` (and all others supported by contenteditable)
 - `<textarea>`
@@ -367,12 +353,15 @@ The return value of a validator can be true,  false or a command object.
   - pos or [pos1, pos2]
 
 - insert : position(s) to add :
-  - { pos : position to insert, c : character to insert }
-  - [{ pos : position to insert, c : character to insert }, { ...}, ... ]
+  - { pos : position to insert, c : character to insert, fromIsValid : true/false, strict : true/false }
+  - [{ pos : position to insert, c : character to insert, fromIsValid : true/false, strict : true/false }, { ...}, ... ]
+  
+  fromIsValid & strict 
 
 - refreshFromBuffer :
   - true => refresh validPositions from the complete buffer
   - { start: , end: } => refresh from start to end
+- rewritePosition: rewrite the maskPos within the isvalid function
 
 ### definitionSymbol
 When you insert or delete characters, they are only shifted when the definition type is the same.  This behavior can be overridden by giving a definitionSymbol. (see example x, y, z, which can be used for ip-address masking, the validation is different, but it is allowed to shift the characters between the definitions)
@@ -1024,7 +1013,7 @@ $(selector).inputmask({
 Hook to postValidate the result from isValid.  Usefull for validating the entry as a whole.  Args => buffer, pos, currentResult, opts<br>Return => true|false|command object
 
 ### preValidation
-Hook to preValidate the input.  Useful for validating regardless the definition. Args => buffer, pos, char, isSelection, opts => return true/false/command object
+Hook to preValidate the input.  Useful for validating regardless the definition. Args => buffer, pos, char, isSelection, opts, maskset, caretPos => return true/false/command object
 When return true, the normal validation kicks in, otherwise it is skipped.
 
 ### staticDefinitionSymbol
@@ -1116,6 +1105,17 @@ If you don't use data attributes you can disable the import by specifying import
 
 
 Default: true
+
+### shiftPositions
+Alter the behavior of the char shifting on entry or deletion.
+
+In some cases shifting the mask entries or deletion should be more restrictive.  
+Ex. date masks.  Shifting month to day makes no sense
+
+Default: true
+
+true = shift on the "def" match
+false = shift on the "nativeDef" match
 
 ## General
 ### set a value and apply mask
@@ -1229,9 +1229,12 @@ $(document).ready(function(){
 ```
 
 ## jQuery.clone
-When cloning a inputmask, the inputmask reactivates on the first event (mouseenter, focus, ...) that happens to the input. If you want to set a value on the cloned inputmask and you want to directly reactivate the masking you have to use $(input).inputmask("setvalue", value)
+When cloning a inputmask, the inputmask reactivates on the first event (mouseenter, focus, ...) that happens to the input. If you want to set a value on the cloned inputmask and you want to directly reactivate the masking you have to use $(input).inputmask("setvalue", value)  
 
-# jquery.inputmask extensions
+Be sure to pass true in the jQuery.clone fn to clone with data and events and use jQuery as dependencyLib
+(https://api.jquery.com/clone/)
+
+# Extensions
 ## [date & datetime extensions](README_date.md)
 ## [numeric extensions](README_numeric.md)
 ## [other extensions](README_other.md)

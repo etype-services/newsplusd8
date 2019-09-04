@@ -18,7 +18,7 @@ etype_login_dev.account:
   path: '/etype-my-account'
   defaults:
     _title: 'My Account'
-    _form: '\Drupal\etype_login_dev\Form\EtypeMyAccountForm'
+    _controller: '\Drupal\etype_login_dev\Controller\EtypeMyAccountController::content'
   requirements:
     _user_is_logged_in: 'TRUE'
 

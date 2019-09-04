@@ -7,7 +7,7 @@ img {
 }
 
 .columns {
-  display: block!important;
+  /* display: block!important; removed seems to be fixed Agosto 2019 */
 }
 
 .front-page-sections .view-content, #block-views-block-business-directory-block-1 .view-content, #block-views-block-special-sections-block-1 .view-content {

@@ -1,45 +1,33 @@
-
+/* Hide eType login link based on logged in status. */
 .user-logged-in a[data-drupal-link-system-path="etype-login"] {
   display: none!important;
   visibility: hidden;
 }
 
-/* CSS rules to show or hide the two e-edition links based on logged in status */
-#etype_e_edition, .user-logged-in #etype_login_e_edition {
+/* Show or hide e-Edition link based on logged in status. */
+.user-logged-in #etype_login_e_edition {
   display: block;
   visibility: visible;
 }
 
-#etype_login_e_edition, .user-logged-in #etype_e_edition {
+#etype_login_e_edition {
   display: none;
   visibility: hidden;
 }
 
-#etype_e_edition, .user-logged-in #etype_login_e_edition {
-  display: block;
-  visibility: visible;
-}
-
-#etype_login_e_edition, .user-logged-in #etype_e_edition {
-  display: none;
-  visibility: hidden;
-}
-
-/* CSS rules for etype login Subscibe link */
+/* Hide eType login Subscibe link for logged-in users. */
 .user-logged-in #etype_login_subscribe {
   display: none;
   visibility: hidden;
 }
 
 @media screen and (max-width: 1087px) {
-  #main-nav .navbar .navbar-start .navbar-menu .button#etype_e_edition,
-  .user-logged-in #main-nav .navbar .navbar-start .navbar-menu .button#etype_login_e_edition{
+  .user-logged-in #main-nav .navbar .navbar-start .navbar-menu .button#etype_login_e_edition {
     display: block;
     visibility: visible;
   }
 
-  .user-logged-in #main-nav .navbar .navbar-start .navbar-menu .button#etype_e_edition,
-  #main-nav .navbar .navbar-start .navbar-menu .button#etype_login_e_edition{
+  #main-nav .navbar .navbar-start .navbar-menu .button#etype_login_e_edition {
     display: none;
     visibility: hidden;
   }

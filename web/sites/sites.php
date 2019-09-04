@@ -56,11 +56,16 @@
  * @see https://www.drupal.org/documentation/install/multi-site
  */
 
+/* testing */
 $sites['newsplusd8.local'] = 'newsplusd8.etypegoogle7.com';
-# for *drall* updates
+$sites['www.etypetest.com'] = 'etype.etypegoogle7.com';
+$sites['etypetest.com'] = 'etype.etypegoogle7.com';
+
+/* for *drall* updates */
 $sites['cni.etypegoogle7.com'] = "cni.etypegoogle7.com";
 $sites['tiempos.etypegoogle7.com'] = "tiempos.etypegoogle7.com";
 
+/* main section */
 $sites['www.bayoujournal.com'] = 'bayoujournal.etypegoogle7.com';
 $sites['www.bayoupioneer.com'] = 'bayoujournal.etypegoogle7.com';
 $sites['www.giddingstimes.com'] = "giddingstimes.etypegoogle7.com";
@@ -91,6 +96,9 @@ $sites['www.elberton.com'] = 'elberton.etypegoogle7.com';
 $sites['www.franklincountycitizen.com'] = 'franklincountycitizen.etypegoogle7.com';
 $sites['www.cherokeescout.com'] = 'cherokeescout.etypegoogle7.com';
 $sites['www.grahamstar.com'] = 'grahamstar.etypegoogle7.com';
+$sites['www.lcnok.com'] = 'lcnok.etypegoogle7.com';
+$sites['www.jdcmountaindispatch.com'] = 'jdcmountaindispatch.etypegoogle7.com';
+$sites['www.okcfriday.com'] = 'okcfriday.etypegoogle7.com';
 
 /* jackie */
 $sites['www.bellvilletimes.com'] = "bellvilletimes.etypegoogle11.com";

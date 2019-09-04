@@ -1,8 +1,7 @@
 /* Center column for tiempos theme */
 /* Top left "Date" block. */
 .block-date-block {
-  width: fit-content;
-  text-align: center; }
+  width: fit-content; }
   .block-date-block div {
     width: auto; }
   .block-date-block .navbar-burger {
@@ -10,7 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto; }
+    margin: auto 0 auto; }
     .block-date-block .navbar-burger span {
       height: 2px; }
   .block-date-block .block-search [data-drupal-selector=search-block-form] {

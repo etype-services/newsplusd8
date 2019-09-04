@@ -36,6 +36,7 @@
   .button, .button:first-child {
     margin-left: 0.5rem;
     margin-right: 0;
+    display: flex;
   }
 }
 
@@ -73,14 +74,26 @@
   .user-menu {
     justify-content: flex-end;
   }
+  .region-header-right {
+    .user-menu {
+      flex-wrap: wrap;
+      .button {
+        width: 9rem;
+      }
+    }
+  }
 }
 
 /* Default (Wide Screen) Desktop */
 #main-nav {
   .navbar {
     @include border-top-bottom-light;
+
     /* navbar-start is only shown when hamburger clicked */
     .navbar-start {
+      .column {
+        flex-basis: 30%;
+      }
       position: fixed;
       top: 0;
       left: 0;
@@ -101,17 +114,14 @@
       }
       /* The logo. */
       .block-system-branding-block {
-        text-align: center;
-        position: absolute;
-        top: calc(#{$column-gap} * 2);
-        margin: auto;
-        width: 100%;
-        z-index: -1;
         .site-logo {
           img {
             width: 30vw;
           }
         }
+      }
+      .block-search {
+        margin-left: $column-gap;
       }
     }
     .navbar-end {
@@ -172,6 +182,39 @@
       }
     }
   }
+  .user-menu {
+    float: right;
+  }
+
+  /* Close X in front of user menu */
+  .region-navigation {
+    z-index: 32;
+  }
+
+  /* Move menus below admin toolbar. */
+  .toolbar-fixed, .toolbar-vertical {
+    .navbar-start {
+      margin-top: 20px;
+    }
+  }
+  .toolbar-fixed.toolbar-horizontal.toolbar-tray-open {
+    .navbar-start {
+      margin-top: 60px;
+    }
+  }
+
+  /* To show header in moble menu */
+  .z-index-fix {
+    z-index: 35;
+    float: right;
+    width: fit-content;
+    max-width: 30%; /* IE & Edge */
+    position: fixed;
+    right: 0;
+    &.region-top-bar {
+      margin-right: $column-gap;
+    }
+  }
 }
 
 /* Mobile */
@@ -197,24 +240,6 @@
           }
         }
       }
-    }
-  }
-}
-
-/* Move menus below admin toolbar. */
-.toolbar-fixed, .toolbar-vertical {
-  .navbar-start {
-    margin-top: 39px;
-    .block-system-branding-block {
-      margin-top: 39px;
-    }
-  }
-}
-.toolbar-fixed.toolbar-horizontal.toolbar-tray-open {
-  .navbar-start {
-    margin-top: 79px;
-    .block-system-branding-block {
-      margin-top: 79px;
     }
   }
 }

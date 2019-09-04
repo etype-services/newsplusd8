@@ -3,10 +3,8 @@
 namespace Drupal\etype_login_dev\Form;
 
 use Drupal;
-use Drupal\Core\Url;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\user\Entity\User;
 use SoapClient;
 
 /**
@@ -55,11 +53,11 @@ class EtypePasswordResetForm extends FormBase {
 
       $form['actions']['#type'] = 'actions';
 
-      $form['actions']['submit'] = [
+      $form['actions']['submit'] = array(
         '#type' => 'submit',
         '#value' => $this->t('Send me my password'),
         '#button_type' => 'primary',
-      ];
+      );
 
     }
     else {
@@ -94,36 +92,24 @@ class EtypePasswordResetForm extends FormBase {
     $username = $form_state->getValue('username');
 
     $pubId = $this->config->get('etype_pub');
+    $pubId = 2;
     $message = "We‘re sorry, we can‘t find an account for that user name at this publication.";
     $success_message = "Your password has been sent to your email adddress.";
 
-    $client = new soapclient('http://etype.wecode4u.com/webservice.asmx/GetPublicationIDByUserName');
-    $param = ['UserName' => $username];
-    $response = $client->GetPublicationID($param);
-    $code = $response->GetPublicationIDResult;
+    $client = new soapclient('http://etype.wecode4u.com/webservice.asmx?WSDL');
+    $param = ['publicationId' => $pubId];
+    $param['username'] = $username;
+    $response = $client->ForgetPassword($param);
+    $code = $response->ForgetPasswordResult;
+
     switch ($code) {
-      case "-9":
+      case "-1":
         Drupal::messenger()->addMessage($message);
-        $form_state->setRebuild();
         break;
 
-      case $pubId:
-        $client = new soapclient('http://etype.wecode4u.com/webservice.asmx/ForgetPassword');
-        $response = $client->ForgetPassword($param);
-        $code = $response->ForgetPasswordResult;
-
-        switch ($code) {
-          case "-1":
-            Drupal::messenger()->addMessage($message);
-            break;
-
-          default:
-            Drupal::messenger()->addMessage($success_message);
-            break;
-        }
-
+      default:
+        Drupal::messenger()->addMessage($success_message);
         break;
     }
   }
-
 }
