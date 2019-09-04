@@ -97,6 +97,12 @@ function newsplus_preprocess_html(&$variables) {
     $variables['#attached']['library'][] = 'newsplus/fixed-header';
   }
 
+  /* Add domain to styles */
+  $host = Drupal::request()->getHost();
+  $tmp = explode(".", $host);
+  $arr = array_filter($tmp);
+  $arr[1] == 'etypegoogle7'? $variables["host"] = $arr[0]: $variables["host"] = $arr[1];
+
 }
 
 /**
