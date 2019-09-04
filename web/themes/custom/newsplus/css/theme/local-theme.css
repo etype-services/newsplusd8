@@ -58,4 +58,8 @@ article .field--name-field-tags h3 {
   margin-top: 1rem;
   font-weight: bold; }
 
+/* Site specific */
+.elrenotribune #header-top {
+  background-color: #ffffff; }
+
 /*# sourceMappingURL=local-theme.css.map */
