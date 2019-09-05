@@ -1,12 +1,13 @@
 @import "../tiempos/scss/vars";
 
 @media screen and (min-width: 1088px) {
-  .thedahloneganugget, .thenortheastgeorgian, .elberton, .cherokeescout {
-    #main-nav .navbar .navbar-end {
-      /* Social Icons */
-      position: inherit;
-      top: 0;
-    }
+  /*.thedahloneganugget, .thenortheastgeorgian, .elberton, .cherokeescout {
+
+  }*/
+  #main-nav .navbar .navbar-end {
+    /* Social Icons */
+    position: inherit;
+    top: 0;
   }
 }
 
