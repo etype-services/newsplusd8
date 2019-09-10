@@ -104,7 +104,9 @@
       <div class="share-links">
         <ul>
           <li class="facebook">
-            <a href="https://www.facebook.com/sharer/sharer.php?u={{ path('entity.node.canonical', {'node': node.id}) }}&t={{node.label | url_encode(true)}}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" aria-label="Facebook">
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ base_path }}{{ path('entity.node.canonical',
+                {'node': node
+                .id}) }}&t={{node.label | url_encode(true)}}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" aria-label="Facebook">
               <span>
                 <i class="fa fa-facebook"></i>
                 <span class="sr-only">{% trans %}Share on Facebook{% endtrans %}</span>
