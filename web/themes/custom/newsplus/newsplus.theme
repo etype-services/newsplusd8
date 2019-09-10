@@ -386,7 +386,8 @@ function newsplus_preprocess_node(&$variables) {
   $variables['mt_setting']['post_progress'] = theme_get_setting('post_progress');
   $variables['mt_setting']['affix_side'] = theme_get_setting('affix_side');
 
-  $variables['base_path'] = base_path();
+  global $base_url;
+  $variables['base_url'] = $base_url;
 
 }
 
