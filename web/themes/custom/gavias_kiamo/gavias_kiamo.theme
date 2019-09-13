@@ -30,6 +30,7 @@ function gavias_kiamo_preprocess_page(&$variables) {
   $variables['preloader'] = theme_get_setting('preloader');
  
   $variables['theme_path'] = '/' . $theme_path;
+  echo $theme_path;
   
   //Header setting -----------
   $header = 'header';
