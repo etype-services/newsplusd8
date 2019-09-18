@@ -102,8 +102,8 @@ function tiempos_preprocess_node(&$variables) {
     $authors = $variables['node']->get('field_authors')->getValue();
     if (count($authors) > 0) {
       $arr = [];
-      foreach($authors as $author_id) {
-        $author = User::load($author_id['target_id']);
+      foreach($authors as $item) {
+        $author = User::load($item['target_id']);
         $arr[] = $author->getUsername();
       }
       $variables['author_name'] = implode("and ", $arr);
