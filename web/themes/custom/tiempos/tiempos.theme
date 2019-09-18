@@ -6,6 +6,7 @@ use Drupal\Core\Session\AnonymousUserSession;
 use Drupal\Core\Url;
 use Drupal\file\Entity\File;
 use Drupal\taxonomy\Entity\Term;
+use Drupal\user\Entity\User;
 
 /**
  * Preprocess html.
@@ -96,10 +97,17 @@ function tiempos_preprocess_node(&$variables) {
       break;
   }
 
-  /* Author names */
+  /* Author names, to use multiple authors */
   if ($variables['node']->hasField('field_authors')) {
     $authors = $variables['node']->get('field_authors')->getValue();
-    kint($authors);
+    if (count($authors) > 0) {
+      $arr = [];
+      foreach($authors as $author_id) {
+        $author = User::load($author_id);
+        $arr[] = $author->getUsername();
+      }
+      $variables['author_name'] = implode("and ", $arr);
+    }
   }
 }
 
