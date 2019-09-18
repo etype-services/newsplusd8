@@ -100,12 +100,10 @@ function tiempos_preprocess_node(&$variables) {
   /* Author names, to use multiple authors */
   if ($variables['node']->hasField('field_authors')) {
     $authors = $variables['node']->get('field_authors')->getValue();
-    var_dump($authors);
     if (count($authors) > 0) {
       $arr = [];
       foreach($authors as $author_id) {
-        var_dump($author_id);
-        $author = User::load($author_id);
+        $author = User::load($author_id['target_id']);
         $arr[] = $author->getUsername();
       }
       $variables['author_name'] = implode("and ", $arr);
