@@ -378,7 +378,8 @@ class ImportOliveXMLController {
       /* Create User based on byline */
       $node['uid'] = $this->author;
       $byline = Encoding::toUTF8($array['byline']);
-      $byline = preg_replace('/\s+/i', " ", $byline);
+      $byline = preg_replace('/\s+/', " ", $byline);
+      $byline = preg_replace('/^By:/i', " ", $byline);
       $byline = trim(ucfirst($byline));
       /* If the byline is longer than 60 characters it will not store and is most likely a mistake */
       if (strlen($byline) > 60) {
