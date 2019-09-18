@@ -97,14 +97,19 @@ function tiempos_preprocess_node(&$variables) {
       break;
   }
 
-  /* Author names, to use multiple authors */
+  /* Theming author names, to use multiple authors.
+   * This can't be done in template_preprocess_username
+   * because the node is not accessible from that function, and so the
+   * field_authors field value is not available.
+   */
   if ($variables['node']->hasField('field_authors')) {
     $authors = $variables['node']->get('field_authors')->getValue();
     if (count($authors) > 0) {
       $arr = [];
       foreach($authors as $item) {
         $author = User::load($item['target_id']);
-        $arr[] = $author->getUsername();
+        $arr[] = "<a href=\"user/" . $item['target_id'] . "\">" . $author->getUsername() .
+        "</a>";
       }
       $variables['author_name'] = implode(" and ", $arr);
     }
