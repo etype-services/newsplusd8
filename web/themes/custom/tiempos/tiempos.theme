@@ -111,7 +111,7 @@ function tiempos_preprocess_node(&$variables) {
         $arr[] = "<a href=\"user/" . $item['target_id'] . "\">" . $author->getUsername() .
         "</a>";
       }
-      $variables['author_name'] = implode(" and ", $arr);
+      $variables['author_names'] = implode(" and ", $arr);
     }
   }
 }
