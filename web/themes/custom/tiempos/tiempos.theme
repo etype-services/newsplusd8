@@ -100,6 +100,7 @@ function tiempos_preprocess_node(&$variables) {
   /* Author names, to use multiple authors */
   if ($variables['node']->hasField('field_authors')) {
     $authors = $variables['node']->get('field_authors')->getValue();
+    var_dump($authors);
     if (count($authors) > 0) {
       $arr = [];
       foreach($authors as $author_id) {
