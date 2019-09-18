@@ -1,5 +1,9 @@
 <?php
 
+use Drupal\Component\Utility\Unicode;
+use Drupal\Core\Access\AccessibleInterface;
+use Drupal\Core\Session\AnonymousUserSession;
+use Drupal\Core\Url;
 use Drupal\file\Entity\File;
 use Drupal\taxonomy\Entity\Term;
 
@@ -128,20 +132,19 @@ function tiempos_theme_suggestions_page_alter(array &$suggestions, array $variab
 
 /**
  * Implements hook_theme_preprocess_username().
+ * Copied from core user.module.
  *
  * @param $variables
  */
 function tiempos_preprocess_username(&$variables) {
-  $account = $variables['account'];
+  $account = $variables['account'] ?: new AnonymousUserSession();
+
   $variables['extra'] = '';
-  if (empty($account->uid)) {
-    $variables['uid'] = 0;
-    if (theme_get_setting('toggle_comment_user_verification')) {
+  $variables['uid'] = $account->id();
+  if (empty($variables['uid'])) {
+    if (theme_get_setting('features.comment_user_verification')) {
       $variables['extra'] = ' (' . t('not verified') . ')';
     }
-  }
-  else {
-    $variables['uid'] = (int) $account->uid;
   }
 
   // Set the name to a formatted name that is safe for printing and
@@ -149,44 +152,49 @@ function tiempos_preprocess_username(&$variables) {
   // unsanitized version, in case other preprocess functions want to implement
   // their own shortening logic or add markup. If they do so, they must ensure
   // that $variables['name'] is safe for printing.
-  $name = $variables['name_raw'] = format_username($account);
-  if (drupal_strlen($name) > 30) {
-    $name = drupal_substr($name, 0, 25) . '...';
+  $name = $account->getDisplayName();
+  $variables['name_raw'] = $account->getAccountName();
+  if (mb_strlen($name) > 40) {
+    $name = Unicode::truncate($name, 35, FALSE, TRUE);
+    $variables['truncated'] = TRUE;
   }
-  $variables['name'] = check_plain($name);
-  $variables['profile_access'] = user_access('access user profiles');
-  $variables['link_attributes'] = array();
+  else {
+    $variables['truncated'] = FALSE;
+  }
+  $variables['name'] = $name;
+  if ($account instanceof AccessibleInterface) {
+    $variables['profile_access'] = $account->access('view');
+  }
+  else {
+    $variables['profile_access'] = \Drupal::currentUser()->hasPermission('access user profiles');
+  }
 
+  $external = FALSE;
   // Populate link path and attributes if appropriate.
   if ($variables['uid'] && $variables['profile_access']) {
-
     // We are linking to a local user.
-    $variables['link_attributes'] = array(
-      'title' => t('View user profile.'),
-    );
+    $variables['attributes']['title'] = t('View user profile.');
     $variables['link_path'] = 'user/' . $variables['uid'];
   }
   elseif (!empty($account->homepage)) {
-
     // Like the 'class' attribute, the 'rel' attribute can hold a
     // space-separated set of values, so initialize it as an array to make it
     // easier for other preprocess functions to append to it.
-    $variables['link_attributes'] = array(
-      'rel' => array(
-        'nofollow',
-      ),
-    );
+    $variables['attributes']['rel'] = 'nofollow';
     $variables['link_path'] = $account->homepage;
     $variables['homepage'] = $account->homepage;
+    $external = TRUE;
   }
-
-  // We do not want the l() function to check_plain() a second time.
-  $variables['link_options']['html'] = TRUE;
-
-  // Set a default class.
-  $variables['attributes_array'] = array(
-    'class' => array(
-      'username',
-    ),
-  );
+  // We have a link path, so we should generate a URL.
+  if (isset($variables['link_path'])) {
+    if ($external) {
+      $variables['attributes']['href'] = Url::fromUri($variables['link_path'], $variables['link_options'])
+        ->toString();
+    }
+    else {
+      $variables['attributes']['href'] = Url::fromRoute('entity.user.canonical', [
+        'user' => $variables['uid'],
+      ])->toString();
+    }
+  }
 }
