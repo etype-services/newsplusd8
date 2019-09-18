@@ -97,7 +97,7 @@
       {{ author_picture }}
       <div{{ author_attributes.addClass('node__submitted') }}>
         {% if author_names %}
-          {% trans %}By {{ author_names|format }} on{% endtrans %} {{ node.created.value|format_date('teaser') }}
+          {% trans %}By {{ author_names }} on{% endtrans %} {{ node.created.value|format_date('teaser') }}
         {% else %}
           {% trans %}By {{ author_name }} on{% endtrans %} {{ node.created.value|format_date('teaser') }}
         {% endif %}

@@ -1,6 +1,0 @@
-name: eType Login
-type: theme
-base theme: classy
-description: 'Drupal 8 theme using Bulma framework.'
-version: 8.1.1
-core: 8.x

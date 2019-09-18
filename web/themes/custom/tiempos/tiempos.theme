@@ -2,6 +2,7 @@
 
 use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Access\AccessibleInterface;
+use Drupal\Core\Render\Markup;
 use Drupal\Core\Session\AnonymousUserSession;
 use Drupal\Core\Url;
 use Drupal\file\Entity\File;
@@ -111,7 +112,7 @@ function tiempos_preprocess_node(&$variables) {
         $arr[] = "<a href=\"user/" . $item['target_id'] . "\">" . $author->getUsername() .
         "</a>";
       }
-      $variables['author_names'] = implode(" and ", $arr);
+      $variables['author_names'] = Markup::create(implode(" and ", $arr));
     }
   }
 }
