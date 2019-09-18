@@ -1,0 +1,4 @@
+File: timescourier.site.yml
+prod:
+  root: /mnt/data/web/public/harold/drupal/web
+  uri: http://timescourier.etypegoogle7.com
