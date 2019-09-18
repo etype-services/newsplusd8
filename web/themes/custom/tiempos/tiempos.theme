@@ -95,6 +95,12 @@ function tiempos_preprocess_node(&$variables) {
       }
       break;
   }
+
+  /* Author names */
+  if ($variables['node']->hasField('field_authors')) {
+    $authors = $variables['node']->get('field_authors')->getValue();
+    kint($authors);
+  }
 }
 
 /**
@@ -128,12 +134,5 @@ function tiempos_theme_suggestions_page_alter(array &$suggestions, array $variab
   if ($node = Drupal::routeMatch()->getParameter('node')) {
     $suggestions[] = 'page__' . $node->bundle();
   }
-}
-
-/**
- * @param $variables
- */
-function tiempos_preprocess_username(&$variables) {
-
 }
 
