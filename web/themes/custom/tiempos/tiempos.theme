@@ -130,3 +130,11 @@ function tiempos_theme_suggestions_page_alter(array &$suggestions, array $variab
   }
 }
 
+/**
+ * @param $variables
+ */
+function tiempos_preprocess_username(&$variables) {
+  $nid = $variables['node']->id();
+  kint($nid);
+}
+
