@@ -104,6 +104,7 @@ function tiempos_preprocess_node(&$variables) {
     if (count($authors) > 0) {
       $arr = [];
       foreach($authors as $author_id) {
+        var_dump($author_id);
         $author = User::load($author_id);
         $arr[] = $author->getUsername();
       }
