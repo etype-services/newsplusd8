@@ -28,7 +28,7 @@
     <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
   {% endif %}
   <div class="dropdown">
-    <a data-toggle="dropdown" href="#" class="trigger"><i class="{{trigger_class}}"></i></a>
+    <a data-toggle="dropdown" href="#" class="trigger" aria-label="{{ label }}"><i class="{{ trigger_class }}"></i></a>
     <ul class="dropdown-menu" role="menu">
       {% for item in items %}
         <li{{ item.attributes }}>{{ item.content }}</li>

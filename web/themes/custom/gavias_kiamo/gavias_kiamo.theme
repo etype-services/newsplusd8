@@ -29,7 +29,7 @@ function gavias_kiamo_preprocess_page(&$variables) {
 
   $variables['preloader'] = theme_get_setting('preloader');
  
-  $variables['theme_path'] = $base_url . '/' . $theme_path;
+  $variables['theme_path'] = "/" . $theme_path;
   
   //Header setting -----------
   $header = 'header';
@@ -85,7 +85,7 @@ function gavias_kiamo_preprocess_html(&$variables) {
 
   $variables['site_logo'] = $tmp_logo['url'];
 
-  $variables['theme_path'] = $base_url . '/' . $theme_path;
+  $variables['theme_path'] = '/' . $theme_path;
 
   if(theme_get_setting('customize_css') ){
     $custom_style  = preg_replace( '!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', theme_get_setting('customize_css') );

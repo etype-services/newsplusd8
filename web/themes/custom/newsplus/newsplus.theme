@@ -97,6 +97,12 @@ function newsplus_preprocess_html(&$variables) {
     $variables['#attached']['library'][] = 'newsplus/fixed-header';
   }
 
+  /* Add domain to styles */
+  $host = Drupal::request()->getHost();
+  $tmp = explode(".", $host);
+  $arr = array_filter($tmp);
+  $arr[1] == 'etypegoogle7'? $variables["host"] = $arr[0]: $variables["host"] = $arr[1];
+
 }
 
 /**
@@ -379,6 +385,9 @@ function newsplus_preprocess_node(&$variables) {
   $variables['mt_setting']['font_resize'] = theme_get_setting('font_resize');
   $variables['mt_setting']['post_progress'] = theme_get_setting('post_progress');
   $variables['mt_setting']['affix_side'] = theme_get_setting('affix_side');
+
+  global $base_url;
+  $variables['base_url'] = $base_url;
 
 }
 

@@ -96,6 +96,9 @@ $sites['www.elberton.com'] = 'elberton.etypegoogle7.com';
 $sites['www.franklincountycitizen.com'] = 'franklincountycitizen.etypegoogle7.com';
 $sites['www.cherokeescout.com'] = 'cherokeescout.etypegoogle7.com';
 $sites['www.grahamstar.com'] = 'grahamstar.etypegoogle7.com';
+$sites['www.lcnok.com'] = 'lcnok.etypegoogle7.com';
+$sites['www.jdcmountaindispatch.com'] = 'jdcmountaindispatch.etypegoogle7.com';
+$sites['www.okcfriday.com'] = 'okcfriday.etypegoogle7.com';
 
 /* jackie */
 $sites['www.bellvilletimes.com'] = "bellvilletimes.etypegoogle11.com";

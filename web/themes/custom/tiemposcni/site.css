@@ -1,6 +1,9 @@
 /* Center column for tiempos theme */
 @media screen and (min-width: 1088px) {
-  .thedahloneganugget #main-nav .navbar .navbar-end, .thenortheastgeorgian #main-nav .navbar .navbar-end {
+  /*.thedahloneganugget, .thenortheastgeorgian, .elberton, .cherokeescout {
+
+  }*/
+  #main-nav .navbar .navbar-end {
     /* Social Icons */
     position: inherit;
     top: 0; } }
@@ -34,14 +37,18 @@
 #block-tiemposcni-dfptagcnidahlonegamidhome,
 #block-dfptagcninegmidhome,
 #block-dfptagcnitoccoamidhome,
-#block-dfptagcnihartwellmidhome {
+#block-dfptagcnihartwellmidhome,
+#block-dfptagcnicherokeemidhome,
+#block-dfptagcninewsobservermidhome {
   display: inline-block;
   float: left; }
 
 #block-tiemposcni-dfptagcnidahlonegamidhome2,
 #block-dfptagcninegmidhome2,
 #block-dfptagcnitoccoamidhome2,
-#block-dfptagcnihartwellmidhome2 {
+#block-dfptagcnihartwellmidhome2,
+#block-dfptagcnicherokeemidhome2,
+#block-dfptagcninewsobservermidhome2 {
   display: inline-block;
   float: right; }
 
@@ -49,7 +56,9 @@
   #block-tiemposcni-dfptagcnidahlonegamidhome,
   #block-dfptagcninegmidhome,
   #block-dfptagcnitoccoamidhome,
-  #block-dfptagcnihartwellmidhome {
+  #block-dfptagcnihartwellmidhome,
+  #block-dfptagcnicherokeemidhome,
+  #block-dfptagcninewsobservermidhome {
     display: block;
     text-align: center;
     float: none; }
@@ -57,7 +66,9 @@
   #block-tiemposcni-dfptagcnidahlonegamidhome2,
   #block-dfptagcninegmidhome2,
   #block-dfptagcnitoccoamidhome2,
-  #block-dfptagcnihartwellmidhome2 {
+  #block-dfptagcnihartwellmidhome2,
+  #block-dfptagcnicherokeemidhome2,
+  #block-dfptagcninewsobservermidhome2 {
     display: block;
     text-align: center;
     float: none; } }

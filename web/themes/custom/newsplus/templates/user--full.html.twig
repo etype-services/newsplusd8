@@ -25,26 +25,19 @@
       <div class="with-user-image">
         <div class="photo-wrapper">
           {{ content.user_picture }}
-          {% if user.field_mt_facebook.value or user.field_mt_twitter.value or user.field_mt_google_plus.value %}
+          {% if user.field_mt_facebook.value or user.field_mt_twitter.value %}
             <ul class="user-social-bookmarks">
               {% if user.field_mt_facebook.value %}
                 <li class="facebook">
-                  <a target="_blank" href="{{ user.field_mt_facebook.value }}">
+                  <a target="_blank" href="{{ user.field_mt_facebook.value }}" aria-label="Facebook">
                     <i class="fa fa-facebook"><span class="sr-only">facebook</span></i>
                   </a>
                 </li>
               {% endif %}
               {% if user.field_mt_twitter.value %}
                 <li class="twitter">
-                  <a target="_blank" href="{{ user.field_mt_twitter.value }}">
+                  <a target="_blank" href="{{ user.field_mt_twitter.value }}" aria-label="Twitter">
                     <i class="fa fa-twitter"><span class="sr-only">twitter</span></i>
-                  </a>
-                </li>
-              {% endif %}
-              {% if user.field_mt_google_plus.value %}
-                <li class="linkedin">
-                  <a target="_blank" href="{{ user.field_mt_google_plus.value }}">
-                    <i class="fa fa-linkedin"><span class="sr-only">linkedin</span></i>
                   </a>
                 </li>
               {% endif %}
@@ -59,22 +52,15 @@
         <ul class="user-social-bookmarks">
           {% if user.field_mt_facebook.value %}
             <li class="facebook">
-              <a target="_blank" href="{{ user.field_mt_facebook.value }}">
+              <a target="_blank" href="{{ user.field_mt_facebook.value }}" aria-label="Facebook">
                 <i class="fa fa-facebook"><span class="sr-only">facebook</span></i>
               </a>
             </li>
           {% endif %}
           {% if user.field_mt_twitter.value %}
             <li class="twitter">
-              <a target="_blank" href="{{ user.field_mt_twitter.value }}">
+              <a target="_blank" href="{{ user.field_mt_twitter.value }}" aria-label="Twitter">
                 <i class="fa fa-twitter"><span class="sr-only">twitter</span></i>
-              </a>
-            </li>
-          {% endif %}
-          {% if user.field_mt_google_plus.value %}
-            <li class="linkedin">
-              <a target="_blank" href="{{ user.field_mt_google_plus.value }}">
-                <i class="fa fa-linkedin"><span class="sr-only">linkedin</span></i>
               </a>
             </li>
           {% endif %}

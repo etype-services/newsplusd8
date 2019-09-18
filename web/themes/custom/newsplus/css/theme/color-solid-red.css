@@ -286,8 +286,10 @@ table th {
 
 /* components: view-breaking-slider */
 .view-titles .more-link a {
-  background-color: #ea2d49;
-  border-bottom: 6px solid rgba(192, 39, 60, 0.65);
+  /* background-color: #ea2d49; changed for accesibilty reasons */
+  background-color: #c0273c;
+  /* border-bottom: 6px solid rgba(192, 39, 60, 0.65); */
+  border-bottom: 6px solid #ea2d49;
 }
 
 /* components: view-most-popular */

@@ -23,7 +23,8 @@
 }
 .views-field-created {
   font-size: 11px;
-  color: #7d7d7d;
+  /* color: #7d7d7d; adjusted for ADA compliance - contrast */
+  color: #565656;
   margin-bottom: 10px;
 }
 

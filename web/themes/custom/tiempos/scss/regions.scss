@@ -88,3 +88,11 @@
     flex-shrink: 0;
   }
 }
+
+@media screen and (min-width: $tablet) {
+  /* Center logo, prevent search input from shifting logo */
+  .region-header-left, .region-header-right {
+    flex-basis: 20%;
+    flex-shrink: 0;
+  }
+}

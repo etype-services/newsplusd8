@@ -1,9 +1,4 @@
 <?php
-function gavias_kiamo_base_url(){
-  global $base_url;
-  $theme_path = drupal_get_path('theme', 'gavias_kiamo');
-  return $base_url . '/' . $theme_path . '/';
-}
 
 function gavias_kiamo_preprocess_node(&$variables) {
   $date = $variables['node']->getCreatedTime();

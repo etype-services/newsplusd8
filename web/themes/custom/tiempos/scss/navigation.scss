@@ -74,6 +74,14 @@
   .user-menu {
     justify-content: flex-end;
   }
+  .region-header-right {
+    .user-menu {
+      flex-wrap: wrap;
+      .button {
+        width: 9rem;
+      }
+    }
+  }
 }
 
 /* Default (Wide Screen) Desktop */
@@ -203,6 +211,9 @@
     max-width: 30%; /* IE & Edge */
     position: fixed;
     right: 0;
+    &.region-top-bar {
+      margin-right: $column-gap;
+    }
   }
 }
 
