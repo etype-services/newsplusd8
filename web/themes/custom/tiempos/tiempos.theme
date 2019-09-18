@@ -106,7 +106,7 @@ function tiempos_preprocess_node(&$variables) {
         $author = User::load($item['target_id']);
         $arr[] = $author->getUsername();
       }
-      $variables['author_name'] = implode("and ", $arr);
+      $variables['author_name'] = implode(" and ", $arr);
     }
   }
 }
