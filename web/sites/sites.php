@@ -99,6 +99,7 @@ $sites['www.grahamstar.com'] = 'grahamstar.etypegoogle7.com';
 $sites['www.lcnok.com'] = 'lcnok.etypegoogle7.com';
 $sites['www.mountaindispatchnow.com'] = 'mountaindispatchnow.etypegoogle7.com';
 $sites['www.okcfriday.com'] = 'okcfriday.etypegoogle7.com';
+$sites['www.thenewsobserver.com'] = 'thenewsobserver.etypegoogle7.com';
 
 /* jackie */
 $sites['www.bellvilletimes.com'] = "bellvilletimes.etypegoogle11.com";
