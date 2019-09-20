@@ -68,7 +68,6 @@ $sites['tiempos.etypegoogle7.com'] = "tiempos.etypegoogle7.com";
 /* main section */
 $sites['www.bayoujournal.com'] = 'bayoujournal.etypegoogle7.com';
 $sites['www.bayoupioneer.com'] = 'bayoujournal.etypegoogle7.com';
-$sites['www.giddingstimes.com'] = "giddingstimes.etypegoogle7.com";
 $sites['www.ssnewstelegram.com'] = 'ssnewstelegram.etypegoogle7.com';
 $sites['www.southwestledger.news'] = 'southwestledger.etypegoogle7.com';
 $sites['www.etypeservices.com'] = 'etypeservices.etypegoogle7.com';
