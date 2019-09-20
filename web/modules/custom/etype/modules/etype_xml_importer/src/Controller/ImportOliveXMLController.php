@@ -394,6 +394,7 @@ class ImportOliveXMLController {
           $user->setPassword('goats random love ' . $rand);
           $user->enforceIsNew();
           $user->setUsername($byline);
+          $user->addRole('reporter');
           $user->activate();
           try {
             if (!$user->save()) {
