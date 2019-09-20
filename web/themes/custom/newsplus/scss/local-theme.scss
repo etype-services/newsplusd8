@@ -87,6 +87,15 @@ article {
   font-weight: bold;
 }
 
+/* fix overlay in sidebar tabs */
+.sidebar #block-sidebartabs {
+  .views-field-field-image {
+    .overlay {
+      display: none;
+    }
+  }
+}
+
 /* Site specific */
 .elrenotribune {
   #header-top {
