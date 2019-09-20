@@ -1,0 +1,4 @@
+File: thenewsobserver.site.yml
+prod:
+  root: /mnt/data/web/public/harold/drupal/web
+  uri: http://thenewsobserver.etypegoogle7.com
