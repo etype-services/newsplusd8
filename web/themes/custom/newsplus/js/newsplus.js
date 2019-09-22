@@ -5,7 +5,7 @@
             $("iframe").each(function () {
                 var attr = $(this).attr("title");
                 console.log(attr);
-                if (typeof attr === typeof undefined || attr === false) {
+                if (typeof attr === undefined || attr === false) {
                     $(this).attr("title", "Iframe loaded from external site");
                 }
             });
