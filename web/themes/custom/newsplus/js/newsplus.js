@@ -1,5 +1,5 @@
 (function ($, Drupal) {
-    "use strict"
+    "use strict";
     Drupal.behaviors.newsplusIframes = {
         attach: function (context, settings) {
             $("iframe").each(function () {
