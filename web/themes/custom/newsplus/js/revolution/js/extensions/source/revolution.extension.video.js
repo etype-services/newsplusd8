@@ -658,7 +658,7 @@ jQuery.extend(true,_R, {
 			//	if (location.protocol === 'https:')
 				httpprefix = "https";	
 
-				_nc.data('videomarkup','<iframe src="'+httpprefix+'://player.vimeo.com/video/'+vimeoid+'?'+vida+'" webkitallowfullscreen mozallowfullscreen allowfullscreen width="100%" height="100%" style="opacity:0;visibility:hidden;width:100%;height:100%" title="Embedded YouTube Video"></iframe>');
+				_nc.data('videomarkup','<iframe src="'+httpprefix+'://player.vimeo.com/video/'+vimeoid+'?'+vida+'" webkitallowfullscreen mozallowfullscreen allowfullscreen width="100%" height="100%" style="opacity:0;visibility:hidden;width:100%;height:100%" title="Embedded Vimeo Video"></iframe>');
 				
 			break;
 		}
