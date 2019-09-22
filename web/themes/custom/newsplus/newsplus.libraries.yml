@@ -51,6 +51,8 @@ global-styling:
       css/components/view-user-posts.css: {}
     theme:
       css/theme/print.css: { media: print }
+  js:
+    js/newsplus.js: {}
 
 user-profile:
   version: VERSION
