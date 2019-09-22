@@ -651,14 +651,14 @@ jQuery.extend(true,_R, {
 			 	
 				// youtube/chrome fix Jason (removed "visibility: hidden" from markup)
 			 	var yafv = videoafs==="true" ||  videoafs===true ? "allowfullscreen" : "";		 	
-			 	_nc.data('videomarkup','<iframe type="text/html" src="'+httpprefix+'://www.youtube-nocookie.com/embed/'+vidytid+'?'+vida_new+'" '+yafv+' width="100%" height="100%" style="opacity:0;width:100%;height:100%"></iframe>');
+			 	_nc.data('videomarkup','<iframe type="text/html" src="'+httpprefix+'://www.youtube-nocookie.com/embed/'+vidytid+'?'+vida_new+'" '+yafv+' width="100%" height="100%" style="opacity:0;width:100%;height:100%" title="Embedded YouTube Video"></iframe>');
 			break;
 
 			case "vimeo":
 			//	if (location.protocol === 'https:')
 				httpprefix = "https";	
 
-				_nc.data('videomarkup','<iframe src="'+httpprefix+'://player.vimeo.com/video/'+vimeoid+'?'+vida+'" webkitallowfullscreen mozallowfullscreen allowfullscreen width="100%" height="100%" style="opacity:0;visibility:hidden;width:100%;height:100%"></iframe>');
+				_nc.data('videomarkup','<iframe src="'+httpprefix+'://player.vimeo.com/video/'+vimeoid+'?'+vida+'" webkitallowfullscreen mozallowfullscreen allowfullscreen width="100%" height="100%" style="opacity:0;visibility:hidden;width:100%;height:100%" title="Embedded YouTube Video"></iframe>');
 				
 			break;
 		}
