@@ -443,7 +443,7 @@ function newsplus_form_alter(&$form, FormStateInterface $form_state, $form_id) {
       $form[$key]['submit']['#attributes'] = new Attribute();
     }
     $form[$key]['submit']['#attributes']->addClass('search-form__submit');
-    $form[$key]['submit']['#attributes']->removeAttribute(['id']);
+    $form[$key]['submit']['#attributes']['id'] = 'edit_submit';
   }
 }
 
