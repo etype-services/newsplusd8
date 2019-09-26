@@ -31,6 +31,7 @@ function etype_preprocess_image(&$variables) {
  */
 function etype_e_editions() {
 
+  $base_url = "http://etype.wecode4u.com/";
   $logged_in = Drupal::currentUser()->isAuthenticated();
   $config = Drupal::config('etype.adminsettings');
   $e_edition = $config->get('etype_e_edition');
@@ -61,7 +62,8 @@ function etype_e_editions() {
 
     $ar2 = preg_split("/ID[0-9]+/", $arr[0]); // make LandingImage directory name
     $imagedir = trim($ar2[0]);
-    $e_editions[$ptr]['image'] = 'https://etypeservices.com/LandingPageImages/' . $imagedir . '/currentpg1.jpg';
+    $e_editions[$ptr]['image'] = $base_url . 'LandingPageImages/' . $imagedir .
+    '/currentpg1.jpg';
 
     if (isset($pubs[$ptr])) {
       $pub = trim($pubs[$ptr]);
@@ -75,17 +77,17 @@ function etype_e_editions() {
       if (!empty ($pub)) {
         $account = Drupal\user\Entity\User::load(Drupal::currentUser()->id());
         $name = $account->get('name')->value;
-        $path = 'https://etypeservices.com/ReadTheEdition.aspx?Username=' . $name . "&Pub=" . $pub . "&PType=" . $ptype;
+        $path = $base_url . 'ReadTheEdition.aspx?Username=' . $name . "&Pub=" . $pub . "&PType=" . $ptype;
       } else {
-        $path = 'https://etypeservices.com/' . $e_edition . '/';
+        $path = $base_url . $e_edition . '/';
       }
     } else {
-      $path = 'https://etypeservices.com/' . $e_edition . '/';
+      $path = $base_url .  $e_edition . '/';
     }
     $e_editions[$ptr]['site_name'] = trim($site);
     $e_editions[$ptr]['path'] = $path;
-    $e_editions[$ptr]['path_anon'] = 'https://etypeservices.com/' . $e_edition . '/';
-    $e_editions[$ptr]['sub_link'] = "https://etypeservices.com/" . $e_edition . "/default.aspx?PubID=" . $pub;
+    $e_editions[$ptr]['path_anon'] = $base_url .  $e_edition . '/';
+    $e_editions[$ptr]['sub_link'] = $base_url .  $e_edition . "/default.aspx?PubID=" . $pub;
     $ptr++;
   }
   return $e_editions;
