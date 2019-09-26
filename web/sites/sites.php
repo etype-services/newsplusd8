@@ -101,6 +101,9 @@ $sites['www.okcfriday.com'] = 'okcfriday.etypegoogle7.com';
 $sites['www.thenewsobserver.com'] = 'thenewsobserver.etypegoogle7.com';
 $sites['www.sequoyahcountytimes.com'] = 'sequoyahcountytimes.etypegoogle7.com';
 $sites['www.ecstatesman.com'] = 'ecstatesman.etypegoogle7.com';
+$sites['www.countystarnews.com'] = 'countystarnews.etypegoogle7.com';
+$sites['www.swishernews.com'] = 'swishernews.etypegoogle7.com';
+$sites['www.herefordbrand.com'] = 'herefordbrand.etypegoogle7.com';
 
 /* jackie */
 $sites['www.bellvilletimes.com'] = "bellvilletimes.etypegoogle11.com";
