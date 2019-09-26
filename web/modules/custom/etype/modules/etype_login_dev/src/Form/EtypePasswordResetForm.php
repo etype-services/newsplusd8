@@ -92,7 +92,6 @@ class EtypePasswordResetForm extends FormBase {
     $username = $form_state->getValue('username');
 
     $pubId = $this->config->get('etype_pub');
-    $pubId = 2;
     $message = "We‘re sorry, we can‘t find an account for that user name at this publication.";
     $success_message = "Your password has been sent to your email adddress.";
 
