@@ -5,6 +5,7 @@ namespace Drupal\etype_login_dev\Controller;
 use Drupal;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\user\Entity\User;
 
 /**
  * Class EtypeMyAccountController.
