@@ -8,13 +8,10 @@
                 text = $(this).children("a:nth-child(2)").html();
                 if (text === undefined) {
                     /*
-                     * CNI sites don't show the Section title.
+                     * CNI sites don't display the Section title.
                      * it is hidden in the views and added as the "title" for the link.
                      */
                     text = $(this).children("a:nth-child(1)").attr("title");
-                    if (text === undefined) {
-                        text = $(this).children("a:nth-child(1)").attr("alt");
-                    }
                 }
                 $(this).children("a:nth-child(1)").attr("aria-label", text);
             });
