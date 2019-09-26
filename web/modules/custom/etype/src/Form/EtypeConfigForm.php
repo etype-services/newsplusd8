@@ -76,7 +76,7 @@ class EtypeConfigForm extends ConfigFormBase {
     $form['e_edition']['etype_v2'] = [
       '#title' => $this->t('Check to use V2 system.'),
       '#type' => 'checkbox',
-
+      '#default_value' => $this->conf->get('etype_v2'),
     ];
 
     $form['e_edition']['premium_content_message'] = [
