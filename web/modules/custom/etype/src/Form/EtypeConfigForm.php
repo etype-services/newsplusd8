@@ -73,6 +73,12 @@ class EtypeConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('etype_ptype'),
     ];
 
+    $form['e_edition']['etype_v2'] = [
+      '#title' => $this->t('Check to use V2 system.'),
+      '#type' => 'checkbox',
+      '#default_value' => $config->get('etype_v2'),
+    ];
+
     $form['e_edition']['premium_content_message'] = [
       '#type' => 'text_format',
       '#title' => $this->t('Premium Content Message'),
@@ -172,6 +178,7 @@ class EtypeConfigForm extends ConfigFormBase {
       ->set('etype_e_edition', $form_state->getValue('etype_e_edition'))
       ->set('etype_pub', $form_state->getValue('etype_pub'))
       ->set('etype_ptype', $form_state->getValue('etype_ptype'))
+      ->set('etype_v2', $form_state->getValue('etype_v2'))
       ->set('premium_content_message', $form_state->getValue('premium_content_message'))
       ->set('premium_preview', $form_state->getValue('premium_preview'))
       ->set('facebook', $form_state->getValue('facebook'))
