@@ -15,6 +15,7 @@ function etype_page_attachments(array &$page) {
 
 /**
  * For ADA compliance, make sure images have alt & title tag.
+ *
  * @param $variables
  */
 function etype_preprocess_image(&$variables) {
@@ -31,18 +32,29 @@ function etype_preprocess_image(&$variables) {
  */
 function etype_e_editions() {
 
-  $base_url = "http://etype.wecode4u.com/";
   $logged_in = Drupal::currentUser()->isAuthenticated();
   $config = Drupal::config('etype.adminsettings');
+
+  $v2 = $config->get('etype_v2');
   $e_edition = $config->get('etype_e_edition');
   $pub = $config->get('etype_pub');
   $ptype = $config->get('etype_ptype');
+
+  switch ($v2) {
+    case 1:
+      $base_url = "http://etype.wecode4u.com/";
+      break;
+
+    default;
+      $base_url = "https://etypeservices.com/";
+
+  }
 
   $config = Drupal::config('system.site');
   $site = $config->get('name');
 
   /* because Lutcher has a comma */
-  if (strpos($e_edition, '|') !== false) {
+  if (strpos($e_edition, '|') !== FALSE) {
     $items = explode(',', $e_edition);
     $pubs = explode(',', $pub);
     $ptypes = explode(',', $ptype);
@@ -63,7 +75,7 @@ function etype_e_editions() {
     $ar2 = preg_split("/ID[0-9]+/", $arr[0]); // make LandingImage directory name
     $imagedir = trim($ar2[0]);
     $e_editions[$ptr]['image'] = $base_url . 'LandingPageImages/' . $imagedir .
-    '/currentpg1.jpg';
+      '/currentpg1.jpg';
 
     if (isset($pubs[$ptr])) {
       $pub = trim($pubs[$ptr]);
@@ -82,12 +94,12 @@ function etype_e_editions() {
         $path = $base_url . $e_edition . '/';
       }
     } else {
-      $path = $base_url .  $e_edition . '/';
+      $path = $base_url . $e_edition . '/';
     }
     $e_editions[$ptr]['site_name'] = trim($site);
     $e_editions[$ptr]['path'] = $path;
-    $e_editions[$ptr]['path_anon'] = $base_url .  $e_edition . '/';
-    $e_editions[$ptr]['sub_link'] = $base_url .  $e_edition . "/default.aspx?PubID=" . $pub;
+    $e_editions[$ptr]['path_anon'] = $base_url . $e_edition . '/';
+    $e_editions[$ptr]['sub_link'] = $base_url . $e_edition . "/default.aspx?PubID=" . $pub;
     $ptr++;
   }
   return $e_editions;
@@ -95,7 +107,6 @@ function etype_e_editions() {
 
 /**
  * {@inheritdoc}
- *
  *This sets up the logged out e-Edition path
  */
 function etype_menu_links_discovered_alter(&$links) {
@@ -120,7 +131,7 @@ function etype_form_alter(&$form, &$form_state, $form_id) {
         if ($uid > 0 && in_array_any(['administrator', 'editor'], $roles)) {
           $author = User::load($uid);
           $name = $author->getAccountName();
-          $form['#attached']['drupalSettings']['etype']['author'] = $name .  ' (' . $uid . ')';
+          $form['#attached']['drupalSettings']['etype']['author'] = $name . ' (' . $uid . ')';
           $form['#attached']['library'][] = 'etype/etype';
         }
       }
@@ -139,12 +150,18 @@ function etype_form_alter(&$form, &$form_state, $form_id) {
 
 /**
  * Implements hook_user_login()
+ *
  * @param $account
  * Set cookie by role for caching/proxy serving
  */
 function etype_user_login($account) {
   $roles = Drupal::currentUser()->getRoles();
-  $check = in_array_any(['administrator', 'Editor', 'editor', 'Reporter'], $roles);
+  $check = in_array_any([
+    'administrator',
+    'Editor',
+    'editor',
+    'Reporter'
+  ], $roles);
   if ($check == 1) {
     setcookie('nocache', '1', 0, '/');
   } else {
@@ -168,52 +185,48 @@ function etype_user_logout($account) {
 
 /**
  * Implements hook_library_info_build()
- *
  * Left as example
-function etype_library_info_build() {
-  $config = Drupal::config('etype.adminsettings');
-  $mercolocal_id = $config->get('mercolocal_id');
-  $libraries = [];
-  $libraries['etype/mercolocal'] = [
-    'version' => '1.x',
-    'js' => [
-      'https://www.mercolocal.com/js/Embed.js?h=600&amp;w=300&amp;Scroll=v&amp;affiliateId=' .
-      $mercolocal_id => [
-        'type' => 'external',
-        'attributes' => [
-          'id' => 'MercoLocal-script',
-          'data-active' => 'businesses',
-        ],
-      ],
-    ],
-  ];
-  return $libraries;
-}
+ * function etype_library_info_build() {
+ * $config = Drupal::config('etype.adminsettings');
+ * $mercolocal_id = $config->get('mercolocal_id');
+ * $libraries = [];
+ * $libraries['etype/mercolocal'] = [
+ * 'version' => '1.x',
+ * 'js' => [
+ * 'https://www.mercolocal.com/js/Embed.js?h=600&amp;w=300&amp;Scroll=v&amp;affiliateId=' .
+ * $mercolocal_id => [
+ * 'type' => 'external',
+ * 'attributes' => [
+ * 'id' => 'MercoLocal-script',
+ * 'data-active' => 'businesses',
+ * ],
+ * ],
+ * ],
+ * ];
+ * return $libraries;
+ * }
  */
 
 /**
  * Helper to split string on word boundary.
- *
  * {@inheritdoc}
  */
-function substrwords($text, $maxchar, $end='...') {
+function substrwords($text, $maxchar, $end = '...') {
   if (strlen($text) > $maxchar || $text == '') {
     $words = preg_split('/\s/', $text);
     $output = '';
-    $i      = 0;
+    $i = 0;
     while (1) {
-      $length = strlen($output)+strlen($words[$i]);
+      $length = strlen($output) + strlen($words[$i]);
       if ($length > $maxchar) {
         break;
-      }
-      else {
+      } else {
         $output .= " " . $words[$i];
         ++$i;
       }
     }
     $output .= $end;
-  }
-  else {
+  } else {
     $output = $text;
   }
   return $output;
