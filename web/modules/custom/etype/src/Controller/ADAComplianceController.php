@@ -19,7 +19,6 @@ class ADAComplianceController extends ControllerBase {
   public function adaCompliance() {
     return [
       '#title' => 'Americans with Disabilities Act Compliance Statement',
-      '#theme' => 'ada_compliance',
       '#type' => 'markup',
       '#markup' => $this->t('Hello, World!'),
     ];
