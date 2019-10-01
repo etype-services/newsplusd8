@@ -18,12 +18,10 @@ etype.admin_settings_form:
   options:
     _admin_route: TRUE
 
-etype.ada_fix:
-  path: '/admin/config/etype/ada_fix'
+etype.ada_compliance:
+  path: '/ada_compliance'
   defaults:
     _controller: '\Drupal\etype\Controller\ADAComplianceController::adaCompliance'
-    _title: 'Etype ADA Fix'
+    _title: 'Americans with Disabilities Act Compliance Statement'
   requirements:
-    _permission: 'access administration pages'
-  options:
-    _admin_route: TRUE
+    _permission: 'access content'
