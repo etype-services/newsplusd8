@@ -2,6 +2,20 @@
 
 use Drupal\user\Entity\User;
 
+/**
+ * @param $existing
+ * @param $type
+ * @param $theme
+ * @param $path
+ * @return array
+ */
+function etype_theme($existing, $type, $theme, $path) {
+  return [
+    'ada_compliance' => [
+      'template' => 'ada-compliance',
+    ],
+  ];
+}
 
 /**
  * Implements hook_page_attachments().
