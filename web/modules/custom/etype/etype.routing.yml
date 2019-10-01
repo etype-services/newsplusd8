@@ -19,7 +19,7 @@ etype.admin_settings_form:
     _admin_route: TRUE
 
 etype.ada_compliance:
-  path: '/ada_compliance'
+  path: '/ada-compliance'
   defaults:
     _controller: '\Drupal\etype\Controller\ADAComplianceController::adaCompliance'
     _title: 'Americans with Disabilities Act Compliance Statement'

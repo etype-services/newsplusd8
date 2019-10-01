@@ -16,4 +16,10 @@ etype.ada_compliance:
   title: 'ADA Compliance'
   weight: 10
   route_name: etype.ada_compliance
-  menu_name: footer, subfooter-menu
+  menu_name: footer
+
+etype.ada_compliance_news+:
+  title: 'ADA Compliance'
+  weight: 10
+  route_name: etype.ada_compliance
+  menu_name: subfooter-menu
