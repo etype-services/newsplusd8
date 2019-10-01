@@ -12,6 +12,7 @@ use Drupal\user\Entity\User;
 function etype_theme($existing, $type, $theme, $path) {
   return [
     'ada_compliance' => [
+      'variables' => [],
       'template' => 'ada-compliance',
     ],
   ];
