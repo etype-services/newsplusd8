@@ -102,3 +102,11 @@ article {
     background-color: #ffffff;
   }
 }
+
+
+/* Ponca City Ad in Header */
+.poncacitynews #block-views-block-advertisements-block-7 {
+  .view-advertisements .views-row {
+    justify-content: flex-end;
+  }
+}
