@@ -106,6 +106,7 @@ $sites['www.swishernews.com'] = 'swishernews.etypegoogle7.com';
 $sites['www.herefordbrand.com'] = 'herefordbrand.etypegoogle7.com';
 $sites['www.claycountyprogress.com'] = 'claycountyprogress.etypegoogle7.com';
 $sites['www.timescourier.com'] = 'timescourier.etypegoogle7.com';
+$sites['www.perrysburg.com'] = 'perrysburg.etypegoogle7.com';
 
 /* jackie */
 $sites['www.bellvilletimes.com'] = "bellvilletimes.etypegoogle11.com";
