@@ -105,7 +105,7 @@ article {
 
 
 /* Ponca City Ad in Header, also menu weirdness - no Account Menu */
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .poncacitynews #block-views-block-advertisements-block-7 {
     .view-advertisements .views-row {
       justify-content: flex-end;
@@ -113,7 +113,8 @@ article {
   }
 }
 
-.poncacitynews #block-weatherwidget {
-  padding-top: 3rem;
+@media (max-width: 767px) {
+  .poncacitynews #block-weatherwidget {
+    padding-top: 3rem;
+  }
 }
-
