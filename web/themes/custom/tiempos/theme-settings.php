@@ -25,7 +25,7 @@ function tiempos_form_system_theme_settings_alter(array &$form, &$form_state) {
 
   $form['tiempos_settings']['inverted_logo'] = [
     '#type'     => 'managed_file',
-    '#title'    => t('Inverted logo for Feature pages with dark background.'),
+    '#title'    => t('Inverted logo for Spotlight pages with dark background.'),
     '#required' => FALSE,
     '#upload_location' => file_default_scheme() . '://theme/',
     '#default_value' => theme_get_setting('inverted_logo'),
