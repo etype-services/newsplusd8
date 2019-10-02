@@ -66,8 +66,11 @@ article .field--name-field-tags h3 {
 .elrenotribune #header-top {
   background-color: #ffffff; }
 
-/* Ponca City Ad in Header */
-.poncacitynews #block-views-block-advertisements-block-7 .view-advertisements .views-row {
-  justify-content: flex-end; }
+/* Ponca City Ad in Header, also menu weirdness - no Account Menu */
+@media (max-width: 768px) {
+  .poncacitynews #block-views-block-advertisements-block-7 .view-advertisements .views-row {
+    justify-content: flex-end; } }
+.poncacitynews #block-weatherwidget {
+  padding-top: 3rem; }
 
 /*# sourceMappingURL=local-theme.css.map */
