@@ -21,7 +21,7 @@
     <link>{{ link }}</link>
     {% if image %}<image>{{ image }}</image>
     {% endif %}
-    <description>{{ description }}</description>
+    <description>{{ description|striptags }}</description>
     {% for item in item_elements -%}
     <{{ item.key }}{{ item.attributes -}}
     {% if item.value -%}
