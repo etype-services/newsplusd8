@@ -2,6 +2,7 @@
 
 use Drupal\user\Entity\User;
 use Drupal\node\Entity\Node;
+use Drupal\Core\Template\Attribute;
 
 /**
  * @param $existing
