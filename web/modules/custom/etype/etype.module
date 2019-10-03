@@ -204,7 +204,7 @@ function etype_user_logout($account) {
 /**
  * Implements hook_theme().
  */
-function etype_module_theme() {
+function etype_theme() {
   return [
     'views_view_row_rss__news_rss_feed' => [
       'base hook' => 'view'
