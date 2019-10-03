@@ -2,6 +2,8 @@
 
 namespace Drupal\etype\views\Plugin\views\row;
 
+use Drupal\views\Plugin\views\row\RssFields;
+
 /**
  * Renders an RSS item based on fields.
  *
