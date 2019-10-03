@@ -2,6 +2,7 @@
 
 namespace Drupal\etype\Plugin\views\row;
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\Plugin\views\row\RssFields;
 use Drupal\node\Entity\Node;
 
@@ -30,11 +31,32 @@ class EtypeRssFields extends RssFields {
   public function render($row) {
     $build = parent::render($row);
     $item = $build['#row'];
-    dpm($item);
     $node = Node::load($row->nid);
-    $item->image = file_create_url($node->field_image->entity->getFileUri());
     $build['#row'] = $item;
     return $build;
+  }
+
+  /**
+   * Override buildOptionsForm.
+   *
+   * @param array $form
+   *   The form.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   Form State.
+   */
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
+    parent::buildOptionsForm($form, $form_state);
+    $initial_labels = ['' => $this->t('- None -')];
+    $view_fields_labels = $this->displayHandler->getFieldLabels();
+    $view_fields_labels = array_merge($initial_labels, $view_fields_labels);
+    $form['image_field'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Image field'),
+      '#description' => $this->t('The field that is going to be used as the RSS item title for each row.'),
+      '#options' => $view_fields_labels,
+      '#default_value' => $this->options['image_field'],
+      '#required' => TRUE,
+    ];
   }
 
 }
