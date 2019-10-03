@@ -33,6 +33,7 @@ class EtypeRssFields extends RssFields {
     $nid = $row->nid;
     $node = Node::load($nid);
     $item->title = $node->getTitle();
+    $item->image = $node->get('field_image')->entity->uri->value;
     $build['#row'] = $item;
     return $build;
   }

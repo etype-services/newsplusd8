@@ -262,5 +262,5 @@ function getFields($nodeType) {
  */
 function etype_preprocess_views_view_row_rss(&$variables) {
   $item = $variables['row'];
-  $variables['title'] = $item->title;
+  $variables['image'] = $item->image;
 }
