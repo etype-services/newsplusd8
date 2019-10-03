@@ -17,6 +17,9 @@ function etype_theme($existing, $type, $theme, $path) {
       'variables' => [],
       'template' => 'ada-compliance',
     ],
+    'views_view_row_rss__news_rss_feed' => [
+      'base hook' => 'view'
+    ],
   ];
 }
 
@@ -199,17 +202,6 @@ function etype_user_logout($account) {
   $request_time = Drupal::time()->getRequestTime();
   setcookie('nocache', '', $request_time - 3600, '/');
   unset($_COOKIE['nocache']);
-}
-
-/**
- * Implements hook_theme().
- */
-function etype_theme() {
-  return [
-    'views_view_row_rss__news_rss_feed' => [
-      'base hook' => 'view'
-    ],
-  ];
 }
 
 /**
