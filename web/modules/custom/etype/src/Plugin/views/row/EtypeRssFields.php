@@ -28,7 +28,7 @@ class EtypeRssFields extends RssFields {
    *   Return Build.
    */
   public function render($row) {
-    $build = parent::render();
+    $build = parent::render($row);
     $item = $build['#row'];
     $item->id = $row->nid;
     $item->title = 'Test';
