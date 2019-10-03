@@ -16,12 +16,12 @@ use Drupal\file\Entity\File;
  */
 function tiempos_form_system_theme_settings_alter(array &$form, &$form_state) {
 
-  $form['tiempos_settings'] = array(
+  $form['tiempos_settings'] = [
     '#type' => 'fieldset',
     '#title' => t('Tiempos Settings'),
     '#collapsible' => FALSE,
     '#collapsed' => FALSE,
-  );
+  ];
 
   $form['tiempos_settings']['inverted_logo'] = [
     '#type'     => 'managed_file',
