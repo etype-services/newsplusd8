@@ -30,6 +30,7 @@ class EtypeRssFields extends RssFields {
   public function render($row) {
     $build = parent::render($row);
     $item = $build['#row'];
+    dpm($item);
     $node = Node::load($row->nid);
     $item->image = file_create_url($node->field_image->entity->getFileUri());
     $build['#row'] = $item;
