@@ -286,5 +286,6 @@ function etype_preprocess_views_view_row_rss(&$vars) {
   $item = $vars['row'];
   $result = $vars['view']->result;
   $id = $vars['id'];
-  kint($item);
+  var_dump($item);
+  exit;
 }
