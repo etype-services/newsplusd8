@@ -202,14 +202,15 @@ function etype_user_logout($account) {
 }
 
 /**
- * Implements hook_theme_registry_alter
- * Change View template
- *
- * @param $theme_registry
+ * Implements hook_theme().
  */
-function etype_theme_registry_alter(&$theme_registry) {
-  $theme_registry['views_view_row_rss__news_rss_feed']['path'] =
-    drupal_get_path('module', 'etype') . '/templates';
+function etype_module_theme() {
+  return [
+    'views_view_row_rss__news_rss_feed' => [
+      'template' => 'views-view-row-rss--news-rss-feed',
+      'base hook' => 'view'
+    ],
+  ];
 }
 
 /**
