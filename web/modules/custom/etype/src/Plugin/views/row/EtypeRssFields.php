@@ -25,14 +25,14 @@ class EtypeRssFields extends RssFields {
    * @param mixed $row
    *   The row.
    *
-   * @return object
+   * @return array
    *   Return Build.
    */
   public function render($row) {
     $build = parent::render();
-    $item = $build['row'];
+    $item = $build['#row'];
 
-    $build['row'] = $item;
+    $build['#row'] = $item;
     return $build;
   }
 
