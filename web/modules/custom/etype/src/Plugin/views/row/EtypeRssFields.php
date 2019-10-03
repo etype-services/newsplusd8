@@ -41,7 +41,6 @@ class EtypeRssFields extends RssFields {
         $item->image = file_create_url($uri);
       }
     }
-    $item->image = $node->get('field_image')->entity->uri->value;
     $build['#row'] = $item;
     return $build;
   }
