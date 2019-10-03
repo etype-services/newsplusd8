@@ -32,6 +32,8 @@ class EtypeRssFields extends RssFields {
     $build = parent::render($row);
     $item = $build['#row'];
     $node = Node::load($row->nid);
+    $item->elements['guid']['value'] = "http://www.etypetest.com/node/" .
+      $row->nid;
     $build['#row'] = $item;
     return $build;
   }
