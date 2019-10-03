@@ -21,12 +21,4 @@
     <image>{{ image }}</image>
     <id>{{ id }}</id>
     <description>{{ description }}</description>
-    {% for item in item_elements -%}
-    <{{ item.key }}{{ item.attributes -}}
-    {% if item.value -%}
-    >{{ item.value }}</{{ item.key }}>
-    {% else -%}
-        {{ ' />' }}
-    {% endif %}
-  {%- endfor %}
 </item>
