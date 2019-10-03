@@ -1,7 +1,7 @@
 etype:
   version: VERSION
   js:
-    js/etype.js:
+    js/etype.js: {}
   dependencies:
     - core/drupal
     - core/drupalSettings
@@ -21,3 +21,9 @@ global-styling:
   css:
     state:
       css/etype.css: {}
+
+ada-compliance:
+  version: VERSION
+  header: true
+  js:
+    js/ada_compliance.js: {}
