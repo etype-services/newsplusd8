@@ -28,10 +28,15 @@ class EtypeRssFields extends RssFields {
    *   Return Build.
    */
   public function render($row) {
-    $build = parent::render($row);
     $item = new stdClass();
     $item->id = '24';
-    $build['#row'] = $item;
+    $build = [
+      '#theme' => $this->themeFunctions(),
+      '#view' => $this->view,
+      '#options' => $this->options,
+      '#row' => $item,
+      '#field_alias' => isset($this->field_alias) ? $this->field_alias : '',
+    ];
     return $build;
   }
 
