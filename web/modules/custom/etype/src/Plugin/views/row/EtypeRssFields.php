@@ -2,9 +2,8 @@
 
 namespace Drupal\etype\Plugin\views\row;
 
-use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\Plugin\views\row\RssFields;
-use Drupal\node\Entity\Node;
+use stdClass;
 
 /**
  * Renders an RSS item based on fields.
@@ -30,7 +29,7 @@ class EtypeRssFields extends RssFields {
    */
   public function render($row) {
     $build = parent::render($row);
-    $item = $build['#row'];
+    $item = new stdClass();
     $item->id = $row->nid;
     $build['#row'] = $item;
     return $build;
