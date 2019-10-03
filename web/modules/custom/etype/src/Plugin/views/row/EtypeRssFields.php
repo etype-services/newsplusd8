@@ -27,6 +27,8 @@ class EtypeRssFields extends RssFields {
    *
    * @return array
    *   Return Build.
+   *
+   * @throws \Drupal\Core\Entity\EntityMalformedException
    */
   public function render($row) {
     $build = parent::render($row);
@@ -41,6 +43,7 @@ class EtypeRssFields extends RssFields {
         $item->image = file_create_url($uri);
       }
     }
+    $item->link = $node->toUrl()->setAbsolute()->toString();
     $build['#row'] = $item;
     return $build;
   }
