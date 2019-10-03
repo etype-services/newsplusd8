@@ -29,7 +29,7 @@ class EtypeRssFields extends RssFields {
    */
   public function render($row) {
     $item = new stdClass();
-    $item->id = '24';
+    $item->id = $row->nid;
     $item->title = 'Test';
     $build = [
       '#theme' => $this->themeFunctions(),
