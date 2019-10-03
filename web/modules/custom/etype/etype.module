@@ -284,7 +284,6 @@ function getFields($nodeType) {
  */
 function etype_preprocess_views_view_row_rss(&$vars) {
   $result = $vars['view']->result;
-  $id = $vars['ID'];
   $node = Node::load($id);
   //$vars['image'] = $node->get('field_image')->entity->uri->value;
 }
