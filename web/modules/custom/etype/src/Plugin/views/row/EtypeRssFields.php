@@ -52,7 +52,7 @@ class EtypeRssFields extends RssFields {
     $form['image_field'] = [
       '#type' => 'select',
       '#title' => $this->t('Image field'),
-      '#description' => $this->t('The field that is going to be used as the RSS item title for each row.'),
+      '#description' => $this->t('The field that is going to be used as the RSS item image for each row.'),
       '#options' => $view_fields_labels,
       '#default_value' => $this->options['image_field'],
       '#required' => TRUE,
