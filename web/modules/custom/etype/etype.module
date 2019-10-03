@@ -284,5 +284,6 @@ function getFields($nodeType) {
  * @param $variables
  */
 function etype_preprocess_views_view_row_rss(&$variables) {
-  $variables['row']->guid = 'test';
+  $item = $variables['row'];
+  $variables['item_elements']['guid'] = 'test';
 }
