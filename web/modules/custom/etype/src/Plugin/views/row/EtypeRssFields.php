@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\views\Plugin\views\row;
+namespace Drupal\etype\views\Plugin\views\row;
 
 /**
  * Renders an RSS item based on fields.
