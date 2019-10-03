@@ -30,7 +30,7 @@ class EtypeRssFields extends RssFields {
   public function render($row) {
     $build = parent::render($row);
     $item = new stdClass();
-    $item->id = $row->nid;
+    $item->id = '24';
     $build['#row'] = $item;
     return $build;
   }
