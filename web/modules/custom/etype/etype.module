@@ -285,5 +285,4 @@ function getFields($nodeType) {
  */
 function etype_preprocess_views_view_row_rss(&$variables) {
   $item = $variables['row'];
-  dpm($item->item_elements);
 }
