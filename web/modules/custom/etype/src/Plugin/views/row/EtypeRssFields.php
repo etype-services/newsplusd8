@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\etype\views\Plugin\views\row\EtypeRssFields;
+namespace Drupal\etype\Plugin\views\row;
 
 use Drupal\views\Plugin\views\row\RssFields;
 
