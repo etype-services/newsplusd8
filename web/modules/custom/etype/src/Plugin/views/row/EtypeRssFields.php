@@ -2,6 +2,7 @@
 
 namespace Drupal\etype\Plugin\views\row;
 
+use Drupal;
 use Drupal\file\Entity\File;
 use Drupal\node\Entity\Node;
 use Drupal\views\Plugin\views\row\RssFields;
@@ -44,6 +45,19 @@ class EtypeRssFields extends RssFields {
       }
     }
     $item->link = $node->toUrl()->setAbsolute()->toString();
+    $host = Drupal::request()->getSchemeAndHttpHost();
+    $arr = [];
+    foreach ($item->elements as $element) {
+      if ($element['key'] !== 'guid') {
+        $arr[] = $element;
+      }
+    }
+    $item->elements = $arr;
+    $item->elements[] = [
+      'key' => 'guid',
+      'value' => $host . "/node/" . $nid,
+      'attributes' => ['isPermaLink' => TRUE],
+    ];
     $build['#row'] = $item;
     return $build;
   }
