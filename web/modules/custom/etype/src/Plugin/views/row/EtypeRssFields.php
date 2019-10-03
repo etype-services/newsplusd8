@@ -38,7 +38,6 @@ class EtypeRssFields extends RssFields {
       '#row' => $item,
       '#field_alias' => isset($this->field_alias) ? $this->field_alias : '',
     ];
-    // var_dump($build['#row']);
     return $build;
   }
 
