@@ -21,7 +21,7 @@ use Drupal\views\Plugin\views\row\RssFields;
 class EtypeRssFields extends RssFields {
 
   /**
-   * Override Views Row.
+   * Override Views Row to get custom RSS fields (image).
    *
    * @param mixed $row
    *   The row.
@@ -36,7 +36,11 @@ class EtypeRssFields extends RssFields {
     $item = $build['#row'];
     $nid = $row->nid;
     $node = Node::load($nid);
+
+    // Get the title.
     $item->title = $node->getTitle();
+
+    // Get the image shareable url.
     if ($node->get('field_image')->target_id > 0) {
       $obj = File::load($node->get('field_image')->target_id);
       if (is_object($obj)) {
@@ -44,7 +48,11 @@ class EtypeRssFields extends RssFields {
         $item->image = file_create_url($uri);
       }
     }
+
+    // Get a better link.
     $item->link = $node->toUrl()->setAbsolute()->toString();
+
+    // Fix guid link.
     $host = Drupal::request()->getSchemeAndHttpHost();
     $arr = [];
     foreach ($item->elements as $element) {
