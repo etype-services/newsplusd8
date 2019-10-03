@@ -202,28 +202,15 @@ function etype_user_logout($account) {
 }
 
 /**
- * Implements hook_library_info_build()
- * Left as example
- * function etype_library_info_build() {
- * $config = Drupal::config('etype.adminsettings');
- * $mercolocal_id = $config->get('mercolocal_id');
- * $libraries = [];
- * $libraries['etype/mercolocal'] = [
- * 'version' => '1.x',
- * 'js' => [
- * 'https://www.mercolocal.com/js/Embed.js?h=600&amp;w=300&amp;Scroll=v&amp;affiliateId=' .
- * $mercolocal_id => [
- * 'type' => 'external',
- * 'attributes' => [
- * 'id' => 'MercoLocal-script',
- * 'data-active' => 'businesses',
- * ],
- * ],
- * ],
- * ];
- * return $libraries;
- * }
+ * Implements hook_theme_registry_alter
+ * Change View template
+ *
+ * @param $theme_registry
  */
+function etype_theme_registry_alter(&$theme_registry) {
+  $theme_registry['views-view-row-rss--news-rss-feed']['path'] =
+    drupal_get_path('module', 'etype') . '/templates';
+}
 
 /**
  * Helper to split string on word boundary.
