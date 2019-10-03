@@ -283,9 +283,8 @@ function getFields($nodeType) {
  * @param $vars
  */
 function etype_preprocess_views_view_row_rss(&$vars) {
-  $item = $vars['row'];
   $result = $vars['view']->result;
   $id = $vars['id'];
-  $node = Node::load( $result[$id-1]->nid );
+  $node = Node::load($result[$id]->nid);
   $vars['image'] = $node->get('field_image')->entity->uri->value;
 }
