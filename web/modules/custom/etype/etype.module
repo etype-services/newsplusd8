@@ -285,7 +285,6 @@ function getFields($nodeType) {
  */
 function etype_preprocess_views_view_row_rss(&$variables) {
   $item = $variables['row'];
-  $node = Drupal::request()->attributes->get('node');
-  $nid = $node->id();
+  $nid = $variables['node']->id();
   dpm($nid);
 }
