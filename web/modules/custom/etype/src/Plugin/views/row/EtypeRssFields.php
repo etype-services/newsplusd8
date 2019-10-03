@@ -8,8 +8,8 @@ use Drupal\views\Plugin\views\row\RssFields;
  * Renders an RSS item based on fields.
  *
  * @ViewsRow(
- *   id = "rss_fields",
- *   title = @Translation("Fields"),
+ *   id = "etype_rss_fields",
+ *   title = @Translation("eType RSS Fields"),
  *   help = @Translation("Display fields as RSS items."),
  *   theme = "views_view_row_rss",
  *   display_types = {"feed"}
