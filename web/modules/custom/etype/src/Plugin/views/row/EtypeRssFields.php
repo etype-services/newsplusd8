@@ -3,6 +3,7 @@
 namespace Drupal\etype\Plugin\views\row;
 
 use Drupal\views\Plugin\views\row\RssFields;
+use Drupal\node\Entity\Node;
 
 /**
  * Renders an RSS item based on fields.
@@ -29,11 +30,8 @@ class EtypeRssFields extends RssFields {
   public function render($row) {
     $build = parent::render($row);
     $item = $build['#row'];
-
-    $item->id = [
-      'key' => 'id',
-      'value' => $row->nid,
-    ];
+    $node = Node::load($row->nid);
+    $item->image = file_create_url($node->field_image->entity->getFileUri());
     $build['#row'] = $item;
     return $build;
   }
