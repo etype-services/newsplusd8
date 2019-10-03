@@ -1,10 +1,8 @@
 <?php
 
-namespace Drupal\etype\views\Plugin\views\row;
+namespace Drupal\etype\views\Plugin\views\row\EtypeRssFields;
 
 use Drupal\views\Plugin\views\row\RssFields;
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Url;
 
 /**
  * Renders an RSS item based on fields.
