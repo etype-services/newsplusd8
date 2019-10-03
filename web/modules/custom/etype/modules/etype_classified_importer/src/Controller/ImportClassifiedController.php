@@ -13,57 +13,6 @@ use Drupal\node\Entity\Node;
 use Exception;
 
 /**
- * Class ImportUrlMissingException.
- *
- * @package Drupal\etype_classified_importer\Controller
- */
-class ImportUrlMissingException extends Exception {
-
-  /**
-   * Constructs an ImportFileMissingException.
-   */
-  public function __construct() {
-    $message = new TranslatableMarkup('No import url defined. See eType Classified Importer settings.');
-    parent::__construct($message);
-  }
-
-}
-
-/**
- * Class XMLIsFalseException.
- *
- * @package Drupal\etype_classified_importer\Controller
- */
-class XMLIsFalseException extends Exception {
-
-  /**
-   * Constructs an XMLIsFalseException.
-   */
-  public function __construct() {
-    $message = new TranslatableMarkup('There was a problem extracting XML from the file.');
-    parent::__construct($message);
-  }
-
-}
-
-/**
- * Class AdObjectEmptyException.
- *
- * @package Drupal\etype_classified_importer\Controller
- */
-class AdObjectEmptyException extends Exception {
-
-  /**
-   * Constructs an AdObjectEmptyException.
-   */
-  public function __construct() {
-    $message = new TranslatableMarkup('There do not seem to be any classified ads to import.');
-    parent::__construct($message);
-  }
-
-}
-
-/**
  * Class ImportClassifiedController.
  *
  * @package Drupal\etype_classified_importer\Controller
@@ -205,6 +154,57 @@ class ImportClassifiedController {
 
     return ['#markup' => '<p>' . $i . ' classified ads were imported.</p>'];
 
+  }
+
+}
+
+/**
+ * Class ImportUrlMissingException.
+ *
+ * @package Drupal\etype_classified_importer\Controller
+ */
+class ImportUrlMissingException extends Exception {
+
+  /**
+   * Constructs an ImportFileMissingException.
+   */
+  public function __construct() {
+    $message = new TranslatableMarkup('No import url defined. See eType Classified Importer settings.');
+    parent::__construct($message);
+  }
+
+}
+
+/**
+ * Class XMLIsFalseException.
+ *
+ * @package Drupal\etype_classified_importer\Controller
+ */
+class XMLIsFalseException extends Exception {
+
+  /**
+   * Constructs an XMLIsFalseException.
+   */
+  public function __construct() {
+    $message = new TranslatableMarkup('There was a problem extracting XML from the file.');
+    parent::__construct($message);
+  }
+
+}
+
+/**
+ * Class AdObjectEmptyException.
+ *
+ * @package Drupal\etype_classified_importer\Controller
+ */
+class AdObjectEmptyException extends Exception {
+
+  /**
+   * Constructs an AdObjectEmptyException.
+   */
+  public function __construct() {
+    $message = new TranslatableMarkup('There do not seem to be any classified ads to import.');
+    parent::__construct($message);
   }
 
 }
