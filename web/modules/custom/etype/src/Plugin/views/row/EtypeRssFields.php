@@ -27,7 +27,7 @@ class EtypeRssFields extends RssFields {
    *   Return Build.
    */
   public function render($row) {
-    $build = parent::render();
+    $build = parent::render($row);
     $item = $build['#row'];
 
     $item->elements[] = [
@@ -35,7 +35,6 @@ class EtypeRssFields extends RssFields {
       'value' => $row->nid,
     ];
     $build['#row'] = $item;
-
     return $build;
   }
 
