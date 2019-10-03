@@ -2,6 +2,7 @@
 
 namespace Drupal\etype\Plugin\views\row;
 
+use Drupal\file\Entity\File;
 use Drupal\node\Entity\Node;
 use Drupal\views\Plugin\views\row\RssFields;
 
@@ -33,6 +34,13 @@ class EtypeRssFields extends RssFields {
     $nid = $row->nid;
     $node = Node::load($nid);
     $item->title = $node->getTitle();
+    if ($node->get('field_image')->target_id > 0) {
+      $obj = File::load($node->get('field_image')->target_id);
+      if (is_object($obj)) {
+        $uri = $obj->getFileUri();
+        $item->image = file_create_url($uri);
+      }
+    }
     $item->image = $node->get('field_image')->entity->uri->value;
     $build['#row'] = $item;
     return $build;
