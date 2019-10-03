@@ -10,9 +10,7 @@ namespace Drupal\etype_classified_importer\Controller;
 use Drupal;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\node\Entity\Node;
-use Drupal\Component\Utility\Html;
 use Exception;
-use DateTime;
 
 /**
  * Class ImportUrlMissingException.
