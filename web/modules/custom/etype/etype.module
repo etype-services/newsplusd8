@@ -279,12 +279,3 @@ function getFields($nodeType) {
   }
   return $fields;
 }
-
-/**
- * @param $variables
- */
-function etype_preprocess_views_view_row_rss(&$variables) {
-  $item = $variables['row'];
-  $id = $variables['id'];
-  dpm($id);
-}
