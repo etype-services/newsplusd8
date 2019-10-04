@@ -2,4 +2,14 @@
  * @file
  * Use this CSS file to override base CSS rules
  */
+
+/* Fix social icons in header  - to make clickable */
+.region-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropdown-menu {
+  left: -120px;
+}
  
