@@ -258,6 +258,8 @@ function getFields($nodeType) {
 }
 
 /**
+ * Customize RSS feed for apps.
+ *
  * @param $variables
  *
  * See Drupal\etype\Plugin\views\row/EtypeRssFields
