@@ -9,6 +9,10 @@
   justify-content: space-between;
 }
 
+#block-searchformdropdown {
+  flex-grow: 1;
+}
+
 .dropdown-menu {
   left: -120px;
 }
