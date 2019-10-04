@@ -64,7 +64,7 @@ class EtypeRssFields extends RssFields {
     $item->elements[] = [
       'key' => 'guid',
       'value' => $host . "/node/" . $nid,
-      'attributes' => ['isPermaLink' => TRUE],
+      'attributes' => ['isPermaLink' => FALSE],
     ];
     $build['#row'] = $item;
     return $build;
