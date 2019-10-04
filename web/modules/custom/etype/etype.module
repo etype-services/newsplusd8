@@ -262,7 +262,7 @@ function getFields($nodeType) {
  *
  * @param $variables
  *
- * See Drupal\etype\Plugin\views\row/EtypeRssFields
+ * See Drupal\etype\Plugin\views\row\EtypeRssFields
  */
 function etype_preprocess_views_view_row_rss(&$variables) {
   $item = $variables['row'];
