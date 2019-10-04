@@ -3,3 +3,6 @@ type: module
 description: 'Provides login to eType system.'
 core: 8.x
 package: 'eType Services'
+
+dependencies:
+  - etype:etype
