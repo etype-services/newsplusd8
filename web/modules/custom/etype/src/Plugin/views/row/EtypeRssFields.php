@@ -37,10 +37,10 @@ class EtypeRssFields extends RssFields {
     $nid = $row->nid;
     $node = Node::load($nid);
 
-    // Get the title.
+    // Set the title.
     $item->title = $node->getTitle();
 
-    // Get the image shareable url.
+    // Set the image shareable url.
     if ($node->get('field_image')->target_id > 0) {
       $obj = File::load($node->get('field_image')->target_id);
       if (is_object($obj)) {
@@ -49,7 +49,7 @@ class EtypeRssFields extends RssFields {
       }
     }
 
-    // Get a better link.
+    // Set a better link.
     $item->link = $node->toUrl()->setAbsolute()->toString();
 
     // Fix guid link.
