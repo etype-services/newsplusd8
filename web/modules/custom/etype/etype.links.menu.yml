@@ -13,13 +13,13 @@ etype.admin_settings:
   route_name: etype.admin_settings_form
 
 etype.ada_compliance:
-  title: 'ADA Compliance'
+  title: 'Accessibility Policy'
   weight: 10
   route_name: etype.ada_compliance
   menu_name: footer
 
 etype.ada_compliance_news+:
-  title: 'ADA Compliance'
+  title: 'Accessibility Policy'
   weight: 10
   route_name: etype.ada_compliance
   menu_name: subfooter-menu
