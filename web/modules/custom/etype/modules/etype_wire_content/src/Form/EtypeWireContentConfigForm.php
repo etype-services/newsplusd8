@@ -126,7 +126,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
     $nid = reset($nids);
     if (isset($nid)) {
       $node = Node::Load($nid);
-      if (is_object($node)) {
+      if (!is_object($node)) {
         $this->node = $node;
         /* Gives strange array_flip error */
         /* $arr = $node->getFieldDefinitions();
