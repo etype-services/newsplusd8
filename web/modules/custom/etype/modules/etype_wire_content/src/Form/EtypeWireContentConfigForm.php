@@ -223,7 +223,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
 
     $form['export']['help'] = [
       '#type' => 'item',
-      '#markup' => t('If desired, enable and edit the export cron job at the <a href="/admin/config/system/cron/jobs/manage/etype_wire_content_cron">cron settings page</a>.'),
+      '#markup' => t('If desired, enable the export cron job at the <a href="/admin/config/system/cron/jobs/manage/etype_wire_content_cron">cron settings page</a>.'),
     ];
 
     $form['export']['groups'] = [
