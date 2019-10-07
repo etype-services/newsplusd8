@@ -113,7 +113,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
    * Get the fields associated with selected node type.
    *
    * Using to set the node object.
-   * Getting strange errors when attemtpting to loogk over field definitions.
+   * Getting strange errors when attemtpting to loop over field definitions.
    *
    * Apparently node::load is better than any entityFieldQuery.
    */
@@ -214,18 +214,19 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
     $data = unserialize($result[0]->data);
     $options = $data['cluster'];
 
-    $form['help'] = [
-      '#type' => 'item',
-      '#markup' => t('Enable and edit import cron job at the <a href="/admin/config/system/cron/jobs/manage/etype_wire_content_cron">cron settings page</a>.'),
-    ];
 
     /* Group settings. */
-    $form['groups'] = [
+    $form['export'] = [
       '#type' => 'fieldset',
-      '#title' => $this->t('Groups'),
+      '#title' => $this->t('Export Settings'),
     ];
 
-    $form['groups']['groups'] = [
+    $form['export']['help'] = [
+      '#type' => 'item',
+      '#markup' => t('If desired, enable and edit the export cron job at the <a href="/admin/config/system/cron/jobs/manage/etype_wire_content_cron">cron settings page</a>.'),
+    ];
+
+    $form['export']['groups'] = [
       '#title' => t('Site Group(s)'),
       '#multiple' => TRUE,
       '#description' => t("The group(s) that this site belongs to. Sites can belong to one or more groups and exported wire content will be marked as belonging to checked groups."),
@@ -235,21 +236,37 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
       '#default_value' => $this->conf->get('groups') ?: [],
     ];
 
-    $form['settings'] = [
-      '#type' => 'fieldset',
-      '#title' => $this->t('Other Settings'),
-    ];
-
-    $form['settings']['nodeType'] = [
+    $form['export']['nodeType'] = [
       '#type' => 'select',
-      '#title' => t('Choose which content type to import and export.'),
+      '#title' => t('Choose which content type to import/export.'),
       '#default_value' => $this->conf->get('nodeType'),
       '#options' => $this->nodeTypeOptions,
     ];
 
-    $form['settings']['author'] = [
+    $form['import']['field'] = [
+      '#type' => 'textfield',
+      '#title' => t('Enter the machine_name of the field to use to filter exports. Don‘t change this unless you are sure. For Tiempos sites this should be "field_section".'),
+      '#default_value' => $this->conf->get('field'),
+    ];
+
+    if (count($this->sections) > 1) {
+      $form['import']['sections'] = [
+        '#type' => 'checkboxes',
+        '#title' => t('Choose which taxonomy terms to use to filter exports.'),
+        '#default_value' => $this->conf->get('sections'),
+        '#options' => $this->sections,
+      ];
+    }
+
+    $form['import'] = [
+      '#type' => 'fieldset',
+      '#title' => $this->t('Import Settings'),
+    ];
+
+    $form['import']['author'] = [
       '#type' => 'entity_autocomplete',
       '#title' => t('Default Author'),
+      '#description' => t("Imported content will set this User as the author."),
       '#size' => 30,
       '#maxlength' => 60,
       '#target_type' => 'user',
@@ -258,10 +275,10 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
     $uid = $this->conf->get('author');
     if ($uid > 0) {
       $author = User::load($uid);
-      $form['settings']['author']['#default_value'] = $author;
+      $form['import']['author']['#default_value'] = $author;
     }
 
-    $form['settings']['section'] = [
+    $form['import']['section'] = [
       '#title' => $this->t('Section'),
       '#description' => 'Enter the section into which to import articles, ie "Wire Content".',
       '#type' => 'entity_autocomplete',
@@ -274,22 +291,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
     $tid = $this->conf->get('section');
     if ($tid > 0) {
       $term = Term::load($tid);
-      $form['settings']['section']['#default_value'] = $term;
-    }
-
-    $form['settings']['field'] = [
-      '#type' => 'textfield',
-      '#title' => t('Enter the machine_name of the field to use to filter exports. Don‘t change this unless you are sure. For Tiempos sites this should be "field_section".'),
-      '#default_value' => $this->conf->get('field'),
-    ];
-
-    if (count($this->sections) > 1) {
-      $form['settings']['sections'] = [
-        '#type' => 'checkboxes',
-        '#title' => t('Choose which taxonomy terms to use to filter exports.'),
-        '#default_value' => $this->conf->get('sections'),
-        '#options' => $this->sections,
-      ];
+      $form['import']['section']['#default_value'] = $term;
     }
 
     return parent::buildForm($form, $form_state);

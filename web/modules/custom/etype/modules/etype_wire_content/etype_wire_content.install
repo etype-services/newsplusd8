@@ -1,0 +1,4 @@
+<?php
+
+function etype_wire_content_uninstall() {
+}
