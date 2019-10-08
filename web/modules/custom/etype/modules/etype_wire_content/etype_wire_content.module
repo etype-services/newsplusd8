@@ -2,6 +2,8 @@
 /**
  * @file
  * eType Wire Content module file.
+ *
+ * TODO: Make View pick up settings for Groups and Site Name.
  */
 
 use Drupal\Core\Database\Database;

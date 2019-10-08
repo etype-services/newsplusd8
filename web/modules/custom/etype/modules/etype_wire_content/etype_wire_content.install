@@ -1,4 +1,8 @@
 <?php
 
+/**
+ * TODO: delete view on uninstall
+ */
+
 function etype_wire_content_uninstall() {
 }

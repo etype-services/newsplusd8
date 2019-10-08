@@ -44,8 +44,8 @@ article .field--name-field-tags h3 {
   display: flex;
   justify-content: center; }
 
-/* region-page-intro */
-#block-views-block-advertisements-block-3 {
+/* region-page-intro ads */
+.block-views {
   padding: 15px 0;
   margin: 0; }
 
