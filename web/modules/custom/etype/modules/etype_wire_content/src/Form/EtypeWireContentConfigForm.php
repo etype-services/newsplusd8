@@ -242,14 +242,14 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
 
     $form['settings']['nodeType'] = [
       '#type' => 'select',
-      '#title' => t('Choose which content type to import and export.'),
+      '#title' => t('Choose which content type to import and export'),
       '#default_value' => $this->conf->get('nodeType'),
       '#options' => $this->nodeTypeOptions,
     ];
 
     $form['settings']['author'] = [
       '#type' => 'entity_autocomplete',
-      '#title' => t('Default Author'),
+      '#title' => t('Default Author for imported content'),
       '#size' => 30,
       '#maxlength' => 60,
       '#target_type' => 'user',
@@ -263,7 +263,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
 
     $form['settings']['section'] = [
       '#title' => $this->t('Section'),
-      '#description' => 'Enter the section into which to import articles, ie "Wire Content".',
+      '#description' => 'Enter the Section with which to categorize imported articles.',
       '#type' => 'entity_autocomplete',
       '#target_type' => 'taxonomy_term',
       '#selection_handler' => 'default',
@@ -286,7 +286,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
     if (count($this->sections) > 1) {
       $form['settings']['sections'] = [
         '#type' => 'checkboxes',
-        '#title' => t('Choose which taxonomy terms to use to filter exports.'),
+        '#title' => t('Choose which sections to export.'),
         '#default_value' => $this->conf->get('sections'),
         '#options' => $this->sections,
       ];
