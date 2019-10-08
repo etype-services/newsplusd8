@@ -89,7 +89,8 @@
 /* Front Page Sections, Business Directory, and Special Sections (don't use id, for sub-themes). */
 .front-page-sections,
 .block-views-blockbusiness-directory-block-1,
-.block-views-blockspecial-sections-block-1 {
+.block-views-blockspecial-sections-block-1,
+.block-views-blockspecial-sections-block-2 {
   .view-content {
     display: flex;
     margin-left: -$column-gap;
@@ -105,13 +106,6 @@
     div {
       flex: 1 1 100%;
     }
-  }
-}
-
-/* Special Sections TODO: remove */
-.block-views-blockspecial-sections-block-1 {
-  .views-view-grid .views-col {
-    padding-right: $column-gap;
   }
 }
 
