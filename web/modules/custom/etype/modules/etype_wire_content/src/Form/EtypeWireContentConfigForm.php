@@ -113,7 +113,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
    * Get the fields associated with selected node type.
    *
    * Using to set the node object.
-   * Getting strange errors when attemtpting to loogk over field definitions.
+   * Getting strange errors when attemtpting to loop over field definitions.
    *
    * Apparently node::load is better than any entityFieldQuery.
    */
