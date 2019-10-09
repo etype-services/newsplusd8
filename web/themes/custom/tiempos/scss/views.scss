@@ -171,6 +171,17 @@
   }
 }
 
+.path-magazines {
+  .views-view-grid.horizontal.cols-2 {
+    .col-1 {
+      padding-right: calc(#{$column-gap} / 2);
+    }
+    .col-2 {
+      padding-left: calc(#{$column-gap} / 2);
+    }
+  }
+}
+
 /* Video Page. */
 .path-videos {
   .view-videos {
