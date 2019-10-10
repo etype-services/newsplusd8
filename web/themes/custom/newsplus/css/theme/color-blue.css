@@ -30,7 +30,8 @@ pre {
   #background-color: #357cce;
   #background-color: #231e1f;
   background-color: #0f53a0;
-  border-bottom-color: #2c68ad;
+  #border-bottom-color: #2c68ad;
+  border-bottom-color: #231e1f;
 }
 
 /* components: accordion */
