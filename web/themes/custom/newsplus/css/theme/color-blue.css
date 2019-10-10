@@ -24,11 +24,12 @@ pre {
 /* base: layout */
 #pre-header,
 #header-top {
-  background-color: #4f91dd;
+  background-color: #0f53a0;
 }
 #header {
   #background-color: #357cce;
-  background-color: #231e1f;
+  #background-color: #231e1f;
+  background-color: #0f53a0;
   border-bottom-color: #2c68ad;
 }
 
