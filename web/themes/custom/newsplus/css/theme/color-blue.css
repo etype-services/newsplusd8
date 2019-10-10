@@ -27,7 +27,8 @@ pre {
   background-color: #4f91dd;
 }
 #header {
-  background-color: #357cce;
+  #background-color: #357cce;
+  background-color: #2e3032;
   border-bottom-color: #2c68ad;
 }
 
