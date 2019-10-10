@@ -260,12 +260,15 @@ table th {
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
-  background-color: #4f91dd;
-  border-color: #4f91dd;
+  #background-color: #4f91dd;
+  #border-color: #4f91dd;
+  background-color: #0f53a0;
+  border-color: #0f53a0;
 }
 @media (min-width:481px) {
   .nav-tabs > li.active > a:after {
-    color: #4f91dd;
+    #color: #4f91dd;
+    color: #0f53a0;
   }
 }
 
