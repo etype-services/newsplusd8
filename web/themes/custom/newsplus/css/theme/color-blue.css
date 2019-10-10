@@ -10,7 +10,8 @@
 
 /* base: elements */
 a {
-  color: #357cce;
+  #color: #357cce;
+  color: #0f53a0;
 }
 a:hover,
 a:focus,
