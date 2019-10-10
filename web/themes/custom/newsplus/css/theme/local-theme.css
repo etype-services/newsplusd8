@@ -3,23 +3,29 @@
 #block-socialiconblockforheaderinnewstheme {
   float: left;
   width: fit-content;
-  z-index: 9999; }
+  z-index: 9999;
+}
 
 #block-searchformdropdown {
-  padding: 0; }
+  padding: 0;
+}
 
 /* Second Sidebar */
 .region-sidebar-second {
-  /* Most Recent Poll Block */ }
-  .region-sidebar-second #block-mostrecentpoll {
-    /* Adjust choice box margins */
-    /* Adjust Input Margin and Positioning */ }
-    .region-sidebar-second #block-mostrecentpoll #edit-choice--wrapper {
-      margin: 1px 0; }
-    .region-sidebar-second #block-mostrecentpoll input[type="radio"], .region-sidebar-second #block-mostrecentpoll input[type="checkbox"] {
-      margin: 0 4px 3px;
-      position: relative;
-      top: -2px; }
+  /* Most Recent Poll Block */
+}
+.region-sidebar-second #block-mostrecentpoll {
+  /* Adjust choice box margins */
+  /* Adjust Input Margin and Positioning */
+}
+.region-sidebar-second #block-mostrecentpoll #edit-choice--wrapper {
+  margin: 1px 0;
+}
+.region-sidebar-second #block-mostrecentpoll input[type=radio], .region-sidebar-second #block-mostrecentpoll input[type=checkbox] {
+  margin: 0 4px 3px;
+  position: relative;
+  top: -2px;
+}
 
 /* Small Images */
 article.node--view-mode-full .field--name-field-small-image {
@@ -27,51 +33,71 @@ article.node--view-mode-full .field--name-field-small-image {
   margin-right: 0.75rem;
   margin-top: 0.3rem;
   margin-bottom: 0;
-  max-width: 40vh; }
+  max-width: 40vh;
+}
 article .field--name-field-long-caption {
   font-style: oblique;
   font-size: 1.4rem;
-  color: #7d7d7d; }
+  color: #7d7d7d;
+}
 article .field--name-field-tags h3 {
-  margin: 1px 0 0; }
+  margin: 1px 0 0;
+}
 
 /* Business Directory & Special Sections Blocks */
 #block-views-block-special-sections-block-1 .view-images {
-  margin: 0; }
+  margin: 0;
+}
 
 /* Advertisement Blocks. */
 .view-advertisements .views-row {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+}
 
 /* region-page-intro ads below main nav */
 .block {
   padding: 15px 0;
-  margin: 0; }
+  margin: 0;
+}
 
 /* Lightbox images - make wider for long captions */
 .mfp-image-holder .mfp-content {
   max-width: 100%;
-  width: 60%; }
+  width: 60%;
+}
 
 .premium_message {
   margin-top: 1rem;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 /* fix overlay in sidebar tabs */
 .sidebar #block-sidebartabs .views-field-field-image .overlay {
-  display: none; }
+  display: none;
+}
 
 /* Site specific */
 .elrenotribune #header-top {
-  background-color: #ffffff; }
+  background-color: #ffffff;
+}
 
 /* Ponca City Ad in Header, also menu weirdness - no Account Menu */
 @media (min-width: 768px) {
   .poncacitynews #block-views-block-advertisements-block-7 .view-advertisements .views-row {
-    justify-content: flex-end; } }
+    justify-content: flex-end;
+  }
+}
 @media (max-width: 767px) {
   .poncacitynews #block-weatherwidget {
-    padding-top: 3rem; } }
+    padding-top: 3rem;
+  }
+}
+/* El Reno header */
+@media (min-width: 992px) {
+  .elrenotribune .pre-header-inside .col-md-4, .elrenotribune .pre-header-inside .col-md-8 {
+    width: 50%;
+  }
+}
 
 /*# sourceMappingURL=local-theme.css.map */
