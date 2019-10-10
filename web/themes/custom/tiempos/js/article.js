@@ -5,7 +5,7 @@
             var articleCaption;
             var flexslider = $("#flexslider-1 > .slides li");
             var len = flexslider.length;
-            var img = $(".page-node-type-article article .field--name-body img, .page-node-type-article article .field--type-image > img");
+            var img = $(".page-node-type-article article .field--name-body img, .page-node-type-article article .field--type-image img");
             img.each(function () {
                 var text = $(this).attr("alt");
                 if (text !== "undefined") {
