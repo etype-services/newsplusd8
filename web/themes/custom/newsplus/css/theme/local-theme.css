@@ -95,7 +95,7 @@ article .field--name-field-tags h3 {
 }
 /* El Reno header */
 @media (min-width: 992px) {
-  .elrenotribune .pre-header-inside .col-md-4, .elrenotribune .pre-header-inside .col-md-8 {
+  .elrenotribune #pre-header-inside .col-md-4, .elrenotribune #pre-header-inside .col-md-8 {
     width: 50%;
   }
 }
