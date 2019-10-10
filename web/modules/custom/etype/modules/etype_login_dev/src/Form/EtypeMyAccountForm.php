@@ -9,94 +9,6 @@ use Drupal\Core\Form\FormStateInterface;
 use Exception;
 use SoapClient;
 
-/**
- * Class EtypeLoginException.
- *
- * @package Drupal\etype_login_dev\Form
- */
-class EtypeLoginException extends Exception {
-
-  /**
-   * EtypeLoginException constructor.
-   */
-  public function __construct() {
-    $message = new TranslatableMarkup('We were unable to retrieve any details for this account. Please contact us.');
-    parent::__construct($message);
-  }
-
-}
-
-/**
- * Class EtypeUpdateException.
- *
- * @package Drupal\etype_login\Form
- */
-class EtypeUpdateException extends Exception {
-
-  /**
-   * Var Setup.
-   *
-   * @var \Drupal\Core\Messenger\MessengerInterface
-   */
-  protected $messenger;
-
-  /**
-   * EtypeUpdateException constructor.
-   */
-  public function __construct() {
-    $message = new TranslatableMarkup('We were unable to update your account details Please try later.');
-    parent::__construct($message);
-  }
-
-}
-
-/**
- * Class EtypePasswordException.
- *
- * @package Drupal\etype_login\Form
- */
-class EtypePasswordException extends Exception {
-
-  /**
-   * Var Setup.
-   *
-   * @var \Drupal\Core\Messenger\MessengerInterface
-   */
-  protected $messenger;
-
-  /**
-   * EtypeUpdateException constructor.
-   */
-  public function __construct() {
-    $message = new TranslatableMarkup('Your current password does not match our records. Please try again.');
-    parent::__construct($message);
-  }
-
-}
-
-/**
- * Class EtypePasswordChangeException.
- *
- * @package Drupal\etype_login\Form
- */
-class EtypePasswordChangeException extends Exception {
-
-  /**
-   * Var Setup.
-   *
-   * @var \Drupal\Core\Messenger\MessengerInterface
-   */
-  protected $messenger;
-
-  /**
-   * EtypeUpdateException constructor.
-   */
-  public function __construct() {
-    $message = new TranslatableMarkup('Sorry, we were not able to update your password. Please try again later.');
-    parent::__construct($message);
-  }
-
-}
 
 /**
  * Class EtypeMyAccountForm.
@@ -360,6 +272,95 @@ class EtypeMyAccountForm extends FormBase {
 
     $this->messenger->addStatus($message);
 
+  }
+
+}
+
+/**
+ * Class EtypeLoginException.
+ *
+ * @package Drupal\etype_login_dev\Form
+ */
+class EtypeLoginException extends Exception {
+
+  /**
+   * EtypeLoginException constructor.
+   */
+  public function __construct() {
+    $message = new TranslatableMarkup('We were unable to retrieve any details for this account. Please contact us.');
+    parent::__construct($message);
+  }
+
+}
+
+/**
+ * Class EtypeUpdateException.
+ *
+ * @package Drupal\etype_login\Form
+ */
+class EtypeUpdateException extends Exception {
+
+  /**
+   * Var Setup.
+   *
+   * @var \Drupal\Core\Messenger\MessengerInterface
+   */
+  protected $messenger;
+
+  /**
+   * EtypeUpdateException constructor.
+   */
+  public function __construct() {
+    $message = new TranslatableMarkup('We were unable to update your account details Please try later.');
+    parent::__construct($message);
+  }
+
+}
+
+/**
+ * Class EtypePasswordException.
+ *
+ * @package Drupal\etype_login\Form
+ */
+class EtypePasswordException extends Exception {
+
+  /**
+   * Var Setup.
+   *
+   * @var \Drupal\Core\Messenger\MessengerInterface
+   */
+  protected $messenger;
+
+  /**
+   * EtypeUpdateException constructor.
+   */
+  public function __construct() {
+    $message = new TranslatableMarkup('Your current password does not match our records. Please try again.');
+    parent::__construct($message);
+  }
+
+}
+
+/**
+ * Class EtypePasswordChangeException.
+ *
+ * @package Drupal\etype_login\Form
+ */
+class EtypePasswordChangeException extends Exception {
+
+  /**
+   * Var Setup.
+   *
+   * @var \Drupal\Core\Messenger\MessengerInterface
+   */
+  protected $messenger;
+
+  /**
+   * EtypeUpdateException constructor.
+   */
+  public function __construct() {
+    $message = new TranslatableMarkup('Sorry, we were not able to update your password. Please try again later.');
+    parent::__construct($message);
   }
 
 }

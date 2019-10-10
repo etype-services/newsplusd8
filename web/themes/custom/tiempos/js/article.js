@@ -2,15 +2,14 @@
     "use strict";
     Drupal.behaviors.tiemposArticle = {
         attach: function (context, settings) {
+            var articleCaption;
             var flexslider = $("#flexslider-1 > .slides li");
             var len = flexslider.length;
-            var img = $(".page-node-type-article article .field--name-body img");
+            var img = $(".page-node-type-article article .field--name-body img, .page-node-type-article article .field--type-image > img");
             img.each(function () {
                 var text = $(this).attr("alt");
                 if (text !== "undefined") {
-                    var articleCaption = "<p class=\"caption is-sans-serif is-size-7\">" + text + "</p>";
-                    //$(this).parents(".field").once("tiemposBehavior").append(articleCaption);
-                    // Because we do not know what the parent might be.
+                    articleCaption = "<p class=\"caption is-sans-serif is-size-7\">" + text + "</p>";
                     $(this).once("tiemposBehavior").after(articleCaption);
                 }
             });
