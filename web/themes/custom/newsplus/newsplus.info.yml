@@ -8,6 +8,7 @@ libraries:
   - newsplus/bootstrap
   - newsplus/fontawesome
   - newsplus/global-styling
+  - newsplus/global-scripts
   - newsplus/messages
   - newsplus/local-stylesheets
 regions:

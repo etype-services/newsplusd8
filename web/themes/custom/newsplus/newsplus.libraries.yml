@@ -52,6 +52,15 @@ global-styling:
     theme:
       css/theme/print.css: { media: print }
 
+global-scripts:
+  version: VERSION
+  js:
+    js/custom/theme.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
+
 user-profile:
   version: VERSION
   css:
