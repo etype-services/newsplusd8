@@ -232,7 +232,7 @@ class EtypeMyAccountForm extends FormBase {
       ];
 
       $string = t("Fill out the next three fields to change your password:");
-      $form['help'] = [
+      $form['password_help'] = [
         '#type' => 'item',
         '#markup' => $string,
       ];
@@ -242,12 +242,12 @@ class EtypeMyAccountForm extends FormBase {
         '#title' => $this->t('Current password'),
       ];
 
-      $form['password']['newPassword'] = [
+      $form['newPassword'] = [
         '#type' => 'password',
         '#title' => $this->t('New password'),
       ];
 
-      $form['password']['confirmPassword'] = [
+      $form['confirmPassword'] = [
         '#type' => 'password',
         '#title' => $this->t('Confirm your new password'),
       ];
@@ -256,11 +256,11 @@ class EtypeMyAccountForm extends FormBase {
 
       $form['actions']['#type'] = 'actions';
 
-      $form['actions']['submit'] = array(
+      $form['actions']['submit'] = [
         '#type' => 'submit',
         '#value' => $this->t('Update my information'),
         '#button_type' => 'primary',
-      );
+      ];
 
     }
 
