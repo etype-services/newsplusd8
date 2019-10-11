@@ -163,12 +163,12 @@ class EtypeMyAccountForm extends FormBase {
         '#default_value' => $details->ID,
       ];
 
-      $string = t("Name");
+      /*$string = t("Name");
       $string .= ': ' . $details->UserName;
       $form['name'] = [
         '#type' => 'item',
         '#markup' => $string,
-      ];
+      ];*/
 
       $string = t("Email");
       $string .= ': ' . $details->Email;
