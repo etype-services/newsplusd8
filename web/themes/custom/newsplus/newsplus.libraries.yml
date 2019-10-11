@@ -83,6 +83,11 @@ maintenance_page:
     - system/maintenance
     - newsplus/global-styling
 
+special_sections:
+  version: VERSION
+  js:
+    js/custom/special_sections.js: {}
+
 magnific-popup:
   version: VERSION
   css:

@@ -260,6 +260,10 @@ function newsplus_preprocess_page(&$variables) {
     $variables['#attached']['library'][] = 'newsplus/to-top';
   }
 
+  if (Drupal::service('path.matcher')->isFrontPage()) {
+    $variables['#attached']['library'][] = 'newsplus/special_sections';
+  }
+
 }
 
 function newsplus_page_attachments_alter(&$page) {
