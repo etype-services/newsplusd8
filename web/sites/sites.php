@@ -112,7 +112,7 @@ $sites['www.thefranklinpress.com'] = 'thefranklinpress.etypegoogle7.com';
 
 /* jackie */
 $sites['www.bellvilletimes.com'] = "bellvilletimes.etypegoogle11.com";
-$sites['www.bookernews.com'] = "bookernews.etypegoogle11.com";
+$sites['www.bookernews.com'] = "bookernews.etypegoogle7.com";
 $sites['www.colfaxchronicle.com'] = "colfaxchronicle.etypegoogle11.com";
 $sites['www.edenecho.net'] = "edenecho.etypegoogle11.com";
 $sites['www.columbusnews-report.com'] = "columbusnews-report.etypegoogle11.com";
