@@ -1,36 +1,45 @@
 /* Center column for tiempos theme */
 /* Top left "Date" block. */
 .block-date-block {
-  width: fit-content; }
-  .block-date-block div {
-    width: auto; }
-  .block-date-block .navbar-burger {
-    /* Flex to center fontawesome icon. */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto 0 auto; }
-    .block-date-block .navbar-burger span {
-      height: 2px; }
-  .block-date-block .block-search [data-drupal-selector=search-block-form] {
-    display: flex;
-    align-items: center;
-    /* Match navbar-burger. */
-    height: 3.25rem; }
-    .block-date-block .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-submit] {
-      cursor: pointer;
-      margin-right: 0.5rem; }
-    .block-date-block .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-keys] {
-      width: 70%; }
+  width: fit-content;
+}
+.block-date-block div {
+  width: auto;
+}
+.block-date-block .navbar-burger {
+  /* Flex to center fontawesome icon. */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto 0 auto;
+}
+.block-date-block .navbar-burger span {
+  height: 2px;
+}
+.block-date-block .block-search [data-drupal-selector=search-block-form] {
+  display: flex;
+  align-items: center;
+  /* Match navbar-burger. */
+  height: 3.25rem;
+}
+.block-date-block .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-submit] {
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+.block-date-block .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-keys] {
+  width: 70%;
+}
 
 .block-system-branding-block {
   /* Center logo. */
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+}
 
 #block-iemessage {
   display: none;
-  visibility: hidden; }
+  visibility: hidden;
+}
 
 /* Poll Block formatting */
 .block-poll-recent-block h2 {
@@ -39,12 +48,14 @@
   margin-bottom: 0.3rem;
   font-size: 0.9rem;
   color: #121212;
-  border-bottom: 1px solid #b5b5b5; }
+  border-bottom: 1px solid #b5b5b5;
+}
 .block-poll-recent-block input[type=radio] {
   height: 1.2rem;
   width: 1.2rem;
   vertical-align: middle;
-  margin-right: 0.5rem; }
+  margin-right: 0.5rem;
+}
 
 /* Video Block */
 .block-views-blockvideos-block-1 > h2 {
@@ -53,73 +64,93 @@
   margin-bottom: 0.3rem;
   font-size: 0.9rem;
   color: #121212;
-  border-bottom: 1px solid #b5b5b5; }
+  border-bottom: 1px solid #b5b5b5;
+}
 
 /* Statistics Block */
 .block-statistics-popular-block .item-list:not(:last-child) {
-  margin: 0 0 0.5rem 0; }
-  .block-statistics-popular-block .item-list:not(:last-child) h3 {
-    font-style: oblique; }
-  .block-statistics-popular-block .item-list:not(:last-child) ul {
-    margin: 0; }
-    .block-statistics-popular-block .item-list:not(:last-child) ul li {
-      margin: 0 0 0 0.5rem;
-      padding: 0;
-      font-size: 1rem; }
+  margin: 0 0 0.5rem 0;
+}
+.block-statistics-popular-block .item-list:not(:last-child) h3 {
+  font-style: oblique;
+}
+.block-statistics-popular-block .item-list:not(:last-child) ul {
+  margin: 0;
+}
+.block-statistics-popular-block .item-list:not(:last-child) ul li {
+  margin: 0 0 0 0.5rem;
+  padding: 0;
+  font-size: 1rem;
+}
 .block-statistics-popular-block br {
-  display: none; }
+  display: none;
+}
 
 .block-views-blockbreaking-news-block-1 {
-  margin-bottom: 0 !important; }
-  .block-views-blockbreaking-news-block-1 .view-id-breaking_news {
-    display: flex;
-    margin-bottom: 0.75rem;
-    overflow: hidden;
-    font-size: 1.2rem;
-    align-items: center; }
-    .block-views-blockbreaking-news-block-1 .view-id-breaking_news .view-header {
-      white-space: nowrap;
-      margin-right: calc(0.75rem / 2); }
-      .block-views-blockbreaking-news-block-1 .view-id-breaking_news .view-header h3 > .svg-inline--fa {
-        vertical-align: -0.15em !important; }
-    .block-views-blockbreaking-news-block-1 .view-id-breaking_news .view-content a {
-      white-space: nowrap;
-      color: #800000; }
+  margin-bottom: 0 !important;
+}
+.block-views-blockbreaking-news-block-1 .view-id-breaking_news {
+  display: flex;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+  font-size: 1.2rem;
+  align-items: center;
+}
+.block-views-blockbreaking-news-block-1 .view-id-breaking_news .view-header {
+  white-space: nowrap;
+  margin-right: calc(0.75rem / 2);
+}
+.block-views-blockbreaking-news-block-1 .view-id-breaking_news .view-header h3 > .svg-inline--fa {
+  vertical-align: -0.15em !important;
+}
+.block-views-blockbreaking-news-block-1 .view-id-breaking_news .view-content a {
+  white-space: nowrap;
+  color: #800000;
+}
 
 @media screen and (max-width: 1087px) {
   .block-date-block .block-search {
     /* Hide search, goes in navbar-start */
-    display: none; } }
+    display: none;
+  }
+}
 @media screen and (max-width: 768px) {
   .block-date-block {
-    /* Align date with hamburger and search on mobile. */ }
-    .block-date-block p {
-      float: left;
-      margin-top: 1.1rem;
-      margin-right: 0;
-      padding-right: 0; }
-    .block-date-block div {
-      float: left; } }
+    /* Align date with hamburger and search on mobile. */
+  }
+  .block-date-block p {
+    float: left;
+    margin-top: 1.1rem;
+    margin-right: 0;
+    padding-right: 0;
+  }
+  .block-date-block div {
+    float: left;
+  }
+}
 /* e-Edition */
 .region-sidebar .block-etype-block {
-  flex-basis: 100%; }
-  .region-sidebar .block-etype-block p {
-    font-size: 0.8rem; }
+  flex-basis: 100%;
+}
+.region-sidebar .block-etype-block p {
+  font-size: 0.8rem;
+}
 
 /* Custom Blocks */
 #block-friends2followsidebar iframe, #block-friends2followsidebar-2 iframe {
-  height: 600px; }
+  height: 600px;
+}
 
 #block-mercobannerblock, #block-mercobannerblock-2 {
   margin-bottom: 0;
   display: flex;
   justify-content: space-around;
   min-height: 257px;
-  /* to set sidebar height because Merco code loads slowly */ }
+  /* to set sidebar height because Merco code loads slowly */
+}
 
 #block-mercobannerblock,
-#block-mercobannerblock-2
-#block-views-block-front-page-sections-block-1,
+#block-mercobannerblock-2 #block-views-block-front-page-sections-block-1,
 #block-views-block-front-page-sections-block-1-2,
 #block-views-block-front-page-sections-block-2,
 #block-views-block-front-page-sections-block-2-2,
@@ -128,38 +159,43 @@
 #block-views-block-front-page-sections-block-4,
 #block-views-block-front-page-sections-block-4-2,
 .block-views-blockvideos-block-1 {
-  clear: both; }
+  clear: both;
+}
 
 /* Weather Widget */
 .weatherwidget {
   width: 100%;
   height: 64px;
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 .region-content .block-etype-block {
   visibility: hidden !important;
-  display: none !important; }
+  display: none !important;
+}
 
 @media screen and (max-width: 768px) {
   /* Hide content on mobile */
   .path-frontpage .view-display-id-page_1,
-  #block-views-block-front-page-sections-block-1,
-  #block-views-block-front-page-sections-block-1-2,
-  #block-views-block-front-page-sections-block-2,
-  #block-views-block-front-page-sections-block-2-2,
-  #block-views-block-front-page-sections-block-3,
-  #block-views-block-front-page-sections-block-3-2,
-  #block-views-block-front-page-sections-block-4,
-  #block-views-block-front-page-sections-block-4-2,
-  #block-friends2followsidebar,
-  #block-friends2followsidebar-2,
-  #block-mostrecentpoll,
-  .region-sidebar .block-etype-block {
+#block-views-block-front-page-sections-block-1,
+#block-views-block-front-page-sections-block-1-2,
+#block-views-block-front-page-sections-block-2,
+#block-views-block-front-page-sections-block-2-2,
+#block-views-block-front-page-sections-block-3,
+#block-views-block-front-page-sections-block-3-2,
+#block-views-block-front-page-sections-block-4,
+#block-views-block-front-page-sections-block-4-2,
+#block-friends2followsidebar,
+#block-friends2followsidebar-2,
+.region-sidebar .block-etype-block {
     visibility: hidden !important;
-    display: none !important; }
+    display: none !important;
+  }
 
   .region-content .block-etype-block {
     visibility: visible !important;
-    display: block !important; } }
+    display: block !important;
+  }
+}
 
 /*# sourceMappingURL=blocks.css.map */
