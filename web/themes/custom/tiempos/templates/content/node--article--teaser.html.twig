@@ -95,6 +95,6 @@
             {{ author_name }}
             <div class="date">{{ node.created.value|format_date('teaser') }}</div>
         </div>
-        {{ content.body|striptags('<p>')}}
+        {{ content.body }}
     </div>
 </article>
