@@ -113,49 +113,54 @@ class ImportClassifiedController {
       $str = empty($item->ItemTitle) ? substr($item->ItemDesc, 0, 25) : $item->ItemTitle;
       $title = preg_replace("/[\n\r]/", " ", $str);
 
-      if (empty($title)) {
-        $title = 'No Title Supplied';
-      };
+      if (!empty($title)) {
+        // Get term id that matched VisionData category.
+        $query = Drupal::entityQuery('taxonomy_term');
+        $terms = $query->condition('field_visiondata_category_id', $item->categoryId)
+          ->execute();
+        $ad_cat = reset($terms);
 
-      // Get term id that matched VisionData category.
-      $query = Drupal::entityQuery('taxonomy_term');
-      $terms = $query->condition('field_visiondata_category_id', $item->categoryId)
-        ->execute();
-      $ad_cat = reset($terms);
+        $node = Node::create([
+          'type' => 'classified_ad',
+          'title' => $title,
+          'body' => [
+            'value' => $item->ItemDesc,
+          ],
+          'field_id' => $item->ItemId,
+          'field_visiondata_category' => $item->categoryId,
+          'status' => 1,
+          'uid' => 1,
+        ]);
+        $node->save();
+        $nid = $node->id();
+        $alt = Node::load($nid);
+        $alt->setCreatedTime(strtotime($item->startDate));
 
-      $node = Node::create([
-        'type' => 'classified_ad',
-        'title' => $title,
-        'body' => [
-          'value' => $item->ItemDesc,
-        ],
-        'field_id' => $item->ItemId,
-        'field_visiondata_category' => $item->categoryId,
-        'status' => 1,
-        'uid' => 1,
-      ]);
-      $node->save();
-      $nid = $node->id();
-      $alt = Node::load($nid);
-      $alt->setCreatedTime(strtotime($item->startDate));
+        if ($ad_cat > 0) {
+          $alt->field_ad_category->target_id = $ad_cat;
+        }
+        else {
+          // Log/warn about missing category relationship.
+          $message = sprintf("No category match for VisionData category %s.\n%s", $item->categoryId, $item->ItemDesc);
+          Drupal::logger('etype_classified_importer')->notice($message);
+          $this->messenger->addMessage($message, $this->messenger::TYPE_WARNING);
+        }
 
-      if ($ad_cat > 0) {
-        $alt->field_ad_category->target_id = $ad_cat;
+        $alt->save();
+
+        $i++;
+
       }
       else {
         // Log/warn about missing category relationship.
-        $message = sprintf("No category match for VisionData category %s.\n%s", $item->categoryId, $item->ItemDesc);
+        $message = sprintf("No title or description for ad, skipping.");
         Drupal::logger('etype_classified_importer')->notice($message);
         $this->messenger->addMessage($message, $this->messenger::TYPE_WARNING);
       }
 
-      $alt->save();
-
-      $i++;
     }
     // Log imported.
     Drupal::logger('etype_classified_importer')->notice("Imported %num classified ads.", ['%num' => $i]);
-
     return ['#markup' => '<p>' . $i . ' classified ads were imported.</p>'];
 
   }
