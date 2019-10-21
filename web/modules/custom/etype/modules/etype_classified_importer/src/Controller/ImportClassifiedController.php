@@ -113,6 +113,8 @@ class ImportClassifiedController {
       $str = empty($item->ItemTitle) ? substr($item->ItemDesc, 0, 25) : $item->ItemTitle;
       $title = preg_replace("/[\n\r]/", " ", $str);
 
+      echo $title;
+
       // Get term id that matched VisionData category.
       $query = Drupal::entityQuery('taxonomy_term');
       $terms = $query->condition('field_visiondata_category_id', $item->categoryId)
