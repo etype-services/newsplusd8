@@ -4,6 +4,12 @@
   .bctribune #main-nav .navbar .navbar-end, .schulenburgsticker #main-nav .navbar .navbar-end {
     /* Social Icons */
     position: inherit;
-    top: 0; } }
+    top: 0;
+  }
+
+  .welchpublishing footer .region {
+    flex-basis: 30%;
+  }
+}
 
 /*# sourceMappingURL=sites.css.map */
