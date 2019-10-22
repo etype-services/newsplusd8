@@ -48,6 +48,10 @@
   margin-bottom: $column-gap;
 }
 
+#coupons {
+  justify-content: space-around;
+}
+
 @media screen and (max-width: $tablet - 1px) {
   .region-header-left {
     padding: $column-gap $column-gap 0 $column-gap;

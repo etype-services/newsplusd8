@@ -1,29 +1,37 @@
 /* Center column for tiempos theme */
 .region-large-ad {
-  margin-top: 0.75rem; }
+  margin-top: 0.75rem;
+}
 
 .region-top-bar {
-  margin-bottom: 0.75rem; }
+  margin-bottom: 0.75rem;
+}
 
 .region-header-left, .region-header-center, .region-header-right {
-  padding-bottom: 0; }
-  .region-header-left .block, .region-header-center .block, .region-header-right .block {
-    margin-bottom: 0; }
+  padding-bottom: 0;
+}
+.region-header-left .block, .region-header-center .block, .region-header-right .block {
+  margin-bottom: 0;
+}
 
 .region-header-left {
   /* Adjust spacing to line up text. */
-  padding: calc(0.75rem * 2) 0.75rem 0 calc(0.75rem * 2); }
+  padding: calc(0.75rem * 2) 0.75rem 0 calc(0.75rem * 2);
+}
 
 .region-header-center {
   /* Make logo area bigger */
-  flex-grow: 2; }
+  flex-grow: 2;
+}
 
 .region-header-right {
   /* No top padding because header aligns center. */
-  padding: 0.75rem calc(0.75rem * 2) 0 0.75rem; }
+  padding: 0.75rem calc(0.75rem * 2) 0 0.75rem;
+}
 
 .region-navigation {
-  position: initial; }
+  position: initial;
+}
 
 .region-content {
   flex-wrap: wrap;
@@ -31,49 +39,67 @@
   overflow: hidden;
   /* For owl carousel in Business Directory. */
   margin-bottom: 0;
-  padding-bottom: 0; }
+  padding-bottom: 0;
+}
 
 .region-sidebar {
   flex-wrap: wrap;
   flex: 0 0 calc(300px + 0.75rem * 2);
   /* Fixed size, does not grow or shrink. */
-  margin-bottom: 0.75rem; }
+  margin-bottom: 0.75rem;
+}
+
+#coupons {
+  justify-content: space-around;
+}
 
 @media screen and (max-width: 768px) {
   .region-header-left {
     padding: 0.75rem 0.75rem 0 0.75rem;
-    height: 3.5rem; }
+    height: 3.5rem;
+  }
 
   .region-header-right {
     padding: 0.75rem 0.75rem 0 0.75rem;
     position: absolute;
     top: 0;
-    right: 0; }
+    right: 0;
+  }
 
   .region-sidebar {
-    border-left: none !important; }
+    border-left: none !important;
+  }
 
   .region-footer-left, .region-footer-right {
     visibility: hidden !important;
-    display: none !important; } }
+    display: none !important;
+  }
+}
 @media screen and (max-width: 1087px) {
   .region-header-right {
     /* Fine tuning weather widget */
-    padding: 0.5rem calc(0.75rem * 2) 0 0.75rem; }
+    padding: 0.5rem calc(0.75rem * 2) 0 0.75rem;
+  }
 
   .region-navigation {
     position: absolute;
     top: 70px;
-    right: 10px; } }
+    right: 10px;
+  }
+}
 @media screen and (min-width: 1088px) {
   /* Center logo, prevent search input from shifting logo */
   .region-header-left, .region-header-right {
     flex-basis: 20%;
-    flex-shrink: 0; } }
+    flex-shrink: 0;
+  }
+}
 @media screen and (min-width: 769px) {
   /* Center logo, prevent search input from shifting logo */
   .region-header-left, .region-header-right {
     flex-basis: 20%;
-    flex-shrink: 0; } }
+    flex-shrink: 0;
+  }
+}
 
 /*# sourceMappingURL=regions.css.map */
