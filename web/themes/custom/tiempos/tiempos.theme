@@ -111,7 +111,7 @@ function tiempos_preprocess_node(&$variables) {
     }
   }
   $author = User::load($variables['uid']);
-  $variables['author_name'] = $author->getUsername();
+  #$variables['author_name'] = $author->getUsername();
 }
 
 /**
