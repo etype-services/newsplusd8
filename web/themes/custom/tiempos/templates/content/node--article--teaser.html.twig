@@ -92,7 +92,7 @@
             <a href="{{ url }}" rel="bookmark">{{ label }}</a>
         </h2>
         <div class="submitted">
-            {{ author_name }}
+            {{ node.uid.entity.field_name.value }}
             <div class="date">{{ node.created.value|format_date('teaser') }}</div>
         </div>
         {{ content.body }}
