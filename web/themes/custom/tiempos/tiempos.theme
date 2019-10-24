@@ -99,6 +99,10 @@ function tiempos_preprocess_node(&$variables) {
   /*
    * Theming author names, to use multiple authors.
    */
+  $uid = $variables['node']->getOwnerId();
+  $author = User::load($uid);
+  $variables['author_name'] = $author->getUsername();
+
   if ($variables['node']->hasField('field_authors')) {
     $authors = $variables['node']->get('field_authors')->getValue();
     if (count($authors) > 0) {
@@ -107,12 +111,9 @@ function tiempos_preprocess_node(&$variables) {
         $author = User::load($item['target_id']);
         $arr[] = $author->getUsername();
       }
-      $variables['author_names'] = Markup::create(implode(" and ", $arr));
+      $variables['author_name'] = Markup::create(implode(" and ", $arr));
     }
   }
-  $uid = $variables['node']->getOwnerId();
-  $author = User::load($uid);
-  $variables['author_name'] = $author->getUsername();
 }
 
 /**
