@@ -116,6 +116,13 @@ function tiempos_preprocess_node(&$variables) {
 }
 
 /**
+ * @param $variables
+ */
+function template_preprocess_username(&$variables) {
+  $variables['link_path'] = '';
+}
+
+/**
  * @inheritDoc
  *
  * @param $variables
