@@ -15,7 +15,7 @@
                     if ($(this).hasClass("align-left")) {
                         styles += " align-left";
                         articleCaption = "<p class=\"" + styles + "\">" + text + "</p>";
-                        $(this).once("tiemposBehavior").after(articleCaption).wrap("<div class=\"align-left\"></div>");
+                        $(this).once("tiemposBehavior").wrap("<div class=\"align-left\"></div>");
                     } else {
                         articleCaption = "<p class=\"" + styles + "\">" + text + "</p>";
                         $(this).once("tiemposBehavior").after(articleCaption);
