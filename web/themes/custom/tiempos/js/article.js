@@ -11,11 +11,10 @@
                 var text = $(this).attr("alt");
                 var styles = "caption is-sans-serif is-size-7";
                 var imgClass = $(this).attr("class");
-                console.log(imgClass);
 
                 if (text !== "undefined") {
                     articleCaption = "<span class=\"" + styles + "\">" + text + "</span>";
-                    $(this).once("tiemposBehavior").after(articleCaption).parent().addClass(imgClass);
+                    $(this).once("tiemposBehavior").attr("class", "").after(articleCaption).parent().addClass(imgClass);
                 }
             });
 
