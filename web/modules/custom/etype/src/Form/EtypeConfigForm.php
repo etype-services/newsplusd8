@@ -79,6 +79,12 @@ class EtypeConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('etype_v2'),
     ];
 
+    $form['e_edition']['etype_author_links_off'] = [
+      '#title' => $this->t('Check this box to turn author links off.'),
+      '#type' => 'checkbox',
+      '#default_value' => $config->get('etype_author_links_off'),
+    ];
+
     $form['e_edition']['premium_content_message'] = [
       '#type' => 'text_format',
       '#title' => $this->t('Premium Content Message'),
@@ -179,6 +185,7 @@ class EtypeConfigForm extends ConfigFormBase {
       ->set('etype_pub', $form_state->getValue('etype_pub'))
       ->set('etype_ptype', $form_state->getValue('etype_ptype'))
       ->set('etype_v2', $form_state->getValue('etype_v2'))
+      ->set('etype_author_links_off', $form_state->getValue('etype_author_links_off'))
       ->set('premium_content_message', $form_state->getValue('premium_content_message'))
       ->set('premium_preview', $form_state->getValue('premium_preview'))
       ->set('facebook', $form_state->getValue('facebook'))

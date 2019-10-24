@@ -68,6 +68,8 @@ function tiempos_preprocess_node(&$variables) {
   $variables['premium_content_message'] = $config->get('premium_content_message');
   $variables['premium_preview'] = $config->get('premium_preview');
   $variables['premium_content'] = $variables['node']->get('premium_content')->value;
+  $authorLinksOff = $config->get('etype_author_links_off');
+
   switch ($variables['node']->getType()) {
     case 'feature':
       $fid = theme_get_setting('inverted_logo');
@@ -99,17 +101,23 @@ function tiempos_preprocess_node(&$variables) {
   /*
    * Theming author name(s), to use multiple authors, and remove link.
    */
-  $uid = $variables['node']->getOwnerId();
-  $author = User::load($uid);
-  $variables['author_name'] = $author->getUsername();
-
+  if ($authorLinksOff == 1) {
+    $uid = $variables['node']->getOwnerId();
+    $author = User::load($uid);
+    $variables['author_name'] = $author->getUsername();
+  }
   if ($variables['node']->hasField('field_authors')) {
     $authors = $variables['node']->get('field_authors')->getValue();
     if (count($authors) > 0) {
       $arr = [];
       foreach($authors as $item) {
         $author = User::load($item['target_id']);
-        $arr[] = $author->getUsername();
+        if ($authorLinksOff == 1) {
+          $arr[] = $author->getUsername();
+        } else {
+          $arr[] = '<a href="/user/' . $item['target_id'] .'">' .
+            $author->getUsername() . '</a>';
+        }
       }
       $variables['author_name'] = Markup::create(implode(" and ", $arr));
     }
