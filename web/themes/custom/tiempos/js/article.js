@@ -8,12 +8,15 @@
             var img = $(".page-node-type-article article .field--name-body img, .page-node-type-article article .field--type-image img");
             img.each(function () {
                 var text = $(this).attr("alt");
+                var styles = "caption is-sans-serif is-size-7";
+
                 if ($(this).hasClass("align-left")) {
-                    $(this).wrap("<div class=\"align-left\"></div>");
+                    $(this).once("tiemposBehavior").wrap("<div class=\"align-left\"></div>");
+                    styles += " align-left";
                 }
 
                 if (text !== "undefined") {
-                    articleCaption = "<p class=\"caption is-sans-serif is-size-7\">" + text + "</p>";
+                    articleCaption = "<p class=\"" + styles + "\">" + text + "</p>";
                     $(this).once("tiemposBehavior").after(articleCaption);
                 }
             });
