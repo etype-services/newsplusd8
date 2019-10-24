@@ -10,10 +10,12 @@
             img.each(function () {
                 var text = $(this).attr("alt");
                 var styles = "caption is-sans-serif is-size-7";
+                var imgClass = $(this).attr("class");
 
                 if (text !== "undefined") {
-                    articleCaption = "<p class=\"" + styles + "\">" + text + "</p>";
+                    articleCaption = "<span class=\"" + styles + "\">" + text + "</span>";
                     $(this).once("tiemposBehavior").after(articleCaption);
+                    $(this).once("tiemposBehavior").parent().addClass(imgClass);
                 }
             });
 
