@@ -15,8 +15,7 @@
 
                 if (text !== "undefined") {
                     articleCaption = "<span class=\"" + styles + "\">" + text + "</span>";
-                    $(this).once("tiemposBehavior").after(articleCaption);
-                    $(this).once("tiemposBehavior").parent().addClass(imgClass);
+                    $(this).once("tiemposBehavior").after(articleCaption).parent().addClass(imgClass);
                 }
             });
 
