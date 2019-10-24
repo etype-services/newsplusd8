@@ -1,25 +1,36 @@
 /* Center column for tiempos theme */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
-  line-height: 1.5rem; }
+  line-height: 1.5rem;
+}
+
+.is-size-3 {
+  line-height: 2.2rem;
+}
 
 body {
-  font-family: "Petrona", serif; }
+  font-family: "Petrona", serif;
+}
 
 input {
-  font-family: "Open Sans", sans-serif; }
-  input:focus {
-    outline: none;
-    box-shadow: none; }
+  font-family: "Open Sans", sans-serif;
+}
+input:focus {
+  outline: none;
+  box-shadow: none;
+}
 
 svg, img {
-  outline: none; }
+  outline: none;
+}
 
 a {
   color: #121212;
-  box-shadow: none; }
-  a:hover {
-    color: #3273dc !important; }
+  box-shadow: none;
+}
+a:hover {
+  color: #3273dc !important;
+}
 
 .section-tag-heading {
   text-transform: uppercase;
@@ -27,29 +38,37 @@ a {
   margin-bottom: 0.3rem;
   font-size: 0.9rem;
   color: #121212;
-  border-bottom: 1px solid #b5b5b5; }
-  .section-tag-heading svg {
-    font-size: 0.8rem; }
+  border-bottom: 1px solid #b5b5b5;
+}
+.section-tag-heading svg {
+  font-size: 0.8rem;
+}
 
 .submitted {
   color: #363636;
   font-size: 0.6rem;
-  margin-top: 0.2rem; }
+  margin-top: 0.2rem;
+}
 
 .node--view-mode-full .field--name-field-subhead {
   font-size: 1.25rem;
-  font-weight: 500; }
+  font-weight: 500;
+}
 .node--view-mode-full .field--name-body p {
-  margin-bottom: 0.5rem; }
+  margin-bottom: 0.5rem;
+}
 
 .region-sidebar p:not(.submitted) {
-  font-size: 0.9rem; }
+  font-size: 0.9rem;
+}
 
 footer {
   font-size: 0.75rem;
-  font-family: "Open Sans", sans-serif; }
-  footer .footer-menu li > a {
-    /* Fix padding. */
-    padding-top: .375em; }
+  font-family: "Open Sans", sans-serif;
+}
+footer .footer-menu li > a {
+  /* Fix padding. */
+  padding-top: 0.375em;
+}
 
 /*# sourceMappingURL=typography.css.map */
