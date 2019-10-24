@@ -97,7 +97,7 @@ function tiempos_preprocess_node(&$variables) {
   }
 
   /*
-   * Theming author names, to use multiple authors.
+   * Theming author name(s), to use multiple authors, and remove link.
    */
   $uid = $variables['node']->getOwnerId();
   $author = User::load($uid);
