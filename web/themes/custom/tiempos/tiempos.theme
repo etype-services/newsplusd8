@@ -110,7 +110,7 @@ function tiempos_preprocess_node(&$variables) {
       $variables['author_names'] = Markup::create(implode(" and ", $arr));
     }
   }
-  $author = User::load($variables['elements']['uid']);
+  $author = User::load($variables['uid']);
   $variables['author_name'] = $author->getUsername();
 }
 
