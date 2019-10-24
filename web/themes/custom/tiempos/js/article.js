@@ -12,8 +12,14 @@
                 var styles = "caption is-sans-serif is-size-7";
 
                 if (text !== "undefined") {
-                    articleCaption = "<p class=\"" + styles + "\">" + text + "</p>";
-                    $(this).once("tiemposBehavior").after(articleCaption);
+                    if ($(this).hasClass("align-left")) {
+                        styles += " align-left";
+                        articleCaption = "<p class=\"" + styles + "\">" + text + "</p>";
+                        $(this).once("tiemposBehavior").wrap("<div class=\"align-left\"></div>").parent().append(articleCaption);
+                    } else {
+                        articleCaption = "<p class=\"" + styles + "\">" + text + "</p>";
+                        $(this).once("tiemposBehavior").after(articleCaption);
+                    }
                 }
             });
 
