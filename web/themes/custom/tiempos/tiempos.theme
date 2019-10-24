@@ -105,12 +105,13 @@ function tiempos_preprocess_node(&$variables) {
       $arr = [];
       foreach($authors as $item) {
         $author = User::load($item['target_id']);
-        $arr[] = "<a href=\"user/" . $item['target_id'] . "\">" . $author->getUsername() .
-        "</a>";
+        $arr[] = $author->getUsername();
       }
       $variables['author_names'] = Markup::create(implode(" and ", $arr));
     }
   }
+  $author = User::load($variables['elements']['uid']);
+  $variables['author_name'] = $author->getUsername();
 }
 
 /**
