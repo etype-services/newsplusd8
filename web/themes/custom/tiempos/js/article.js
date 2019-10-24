@@ -13,11 +13,13 @@
 
                 if (text !== "undefined") {
                     if ($(this).hasClass("align-left")) {
-                        $(this).once("tiemposBehavior").wrap("<div class=\"align-left\"></div>");
                         styles += " align-left";
+                        articleCaption = "<p class=\"" + styles + "\">" + text + "</p>";
+                        $(this).once("tiemposBehavior").wrap("<div class=\"align-left\"></div>").after(articleCaption);
+                    } else {
+                        articleCaption = "<p class=\"" + styles + "\">" + text + "</p>";
+                        $(this).once("tiemposBehavior").after(articleCaption);
                     }
-                    articleCaption = "<p class=\"" + styles + "\">" + text + "</p>";
-                    $(this).once("tiemposBehavior").after(articleCaption);
                 }
             });
 
