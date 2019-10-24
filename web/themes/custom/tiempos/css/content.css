@@ -111,6 +111,7 @@
   max-width: 40vh;
 }
 .page-node-type-article article .field--name-body p.align-center {
+  margin-top: 0.3rem;
   text-align: center;
 }
 .page-node-type-article article .field--name-body p.align-center .caption {
