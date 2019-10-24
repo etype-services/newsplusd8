@@ -69,6 +69,9 @@
 .page-node-type-article #block-pagetitle-2 {
   margin-bottom: 0;
 }
+.page-node-type-article article {
+  /* Small and Embedded images */
+}
 .page-node-type-article article .node__meta {
   display: inline-block;
   margin-bottom: calc(0.75rem * 2);
@@ -106,6 +109,12 @@
   margin-top: 0.3rem;
   margin-bottom: 0;
   max-width: 40vh;
+}
+.page-node-type-article article .field--name-body p.align-center {
+  text-align: center;
+}
+.page-node-type-article article .field--name-body p.align-center .caption {
+  margin: auto;
 }
 .page-node-type-article article .field--name-field-long-caption {
   font-family: "Open Sans", sans-serif;

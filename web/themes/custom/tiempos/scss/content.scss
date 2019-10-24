@@ -99,6 +99,7 @@
         margin-bottom: $column-gap;
       }
     }
+    /* Small and Embedded images */
     .field--name-field-small-image, .field--name-body p.align-left {
       float: left;
       margin-right: 0.75rem;
@@ -112,6 +113,12 @@
       margin-top: 0.3rem;
       margin-bottom: 0;
       max-width: 40vh;
+    }
+    .field--name-body p.align-center {
+      text-align: center;
+      .caption {
+        margin: auto;
+      }
     }
     .field--name-field-long-caption {
       @include caption;
