@@ -14,8 +14,8 @@
                 if (text !== "undefined") {
                     if ($(this).hasClass("align-left")) {
                         styles += " align-left";
-                        articleCaption = "<p class=\"" + styles + "\">" + text + "</p></div>";
-                        $(this).once("tiemposBehavior").before("<div class=\"align-left\">").after(articleCaption);
+                        articleCaption = "<p class=\"" + styles + "\">" + text + "</p>";
+                        $(this).once("tiemposBehavior").after(articleCaption).wrap("<div class=\"align-left\"></div>");
                     } else {
                         articleCaption = "<p class=\"" + styles + "\">" + text + "</p>";
                         $(this).once("tiemposBehavior").after(articleCaption);
