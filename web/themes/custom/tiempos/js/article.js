@@ -14,7 +14,7 @@
                 var imgClass = $(this).attr("class");
 
                 if (text !== "undefined") {
-                    articleCaption = "<span style=\"width:" + width + "\" class=\"" + styles + "\">" + text + "</span>";
+                    articleCaption = "<span style=\"width:" + width + "px\" class=\"" + styles + "\">" + text + "</span>";
                     $(this).once("tiemposBehavior").attr("class", "").after(articleCaption).parent().addClass(imgClass);
                 }
             });
