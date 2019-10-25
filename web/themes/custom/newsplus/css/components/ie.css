@@ -1,4 +1,6 @@
-.site-branding__logo img {
-  width: 800%;
-  margin: auto;
+@media (min-width: 992px) {
+  .site-branding__logo img {
+    width: 800%;
+    margin: auto;
+  }
 }
