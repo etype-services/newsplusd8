@@ -5,6 +5,8 @@ dependencies:
   module:
     - node
     - user
+_core:
+  default_config_hash: __LhSBGvxFE57YjSS_En2G5Or0wZgofxiGM8MzXsJAk
 id: wire_content
 label: 'Wire Content'
 module: views
@@ -414,7 +416,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a href="/admin/content/add_wire_content/{{ nid }}">Add</a>'
+            text: '<a href="/admin/content/add_wire_content/{{ nid }}/{{ site | replace({''http://'': ""}) }}">Add</a>'
             make_link: false
             path: ''
             absolute: false
@@ -544,26 +546,60 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: contains
-          value: coastal
+          operator: word
+          value: 'neg nwga'
           group: 1
           exposed: false
           expose:
-            operator_id: cluster_op
-            label: Group
+            operator_id: ''
+            label: ''
             description: ''
             use_operator: false
-            operator: cluster_op
-            identifier: cluster
+            operator: ''
+            identifier: ''
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              editor: '0'
-              reporter: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          plugin_id: string
+        site_name_1:
+          id: site_name_1
+          table: node
+          field: site_name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: not
+          value: dahlonega
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
             placeholder: ''
           is_grouped: false
           group_info:
