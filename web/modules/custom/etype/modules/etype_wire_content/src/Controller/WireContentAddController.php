@@ -79,22 +79,12 @@ class WireContentAddController {
     /* Connect to wire database and get settings. */
     Database::setActiveConnection('wire');
     $db = Database::getConnection();
-    if (!empty($site)) {
-      $result = $db->select('node', 'n')
-        ->fields('n')
-        ->condition('nid', $nid, '=')
-        ->condition('site', "%" . $db->escapeLike($site) . "%", 'LIKE')
-        ->execute()
-        ->fetchAll();
-    }
-    else {
-      $result = $db->select('node', 'n')
-        ->fields('n')
-        ->condition('nid', $nid, '=')
-        ->execute()
-        ->fetchAll();
-    }
-
+    $result = $db->select('node', 'n')
+      ->fields('n')
+      ->condition('nid', $nid, '=')
+      ->condition('site', "%" . $db->escapeLike($site) . "%", 'LIKE')
+      ->execute()
+      ->fetchAll();
     $data = $result[0];
 
     $storage = $this->entityTypeManager->getStorage('node');
