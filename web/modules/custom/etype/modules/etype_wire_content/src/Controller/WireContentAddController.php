@@ -63,6 +63,8 @@ class WireContentAddController {
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function addWireContent(int $nid) {
+    kint($nid);
+    exit;
     $check = _etype_wire_content_check_connection();
     /* throw Exception and return empty page with message if the wire database setings are missing */
     try {
