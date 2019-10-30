@@ -64,6 +64,8 @@ class WireContentExportController {
    * TODO: Set variables in Config form.
    */
   public function exportWireContent() {
+    $site = \Drupal::request()->getHost();
+    kint($site);
     /* Find nodes to export. */
     $ptr = 0;
     $date_diff = strtotime("-20 days");
@@ -114,7 +116,7 @@ class WireContentExportController {
               'created' => $node->get('created')->value,
               'changed' => $node->get('changed')->value,
               'uuid' => $node->get('uuid')->value,
-              'site' => Drupal::request()->getSchemeAndHttpHost(),
+              'site' => Drupal::request()->getHost(),
               'site_name' => $site_name,
               'cluster' => $groups,
             ])
