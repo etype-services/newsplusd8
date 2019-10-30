@@ -15,10 +15,10 @@ class EtypeWireContentCommands extends DrushCommands {
   /**
    * Runs Wire Content Export.
    *
-   * @command etype_wire_content:hello
+   * @command etype_wire_content:export
    * @aliases wire-export
    * @usage etype_wire_content:export
-   *   Run command.
+   *   Run Export.
    */
   public function etypeWireContent() {
 
