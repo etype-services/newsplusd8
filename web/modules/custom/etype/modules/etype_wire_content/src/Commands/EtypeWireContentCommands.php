@@ -17,7 +17,7 @@ class EtypeWireContentCommands extends DrushCommands {
    *
    * @validate-module-enabled etype_wire_content
    * @command etype_wire_content:export
-   * @aliases etype_wire_content:export,wire-export
+   * @aliases etype_wire_content:export,wire-export,ewe
    */
   public function export() {
 
