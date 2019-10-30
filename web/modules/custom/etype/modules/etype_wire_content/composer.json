@@ -1,7 +1,7 @@
 {
   "name": "drupal/etype_wire_content",
   "description": "Export Wire Content.",
-  "type": "drupal-module",
+  "type": "drupal-drush",
   "extra": {
     "drush": {
       "services": {
