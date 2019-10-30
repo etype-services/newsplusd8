@@ -82,7 +82,7 @@ class WireContentAddController {
     $result = $db->select('node', 'n')
       ->fields('n')
       ->condition('nid', $nid, '=')
-      ->condition('site', "%" . $db->escapeLike($site) . "%", 'LIKE')
+      ->condition('site', $db->escapeLike($site), 'LIKE')
       ->execute()
       ->fetchAll();
     $data = $result[0];
