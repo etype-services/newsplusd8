@@ -1,0 +1,17 @@
+{
+  "name": "drupal/etype_wire_content",
+  "description": "Export Wire Content.",
+  "type": "drupal-module",
+  "autoload": {
+    "psr-4": {
+      "Drupal\\etype_wire_content\\": "src/"
+    }
+  },
+  "extra": {
+    "drush": {
+      "services": {
+        "drush.services.yml": "^9"
+      }
+    }
+  }
+}
