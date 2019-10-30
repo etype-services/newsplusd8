@@ -64,8 +64,6 @@ class WireContentExportController {
    * TODO: Set variables in Config form.
    */
   public function exportWireContent() {
-    $site = \Drupal::request()->getHost();
-    kint($site);
     /* Find nodes to export. */
     $ptr = 0;
     $date_diff = strtotime("-20 days");
