@@ -11,6 +11,7 @@ use Drupal\file\Entity\File;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\user\Entity\User;
 
 /**
  * Implements hook_preprocess_HOOK() for HTML document templates.
@@ -392,6 +393,14 @@ function newsplus_preprocess_node(&$variables) {
 
   global $base_url;
   $variables['base_url'] = $base_url;
+
+  /*
+   * Theming author name(s), to use multiple authors, and remove link.
+   */
+  $uid = $variables['node']->getOwnerId();
+  $author = User::load($uid);
+  $variables['author_name'] = '<a href="/user/' . $uid .'">' .
+    $author->getUsername() . '</a>';
 
 }
 
