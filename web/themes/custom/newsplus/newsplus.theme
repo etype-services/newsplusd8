@@ -12,6 +12,7 @@ use Drupal\image\Entity\ImageStyle;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\user\Entity\User;
+use Drupal\Core\Render\Markup;
 
 /**
  * Implements hook_preprocess_HOOK() for HTML document templates.
@@ -399,8 +400,8 @@ function newsplus_preprocess_node(&$variables) {
    */
   $uid = $variables['node']->getOwnerId();
   $author = User::load($uid);
-  $variables['author_name'] = '<a href="/user/' . $uid .'">' .
-    $author->getUsername() . '</a>';
+  $variables['author_name'] =  Markup::create('<a href="/user/' . $uid .'">' .
+    $author->getUsername() . '</a>');
 
 }
 
