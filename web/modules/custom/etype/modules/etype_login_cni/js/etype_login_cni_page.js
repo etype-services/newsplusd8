@@ -9,6 +9,9 @@
             $('a[href*="/user/logout"]').click(function () {
                 Cookies.remove("redirectDestination");
             });
+            $('.footer-menu .user-logged-in a[data-drupal-link-system-path="etype-login"]').parent("li").css({
+                "display": "none!important", "visibility": "hidden",
+            });
         }
     };
 })(jQuery, Drupal);
