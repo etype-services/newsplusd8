@@ -9,10 +9,7 @@
             $('a[href*="/user/logout"]').click(function () {
                 Cookies.remove("redirectDestination");
             });
-            $('.user-logged-in a[data-drupal-link-system-path="etype-login"]').parent().css({
-                "display": "none",
-                "visibility": "hidden"
-            });
+            $('.user-logged-in a[data-drupal-link-system-path="etype-login"]').parent().addClass("is-really-invisible");
         }
     };
 })(jQuery, Drupal);
