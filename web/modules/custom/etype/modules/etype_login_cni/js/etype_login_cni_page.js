@@ -9,8 +9,9 @@
             $('a[href*="/user/logout"]').click(function () {
                 Cookies.remove("redirectDestination");
             });
-            $('a[data-drupal-link-system-path="etype-login"]').parent("li").css({
-                "display": "none!important", "visibility": "hidden",
+            $('a[data-drupal-link-system-path="etype-login"]').parent().css({
+                "display": "none!important",
+                "visibility": "hidden"
             });
         }
     };
