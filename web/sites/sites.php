@@ -61,6 +61,7 @@ $sites['www.fbnewsleader.com'] = 'fbnewsleader.etypegoogle7.com';
 $sites['www.nassaucountyrecord.com'] = 'nassaucountyrecord.etypegoogle7.com';
 $sites['www.tribune-georgian.com'] = 'tribune-georgian.etypegoogle7.com';
 $sites['www.thewheelertimes.com'] = 'thewheelertimes.etypegoogle7.com';
+$sites['www.lakecityreporter.com'] = 'lakecityreporter.etypegoogle7.com';
 
 /* jackie */
 $sites['www.bellvilletimes.com'] = "bellvilletimes.etypegoogle11.com";
