@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7f7ae4dfa8503ec106aac77dd8482b20",
+    "content-hash": "04c6d35fceeff9848c2ec5853a8f7e27",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2244,6 +2244,66 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/admin_toolbar",
                 "issues": "https://www.drupal.org/project/issues/admin_toolbar"
+            }
+        },
+        {
+            "name": "drupal/adstxt",
+            "version": "1.0.0-beta2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/adstxt.git",
+                "reference": "8.x-1.0-beta2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/adstxt-8.x-1.0-beta2.zip",
+                "reference": "8.x-1.0-beta2",
+                "shasum": "02a90a90358dddb7b25bdf1b227a51af444142ea"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-beta2",
+                    "datestamp": "1549883280",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "davidgrayston",
+                    "homepage": "https://www.drupal.org/user/1710528"
+                },
+                {
+                    "name": "kungfuchris",
+                    "homepage": "https://www.drupal.org/user/1031462"
+                },
+                {
+                    "name": "marcelovani",
+                    "homepage": "https://www.drupal.org/user/854220"
+                },
+                {
+                    "name": "theapi",
+                    "homepage": "https://www.drupal.org/user/883708"
+                }
+            ],
+            "description": "Generates the ads.txt file dynamically and gives you the chance to edit it, on a per-site basis, from the web UI.",
+            "homepage": "https://www.drupal.org/project/adstxt",
+            "support": {
+                "source": "http://git.drupal.org/project/adstxt.git",
+                "issues": "https://www.drupal.org/project/issues/adstxt"
             }
         },
         {
