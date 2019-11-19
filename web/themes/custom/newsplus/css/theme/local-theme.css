@@ -72,6 +72,11 @@ article .field--name-field-tags h3 {
   font-weight: bold;
 }
 
+/* Slider Image fix */
+.slider-revolution img {
+  max-width: 100% !important;
+}
+
 /* fix overlay in sidebar tabs */
 .sidebar #block-sidebartabs .views-field-field-image .overlay {
   display: none;
