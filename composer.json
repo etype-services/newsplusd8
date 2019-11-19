@@ -39,6 +39,7 @@
     "drupal-composer/drupal-scaffold": "^2.2",
     "drupal/addtoany": "^1.12",
     "drupal/admin_toolbar": "^2.0",
+    "drupal/adstxt": "^1.0",
     "drupal/ckeditor_font": "^1.0",
     "drupal/clamav": "^1.0",
     "drupal/colorbutton": "^1.1",

@@ -64,6 +64,8 @@ $sites['www.thewheelertimes.com'] = 'thewheelertimes.etypegoogle7.com';
 $sites['www.lakecityreporter.com'] = 'lakecityreporter.etypegoogle7.com';
 $sites['www.crossroadschronicle.com'] = 'crossroadschronicle.etypegoogle7.com';
 $sites['www.highlandsnews.com'] = 'highlandsnews.etypegoogle7.com';
+$sites['www.valleynewsandviews.com'] = 'valleynewsandviews.etypegoogle7.com';
+$sites['stocktonsentinel.com'] = 'stocktonsentinel.etypegoogle7.com';
 
 /* jackie */
 $sites['www.bellvilletimes.com'] = "bellvilletimes.etypegoogle11.com";
