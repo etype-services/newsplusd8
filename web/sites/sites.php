@@ -66,6 +66,7 @@ $sites['www.crossroadschronicle.com'] = 'crossroadschronicle.etypegoogle7.com';
 $sites['www.highlandsnews.com'] = 'highlandsnews.etypegoogle7.com';
 $sites['www.valleynewsandviews.com'] = 'valleynewsandviews.etypegoogle7.com';
 $sites['stocktonsentinel.com'] = 'stocktonsentinel.etypegoogle7.com';
+$sites['wwd1.org'] = 'wwd1.etypegoogle7.com';
 
 /* jackie */
 $sites['www.bellvilletimes.com'] = "bellvilletimes.etypegoogle11.com";
