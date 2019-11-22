@@ -175,7 +175,7 @@ class ImportOliveXMLController {
     /* initialize markup */
     $markup = '';
 
-    $import_file_array = explode("\n", $this->importUrls);
+    $import_file_array = explode("\n", trim($this->importUrls));
 
     /* loop over import files */
     foreach ($import_file_array as $item) {
