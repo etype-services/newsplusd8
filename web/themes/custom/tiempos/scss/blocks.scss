@@ -107,6 +107,12 @@
   }
 }
 
+/* Facebook block */
+#block-facebooksidebar, #block-twitterblock {
+  display: flex;
+  justify-content: center;
+}
+
 @media screen and (max-width: $desktop - 1px) {
   .block-date-block {
     .block-search {
