@@ -42,7 +42,6 @@ $sites['www.cherokeescout.com'] = 'cherokeescout.etypegoogle7.com';
 $sites['www.grahamstar.com'] = 'grahamstar.etypegoogle7.com';
 $sites['www.lcnok.com'] = 'lcnok.etypegoogle7.com';
 $sites['www.mountaindispatchnow.com'] = 'mountaindispatchnow.etypegoogle7.com';
-$sites['www.okcfriday.com'] = 'okcfriday.etypegoogle7.com';
 $sites['www.thenewsobserver.com'] = 'thenewsobserver.etypegoogle7.com';
 $sites['www.sequoyahcountytimes.com'] = 'sequoyahcountytimes.etypegoogle7.com';
 $sites['www.ecstatesman.com'] = 'ecstatesman.etypegoogle7.com';
