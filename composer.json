@@ -92,7 +92,7 @@
     "drupal/views_database_connector": "^1.1",
     "drupal/weather_block": "^1.1",
     "drupal/webform": "^5.0",
-    "drush/drush": "^9.7",
+    "drush/drush": "^10.0",
     "twig/twig": "^1.38.2",
     "vlucas/phpdotenv": "^2.4",
     "webflo/drupal-finder": "^1.0.0",
