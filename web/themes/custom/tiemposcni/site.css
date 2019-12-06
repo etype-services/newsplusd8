@@ -6,32 +6,40 @@
   #main-nav .navbar .navbar-end {
     /* Social Icons */
     position: inherit;
-    top: 0; } }
+    top: 0;
+  }
+}
 /* Teaser formatting. */
 .node--view-mode-teaser .field--name-body > p::after,
 .node--view-mode-teaser .field--name-body > .field__item::after {
-  content: ""; }
+  content: "";
+}
 
 /* Mobile Home Page */
 @media screen and (max-width: 768px) {
   .block-views-blockmobile-front-page-block-1 .image-container img {
     float: none;
     width: fit-content;
-    margin: 0; }
+    margin: 0;
+  }
 
   .path-frontpage .view-display-id-page_1,
-  #block-views-block-front-page-sections-block-1-2,
-  #block-views-block-front-page-sections-block-2,
-  #block-views-block-front-page-sections-block-3-2 {
+#block-views-block-front-page-sections-block-1-2,
+#block-views-block-front-page-sections-block-2,
+#block-views-block-front-page-sections-block-3-2 {
     visibility: visible !important;
-    display: block !important; }
+    display: block !important;
+  }
 
   .front-page-sections .view-content {
     display: block;
-    margin: 0; }
+    margin: 0;
+  }
 
   #block-weatherwidget-2 > iframe {
-    margin: auto; } }
+    margin: auto;
+  }
+}
 /* DFP ADS */
 /* Square Ads on Home Page */
 #block-tiemposcni-dfptagcnidahlonegamidhome,
@@ -40,9 +48,11 @@
 #block-dfptagcnihartwellmidhome,
 #block-dfptagcnicherokeemidhome,
 #block-dfptagcninewsobservermidhome,
-#block-dfptagcni-timescouriermidhome {
+#block-dfptagcni-timescouriermidhome,
+#block-dfptagcnilakecmidhome {
   display: inline-block;
-  float: left; }
+  float: left;
+}
 
 #block-tiemposcni-dfptagcnidahlonegamidhome2,
 #block-dfptagcninegmidhome2,
@@ -50,36 +60,45 @@
 #block-dfptagcnihartwellmidhome2,
 #block-dfptagcnicherokeemidhome2,
 #block-dfptagcninewsobservermidhome2,
-#block-dfptagcni-timescouriermidhome2 {
+#block-dfptagcni-timescouriermidhome2,
+#block-dfptagcnilakecmidhome2 {
   display: inline-block;
-  float: right; }
+  float: right;
+}
 
 @media screen and (max-width: 950px) {
   #block-tiemposcni-dfptagcnidahlonegamidhome,
-  #block-dfptagcninegmidhome,
-  #block-dfptagcnitoccoamidhome,
-  #block-dfptagcnihartwellmidhome,
-  #block-dfptagcnicherokeemidhome,
-  #block-dfptagcninewsobservermidhome,
-  #block-dfptagcni-timescouriermidhome {
+#block-dfptagcninegmidhome,
+#block-dfptagcnitoccoamidhome,
+#block-dfptagcnihartwellmidhome,
+#block-dfptagcnicherokeemidhome,
+#block-dfptagcninewsobservermidhome,
+#block-dfptagcni-timescouriermidhome,
+#block-dfptagcnilakecmidhome {
     display: block;
     text-align: center;
-    float: none; }
+    float: none;
+  }
 
   #block-tiemposcni-dfptagcnidahlonegamidhome2,
-  #block-dfptagcninegmidhome2,
-  #block-dfptagcnitoccoamidhome2,
-  #block-dfptagcnihartwellmidhome2,
-  #block-dfptagcnicherokeemidhome2,
-  #block-dfptagcninewsobservermidhome2,
-  #block-dfptagcni-timescouriermidhome2 {
+#block-dfptagcninegmidhome2,
+#block-dfptagcnitoccoamidhome2,
+#block-dfptagcnihartwellmidhome2,
+#block-dfptagcnicherokeemidhome2,
+#block-dfptagcninewsobservermidhome2,
+#block-dfptagcni-timescouriermidhome2,
+#block-dfptagcnilakecmidhome {
     display: block;
     text-align: center;
-    float: none; } }
+    float: none;
+  }
+}
 @media screen and (max-width: 768px) {
   /* Hide content on mobile */
   #block-tiemposcni-dfptagcnidahlonegaleaderboard-2 {
     visibility: hidden !important;
-    display: none !important; } }
+    display: none !important;
+  }
+}
 
 /*# sourceMappingURL=site.css.map */
