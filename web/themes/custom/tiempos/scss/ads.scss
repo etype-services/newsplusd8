@@ -86,3 +86,25 @@
 #block-views-block-videos-block-1 {
   clear: both;
 }
+
+/* Network Ads */
+/* DFP ADS */
+
+/* Square Ads on Home Page */
+.network-ad:first-of-type {
+  display: inline-block;
+  float: left;
+}
+
+.network-ad {
+  display: inline-block;
+  float: right;
+}
+
+@media screen and (max-width: 950px) {
+  .network-ad {
+    display: block;
+    text-align: center;
+    float: none;
+  }
+}
