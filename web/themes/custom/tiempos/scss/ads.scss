@@ -92,7 +92,7 @@
 /* Square Ads in main column */
 .region-content .network-ad {
   display: inline-block;
-  float: right;
+  margin: 0 4rem;
 }
 
 .region-content .network-ad:first-of-type {
@@ -103,7 +103,6 @@
 @media screen and (max-width: 950px) {
   .region-content .network-ad {
     display: block;
-    text-align: center;
-    float: none;
+    margin: 0 auto;
   }
 }
