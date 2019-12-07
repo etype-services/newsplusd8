@@ -92,8 +92,8 @@
   clear: both;
 }
 
-/* Network Ads */
-/* Square Ads in main column */
+/* Network ads */
+/* Rectangular ads in main column */
 .region-content .network-ad {
   display: inline-block;
 }
@@ -108,6 +108,7 @@
   margin-right: 2rem;
 }
 
+/* fairly arbitrary width */
 @media screen and (max-width: 1019px) {
   .region-content .network-ad {
     display: block;
