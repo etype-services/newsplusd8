@@ -96,13 +96,21 @@
 /* Square Ads in main column */
 .region-content .network-ad {
   display: inline-block;
-  margin: 0 2rem;
+}
+
+.region-content .network-ad.left {
+  float: left;
+}
+
+.region-content .network-ad.right {
+  float: right;
 }
 
 @media screen and (max-width: 1019px) {
   .region-content .network-ad {
     display: block;
     margin: 0 auto;
+    float: none;
   }
 }
 
