@@ -2,15 +2,18 @@
 /* DFP Blocks. */
 .block-dfp {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+}
 
 /* Advertisement Blocks. */
 .view-advertisements .views-row {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+}
 
 #block-views-block-advertisements-block-1 {
-  margin-bottom: calc(0.75rem * 2); }
+  margin-bottom: calc(0.75rem * 2);
+}
 
 /* Main Classified Page. */
 .path-classified .view-content h3 {
@@ -19,62 +22,95 @@
   margin-bottom: 0.3rem;
   font-size: 0.9rem;
   color: #121212;
-  border-bottom: 1px solid #b5b5b5; }
+  border-bottom: 1px solid #b5b5b5;
+}
 .path-classified .view-content .views-view-grid {
-  display: flex; }
+  display: flex;
+}
 .path-classified .view-content .views-view-grid > div {
-  flex-basis: 50%; }
+  flex-basis: 50%;
+}
 
 .announcements {
   background: url("../images/classified_icons/announcements.png") no-repeat;
   background-size: 60px 60px;
   padding-left: 71px;
-  line-height: 60px; }
+  line-height: 60px;
+}
 
 .transportation {
   background: url("../images/classified_icons/transportation.png") no-repeat;
   background-size: 60px 60px;
   padding-left: 71px;
-  line-height: 60px; }
+  line-height: 60px;
+}
 
 .employment {
   background: url("../images/classified_icons/employment.png") no-repeat;
   background-size: 60px 60px;
   padding-left: 71px;
-  line-height: 60px; }
+  line-height: 60px;
+}
 
 .pets {
   background: url("../images/classified_icons/pets.png") no-repeat;
   background-size: 60px 60px;
   padding-left: 71px;
-  line-height: 60px; }
+  line-height: 60px;
+}
 
 .services {
   background: url("../images/classified_icons/services.png") no-repeat;
   background-size: 60px 60px;
   padding-left: 71px;
-  line-height: 60px; }
+  line-height: 60px;
+}
 
 .shop {
   background: url("../images/classified_icons/shop.png") no-repeat;
   background-size: 60px 60px;
   padding-left: 71px;
-  line-height: 60px; }
+  line-height: 60px;
+}
 
 .real-estate-sale {
   background: url("../images/classified_icons/real-estate-sale.png") no-repeat;
   background-size: 60px 60px;
   padding-left: 71px;
-  line-height: 60px; }
+  line-height: 60px;
+}
 
 .real-estate-rent {
   background: url("../images/classified_icons/real-estate-rent.png") no-repeat;
   background-size: 60px 60px;
   padding-left: 71px;
-  line-height: 60px; }
+  line-height: 60px;
+}
 
 /* The block underneath needs to clear float */
 #block-views-block-videos-block-1 {
-  clear: both; }
+  clear: both;
+}
+
+/* Network Ads */
+/* DFP ADS */
+/* Square Ads on Home Page */
+.network-ad:first-of-type {
+  display: inline-block;
+  float: left;
+}
+
+.network-ad {
+  display: inline-block;
+  float: right;
+}
+
+@media screen and (max-width: 950px) {
+  .network-ad {
+    display: block;
+    text-align: center;
+    float: none;
+  }
+}
 
 /*# sourceMappingURL=ads.css.map */
