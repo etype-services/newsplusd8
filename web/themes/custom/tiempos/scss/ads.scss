@@ -90,18 +90,18 @@
 /* Network Ads */
 
 /* Square Ads in main column */
-#block-tiempos-content .network-ad {
+.region-content .network-ad {
   display: inline-block;
   float: right;
 }
 
-#block-tiempos-content .network-ad:first-of-type {
+.region-content .network-ad:first-of-type {
   display: inline-block;
   float: left;
 }
 
 @media screen and (max-width: 950px) {
-  #block-tiempos-content .network-ad {
+  .region-content .network-ad {
     display: block;
     text-align: center;
     float: none;
