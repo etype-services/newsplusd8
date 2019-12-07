@@ -90,19 +90,19 @@
 /* Network Ads */
 /* DFP ADS */
 
-/* Square Ads on Home Page */
-.network-ad {
+/* Square Ads in main column */
+#block-tiempos-content .network-ad {
   display: inline-block;
   float: right;
 }
 
-.network-ad:first-of-type {
+#block-tiempos-content .network-ad:first-of-type {
   display: inline-block;
   float: left;
 }
 
 @media screen and (max-width: 950px) {
-  .network-ad {
+  #block-tiempos-content .network-ad {
     display: block;
     text-align: center;
     float: none;
