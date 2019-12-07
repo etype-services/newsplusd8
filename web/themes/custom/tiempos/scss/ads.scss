@@ -105,7 +105,7 @@
 }
 
 /* fairly arbitrary width */
-@media screen and (max-width: 1019px) {
+@media screen and (max-width: $desktop - 1px) {
   .region-content {
     .network-ad {
       display: block;
