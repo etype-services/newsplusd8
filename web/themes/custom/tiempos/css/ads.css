@@ -100,15 +100,19 @@
 
 .region-content .network-ad.left {
   float: left;
+  margin-left: 1rem;
 }
 
 .region-content .network-ad.right {
   float: right;
+  margin-right: 1rem;
 }
 
 @media screen and (max-width: 1019px) {
   .region-content .network-ad {
     display: block;
+  }
+  .region-content .network-ad.left, .region-content .network-ad.right {
     margin: 0 auto;
     float: none;
   }

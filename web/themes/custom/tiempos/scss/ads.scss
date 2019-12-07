@@ -96,16 +96,22 @@
 
 .region-content .network-ad.left {
   float: left;
+  margin-left: 1rem;
 }
 
 .region-content .network-ad.right {
   float: right;
+  margin-right: 1rem;
 }
 
 @media screen and (max-width: 1019px) {
-  .region-content .network-ad {
-    display: block;
-    margin: 0 auto;
-    float: none;
+  .region-content {
+    .network-ad {
+      display: block;
+    }
+    .network-ad.left, .network-ad.right {
+      margin: 0 auto;
+      float: none;
+    }
   }
 }
