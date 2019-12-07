@@ -99,11 +99,6 @@
   margin: 0 2rem;
 }
 
-.region-content .network-ad:first-of-type {
-  display: inline-block;
-  float: left;
-}
-
 @media screen and (max-width: 950px) {
   .region-content .network-ad {
     display: block;
