@@ -33,7 +33,6 @@ $sites['www.poncacitynews.com'] = 'poncacitynews.etypegoogle7.com';
 $sites['www.schulenburgsticker.com'] = 'schulenburgsticker.etypegoogle7.com';
 $sites['www.thetoccoarecord.com'] = 'thetoccoarecord.etypegoogle7.com';
 $sites['www.palatkadailynews.com'] = 'palatkadailynews.etypegoogle7.com';
-$sites['www.bunabeacon.com'] = 'bunabeacon.etypegoogle7.com';
 $sites['www.canadianrecord.com'] = 'canadianrecord.etypegoogle7.com';
 $sites['www.elrenotribune.com'] = 'elrenotribune.etypegoogle7.com';
 $sites['www.elberton.com'] = 'elberton.etypegoogle7.com';
