@@ -28,7 +28,6 @@ function etype_theme($existing, $type, $theme, $path) {
  * @param array $page
  */
 function etype_page_attachments(array &$page) {
-  // $theme = Drupal::service('theme.manager')->getActiveTheme()->getName();
   $page['#attached']['library'][] = 'etype/global-styling';
   $page['#attached']['library'][] = 'etype/ada-compliance';
 }
