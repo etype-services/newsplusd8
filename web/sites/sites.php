@@ -73,3 +73,4 @@ $sites['www.bookernews.com'] = "bookernews.etypegoogle7.com";
 $sites['www.colfaxchronicle.com'] = "colfaxchronicle.etypegoogle11.com";
 $sites['www.edenecho.net'] = "edenecho.etypegoogle11.com";
 $sites['www.columbusnews-report.com'] = "columbusnews-report.etypegoogle11.com";
+$sites['www.guthrienewsleader.com'] = "guthrienewsleader.etypegoogle7.com";
