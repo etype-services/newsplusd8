@@ -4,6 +4,7 @@ base theme: tiempos
 description: 'Drupal 8 theme using Bulma framework.'
 version: 8.1.1
 core: 8.x
+core_version_requirement: ^8 || ^9
 regions:
   large_ad: 'Large Ad'
   top_bar: 'Top Bar'
