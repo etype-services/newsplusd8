@@ -97,6 +97,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
    *
    * Using to set the node object.
    * Getting strange errors when attemtpting to loop over field definitions.
+   *
    * Apparently node::load is better than any entityFieldQuery.
    */
   protected function setNode() {
@@ -137,8 +138,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
           $term = Term::load($node->get($field)->target_id);
           if ($term != NULL) {
             $vid = $term->bundle();
-            $terms = $this->entityTypeManager->getStorage('taxonomy_term')
-              ->loadTree($vid);
+            $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree($vid);
             $term_data = [];
             foreach ($terms as $term) {
               $term_data[$term->tid] = $term->name;
