@@ -2,8 +2,9 @@
 
 /**
  * @file
- * Contains
- * Drupal\etype_xml_importer\Controller\ImportOliveXMLController
+ * Contains.
+ *
+ * Drupal\etype_xml_importer\Controller\ImportOliveXMLController.
  */
 
 namespace Drupal\etype_xml_importer\Controller;
@@ -233,12 +234,12 @@ class ImportOliveXMLController {
           }
           catch (XMLIsFalseException $e) {
             $this->messenger->addMessage($e->getMessage(), $this->messenger::TYPE_ERROR);
-            return ['#markup' => ''];
+            $markup .= "<p>XMLIsFalseException thrown for $entry.</p>";
           }
 
           /* parse xml in each file */
           $obj = simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA);
-          if (count($obj) > 0) {
+          if (is_object($obj) && (count($obj) > 0)) {
             /* loop over items in Section file */
             foreach ($obj as $stub) {
               $item = $stub->item;
@@ -247,6 +248,9 @@ class ImportOliveXMLController {
                 $this->parseItem($v);
               }
             }
+          }
+          else {
+            $markup .= "$obj is not an object in $entry.</p>";
           }
           $markup .= "eType XML Importer found " . $this->i . " articles to import in $entry.</p>";
           $t += $this->i;
@@ -350,7 +354,8 @@ class ImportOliveXMLController {
         foreach ($matches as $item) {
           preg_match("/<dc:format>([^<]+)/", $item, $imatches);
           if (isset($imatches[1]) && $imatches[1] == 'image/jpg') {
-            preg_match("'<pam:mediaReference pam:refid=\"(.*)\" />'", $item, $arr);
+            preg_match("'<pam:mediaReference pam:refid=\"(.*)\"\s*/>'", $item,
+              $arr);
             if (isset($arr[1])) {
               $iarray = [];
               $iarray['image'] = $arr[1];
