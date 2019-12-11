@@ -14,23 +14,6 @@ use Drupal\user\Entity\User;
 use Exception;
 
 /**
- * Class WireConnectionException.
- *
- * @package Drupal\etype_wire_content\Form
- */
-class WireConnectionException extends Exception {
-
-  /**
-   * WireConnectionException constructor.
-   */
-  public function __construct() {
-    $message = new TranslatableMarkup('Wire database connection settings are missing. Please add them in this site’s settings.php.');
-    parent::__construct($message);
-  }
-
-}
-
-/**
  * Class EtypeWireContentConfigForm.
  *
  * @package Drupal\etype_wire_content\Form
@@ -111,10 +94,8 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
 
   /**
    * Get the fields associated with selected node type.
-   *
    * Using to set the node object.
    * Getting strange errors when attemtpting to loop over field definitions.
-   *
    * Apparently node::load is better than any entityFieldQuery.
    */
   protected function setNode() {
@@ -155,7 +136,8 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
           $term = Term::load($node->get($field)->target_id);
           if ($term != NULL) {
             $vid = $term->bundle();
-            $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree($vid);
+            $terms = $this->entityTypeManager->getStorage('taxonomy_term')
+              ->loadTree($vid);
             $term_data = [];
             foreach ($terms as $term) {
               $term_data[$term->tid] = $term->name;
@@ -308,6 +290,23 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
       ->set('sections', $form_state->getValue('sections'))
       ->set('section', $form_state->getValue('section'))
       ->save();
+  }
+
+}
+
+/**
+ * Class WireConnectionException.
+ *
+ * @package Drupal\etype_wire_content\Form
+ */
+class WireConnectionException extends Exception {
+
+  /**
+   * WireConnectionException constructor.
+   */
+  public function __construct() {
+    $message = new TranslatableMarkup('Wire database connection settings are missing. Please add them in this site’s settings.php.');
+    parent::__construct($message);
   }
 
 }
