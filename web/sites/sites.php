@@ -74,3 +74,5 @@ $sites['www.colfaxchronicle.com'] = "colfaxchronicle.etypegoogle11.com";
 $sites['www.edenecho.net'] = "edenecho.etypegoogle11.com";
 $sites['www.columbusnews-report.com'] = "columbusnews-report.etypegoogle11.com";
 $sites['www.guthrienewsleader.com'] = "guthrienewsleader.etypegoogle7.com";
+$sites['www.beaumontbusinessjournal.com'] = "beaumontbusinessjournal.etypegoogle7.com";
+$sites['www.theexaminer.com'] = "theexaminer.etypegoogle7.com";
