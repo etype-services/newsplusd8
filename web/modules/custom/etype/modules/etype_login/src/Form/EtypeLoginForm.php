@@ -72,7 +72,8 @@ class EtypeLoginForm extends FormBase {
         '#button_type' => 'primary',
       ];
 
-    } else {
+    }
+    else {
 
       $name = Drupal::currentUser()->getDisplayName();
       $string = t("Hello");
