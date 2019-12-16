@@ -96,6 +96,7 @@ class EtypeLoginForm extends FormBase {
    *   The form.
    * @param \Drupal\Core\Form\FormStateInterface $form_state
    *   The form state.
+   *
    * @throws \Drupal\Core\Entity\EntityStorageException
    * @throws \SoapFault
    */
