@@ -84,3 +84,7 @@ $sites['www.lulingnewsboy.com'] = "lulingnewsboy.etypegoogle7.com";
 $sites['www.runwithsam.org'] = "runwithsam.etypegoogle7.com";
 $sites['www.theravennanews.com'] = "theravennanews.etypegoogle7.com";
 $sites['www.thewewokatimes.com'] = "thewewokatimes.etypegoogle7.com";
+$sites['www.phonographherald.com'] = "phonographherald.etypegoogle7.com";
+$sites['www.thekansascityglobe.com'] = "thekansascityglobe.etypegoogle7.com";
+$sites['www.myfamilydocga.com'] = "myfamilydocga.etypegoogle7.com";
+$sites['www.66hoursingrants.com'] = "66hoursingrants.etypegoogle7.com";
