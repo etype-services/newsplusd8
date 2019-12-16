@@ -158,6 +158,7 @@ class EtypeLoginForm extends FormBase {
             }
             else {
               $user = User::load($check->id());
+              $user->setEmail($getSubscriberEmailResult);
               user_login_finalize($user);
               Drupal::messenger()->addMessage($success_message);
             }
