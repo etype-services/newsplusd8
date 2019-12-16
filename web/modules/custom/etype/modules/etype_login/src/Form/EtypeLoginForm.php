@@ -72,8 +72,7 @@ class EtypeLoginForm extends FormBase {
         '#button_type' => 'primary',
       ];
 
-    }
-    else {
+    } else {
 
       $name = Drupal::currentUser()->getDisplayName();
       $string = t("Hello");
@@ -97,7 +96,6 @@ class EtypeLoginForm extends FormBase {
    *   The form.
    * @param \Drupal\Core\Form\FormStateInterface $form_state
    *   The form state.
-   *
    * @throws \Drupal\Core\Entity\EntityStorageException
    * @throws \SoapFault
    */
@@ -144,23 +142,17 @@ class EtypeLoginForm extends FormBase {
             break;
 
           default:
-            if (($user = user_load_by_mail($getSubscriberEmailResult)) === FALSE) {
-              $check = user_load_by_name($username);
-              if ($check == FALSE) {
-                $user = User::create();
-                $user->setPassword($password);
-                $user->enforceIsNew();
-                $user->setEmail($getSubscriberEmailResult);
-                $user->setUsername($username);
-                $user->activate();
-                $user->save();
-                user_login_finalize($user);
-                Drupal::messenger()->addMessage($success_message);
-              }
-              else {
-                $message = "We can‘t create an account for you on this website because the user name $username already exists in this system. Please email support@etypeservices.com for assistance.";
-                Drupal::messenger()->addMessage($message);
-              }
+            $check = user_load_by_name($username);
+            if ($check == FALSE) {
+              $user = User::create();
+              $user->setPassword($password);
+              $user->enforceIsNew();
+              $user->setEmail($getSubscriberEmailResult);
+              $user->setUsername($username);
+              $user->activate();
+              $user->save();
+              user_login_finalize($user);
+              Drupal::messenger()->addMessage($success_message);
             }
             else {
               $account = user_load_by_mail($getSubscriberEmailResult);
