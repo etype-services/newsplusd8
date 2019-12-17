@@ -1,1 +1,10 @@
 <?php
+
+/**
+ * Implements hook_page_attachments().
+ *
+ * @param array $page
+ */
+function etype_blue_orchid_page_attachments(array &$page) {
+  $page['#attached']['library'][] = 'etype_blue_orchid/global-styling';
+}
