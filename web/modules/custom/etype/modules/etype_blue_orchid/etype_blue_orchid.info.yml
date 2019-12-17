@@ -1,0 +1,8 @@
+name: 'eType Services Blue Orchid Ads'
+type: module
+description: 'Provides Blue Orchid Ad Blocks.'
+core: 8.x
+package: 'eType Services'
+
+dependencies:
+  - etype:etype

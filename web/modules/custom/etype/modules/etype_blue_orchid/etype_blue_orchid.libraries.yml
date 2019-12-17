@@ -1,0 +1,5 @@
+global-styling:
+  version: VERSION
+  css:
+    state:
+      css/etype_blue_orchid.css: {}
