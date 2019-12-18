@@ -109,7 +109,7 @@
 }
 
 /* Facebook block */
-#block-facebooksidebar, #block-twitterblock {
+#block-facebooksidebar, #block-twitterblock, .block-centered {
   display: flex;
   justify-content: center;
 }
