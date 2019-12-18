@@ -1,1 +1,15 @@
 @import "../../tiempos/scss/vars";
+
+#main-nav .navbar .navbar-end {
+  position: inherit;
+}
+
+.region-header-bottom {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  #block-tiemposbeaumont-branding {
+    margin-bottom: 0;
+  }
+}

@@ -1,3 +1,15 @@
 /* Center column for tiempos theme */
+#main-nav .navbar .navbar-end {
+  position: inherit;
+}
+
+.region-header-bottom {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.region-header-bottom #block-tiemposbeaumont-branding {
+  margin-bottom: 0;
+}
 
 /*# sourceMappingURL=site.css.map */
