@@ -104,5 +104,9 @@ article .field--name-field-tags h3 {
     width: 50%;
   }
 }
+/* Embedded Image padding */
+.node--type-mt-post .field--name-body img.align-left {
+  padding-right: 2rem;
+}
 
 /*# sourceMappingURL=local-theme.css.map */
