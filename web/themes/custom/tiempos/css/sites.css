@@ -11,7 +11,7 @@
     flex-basis: 30%;
   }
 }
-body.aroundosceola {
+body.aroundosceola, .aroundosceola footer {
   font-family: sans-serif;
 }
 
