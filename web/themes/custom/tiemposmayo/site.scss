@@ -1,1 +1,33 @@
+@import "../tiempos/scss/vars";
+
 /* Theme style */
+
+.mobile-front-page, .view-taxonomy-term  {
+  .view {
+    padding: 0 0.75rem;
+    img {
+      float: right;
+      width: 48%;
+      /* Bottom margin for stories with no body */
+      margin: 0.3rem 0 0.75rem $column-gap;
+    }
+    .views-row {
+      clear: both;
+    }
+  }
+  .node--view-mode-teaser {
+    min-height: 30vw;
+    &:not(last-child) {
+      margin-bottom: $column-gap;
+    }
+
+    .field--name-body {
+      margin-bottom: 0;
+      display: inline;
+      p {
+        /* Fine-tuning. */
+        line-height: 1.4;
+      }
+    }
+  }
+}

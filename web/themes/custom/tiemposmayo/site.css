@@ -1,3 +1,30 @@
+/* Center column for tiempos theme */
 /* Theme style */
+.mobile-front-page .view, .view-taxonomy-term .view {
+  padding: 0 0.75rem;
+}
+.mobile-front-page .view img, .view-taxonomy-term .view img {
+  float: right;
+  width: 48%;
+  /* Bottom margin for stories with no body */
+  margin: 0.3rem 0 0.75rem 0.75rem;
+}
+.mobile-front-page .view .views-row, .view-taxonomy-term .view .views-row {
+  clear: both;
+}
+.mobile-front-page .node--view-mode-teaser, .view-taxonomy-term .node--view-mode-teaser {
+  min-height: 30vw;
+}
+.mobile-front-page .node--view-mode-teaser:not(last-child), .view-taxonomy-term .node--view-mode-teaser:not(last-child) {
+  margin-bottom: 0.75rem;
+}
+.mobile-front-page .node--view-mode-teaser .field--name-body, .view-taxonomy-term .node--view-mode-teaser .field--name-body {
+  margin-bottom: 0;
+  display: inline;
+}
+.mobile-front-page .node--view-mode-teaser .field--name-body p, .view-taxonomy-term .node--view-mode-teaser .field--name-body p {
+  /* Fine-tuning. */
+  line-height: 1.4;
+}
 
 /*# sourceMappingURL=site.css.map */
