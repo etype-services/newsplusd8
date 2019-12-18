@@ -1,6 +1,6 @@
 @import "../../tiempos/scss/vars";
 
-@media screen and (min-width: $tablet) {
+@media screen and (min-width: $desktop) {
   #main-nav .navbar .navbar-end {
     position: inherit;
     top: 0;
@@ -18,7 +18,7 @@
   }
 }
 
-@media screen and (max-width: $tablet - 1px) {
+@media screen and (max-width: $desktop - 1px) {
   #main-nav .navbar {
     border-top: none;
   }
