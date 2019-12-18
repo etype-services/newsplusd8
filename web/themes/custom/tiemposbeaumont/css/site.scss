@@ -1,17 +1,28 @@
 @import "../../tiempos/scss/vars";
 
-#main-nav .navbar .navbar-end {
-  position: inherit;
-  top: 0;
+@media screen and (min-width: $tablet) {
+  #main-nav .navbar .navbar-end {
+    position: inherit;
+    top: 0;
+  }
+  .region-header-bottom {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: $column-gap;
+    flex-wrap: nowrap;
+
+    #block-tiemposbeaumont-branding {
+      margin-bottom: 0;
+    }
+  }
 }
 
-.region-header-bottom {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-bottom: $column-gap;
-
-  #block-tiemposbeaumont-branding {
-    margin-bottom: 0;
+@media screen and (max-width: $tablet - 1px) {
+  #main-nav .navbar {
+    border-top: none;
+  }
+  .region-header-bottom {
+    flex-wrap: wrap;
   }
 }

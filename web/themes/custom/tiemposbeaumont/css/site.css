@@ -1,17 +1,29 @@
 /* Center column for tiempos theme */
-#main-nav .navbar .navbar-end {
-  position: inherit;
-  top: 0;
-}
+@media screen and (min-width: 769px) {
+  #main-nav .navbar .navbar-end {
+    position: inherit;
+    top: 0;
+  }
 
-.region-header-bottom {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-bottom: 0.75rem;
+  .region-header-bottom {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    flex-wrap: nowrap;
+  }
+  .region-header-bottom #block-tiemposbeaumont-branding {
+    margin-bottom: 0;
+  }
 }
-.region-header-bottom #block-tiemposbeaumont-branding {
-  margin-bottom: 0;
+@media screen and (max-width: 768px) {
+  #main-nav .navbar {
+    border-top: none;
+  }
+
+  .region-header-bottom {
+    flex-wrap: wrap;
+  }
 }
 
 /*# sourceMappingURL=site.css.map */
