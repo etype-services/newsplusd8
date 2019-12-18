@@ -9,8 +9,8 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-bottom: $column-gap;
     flex-wrap: nowrap;
+    margin-bottom: $column-gap;
 
     #block-tiemposbeaumont-branding {
       margin-bottom: 0;
@@ -24,5 +24,6 @@
   }
   .region-header-bottom {
     flex-wrap: wrap;
+    margin-bottom: $column-gap;
   }
 }
