@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Drupal\etype_classifed_importer\Controller\ImportClassifiedController.
+ * Drupal\etype_classifed_importer\Controller\ImportNewzWareController.
  */
 
 namespace Drupal\etype_newzware_importer\Controller;
@@ -110,13 +110,13 @@ class ImportNewzWareController {
     foreach ($obj as $item) {
 
       // Ads do not have title, mostly.
-      $str = empty($item->ItemTitle) ? substr($item->ItemDesc, 0, 25) : $item->ItemTitle;
+      $str = substr($item->HTMLContent, 0, 25);
       $title = preg_replace("/[\n\r]/", " ", $str);
 
       if (!empty($title)) {
         // Get term id that matched VisionData category.
         $query = Drupal::entityQuery('taxonomy_term');
-        $terms = $query->condition('field_visiondata_category_id', $item->categoryId)
+        $terms = $query->condition('field_newzware_class_number', $item->CLASS_NUMBER)
           ->execute();
         $ad_cat = reset($terms);
 
@@ -124,10 +124,10 @@ class ImportNewzWareController {
           'type' => 'classified_ad',
           'title' => $title,
           'body' => [
-            'value' => $item->ItemDesc,
+            'value' => $item->HTMLContent,
           ],
-          'field_id' => $item->ItemId,
-          'field_visiondata_category' => $item->categoryId,
+          'field_id' => $item->ADID,
+          'field_visiondata_category' => $item->CLASS_NUMBER,
           'status' => 1,
           'uid' => 1,
         ]);
