@@ -137,12 +137,13 @@ class ImportNewzWareController {
         $alt = Node::load($nid);
         $alt->setCreatedTime(strtotime($item->STARTDATE));
 
-        if ($ad_cat > 0) {
+        if (!empty($ad_cat)) {
           $alt->field_ad_category->target_id = (int) $ad_cat;
         }
         else {
           // Log/warn about missing category relationship.
-          $message = sprintf("No category match for VisionData category %s.\n%s", $item->categoryId, $item->ItemDesc);
+          $message = sprintf("No category match for NewzWare category %s.\n%s",
+            $item->CLASS_NUMBER, $item->HTMLContent);
           Drupal::logger('etype_newzware_importer')->notice($message);
           $this->messenger->addMessage($message, $this->messenger::TYPE_WARNING);
         }
