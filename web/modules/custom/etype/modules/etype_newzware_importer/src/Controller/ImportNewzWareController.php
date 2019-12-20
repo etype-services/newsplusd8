@@ -138,7 +138,7 @@ class ImportNewzWareController {
         $alt->setCreatedTime(strtotime($item->STARTDATE));
 
         if ($ad_cat > 0) {
-          $alt->field_ad_category->target_id = $ad_cat;
+          $alt->field_ad_category->target_id = (int) $ad_cat;
         }
         else {
           // Log/warn about missing category relationship.
