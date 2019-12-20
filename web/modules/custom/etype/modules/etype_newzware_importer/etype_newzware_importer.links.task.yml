@@ -1,4 +1,4 @@
-etype_newzware_importer.classified_import:
+etype_newzware_importer.newzware_import:
   title: 'Import NewzWare Ads'
   route_name: etype_newzware_importer.newzware_import
   base_route: system.admin_content
