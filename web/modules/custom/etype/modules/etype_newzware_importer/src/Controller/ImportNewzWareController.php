@@ -109,6 +109,9 @@ class ImportNewzWareController {
     $i = 0;
     foreach ($obj as $item) {
 
+      var_dump($item);
+      exit;
+
       // Ads do not have title, mostly.
       $str = substr($item->HTMLContent, 0, 25);
       $title = preg_replace("/[\n\r]/", " ", $str);
