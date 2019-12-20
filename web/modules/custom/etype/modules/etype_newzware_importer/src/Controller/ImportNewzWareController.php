@@ -127,6 +127,7 @@ class ImportNewzWareController {
             'value' => $item->HTMLContent,
           ],
           'field_id' => $item->ADID,
+          /* field machine name is for VisionData, no need to change it */
           'field_visiondata_category' => $item->CLASS_NUMBER,
           'status' => 1,
           'uid' => 1,
