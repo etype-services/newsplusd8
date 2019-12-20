@@ -6,7 +6,7 @@ use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Class EtypeNewsWareImporterConfigForm.
+ * Class EtypeNewzWareImporterConfigForm.
  *
  * @package Drupal\etype_newzware_importer\Form
  */
