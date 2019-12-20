@@ -100,5 +100,60 @@
     display: none !important;
   }
 }
+.announcements {
+  background: url("images/classified_icons/announcements.png") no-repeat;
+  background-size: 60px 60px;
+  padding-left: 71px;
+  line-height: 60px;
+}
+
+.transportation {
+  background: url("images/classified_icons/transportation.png") no-repeat;
+  background-size: 60px 60px;
+  padding-left: 71px;
+  line-height: 60px;
+}
+
+.employment {
+  background: url("images/classified_icons/employment.png") no-repeat;
+  background-size: 60px 60px;
+  padding-left: 71px;
+  line-height: 60px;
+}
+
+.pets {
+  background: url("images/classified_icons/pets.png") no-repeat;
+  background-size: 60px 60px;
+  padding-left: 71px;
+  line-height: 60px;
+}
+
+.services {
+  background: url("images/classified_icons/services.png") no-repeat;
+  background-size: 60px 60px;
+  padding-left: 71px;
+  line-height: 60px;
+}
+
+.shop {
+  background: url("images/classified_icons/shop.png") no-repeat;
+  background-size: 60px 60px;
+  padding-left: 71px;
+  line-height: 60px;
+}
+
+.real-estate-sale {
+  background: url("images/classified_icons/real-estate-sale.png") no-repeat;
+  background-size: 60px 60px;
+  padding-left: 71px;
+  line-height: 60px;
+}
+
+.real-estate-rent {
+  background: url("images/classified_icons/real-estate-rent.png") no-repeat;
+  background-size: 60px 60px;
+  padding-left: 71px;
+  line-height: 60px;
+}
 
 /*# sourceMappingURL=site.css.map */
