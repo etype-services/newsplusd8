@@ -179,7 +179,7 @@ class ImportUrlMissingException extends Exception {
    * Constructs an ImportFileMissingException.
    */
   public function __construct() {
-    $message = new TranslatableMarkup('No import url defined. See eType newzware Importer settings.');
+    $message = new TranslatableMarkup('No import url defined. See eType NewzWare Importer settings.');
     parent::__construct($message);
   }
 
