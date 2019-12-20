@@ -1,5 +1,5 @@
 name: 'eType Services Login Development'
 type: module
-description: 'Provides login to eType system.'
+description: 'Provides login to eType system (development version for V2).'
 core: 8.x
 package: 'eType Services'
