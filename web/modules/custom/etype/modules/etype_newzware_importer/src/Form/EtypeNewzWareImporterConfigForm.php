@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\etype_newsware_importer\Form;
+namespace Drupal\etype_newzware_importer\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
