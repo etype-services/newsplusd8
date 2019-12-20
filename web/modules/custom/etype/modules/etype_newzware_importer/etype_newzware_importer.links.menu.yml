@@ -1,0 +1,5 @@
+etype_newzware_importer.admin_settings:
+  title: 'eType NewzWare Importer Settings'
+  parent: system.admin_config_etype
+  description: 'Configure eType NewzWare import settings.'
+  route_name: etype_newzware_importer.admin_settings

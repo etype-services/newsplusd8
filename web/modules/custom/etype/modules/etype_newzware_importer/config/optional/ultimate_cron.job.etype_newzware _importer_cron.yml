@@ -1,0 +1,28 @@
+langcode: en
+status: false
+dependencies:
+  module:
+    - etype_newzware_importer
+title: 'Imports NewszWare Classified Ads'
+id: etype_newzware_importer_cron
+module: etype_newzware_importer
+callback: _newzware_importer
+scheduler:
+  id: crontab
+  configuration:
+    rules:
+      - '* * * * 0'
+launcher:
+  id: serial
+  configuration:
+    timeouts:
+      lock_timeout: 3600
+      max_execution_time: 3600
+    launcher:
+      max_threads: 1
+logger:
+  id: database
+  configuration:
+    method: '3'
+    expire: 1209600
+    retain: 1000

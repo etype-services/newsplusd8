@@ -1,0 +1,19 @@
+etype_newzware_importer.admin_settings:
+  path: '/admin/config/etype_newzware_importer/adminsettings'
+  defaults:
+    _form: '\Drupal\etype_newzware_importer\Form\EtypenewzwareImporterConfigForm'
+    _title: 'eType NewzWare Importer Configuration'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
+
+etype_newzware_importer.newzware_import:
+  path: '/admin/content/newzware_import'
+  defaults:
+    _title: 'Import NewzWare Ads'
+    _controller: '\Drupal\etype_newzware_importer\Controller\ImportNewzWareController::importNewzwareXml'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE

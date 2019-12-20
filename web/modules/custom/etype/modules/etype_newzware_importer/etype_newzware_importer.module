@@ -1,0 +1,15 @@
+<?php
+/**
+ * @file
+ * eType NewzWare Importer module file.
+ */
+
+/**
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
+function _newzware_importer() {
+  $job = new Drupal\etype_newzware_importer\Controller\ImportnewzwareController;
+  $job->importNewzwareXml();
+}
