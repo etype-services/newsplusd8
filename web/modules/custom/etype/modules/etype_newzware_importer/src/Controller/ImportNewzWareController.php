@@ -109,9 +109,6 @@ class ImportNewzWareController {
     $i = 0;
     foreach ($obj as $item) {
 
-      var_dump($item);
-      exit;
-
       // Ads do not have title, mostly.
       $str = substr($item->HTMLContent, 0, 25);
       $title = preg_replace("/[\n\r]/", " ", $str);
@@ -138,7 +135,7 @@ class ImportNewzWareController {
         $node->save();
         $nid = $node->id();
         $alt = Node::load($nid);
-        $alt->setCreatedTime(strtotime($item->startDate));
+        $alt->setCreatedTime(strtotime($item->STARTDATE));
 
         if ($ad_cat > 0) {
           $alt->field_ad_category->target_id = $ad_cat;
