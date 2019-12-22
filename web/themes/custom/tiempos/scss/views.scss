@@ -110,7 +110,7 @@
 }
 
 /* Taxonomy Pages. */
-.view-taxonomy-term {
+.view-taxonomy-term, .view-classified {
   /* Page title is faked in View header. */
   #block-tiempos-page-title {
     @include is-really-invisible;

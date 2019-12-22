@@ -121,44 +121,44 @@
 }
 
 /* Taxonomy Pages. */
-.view-taxonomy-term {
+.view-taxonomy-term, .view-classified {
   /* Page title is faked in View header. */
   /* Teaser formatting. */
 }
-.view-taxonomy-term #block-tiempos-page-title {
+.view-taxonomy-term #block-tiempos-page-title, .view-classified #block-tiempos-page-title {
   visibility: hidden !important;
   display: none !important;
 }
-.view-taxonomy-term .view-header {
+.view-taxonomy-term .view-header, .view-classified .view-header {
   /* Emulate page title. */
   margin-bottom: 1.5rem;
 }
-.view-taxonomy-term .view-content > div {
+.view-taxonomy-term .view-content > div, .view-classified .view-content > div {
   border-bottom: 1px solid #dbdbdb;
   padding-bottom: 1rem;
 }
-.view-taxonomy-term .view-content > div:last-child {
+.view-taxonomy-term .view-content > div:last-child, .view-classified .view-content > div:last-child {
   border-bottom: none;
   padding-bottom: 0;
   margin-bottom: calc(0.75rem * 2);
 }
-.view-taxonomy-term .node--view-mode-teaser {
+.view-taxonomy-term .node--view-mode-teaser, .view-classified .node--view-mode-teaser {
   /* These items to make teaser full-width and as tall as image. */
   display: inline-block;
   width: 100%;
 }
-.view-taxonomy-term .node--view-mode-teaser .field--name-field-ad-category {
+.view-taxonomy-term .node--view-mode-teaser .field--name-field-ad-category, .view-classified .node--view-mode-teaser .field--name-field-ad-category {
   margin-bottom: 0;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
 }
-.view-taxonomy-term .node--view-mode-teaser .image-container {
+.view-taxonomy-term .node--view-mode-teaser .image-container, .view-classified .node--view-mode-teaser .image-container {
   float: right;
   width: 30%;
   margin-left: 0.5rem;
   margin-top: 0.3rem;
 }
-.view-taxonomy-term .node--view-mode-teaser .image-container img {
+.view-taxonomy-term .node--view-mode-teaser .image-container img, .view-classified .node--view-mode-teaser .image-container img {
   width: 100%;
 }
 
