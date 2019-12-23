@@ -116,7 +116,7 @@ class ImportNewzWareController {
       if (!empty($title)) {
         // Get term id that matched VisionData category.
         $query = Drupal::entityQuery('taxonomy_term');
-        $terms = $query->condition('field_newzware_class_number', $item->CLASS_NUMBER)
+        $terms = $query->condition('field_visiondata_category', $item->CLASS_NUMBER)
           ->execute();
         $ad_cat = reset($terms);
 
