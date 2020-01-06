@@ -136,8 +136,7 @@ class ImportNewzWareController {
         $nid = $node->id();
         $alt = Node::load($nid);
         // Could be STARTDATE or STOPDATE
-        // $alt->setCreatedTime(strtotime($item->STOPDATE));
-
+        // $alt->setCreatedTime(strtotime($item->STOPDATE)); .
         if (!empty($ad_cat)) {
           $alt->field_ad_category->target_id = (int) $ad_cat;
         }
