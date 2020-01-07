@@ -51,6 +51,7 @@
     "drupal/delete_all": "^1.1",
     "drupal/devel": "^2.0",
     "drupal/dfp": "^1.0",
+    "drupal/editor_file": "^1.4",
     "drupal/entity_embed": "^1.0",
     "drupal/entity_reference_revisions": "^1.6",
     "drupal/exclude_node_title": "^1.0",

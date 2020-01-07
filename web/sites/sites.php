@@ -96,3 +96,5 @@ $sites['www.normangeestar.com'] = "normangeestar.etypegoogle7.com";
 $sites['www.cninewspapers.com'] = "cninewspapers.etypegoogle7.com";
 $sites['www.countryworldnews.com'] = "countryworldnews.etypegoogle7.com";
 $sites['www.sabinecountyreporter.com'] = "sabinecountyreporter.etypegoogle7.com";
+$sites['www.fgazette.com'] = "fgazette.etypegoogle7.com";
+$sites['www.strausnews.com'] = "strausnews.etypegoogle7.com";
