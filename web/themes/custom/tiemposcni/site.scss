@@ -1,9 +1,6 @@
 @import "../tiempos/scss/vars";
 
 @media screen and (min-width: 1088px) {
-  /*.thedahloneganugget, .thenortheastgeorgian, .elberton, .cherokeescout {
-
-  }*/
   #main-nav .navbar .navbar-end {
     /* Social Icons */
     position: inherit;
@@ -154,4 +151,12 @@
   background-size: 60px 60px;
   padding-left: 71px;
   line-height: 60px;
+}
+
+/* .tribune-georgian */
+.tribune-georgian {
+  #author_id {
+    display: none;
+    visibility: hidden;
+  }
 }
