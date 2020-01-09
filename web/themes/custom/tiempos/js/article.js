@@ -6,6 +6,7 @@
             var styles = "caption is-sans-serif is-size-7";
             var flexslider = $("#flexslider-1 > .slides li");
             var len = flexslider.length;
+
             var img = $(".page-node-type-article article .field--name-body img, .page-node-type-article article .field--type-image img");
             img.each(function () {
                 var text = $(this).attr("alt");
@@ -13,7 +14,7 @@
                 var imgClass = $(this).attr("class");
                 if (text !== "undefined") {
                     articleCaption = "<span style=\"width:" + width + "px\" class=\"" + styles + "\">" + text + "</span>";
-                    $(this).once("tiemposBehavior").attr("class", "").after(articleCaption).parent().addClass(imgClass);
+                    $(this).once("tiemposBehavior").attr("class", "").after(articleCaption).parent().addClass(imgClass).css("width", width + "px");
                 }
             });
 
