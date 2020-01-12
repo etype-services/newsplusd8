@@ -11,5 +11,5 @@
  */
 function _newzware_importer() {
   $job = new Drupal\etype_newzware_importer\Controller\ImportnewzwareController;
-  $job->importNewzwareXml();
+  $job->importNewzWareXml();
 }
