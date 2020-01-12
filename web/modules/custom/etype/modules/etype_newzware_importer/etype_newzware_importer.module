@@ -10,6 +10,6 @@
  * @throws \Drupal\Core\Entity\EntityStorageException
  */
 function _newzware_importer() {
-  $job = new Drupal\etype_newzware_importer\Controller\ImportnewzwareController;
+  $job = new Drupal\etype_newzware_importer\Controller\ImportNewzWareController;
   $job->importNewzWareXml();
 }
