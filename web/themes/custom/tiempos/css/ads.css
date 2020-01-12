@@ -31,6 +31,12 @@
   flex-basis: 50%;
 }
 
+/* NewzWare Classified */
+.view-classified-ads .field--name-field-ad-category {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
 /* The block underneath needs to clear float */
 #block-views-block-videos-block-1 {
   clear: both;
