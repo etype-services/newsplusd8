@@ -90,7 +90,11 @@ function tiempos_preprocess_node(&$variables) {
         foreach ($tids as $tid) {
           $term = Term::load($tid["target_id"]);
           if (!is_null($term)) {
-            $arr[] = strtolower($term->getName());
+            $term_name = $term->getName();
+            /* 'columns' is a class in bulma */
+            if ($term_name != 'Columns') {
+              $arr[] = strtolower($term_name);
+            }
           }
         }
         $variables['section'] = implode(" ", $arr);
