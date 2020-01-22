@@ -60,6 +60,7 @@
     "drupal/flexslider": "^2.0",
     "drupal/fontawesome": "^2.9",
     "drupal/fullcalendar_view": "^2.3",
+    "drupal/git_deploy": "^2.0",
     "drupal/google_analytics": "^3.0",
     "drupal/honeypot": "^1.29",
     "drupal/ie9": "^1.0",
