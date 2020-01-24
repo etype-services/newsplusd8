@@ -202,6 +202,7 @@ class EtypeConfigForm extends ConfigFormBase {
       ->set('mercolocal_id', $form_state->getValue('mercolocal_id'))
       ->set('weather_code', $form_state->getValue('weather_code'))
       ->set('ad_script', $form_state->getValue('ad_script'))
+      ->set('head_script', $form_state->getValue('head_script'))
       ->set('author', $form_state->getValue('author'))
       ->save();
   }
