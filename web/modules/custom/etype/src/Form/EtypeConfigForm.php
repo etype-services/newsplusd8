@@ -144,10 +144,18 @@ class EtypeConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('weather_code'),
     ];
 
+    $form['other']['head_script'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Header Scripts'),
+      '#description' => $this->t('Any code pasted in here will be added to the head section of the site. Please note that third-party scripts may break site functionality and have unexpected results.'),
+      '#cols' => '100',
+      '#default_value' => $config->get('head_script'),
+    ];
+
     $form['other']['ad_script'] = [
       '#type' => 'textarea',
-      '#title' => $this->t('Ad Script'),
-      '#description' => $this->t('Any code pasted in here will be added to the site. Please note that third-party scripts may break site functionality and have unexpected results.'),
+      '#title' => $this->t('Footer Scripts'),
+      '#description' => $this->t('Any code pasted in here will be added to the site footer. Please note that third-party scripts may break site functionality and have unexpected results.'),
       '#cols' => '100',
       '#default_value' => $config->get('ad_script'),
     ];
