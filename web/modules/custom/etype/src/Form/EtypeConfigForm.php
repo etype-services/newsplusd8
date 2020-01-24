@@ -51,7 +51,7 @@ class EtypeConfigForm extends ConfigFormBase {
     $form['e_edition']['etype_e_edition'] = [
       '#type' => 'textarea',
       '#title' => $this->t('e-Edition'),
-      '#description' => $this->t('For one paper enter the e-Edition like <code>Mitchell%20News-JournalID617</code>, for more than one format like this: <code>Mitchell%20News-JournalID617|Mitchell News Journal,The%20Yorktown%20News-ViewID84|The Yorktown News View</code>.'),
+      '#description' => $this->t('For one publication enter the e-Edition like <code>Mitchell%20News-JournalID617</code>, for multiple publications, please format like this: <code>Mitchell%20News-JournalID617|Mitchell News Journal,The%20Yorktown%20News-ViewID84|The Yorktown News View</code>.'),
       '#rows' => 2,
       '#cols' => '100',
       '#default_value' => $config->get('etype_e_edition'),
@@ -147,7 +147,7 @@ class EtypeConfigForm extends ConfigFormBase {
     $form['other']['head_script'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Header Scripts'),
-      '#description' => $this->t('Any code pasted in here will be added to the head section of the site. Please note that third-party scripts may break site functionality and have unexpected results.'),
+      '#description' => $this->t('Any code pasted in here will be added to the end of the head section of the site. Please note that third-party scripts may break site functionality and have unexpected results.'),
       '#cols' => '100',
       '#default_value' => $config->get('head_script'),
     ];
@@ -155,7 +155,7 @@ class EtypeConfigForm extends ConfigFormBase {
     $form['other']['ad_script'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Footer Scripts'),
-      '#description' => $this->t('Any code pasted in here will be added to the site footer. Please note that third-party scripts may break site functionality and have unexpected results.'),
+      '#description' => $this->t('Any code pasted in here will be added before the closing body tag. Please note that third-party scripts may break site functionality and have unexpected results.'),
       '#cols' => '100',
       '#default_value' => $config->get('ad_script'),
     ];
