@@ -147,7 +147,7 @@ class EtypeConfigForm extends ConfigFormBase {
     $form['other']['head_script'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Header Scripts'),
-      '#description' => $this->t('Any code pasted in here will be added to the end of the head section of the site. Please note that third-party scripts may break site functionality and have unexpected results.'),
+      '#description' => $this->t('Any code pasted in here will be added to the end of the head section of the site. Please note that third-party scripts may have unexpected results or break the site.'),
       '#cols' => '100',
       '#default_value' => $config->get('head_script'),
     ];
@@ -155,7 +155,7 @@ class EtypeConfigForm extends ConfigFormBase {
     $form['other']['ad_script'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Footer Scripts'),
-      '#description' => $this->t('Any code pasted in here will be added before the closing body tag. Please note that third-party scripts may break site functionality and have unexpected results.'),
+      '#description' => $this->t('Any code pasted in here will be added before the closing body tag. Please note that third-party scripts may have unexpected results or break the site.'),
       '#cols' => '100',
       '#default_value' => $config->get('ad_script'),
     ];
