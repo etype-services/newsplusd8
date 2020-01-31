@@ -283,7 +283,6 @@ function etype_preprocess_views_view_row_rss(&$variables) {
 function etype_metatags_alter(array &$metatags, array &$context) {
   dpm ($metatags);
   //dpm($context);
-  $entity = $context['entity'];
-  $type = $entity->getEntityType();
+  $type = $context['entity']->getEntityType();
   dpm($type);
 }
