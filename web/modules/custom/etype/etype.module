@@ -280,9 +280,6 @@ function etype_preprocess_views_view_row_rss(&$variables) {
  *   'entity' - The entity being processed; passed by reference.
  */
 function etype_metatags_alter(array &$metatags, array &$context) {
-  // Exclude meta tags on frontpage.
-  if (\Drupal::service('path.matcher')->isFrontPage()) {
-    dpm ($metatags);
-    dpm($context);
-  }
+  dpm ($metatags);
+  dpm($context);
 }
