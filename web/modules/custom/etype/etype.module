@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\file\Entity\File;
 use Drupal\user\Entity\User;
 use Drupal\Core\Entity\Node;
 
@@ -289,12 +290,23 @@ function etype_metatags_alter(array &$metatags, array &$context) {
     if ($param instanceof Drupal\Core\Entity\EntityInterface) {
       $entity = $param;
       $entityType = $entity->getEntityTypeId();
+      /* Is this a node, not a user, etc? */
       if ($entityType == 'node') {
+        /* Do we have the right field? */
         if ($entity->hasField('field_image')) {
           dpm ($metatags);
           $nid = $entity->Id();
           $node = Drupal::entityTypeManager()->getStorage('node')->load($nid);
-          dpm($node->get('field_image')->target_id);
+          $fileId = $node->get('field_image')->target_id;
+          /* Do we have a file id? Default images do not register. */
+          if ($fileId != NULL) {
+            $obj = File::load($fileId);
+            if (is_object($obj)) {
+              $uri = $obj->getFileUri();
+              $url = file_create_url($uri);
+              dpm($url);
+            }
+          }
         }
       }
       break;
