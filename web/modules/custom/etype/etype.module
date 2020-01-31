@@ -283,5 +283,6 @@ function etype_metatags_alter(array &$metatags, array &$context) {
   // Exclude meta tags on frontpage.
   if (\Drupal::service('path.matcher')->isFrontPage()) {
     dpm ($metatags);
+    dpm($context);
   }
 }
