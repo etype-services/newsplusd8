@@ -295,7 +295,7 @@ function etype_metatags_alter(array &$metatags, array &$context) {
         $node = Drupal::entityTypeManager()->getStorage('node')->load($nid);
         //$imageUrl = $node->get('field_image')->entity->uri->value;
         //$url = file_create_url($uri);
-        $node_article_fields = \Drupal::entityTypeManager()->getFieldDefinitions
+        $node_article_fields = \Drupal::entityManager()->getFieldDefinitions
         ('node','article');
         kint($node_article_fields);
       }
