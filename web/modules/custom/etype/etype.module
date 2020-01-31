@@ -288,7 +288,7 @@ function etype_metatags_alter(array &$metatags, array &$context) {
       $entity = $param;
       $img = $entity->get("field_image")->getValue();
       dpm($img);
-      $uri = $entity->field_image->entity->getFileUri();
+      // $uri = $entity->field_image->entity->getFileUri();
       //$url = file_create_url($uri);
       //dpm($url);
       break;
