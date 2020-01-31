@@ -293,7 +293,7 @@ function etype_metatags_alter(array &$metatags, array &$context) {
       if ($entityType == 'node') {
         $nid = $entity->Id();
         $node = Drupal::entityTypeManager()->getStorage('node')->load($nid);
-        $uri = $node->field_image->getFileUri();
+        $uri = $node->field_image->getValue();
         //$url = file_create_url($uri);
         dpm($uri);
       }
