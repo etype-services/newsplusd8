@@ -294,7 +294,7 @@ function etype_metatags_alter(array &$metatags, array &$context) {
       if ($entityType == 'node') {
         /* Do we have the right field? */
         if ($entity->hasField('field_image')) {
-          dpm ($metatags);
+          // dpm ($metatags);
           $nid = $entity->Id();
           $node = Drupal::entityTypeManager()->getStorage('node')->load($nid);
           $fileId = $node->get('field_image')->target_id;
