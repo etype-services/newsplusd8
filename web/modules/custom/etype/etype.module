@@ -291,7 +291,7 @@ function etype_metatags_alter(array &$metatags, array &$context) {
       $entity = $param;
       $entityType = $entity->getEntityTypeId();
       if ($entityType == 'node') {
-        if ($entity->hasField('field_subhead')) {
+        if ($entity->hasField('field_image')) {
           $nid = $entity->Id();
           $node = Drupal::entityTypeManager()->getStorage('node')->load($nid);
           kint("yes");
