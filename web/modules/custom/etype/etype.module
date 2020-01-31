@@ -268,3 +268,20 @@ function etype_preprocess_views_view_row_rss(&$variables) {
   $item = $variables['row'];
   $variables['image'] = $item->image;
 }
+
+/**
+ * Alter the meta tags for pages that are not of content entities.
+ *
+ * @param array $metatags
+ *   The special meta tags to be added to the page.
+ * @param array $context
+ *   The context for the current meta tags being generated. Will contain the
+ *   following:
+ *   'entity' - The entity being processed; passed by reference.
+ */
+function etype_metatags_alter(array &$metatags, array &$context) {
+  // Exclude meta tags on frontpage.
+  if (\Drupal::service('path.matcher')->isFrontPage()) {
+    $metatags = NULL;
+  }
+}
