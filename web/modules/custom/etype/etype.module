@@ -272,10 +272,10 @@ function etype_preprocess_views_view_row_rss(&$variables) {
 }
 
 /**
- * Alter the meta tags for pages that are not of content entities.
+ * Alter meta tags.
  *
  * @param array $metatags
- *   The special meta tags to be added to the page.
+ *   The meta tags to be added to the page.
  * @param array $context
  *   The context for the current meta tags being generated. Will contain the
  *   following:
