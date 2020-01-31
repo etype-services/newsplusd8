@@ -284,7 +284,6 @@ function etype_preprocess_views_view_row_rss(&$variables) {
  * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
  */
 function etype_metatags_alter(array &$metatags, array &$context) {
-  dpm ($metatags);
   $current_route = \Drupal::routeMatch();
   foreach ($current_route->getParameters() as $param) {
     if ($param instanceof Drupal\Core\Entity\EntityInterface) {
@@ -292,6 +291,7 @@ function etype_metatags_alter(array &$metatags, array &$context) {
       $entityType = $entity->getEntityTypeId();
       if ($entityType == 'node') {
         if ($entity->hasField('field_image')) {
+          dpm ($metatags);
           $nid = $entity->Id();
           $node = Drupal::entityTypeManager()->getStorage('node')->load($nid);
           dpm($node->get('field_image')->target_id);
