@@ -283,10 +283,12 @@ function etype_preprocess_views_view_row_rss(&$variables) {
  *
  * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
  * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+ * @see https://www.drupal.org/forum/support/module-development-and-code-questions/2014-07-25/drupal-8-get-entity-object-given
  */
 function etype_metatags_alter(array &$metatags, array &$context) {
   $current_route = \Drupal::routeMatch();
   foreach ($current_route->getParameters() as $param) {
+    /* Is this an entity? */
     if ($param instanceof Drupal\Core\Entity\EntityInterface) {
       $entity = $param;
       $entityType = $entity->getEntityTypeId();
