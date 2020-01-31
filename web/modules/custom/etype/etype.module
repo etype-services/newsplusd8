@@ -1,7 +1,7 @@
 <?php
 
 use Drupal\user\Entity\User;
-use Drupal\Core\Entity;
+use Drupal\Core\Entity\Node;
 
 /**
  * @param $existing
@@ -279,6 +279,9 @@ function etype_preprocess_views_view_row_rss(&$variables) {
  *   The context for the current meta tags being generated. Will contain the
  *   following:
  *   'entity' - The entity being processed; passed by reference.
+ *
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
  */
 function etype_metatags_alter(array &$metatags, array &$context) {
   dpm ($metatags);
@@ -286,10 +289,14 @@ function etype_metatags_alter(array &$metatags, array &$context) {
   foreach ($current_route->getParameters() as $param) {
     if ($param instanceof Drupal\Core\Entity\EntityInterface) {
       $entity = $param;
-      $img = $entity->getEntityTypeId();
-      dpm($img);
-      $img = $entity->Id();
-      dpm($img);
+      $entityType = $entity->getEntityTypeId();
+      if ($entityType == 'node') {
+        $nid = $entity->Id();
+        $node = Drupal::entityTypeManager()->getStorage('node')->load($nid);
+        $uri = $node->field_image->entity->getFileUri();
+        $url = file_create_url($uri);
+        dpm($url);
+      }
       // $uri = $entity->field_image->entity->getFileUri();
       //$url = file_create_url($uri);
       //dpm($url);
