@@ -304,7 +304,8 @@ function etype_metatags_alter(array &$metatags, array &$context) {
             if (is_object($obj)) {
               $uri = $obj->getFileUri();
               $url = file_create_url($uri);
-              dpm($url);
+              $metatags['og_image'] = $url;
+              $metatags['og_image_url'] = $url;
             }
           }
         }
