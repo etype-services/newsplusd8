@@ -282,7 +282,13 @@ function etype_preprocess_views_view_row_rss(&$variables) {
  */
 function etype_metatags_alter(array &$metatags, array &$context) {
   dpm ($metatags);
-  //dpm($context);
-  $type = $context['entity']->getEntityType();
-  dpm($type);
+  $current_route = \Drupal::routeMatch();
+  foreach ($current_route->getParameters() as $param) {
+    if ($param instanceof Drupal\Core\Entity\EntityInterface) {
+      $entity = $param;
+      $type = $entity->getType();
+      dpm($type);
+      break;
+    }
+  }
 }
