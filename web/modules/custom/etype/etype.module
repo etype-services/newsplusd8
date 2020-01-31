@@ -286,7 +286,7 @@ function etype_metatags_alter(array &$metatags, array &$context) {
   foreach ($current_route->getParameters() as $param) {
     if ($param instanceof Drupal\Core\Entity\EntityInterface) {
       $entity = $param;
-      $img = $entity->get("field_image")->getValue();
+      $img = $entity->get("field_subhead")->getValue();
       dpm($img);
       break;
     }
