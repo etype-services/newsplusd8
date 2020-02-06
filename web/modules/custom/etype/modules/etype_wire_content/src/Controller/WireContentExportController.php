@@ -80,6 +80,11 @@ class WireContentExportController {
       /* Delete current matching rows in wire.node */
       $config = Drupal::config('system.site');
       $site_name = $config->get('name');
+      $site = Drupal::request()->getHost();
+      $arr = explode('.', $site);
+      echo $site;
+      var_dump($arr);
+      exit;
       Database::setActiveConnection('wire');
       $db = Database::getConnection();
       $db->delete('node')
@@ -114,7 +119,7 @@ class WireContentExportController {
               'created' => $node->get('created')->value,
               'changed' => $node->get('changed')->value,
               'uuid' => $node->get('uuid')->value,
-              'site' => Drupal::request()->getHost(),
+              'site' => $site,
               'site_name' => $site_name,
               'cluster' => $groups,
             ])
