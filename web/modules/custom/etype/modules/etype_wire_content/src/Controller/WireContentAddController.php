@@ -93,6 +93,7 @@ class WireContentAddController {
     $field_image = [];
     if (!empty($data->file)) {
       $img = file_get_contents($data->file);
+      var_dump($data->file);
       var_dump($img);
       exit;
       $arr = explode("/", $data->file);
