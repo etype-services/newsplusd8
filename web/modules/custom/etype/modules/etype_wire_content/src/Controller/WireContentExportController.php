@@ -81,10 +81,6 @@ class WireContentExportController {
       $config = Drupal::config('system.site');
       $site_name = $config->get('name');
       $site = Drupal::request()->getHost();
-      $arr = explode('.', $site);
-      echo $site;
-      var_dump($arr);
-      exit;
       Database::setActiveConnection('wire');
       $db = Database::getConnection();
       $db->delete('node')
