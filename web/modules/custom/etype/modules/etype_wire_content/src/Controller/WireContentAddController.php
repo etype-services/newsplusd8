@@ -94,13 +94,17 @@ class WireContentAddController {
     if (!empty($data->file)) {
       $img = file_get_contents($data->file);
       $arr = explode("/", $data->file);
-      $file = file_save_data($img, 'public://' . end($arr), FileSystemInterface::EXISTS_REPLACE);
-      $alt = empty($data->caption) ? "Image" : $data->caption;
-      $field_image[] = [
-        'target_id' => $file->id(),
-        'alt' => $alt,
-        'title' => $data->caption,
-      ];
+      if ($file = file_save_data($img, 'public://' . end($arr),
+        FileSystemInterface::EXISTS_REPLACE) !== FALSE) {
+        $file = file_save_data($img, 'public://' . end($arr), FileSystemInterface::EXISTS_REPLACE);
+        $alt = empty($data->caption) ? "Image" : $data->caption;
+        $field_image[] = [
+          'target_id' => $file->id(),
+          'alt' => $alt,
+          'title' => $data->caption,
+        ];
+      }
+
     }
 
     $uid = $this->config->get('author');
