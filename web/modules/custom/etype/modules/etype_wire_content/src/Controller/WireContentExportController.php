@@ -80,12 +80,13 @@ class WireContentExportController {
       /* Delete current matching rows in wire.node */
       $config = Drupal::config('system.site');
       $site_name = $config->get('name');
-      $site = 'https://' . Drupal::request()->getHost();
       Database::setActiveConnection('wire');
       $db = Database::getConnection();
       $db->delete('node')
         ->condition('site_name', $site_name)
         ->execute();
+      /* link to original article */
+      $site = 'https://' . Drupal::request()->getHost();
       foreach ($nodes as $node) {
         try {
           $groups = implode(',', $this->config->get('groups'));
