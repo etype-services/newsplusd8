@@ -80,7 +80,7 @@ class WireContentExportController {
       /* Delete current matching rows in wire.node */
       $config = Drupal::config('system.site');
       $site_name = $config->get('name');
-      $site = Drupal::request()->getHost();
+      $site = 'https://' . Drupal::request()->getHost();
       Database::setActiveConnection('wire');
       $db = Database::getConnection();
       $db->delete('node')
