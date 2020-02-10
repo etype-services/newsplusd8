@@ -86,7 +86,7 @@ class WireContentExportController {
         ->condition('site_name', $site_name)
         ->execute();
       /* link to original article */
-      $site = 'https://' . Drupal::request()->getHost();
+      $site = Drupal::request()->getHost();
       foreach ($nodes as $node) {
         try {
           $groups = implode(',', $this->config->get('groups'));
