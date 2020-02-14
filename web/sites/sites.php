@@ -98,6 +98,5 @@ $sites['www.sabinecountyreporter.com'] = "sabinecountyreporter.etypegoogle7.com"
 $sites['www.fgazette.com'] = "fgazette.etypegoogle7.com";
 $sites['www.strausnews.com'] = "strausnews.etypegoogle7.com";
 $sites['www.gracefulcarega.com'] = "gracefulcarega.etypegoogle7.com";
-$sites['www.highlandsleadingagents.com'] = "highlandsleadingagents.etypegoogle7.com";
 $sites['www.thepress-sentinel.com'] = "thepress-sentinel.etypegoogle7.com";
 $sites['www.richmond-dailynews.com'] = "richmond-dailynews.etypegoogle7.com";
