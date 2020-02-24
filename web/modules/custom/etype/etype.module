@@ -50,6 +50,7 @@ function etype_preprocess_image(&$variables) {
 
 /**
  * {@inheritdoc}
+ * Generates links and paths for use as image links, login urls. etc
  */
 function etype_e_editions() {
 
