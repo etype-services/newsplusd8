@@ -87,7 +87,6 @@ $sites['www.phonographherald.com'] = "phonographherald.etypegoogle7.com";
 $sites['www.thekansascityglobe.com'] = "thekansascityglobe.etypegoogle7.com";
 $sites['www.myfamilydocga.com'] = "myfamilydocga.etypegoogle7.com";
 $sites['www.66hoursingrants.com'] = "66hoursingrants.etypegoogle7.com";
-$sites['www.chevroletalto.com'] = "chevroletalto.etypegoogle7.com";
 $sites['www.mosercommedia.com'] = "mosercommedia.etypegoogle7.com";
 $sites['www.netxcrossroads.com'] = "netxcrossroads.etypegoogle7.com";
 $sites['www.normangeestar.com'] = "normangeestar.etypegoogle7.com";
