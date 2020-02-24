@@ -2475,10 +2475,6 @@
             ],
             "authors": [
                 {
-                    "name": "cobenash",
-                    "homepage": "https://www.drupal.org/user/2138470"
-                },
-                {
                     "name": "darol100",
                     "homepage": "https://www.drupal.org/user/2667123"
                 },
@@ -2597,10 +2593,6 @@
                     "name": "Kevin Quillen (kevinquillen)",
                     "homepage": "https://www.drupal.org/u/kevinquillen",
                     "role": "Maintainer"
-                },
-                {
-                    "name": "ddrozdik",
-                    "homepage": "https://www.drupal.org/user/574124"
                 },
                 {
                     "name": "kevinquillen",
@@ -4327,7 +4319,7 @@
                 },
                 "drupal": {
                     "version": "8.x-2.6",
-                    "datestamp": "1580427909",
+                    "datestamp": "1580427715",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4409,7 +4401,8 @@
             "homepage": "https://www.drupal.org/project/git_deploy",
             "support": {
                 "source": "https://git.drupalcode.org/project/git_deploy"
-            }
+            },
+            "time": "2020-01-08T13:41:10+00:00"
         },
         {
             "name": "drupal/google_analytics",
