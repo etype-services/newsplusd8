@@ -1,0 +1,30 @@
+etype_login_v2.e_edition:
+  title: 'E-edition'
+  url: '/e-edition'
+  menu_name: account
+  options:
+    attributes:
+      target: _blank
+      id: 'etype_login_e_edition'
+
+etype_login_v2.login:
+  title: 'Log In'
+  weight: 10
+  route_name: etype_login_v2.login
+  menu_name: account
+
+etype_login_v2.account:
+  title: 'My Account'
+  weight: 10
+  route_name: etype_login_v2.account
+  menu_name: account
+
+etype_login_v2.subscribe:
+  title: 'Subscribe'
+  weight: 10
+  route_name: etype_login_v2.subscribe
+  menu_name: account
+  options:
+    attributes:
+      target: _blank
+      id: 'etype_login_subscribe'

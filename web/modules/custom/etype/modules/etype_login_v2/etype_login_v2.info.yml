@@ -1,0 +1,5 @@
+name: 'eType Services Integration V2'
+type: module
+description: 'Provides integraton to V2 eType system.'
+core: 8.x
+package: 'eType Services'

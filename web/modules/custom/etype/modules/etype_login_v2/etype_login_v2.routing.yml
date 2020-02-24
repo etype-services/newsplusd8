@@ -1,0 +1,28 @@
+etype_login_v2.login:
+  path: '/etype-login'
+  defaults:
+    _title: 'Subscriber Login'
+    _form: '\Drupal\etype_login_v2\Form\EtypeLoginForm'
+  requirements:
+    _user_is_logged_in: 'FALSE'
+
+etype_login_v2.forgot:
+  path: '/etype-forgot-password'
+  defaults:
+    _title: 'Password Reset'
+    _form: '\Drupal\etype_login_v2\Form\EtypePasswordResetForm'
+  requirements:
+    _user_is_logged_in: 'FALSE'
+
+etype_login_v2.account:
+  path: '/etype-my-account'
+  defaults:
+    _title: 'My Account'
+    _controller: '\Drupal\etype_login_v2\Controller\EtypeMyAccountController::content'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+
+etype_login_v2.subscribe:
+  path: '/etype-subscribe'
+  defaults:
+    _title: 'Subscribe'
