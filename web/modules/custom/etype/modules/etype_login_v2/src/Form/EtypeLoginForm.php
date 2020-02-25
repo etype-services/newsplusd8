@@ -109,6 +109,7 @@ class EtypeLoginForm extends FormBase {
     $password = $form_state->getValue('password');
 
     $pubId = $this->config->get('etype_pub');
+    $v2 = $this->config->get('etype_v2');
     $message = "We‘re sorry, either your user name or password is incorrect!";
     $success_message = "Hello $username, you are now logged in!";
 
@@ -126,7 +127,14 @@ class EtypeLoginForm extends FormBase {
         break;
 
       case "-2":
-        $message1 = "It looks like your subscription has expired. <a href='https://www.etypeservices.com/Subscriber/SignIn.aspx?ReturnUrl=https://www.etypeservices.com/Subscriber/ReSubscribe.aspx?PubID=$pubId'>Re-subscribe now!</a> .";
+        switch ($v2) {
+          case 1:
+            $message1 = "Your subscription has expired.";
+            break;
+
+          default;
+            $message1 = "Your subscription has expired. <a href='https://www.etypeservices.com/Subscriber/SignIn.aspx?ReturnUrl=https://www.etypeservices.com/Subscriber/ReSubscribe.aspx?PubID=$pubId'>Re-subscribe now!</a> .";
+        }
         Drupal::messenger()->addMessage($message1);
         break;
 
