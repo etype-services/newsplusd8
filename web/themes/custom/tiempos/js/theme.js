@@ -49,12 +49,6 @@ function getIEVersion() {
                 }
             });
 
-            /* Main nav margin if enough room
-            if (t < check) {
-                $("#main-navbar-menu").css("margin-left", w);
-            }
-            */
-
             /* Add footer menu to user-menu */
             $(".footer-menu li > a").once("tiemposBehavior").clone().addClass("is-hidden-desktop").appendTo($(".user-menu"));
 

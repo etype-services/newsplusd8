@@ -20,7 +20,7 @@ class EtypeMyAccountController extends ControllerBase {
     $user_name = Drupal::currentUser()->getAccountName();
     $config = Drupal::config('etype.adminsettings');
     $pubId = (int) $config->get('etype_pub');
-    $build = [
+    return [
       '#children' => "<script type='text/javascript'>
                 window.addEventListener('message', receiveMessage, false);
                 function receiveMessage(event) {
@@ -30,8 +30,6 @@ class EtypeMyAccountController extends ControllerBase {
                 }
             </script><iframe id='ifrmAccountUpdateForm' src='https://publisher.etype.services/subscriber-account?pubId=" . $pubId . "&username=" . $user_name . "' width='100%' height='860' frameborder='0' scrolling='no'></iframe>",
     ];
-    return $build;
   }
-
 }
 
