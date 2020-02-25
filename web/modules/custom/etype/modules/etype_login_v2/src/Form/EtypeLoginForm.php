@@ -112,7 +112,7 @@ class EtypeLoginForm extends FormBase {
     $message = "We‘re sorry, either your user name or password is incorrect!";
     $success_message = "Hello $username, you are now logged in!";
 
-    $client = new soapclient('http://etype.wecode4u.com/webservice.asmx?WSDL');
+    $client = new soapclient('https://publisher.etype.services/webservice.asmx?WSDL');
     $param = ['publicationId' => $pubId];
     $param['username'] = $username;
     $param['password'] = $password;

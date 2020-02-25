@@ -9,7 +9,6 @@ use Drupal\Core\Form\FormStateInterface;
 use Exception;
 use SoapClient;
 
-
 /**
  * Class EtypeMyAccountForm.
  *
