@@ -28,7 +28,7 @@ class EtypeMyAccountController extends ControllerBase {
 		    if (event.data.docHeight != undefined && event.data.docHeight != 'undefined')
                         ifrmAccountUpdateForm.height = event.data.docHeight;
                 }
-            </script><iframe id='ifrmAccountUpdateForm' src='http://etype.wecode4u.com/subscriber-account?pubId=" . $pubId . "&username=" . $user_name . "' width='100%' height='860' frameborder='0' scrolling='no'></iframe>",
+            </script><iframe id='ifrmAccountUpdateForm' src='https://publisher.etype.services/subscriber-account?pubId=" . $pubId . "&username=" . $user_name . "' width='100%' height='860' frameborder='0' scrolling='no'></iframe>",
     ];
     return $build;
   }
