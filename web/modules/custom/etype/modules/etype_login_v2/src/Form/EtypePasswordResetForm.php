@@ -53,11 +53,11 @@ class EtypePasswordResetForm extends FormBase {
 
       $form['actions']['#type'] = 'actions';
 
-      $form['actions']['submit'] = array(
+      $form['actions']['submit'] = [
         '#type' => 'submit',
         '#value' => $this->t('Send me my password'),
         '#button_type' => 'primary',
-      );
+      ];
 
     }
     else {
@@ -95,7 +95,7 @@ class EtypePasswordResetForm extends FormBase {
     $message = "We‘re sorry, we can‘t find an account for that user name at this publication.";
     $success_message = "Your password has been sent to your email adddress.";
 
-    $client = new soapclient('http://etype.wecode4u.com/webservice.asmx?WSDL');
+    $client = new soapclient('https://publisher.etype.services/webservice.asmx?WSDL');
     $param = ['publicationId' => $pubId];
     $param['username'] = $username;
     $response = $client->ForgetPassword($param);
@@ -111,4 +111,5 @@ class EtypePasswordResetForm extends FormBase {
         break;
     }
   }
+
 }
