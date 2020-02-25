@@ -64,7 +64,7 @@ function etype_e_editions() {
 
   switch ($v2) {
     case 1:
-      $base_url = "http://etype.wecode4u.com/";
+      $base_url = "https://publisher.etype.services/";
       break;
 
     default;
@@ -94,10 +94,17 @@ function etype_e_editions() {
       $site = trim($arr[1]);
     }
 
-    $ar2 = preg_split("/ID[0-9]+/", $arr[0]); // make LandingImage directory name
-    $imagedir = trim($ar2[0]);
-    $e_editions[$ptr]['image'] = $base_url . 'LandingPageImages/' . $imagedir .
-      '/currentpg1.jpg';
+    switch ($v2) {
+      case 1:
+        $e_editions[$ptr]['image'] = 'https://etypeproductionstorage1.blob.core.windows.net/$web/Production_Prod/Publications/' . $pub . '/thumbnail.jpg';
+        break;
+
+      default;
+        $ar2 = preg_split("/ID[0-9]+/", $arr[0]); // make LandingImage directory name
+        $imagedir = trim($ar2[0]);
+        $e_editions[$ptr]['image'] = $base_url . 'LandingPageImages/' . $imagedir .
+          '/currentpg1.jpg';
+    }
 
     if (isset($pubs[$ptr])) {
       $pub = trim($pubs[$ptr]);
