@@ -2,6 +2,7 @@
 
 namespace Drupal\etype\Plugin\Block;
 
+use Drupal;
 use Drupal\Core\Block\BlockBase;
 
 /**
