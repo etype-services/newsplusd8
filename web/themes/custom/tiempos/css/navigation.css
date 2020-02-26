@@ -72,6 +72,9 @@
   .region-header-right .user-menu {
     flex-wrap: wrap;
   }
+  .region-header-right .user-menu .button {
+    width: 9rem;
+  }
 }
 /* Default (Wide Screen) Desktop */
 #main-nav .navbar {
