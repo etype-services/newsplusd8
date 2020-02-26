@@ -3,101 +3,124 @@
  * Styles build on bulma nav component.
  */
 #main-navbar-menu {
-  justify-content: center; }
-  #main-navbar-menu a {
-    height: 100%; }
-  #main-navbar-menu .dropdown > div {
-    height: 100%; }
-  #main-navbar-menu .dropdown .dropdown-menu {
-    padding-top: 2px; }
-    #main-navbar-menu .dropdown .dropdown-menu .dropdown-content {
-      border-radius: 0;
-      box-shadow: none;
-      padding-bottom: 0;
-      padding-top: 0;
-      display: flex;
-      width: fit-content; }
-      #main-navbar-menu .dropdown .dropdown-menu .dropdown-content a {
-        border-bottom: 1px solid #b5b5b5;
-        background-color: white; }
+  justify-content: center;
+}
+#main-navbar-menu a {
+  height: 100%;
+}
+#main-navbar-menu .dropdown > div {
+  height: 100%;
+}
+#main-navbar-menu .dropdown .dropdown-menu {
+  padding-top: 2px;
+}
+#main-navbar-menu .dropdown .dropdown-menu .dropdown-content {
+  border-radius: 0;
+  box-shadow: none;
+  padding-bottom: 0;
+  padding-top: 0;
+  display: flex;
+  width: fit-content;
+}
+#main-navbar-menu .dropdown .dropdown-menu .dropdown-content a {
+  border-bottom: 1px solid #b5b5b5;
+  background-color: white;
+}
 
 /* User Menu */
 .user-menu .button, .user-menu .button:first-child {
   margin-left: 0.5rem;
   margin-right: 0;
-  display: flex; }
+  display: flex;
+}
 
 .footer-menu {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; }
-  .footer-menu .menu-item {
-    flex: 1 1 30%;
-    display: flex; }
-    .footer-menu .menu-item a {
-      flex: 1 1 100%; }
+  justify-content: space-between;
+}
+.footer-menu .menu-item {
+  flex: 1 1 30%;
+  display: flex;
+}
+.footer-menu .menu-item a {
+  flex: 1 1 100%;
+}
 
 /* Breadcrumbs */
 .breadcrumb {
   /* Override Drupal default css. */
   margin-bottom: calc(0.75rem * 2) !important;
-  padding-bottom: 0 !important; }
-  .breadcrumb li {
-    /* Override Drupal default css. */
-    display: flex !important; }
+  padding-bottom: 0 !important;
+}
+.breadcrumb li {
+  /* Override Drupal default css. */
+  display: flex !important;
+}
 
 /* Pager */
 .pager {
   font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem; }
+  font-size: 0.75rem;
+}
 
 @media screen and (min-width: 1088px) {
   .user-menu {
-    justify-content: flex-end; }
+    justify-content: flex-end;
+  }
 
   .region-header-right .user-menu {
-    flex-wrap: wrap; }
-    .region-header-right .user-menu .button {
-      width: 9rem; } }
+    flex-wrap: wrap;
+  }
+}
 /* Default (Wide Screen) Desktop */
 #main-nav .navbar {
   border-top: 1px solid #b5b5b5;
   border-bottom: 1px solid #b5b5b5;
-  /* navbar-start is only shown when hamburger clicked */ }
-  #main-nav .navbar .navbar-start {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    padding: 0.5rem 1.5rem 1rem 1rem;
-    background-color: white;
-    /* Used to close "pop-up", override bulma margin. */
-    /* The logo. */ }
-    #main-nav .navbar .navbar-start .column {
-      flex-basis: 30%; }
-    #main-nav .navbar .navbar-start .navbar-item {
-      width: fit-content;
-      max-width: 50%;
-      /* some browsers do not understand fit-content */ }
-    #main-nav .navbar .navbar-start .navbar-burger {
-      margin-left: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center; }
-    #main-nav .navbar .navbar-start .block-system-branding-block .site-logo img {
-      width: 30vw; }
-    #main-nav .navbar .navbar-start .block-search {
-      margin-left: 0.75rem; }
-  #main-nav .navbar .navbar-end {
-    /* Social Icons */
-    display: flex;
-    align-items: center;
-    position: absolute;
-    top: -40px;
-    right: 0; }
-    #main-nav .navbar .navbar-end a {
-      margin-right: 0.75rem; }
+  /* navbar-start is only shown when hamburger clicked */
+}
+#main-nav .navbar .navbar-start {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding: 0.5rem 1.5rem 1rem 1rem;
+  background-color: white;
+  /* Used to close "pop-up", override bulma margin. */
+  /* The logo. */
+}
+#main-nav .navbar .navbar-start .column {
+  flex-basis: 30%;
+}
+#main-nav .navbar .navbar-start .navbar-item {
+  width: fit-content;
+  max-width: 50%;
+  /* some browsers do not understand fit-content */
+}
+#main-nav .navbar .navbar-start .navbar-burger {
+  margin-left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#main-nav .navbar .navbar-start .block-system-branding-block .site-logo img {
+  width: 30vw;
+}
+#main-nav .navbar .navbar-start .block-search {
+  margin-left: 0.75rem;
+}
+#main-nav .navbar .navbar-end {
+  /* Social Icons */
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: -40px;
+  right: 0;
+}
+#main-nav .navbar .navbar-end a {
+  margin-right: 0.75rem;
+}
 
 /* Tablet */
 @media screen and (max-width: 1087px) {
@@ -106,47 +129,58 @@
     min-height: 0;
     border-bottom: 0;
     /* Show User Menu in pop-up, using is-hidden-touch to identify the menu. */
-    /* Social Icons */ }
-    #main-nav .navbar .navbar-start {
-      /* Align menu to right. */ }
-      #main-nav .navbar .navbar-start .navbar-menu {
-        display: block !important;
-        height: fit-content;
-        width: fit-content;
-        float: right; }
-        #main-nav .navbar .navbar-start .navbar-menu .button, #main-nav .navbar .navbar-start .navbar-menu .button:first-child {
-          display: block;
-          width: 100%;
-          margin-left: 0;
-          margin-bottom: 0.3rem;
-          height: 1.6rem;
-          /* Fix padding. */ }
-    #main-nav .navbar .navbar-start [data-drupal-selector=search-block-form] {
-      /* Stop search icon from jumping. */
-      line-height: 2rem; }
-    #main-nav .navbar .navbar-start [data-drupal-selector=search-edit-submit] {
-      cursor: pointer;
-      margin-right: 0.5rem; }
-    #main-nav .navbar .navbar-end {
-      position: absolute;
-      top: -2.6rem;
-      right: 0;
-      margin-right: 0;
-      z-index: -1; }
+    /* Social Icons */
+  }
+  #main-nav .navbar .navbar-start {
+    /* Align menu to right. */
+  }
+  #main-nav .navbar .navbar-start .navbar-menu {
+    display: block !important;
+    height: fit-content;
+    width: fit-content;
+    float: right;
+  }
+  #main-nav .navbar .navbar-start .navbar-menu .button, #main-nav .navbar .navbar-start .navbar-menu .button:first-child {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 0.3rem;
+    height: 1.6rem;
+    /* Fix padding. */
+  }
+  #main-nav .navbar .navbar-start [data-drupal-selector=search-block-form] {
+    /* Stop search icon from jumping. */
+    line-height: 2rem;
+  }
+  #main-nav .navbar .navbar-start [data-drupal-selector=search-edit-submit] {
+    cursor: pointer;
+    margin-right: 0.5rem;
+  }
+  #main-nav .navbar .navbar-end {
+    position: absolute;
+    top: -2.6rem;
+    right: 0;
+    margin-right: 0;
+    z-index: -1;
+  }
 
   .user-menu {
-    float: right; }
+    float: right;
+  }
 
   /* Close X in front of user menu */
   .region-navigation {
-    z-index: 32; }
+    z-index: 32;
+  }
 
   /* Move menus below admin toolbar. */
   .toolbar-fixed .navbar-start, .toolbar-vertical .navbar-start {
-    margin-top: 20px; }
+    margin-top: 20px;
+  }
 
   .toolbar-fixed.toolbar-horizontal.toolbar-tray-open .navbar-start {
-    margin-top: 60px; }
+    margin-top: 60px;
+  }
 
   /* To show header in moble menu */
   .z-index-fix {
@@ -156,25 +190,34 @@
     max-width: 30%;
     /* IE & Edge */
     position: fixed;
-    right: 0; }
-    .z-index-fix.region-top-bar {
-      margin-right: 0.75rem; } }
+    right: 0;
+  }
+  .z-index-fix.region-top-bar {
+    margin-right: 0.75rem;
+  }
+}
 /* Mobile */
 @media screen and (max-width: 768px) {
   #main-nav .navbar {
     border-top: 0;
-    /* Social Icons */ }
-    #main-nav .navbar .navbar-start .block-system-branding-block {
-      visibility: hidden !important;
-      display: none !important; }
-    #main-nav .navbar .navbar-end {
-      position: absolute;
-      top: -2.6rem;
-      right: 0;
-      z-index: -1; }
-      #main-nav .navbar .navbar-end a {
-        margin-left: 0.5rem; }
-        #main-nav .navbar .navbar-end a .is-size-3 {
-          font-size: 1.5rem !important; } }
+    /* Social Icons */
+  }
+  #main-nav .navbar .navbar-start .block-system-branding-block {
+    visibility: hidden !important;
+    display: none !important;
+  }
+  #main-nav .navbar .navbar-end {
+    position: absolute;
+    top: -2.6rem;
+    right: 0;
+    z-index: -1;
+  }
+  #main-nav .navbar .navbar-end a {
+    margin-left: 0.5rem;
+  }
+  #main-nav .navbar .navbar-end a .is-size-3 {
+    font-size: 1.5rem !important;
+  }
+}
 
 /*# sourceMappingURL=navigation.css.map */
