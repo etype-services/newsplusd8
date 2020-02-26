@@ -118,7 +118,7 @@ function etype_e_editions() {
         if ($logged_in > 0) {
           $account = Drupal\user\Entity\User::load(Drupal::currentUser()->id());
           $name = $account->get('name')->value;
-          $path = $base_url . 'dividerpage/' . $pub . '/' . $name;
+          $path = $base_url . 'dividerpage/' . $pub . '/?user=' . $name;
         } else {
           $path = $base_url . 'dividerpage/' . $pub . '/';
         }
