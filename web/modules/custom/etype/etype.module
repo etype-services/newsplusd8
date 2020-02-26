@@ -115,18 +115,20 @@ function etype_e_editions() {
 
     switch ($v2) {
       case 1:
-        $path = $base_url . 'dividerpage/' . $pub . '/';
+        if ($logged_in > 0) {
+          $account = Drupal\user\Entity\User::load(Drupal::currentUser()->id());
+          $name = $account->get('name')->value;
+          $path = $base_url . 'dividerpage/' . $pub . '/' . $name;
+        } else {
+          $path = $base_url . 'dividerpage/' . $pub . '/';
+        }
         break;
 
       default;
         if ($logged_in > 0) {
-          if (!empty ($pub)) {
-            $account = Drupal\user\Entity\User::load(Drupal::currentUser()->id());
-            $name = $account->get('name')->value;
-            $path = $base_url . 'ReadTheEdition.aspx?Username=' . $name . "&Pub=" . $pub . "&PType=" . $ptype;
-          } else {
-            $path = $base_url . $e_edition . '/';
-          }
+          $account = Drupal\user\Entity\User::load(Drupal::currentUser()->id());
+          $name = $account->get('name')->value;
+          $path = $base_url . 'ReadTheEdition.aspx?Username=' . $name . "&Pub=" . $pub . "&PType=" . $ptype;
         } else {
           $path = $base_url . $e_edition . '/';
         }
