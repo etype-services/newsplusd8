@@ -87,6 +87,8 @@ function etype_e_editions() {
 
   $e_editions = [];
   $ptr = 0;
+
+  /* loop over publications attached to site, normally just one */
   foreach ($items as $item) {
     $arr = explode('|', $item);
     if (isset($arr[1])) {
