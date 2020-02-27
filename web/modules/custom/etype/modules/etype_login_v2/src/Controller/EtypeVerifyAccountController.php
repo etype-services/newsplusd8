@@ -5,6 +5,7 @@ namespace Drupal\etype_login_v2\Controller;
 use Drupal;
 use Drupal\Core\Controller\ControllerBase;
 use SoapClient;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class EtypeVerifyAccountController.
@@ -27,7 +28,7 @@ class EtypeVerifyAccountController extends ControllerBase {
       'username' => 'alind',
     ];
     // $response = $client->GenerateUrlForSubscriber($params);
-    return 'hello';
+    return new Response('Hello, world');
 
   }
 
