@@ -28,7 +28,7 @@ etype_login_v2.subscribe:
     _title: 'Subscribe'
 
 etype_login_v2.verify_account:
-  path: '/etype-verify_account'
+  path: '/etype-verify-account'
   defaults:
     _title: 'Verify Account'
     _controller: '\Drupal\etype_login_v2\Controller\EtypeVerifyAccountController::getToken'
