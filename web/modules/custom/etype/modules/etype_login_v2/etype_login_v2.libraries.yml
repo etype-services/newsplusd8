@@ -22,7 +22,6 @@ etype_login_v2.soap_login:
   dependencies:
     - core/drupal
     - core/jquery.once
-    - etype_login_v2/jquery.soap
 
 global-styling:
   version: VERSION
@@ -34,8 +33,3 @@ js.cookie:
   version: v2.2.0
   js:
     /libraries/js.cookie.js:
-
-jquery.soap:
-  version: 1.7.3
-  js:
-    /libraries/jquery.soap/jquery.soap.js:
