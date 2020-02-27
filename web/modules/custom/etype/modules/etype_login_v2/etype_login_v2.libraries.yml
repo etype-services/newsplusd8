@@ -20,7 +20,7 @@ etype_login_v2.soap_login:
   js:
     js/etype_login_v2.soap_login.js:
     dependencies:
-      - etype_login_v2/jquery.soap:
+      - etype_login_v2/jquery.soap
 
 global-styling:
   version: VERSION
