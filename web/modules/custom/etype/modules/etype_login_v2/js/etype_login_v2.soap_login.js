@@ -1,18 +1,16 @@
-/* jshint esversion: 6 */
 (function ($, Drupal) {
     "use strict";
     Drupal.behaviors.etypeSoapLogin = {
         attach: function (context, settings) {
             $(".etype_logged_in").click(function (e) {
                 e.preventDefault();
-                let arr = $(this).attr("href").split("/");
+                // var arr = $(this).attr("href").split("/");
                 $.soap({
-                    url: 'https://publisher.etype.services/webservice.asmx',
-                    method: 'GenerateUrlForSubscriber',
+                    url: 'https://publisher.etype.services/webservice.asmx?op=GenerateUrlForSubscriber',
 
                     params: {
                         publicationId: 1,
-                        usenamr: 'alind'
+                        usename: 'alind'
                     },
 
                     success: function (soapResponse) {
@@ -22,7 +20,7 @@
                         // or soapResponse.toXML() to get XML DOM
                         console.log(soapResponse);
                     },
-                    error: function (SOAPResponse) {
+                    error: function (soapResponse) {
                         // show error
                         console.log(soapResponse);
                     }
