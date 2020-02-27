@@ -4,9 +4,8 @@
     Drupal.behaviors.etypeSoapLogin = {
         attach: function (context, settings) {
             $(".etype_logged_in").click(function (e) {
-                let arr;
                 e.preventDefault();
-                arr = $(this).attr("href").split("/");
+                let arr = $(this).attr("href").split("/");
                 $.soap({
                     url: 'https://publisher.etype.services/webservice.asmx',
                     method: 'GenerateUrlForSubscriber',
