@@ -6,7 +6,7 @@
                 e.preventDefault();
                 // var arr = $(this).attr("href").split("/");
                 $.soap({
-                    url: 'https://publisher.etype.services/webservice.asmx',
+                    url: '/etypeservices',
                     method: 'GenerateUrlForSubscriber',
                     data: {
                         publicationId: 1,
