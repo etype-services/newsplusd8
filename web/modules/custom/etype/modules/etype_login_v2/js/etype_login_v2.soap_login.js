@@ -6,13 +6,11 @@
                 e.preventDefault();
                 $.ajax({
                     url: "/etype-verify-account",
+                    data: []
                 })
-                .done(function(url) {
-                    $(location).prop('href', url);
-                })
-                .fail(function() {
-                    alert("Something went wrong, we are sorry.");
-                });
+                    .done(function (url) {
+                        window.open(url, '_blank');
+                    });
             });
         }
     };

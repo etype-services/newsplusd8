@@ -28,7 +28,6 @@ class EtypeVerifyAccountController extends ControllerBase {
       'username' => 'alind',
     ];
     $data = $client->GenerateUrlForSubscriber($params);
-    // var_dump($data->GenerateUrlForSubscriberResult);
     return new Response(
       $data->GenerateUrlForSubscriberResult,
       Response::HTTP_OK,
