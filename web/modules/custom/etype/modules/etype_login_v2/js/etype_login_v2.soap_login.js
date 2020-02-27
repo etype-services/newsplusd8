@@ -4,7 +4,7 @@
         attach: function (context, settings) {
             $(".etype_logged_in").click(function(e) {
                 e.preventDefault();
-                alert("clicked");
+                alert($(this).attr("href"));
             });
         }
     };
