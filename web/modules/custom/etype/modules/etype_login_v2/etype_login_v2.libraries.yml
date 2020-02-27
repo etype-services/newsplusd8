@@ -36,4 +36,4 @@ js.cookie:
 jquery.soap:
   version: 1.7.3
   js:
-    /node_modules/jquery.soap/jquery.soap.js:
+    /libraries/jquery.soap/jquery.soap.js:
