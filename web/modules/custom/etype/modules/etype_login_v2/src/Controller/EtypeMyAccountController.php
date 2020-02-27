@@ -31,5 +31,5 @@ class EtypeMyAccountController extends ControllerBase {
             </script><iframe id='ifrmAccountUpdateForm' src='https://publisher.etype.services/subscriber-account?pubId=" . $pubId . "&username=" . $user_name . "' width='100%' height='860' frameborder='0' scrolling='no'></iframe>",
     ];
   }
-}
 
+}
