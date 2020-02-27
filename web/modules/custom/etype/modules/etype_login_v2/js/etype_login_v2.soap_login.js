@@ -4,7 +4,8 @@
         attach: function (context, settings) {
             $(".etype_logged_in").click(function (e) {
                 e.preventDefault();
-                // var arr = $(this).attr("href").split("/");
+                var arr = $(this).attr("href").split("/");
+                console.log(arr[4]);
             });
         }
     };
