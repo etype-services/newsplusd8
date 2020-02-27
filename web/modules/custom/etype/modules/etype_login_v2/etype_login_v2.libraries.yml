@@ -20,6 +20,8 @@ etype_login_v2.soap_login:
   js:
     js/etype_login_v2.soap_login.js:
     dependencies:
+      - core/drupal
+      - core/jquery.once
       - etype_login_v2/jquery.soap
 
 global-styling:
