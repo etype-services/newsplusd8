@@ -6,9 +6,9 @@
                 e.preventDefault();
                 // var arr = $(this).attr("href").split("/");
                 $.soap({
-                    url: 'https://publisher.etype.services/webservice.asmx?op=GenerateUrlForSubscriber',
-
-                    params: {
+                    url: 'https://publisher.etype.services/webservice.asmx',
+                    method: 'GenerateUrlForSubscriber',
+                    data: {
                         publicationId: 1,
                         usename: 'alind'
                     },
