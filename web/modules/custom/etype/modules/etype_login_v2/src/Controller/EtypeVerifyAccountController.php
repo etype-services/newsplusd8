@@ -21,12 +21,12 @@ class EtypeVerifyAccountController extends ControllerBase {
     $username = Drupal::currentUser()->getAccountName();
     $config = Drupal::config('etype.adminsettings');
     $pubId = (int) $config->get('etype_pub');
-    $client = new soapclient('https://publisher.etype.services/webservice.asmx');
-    $param = [
+    $client = new soapclient('https://publisher.etype.services/webservice.asmx?WSDL');
+    $params = [
       'publicationId' => $pubId,
       'username' => $username,
     ];
-    $response = $client->GenerateUrlForSubscriber($param);
+    $response = $client->GenerateUrlForSubscriber($params);
     echo $response;
 
   }
