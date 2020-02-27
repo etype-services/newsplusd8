@@ -9,6 +9,7 @@
 function etype_login_v2_page_attachments(array &$page) {
   $page['#attached']['library'][] = 'etype_login_v2/global-styling';
   $page['#attached']['library'][] = 'etype_login_v2/etype_login_v2_page';
+  $page['#attached']['library'][] = 'etype_login_v2/etype_login_v2.soap_login';
 }
 
 /**
