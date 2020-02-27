@@ -39,6 +39,3 @@
 .DS_Store
 .sass-cache
 *.log
-
-# Ignore Apache config files
-.htaccess
