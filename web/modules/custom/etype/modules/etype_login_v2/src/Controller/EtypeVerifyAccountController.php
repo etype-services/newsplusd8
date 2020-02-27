@@ -16,6 +16,9 @@ class EtypeVerifyAccountController extends ControllerBase {
 
   /**
    * Returns SOAP response.
+   *
+   * A *logged in* url for the subscriber.
+   * This is used to open the etypeservices page for the paper.
    */
   public function getToken() {
 
