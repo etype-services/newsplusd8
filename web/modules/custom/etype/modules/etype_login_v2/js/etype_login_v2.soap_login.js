@@ -2,7 +2,7 @@
     "use strict";
     Drupal.behaviors.etypeSoapLogin = {
         attach: function (context, settings) {
-            $(".etype_logged_in").click(function (e) {
+            $(".etype_logged_in", context).once().click(function (e) {
                 e.preventDefault();
                 $.ajax({
                     url: "/etype-verify-account",
