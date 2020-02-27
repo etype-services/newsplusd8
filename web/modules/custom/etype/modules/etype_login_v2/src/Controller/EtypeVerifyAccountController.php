@@ -26,8 +26,9 @@ class EtypeVerifyAccountController extends ControllerBase {
     $params = [
       'publicationId' => 1,
       'username' => 'alind',
+      'password' => '123',
     ];
-    $response = $client->GenerateUrlForSubscriber($params);
+    $response = $client->ValidateSubscriber($params);
     return new Response($response);
 
   }
