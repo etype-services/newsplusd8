@@ -38,7 +38,6 @@
 # Ignore misc files
 .DS_Store
 .sass-cache
-*.css.map
 *.log
 
 # Ignore Apache config files

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": ";AAEA,WAAY;EACV,yBAAyB;EACzB,MAAM,EAAE,aAAiB;;AAG3B,qBAAsB;EACpB,MAAM,EAAE,IAAI",
+"sources": ["../scss/flexslider.scss"],
+"names": [],
+"file": "flexslider.css"
+}
