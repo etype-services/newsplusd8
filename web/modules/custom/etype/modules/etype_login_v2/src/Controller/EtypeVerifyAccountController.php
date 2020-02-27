@@ -24,8 +24,8 @@ class EtypeVerifyAccountController extends ControllerBase {
     $pubId = (int) $config->get('etype_pub');
     $client = new soapclient('https://publisher.etype.services/webservice.asmx?WSDL');
     $params = [
-      'publicationId' => 1,
-      'username' => 'alind',
+      'publicationId' => $pubId,
+      'username' => $username,
     ];
     $data = $client->GenerateUrlForSubscriber($params);
     return new Response(
