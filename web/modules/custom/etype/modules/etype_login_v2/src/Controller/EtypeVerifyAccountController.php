@@ -30,7 +30,7 @@ class EtypeVerifyAccountController extends ControllerBase {
     ];
     $response = $client->ValidateSubscriber($params);
     var_dump($response);
-    return new Response($response->FullName);
+    return new Response($response->ValidateSubscriberResult->FullName);
 
   }
 
