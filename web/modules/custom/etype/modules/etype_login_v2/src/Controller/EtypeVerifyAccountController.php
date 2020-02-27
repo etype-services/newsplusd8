@@ -29,7 +29,7 @@ class EtypeVerifyAccountController extends ControllerBase {
       'password' => '123',
     ];
     $response = $client->ValidateSubscriber($params);
-    //var_dump($response);
+    var_dump($response);
     return new Response($response->FullName);
 
   }
