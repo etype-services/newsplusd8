@@ -9,7 +9,7 @@
                     data: []
                 })
                     .done(function (url) {
-                        window.open(url, '_blank');
+                        window.open(url);
                 });
             });
         }
