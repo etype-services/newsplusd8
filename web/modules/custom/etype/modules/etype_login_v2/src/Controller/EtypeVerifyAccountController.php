@@ -30,7 +30,7 @@ class EtypeVerifyAccountController extends ControllerBase {
     $data = $client->GenerateUrlForSubscriber($params);
     // var_dump($response);
     return new Response(
-      $data,
+      $data->GenerateUrlForSubscriber,
       Response::HTTP_OK,
       ['content-type' => 'text/plain']
     );
