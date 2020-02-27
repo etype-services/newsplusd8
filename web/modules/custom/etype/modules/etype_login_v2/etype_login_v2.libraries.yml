@@ -39,3 +39,5 @@ jquery.soap:
   version: 1.7.3
   js:
     /libraries/jquery.soap/jquery.soap.js:
+    dependencies:
+      - core/jquery.once
