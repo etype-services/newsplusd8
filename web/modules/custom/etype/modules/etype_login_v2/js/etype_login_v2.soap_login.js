@@ -7,8 +7,11 @@
                 $.ajax({
                     url: "/etype-verify-account",
                 })
-                .done(function(result) {
-                    alert( result );
+                .done(function(data) {
+                    alert(data);
+                })
+                .fail(function() {
+                    alert("Ajax failed to fetch data");
                 });
             });
         }
