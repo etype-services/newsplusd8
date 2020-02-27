@@ -6,7 +6,7 @@
                 e.preventDefault();
                 // var arr = $(this).attr("href").split("/");
                 $.ajax({
-                    url: "etype-verify-account",
+                    url: "/etype-verify-account",
                 })
                 .done(function(result) {
                     alert( result );
