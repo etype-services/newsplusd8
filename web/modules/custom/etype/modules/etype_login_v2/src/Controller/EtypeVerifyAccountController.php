@@ -29,7 +29,8 @@ class EtypeVerifyAccountController extends ControllerBase {
     ];
     $response = $client->GenerateUrlForSubscriber($params);
     var_dump($response);
-    var_dump($response->GenerateUrlForSubscriber);
+    $xml = simplexml_load_string($response);
+    var_dump($xml);
     return $response->GenerateUrlForSubscriber;
 
   }
