@@ -2,6 +2,7 @@
 
 namespace Drupal\etype\Plugin\Block;
 
+use Drupal;
 use Drupal\Core\Block\BlockBase;
 
 /**
@@ -19,13 +20,18 @@ class EtypeEeditionBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
-
     $e_editions = etype_e_editions();
+    $logged_in = Drupal::currentUser()->isAuthenticated();
+    $class = '';
+    if ($logged_in > 0) {
+      $class = ' class="etype_logged_in"';
+    }
     $output = '';
     foreach ($e_editions as $e_edition) {
-      $output .= '
-<div><a href="' . $e_edition['path'] . '" target="_blank" aria-label="' . $e_edition['site_name'] . ' e-Edition"><img src="' . $e_edition['image'] . '" alt="' . $e_edition['site_name'] . ' e-Edition"></a></div>
-<p><a href="' . $e_edition['path'] . '" target="_blank" aria-label="' . $e_edition['site_name'] . ' e-Edition">Read ' . $e_edition['site_name'] . '</a></p>
+      $output .= '<div><a href="' . $e_edition['path'] . '" target="_blank" aria-label="' .
+        $e_edition['site_name'] . ' e-Edition"' . $class . '><img src="' .
+        $e_edition['image'] . '" alt="' . $e_edition['site_name'] . ' e-Edition"></a></div>
+<p><a href="' . $e_edition['path'] . '" target="_blank" aria-label="' . $e_edition['site_name'] . ' e-Edition"' . $class . '>Read ' . $e_edition['site_name'] . '</a></p>
 ';
     }
     return [

@@ -114,9 +114,11 @@ class EtypeLoginForm extends FormBase {
     $success_message = "Hello $username, you are now logged in!";
 
     $client = new soapclient('https://publisher.etype.services/webservice.asmx?WSDL');
-    $param = ['publicationId' => $pubId];
-    $param['username'] = $username;
-    $param['password'] = $password;
+    $param = [
+      'publicationId' => $pubId,
+      'username' => $username,
+      'password' => $password,
+    ];
     $response = $client->ValidateSubscriber($param);
     $validateSubscriberResult = $response->ValidateSubscriberResult;
     $responseCode = $validateSubscriberResult->TransactionMessage->Message;
