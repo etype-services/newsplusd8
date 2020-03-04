@@ -144,7 +144,12 @@ function tiempos_preprocess_input(&$variables) {
 
     case "text":
     case "password":
-    $variables['attributes']['class'][] = 'input';
+      $variables['attributes']['class'][] = 'input';
+      break;
+
+    case "select":
+      $variables['attributes']['class'][] = 'select';
+      break;
   }
 
 }
@@ -161,4 +166,3 @@ function tiempos_theme_suggestions_page_alter(array &$suggestions, array $variab
     $suggestions[] = 'page__' . $node->bundle();
   }
 }
-

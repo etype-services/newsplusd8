@@ -43,10 +43,6 @@ class EtypeLoginForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-    $pubId = (int) $this->config->get('etype_pub');
-    var_dump($pubId);
-    exit;
-
     if (Drupal::currentUser()->isAnonymous()) {
 
       $form['username'] = [
@@ -60,6 +56,27 @@ class EtypeLoginForm extends FormBase {
         '#title' => $this->t('Password'),
         '#required' => TRUE,
       ];
+
+      $e_editions = etype_e_editions();
+      if (count($e_editions) > 1) {
+        $options = [];
+        foreach ($e_editions as $edition) {
+          $options[$edition['pubId']] = $edition['site_name'];
+        }
+        $form['pubId'] = [
+          '#title' => $this->t('Choose your publication'),
+          '#type' => 'select',
+          '#options' => $options,
+          // Add Bulma classes.
+          '#attributes' => ['class' => ['select', 'is-fullwidth']],
+        ];
+      }
+      else {
+        $form['pubId'] = [
+          '#type' => 'hidden',
+          '#default_value' => $e_editions[0]['pubId'],
+        ];
+      }
 
       $form['help'] = [
         '#type' => 'item',
@@ -111,8 +128,8 @@ class EtypeLoginForm extends FormBase {
 
     $username = $form_state->getValue('username');
     $password = $form_state->getValue('password');
+    $pubId = $form_state->getValue('pubId');
 
-    $pubId = (int) $this->config->get('etype_pub');
     $message = "We‘re sorry, either your user name or password is incorrect.";
     $success_message = "Hello $username, you are now logged in!";
 
