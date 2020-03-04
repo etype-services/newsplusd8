@@ -44,7 +44,8 @@ class EtypeLoginForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
 
     $pubId = (int) $this->config->get('etype_pub');
-    kint($pubId);
+    var_dump($pubId);
+    exit;
 
     if (Drupal::currentUser()->isAnonymous()) {
 
