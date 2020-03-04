@@ -51,15 +51,36 @@ class EtypePasswordResetForm extends FormBase {
         '#required' => TRUE,
       ];
 
+      $e_editions = etype_e_editions();
+      if (count($e_editions) > 1) {
+        $options = [];
+        foreach ($e_editions as $edition) {
+          $options[$edition['pubId']] = $edition['site_name'];
+        }
+        $form['pubId'] = [
+          '#title' => $this->t('Choose your publication'),
+          '#type' => 'select',
+          '#options' => $options,
+          // Add Bulma classes.
+          '#attributes' => ['class' => ['select', 'is-fullwidth']],
+        ];
+      }
+      else {
+        $form['pubId'] = [
+          '#type' => 'hidden',
+          '#default_value' => $e_editions[0]['pubId'],
+        ];
+      }
+
       $form['#attached']['library'][] = 'etype_login/etype_login';
 
       $form['actions']['#type'] = 'actions';
 
-      $form['actions']['submit'] = array(
+      $form['actions']['submit'] = [
         '#type' => 'submit',
         '#value' => $this->t('Send me my password'),
         '#button_type' => 'primary',
-      );
+      ];
 
     }
     else {
@@ -92,8 +113,8 @@ class EtypePasswordResetForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
     $username = $form_state->getValue('username');
+    $pubId = $form_state->getValue('pubId');
 
-    $pubId = $this->config->get('etype_pub');
     $message = "We‘re sorry, we can‘t find an account for that user name at this publication.";
     $success_message = "Your password has been sent to your email adddress.";
 
