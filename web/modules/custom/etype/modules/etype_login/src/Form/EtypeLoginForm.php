@@ -69,6 +69,7 @@ class EtypeLoginForm extends FormBase {
           '#options' => $options,
           // Add Bulma classes.
           '#attributes' => ['class' => ['select', 'is-fullwidth']],
+          '#required' => TRUE,
         ];
       }
       else {
