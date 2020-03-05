@@ -57,6 +57,28 @@ class EtypeLoginForm extends FormBase {
         '#required' => TRUE,
       ];
 
+      $e_editions = etype_e_editions();
+      if (count($e_editions) > 1) {
+        $options = [];
+        foreach ($e_editions as $edition) {
+          $options[$edition['pubId']] = $edition['site_name'];
+        }
+        $form['pubId'] = [
+          '#title' => $this->t('Choose your publication'),
+          '#type' => 'select',
+          '#options' => $options,
+          // Add Bulma classes.
+          '#attributes' => ['class' => ['select', 'is-fullwidth']],
+          '#required' => TRUE,
+        ];
+      }
+      else {
+        $form['pubId'] = [
+          '#type' => 'hidden',
+          '#default_value' => $e_editions[0]['pubId'],
+        ];
+      }
+
       $form['help'] = [
         '#type' => 'item',
         '#markup' => t('<a href="/etype-forgot-password">I forgot my password.</a>'),
@@ -107,8 +129,8 @@ class EtypeLoginForm extends FormBase {
 
     $username = $form_state->getValue('username');
     $password = $form_state->getValue('password');
+    $pubId = $form_state->getValue('pubId');
 
-    $pubId = $this->config->get('etype_pub');
     $v2 = $this->config->get('etype_v2');
     $message = "We‘re sorry, either your user name or password is incorrect!";
     $success_message = "Hello $username, you are now logged in!";
