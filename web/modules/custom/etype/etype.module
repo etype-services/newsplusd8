@@ -57,7 +57,11 @@ function etype_e_editions() {
   $logged_in = Drupal::currentUser()->isAuthenticated();
   $config = Drupal::config('etype.adminsettings');
 
-  $v2 = $config->get('etype_v2');
+  $v2 = 0;
+  $moduleHandler = \Drupal::service('module_handler');
+  if ($moduleHandler->moduleExists('etype_login_v2')){
+    $v2 = 1;
+  }
   $e_edition = $config->get('etype_e_edition');
   $pub = $config->get('etype_pub');
   $ptype = $config->get('etype_ptype');

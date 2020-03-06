@@ -73,12 +73,6 @@ class EtypeConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('etype_ptype'),
     ];
 
-    $form['e_edition']['etype_v2'] = [
-      '#title' => $this->t('Check this box to use V2 system, and enter identifying string into the "e-Edition" box above.'),
-      '#type' => 'checkbox',
-      '#default_value' => $config->get('etype_v2'),
-    ];
-
     $form['e_edition']['etype_author_links_off'] = [
       '#title' => $this->t('Check this box to turn author links off.'),
       '#type' => 'checkbox',
@@ -192,7 +186,6 @@ class EtypeConfigForm extends ConfigFormBase {
       ->set('etype_e_edition', $form_state->getValue('etype_e_edition'))
       ->set('etype_pub', $form_state->getValue('etype_pub'))
       ->set('etype_ptype', $form_state->getValue('etype_ptype'))
-      ->set('etype_v2', $form_state->getValue('etype_v2'))
       ->set('etype_author_links_off', $form_state->getValue('etype_author_links_off'))
       ->set('premium_content_message', $form_state->getValue('premium_content_message'))
       ->set('premium_preview', $form_state->getValue('premium_preview'))
