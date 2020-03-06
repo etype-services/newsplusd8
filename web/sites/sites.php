@@ -100,3 +100,4 @@ $sites['www.newspaperhalloffame.org'] = "newspaperhalloffame.etypegoogle7.com";
 $sites['www.thewatongarepublican.com'] = "thewatongarepublican.etypegoogle7.com";
 $sites['www.hintonrecord.com'] = "hintonrecord.etypegoogle7.com";
 $sites['www.giddingstimes.com'] = "giddingstimes.etypegoogle7.com";
+$sites['www.gunnisonshopper.com'] = "gunnisonshopper.etypegoogle7.com";
