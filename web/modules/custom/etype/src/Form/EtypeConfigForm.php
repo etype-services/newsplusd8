@@ -43,18 +43,15 @@ class EtypeConfigForm extends ConfigFormBase {
       $author = User::load($uid);
     }
 
+    $v2 = 0;
+    $moduleHandler = \Drupal::service('module_handler');
+    if ($moduleHandler->moduleExists('etype_login_v2')) {
+      $v2 = 1;
+    }
+
     $form['e_edition'] = [
       '#type' => 'fieldset',
       '#title' => $this->t('e-Edition'),
-    ];
-
-    $form['e_edition']['etype_e_edition'] = [
-      '#type' => 'textarea',
-      '#title' => $this->t('e-Edition'),
-      '#description' => $this->t('For one publication enter the e-Edition like <code>Mitchell%20News-JournalID617</code>, for multiple publications, please format like this: <code>Mitchell%20News-JournalID617|Mitchell News Journal,The%20Yorktown%20News-ViewID84|The Yorktown News View</code>.'),
-      '#rows' => 2,
-      '#cols' => '100',
-      '#default_value' => $config->get('etype_e_edition'),
     ];
 
     $form['e_edition']['etype_pub'] = [
@@ -65,13 +62,24 @@ class EtypeConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('etype_pub'),
     ];
 
-    $form['e_edition']['etype_ptype'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('eType PType'),
-      '#description' => $this->t('Separate multiple entries with a comma, in the same order as the e-Editions.'),
-      '#size' => 55,
-      '#default_value' => $config->get('etype_ptype'),
-    ];
+    if ($v2 == 0) {
+      $form['e_edition']['etype_e_edition'] = [
+        '#type' => 'textarea',
+        '#title' => $this->t('e-Edition'),
+        '#description' => $this->t('For one publication enter the e-Edition like <code>Mitchell%20News-JournalID617</code>, for multiple publications, please format like this: <code>Mitchell%20News-JournalID617|Mitchell News Journal,The%20Yorktown%20News-ViewID84|The Yorktown News View</code>.'),
+        '#rows' => 2,
+        '#cols' => '100',
+        '#default_value' => $config->get('etype_e_edition'),
+      ];
+
+      $form['e_edition']['etype_ptype'] = [
+        '#type' => 'textfield',
+        '#title' => $this->t('eType PType'),
+        '#description' => $this->t('Separate multiple entries with a comma, in the same order as the e-Editions.'),
+        '#size' => 55,
+        '#default_value' => $config->get('etype_ptype'),
+      ];
+    }
 
     $form['e_edition']['etype_author_links_off'] = [
       '#title' => $this->t('Check this box to turn author links off.'),

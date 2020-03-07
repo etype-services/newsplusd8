@@ -59,7 +59,7 @@ function etype_e_editions() {
 
   $v2 = 0;
   $moduleHandler = \Drupal::service('module_handler');
-  if ($moduleHandler->moduleExists('etype_login_v2')){
+  if ($moduleHandler->moduleExists('etype_login_v2')) {
     $v2 = 1;
   }
   $e_edition = $config->get('etype_e_edition');
