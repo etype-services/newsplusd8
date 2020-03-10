@@ -377,11 +377,13 @@
 /* Mobile */
 @media screen and (max-width: $mobile) {
   .page-node-type-article {
-    .node__content {
-      .image-container {
-        /* Images on Premium Content pages */
-        display: block;
-        margin-bottom: $column-gap;
+    article {
+      .node__content {
+        .image-container {
+          /* Images on Premium Content pages */
+          display: block;
+          margin-bottom: $column-gap;
+        }
       }
     }
   }

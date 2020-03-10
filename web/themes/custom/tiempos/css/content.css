@@ -352,7 +352,7 @@
 }
 /* Mobile */
 @media screen and (max-width: 467px) {
-  .page-node-type-article .node__content .image-container {
+  .page-node-type-article article .node__content .image-container {
     /* Images on Premium Content pages */
     display: block;
     margin-bottom: 0.75rem;
