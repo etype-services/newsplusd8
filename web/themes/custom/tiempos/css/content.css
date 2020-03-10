@@ -365,6 +365,11 @@
   .page-node-type-feature article .is-full .node__content > .field--name-body p, .page-node-type-feature article .is-full .node__content > .field--name-body blockquote, .page-node-type-feature article .is-full .node__content > .field--name-body ul, .page-node-type-feature article .is-full .node__content > .field--name-body ol {
     margin: 1rem;
   }
+  .page-node-type-feature article .node__content .image-container {
+    /* Images on Premium Content pages */
+    display: block;
+    margin-bottom: 0.75rem;
+  }
 }
 
 /*# sourceMappingURL=content.css.map */
