@@ -352,6 +352,11 @@
 }
 /* Mobile */
 @media screen and (max-width: 467px) {
+  .page-node-type-article article .node__content .image-container {
+    /* Images on Premium Content pages - flex displays stretched vertically on many phones (iPhone/iPad) */
+    display: block;
+  }
+
   .page-node-type-feature article .is-full .main-caption {
     margin: 0.5rem;
     font-size: 0.9rem;

@@ -62,7 +62,19 @@ class EtypeConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('etype_pub'),
     ];
 
-    if ($v2 == 0) {
+    if ($v2 == 1) {
+      /* Save values in case of reversion? */
+      $form['e_edition']['etype_e_edition'] = [
+        '#type' => 'hidden',
+        '#default_value' => $config->get('etype_e_edition'),
+      ];
+
+      $form['e_edition']['etype_ptype'] = [
+        '#type' => 'hidden',
+        '#default_value' => $config->get('etype_ptype'),
+      ];
+    }
+    else {
       $form['e_edition']['etype_e_edition'] = [
         '#type' => 'textarea',
         '#title' => $this->t('e-Edition'),
@@ -79,7 +91,7 @@ class EtypeConfigForm extends ConfigFormBase {
         '#size' => 55,
         '#default_value' => $config->get('etype_ptype'),
       ];
-    }
+    } /* end if */
 
     $form['e_edition']['etype_author_links_off'] = [
       '#title' => $this->t('Check this box to turn author links off.'),

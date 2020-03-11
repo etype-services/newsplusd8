@@ -376,6 +376,16 @@
 
 /* Mobile */
 @media screen and (max-width: $mobile) {
+  .page-node-type-article {
+    article {
+      .node__content {
+        .image-container {
+          /* Images on Premium Content pages - flex displays stretched vertically on many phones (iPhone/iPad) */
+          display: block;
+        }
+      }
+    }
+  }
   .page-node-type-feature {
     article {
       .is-full {
