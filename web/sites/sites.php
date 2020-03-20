@@ -98,6 +98,7 @@ $sites['www.fgazette.com'] = "fgazette.etypegoogle7.com";
 $sites['www.gracefulcarega.com'] = "gracefulcarega.etypegoogle7.com";
 $sites['www.thepress-sentinel.com'] = "thepress-sentinel.etypegoogle7.com";
 $sites['www.richmond-dailynews.com'] = "richmond-dailynews.etypegoogle7.com";
+$sites['www.excelsiorspringsstandard.com'] = "excelsiorspringsstandard.etypegoogle7.com";
 $sites['www.newspaperhalloffame.org'] = "newspaperhalloffame.etypegoogle7.com";
 $sites['www.thewatongarepublican.com'] = "thewatongarepublican.etypegoogle7.com";
 $sites['www.hintonrecord.com'] = "hintonrecord.etypegoogle7.com";
