@@ -116,6 +116,13 @@ class EtypeConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('premium_preview'),
     ];
 
+    $form['e_edition']['picoPublisherId'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Pico Publisher Id'),
+      '#size' => 55,
+      '#default_value' => $config->get('picoPublisherId'),
+    ];
+
     $form['social'] = [
       '#type' => 'fieldset',
       '#title' => $this->t('Social Media'),
@@ -209,6 +216,7 @@ class EtypeConfigForm extends ConfigFormBase {
       ->set('etype_author_links_off', $form_state->getValue('etype_author_links_off'))
       ->set('premium_content_message', $form_state->getValue('premium_content_message'))
       ->set('premium_preview', $form_state->getValue('premium_preview'))
+      ->set('picoPublisherId', $form_state->getValue('picoPublisherId'))
       ->set('facebook', $form_state->getValue('facebook'))
       ->set('twitter', $form_state->getValue('twitter'))
       ->set('instagram', $form_state->getValue('instagram'))
