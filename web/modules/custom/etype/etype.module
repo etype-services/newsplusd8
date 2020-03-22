@@ -40,7 +40,7 @@ function etype_page_attachments(array &$page) {
     $page['#attached']['library'][] = 'etype/pico';
     $node = \Drupal::routeMatch()->getParameter('node');
     if ($node instanceof NodeInterface) {
-      dpm($node);
+      dpm($node->getType());
     }
   }
 
