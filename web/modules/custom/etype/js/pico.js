@@ -1,5 +1,5 @@
 (function ($, Drupal, drupalSettings) {
-    'use strict'
+    'use strict';
     Drupal.behaviors.pico = {
         attach: function (context, settings) {
             var picoPublisherId = drupalSettings.picoPublisherId;
@@ -18,6 +18,6 @@
                 }, t.parentNode.insertBefore(e, t)
             })('pico', window, 'https://widget.pico.tools/wrapper.min.js', picoPublisherId);
         },
-    }
+    };
 })(jQuery, Drupal, drupalSettings)
 
