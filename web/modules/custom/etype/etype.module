@@ -32,6 +32,13 @@ function etype_theme($existing, $type, $theme, $path) {
 function etype_page_attachments(array &$page) {
   $page['#attached']['library'][] = 'etype/global-styling';
   $page['#attached']['library'][] = 'etype/ada-compliance';
+
+  $config = Drupal::config('etype.adminsettings');
+  $picoPublisherId = $config->get('picoPublisherId');
+  if (!empty($picoPublisherId)) {
+    krumo($picoPublisherId);
+  }
+
 }
 
 /**
