@@ -314,38 +314,22 @@ function etype_preprocess_views_view_row_rss(&$variables) {
  *   following:
  *   'entity' - The entity being processed; passed by reference.
  *
- * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
- * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
  * @see https://www.drupal.org/forum/support/module-development-and-code-questions/2014-07-25/drupal-8-get-entity-object-given
  */
 function etype_metatags_alter(array &$metatags, array &$context) {
-  $current_route = \Drupal::routeMatch();
-  foreach ($current_route->getParameters() as $param) {
-    /* Is this an entity? */
-    if ($param instanceof Drupal\Core\Entity\EntityInterface) {
-      $entity = $param;
-      $entityType = $entity->getEntityTypeId();
-      /* Is this a node, not a user, etc? */
-      if ($entityType == 'node') {
-        /* Do we have the right field? */
-        if ($entity->hasField('field_image')) {
-          $nid = $entity->Id();
-          $node = Drupal::entityTypeManager()->getStorage('node')->load($nid);
-          $fileId = $node->get('field_image')->target_id;
-          /* Do we have a file id? Default images do not register. */
-          if ($fileId != NULL) {
-            $obj = File::load($fileId);
-            if (is_object($obj)) {
-              $uri = $obj->getFileUri();
-              $url = file_create_url($uri);
-              /* Set the meta tags */
-              $metatags['og_image'] = $url;
-              $metatags['og_image_url'] = $url;
-            }
-          }
-        }
+  $node = Drupal::routeMatch()->getParameter('node');
+  if ($node->hasField('field_image')) {
+    $fileId = $node->get('field_image')->target_id;
+    /* Do we have a file id? Default images do not register. */
+    if ($fileId != NULL) {
+      $obj = File::load($fileId);
+      if (is_object($obj)) {
+        $uri = $obj->getFileUri();
+        $url = file_create_url($uri);
+        /* Set the meta tags */
+        $metatags['og_image'] = $url;
+        $metatags['og_image_url'] = $url;
       }
-      break;
     }
   }
 }
