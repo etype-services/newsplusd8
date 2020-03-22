@@ -41,7 +41,7 @@ function etype_page_attachments(array &$page) {
     $node = Drupal::routeMatch()->getParameter('node');
     if ($node instanceof NodeInterface) {
       if ($node->getType() == 'article') {
-        $section = $node->getValue('field_section');
+        $section = $node->get('field_section')->getValue();
         dpm($section);
       }
     }
