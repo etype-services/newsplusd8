@@ -37,3 +37,13 @@ pico:
     - core/drupal
     - core/drupalSettings
     - core/jquery.once
+
+pico-article:
+  version: VERSION
+  header: false
+  js:
+    js/pico_article.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once

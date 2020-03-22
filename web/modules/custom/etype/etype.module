@@ -1,8 +1,8 @@
 <?php
 
 use Drupal\file\Entity\File;
+use Drupal\node\NodeInterface;
 use Drupal\user\Entity\User;
-use Drupal\Core\Entity\Node;
 
 /**
  * @param $existing
@@ -38,6 +38,10 @@ function etype_page_attachments(array &$page) {
   if (!empty($picoPublisherId)) {
     $page['#attached']['drupalSettings']['picoPublisherId'] = $picoPublisherId;
     $page['#attached']['library'][] = 'etype/pico';
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if ($node instanceof NodeInterface) {
+      dpm($node);
+    }
   }
 
 }
