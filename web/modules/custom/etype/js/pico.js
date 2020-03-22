@@ -3,7 +3,7 @@
     Drupal.behaviors.pico = {
         attach: function (context, settings) {
             var picoPublisherId = drupalSettings.picoPublisherId;
-            alert(picoPublisherId);
+            console.log(picoPublisherId);
             (function (p, i, c, o) {
                 var n = new Event('pico-init')
                 i[p] = i[p] ||
