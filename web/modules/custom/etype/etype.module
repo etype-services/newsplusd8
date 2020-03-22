@@ -38,9 +38,12 @@ function etype_page_attachments(array &$page) {
   if (!empty($picoPublisherId)) {
     $page['#attached']['drupalSettings']['picoPublisherId'] = $picoPublisherId;
     $page['#attached']['library'][] = 'etype/pico';
-    $node = \Drupal::routeMatch()->getParameter('node');
+    $node = Drupal::routeMatch()->getParameter('node');
     if ($node instanceof NodeInterface) {
-      dpm($node->getType());
+      if ($node->getType() == 'article') {
+        $section = $node->getValue('field_section');
+        dpm($section);
+      }
     }
   }
 
