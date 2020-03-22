@@ -3,6 +3,7 @@
     Drupal.behaviors.pico = {
         attach: function (context, settings) {
             var picoPublisherId = drupalSettings.picoPublisherId;
+            alert(picoPublisherId);
             (function (p, i, c, o) {
                 var n = new Event('pico-init')
                 i[p] = i[p] ||
@@ -15,7 +16,7 @@
                 e.async = 1, e.src = c, e.onload = function (e) {
                     return i.Pico.getInstance(e, {publisherId: o, picoInit: n}, i)
                 }, t.parentNode.insertBefore(e, t)
-            })('pico', window, 'https://widget.pico.tools/wrapper.min.js', picoPublisherId)
+            })('pico', window, 'https://widget.pico.tools/wrapper.min.js', picoPublisherId);
         },
     }
 })(jQuery, Drupal, drupalSettings)
