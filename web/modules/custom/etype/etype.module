@@ -36,7 +36,7 @@ function etype_page_attachments(array &$page) {
   $config = Drupal::config('etype.adminsettings');
   $picoPublisherId = $config->get('picoPublisherId');
   if (!empty($picoPublisherId)) {
-    $attachments['#attached']['drupalSettings']['picoPublisherId'] = $picoPublisherId;
+    $page['#attached']['drupalSettings']['picoPublisherId'] = $picoPublisherId;
     $page['#attached']['library'][] = 'etype/pico';
   }
 
