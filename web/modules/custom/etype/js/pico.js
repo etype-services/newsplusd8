@@ -2,7 +2,7 @@
     'use strict';
     Drupal.behaviors.pico = {
         attach: function (context, settings) {
-            var picoPublisherId = settings.picoPublisherId;
+            var picoPublisherId = drupalSettings.picoPublisherId;
             console.log(picoPublisherId);
             (function (p, i, c, o) {
                 var n = new Event('pico-init');

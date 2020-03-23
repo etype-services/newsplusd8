@@ -14,7 +14,6 @@
                 },
                 url: window.location.href
             };
-
             window.pico('visit', pageInfo);
         },
     };
