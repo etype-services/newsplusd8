@@ -318,6 +318,8 @@ function etype_preprocess_views_view_row_rss(&$variables) {
  */
 function etype_metatags_alter(array &$metatags, array &$context) {
   $node = Drupal::routeMatch()->getParameter('node');
+  dpm($node);
+  exit;
   if ($node->hasField('field_image')) {
     $fileId = $node->get('field_image')->target_id;
     /* Do we have a file id? Default images do not register. */
