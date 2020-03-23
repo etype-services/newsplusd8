@@ -9,8 +9,7 @@
                 post_id: nid,
                 post_type: 'article',
                 taxonomies: {
-                //    tags: [...],
-                    categories: picoCategories,
+                    categories: picoCategories
                 },
                 url: window.location.href
             };
