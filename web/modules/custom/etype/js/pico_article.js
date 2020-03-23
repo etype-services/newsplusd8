@@ -2,10 +2,15 @@
     'use strict';
     Drupal.behaviors.pico = {
         attach: function (context, settings) {
+            var nid = drupalSettings.nid;
             var pageInfo = {
                 article: true,
-                post_id: num,
+                post_id: nid,
                 post_type: 'article',
+                //taxonomies: {
+                //    tags: [...],
+                //    categories: [...],
+                //},
                 url: window.location.href
             };
 
