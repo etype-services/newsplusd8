@@ -36,7 +36,6 @@ pico:
   dependencies:
     - core/drupal
     - core/drupalSettings
-    - core/jquery.once
 
 pico-article:
   version: VERSION
@@ -46,4 +45,3 @@ pico-article:
   dependencies:
     - core/drupal
     - core/drupalSettings
-    - core/jquery.once
