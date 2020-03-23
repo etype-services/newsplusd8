@@ -46,7 +46,7 @@ function etype_page_attachments(array &$page) {
         $nid = $node->id();
         $page['#attached']['drupalSettings']['nid'] = $nid;
         $tids = $node->get('field_section')->getValue();
-        if (count((array) $tids > 0)) {
+        if (count($tids) > 0) {
           $terms = [];
           foreach ($tids as $tid) {
             $term = Term::load($tid['target_id']);
