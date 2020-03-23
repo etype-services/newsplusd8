@@ -44,11 +44,16 @@ function etype_page_attachments(array &$page) {
     if ($node instanceof NodeInterface) {
       if ($node->getType() == 'article') {
         $nid = $node->id();
-        dpm($nid);
-        $tids = $node->get('field_section')->getValue();
-        dpm($tids);
-        //$term = Term::load($tid);
         $page['#attached']['drupalSettings']['nid'] = $nid;
+        $tids = $node->get('field_section')->getValue();
+        if (count($tids > 0)) {
+          $terms = [];
+          foreach ($tids as $tid) {
+            $term = Term::load($tid['target_id']);
+            $terms[] = $term->getName();
+          }
+          dpm($terms);
+        }
         $page['#attached']['library'][] = 'etype/pico_article';
       }
     }
