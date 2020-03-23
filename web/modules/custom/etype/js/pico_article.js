@@ -14,7 +14,7 @@
                 },
                 url: window.location.href
             };
-            Drupal.behaviors.pico('visit', pageInfo);
+            pico('visit', pageInfo);
         },
     };
 })(jQuery, Drupal, drupalSettings);
