@@ -2,8 +2,8 @@
     'use strict';
     Drupal.behaviors.pico = {
         attach: function (context, settings) {
-            var nid = drupalSettings.nid;
-            var picoCategories = drupalSettings.picoCategories;
+            var nid = settings.nid;
+            var picoCategories = settings.picoCategories;
             var pageInfo = {
                 article: true,
                 post_id: nid,
