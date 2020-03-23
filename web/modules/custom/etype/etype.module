@@ -318,19 +318,19 @@ function etype_preprocess_views_view_row_rss(&$variables) {
  */
 function etype_metatags_alter(array &$metatags, array &$context) {
   $node = Drupal::routeMatch()->getParameter('node');
-  dpm($node);
-  exit;
-  if ($node->hasField('field_image')) {
-    $fileId = $node->get('field_image')->target_id;
-    /* Do we have a file id? Default images do not register. */
-    if ($fileId != NULL) {
-      $obj = File::load($fileId);
-      if (is_object($obj)) {
-        $uri = $obj->getFileUri();
-        $url = file_create_url($uri);
-        /* Set the meta tags */
-        $metatags['og_image'] = $url;
-        $metatags['og_image_url'] = $url;
+  if (is_object($node)) {
+    if ($node->hasField('field_image')) {
+      $fileId = $node->get('field_image')->target_id;
+      /* Do we have a file id? Default images do not register. */
+      if ($fileId != NULL) {
+        $obj = File::load($fileId);
+        if (is_object($obj)) {
+          $uri = $obj->getFileUri();
+          $url = file_create_url($uri);
+          /* Set the meta tags */
+          $metatags['og_image'] = $url;
+          $metatags['og_image_url'] = $url;
+        }
       }
     }
   }
