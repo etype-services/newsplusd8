@@ -55,7 +55,7 @@ function etype_page_attachments(array &$page) {
           $page['#attached']['drupalSettings']['picoCategories'] = json_encode
           ($terms);
         }
-        //$page['#attached']['library'][] = 'etype/pico-article';
+        $page['#attached']['library'][] = 'etype/pico-article';
       }
     }
   }
