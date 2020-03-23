@@ -52,7 +52,8 @@ function etype_page_attachments(array &$page) {
             $term = Term::load($tid['target_id']);
             $terms[] = $term->getName();
           }
-          dpm($terms);
+          $page['#attached']['drupalSettings']['picoCategories'] = json_encode
+          ($terms);
         }
         $page['#attached']['library'][] = 'etype/pico_article';
       }
