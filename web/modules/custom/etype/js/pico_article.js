@@ -1,6 +1,6 @@
 (function ($, Drupal, drupalSettings) {
     'use strict';
-    Drupal.behaviors.pico = {
+    Drupal.behaviors.picoArticle = {
         attach: function (context, settings) {
             var nid = settings.nid;
             var picoCategories = settings.picoCategories;
@@ -14,7 +14,7 @@
                 },
                 url: window.location.href
             };
-            pico('visit', pageInfo);
+            window.pico('visit', pageInfo);
         },
     };
 })(jQuery, Drupal, drupalSettings);
