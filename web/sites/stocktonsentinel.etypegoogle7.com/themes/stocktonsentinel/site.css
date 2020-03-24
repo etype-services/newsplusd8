@@ -6,6 +6,12 @@
   .region-pre-header-left {
     display: flex;
   }
+  .region-pre-header-left #block-stocktonsentinel-socialiconblockforheaderinnewstheme .icons-list {
+    display: flex;
+  }
+  .region-pre-header-left #superfish-secondary-menu li > a {
+    padding: 16px 18px 10px;
+  }
 }
 
 /*# sourceMappingURL=site.css.map */
