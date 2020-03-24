@@ -3,7 +3,7 @@
 /**
  * @param $variables
  */
-function newsplus_preprocess_page(&$variables) {
+function stocktonsentinel_preprocess_page(&$variables) {
   $variables['pre_header_left_grid_class'] = 'col-md-10';
   $variables['pre_header_right_grid_class'] = 'col-md-2';
 }
