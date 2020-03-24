@@ -1,7 +1,7 @@
 name: Newsplus for Stockton Sentinel
 type: theme
 base theme: newsplus
-description: 'Drupal 8 theme using Bulma framework.'
+description: 'A flexible, recolorable theme with many regions and a responsive, mobile-first layout.'
 version: 8.1.1
 core: 8.x
 regions:
