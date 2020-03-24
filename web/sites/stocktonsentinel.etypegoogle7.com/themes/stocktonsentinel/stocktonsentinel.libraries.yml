@@ -2,4 +2,4 @@ global-styling:
   version: VERSION
   css:
     base:
-      site.css: { weight: -99 }
+      site.css: { weight: 100 }
