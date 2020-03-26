@@ -173,12 +173,12 @@ class EtypeConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('head_script'),
     ];
 
-    $form['other']['ad_script'] = [
+    $form['other']['bottom_script'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Footer Scripts'),
       '#description' => $this->t('Any code pasted in here will be added before the closing body tag. Please note that third-party scripts may have unexpected results or break the site.'),
       '#cols' => '100',
-      '#default_value' => $config->get('ad_script'),
+      '#default_value' => $config->get('bottom_script'),
     ];
 
     $form['other']['mercolocal_id'] = [
@@ -222,8 +222,8 @@ class EtypeConfigForm extends ConfigFormBase {
       ->set('instagram', $form_state->getValue('instagram'))
       ->set('mercolocal_id', $form_state->getValue('mercolocal_id'))
       ->set('weather_code', $form_state->getValue('weather_code'))
-      ->set('ad_script', $form_state->getValue('ad_script'))
       ->set('head_script', $form_state->getValue('head_script'))
+      ->set('bottom_script', $form_state->getValue('bottom_script'))
       ->set('author', $form_state->getValue('author'))
       ->save();
   }
