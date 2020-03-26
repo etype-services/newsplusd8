@@ -60,7 +60,7 @@ function etype_preprocess_html(&$variables) {
  *
  * @param $variables
  */
-function tiempos_preprocess_node(&$variables) {
+function etype_preprocess_node(&$variables) {
   $config = Drupal::config('etype.adminsettings');
   $picoPublisherId = $config->get('picoPublisherId');
   if (!empty($picoPublisherId)) {
