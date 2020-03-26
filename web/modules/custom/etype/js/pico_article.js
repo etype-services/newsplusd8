@@ -13,7 +13,7 @@
                 },
                 url: window.location.href
             };
-            window.pico('visit', pageInfo);
+            pico('visit', pageInfo);
         },
     };
 })(jQuery, Drupal, drupalSettings);
