@@ -105,9 +105,7 @@
 
   <div{{ content_attributes.addClass('node__content') }}>
     {% if logged_in %}
-     <div id="pico">
        {{ content }}
-     </div>
     {% else %}
       {%  if premium_content == 1 %}
         {{ content.field_subhead }}
@@ -122,7 +120,9 @@
         {% endset %}
         {{ preview }}
       {% else %}
+    <div id="pico">
         {{ content }}
+    </div>
       {% endif %}
     {% endif %}
   </div>
