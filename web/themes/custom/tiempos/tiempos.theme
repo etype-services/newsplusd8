@@ -11,10 +11,6 @@ use Drupal\user\Entity\User;
  * @param $variables
  */
 function tiempos_preprocess_html(&$variables) {
-  $config = Drupal::config('etype.adminsettings');
-  $variables['head_script'] = $config->get('head_script');
-  $variables['ad_script'] = $config->get('ad_script');
-
   /* Add domain to styles */
   $host = Drupal::request()->getHost();
   $tmp = explode(".", $host);
