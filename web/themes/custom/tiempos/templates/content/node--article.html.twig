@@ -120,9 +120,13 @@
         {% endset %}
         {{ preview }}
       {% else %}
-    <div id="pico">
-        {{ content }}
-    </div>
+        {% if picoEnabled %}
+          <div id="pico">
+            {{ content }}
+          </div>
+        {% else %}
+          {{ content }}
+        {% endif %}
       {% endif %}
     {% endif %}
   </div>

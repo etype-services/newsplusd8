@@ -34,24 +34,23 @@ function etype_preprocess_html(&$variables) {
   $head_script = $config->get('head_script');
   $picoPublisherId = $config->get('picoPublisherId');
   if (!empty($picoPublisherId)) {
-    $head_script .= <<<EOT
-    <script>
-        (function (p, i, c, o) {
-            var n = new Event('pico-init');
-            i[p] = i[p] ||
-                function () {(i[p].queue = i[p].queue || []).push(arguments)}, i.document.addEventListener(
-                'pico-init', function (e) {
-                    var t = i.Pico.getInstance(e, {publisherId: o, picoInit: n}, i)
-                    t.handleQueueItems(i[p].queue), i[p] = function () {return t.handleQueueItems([arguments])}
-                }, !1);
-            var e = i.document.createElement('script'), t = i.document
-      .getElementsByTagName('script')[0];
-            e.async = 1, e.src = c, e.onload = function (e) {
-                return i.Pico.getInstance(e, {publisherId: o, picoInit: n}, i)
-            }, t.parentNode.insertBefore(e, t)
-        })('pico', window, "https://widget.pico.tools/wrapper.min.js", "$picoPublisherId");
-    </script>;
-EOT;
+    $head_script .= "
+<script>
+    (function (p, i, c, o) {
+        var n = new Event('pico-init');
+        i[p] = i[p] ||
+            function () {(i[p].queue = i[p].queue || []).push(arguments)}, i.document.addEventListener(
+            'pico-init', function (e) {
+                var t = i.Pico.getInstance(e, {publisherId: o, picoInit: n}, i)
+                t.handleQueueItems(i[p].queue), i[p] = function () {return t.handleQueueItems([arguments])}
+            }, !1);
+        var e = i.document.createElement('script'), t = i.document.getElementsByTagName('script')[0];
+        e.async = 1, e.src = c, e.onload = function (e) {
+            return i.Pico.getInstance(e, {publisherId: o, picoInit: n}, i)
+        }, t.parentNode.insertBefore(e, t)
+    })('pico', window, \"https://widget.pico.tools/wrapper.min.js\", \"$picoPublisherId\");
+</script>;";
+    $variables['picoEnabled'] = true;
   }
   $variables['head_script'] = $head_script;
   $variables['bottom_script'] = $config->get('bottom_script');
@@ -72,7 +71,6 @@ function etype_page_attachments(array &$page) {
   $picoPublisherId = $config->get('picoPublisherId');
   if (!empty($picoPublisherId)) {
     $page['#attached']['drupalSettings']['picoPublisherId'] = $picoPublisherId;
-    //$page['#attached']['library'][] = 'etype/pico';
     $node = Drupal::routeMatch()->getParameter('node');
     if ($node instanceof NodeInterface) {
       if ($node->getType() == 'article') {
