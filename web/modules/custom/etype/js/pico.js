@@ -4,8 +4,9 @@
         attach: function (context, settings) {
             var nid = settings.nid;
             var picoCategories = settings.picoCategories;
+            var picoOn = settings.picoOn;
             var pageInfo = {
-                article: true,
+                article: picoOn,
                 post_id: nid,
                 post_type: 'article',
                 taxonomies: {
