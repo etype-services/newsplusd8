@@ -1,0 +1,79 @@
+<?php
+
+use Drupal\node\NodeInterface;
+use Drupal\taxonomy\Entity\Term;
+
+/**
+ * Preprocess html.
+ *
+ * @param $variables
+ */
+function etype_pico_preprocess_html(&$variables) {
+  $config = Drupal::config('etype_pico.settings');
+  $head_script = $config->get('head_script');
+  $picoPublisherId = $config->get('picoPublisherId');
+  if (!empty($picoPublisherId)) {
+    $head_script .= "
+<script>
+    (function (p, i, c, o) {
+        var n = new Event('pico-init');
+        i[p] = i[p] ||
+            function () {(i[p].queue = i[p].queue || []).push(arguments)}, i.document.addEventListener(
+            'pico-init', function (e) {
+                var t = i.Pico.getInstance(e, {publisherId: o, picoInit: n}, i)
+                t.handleQueueItems(i[p].queue), i[p] = function () {return t.handleQueueItems([arguments])}
+            }, !1);
+        var e = i.document.createElement('script'), t = i.document.getElementsByTagName('script')[0];
+        e.async = 1, e.src = c, e.onload = function (e) {
+            return i.Pico.getInstance(e, {publisherId: o, picoInit: n}, i)
+        }, t.parentNode.insertBefore(e, t)
+    })('pico', window, \"https://widget.pico.tools/wrapper.min.js\", \"$picoPublisherId\");
+</script>;";
+  }
+  $variables['head_script'] = $head_script;
+}
+
+/**
+ * Preprocess Nodes.
+ *
+ * @param $variables
+ */
+function etype_pico_preprocess_node(&$variables) {
+  $config = Drupal::config('etype_pico.settings');
+  $picoPublisherId = $config->get('picoPublisherId');
+  if (!empty($picoPublisherId)) {
+    $variables['picoEnabled'] = true;
+  }
+}
+
+/**
+ * Implements hook_page_attachments().
+ *
+ * @param array $page
+ */
+function etype_pico_page_attachments(array &$page) {
+  $config = Drupal::config('etype_pico.settings');
+  $picoPublisherId = $config->get('picoPublisherId');
+  if (!empty($picoPublisherId)) {
+    $page['#attached']['drupalSettings']['picoPublisherId'] = $picoPublisherId;
+    $node = Drupal::routeMatch()->getParameter('node');
+    if ($node instanceof NodeInterface) {
+      if ($node->getType() == 'article') {
+        $nid = $node->id();
+        $page['#attached']['drupalSettings']['nid'] = $nid;
+        $tids = $node->get('field_section')->getValue();
+        if (count($tids) > 0) {
+          $terms = [];
+          foreach ($tids as $tid) {
+            $term = Term::load($tid['target_id']);
+            $terms[] = $term->getName();
+          }
+          $page['#attached']['drupalSettings']['picoCategories'] =
+            json_encode ($terms);
+          $page['#attached']['drupalSettings']['picoOn'] = true;
+        }
+      }
+    }
+    $page['#attached']['library'][] = 'etype_pico/pico';
+  }
+}

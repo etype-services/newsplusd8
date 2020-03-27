@@ -27,13 +27,3 @@ ada-compliance:
   header: true
   js:
     js/ada_compliance.js: {}
-
-pico:
-  version: VERSION
-  header: true
-  js:
-    js/pico.js: {}
-  dependencies:
-    - core/drupal
-    - core/drupalSettings
-    - core/jquery.once

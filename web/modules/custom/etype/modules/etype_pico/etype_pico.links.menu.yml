@@ -1,0 +1,5 @@
+etype_pico.settings:
+  title: 'Pico Settings'
+  parent: system.admin_config_etype
+  description: 'Configure Pico Integration.'
+  route_name: etype_pico.settings
