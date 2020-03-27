@@ -2,7 +2,7 @@ etype_pico.settings:
   path: '/admin/config/etype_pico/settings'
   defaults:
     _form: '\Drupal\etype_pico\Form\EtypePicoConfigForm'
-    _title: 'eType Configuration'
+    _title: 'Pico Integration'
   requirements:
     _permission: 'access administration pages'
   options:
