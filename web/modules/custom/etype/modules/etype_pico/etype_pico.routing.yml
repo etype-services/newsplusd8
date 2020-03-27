@@ -1,4 +1,4 @@
-etype_pico.admin_settings:
+etype_pico.settings:
   path: '/admin/config/etype_pico/settings'
   defaults:
     _form: '\Drupal\etype_pico\Form\EtypePicoConfigForm'
