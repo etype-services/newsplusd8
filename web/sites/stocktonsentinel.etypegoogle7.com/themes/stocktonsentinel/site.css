@@ -2,6 +2,10 @@
   background-color: #ffffff !important;
 }
 
+#block-stocktonsentinel-views-block-mt-breaking-block-1 .view-titles .more-link a {
+  background-color: #dd2a3b;
+}
+
 @media screen and (min-width: 768px) {
   #pre-header .region-pre-header-left {
     display: flex;
