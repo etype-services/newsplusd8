@@ -40,7 +40,7 @@ class EtypeRssFields extends RssFields {
     // Set the title.
     $item->title = $node->getTitle();
     $item->pubDate = $node->created->value;
-    //dpm($item);
+    dpm($item);
 
     // Set the image shareable url.
     if ($node->get('field_image')->target_id > 0) {
