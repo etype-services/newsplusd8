@@ -41,8 +41,9 @@ class EtypeRssFields extends RssFields {
     $item->title = $node->getTitle();
 
     // Set the image shareable url.
-    if ((int) $node->get('field_image')->target_id > 0) {
+    if ($node->get('field_image')->target_id > 0) {
       $obj = File::load($node->get('field_image')->target_id);
+      var_dump($obj);
       if (is_object($obj)) {
         $uri = $obj->getFileUri();
         $item->image = file_create_url($uri);
