@@ -45,10 +45,11 @@ class EtypeRssFields extends RssFields {
       $obj = File::load($node->get('field_image')->target_id);
       if (is_object($obj)) {
         $uri = $obj->getFileUri();
-        var_dump($uri);
         $item->image = file_create_url($uri);
       }
     }
+
+    var_dump($item);
 
     // Set a better link.
     $item->link = $node->toUrl()->setAbsolute()->toString();
