@@ -40,7 +40,7 @@ class EtypeRssFields extends RssFields {
     // Set the title and created date.
     $item->title = $node->getTitle();
     // $date = date_create($node->created->value());
-    dpm($node);
+    dpm($node->created->value());
     //$date = date("Y-m-d\TH:i:s\Z", $node->created->value());
     //dpm($date);
     //$item->elements[] = [
@@ -57,7 +57,7 @@ class EtypeRssFields extends RssFields {
       }
     }
 
-    dpm($item);
+    // dpm($item);
     // Set a better link.
     $item->link = $node->toUrl()->setAbsolute()->toString();
 
@@ -69,7 +69,7 @@ class EtypeRssFields extends RssFields {
         $arr[] = $element;
       }
     }
-    dpm($arr);
+    // dpm($arr);
     $item->elements = $arr;
     $item->elements[] = [
       'key' => 'guid',
