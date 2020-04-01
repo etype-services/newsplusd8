@@ -19,9 +19,8 @@
 <item>
     <title>{{ title }}</title>
     <link>{{ link }}</link>
-    <img>{{ image }}</img>
 {% if image %}
-    <image>{{ image }}</image>
+    <media:content medium="image" url="{{ image }}" />
 {% endif %}
     <description>{{ description|striptags }}</description>
     {% for item in item_elements -%}
