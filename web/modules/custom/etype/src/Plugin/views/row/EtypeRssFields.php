@@ -37,7 +37,7 @@ class EtypeRssFields extends RssFields {
     var_dump($item);
     $nid = $row->nid;
     $node = Node::load($nid);
-    var_dump($node);
+    var_dump($node->get('field_image')->target_id);
 
     // Set the title.
     $item->title = $node->getTitle();
