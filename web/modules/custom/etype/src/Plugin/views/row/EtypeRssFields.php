@@ -49,8 +49,6 @@ class EtypeRssFields extends RssFields {
       }
     }
 
-    var_dump($item);
-
     // Set a better link.
     $item->link = $node->toUrl()->setAbsolute()->toString();
 
