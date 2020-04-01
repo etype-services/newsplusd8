@@ -34,16 +34,14 @@ class EtypeRssFields extends RssFields {
   public function render($row) {
     $build = parent::render($row);
     $item = $build['#row'];
-    var_dump($item);
     $nid = $row->nid;
     $node = Node::load($nid);
-    var_dump($node->get('field_image')->target_id);
 
     // Set the title.
     $item->title = $node->getTitle();
 
     // Set the image shareable url.
-    if ($node->get('field_image')->target_id > 0) {
+    if ((int) $node->get('field_image')->target_id > 0) {
       $obj = File::load($node->get('field_image')->target_id);
       if (is_object($obj)) {
         $uri = $obj->getFileUri();
