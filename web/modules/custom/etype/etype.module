@@ -113,7 +113,7 @@ function etype_e_editions() {
         break;
 
       default;
-        $ar2 = preg_split("/\.*ID[0-9]+/", $arr[0]); // make LandingImage
+        $ar2 = preg_split("/ID[0-9]+/", $arr[0]); // make LandingImage
         // directory name
         $imagedir = trim($ar2[0]);
         $e_editions[$ptr]['image'] = $base_url . 'LandingPageImages/' . $imagedir .
