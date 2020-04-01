@@ -34,14 +34,14 @@ class EtypeRssFields extends RssFields {
   public function render($row) {
     $build = parent::render($row);
     $item = $build['#row'];
+    var_dump($item);
     $nid = $row->nid;
     $node = Node::load($nid);
 
     // Set the title and created date.
     $item->title = $node->getTitle();
     $date = date("Y-m-d\TH:i:s\Z", $node->created->value);
-
-    $item->pubDate = [
+    $item->elements[] = [
       'key' => 'pubDate',
       'value' => $date,
     ];
