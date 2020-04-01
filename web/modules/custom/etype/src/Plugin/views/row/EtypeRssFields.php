@@ -38,13 +38,8 @@ class EtypeRssFields extends RssFields {
     $nid = $row->nid;
     $node = Node::load($nid);
 
-    // Set the title and created date.
+    // Set the title.
     $item->title = $node->getTitle();
-    $date = date("Y-m-d\TH:i:s\Z", $node->created->value);
-    $item->elements[] = [
-      'key' => 'pubDate',
-      'value' => $date,
-    ];
 
     // Set the image shareable url.
     if ($node->get('field_image')->target_id > 0) {
@@ -55,7 +50,6 @@ class EtypeRssFields extends RssFields {
       }
     }
 
-    // dpm($item);
     // Set a better link.
     $item->link = $node->toUrl()->setAbsolute()->toString();
 
@@ -64,10 +58,19 @@ class EtypeRssFields extends RssFields {
     $arr = [];
     foreach ($item->elements as $element) {
       if ($element['key'] !== 'guid') {
-        $arr[] = $element;
+        if ($element['key'] == 'pubDate') {
+          $date = date("Y-m-d\TH:i:s\Z", $node->created->value);
+          $arr[] = [
+            'key' => 'pubDate',
+            'value' => $date,
+          ];;
+        }
+        else {
+          $arr[] = $element;
+        }
       }
     }
-    // dpm($arr);
+
     $item->elements = $arr;
     $item->elements[] = [
       'key' => 'guid',
