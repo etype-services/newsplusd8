@@ -180,6 +180,17 @@
   display: none !important;
 }
 
+#block-views-block-breaking-news-block-block-1 {
+  display: flex;
+  align-items: center;
+  background-color: #ff0000;
+  padding: 1rem;
+  margin-top: -1.5rem;
+}
+#block-views-block-breaking-news-block-block-1 .title, #block-views-block-breaking-news-block-block-1 a {
+  color: #ffffff;
+}
+
 @media screen and (max-width: 768px) {
   /* Hide content on mobile */
   .path-frontpage .view-display-id-page_1,
