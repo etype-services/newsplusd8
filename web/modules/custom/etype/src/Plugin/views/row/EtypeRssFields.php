@@ -62,6 +62,7 @@ class EtypeRssFields extends RssFields {
         $arr[] = $element;
       }
     }
+    dpm($arr);
     $item->elements = $arr;
     $item->elements[] = [
       'key' => 'guid',
