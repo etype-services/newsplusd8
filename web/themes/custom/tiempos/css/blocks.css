@@ -193,6 +193,9 @@
 #block-views-block-breaking-news-block-block-1 .content {
   margin-left: 1rem;
 }
+#block-views-block-breaking-news-block-block-1 .view .view-content > div {
+  margin-bottom: inherit;
+}
 
 @media screen and (max-width: 768px) {
   /* Hide content on mobile */

@@ -196,6 +196,9 @@
   .content {
     margin-left: 1rem;
   }
+  .view .view-content > div {
+    margin-bottom: inherit;
+  }
 }
 
 @media screen and (max-width: $tablet - 1px) {
