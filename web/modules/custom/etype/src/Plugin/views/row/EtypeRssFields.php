@@ -40,7 +40,7 @@ class EtypeRssFields extends RssFields {
     // Set the title and created date.
     $item->title = $node->getTitle();
     $date = date_create($node->getCreatedTime());
-    echo date_format($date, "Y/m/d H:i:s");
+    dpm(date_format($date, "Y/m/d H:i:s"));
     $item->elements[] = [
       'key' => 'pubDate',
       'value' => date_format($date, "Y/m/d H:i:s"),
