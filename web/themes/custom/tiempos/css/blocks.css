@@ -185,10 +185,13 @@
   align-items: center;
   background-color: #ff0000;
   padding: 1rem;
-  margin-top: -1.5rem;
+  margin-top: -2.5rem;
 }
 #block-views-block-breaking-news-block-block-1 .title, #block-views-block-breaking-news-block-block-1 a {
   color: #ffffff;
+}
+#block-views-block-breaking-news-block-block-1 .content {
+  margin-left: 1rem;
 }
 
 @media screen and (max-width: 768px) {
