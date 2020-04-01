@@ -36,11 +36,10 @@ class EtypeRssFields extends RssFields {
     $item = $build['#row'];
     $nid = $row->nid;
     $node = Node::load($nid);
-    var_dump($nid);
-    exit;
 
     // Set the title and created date.
     $item->title = $node->getTitle();
+    var_dump($node->created->value());
     // $date = date_create($node->created->value());
     //$date = date("Y-m-d\TH:i:s\Z", $node->created->value());
     //dpm($date);
