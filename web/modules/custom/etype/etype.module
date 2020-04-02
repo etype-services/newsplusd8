@@ -19,6 +19,9 @@ function etype_theme($existing, $type, $theme, $path) {
     'views_view_row_rss__news_rss_feed' => [
       'base hook' => 'view'
     ],
+    'views_view_row_rss__mailchimp_feed' => [
+      'base hook' => 'view'
+    ],
   ];
 }
 
@@ -123,7 +126,8 @@ function etype_e_editions() {
         break;
 
       default;
-        $ar2 = preg_split("/ID[0-9]+/", $arr[0]); // make LandingImage directory name
+        $ar2 = preg_split("/ID[0-9]+/", $arr[0]); // make LandingImage
+        // directory name
         $imagedir = trim($ar2[0]);
         $e_editions[$ptr]['image'] = $base_url . 'LandingPageImages/' . $imagedir .
           '/currentpg1.jpg';

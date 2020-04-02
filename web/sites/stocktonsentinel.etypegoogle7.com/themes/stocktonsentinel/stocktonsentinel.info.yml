@@ -1,0 +1,30 @@
+name: Newsplus for Stockton Sentinel
+type: theme
+base theme: newsplus
+description: 'A flexible, recolorable theme with many regions and a responsive, mobile-first layout.'
+version: 8.1.1
+core: 8.x
+regions:
+  pre_header_left: 'Pre Header Left'
+  pre_header_right: 'Pre header Right'
+  header_top_left: 'Header Top Left'
+  header_top_right: 'Header Top Right'
+  navigation: 'Navigation'
+  header: 'Header'
+  page_intro: 'Page Intro'
+  top_content: 'Top Content'
+  highlighted: 'Highlighted'
+  promoted: 'Promoted Area'
+  content: 'Content'
+  sidebar_first: 'First Sidebar'
+  sidebar_second: 'Second Sidebar'
+  leaderboard_footer: 'Leaderboard Footer'
+  footer_first: 'Footer First'
+  footer_second: 'Footer Second'
+  footer_third: 'Footer Third'
+  footer_fourth: 'Footer Fourth'
+  sub_footer_left: 'Subfooter Left'
+  footer: 'Subfooter Right'
+  hidden_blocks_collection: 'Hidden blocks collection'
+libraries:
+  - stocktonsentinel/global-styling
