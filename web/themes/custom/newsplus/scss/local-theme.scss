@@ -120,6 +120,11 @@ article {
   }
 }
 
+@media (max-width: 991px) & (min-width: 768px) {
+#pre-header-inside .row {
+  display: flex;
+}
+
 /* Site specific */
 .elrenotribune {
   #header-top {
