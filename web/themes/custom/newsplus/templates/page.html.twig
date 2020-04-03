@@ -33,6 +33,7 @@
  *   comment/reply/12345).
  *
  * Regions:
+ * - page.breaking_news: Items for the Breaking News region.
  * - page.pre_header_left: Items for the Pre Header Left region.
  * - page.pre_header_right: Items for the Pre header Right region.
  * - page.header_top_left: Items for the Header Top Left region.
@@ -59,6 +60,13 @@
 #}
 
 <header class="headers-wrapper">
+  {% if page.breaking_news %}
+    <div id="breaking-news">
+      <div class="container">
+        {{ page.breaking_news }}
+      </div>
+    </div>
+  {% endif %}
   {% if page.pre_header_left or page.pre_header_right %}
     {# #pre-header #}
     <div id="pre-header" class="clearfix {{ color_scheme_class }} {{ colored_area_class }}">
