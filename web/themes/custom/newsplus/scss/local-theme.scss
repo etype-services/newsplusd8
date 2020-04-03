@@ -101,13 +101,21 @@ article {
   }
 }
 
+/* Breaking news block */
+#block-views-block-breaking-news-block-block-1 {
+  display: flex;
+  align-items: center;
+  .content {
+    margin-left: 1rem;
+  }
+}
+
 /* Site specific */
 .elrenotribune {
   #header-top {
     background-color: #ffffff;
   }
 }
-
 
 /* Ponca City Ad in Header, also menu weirdness - no Account Menu */
 @media (min-width: 768px) {
