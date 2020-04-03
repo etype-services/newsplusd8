@@ -10,6 +10,7 @@
                 Cookies.remove("redirectDestination");
             });
             $(".user-logged-in .footer-menu a[data-drupal-link-system-path=\"etype-login\"]").parent().addClass("is-really-invisible");
+            $(".user-logged-in #etype_e_edition").parent('.menu-item').addClass("is-really-invisible");
         }
     };
 })(jQuery, Drupal);
