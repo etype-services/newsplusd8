@@ -100,10 +100,11 @@ article .field--name-field-tags h3 {
     display: inline-block;
   }
 }
-#pre-header-inside .row {
-  display: flex;
+@media (min-width: 768px) and (max-width: 991px) {
+  #pre-header-inside .row {
+    display: flex;
+  }
 }
-
 /* Site specific */
 .elrenotribune #header-top {
   background-color: #ffffff;
