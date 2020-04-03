@@ -94,6 +94,12 @@ article .field--name-field-tags h3 {
   margin-left: 1rem;
 }
 
+/* Account Menu */
+@media (max-width: 767px) {
+  #pre-header-right ul.menu .menu-item {
+    display: inline-block;
+  }
+}
 /* Site specific */
 .elrenotribune #header-top {
   background-color: #ffffff;
