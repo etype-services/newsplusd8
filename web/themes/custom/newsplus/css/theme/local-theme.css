@@ -87,6 +87,9 @@ article .field--name-field-tags h3 {
   display: flex;
   align-items: center;
 }
+#block-views-block-breaking-news-block-block-1 .title {
+  margin-bottom: 2px;
+}
 #block-views-block-breaking-news-block-block-1 .content {
   margin-left: 1rem;
 }
