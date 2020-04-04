@@ -35,15 +35,6 @@ class EtypeRss extends Rss {
     // theming output.
     $this->namespaces = ['xmlns:dc' => 'http://purl.org/dc/elements/1.1/'];
 
-    // Fetch any additional elements for the channel and merge in their
-    // namespaces.
-    $this->channel_elements = $this->getChannelElements();
-    foreach ($this->channel_elements as $element) {
-      if (isset($element['namespace'])) {
-        $this->namespaces = array_merge($this->namespaces, $element['namespace']);
-      }
-    }
-
     foreach ($this->view->result as $row_index => $row) {
       $this->view->row_index = $row_index;
       $rows[] = $this->view->rowPlugin->render($row);
