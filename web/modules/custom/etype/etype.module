@@ -333,26 +333,3 @@ function etype_metatags_alter(array &$metatags, array &$context) {
     }
   }
 }
-
-/**
- * Allow modules to define namespaces for RDF mappings.
- *
- * Many common namespace prefixes are defined in rdf_rdf_namespaces(). However,
- * if a module implements rdf mappings that use prefixes that are not
- * defined in rdf_rdf_namespaces(), this hook should be used to define the new
- * namespace prefixes.
- *
- * @return string[]
- *   An associative array of namespaces where the key is the namespace prefix
- *   and the value is the namespace URI.
- *
- * @ingroup rdf
- */
-function etype_rdf_namespaces() {
-  return [
-    'content'  => 'http://purl.org/rss/1.0/modules/content/',
-    'dc'       => 'http://purl.org/dc/elements/1.1/',
-    'foaf'     => 'http://xmlns.com/foaf/0.1/',
-    'rdfs'     => 'http://www.w3.org/2000/01/rdf-schema#',
-  ];
-}
