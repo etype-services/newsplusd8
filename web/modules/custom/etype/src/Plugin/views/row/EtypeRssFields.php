@@ -58,7 +58,7 @@ class EtypeRssFields extends RssFields {
     foreach ($item->elements as $element) {
       if ($element['key'] !== 'guid') {
         if ($element['key'] == 'pubDate') {
-          $date = date("D, d M Y H:i:s e", $node->created->value);
+          $date = date("D, d M Y H:i:s T", $node->created->value);
           $arr[] = [
             'key' => 'pubDate',
             'value' => $date,
