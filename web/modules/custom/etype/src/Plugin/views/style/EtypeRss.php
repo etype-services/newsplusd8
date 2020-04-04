@@ -20,6 +20,13 @@ use Drupal\views\Plugin\views\style\Rss;
 class EtypeRss extends Rss {
 
   /**
+   * Namespaces.
+   *
+   * @var array
+   */
+  private $namespaces;
+
+  /**
    * Override Views Rss styles.
    *
    * @return array
@@ -33,8 +40,6 @@ class EtypeRss extends Rss {
     }
     $rows = [];
 
-    // This will be filled in by the row plugin and is used later on in the
-    // theming output.
     $this->namespaces = ['xmlns:dc' => 'http://purl.org/dc/elements/1.1/'];
 
     foreach ($this->view->result as $row_index => $row) {
