@@ -350,5 +350,14 @@ function etype_metatags_alter(array &$metatags, array &$context) {
  */
 function etype_rdf_namespaces() {
   return [
+    'content'  => '',
+    'dc'       => '',
+    'foaf'     => '',
+    'og'       => '',
+    'rdfs'     => '',
+    'sioc'     => '',
+    'sioct'    => '',
+    'skos'     => '',
+    'xsd'      => '',
   ];
 }
