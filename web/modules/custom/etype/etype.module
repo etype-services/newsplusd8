@@ -19,6 +19,9 @@ function etype_theme($existing, $type, $theme, $path) {
     'views_view_row_rss__news_rss_feed' => [
       'base hook' => 'view'
     ],
+    'views_view_rss__mailchimp_feed' => [
+      'base hook' => 'view'
+    ],
     'views_view_row_rss__mailchimp_feed' => [
       'base hook' => 'view'
     ],
