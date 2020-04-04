@@ -2,6 +2,8 @@
 
 namespace Drupal\etype\Plugin\views\style;
 
+use Drupal\views\Plugin\views\style\Rss;
+
 /**
  * This is the eType style plugin to render an RSS feed.
  *
