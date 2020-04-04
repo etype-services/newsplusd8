@@ -21,7 +21,7 @@ use Drupal\views\Plugin\views\row\RssFields;
 class EtypeRssFields extends RssFields {
 
   /**
-   * Override Views Row to get custom RSS fields (image).
+   * Override Views Row to get custom RSS fields.
    *
    * @param mixed $row
    *   The row.
