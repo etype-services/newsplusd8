@@ -154,6 +154,11 @@
 
 /* Front Page Sections, class is applied in the View */
 .front-page-sections {
+  h2.field-content {
+    /* match top section */
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+  }
   .image-container {
     display: flex;
     align-items: center;
