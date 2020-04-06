@@ -20,13 +20,6 @@ use Drupal\views\Plugin\views\style\Rss;
 class EtypeRss extends Rss {
 
   /**
-   * Namespaces.
-   *
-   * @var array
-   */
-  private $namespaces;
-
-  /**
    * Override Views Rss styles.
    *
    * @return array
