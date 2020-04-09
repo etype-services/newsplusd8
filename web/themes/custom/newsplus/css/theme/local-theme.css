@@ -82,6 +82,25 @@ article .field--name-field-tags h3 {
   display: none;
 }
 
+/* Breaking news block */
+#block-views-block-breaking-news-block-block-1 {
+  display: flex;
+  align-items: center;
+  background-color: #ce0000;
+  padding: 1rem 1rem 0.5rem 1rem;
+  margin-top: -1.5rem;
+}
+#block-views-block-breaking-news-block-block-1 .title, #block-views-block-breaking-news-block-block-1 a {
+  color: #ffffff;
+  font-weight: bold;
+}
+#block-views-block-breaking-news-block-block-1 .content {
+  margin-left: 1rem;
+}
+#block-views-block-breaking-news-block-block-1 .view .view-content > div {
+  margin-bottom: inherit;
+}
+
 /* Site specific */
 .elrenotribune #header-top {
   background-color: #ffffff;
