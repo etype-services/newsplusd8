@@ -106,7 +106,11 @@ article {
   display: flex;
   align-items: center;
   background-color: #ce0000;
+  .views-field-title a {
+    color: #ffffff;
+  }
   .title {
+    color: #ffffff;
     margin-bottom: 2px;
   }
   .content {

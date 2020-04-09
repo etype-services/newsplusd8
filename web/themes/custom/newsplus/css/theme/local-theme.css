@@ -88,7 +88,11 @@ article .field--name-field-tags h3 {
   align-items: center;
   background-color: #ce0000;
 }
+#block-views-block-breaking-news-block-block-1 .views-field-title a {
+  color: #ffffff;
+}
 #block-views-block-breaking-news-block-block-1 .title {
+  color: #ffffff;
   margin-bottom: 2px;
 }
 #block-views-block-breaking-news-block-block-1 .content {
