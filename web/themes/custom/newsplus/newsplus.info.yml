@@ -12,6 +12,7 @@ libraries:
   - newsplus/messages
   - newsplus/local-stylesheets
 regions:
+  breaking_news: 'Breaking News'
   pre_header_left: 'Pre Header Left'
   pre_header_right: 'Pre header Right'
   header_top_left: 'Header Top Left'

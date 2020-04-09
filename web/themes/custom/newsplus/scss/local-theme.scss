@@ -120,13 +120,37 @@ article {
   }
 }
 
+/* Breaking news block */
+#block-views-block-breaking-news-block-block-1 {
+  display: flex;
+  align-items: center;
+  .title {
+    margin-bottom: 2px;
+  }
+  .content {
+    margin-left: 1rem;
+  }
+}
+
+/* Account Menu */
+@media (max-width: 991px) {
+  #pre-header-right ul.menu .menu-item {
+    display: inline-block;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #pre-header-inside .row {
+    display: flex;
+  }
+}
+
 /* Site specific */
 .elrenotribune {
   #header-top {
     background-color: #ffffff;
   }
 }
-
 
 /* Ponca City Ad in Header, also menu weirdness - no Account Menu */
 @media (min-width: 768px) {

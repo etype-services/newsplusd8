@@ -21,7 +21,7 @@ use Drupal\views\Plugin\views\row\RssFields;
 class EtypeRssFields extends RssFields {
 
   /**
-   * Override Views Row to get custom RSS fields (image).
+   * Override Views Row to get custom RSS fields.
    *
    * @param mixed $row
    *   The row.
@@ -58,7 +58,7 @@ class EtypeRssFields extends RssFields {
     foreach ($item->elements as $element) {
       if ($element['key'] !== 'guid') {
         if ($element['key'] == 'pubDate') {
-          $date = date("Y-m-d\TH:i:s\Z", $node->created->value);
+          $date = date("D, d M Y H:i:s T", $node->created->value);
           $arr[] = [
             'key' => 'pubDate',
             'value' => $date,
