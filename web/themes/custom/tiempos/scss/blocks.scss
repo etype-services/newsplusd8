@@ -145,6 +145,11 @@
   }
 }
 
+#block-weatherwidget-2 {
+  display: flex;
+  justify-content: center;
+}
+
 /* Custom Blocks */
 #block-friends2followsidebar, #block-friends2followsidebar-2 {
   iframe {
