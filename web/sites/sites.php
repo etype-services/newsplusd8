@@ -108,3 +108,4 @@ $sites['www.cushingcitizen.com'] = "cushingcitizen.etypegoogle7.com";
 $sites['www.sansabanews.com'] = "sansabanews.etypegoogle7.com";
 $sites['www.wcns.news'] = "wcns.etypegoogle7.com";
 $sites['www.fredericksburgstandard.com'] = "fredericksburgstandard.etypegoogle7.com";
+$sites['www.wdnonline.com'] = "wdnonline.etypegoogle7.com";
