@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\etype\Plugin\Block;
+namespace Drupal\etype_blue_orchid\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Render\Markup;
