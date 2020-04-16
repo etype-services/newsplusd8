@@ -4,6 +4,8 @@ Copyright (c) 2010 - 2020 Robin Herbots Licensed under the MIT license ([http://
 
 [![donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZNR3EB6JTMMSS)
   
+[Make a donation with crypto](https://commerce.coinbase.com/checkout/9b2138a0-ad82-4155-92ba-bfc688fb6974)
+
 [![NPM Version][npm-image]][npm-url] [![Dependency Status][david-image]][david-url] [![devDependency Status][david-dev-image]][david-dev-url]
 
 Inputmask is a javascript library which creates an input mask.  Inputmask can run against vanilla javascript, jQuery and jqlite.
@@ -33,11 +35,7 @@ Highlights:
 
 Demo page see [http://robinherbots.github.io/Inputmask](http://robinherbots.github.io/Inputmask)
 
-Thanks to [Jetbrains](https://www.jetbrains.com/?from=inputmask) for providing a free license for their excellent Webstorm IDE.  
-<a href="https://www.jetbrains.com/?from=inputmask">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/JetBrains_Logo_2016.svg" alt="Jetbrains">
-</a>
-    
+Thanks to [Jetbrains](https://www.jetbrains.com/) for providing a free license for their excellent Webstorm IDE.  
 Thanks to [Browserstack](https://www.browserstack.com) for providing a free license, so we can start automating test in different browsers and devices.  
 <a href="https://www.browserstack.com">
   <img src="https://www.browserstack.com/images/layout/browserstack-logo-600x315.png" alt="Browserstack" width="150">
@@ -94,6 +92,17 @@ var Inputmask = require('inputmask');
 import Inputmask from "inputmask";
 ```
 
+#### Selecting the dependencyLib
+By default the vanilla dependencyLib is used.  You can select another dependency
+by creating an alias in the webpack.config.
+
+```
+ resolve: {
+        alias: {
+            "./dependencyLibs/inputmask.dependencyLib": "./dependencyLibs/inputmask.dependencyLib.jquery"
+        }
+    },
+```
 ## Usage
 ### via Inputmask class
 
@@ -1028,7 +1037,7 @@ $(selector).inputmask({
 ```
 
 ### postValidation
-Hook to postValidate the result from isValid.  Usefull for validating the entry as a whole.  Args => buffer, pos, c, currentResult, opts, maskset, strict, fromCheckval<br>Return => true|false|command object
+Hook to postValidate the result from isValid.  Usefull for validating the entry as a whole.  Args => buffer, pos, c, currentResult, opts, maskset, strict<br>Return => true|false|command object
 
 ### preValidation
 Hook to preValidate the input.  Useful for validating regardless the definition. Args => buffer, pos, char, isSelection, opts, maskset, caretPos, strict => return true/false/command object

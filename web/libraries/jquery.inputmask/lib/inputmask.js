@@ -20,6 +20,7 @@ function Inputmask(alias, options, internal) {
 	this.el = undefined;
 	this.events = {};
 	this.maskset = undefined;
+	this.refreshValue = false; //indicate a refresh from the inputvalue is needed (form.reset)
 
 	if (internal !== true) {
 		//init options
@@ -35,19 +36,6 @@ function Inputmask(alias, options, internal) {
 		resolveAlias(this.opts.alias, options, this.opts);
 		this.isRTL = this.opts.numericInput;
 	}
-
-	//maskscope properties
-	this.refreshValue = false; //indicate a refresh from the inputvalue is needed (form.reset)
-	this.undoValue = undefined;
-	this.$el = undefined;
-	this.skipKeyPressEvent = false; //Safari 5.1.x - modal dialog fires keypress twice workaround
-	this.skipInputEvent = false; //skip when triggered from within inputmask
-	this.validationEvent = false;
-	this.ignorable = false;
-	this.maxLength;
-	this.mouseEnter = false;
-	this.originalPlaceholder = undefined; //needed for FF
-	this.isComposing = false; //keydowncode == 229  compositionevent fallback
 }
 
 Inputmask.prototype = {
@@ -102,7 +90,7 @@ Inputmask.prototype = {
 		ignorables: [8, 9, 19, 27, 33, 34, 35, 36, 37, 38, 39, 40, 45, 46, 93, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 0, 229],
 		isComplete: null, //override for isComplete - args => buffer, opts - return true || false
 		preValidation: null, //hook to preValidate the input.  Usefull for validating regardless the definition.	args => buffer, pos, char, isSelection, opts, maskset, caretPos, strict => return true/false/command object
-		postValidation: null, //hook to postValidate the result from isValid.	Usefull for validating the entry as a whole.	args => buffer, pos, c, currentResult, opts, maskset, strict, fromCheckval => return true/false/json
+		postValidation: null, //hook to postValidate the result from isValid.	Usefull for validating the entry as a whole.	args => buffer, pos, c, currentResult, opts, maskset, strict => return true/false/json
 		staticDefinitionSymbol: undefined, //specify a definitionSymbol for static content, used to make matches for alternators
 		jitMasking: false, //just in time masking ~ only mask while typing, can n (number), true or false
 		nullable: true, //return nothing instead of the buffertemplate when the user hasn't entered anything.
@@ -116,7 +104,7 @@ Inputmask.prototype = {
 	},
 	definitions: {
 		"9": { //\uFF11-\uFF19 #1606
-			validator: "[0-9\uFF10-\uFF19]",
+			validator: "[0-9\uFF11-\uFF19]",
 			definitionSymbol: "*"
 		},
 		"a": { //\u0410-\u044F\u0401\u0451\u00C0-\u00FF\u00B5 #76
@@ -124,7 +112,7 @@ Inputmask.prototype = {
 			definitionSymbol: "*"
 		},
 		"*": {
-			validator: "[0-9\uFF10-\uFF19A-Za-z\u0410-\u044F\u0401\u0451\u00C0-\u00FF\u00B5]"
+			validator: "[0-9\uFF11-\uFF19A-Za-z\u0410-\u044F\u0401\u0451\u00C0-\u00FF\u00B5]"
 		}
 	},
 	aliases: {}, //aliases definitions
@@ -151,10 +139,9 @@ Inputmask.prototype = {
 					el.inputmask.userOptions = $.extend(true, {}, that.userOptions);
 					el.inputmask.isRTL = scopedOpts.isRTL || scopedOpts.numericInput;
 					el.inputmask.el = el;
-					el.inputmask.$el = $(el);
 					el.inputmask.maskset = maskset;
 
-					$.data(el, "_inputmask_opts", that.userOptions);
+					$.data(el, "_inputmask_opts", scopedOpts);
 
 					maskScope.call(el.inputmask, {
 						"action": "mask"
@@ -240,17 +227,16 @@ function resolveAlias(aliasStr, options, opts) {
 		$.extend(true, opts, options); //reapply extra given options
 		return true;
 	} else //alias not found - try as mask
-	if (opts.mask === null) {
-		opts.mask = aliasStr;
-	}
+		if (opts.mask === null) {
+			opts.mask = aliasStr;
+		}
 
 	return false;
 }
 
 function importAttributeOptions(npt, opts, userOptions, dataAttribute) {
 	function importOption(option, optionData) {
-		const attrOption = dataAttribute === "" ? option : dataAttribute + "-" + option;
-		optionData = optionData !== undefined ? optionData : npt.getAttribute(attrOption);
+		optionData = optionData !== undefined ? optionData : npt.getAttribute(dataAttribute + "-" + option);
 		if (optionData !== null) {
 			if (typeof optionData === "string") {
 				if (option.indexOf("on") === 0) {
@@ -353,6 +339,10 @@ Inputmask.setValue = function (elems, value) {
 	$.each(elems, function (ndx, el) {
 		if (el.inputmask) el.inputmask.setValue(value); else $(el).trigger("setvalue", [value]);
 	});
+};
+var escapeRegexRegex = new RegExp("(\\" + ["/", ".", "*", "+", "?", "|", "(", ")", "[", "]", "{", "}", "\\", "$", "^"].join("|\\") + ")", "gim");
+Inputmask.escapeRegex = function (str) {
+	return str.replace(escapeRegexRegex, "\\$1");
 };
 
 Inputmask.dependencyLib = $;
