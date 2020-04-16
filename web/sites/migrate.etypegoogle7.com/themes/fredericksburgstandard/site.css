@@ -16,4 +16,9 @@
   margin-bottom: inherit;
 }
 
+/* fix mailchimp signup form */
+#mc_embed_signup .mc-field-group.input-group input {
+  margin-right: 0.5em;
+}
+
 /*# sourceMappingURL=site.css.map */
