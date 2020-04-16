@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\migrate_custom\Plugin\migrate\source\Term.
- */
-
 namespace Drupal\migrate_custom\Plugin\migrate\source;
 
 use Drupal\migrate\Row;
@@ -26,24 +21,23 @@ class Term extends SqlBase {
    * {@inheritdoc}
    */
   public function query() {
-    $query = $this->select('taxonomy_term_data', 'td')
-      ->fields('td', array('tid', 'vid', 'name', 'description', 'weight', 'format'))
+    return $this->select('taxonomy_term_data', 'td')
+      ->fields('td', ['tid', 'vid', 'name', 'description', 'weight', 'format'])
       ->distinct();
-    return $query;
   }
 
   /**
    * {@inheritdoc}
    */
   public function fields() {
-    return array(
+    return [
       'tid' => $this->t('The term ID.'),
       'vid' => $this->t('Existing term VID'),
       'name' => $this->t('The name of the term.'),
       'description' => $this->t('The term description.'),
       'weight' => $this->t('Weight'),
       'parent' => $this->t("The Drupal term IDs of the term's parents."),
-    );
+    ];
   }
 
   /**
@@ -52,7 +46,7 @@ class Term extends SqlBase {
   public function prepareRow(Row $row) {
     // Find parents for this row.
     $parents = $this->select('taxonomy_term_hierarchy', 'th')
-      ->fields('th', array('parent', 'tid'))
+      ->fields('th', ['parent', 'tid'])
       ->condition('tid', $row->getSourceProperty('tid'))
       ->execute()
       ->fetchCol();

@@ -1,13 +1,7 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\migrate_custom\Plugin\migrate\source\Vocabulary.
- */
-
 namespace Drupal\migrate_custom\Plugin\migrate\source;
 
-use Drupal\migrate\Row;
 use Drupal\migrate\Plugin\migrate\source\SqlBase;
 
 /**
@@ -24,24 +18,23 @@ class Vocabulary extends SqlBase {
    * {@inheritdoc}
    */
   public function query() {
-    $query = $this->select('taxonomy_vocabulary', 'v')
-      ->fields('v', array(
+    return $this->select('taxonomy_vocabulary', 'v')
+      ->fields('v', [
         'vid',
         'name',
         'description',
         'hierarchy',
         'module',
         'weight',
-        'machine_name'
-      ));
-    return $query;
+        'machine_name',
+      ]);
   }
 
   /**
    * {@inheritdoc}
    */
   public function fields() {
-    return array(
+    return [
       'vid' => $this->t('The vocabulary ID.'),
       'name' => $this->t('The name of the vocabulary.'),
       'description' => $this->t('The description of the vocabulary.'),
@@ -51,7 +44,7 @@ class Vocabulary extends SqlBase {
       'weight' => $this->t('The weight of the vocabulary in relation to other vocabularies.'),
       'parents' => $this->t("The Drupal term IDs of the term's parents."),
       'node_types' => $this->t('The names of the node types the vocabulary may be used with.'),
-    );
+    ];
   }
 
   /**
