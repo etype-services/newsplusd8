@@ -1,0 +1,25 @@
+@import "../../../../themes/custom/tiempos/scss/vars";
+
+#block-fredericksburgstandard-views-block-breaking-news-block-block-1 {
+  margin-bottom: 0!important;
+  .view-id-breaking_news {
+    display: flex;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+    font-size: 1.2rem;
+    align-items: center;
+    .view-header {
+      white-space: nowrap;
+      margin-right: calc(#{$column-gap} / 2);
+      h3 > .svg-inline--fa {
+        vertical-align: -.15em!important;
+      }
+    }
+    .view-content {
+      a {
+        white-space: nowrap;
+        color: #800000;
+      }
+    }
+  }
+}
