@@ -1,24 +1,19 @@
-/* Center column for tiempos theme */
 #block-fredericksburgstandard-views-block-breaking-news-block-block-1 {
-  margin-bottom: 0 !important;
-}
-#block-fredericksburgstandard-views-block-breaking-news-block-block-1 .view-id-breaking_news {
   display: flex;
-  margin-bottom: 0.75rem;
-  overflow: hidden;
-  font-size: 1.2rem;
   align-items: center;
+  background-color: #ce0000;
+  padding: 1rem 1rem 0.5rem 1rem;
+  margin-top: -1.5rem;
 }
-#block-fredericksburgstandard-views-block-breaking-news-block-block-1 .view-id-breaking_news .view-header {
-  white-space: nowrap;
-  margin-right: calc(0.75rem / 2);
+#block-fredericksburgstandard-views-block-breaking-news-block-block-1 .title, #block-fredericksburgstandard-views-block-breaking-news-block-block-1 a {
+  color: #ffffff;
+  font-weight: bold;
 }
-#block-fredericksburgstandard-views-block-breaking-news-block-block-1 .view-id-breaking_news .view-header h3 > .svg-inline--fa {
-  vertical-align: -0.15em !important;
+#block-fredericksburgstandard-views-block-breaking-news-block-block-1 .content {
+  margin-left: 1rem;
 }
-#block-fredericksburgstandard-views-block-breaking-news-block-block-1 .view-id-breaking_news .view-content a {
-  white-space: nowrap;
-  color: #800000;
+#block-fredericksburgstandard-views-block-breaking-news-block-block-1 .view .view-content > div {
+  margin-bottom: inherit;
 }
 
 /*# sourceMappingURL=site.css.map */
