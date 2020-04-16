@@ -145,11 +145,6 @@
   }
 }
 
-#block-weatherwidget-2 {
-  display: flex;
-  justify-content: center;
-}
-
 /* Custom Blocks */
 #block-friends2followsidebar, #block-friends2followsidebar-2 {
   iframe {
@@ -183,6 +178,8 @@
   width: 100%;
   height: 64px;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 .region-content .block-etype-block {
