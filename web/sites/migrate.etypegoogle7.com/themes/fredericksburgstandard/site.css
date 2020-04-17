@@ -31,6 +31,9 @@
 }
 
 @media screen and (min-width: 769px) {
+  .view-taxonomy-term .node--view-mode-teaser {
+    min-height: unset;
+  }
   .view-taxonomy-term .node--view-mode-teaser .image-container {
     margin-right: 0;
   }

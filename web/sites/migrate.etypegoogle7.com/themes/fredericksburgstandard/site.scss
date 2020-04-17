@@ -38,6 +38,7 @@
 @media screen and (min-width: $tablet) {
   .view-taxonomy-term {
     .node--view-mode-teaser {
+      min-height: unset;
       .image-container {
         margin-right: 0;
       }
