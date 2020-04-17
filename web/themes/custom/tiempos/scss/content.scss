@@ -98,6 +98,9 @@
         justify-content: space-around;
         margin-bottom: $column-gap;
       }
+      h2 {
+        font-size: 1.2rem;
+      }
     }
     /* Small and Embedded images */
     .field--name-field-small-image, .field--name-body p.align-left {
