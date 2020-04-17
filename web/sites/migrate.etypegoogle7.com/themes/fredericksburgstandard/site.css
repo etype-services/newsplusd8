@@ -30,7 +30,7 @@
   margin-right: 0.5rem;
 }
 .view-taxonomy-term .node--view-mode-teaser .node__content .submitted {
-  position: inherit;
+  position: inherit !important;
 }
 
 .view-taxonomy-term article.node--type-article.node--view-mode-teaser .node__content .submitted {
