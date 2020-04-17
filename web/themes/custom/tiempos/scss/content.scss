@@ -64,6 +64,15 @@
   }
 }
 
+/* All Content Types */
+article {
+  .node__content {
+    h2 {
+      font-size: 1.2rem;
+    }
+  }
+}
+
 /* Article formatting. */
 .page-node-type-article {
   #block-pagetitle-2 {
@@ -97,9 +106,6 @@
         display: flex;
         justify-content: space-around;
         margin-bottom: $column-gap;
-      }
-      h2 {
-        font-size: 1.2rem;
       }
     }
     /* Small and Embedded images */

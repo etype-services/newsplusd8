@@ -65,6 +65,11 @@
   content: "...";
 }
 
+/* All Content Types */
+article .node__content h2 {
+  font-size: 1.2rem;
+}
+
 /* Article formatting. */
 .page-node-type-article #block-pagetitle-2 {
   margin-bottom: 0;
@@ -95,9 +100,6 @@
   display: flex;
   justify-content: space-around;
   margin-bottom: 0.75rem;
-}
-.page-node-type-article article .node__content h2 {
-  font-size: 1.2rem;
 }
 .page-node-type-article article .field--name-field-small-image, .page-node-type-article article .field--name-body p.align-left {
   float: left;
