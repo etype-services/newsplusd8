@@ -21,4 +21,12 @@
   margin-right: 0.5em;
 }
 
+/* switch image position on taxonomy pages */
+.view-taxonomy-term .node--view-mode-teaser .image-container, .view-classified .node--view-mode-teaser .image-container {
+  float: left;
+  width: 30%;
+  margin-right: 0.5rem;
+  margin-top: 0.3rem;
+}
+
 /*# sourceMappingURL=site.css.map */
