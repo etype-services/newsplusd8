@@ -31,14 +31,16 @@
 }
 
 @media screen and (min-width: 769px) {
-  .view-taxonomy-term .node--view-mode-teaser {
-    min-height: unset;
-  }
   .view-taxonomy-term .node--view-mode-teaser .image-container {
     margin-right: 0;
   }
   .view-taxonomy-term .node--view-mode-teaser h2, .view-taxonomy-term .node--view-mode-teaser .submitted, .view-taxonomy-term .node--view-mode-teaser .field--name-body {
     margin-left: 32%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .view-taxonomy-term .node--view-mode-teaser {
+    min-height: unset;
   }
 }
 
