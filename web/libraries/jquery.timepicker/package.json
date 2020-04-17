@@ -1,6 +1,6 @@
 {
   "name": "timepicker",
-  "version": "1.11.14",
+  "version": "1.13.0",
   "title": "jquery-timepicker",
   "author": {
     "name": "Jon Thornton",
@@ -16,7 +16,7 @@
     "jquery": ">=1.7"
   },
   "devDependencies": {
-    "grunt": "~0.4.1",
+    "grunt": "^0.4.5",
     "grunt-cli": "~0.1.9",
     "grunt-contrib-cssmin": "~0.4.1",
     "grunt-contrib-jshint": "^0.11.3",

@@ -1,27 +1,7 @@
 # Change Log
 
-## [5.0.4 - UNRELEASED]
-### Add
-- numeric alias
-    - SetMaxOnOverflow option
-### Updates
-- datetime alias: add autofill logic to year
-    - complete with current year
-    - allow filled year be overtyped when min date is provided,
-- \<input-mask> enhance attribute handling
-
-### Fixed
-- Datetime alias 29/02/a valid year does not always allows #2286
-- 'input-mask' has already been defined as a custom element #2285
-- Using min with alias integer not working correctly because of postValidation #2284
-- fix double events when using jQuery.clone function
-- Alternative for removed integerDigits property? #2278
-- Incorrect mask operation when deleting the value set through "value", "val", "setvalue". #2279
-- Cursor jumps to end of mask if changing value during typing #2274
-
 ## [5.0.3 - 11/01/2020
 ### Fixed
-- regex mask crashes for long input size #2276
 - Pasted value is getting mixed up #2255
 - Swapped digits on paste with specific prefix #2256
 

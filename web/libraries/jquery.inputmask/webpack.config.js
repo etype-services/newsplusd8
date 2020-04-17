@@ -21,15 +21,6 @@ var rules = {
 			plugins: ["@babel/plugin-transform-modules-commonjs"],
 			passPerPreset: true,
 		},
-	},
-	ts: {
-		test: /\.tsx?$/,
-		loader: "babel-loader",
-		exclude: /(node_modules)/,
-		options: {
-			presets: ["@babel/preset-typescript"],
-			passPerPreset: true,
-		},
 	}
 };
 
@@ -102,8 +93,7 @@ module.exports = function (env, argv) {
 		},
 		module: {
 			rules: [
-				rules.js,
-				rules.ts
+				rules.js
 			]
 		},
 		resolve: {

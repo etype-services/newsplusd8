@@ -1,5 +1,3 @@
-import "./getPrototypeOf";
-
 var $ = require("./dependencyLibs/inputmask.dependencyLib"), window = require("./global/window"),
 	document = window.document,
 	ua = (window.navigator && window.navigator.userAgent) || "",
@@ -11,12 +9,22 @@ var $ = require("./dependencyLibs/inputmask.dependencyLib"), window = require(".
 
 //masking scope
 //actionObj definition see below
-module.exports = function maskScope(actionObj) {
+module.exports = function maskScope(actionObj, maskset, opts) {
+	maskset = maskset || this.maskset;
+	opts = opts || this.opts;
+
 	var inputmask = this,
-		maskset = inputmask.maskset,
-		opts = inputmask.opts,
-		el = inputmask.el,
-		isRTL = inputmask.isRTL || (inputmask.isRTL = opts.numericInput);
+		el = this.el,
+		isRTL = this.isRTL || (this.isRTL = opts.numericInput),
+		undoValue,
+		$el,
+		skipKeyPressEvent = false, //Safari 5.1.x - modal dialog fires keypress twice workaround
+		skipInputEvent = false, //skip when triggered from within inputmask
+		validationEvent = false,
+		ignorable = false,
+		maxLength,
+		mouseEnter = false,
+		originalPlaceholder = undefined; //needed for FF
 
 	//maskset helperfunctions
 	function getMaskTemplate(baseOnInput, minimalPos, includeMode, noJit, clearOptionalTail) {
@@ -53,7 +61,7 @@ module.exports = function maskScope(actionObj) {
 			}
 
 			pos++;
-		} while ((inputmask.maxLength === undefined || pos < inputmask.maxLength) && (test.static !== true || test.def !== "") || minimalPos > pos);
+		} while ((maxLength === undefined || pos < maxLength) && (test.static !== true || test.def !== "") || minimalPos > pos);
 		if (maskTemplate[maskTemplate.length - 1] === "") {
 			maskTemplate.pop(); //drop the last one which is empty
 		}
@@ -282,7 +290,7 @@ module.exports = function maskScope(actionObj) {
 					return true;
 				}
 
-				if (testPos > (pos + opts._maxTestPos)) {
+				if (testPos > opts._maxTestPos && quantifierRecurse !== undefined) {
 					throw "Inputmask: There is probably an error in your mask definition or in the code. Create an issue on github with an example of the mask you are using. " + maskset.mask;
 				}
 				if (testPos === pos && match.matches === undefined) {
@@ -490,7 +498,7 @@ module.exports = function maskScope(actionObj) {
 			return locator;
 		}
 
-		if (pos > -1 && (inputmask.maxLength === undefined || pos < inputmask.maxLength)) {
+		if (pos > -1 && (maxLength === undefined || pos < maxLength)) {
 			if (ndxIntlzr === undefined) { //determine index initializer
 				var previousPos = pos - 1,
 					test;
@@ -575,7 +583,7 @@ module.exports = function maskScope(actionObj) {
 		var keypress = new $.Event("keypress");
 		for (i = start; i < end; i++) {
 			keypress.which = bffr[i].toString().charCodeAt(0);
-			inputmask.ignorable = false; //make sure ignorable is ignored ;-)
+			ignorable = false; //make sure ignorable is ignored ;-)
 			var valResult = EventHandlers.keypressEvent.call(el, keypress, true, false, false, p);
 			if (valResult !== false) {
 				p = valResult.forwardPosition;
@@ -743,7 +751,7 @@ module.exports = function maskScope(actionObj) {
 		return returnRslt;
 	}
 
-	function isValid(pos, c, strict, fromIsValid, fromAlternate, validateOnly, fromCheckval) { //strict true ~ no correction or autofill
+	function isValid(pos, c, strict, fromIsValid, fromAlternate, validateOnly) { //strict true ~ no correction or autofill
 		function isSelection(posObj) {
 			return isRTL ? (posObj.begin - posObj.end) > 1 || ((posObj.begin - posObj.end) === 1) :
 				(posObj.end - posObj.begin) > 1 || ((posObj.end - posObj.begin) === 1);
@@ -852,7 +860,7 @@ module.exports = function maskScope(actionObj) {
 			result = processCommandObject(result);
 		}
 		if (result === true) { //preValidation result
-			if (inputmask.maxLength === undefined || maskPos < inputmask.maxLength) {
+			if (maxLength === undefined || maskPos < maxLength) {
 				result = _isValid(maskPos, c, strict);
 				if ((!strict || fromIsValid === true) && result === false && validateOnly !== true) {
 					var currentPosValid = maskset.validPositions[maskPos];
@@ -907,7 +915,7 @@ module.exports = function maskScope(actionObj) {
 			}
 		}
 		if ($.isFunction(opts.postValidation) && fromIsValid !== true && validateOnly !== true) {
-			var postResult = opts.postValidation.call(el, getBuffer(true), pos.begin !== undefined ? (isRTL ? pos.end : pos.begin) : pos, c, result, opts, maskset, strict, fromCheckval);
+			var postResult = opts.postValidation.call(el, getBuffer(true), pos.begin !== undefined ? (isRTL ? pos.end : pos.begin) : pos, c, result, opts, maskset, strict);
 			if (postResult !== undefined) {
 				result = postResult === true ? result : postResult;
 			}
@@ -1120,7 +1128,7 @@ module.exports = function maskScope(actionObj) {
 			}
 			if (triggerEvents === true) {
 				var $input = $(input), nptVal = input.inputmask._valueGet();
-				input.inputmask.skipInputEvent = true;
+				skipInputEvent = true;
 				$input.trigger("input");
 				setTimeout(function () { //timeout needed for IE
 					if (nptVal === getBufferTemplate().join("")) {
@@ -1258,25 +1266,27 @@ module.exports = function maskScope(actionObj) {
 					e = e.originalEvent || e; //get original event from jquery evenbt
 					arguments[0] = e;
 				}
-				// console.log(e.type);
-				var that = this, args, inputmask = that.inputmask;
-				if (inputmask === undefined && this.nodeName !== "FORM") { //happens when cloning an object with jquery.clone
+
+
+				var that = this, args;
+				if (that.inputmask === undefined && this.nodeName !== "FORM") { //happens when cloning an object with jquery.clone
 					var imOpts = $.data(that, "_inputmask_opts");
-					$(that).off(); //unbind all events
 					if (imOpts) {
 						(new Inputmask(imOpts)).mask(that);
+					} else {
+						EventRuler.off(that);
 					}
 				} else if (e.type !== "setvalue" && this.nodeName !== "FORM" && (that.disabled || (that.readOnly && !(e.type === "keydown" && (e.ctrlKey && e.keyCode === 67) || (opts.tabThrough === false && e.keyCode === keyCode.TAB))))) {
 					e.preventDefault();
 				} else {
 					switch (e.type) {
 						case "input":
-							if (inputmask.skipInputEvent === true || (e.inputType && e.inputType === "insertCompositionText")) {
-								inputmask.skipInputEvent = false;
+							if (skipInputEvent === true || (e.inputType && e.inputType === "insertCompositionText")) {
+								skipInputEvent = false;
 								return e.preventDefault();
 							}
 
-							// if (mobile) { //this causes problem see #2220
+							// if (mobile) { //this caudes problem see #2220
 							// 	args = arguments;
 							// 	setTimeout(function () { //needed for caret selection when entering a char on Android 8 - #1818
 							// 		eventHandler.apply(that, args);
@@ -1287,25 +1297,19 @@ module.exports = function maskScope(actionObj) {
 							break;
 						case "keydown":
 							//Safari 5.1.x - modal dialog fires keypress twice workaround
-							inputmask.skipKeyPressEvent = false;
-							inputmask.skipInputEvent = inputmask.isComposing = e.keyCode === keyCode.KEY_229;
-							break;
-						case "keyup":
-						case "compositionend":
-							if (inputmask.isComposing) {
-								inputmask.skipInputEvent = false;
-							}
+							skipKeyPressEvent = false;
+							skipInputEvent = false;
 							break;
 						case "keypress":
-							if (inputmask.skipKeyPressEvent === true) {
+							if (skipKeyPressEvent === true) {
 								return e.preventDefault();
 							}
-							inputmask.skipKeyPressEvent = true;
+							skipKeyPressEvent = true;
 							break;
 						case "click":
 						case "focus":
-							if (inputmask.validationEvent) { // #841
-								inputmask.validationEvent = false;
+							if (validationEvent) { // #841
+								validationEvent = false;
 								input.blur();
 								HandleNativePlaceholder(input, (isRTL ? getBufferTemplate().slice().reverse() : getBufferTemplate()).join(""));
 								setTimeout(function () {
@@ -1387,7 +1391,7 @@ module.exports = function maskScope(actionObj) {
 				e.preventDefault();
 				caret(input, 0, e.shiftKey ? pos.begin : 0, true);
 			} else if (((opts.undoOnEscape && k === keyCode.ESCAPE) || (k === 90 && e.ctrlKey)) && e.altKey !== true) { //escape && undo && #762
-				checkVal(input, true, false, inputmask.undoValue.split(""));
+				checkVal(input, true, false, undoValue.split(""));
 				$input.trigger("click");
 				// } else if (k === keyCode.INSERT && !(e.shiftKey || e.ctrlKey) && inputmask.userOptions.insertMode === undefined) { //insert
 				// 	opts.insertMode = !opts.insertMode;
@@ -1431,22 +1435,22 @@ module.exports = function maskScope(actionObj) {
 				}
 			}
 
-			inputmask.ignorable = $.inArray(k, opts.ignorables) !== -1;
+			ignorable = $.inArray(k, opts.ignorables) !== -1;
 		},
 		keypressEvent: function (e, checkval, writeOut, strict, ndx) {
 			var input = this,
 				$input = $(input),
 				k = e.which || e.charCode || e.keyCode;
 
-			if (checkval !== true && (!(e.ctrlKey && e.altKey) && (e.ctrlKey || e.metaKey || inputmask.ignorable))) {
-				if (k === keyCode.ENTER && inputmask.undoValue !== getBuffer().join("")) {
-					inputmask.undoValue = getBuffer().join("");
+			if (checkval !== true && (!(e.ctrlKey && e.altKey) && (e.ctrlKey || e.metaKey || ignorable))) {
+				if (k === keyCode.ENTER && undoValue !== getBuffer().join("")) {
+					undoValue = getBuffer().join("");
 					// e.preventDefault();
 					setTimeout(function () {
 						$input.trigger("change");
 					}, 0);
 				}
-				inputmask.skipInputEvent = true; //skip the input as otherwise the skipped char could be picked up for validation by the inputfallback
+				skipInputEvent = true; //skip the input as otherwise the skipped char could be picked up for validation by the inputfallback
 				return true;
 			} else if (k) {
 				//special treat the decimal separator
@@ -1458,7 +1462,7 @@ module.exports = function maskScope(actionObj) {
 					forwardPosition, c = String.fromCharCode(k);
 
 				maskset.writeOutBuffer = true;
-				var valResult = isValid(pos, c, strict, undefined, undefined, undefined, checkval);
+				var valResult = isValid(pos, c, strict);
 				if (valResult !== false) {
 					resetMaskSet(true);
 					forwardPosition = valResult.caret !== undefined ? valResult.caret : seekNext(valResult.pos.begin ? valResult.pos.begin : valResult.pos);
@@ -1483,11 +1487,6 @@ module.exports = function maskScope(actionObj) {
 					if (valResult !== false) valResult.forwardPosition = forwardPosition;
 					return valResult;
 				}
-			}
-		},
-		keyupEvent: function (e) {
-			if (inputmask.isComposing && (e.keyCode === keyCode.KEY_229 || e.keyCode === keyCode.ENTER)) {
-				inputmask.$el.trigger("input");
 			}
 		},
 		pasteEvent: function (e) {
@@ -1526,9 +1525,8 @@ module.exports = function maskScope(actionObj) {
 					pasteValue = inputValue;
 				}
 			}
-			checkVal(input, true, false, pasteValue.toString().split(""), e);
-			// writeBuffer(input, getBuffer(), seekNext(getLastValidPosition()), e, inputmask.undoValue !== getBuffer().join(""));
-
+			checkVal(input, false, false, pasteValue.toString().split(""));
+			writeBuffer(input, getBuffer(), seekNext(getLastValidPosition()), e, undoValue !== getBuffer().join(""));
 			return e.preventDefault();
 		},
 		inputFallBackEvent: function (e) { //fallback when keypress is not triggered
@@ -1649,11 +1647,11 @@ module.exports = function maskScope(actionObj) {
 						$.each(changes.data, function (ndx, entry) {
 							var keypress = new $.Event("keypress");
 							keypress.which = entry.charCodeAt(0);
-							inputmask.ignorable = false; //make sure ignorable is ignored ;-)
+							ignorable = false; //make sure ignorable is ignored ;-)
 							EventHandlers.keypressEvent.call(input, keypress);
 						});
 						setTimeout(function () {  //#2195 trigger keyup to help some other plugins to track changes
-							inputmask.$el.trigger("keyup");
+							$el.trigger("keyup");
 						}, 0);
 						break;
 					case "deleteContentBackward":
@@ -1670,8 +1668,7 @@ module.exports = function maskScope(actionObj) {
 			}
 		},
 		compositionendEvent: function (e) {
-			inputmask.isComposing = false;
-			inputmask.$el.trigger("input");
+			$el.trigger("input");
 		},
 		setValueEvent: function (e) {
 			var input = this,
@@ -1699,19 +1696,21 @@ module.exports = function maskScope(actionObj) {
 					caret(input, seekNext(getLastValidPosition()));
 				}*/
 			}
-			if (opts.positionCaretOnTab === true && inputmask.mouseEnter === false && (!isComplete(getBuffer()) || getLastValidPosition() === -1)) {
+			if (opts.positionCaretOnTab === true && mouseEnter === false && (!isComplete(getBuffer()) || getLastValidPosition() === -1)) {
 				EventHandlers.clickEvent.apply(input, [e, true]);
 			}
-			inputmask.undoValue = getBuffer().join("");
-		},
+			undoValue = getBuffer().join("");
+		}
+		,
 		invalidEvent: function (e) {
-			inputmask.validationEvent = true;
-		},
+			validationEvent = true;
+		}
+		,
 		mouseleaveEvent: function () {
 			var input = this;
-			inputmask.mouseEnter = false;
+			mouseEnter = false;
 			if (opts.clearMaskOnLostFocus && (input.inputmask.shadowRoot || document).activeElement !== input) {
-				HandleNativePlaceholder(input, inputmask.originalPlaceholder);
+				HandleNativePlaceholder(input, originalPlaceholder);
 			}
 		}
 		,
@@ -1735,14 +1734,14 @@ module.exports = function maskScope(actionObj) {
 			if (document.execCommand) document.execCommand("copy"); // copy selected content to system clipbaord
 
 			handleRemove(input, keyCode.DELETE, pos);
-			writeBuffer(input, getBuffer(), maskset.p, e, inputmask.undoValue !== getBuffer().join(""));
+			writeBuffer(input, getBuffer(), maskset.p, e, undoValue !== getBuffer().join(""));
 		}
 		,
 		blurEvent: function (e) {
 			var $input = $(this),
 				input = this;
 			if (input.inputmask) {
-				HandleNativePlaceholder(input, inputmask.originalPlaceholder);
+				HandleNativePlaceholder(input, originalPlaceholder);
 				var nptValue = input.inputmask._valueGet(),
 					buffer = getBuffer().slice();
 
@@ -1765,15 +1764,14 @@ module.exports = function maskScope(actionObj) {
 							} else {
 								buffer = getBufferTemplate().slice();
 							}
-
 						}
 					}
 
 					writeBuffer(input, buffer, undefined, e);
 				}
 
-				if (inputmask.undoValue !== getBuffer().join("")) {
-					inputmask.undoValue = getBuffer().join("");
+				if (undoValue !== getBuffer().join("")) {
+					undoValue = getBuffer().join("");
 					$input.trigger("change");
 				}
 			}
@@ -1781,10 +1779,10 @@ module.exports = function maskScope(actionObj) {
 		,
 		mouseenterEvent: function () {
 			var input = this;
-			inputmask.mouseEnter = true;
+			mouseEnter = true;
 			if ((input.inputmask.shadowRoot || document).activeElement !== input) {
-				if (inputmask.originalPlaceholder == undefined && input.placeholder !== inputmask.originalPlaceholder) {
-					inputmask.originalPlaceholder = input.placeholder;
+				if (originalPlaceholder == undefined && input.placeholder !== originalPlaceholder) {
+					originalPlaceholder = input.placeholder;
 				}
 				if (opts.showMaskOnHover) {
 					HandleNativePlaceholder(input, (isRTL ? getBufferTemplate().slice().reverse() : getBufferTemplate()).join(""));
@@ -1793,8 +1791,8 @@ module.exports = function maskScope(actionObj) {
 		}
 		,
 		submitEvent: function () { //trigger change on submit if any
-			if (inputmask.undoValue !== getBuffer().join("")) {
-				inputmask.$el.trigger("change");
+			if (undoValue !== getBuffer().join("")) {
+				$el.trigger("change");
 			}
 			if (opts.clearMaskOnLostFocus && getLastValidPosition() === -1 && el.inputmask._valueGet && el.inputmask._valueGet() === getBufferTemplate().join("")) {
 				el.inputmask._valueSet(""); //clear masktemplete on submit and still has focus
@@ -1808,13 +1806,15 @@ module.exports = function maskScope(actionObj) {
 					writeBuffer(el, getBuffer());
 				}, 0);
 			}
-		},
+		}
+		,
 		resetEvent: function () {
 			el.inputmask.refreshValue = true; //indicate a forced refresh when there is a call to the value before leaving the triggering event fn
 			setTimeout(function () {
 				applyInputValue(el, el.inputmask._valueGet(true));
 			}, 0);
 		}
+		,
 	};
 
 	function checkVal(input, writeOut, strict, nptvl, initiatingEvent) {
@@ -1907,21 +1907,21 @@ module.exports = function maskScope(actionObj) {
 					nextSndx++;
 				}
 			} else { //mark al statics as generated
-				// while ((sndx = staticMatches.pop())) {
-				// 	validPos = maskset.validPositions[sndx];
-				// 	if (validPos) {
-				// 		validPos.generatedInput = true;
-				// 	}
-				// }
+				while ((sndx = staticMatches.pop())) {
+					validPos = maskset.validPositions[sndx];
+					if (validPos) {
+						validPos.generatedInput = true;
+					}
+				}
 			}
 		}
 		if (writeOut) {
-			writeBuffer(input, getBuffer(), result ? result.forwardPosition : inputmask.caretPos.begin, initiatingEvent || new $.Event("checkval"), initiatingEvent && initiatingEvent.type === "input" && inputmask.undoValue !== getBuffer().join(""));
-			// for (var vndx in maskset.validPositions) {
-			// 	if (maskset.validPositions[vndx].match.generated !== true) { //only remove non forced generated
-			// 		delete maskset.validPositions[vndx].generatedInput; //clear generated markings ~ consider initializing with a  value as fully typed
-			// 	}
-			// }
+			writeBuffer(input, getBuffer(), result ? result.forwardPosition : undefined, initiatingEvent || new $.Event("checkval"), initiatingEvent && initiatingEvent.type === "input");
+			for (var vndx in maskset.validPositions) {
+				if (maskset.validPositions[vndx].match.generated !== true) { //only remove non forced generated
+					delete maskset.validPositions[vndx].generatedInput; //clear generated markings ~ consider initializing with a  value as fully typed
+				}
+			}
 		}
 	}
 
@@ -2155,13 +2155,13 @@ module.exports = function maskScope(actionObj) {
 		if ($.isFunction(opts.onBeforeMask)) value = opts.onBeforeMask.call(inputmask, value, opts) || value;
 		value = value.toString().split("");
 		checkVal(input, true, false, value);
-		inputmask.undoValue = getBuffer().join("");
+		undoValue = getBuffer().join("");
 		if ((opts.clearMaskOnLostFocus || opts.clearIncomplete) && input.inputmask._valueGet() === getBufferTemplate().join("") && getLastValidPosition() === -1) {
 			input.inputmask._valueSet("");
 		}
 	}
 
-	function mask() {
+	function mask(elem) {
 		function isElementTypeSupported(input, opts) {
 			function patchValueProperty(npt) {
 				var valueGet;
@@ -2236,6 +2236,14 @@ module.exports = function maskScope(actionObj) {
 				if (!npt.inputmask.__valueGet) {
 					if (opts.noValuePatching !== true) {
 						if (Object.getOwnPropertyDescriptor) {
+							if (typeof Object.getPrototypeOf !== "function") {
+								Object.getPrototypeOf = typeof "test".__proto__ === "object" ? function (object) {
+									return object.__proto__;
+								} : function (object) {
+									return object.constructor.prototype;
+								};
+							}
+
 							var valueProperty = Object.getPrototypeOf ? Object.getOwnPropertyDescriptor(Object.getPrototypeOf(npt), "value") : undefined;
 							if (valueProperty && valueProperty.get && valueProperty.set) {
 								valueGet = valueProperty.get;
@@ -2313,14 +2321,17 @@ module.exports = function maskScope(actionObj) {
 		}
 
 		//unbind all events - to make sure that no other mask will interfere when re-masking
-		EventRuler.off(el);
-		var isSupported = isElementTypeSupported(el, opts);
+		EventRuler.off(elem);
+		var isSupported = isElementTypeSupported(elem, opts);
 		if (isSupported !== false) {
-			inputmask.originalPlaceholder = el.placeholder;
+			el = elem;
+			$el = $(el);
+
+			originalPlaceholder = el.placeholder;
 
 			//read maxlength prop from el
-			inputmask.maxLength = el !== undefined ? el.maxLength : undefined;
-			if (inputmask.maxLength === -1) inputmask.maxLength = undefined;
+			maxLength = el !== undefined ? el.maxLength : undefined;
+			if (maxLength === -1) maxLength = undefined;
 			if ("inputMode" in el && el.getAttribute("inputmode") === null) {
 				el.inputMode = opts.inputmode;
 				el.setAttribute("inputmode", opts.inputmode);
@@ -2347,12 +2358,10 @@ module.exports = function maskScope(actionObj) {
 				EventRuler.on(el, "complete", opts.oncomplete);
 				EventRuler.on(el, "incomplete", opts.onincomplete);
 				EventRuler.on(el, "cleared", opts.oncleared);
-				if (opts.inputEventOnly !== true) {
+				if (!mobile && opts.inputEventOnly !== true) {
 					EventRuler.on(el, "keydown", EventHandlers.keydownEvent);
 					EventRuler.on(el, "keypress", EventHandlers.keypressEvent);
-					EventRuler.on(el, "keyup", EventHandlers.keyupEvent);
-				}
-				if (mobile || opts.inputEventOnly) {
+				} else {
 					el.removeAttribute("maxLength");
 				}
 				EventRuler.on(el, "input", EventHandlers.inputFallBackEvent);
@@ -2362,7 +2371,7 @@ module.exports = function maskScope(actionObj) {
 			EventRuler.on(el, "setvalue", EventHandlers.setValueEvent);
 
 			//apply mask
-			inputmask.undoValue = getBufferTemplate().join(""); //initialize the buffer and getmasklength
+			undoValue = getBufferTemplate().join(""); //initialize the buffer and getmasklength
 			var activeElement = (el.inputmask.shadowRoot || document).activeElement;
 			if (el.inputmask._valueGet(true) !== "" || opts.clearMaskOnLostFocus === false || activeElement === el) {
 				applyInputValue(el, el.inputmask._valueGet(true), opts);
@@ -2405,7 +2414,7 @@ module.exports = function maskScope(actionObj) {
 				}
 				return unmaskedvalue(el);
 			case "mask":
-				mask();
+				mask(el);
 				break;
 			case "format":
 				valueBuffer = ($.isFunction(opts.onBeforeMask) ? (opts.onBeforeMask.call(inputmask, actionObj.value, opts) || actionObj.value) : actionObj.value).split("");
@@ -2441,6 +2450,7 @@ module.exports = function maskScope(actionObj) {
 			case "remove":
 				if (el && el.inputmask) {
 					$.data(el, "_inputmask_opts", null); //invalidate
+					$el = $(el);
 					//writeout the value
 					var cv = opts.autoUnmask ? unmaskedvalue(el) : el.inputmask._valueGet(opts.autoUnmask);
 					if (cv !== getBufferTemplate().join("")) el.inputmask._valueSet(cv, opts.autoUnmask); else el.inputmask._valueSet("");

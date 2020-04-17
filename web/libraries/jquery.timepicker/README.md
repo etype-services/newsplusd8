@@ -75,6 +75,10 @@ Language constants used in the timepicker. Can override the defaults by passing 
 	hrs: 'hrs'
 }```
 
+- **listWidth**  
+Set this to override CSS styling and set the list width to match the input element's width. Set to 1 to match input width, 2 to double input width, .5 to halve input width, etc. Set to `null` to let CSS determine the list width.  
+*default: null (CSS styling)*
+
 - **maxTime**  
 The time that should appear last in the dropdown list. Can be used to limit the range of time options.  
 *default: 24 hours after minTime*
@@ -92,7 +96,7 @@ Array: An array of strings or objects to add multiple non-time options
 *default: false*
 
 - **orientation**  
-By default the timepicker dropdown will be aligned to the bottom right of the input element, or aligned to the top left if there isn't enough room below the input. Force alignment with `l` (left), `r` (right), `t` (top), and `b` (bottom). Examples: `tl`, `rb`.
+By default the timepicker dropdown will be aligned to the bottom right of the input element, or aligned to the top left if there isn't enough room below the input. Force alignment with `l` (left), `r` (right), `c` (horizontal center), `t` (top), and `b` (bottom). Examples: `tl`, `rb`.
 *default: 'l'*
 
 - **roundingFunction**  
