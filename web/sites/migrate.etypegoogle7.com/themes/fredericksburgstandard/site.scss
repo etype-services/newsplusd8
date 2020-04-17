@@ -32,7 +32,19 @@
       margin-top: 0.3rem;
       margin-right: 0.5rem;
     }
+    .node__content {
+      .submitted {
+        position: inherit;
+      }
+    }
   }
+}
+
+.view-taxonomy-term article.node--type-article.node--view-mode-teaser .node__content .submitted {
+  /* position: absolute; */
+  /* top: 0; */
+  /* max-width: 7rem; */
+  /* margin-top: 0; */
 }
 
 @media screen and (min-width: $tablet) {
@@ -42,7 +54,7 @@
         margin-right: 0;
       }
       h2, .submitted, .field--name-body {
-        margin-left: 32%;
+        margin-left: 32%!important;
       }
     }
   }

@@ -29,13 +29,23 @@
   margin-top: 0.3rem;
   margin-right: 0.5rem;
 }
+.view-taxonomy-term .node--view-mode-teaser .node__content .submitted {
+  position: inherit;
+}
+
+.view-taxonomy-term article.node--type-article.node--view-mode-teaser .node__content .submitted {
+  /* position: absolute; */
+  /* top: 0; */
+  /* max-width: 7rem; */
+  /* margin-top: 0; */
+}
 
 @media screen and (min-width: 769px) {
   .view-taxonomy-term .node--view-mode-teaser .image-container {
     margin-right: 0;
   }
   .view-taxonomy-term .node--view-mode-teaser h2, .view-taxonomy-term .node--view-mode-teaser .submitted, .view-taxonomy-term .node--view-mode-teaser .field--name-body {
-    margin-left: 32%;
+    margin-left: 32% !important;
   }
 }
 @media screen and (max-width: 768px) {

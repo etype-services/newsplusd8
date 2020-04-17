@@ -66,7 +66,7 @@
 }
 
 /* All Content Types */
-article .node__content h2 {
+article .node--view-mode-full .node__content h2 {
   font-size: 1.2rem;
   margin-bottom: 0.75rem;
 }

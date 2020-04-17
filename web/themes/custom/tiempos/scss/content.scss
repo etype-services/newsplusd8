@@ -66,10 +66,12 @@
 
 /* All Content Types */
 article {
-  .node__content {
-    h2 {
-      font-size: 1.2rem;
-      margin-bottom: $column-gap;
+  .node--view-mode-full {
+    .node__content {
+      h2 {
+        font-size: 1.2rem;
+        margin-bottom: $column-gap;
+      }
     }
   }
 }
