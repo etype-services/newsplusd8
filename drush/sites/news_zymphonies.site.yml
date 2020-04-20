@@ -1,0 +1,4 @@
+File: news_zymphonies.site.yml
+prod:
+  root: /mnt/data/web/public/harold/drupal/web
+  uri: http://news_zymphonies.etypegoogle9.com
