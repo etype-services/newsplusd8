@@ -6,9 +6,9 @@ etype_pico.settings:
 
 etype_pico.login:
   title: 'Log In'
-  weight: 10
-  route_name: etype_login.login
+  url: '/?pn=manage_account'
   menu_name: account
+  weight: 10
   options:
     attributes:
-      class: 'picoRule'
+      class: picoRule
