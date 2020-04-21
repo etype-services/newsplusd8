@@ -15,10 +15,10 @@
                 },
                 url: window.location.href
             };
-            window.pico('visit', pageInfo);
             console.log(picoOn);
             console.log(picoType);
             console.log(picoCategories);
+            window.pico('visit', pageInfo);
         },
     };
 })(jQuery, Drupal, drupalSettings);
