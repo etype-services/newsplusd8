@@ -9,6 +9,3 @@ etype_pico.login:
   weight: 10
   route_name: etype_pico.login
   menu_name: account
-  options:
-    attributes:
-      class: 'picoRule'
