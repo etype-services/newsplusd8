@@ -1,9 +1,0 @@
-pico:
-  version: VERSION
-  header: false
-  js:
-    js/pico.js: {}
-  dependencies:
-    - core/drupal
-    - core/drupalSettings
-    - core/jquery.once
