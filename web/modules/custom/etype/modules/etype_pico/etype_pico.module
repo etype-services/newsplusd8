@@ -64,8 +64,6 @@ function etype_pico_page_attachments(array &$page) {
     if (!empty($picoPublisherId)) {
       $node = Drupal::routeMatch()->getParameter('node');
       if ($node instanceof NodeInterface) {
-        $check = node_is_page($node);
-        kint($check);
         if ($node->getType() == 'article') {
           $nid = $node->id();
           $page['#attached']['drupalSettings']['nid'] = $nid;
@@ -77,12 +75,12 @@ function etype_pico_page_attachments(array &$page) {
               $terms[] = $term->getName();
             }
             $page['#attached']['drupalSettings']['picoCategories'] =
-              json_encode ($terms);
+              json_encode($terms);
             $page['#attached']['drupalSettings']['picoOn'] = true;
           }
+          $page['#attached']['library'][] = 'etype_pico/pico';
         }
       }
-      $page['#attached']['library'][] = 'etype_pico/pico';
     }
   }
 }
