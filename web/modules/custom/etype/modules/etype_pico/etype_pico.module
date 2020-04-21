@@ -11,12 +11,14 @@ use Drupal\taxonomy\Entity\Term;
 function etype_pico_preprocess_html(&$variables) {
   $e_config = Drupal::config('etype.adminsettings');
   $head_script = $e_config->get('head_script');
+  $bottom_script = $e_config->get('bottom_script');
 
   $moduleHandler = Drupal::service('module_handler');
-  if ($moduleHandler->moduleExists('etype_pico')){
+  if ($moduleHandler->moduleExists('etype_pico')) {
     $config = Drupal::config('etype_pico.settings');
     $picoPublisherId = $config->get('picoPublisherId');
     if (!empty($picoPublisherId)) {
+
       $head_script .= "<script>
     (function (p, i, c, o) {
         var n = new Event('pico-init');
@@ -32,10 +34,44 @@ function etype_pico_preprocess_html(&$variables) {
         }, t.parentNode.insertBefore(e, t)
     })('pico', window, \"https://widget.pico.tools/wrapper.min.js\", \"$picoPublisherId\");
 </script>;";
+
+      $terms = [];
+      $picoOn = false;
+      $picoType = 'page';
+      $nid = '';
+      $node = Drupal::routeMatch()->getParameter('node');
+      if ($node instanceof NodeInterface) {
+        if ($node->getType() == 'article') {
+          $nid = $node->id();
+          $page['#attached']['drupalSettings']['nid'] = $nid;
+          $tids = $node->get('field_section')->getValue();
+          $terms = ['article'];
+          if (count($tids) > 0) {
+            foreach ($tids as $tid) {
+              $term = Term::load($tid['target_id']);
+              $terms[] = $term->getName();
+            }
+          }
+          $picoOn = true;
+          $picoType = 'article';
+        }
+      }
+      $picoCategories = json_encode($terms);
+      $bottom_script = "<script>
+var pageInfo = {
+	article: $picoOn,
+	post_id: $nid,
+	post_type: $picoType,
+	taxonomies: $picoCategories,
+	url: window.location.href
+};
+window.pico('visit', pageInfo);
+</script>";
     }
   }
 
   $variables['head_script'] = $head_script;
+  $variables['bottom_script'] = $bottom_script;
 }
 
 /**
@@ -86,7 +122,7 @@ function etype_pico_page_attachments(array &$page) {
         }
       }
       /* Attach library on every page load if Pico ID */
-      $page['#attached']['library'][] = 'etype_pico/pico';
+      // $page['#attached']['library'][] = 'etype_pico/pico';
     }
   }
 }

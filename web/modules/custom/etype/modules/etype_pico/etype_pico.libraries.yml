@@ -1,6 +1,6 @@
 pico:
   version: VERSION
-  header: true
+  header: false
   js:
     js/pico.js: {}
   dependencies:

@@ -6,8 +6,6 @@
             var picoCategories = settings.picoCategories;
             var picoOn = settings.picoOn;
             var picoType = settings.picoType;
-            alert(picoOn);
-            alert(picoType);
             var pageInfo = {
                 article: picoOn,
                 post_id: nid,
