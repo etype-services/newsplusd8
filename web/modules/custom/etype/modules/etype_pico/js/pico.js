@@ -16,6 +16,8 @@
                 url: window.location.href
             };
             window.pico('visit', pageInfo);
+            console.log(picoOn);
+            console.log(picoType);
         },
     };
 })(jQuery, Drupal, drupalSettings);
