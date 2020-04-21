@@ -36,7 +36,7 @@ function etype_pico_preprocess_html(&$variables) {
 </script>;";
 
       $terms = [];
-      $picoOn = false;
+      $picoOn = 'false';
       $picoType = 'page';
       $nid = '';
       $node = Drupal::routeMatch()->getParameter('node');
@@ -52,7 +52,7 @@ function etype_pico_preprocess_html(&$variables) {
               $terms[] = $term->getName();
             }
           }
-          $picoOn = true;
+          $picoOn = 'true';
           $picoType = 'article';
         }
       }
@@ -62,7 +62,7 @@ var pageInfo = {
 	article: $picoOn,
 	post_id: $nid,
 	post_type: $picoType,
-	taxonomies: $picoCategories,
+	taxonomies: { tags: $picoCategories},
 	url: window.location.href
 };
 window.pico('visit', pageInfo);
