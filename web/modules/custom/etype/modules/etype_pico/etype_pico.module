@@ -54,11 +54,13 @@ function etype_pico_preprocess_node(&$variables) {
 /**
  * Implements hook_page_attachments().
  *
+ * Only show Pico pop-up/controls
+ *
  * @param array $page
  */
 function etype_pico_page_attachments(array &$page) {
   $moduleHandler = Drupal::service('module_handler');
-  if ($moduleHandler->moduleExists('etype_pico')){
+  if ($moduleHandler->moduleExists('etype_pico')) {
     $config = Drupal::config('etype_pico.settings');
     $picoPublisherId = $config->get('picoPublisherId');
     if (!empty($picoPublisherId)) {
@@ -76,11 +78,13 @@ function etype_pico_page_attachments(array &$page) {
             }
             $page['#attached']['drupalSettings']['picoCategories'] =
               json_encode($terms);
-            $page['#attached']['drupalSettings']['picoOn'] = true;
           }
-          $page['#attached']['library'][] = 'etype_pico/pico';
+          $page['#attached']['drupalSettings']['picoOn'] = true;
+          $page['#attached']['drupalSettings']['picoType'] = 'article';
         }
       }
+      /* Attach library on every page load if Pico ID */
+      $page['#attached']['library'][] = 'etype_pico/pico';
     }
   }
 }
