@@ -4,6 +4,12 @@ etype_pico.settings:
   description: 'Configure Pico Integration.'
   route_name: etype_pico.settings
 
+etype_pico.login:
+  title: 'Log In'
+  weight: 10
+  route_name: etype_pico.login
+  menu_name: account
+
 etype_pico.subscribe:
   title: 'Subscribe'
   weight: 10
