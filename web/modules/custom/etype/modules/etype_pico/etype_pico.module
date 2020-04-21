@@ -71,7 +71,7 @@ function etype_pico_page_attachments(array &$page) {
           $page['#attached']['drupalSettings']['nid'] = $nid;
           $tids = $node->get('field_section')->getValue();
           if (count($tids) > 0) {
-            $terms = [];
+            $terms = ['article'];
             foreach ($tids as $tid) {
               $term = Term::load($tid['target_id']);
               $terms[] = $term->getName();
