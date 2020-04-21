@@ -90,37 +90,12 @@ function etype_pico_preprocess_node(&$variables) {
  * Only show Pico pop-up/controls
  *
  * @param array $page
+ */
 
 function etype_pico_page_attachments(array &$page) {
   $moduleHandler = Drupal::service('module_handler');
   if ($moduleHandler->moduleExists('etype_pico')) {
-    $config = Drupal::config('etype_pico.settings');
-    $picoPublisherId = $config->get('picoPublisherId');
-    $page['#attached']['drupalSettings']['picoCategories'] = "";
-    $page['#attached']['drupalSettings']['picoOn'] = false;
-    $page['#attached']['drupalSettings']['picoType'] = 'page';
-    if (!empty($picoPublisherId)) {
-      $node = Drupal::routeMatch()->getParameter('node');
-      if ($node instanceof NodeInterface) {
-        if ($node->getType() == 'article') {
-          $nid = $node->id();
-          $page['#attached']['drupalSettings']['nid'] = $nid;
-          $tids = $node->get('field_section')->getValue();
-          $terms = ['article'];
-          if (count($tids) > 0) {
-            foreach ($tids as $tid) {
-              $term = Term::load($tid['target_id']);
-              $terms[] = $term->getName();
-            }
-          }
-          $page['#attached']['drupalSettings']['picoCategories'] = json_encode($terms);
-          $page['#attached']['drupalSettings']['picoOn'] = true;
-          $page['#attached']['drupalSettings']['picoType'] = 'article';
-        }
-      }
-      /* Attach library on every page load if Pico ID
-      // $page['#attached']['library'][] = 'etype_pico/pico';
-    }
+    /* Attach library on every page load if Pico ID*/
+    $page['#attached']['library'][] = 'etype_pico/pico';
   }
 }
-*/
