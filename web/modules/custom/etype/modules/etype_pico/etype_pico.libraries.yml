@@ -4,7 +4,7 @@ pico:
     state:
       css/etype_pico.css: {}
   js:
-    js/pico.js: {}
+    js/etype_pico.js: {}
   dependencies:
     - core/drupal
     - core/drupalSettings
