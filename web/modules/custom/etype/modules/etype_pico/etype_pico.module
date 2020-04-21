@@ -56,7 +56,7 @@ EOF;
 var pageInfo = {
 	article: $picoOn,
 	post_id: $nid,
-	post_type: \"$picoType\",
+	post_type: "$picoType",
 	taxonomies: { tags: $picoCategories },
 	url: window.location.href
 };
