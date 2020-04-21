@@ -9,11 +9,15 @@ use Drupal\taxonomy\Entity\Term;
  * @param $variables
  */
 function etype_pico_preprocess_html(&$variables) {
-  $config = Drupal::config('etype_pico.settings');
-  $head_script = $config->get('head_script');
-  $picoPublisherId = $config->get('picoPublisherId');
-  if (!empty($picoPublisherId)) {
-    $head_script .= "
+  $e_config = Drupal::config('etype.adminsettings');
+  $head_script = $e_config->get('head_script');
+
+  $moduleHandler = Drupal::service('module_handler');
+  if ($moduleHandler->moduleExists('etype_pico')){
+    $config = Drupal::config('etype_pico.settings');
+    $picoPublisherId = $config->get('picoPublisherId');
+    if (!empty($picoPublisherId)) {
+      $head_script .= "
 <script>
     (function (p, i, c, o) {
         var n = new Event('pico-init');
@@ -29,7 +33,9 @@ function etype_pico_preprocess_html(&$variables) {
         }, t.parentNode.insertBefore(e, t)
     })('pico', window, \"https://widget.pico.tools/wrapper.min.js\", \"$picoPublisherId\");
 </script>;";
+    }
   }
+
   $variables['head_script'] = $head_script;
 }
 
