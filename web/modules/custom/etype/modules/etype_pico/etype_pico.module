@@ -63,6 +63,8 @@ function etype_pico_page_attachments(array &$page) {
     $picoPublisherId = $config->get('picoPublisherId');
     if (!empty($picoPublisherId)) {
       $node = Drupal::routeMatch()->getParameter('node');
+      $check = node_is_page($node);
+      kint($check);
       if ($node instanceof NodeInterface) {
         if ($node->getType() == 'article') {
           $nid = $node->id();
@@ -80,7 +82,7 @@ function etype_pico_page_attachments(array &$page) {
           }
         }
       }
-      //$page['#attached']['library'][] = 'etype_pico/pico';
+      $page['#attached']['library'][] = 'etype_pico/pico';
     }
   }
 }
