@@ -63,6 +63,9 @@ function etype_pico_page_attachments(array &$page) {
   if ($moduleHandler->moduleExists('etype_pico')) {
     $config = Drupal::config('etype_pico.settings');
     $picoPublisherId = $config->get('picoPublisherId');
+    $page['#attached']['drupalSettings']['picoCategories'] = "";
+    $page['#attached']['drupalSettings']['picoOn'] = false;
+    $page['#attached']['drupalSettings']['picoType'] = 'page';
     if (!empty($picoPublisherId)) {
       $node = Drupal::routeMatch()->getParameter('node');
       if ($node instanceof NodeInterface) {
@@ -70,15 +73,14 @@ function etype_pico_page_attachments(array &$page) {
           $nid = $node->id();
           $page['#attached']['drupalSettings']['nid'] = $nid;
           $tids = $node->get('field_section')->getValue();
+          $terms = ['article'];
           if (count($tids) > 0) {
-            $terms = ['article'];
             foreach ($tids as $tid) {
               $term = Term::load($tid['target_id']);
               $terms[] = $term->getName();
             }
-            $page['#attached']['drupalSettings']['picoCategories'] =
-              json_encode($terms);
           }
+          $page['#attached']['drupalSettings']['picoCategories'] = json_encode($terms);
           $page['#attached']['drupalSettings']['picoOn'] = true;
           $page['#attached']['drupalSettings']['picoType'] = 'article';
         }
