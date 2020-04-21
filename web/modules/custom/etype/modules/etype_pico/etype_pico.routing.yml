@@ -7,3 +7,8 @@ etype_pico.settings:
     _permission: 'access administration pages'
   options:
     _admin_route: TRUE
+
+etype_login.login:
+  path: '/'
+  defaults:
+    _title: 'Pico Login'
