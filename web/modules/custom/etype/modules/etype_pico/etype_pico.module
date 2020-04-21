@@ -38,7 +38,7 @@ function etype_pico_preprocess_html(&$variables) {
       $terms = [];
       $picoOn = 'false';
       $picoType = 'page';
-      $nid = 'null';
+      $nid = '0';
       $node = Drupal::routeMatch()->getParameter('node');
       if ($node instanceof NodeInterface) {
         if ($node->getType() == 'article') {
@@ -62,7 +62,7 @@ var pageInfo = {
 	article: $picoOn,
 	post_id: $nid,
 	post_type: \"$picoType\",
-	taxonomies: { tags: $picoCategories},
+	taxonomies: { tags: $picoCategories },
 	url: window.location.href
 };
 window.pico('visit', pageInfo);
