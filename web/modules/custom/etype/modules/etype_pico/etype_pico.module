@@ -57,28 +57,30 @@ function etype_pico_preprocess_node(&$variables) {
  * @param array $page
  */
 function etype_pico_page_attachments(array &$page) {
-  $config = Drupal::config('etype_pico.settings');
-  $picoPublisherId = $config->get('picoPublisherId');
-  if (!empty($picoPublisherId)) {
-    $page['#attached']['drupalSettings']['picoPublisherId'] = $picoPublisherId;
-    $node = Drupal::routeMatch()->getParameter('node');
-    if ($node instanceof NodeInterface) {
-      if ($node->getType() == 'article') {
-        $nid = $node->id();
-        $page['#attached']['drupalSettings']['nid'] = $nid;
-        $tids = $node->get('field_section')->getValue();
-        if (count($tids) > 0) {
-          $terms = [];
-          foreach ($tids as $tid) {
-            $term = Term::load($tid['target_id']);
-            $terms[] = $term->getName();
+  $moduleHandler = Drupal::service('module_handler');
+  if ($moduleHandler->moduleExists('etype_pico')){
+    $config = Drupal::config('etype_pico.settings');
+    $picoPublisherId = $config->get('picoPublisherId');
+    if (!empty($picoPublisherId)) {
+      $node = Drupal::routeMatch()->getParameter('node');
+      if ($node instanceof NodeInterface) {
+        if ($node->getType() == 'article') {
+          $nid = $node->id();
+          $page['#attached']['drupalSettings']['nid'] = $nid;
+          $tids = $node->get('field_section')->getValue();
+          if (count($tids) > 0) {
+            $terms = [];
+            foreach ($tids as $tid) {
+              $term = Term::load($tid['target_id']);
+              $terms[] = $term->getName();
+            }
+            $page['#attached']['drupalSettings']['picoCategories'] =
+              json_encode ($terms);
+            $page['#attached']['drupalSettings']['picoOn'] = true;
           }
-          $page['#attached']['drupalSettings']['picoCategories'] =
-            json_encode ($terms);
-          $page['#attached']['drupalSettings']['picoOn'] = true;
         }
       }
+      //$page['#attached']['library'][] = 'etype_pico/pico';
     }
-    $page['#attached']['library'][] = 'etype_pico/pico';
   }
 }

@@ -103,7 +103,8 @@
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
-        "woothemes/flexslider": "~2.0"
+        "woothemes/flexslider": "~2.0",
+      "ext-json": "*"
     },
     "require-dev": {
         "drupal/core-dev": "^8.8@beta",
