@@ -8,7 +8,7 @@ $sites['www.etypetest.com'] = 'etypetest.etypegoogle7.com';
 
 /* for *drall* updates */
 $sites['cni.etypegoogle7.com'] = "cni.etypegoogle7.com";
-$sites['tiempos.etypegoogle7.com'] = "tiempos.etypegoogle7.com";
+$sites['tiempos.etypegoogle9.com'] = "tiempos.etypegoogle9.com";
 $sites['newsplusd8.etypegoogle7.com'] = "newsplusd8.etypegoogle7.com";
 $sites['kiamonews.etypegoogle7.com'] = "kiamonews.etypegoogle7.com";
 
