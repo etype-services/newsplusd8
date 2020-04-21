@@ -63,9 +63,9 @@ function etype_pico_page_attachments(array &$page) {
     $picoPublisherId = $config->get('picoPublisherId');
     if (!empty($picoPublisherId)) {
       $node = Drupal::routeMatch()->getParameter('node');
-      $check = node_is_page($node);
-      kint($check);
       if ($node instanceof NodeInterface) {
+        $check = node_is_page($node);
+        kint($check);
         if ($node->getType() == 'article') {
           $nid = $node->id();
           $page['#attached']['drupalSettings']['nid'] = $nid;
