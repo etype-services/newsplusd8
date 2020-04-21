@@ -18,6 +18,7 @@
             window.pico('visit', pageInfo);
             console.log(picoOn);
             console.log(picoType);
+            console.log(picoCategories);
         },
     };
 })(jQuery, Drupal, drupalSettings);
