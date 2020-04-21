@@ -1,5 +1,8 @@
 pico:
   version: VERSION
+  css:
+    state:
+      css/etype_pico.css: {}
   js:
     js/pico.js: {}
   dependencies:
