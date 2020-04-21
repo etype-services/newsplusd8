@@ -6,6 +6,8 @@
             var picoCategories = settings.picoCategories;
             var picoOn = settings.picoOn;
             var picoType = settings.picoType;
+            alert(picoOn);
+            alert(picoType);
             var pageInfo = {
                 article: picoOn,
                 post_id: nid,
@@ -15,9 +17,6 @@
                 },
                 url: window.location.href
             };
-            console.log(picoOn);
-            console.log(picoType);
-            console.log(picoCategories);
             window.pico('visit', pageInfo);
         },
     };

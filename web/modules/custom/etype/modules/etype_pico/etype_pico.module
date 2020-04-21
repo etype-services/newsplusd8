@@ -85,7 +85,6 @@ function etype_pico_page_attachments(array &$page) {
           $page['#attached']['drupalSettings']['picoType'] = 'article';
         }
       }
-      kint($page['#attached']['drupalSettings']);
       /* Attach library on every page load if Pico ID */
       $page['#attached']['library'][] = 'etype_pico/pico';
     }
