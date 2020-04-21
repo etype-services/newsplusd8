@@ -1,34 +1,40 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports["default"] = makeAlgoliaPlacesWidget;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _places = _interopRequireDefault(require("../places"));
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-exports.default = makeAlgoliaPlacesWidget;
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-var _places = require('../places');
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-var _places2 = _interopRequireDefault(_places);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 /**
  * The underlying structure for the Algolia Places instantsearch widget.
  */
-var AlgoliaPlacesWidget = function () {
+var AlgoliaPlacesWidget =
+/*#__PURE__*/
+function () {
   function AlgoliaPlacesWidget() {
-    var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-    var defaultPosition = _ref.defaultPosition,
-        placesOptions = _objectWithoutProperties(_ref, ['defaultPosition']);
+    var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+        defaultPosition = _ref.defaultPosition,
+        placesOptions = _objectWithoutProperties(_ref, ["defaultPosition"]);
 
     _classCallCheck(this, AlgoliaPlacesWidget);
 
@@ -37,14 +43,13 @@ var AlgoliaPlacesWidget = function () {
     }
 
     this.placesOptions = placesOptions;
-    this.placesAutocomplete = (0, _places2.default)(this.placesOptions);
-
+    this.placesAutocomplete = (0, _places["default"])(this.placesOptions);
     this.query = '';
     this.initialLatLngViaIP = null;
   }
 
   _createClass(AlgoliaPlacesWidget, [{
-    key: 'getConfiguration',
+    key: "getConfiguration",
     value: function getConfiguration() {
       var configuration = {};
 
@@ -57,7 +62,7 @@ var AlgoliaPlacesWidget = function () {
       return configuration;
     }
   }, {
-    key: 'init',
+    key: "init",
     value: function init(_ref2) {
       var _this = this;
 
@@ -79,16 +84,11 @@ var AlgoliaPlacesWidget = function () {
             lat = _opts$suggestion$latl.lat,
             lng = _opts$suggestion$latl.lng,
             value = _opts$suggestion.value;
-
-
         _this.query = value;
-
-        helper.setQueryParameter('insideBoundingBox').setQueryParameter('aroundLatLngViaIP', false).setQueryParameter('aroundLatLng', lat + ',' + lng).search();
+        helper.setQueryParameter('insideBoundingBox').setQueryParameter('aroundLatLngViaIP', false).setQueryParameter('aroundLatLng', "".concat(lat, ",").concat(lng)).search();
       });
-
       this.placesAutocomplete.on('clear', function () {
         _this.query = '';
-
         helper.setQueryParameter('insideBoundingBox');
 
         if (_this.defaultPosition) {
@@ -101,32 +101,27 @@ var AlgoliaPlacesWidget = function () {
       });
     }
   }, {
-    key: 'getWidgetSearchParameters',
+    key: "getWidgetSearchParameters",
     value: function getWidgetSearchParameters(searchParameters, _ref3) {
       var uiState = _ref3.uiState;
 
       if (!uiState.places) {
         this.placesAutocomplete.setVal('');
         this.placesAutocomplete.close();
-
         return searchParameters;
       }
 
       var _uiState$places = uiState.places,
           query = _uiState$places.query,
           position = _uiState$places.position;
-
-
       this.query = query;
       this.initialLatLngViaIP = searchParameters.getQueryParameter('aroundLatLngViaIP');
-
       this.placesAutocomplete.setVal(query || '');
       this.placesAutocomplete.close();
-
       return searchParameters.setQueryParameter('insideBoundingBox').setQueryParameter('aroundLatLngViaIP', false).setQueryParameter('aroundLatLng', position);
     }
   }, {
-    key: 'getWidgetState',
+    key: "getWidgetState",
     value: function getWidgetState(uiState, _ref4) {
       var searchParameters = _ref4.searchParameters;
 
@@ -135,12 +130,13 @@ var AlgoliaPlacesWidget = function () {
       }
 
       if (searchParameters.aroundLatLng === undefined && !this.query) {
-        var newUiState = Object.assign({}, uiState);
+        var newUiState = _objectSpread({}, uiState);
+
         delete newUiState.places;
         return newUiState;
       }
 
-      return _extends({}, uiState, {
+      return _objectSpread({}, uiState, {
         places: {
           query: this.query,
           position: searchParameters.aroundLatLng
@@ -151,7 +147,6 @@ var AlgoliaPlacesWidget = function () {
 
   return AlgoliaPlacesWidget;
 }();
-
 /**
  * Creates a new instance of the Algolia Places widget. This widget
  * sets the geolocation value for the search based on the selected

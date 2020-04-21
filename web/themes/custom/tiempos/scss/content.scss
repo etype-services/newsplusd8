@@ -64,6 +64,18 @@
   }
 }
 
+/* All Content Types */
+article {
+  .node--view-mode-full {
+    .node__content {
+      h2 {
+        font-size: 1.2rem;
+        margin-bottom: $column-gap;
+      }
+    }
+  }
+}
+
 /* Article formatting. */
 .page-node-type-article {
   #block-pagetitle-2 {

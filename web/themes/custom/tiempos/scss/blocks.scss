@@ -178,6 +178,8 @@
   width: 100%;
   height: 64px;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 .region-content .block-etype-block {

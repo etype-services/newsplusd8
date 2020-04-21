@@ -39,3 +39,4 @@
 .DS_Store
 .sass-cache
 *.log
+composer.lock

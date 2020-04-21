@@ -105,7 +105,14 @@ article {
 #block-views-block-breaking-news-block-block-1 {
   display: flex;
   align-items: center;
+  background-color: #ce0000;
+  padding: 15px;
+  .views-field-title a {
+    line-height: 1.7;
+    color: #ffffff;
+  }
   .title {
+    color: #ffffff;
     margin-bottom: 2px;
   }
   .content {

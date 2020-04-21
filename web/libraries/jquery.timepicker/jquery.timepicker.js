@@ -1,5 +1,5 @@
 /*!
- * jquery-timepicker v1.11.14 - A jQuery timepicker plugin inspired by Google Calendar. It supports both mouse and keyboard navigation.
+ * jquery-timepicker v1.13.0 - A jQuery timepicker plugin inspired by Google Calendar. It supports both mouse and keyboard navigation.
  * Copyright (c) 2015 Jon Thornton - http://jonthornton.github.com/jquery-timepicker/
  * License: MIT
  */
@@ -34,58 +34,6 @@
     hrs: "hrs"
   };
 
-  var _DEFAULTS = {
-    appendTo: "body",
-    className: null,
-    closeOnWindowScroll: false,
-    disableTextInput: false,
-    disableTimeRanges: [],
-    disableTouchKeyboard: false,
-    durationTime: null,
-    forceRoundTime: false,
-    maxTime: null,
-    minTime: null,
-    noneOption: false,
-    orientation: "l",
-    roundingFunction: function(seconds, settings) {
-      if (seconds === null) {
-        return null;
-      } else if (typeof settings.step !== "number") {
-        // TODO: nearest fit irregular steps
-        return seconds;
-      } else {
-        var offset = seconds % (settings.step * 60); // step is in minutes
-
-        var start = settings.minTime || 0;
-
-        // adjust offset by start mod step so that the offset is aligned not to 00:00 but to the start
-        offset -= start % (settings.step * 60);
-
-        if (offset >= settings.step * 30) {
-          // if offset is larger than a half step, round up
-          seconds += settings.step * 60 - offset;
-        } else {
-          // round down
-          seconds -= offset;
-        }
-
-        return _moduloSeconds(seconds, settings);
-      }
-    },
-    scrollDefault: null,
-    selectOnBlur: false,
-    show2400: false,
-    showDuration: false,
-    showOn: ["click", "focus"],
-    showOnFocus: true,
-    step: 30,
-    stopScrollPropagation: false,
-    timeFormat: "g:ia",
-    typeaheadHighlight: true,
-    useSelect: false,
-    wrapHours: true
-  };
-
   var methods = {
     init: function(options) {
       return this.each(function() {
@@ -93,13 +41,13 @@
 
         // pick up settings from data attributes
         var attributeOptions = [];
-        for (var key in _DEFAULTS) {
+        for (var key in $.fn.timepicker.defaults) {
           if (self.data(key)) {
             attributeOptions[key] = self.data(key);
           }
         }
 
-        var settings = $.extend({}, _DEFAULTS, options, attributeOptions);
+        var settings = $.extend({}, $.fn.timepicker.defaults, options, attributeOptions);
 
         if (settings.lang) {
           _lang = $.extend(_lang, settings.lang);
@@ -177,6 +125,11 @@
       // make sure other pickers are hidden
       methods.hide();
 
+      if (typeof settings.listWidth == 'number') {
+        console.log(settings.listWidth)
+        list.width(self.outerWidth() * settings.listWidth);
+      }
+
       // position the dropdown relative to the input
       list.show();
       var listOffset = {};
@@ -188,10 +141,16 @@
           self.outerWidth() -
           list.outerWidth() +
           parseInt(list.css("marginLeft").replace("px", ""), 10);
-      } else {
+      } else if (settings.orientation.match(/l/)) {
         // left-align the dropdown
         listOffset.left =
           self.offset().left +
+          parseInt(list.css("marginLeft").replace("px", ""), 10);
+      } else if (settings.orientation.match(/c/)) {
+        // center-align the dropdown
+        listOffset.left =
+          self.offset().left +
+          ((self.outerWidth() - list.outerWidth()) / 2) +
           parseInt(list.css("marginLeft").replace("px", ""), 10);
       }
 
@@ -1382,5 +1341,59 @@
     } else {
       $.error("Method " + method + " does not exist on jQuery.timepicker");
     }
+  };
+
+  // Default plugin options.
+  $.fn.timepicker.defaults = {
+    appendTo: "body",
+    className: null,
+    closeOnWindowScroll: false,
+    disableTextInput: false,
+    disableTimeRanges: [],
+    disableTouchKeyboard: false,
+    durationTime: null,
+    forceRoundTime: false,
+    listWidth: null, // Set to 1 to match input width, 2 to double input width, .5 to halve input width, etc
+    maxTime: null,
+    minTime: null,
+    noneOption: false,
+    orientation: "l",
+    roundingFunction: function(seconds, settings) {
+      if (seconds === null) {
+        return null;
+      } else if (typeof settings.step !== "number") {
+        // TODO: nearest fit irregular steps
+        return seconds;
+      } else {
+        var offset = seconds % (settings.step * 60); // step is in minutes
+
+        var start = settings.minTime || 0;
+
+        // adjust offset by start mod step so that the offset is aligned not to 00:00 but to the start
+        offset -= start % (settings.step * 60);
+
+        if (offset >= settings.step * 30) {
+          // if offset is larger than a half step, round up
+          seconds += settings.step * 60 - offset;
+        } else {
+          // round down
+          seconds -= offset;
+        }
+
+        return _moduloSeconds(seconds, settings);
+      }
+    },
+    scrollDefault: null,
+    selectOnBlur: false,
+    show2400: false,
+    showDuration: false,
+    showOn: ["click", "focus"],
+    showOnFocus: true,
+    step: 30,
+    stopScrollPropagation: false,
+    timeFormat: "g:ia",
+    typeaheadHighlight: true,
+    useSelect: false,
+    wrapHours: true
   };
 });

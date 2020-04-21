@@ -3,6 +3,7 @@
 
 /* testing */
 $sites['newsplusd8.local'] = 'newsplusd8.etypegoogle7.com';
+$sites['local.drupal8.com'] = 'local.drupal8.com';
 $sites['www.etypetest.com'] = 'etypetest.etypegoogle7.com';
 
 /* for *drall* updates */
@@ -86,7 +87,7 @@ $sites['www.runwithsam.org'] = "runwithsam.etypegoogle7.com";
 $sites['www.theravennanews.com'] = "theravennanews.etypegoogle7.com";
 $sites['www.thewewokatimes.com'] = "thewewokatimes.etypegoogle7.com";
 $sites['www.phonographherald.com'] = "phonographherald.etypegoogle7.com";
-$sites['www.thekansascityglobe.com'] = "thekansascityglobe.etypegoogle7.com";
+$sites['www.thekansascityglobe.com'] = "thekansascityglobe.com";
 $sites['www.myfamilydocga.com'] = "myfamilydocga.etypegoogle7.com";
 $sites['www.66hoursingrants.com'] = "66hoursingrants.etypegoogle7.com";
 $sites['www.mosercommedia.com'] = "mosercommedia.etypegoogle7.com";
@@ -106,3 +107,7 @@ $sites['www.giddingstimes.com'] = "giddingstimes.etypegoogle7.com";
 $sites['www.gunnisonshopper.com'] = "gunnisonshopper.etypegoogle7.com";
 $sites['www.cushingcitizen.com'] = "cushingcitizen.etypegoogle7.com";
 $sites['www.sansabanews.com'] = "sansabanews.etypegoogle7.com";
+$sites['www.wcns.news'] = "wcns.etypegoogle7.com";
+$sites['www.fredericksburgstandard.com'] = "fredericksburgstandard.etypegoogle7.com";
+$sites['www.wdnonline.com'] = "wdnonline.etypegoogle7.com";
+$sites['www.silvertonstandard.com'] = "silvertonstandard.etypegoogle7.com";
