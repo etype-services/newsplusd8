@@ -57,7 +57,7 @@ function etype_pico_preprocess_html(&$variables) {
         }
       }
       $picoCategories = json_encode($terms);
-      $bottom_script = "<script>
+      $bottom_script .= "<script>
 var pageInfo = {
 	article: $picoOn,
 	post_id: $nid,
@@ -67,8 +67,9 @@ var pageInfo = {
 };
 window.pico('visit', pageInfo);
 </script>";
-    }
-  }
+
+    } // end if pico id
+  } // end if pico module enabled
 
   $variables['head_script'] = $head_script;
   $variables['bottom_script'] = $bottom_script;
