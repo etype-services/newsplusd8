@@ -2,4 +2,4 @@ name: Convert Content Type
 type: module
 description: Convert content type from article to archive.
 core: 8.x
-package: eType
+package: eType Development

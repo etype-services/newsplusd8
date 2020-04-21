@@ -1,6 +1,6 @@
 name: 'eType Pico Integration'
 type: module
-description: 'INtergrate Pico signup and paywall.'
+description: 'Integrate Pico signup and paywall.'
 core: 8.x
 core_version_requirement: ^8 || ^9
 package: 'eType Services'
