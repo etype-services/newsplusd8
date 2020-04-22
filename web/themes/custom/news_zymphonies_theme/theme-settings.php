@@ -15,12 +15,6 @@
  */
 function news_zymphonies_theme_form_system_theme_settings_alter(array &$form, $form_state) {
 
-  $form['news_zymphonies_theme_info'] = [
-    '#markup' => <<<EOF
-    <h2>Advanced Theme Settings</h2>
-EOF,
-  ];
-
   $form['news_zymphonies_theme_settings']['custom'] = [
     '#type' => 'details',
     '#title' => t('Various Settings'),
@@ -31,7 +25,7 @@ EOF,
   $form['news_zymphonies_theme_settings']['custom']['header_left_class'] = [
     '#type' => 'textfield',
     '#title' => t('Header Left (logo area) class'),
-    '#default_value' => theme_get_setting('header_left_class', 'news_zymphonies'),
+    '#default_value' => theme_get_setting('header_left_class', 'news_zymphonies_theme'),
     '#size' => 12,
     '#maxlength' => 12,
   ];
@@ -39,7 +33,7 @@ EOF,
   $form['news_zymphonies_theme_settings']['custom']['header_right_class'] = [
     '#type' => 'textfield',
     '#title' => t('Header Right (advertisement) class'),
-    '#default_value' => theme_get_setting('header_right_class', 'news_zymphonies'),
+    '#default_value' => theme_get_setting('header_right_class', 'news_zymphonies_theme'),
     '#size' => 12,
     '#maxlength' => 12,
   ];
