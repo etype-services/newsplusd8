@@ -25,3 +25,4 @@ regions:
   hidden_blocks: 'Hidden Blocks'
 libraries:
   - wdnonline/global-styling
+  - wdnonline/manrope

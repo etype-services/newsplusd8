@@ -3,3 +3,15 @@ global-styling:
   css:
     base:
       site.css: { weight: 100 }
+
+manrope:
+  version: VERSION
+  remote: //fonts.googleapis.com/css
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Manrope: { type: external }
+  license:
+    name: Open Font License
+    url: //scripts.sil.org/OFL
+    gpl-compatible: true
+
