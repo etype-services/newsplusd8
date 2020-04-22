@@ -18,7 +18,7 @@ function etype_pico_preprocess_html(&$variables) {
     $config = Drupal::config('etype_pico.settings');
     $picoPublisherId = $config->get('picoPublisherId');
     $nodeTypes = $config->get('nodeTypes');
-    kint($nodeTypes);
+    dsm($nodeTypes);
     if (!empty($picoPublisherId)) {
 
       $head_script .= <<<EOF
