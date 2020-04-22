@@ -942,11 +942,11 @@ nav h2 {
 .top-menu .top-blocks .social-media {
   padding: 9px 0;
 }
+.top-menu .top-blocks > div {
+  float: left;
+}
 .top-menu p, .top-menu .block {
   margin: 0;
-}
-.top-menu > div {
-  float: left;
 }
 
 .region-top-menu ul {

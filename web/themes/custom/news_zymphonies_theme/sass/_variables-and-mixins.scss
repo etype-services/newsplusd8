@@ -1,4 +1,3 @@
-
 /*Variables*/
 
 $fontFamily: 'Roboto', sans-serif;
@@ -31,24 +30,24 @@ $servicesTextColor: #999;
 
 /*Mixins*/
 
-@mixin globalButton(){
-	background: $linkColor;
-	color: #fff;
-	border: 0;
-	padding: 10px 15px;
-	line-height: 100%;
-	border-radius: 0;
+@mixin globalButton() {
+  background: $linkColor;
+  color: #fff;
+  border: 0;
+  padding: 10px 15px;
+  line-height: 100%;
+  border-radius: 0;
 }
 
-@mixin globalButtonHover(){
-	background: $linkColorHover;
-	color: #fff;
+@mixin globalButtonHover() {
+  background: $linkColorHover;
+  color: #fff;
 }
 
 @mixin border-radius($radius) {
-	border-radius: $radius;
+  border-radius: $radius;
 }
 
 @mixin box-shadow($shadow) {
-	box-shadow: $shadow;
+  box-shadow: $shadow;
 }
