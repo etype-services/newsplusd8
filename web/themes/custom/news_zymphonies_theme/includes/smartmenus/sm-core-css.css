@@ -9,20 +9,19 @@
 .sm li,.sm a{position:relative;}
 .sm a{display:block;}
 .sm a.disabled{cursor:not-allowed;}
-.sm:after{content:"\00a0";display:block;height:0;font:0px/0 serif;clear:both;visibility:hidden;overflow:hidden;}
+.sm:after{content:"\00a0";display:block;height:0;font:0/0 serif;clear:both;visibility:hidden;overflow:hidden;}
 .sm,.sm *,.sm *:before,.sm *:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
 
 
 .menu-base-theme a, .menu-base-theme a:hover, .menu-base-theme a:focus, .menu-base-theme a:active {
-  padding: 10px 20px;
-  padding-right: 58px;
-  background: #3092c0
+  padding: 10px 50px 20px 0;
+  background: #3092c0;
   color: white;
   line-height: 23px;
   text-decoration: none;
 }
 .menu-base-theme a.current {
-  background: #006892
+  background: #006892;
   color: white;
 }
 .menu-base-theme a.disabled {
@@ -56,7 +55,7 @@
   border-left: 8px solid transparent;
 }
 .menu-base-theme ul a.current {
-  background: #006892
+  background: #006892;
   color: white;
 }
 .menu-base-theme ul a.disabled {

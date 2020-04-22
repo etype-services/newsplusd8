@@ -47,3 +47,6 @@ slide_title_3: 'Drupal Design & Development'
 slide_description_3: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since' 
 slide_url_3: '#'
 slide_image_path_3: '/images/slider/slide_03.jpg'
+
+header_left_class: 'col-md-6'
+header_right_class: 'col-md-6'
