@@ -4,7 +4,6 @@ namespace Drupal\etype_pico\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\etype_xml_importer\Form\EtypeXMLImporterConfigForm;
 use Drupal\node\Entity\NodeType;
 
 /**
@@ -20,6 +19,14 @@ class EtypePicoConfigForm extends ConfigFormBase {
    * @var eTypePicoConfigForm
    */
   protected $nodeTypeOptions = [];
+
+  /**
+   * EtypePicoConfigForm constructor.
+   */
+  public function __construct() {
+    parent::__construct($this->configFactory());
+    $this->getNodeTypeOptions();
+  }
 
   /**
    * {@inheritdoc}
@@ -64,7 +71,7 @@ class EtypePicoConfigForm extends ConfigFormBase {
     $form['nodeType'] = [
       '#title' => $this->t('Content Type'),
       '#type' => 'select',
-      '#description' => $this->t('Choose a content type into which to import stories.'),
+      '#description' => $this->t('Choose the content type for restricted access.'),
       '#options' => $this->nodeTypeOptions,
       '#default_value' => $config->get('nodeType'),
     ];
