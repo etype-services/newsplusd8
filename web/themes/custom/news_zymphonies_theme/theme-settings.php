@@ -94,7 +94,7 @@ EOF,
     '#default_value' => theme_get_setting('show_credit_link'),
     '#description' => t("Highly recomend to display credit in footer"),
   ];
-  //Slide show config
+
   $form['news_zymphonies_theme_settings']['slideshow'] = [
     '#type' => 'details',
     '#title' => t('Front Page Slideshow'),
@@ -123,29 +123,29 @@ EOF,
 
     $form['news_zymphonies_theme_settings']['slideshow']['slide' . $i] = [
       '#type' => 'details',
-      '#title' => t("Slide %s", [$i]),
+      '#title' => t("Slide @i", ['@i' => $i]),
       '#collapsible' => TRUE,
       '#collapsed' => TRUE,
     ];
     $form['news_zymphonies_theme_settings']['slideshow']['slide' . $i]['slide_image_path' . $i] = [
       '#type' => 'managed_file',
-      '#title' => t('Slide %s Image', [$i]),
+      '#title' => t('Slide @i Image', ['@i' => $i]),
       '#default_value' => theme_get_setting('slide_image_path' . $i, 'news_zymphonies_theme'),
       '#upload_location' => 'public://',
     ];
     $form['news_zymphonies_theme_settings']['slideshow']['slide' . $i]['slide_title_' . $i] = [
       '#type' => 'textfield',
-      '#title' => t('Slide %s Title', [$i]),
+      '#title' => t('Slide @i Title', ['@i' => $i]),
       '#default_value' => theme_get_setting('slide_title_' . $i, 'news_zymphonies_theme'),
     ];
     $form['news_zymphonies_theme_settings']['slideshow']['slide' . $i]['slide_description_' . $i] = [
       '#type' => 'textarea',
-      '#title' => t('Slide %s Description', [$i]),
+      '#title' => t('Slide @i Description', ['@i' => $i]),
       '#default_value' => theme_get_setting('slide_description_' . $i, 'news_zymphonies_theme'),
     ];
     $form['news_zymphonies_theme_settings']['slideshow']['slide' . $i]['slide_url_' . $i] = [
       '#type' => 'textfield',
-      '#title' => t('Slide %s URL', [$i]),
+      '#title' => t('Slide @i URL', ['@i' => $i]),
       '#default_value' => theme_get_setting('slide_url_' . $i, 'news_zymphonies_theme'),
     ];
 
