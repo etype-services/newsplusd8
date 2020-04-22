@@ -88,11 +88,6 @@ function news_zymphonies_theme_preprocess_page(&$variables) {
   $variables['pinterest_url'] = theme_get_setting('pinterest_url');
   $variables['rss_url'] = theme_get_setting('rss_url');
   $variables['show_credit_link'] = theme_get_setting('show_credit_link');
-
-  // To get the current url
-  $current_url  = \Drupal::request()->getRequestUri();
-  $current_path = explode("/", $current_url);
-  // $variables['current_path'] = $current_path[2];
   
   // Slider
   // Asign Variable for Slider
