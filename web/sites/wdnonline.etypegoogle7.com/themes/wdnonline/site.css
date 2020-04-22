@@ -1,21 +1,5 @@
-#header-top {
-  background-color: #ffffff !important;
-}
-
-#block-stocktonsentinel-views-block-mt-breaking-block-1 .view-titles .more-link a {
-  background-color: #dd2a3b;
-}
-
-@media screen and (min-width: 768px) {
-  #pre-header .region-pre-header-left {
-    display: flex;
-  }
-  #pre-header .region-pre-header-left #block-stocktonsentinel-socialiconblockforheaderinnewstheme .icons-list {
-    display: flex;
-  }
-  #pre-header ul.menu li a {
-    padding: 16px 18px 10px !important;
-  }
+.region-sidebar .block-etype-block p {
+  font-size: 1.2rem;
 }
 
 /*# sourceMappingURL=site.css.map */
