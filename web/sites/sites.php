@@ -9,8 +9,8 @@ $sites['www.etypetest.com'] = 'etypetest.etypegoogle7.com';
 /* for *drall* updates */
 $sites['cni.etypegoogle7.com'] = "cni.etypegoogle7.com";
 $sites['tiempos.etypegoogle9.com'] = "tiempos.etypegoogle9.com";
-$sites['newsplusd8.etypegoogle7.com'] = "newsplusd8.etypegoogle7.com";
-$sites['kiamonews.etypegoogle7.com'] = "kiamonews.etypegoogle7.com";
+$sites['newsplus.etypegoogle9.com'] = "newsplus.etypegoogle9.com";
+$sites['kiamo.etypegoogle9.com'] = "kiamo.etypegoogle9.com";
 
 /* main section */
 $sites['www.bayoujournal.com'] = 'bayoujournal.etypegoogle7.com';
@@ -112,3 +112,4 @@ $sites['www.fredericksburgstandard.com'] = "fredericksburgstandard.etypegoogle7.
 $sites['www.wdnonline.com'] = "wdnonline.etypegoogle7.com";
 $sites['www.silvertonstandard.com'] = "silvertonstandard.etypegoogle7.com";
 $sites['www.beardstownnewspapers.com'] = "beardstownnewspapers.etypegoogle9.com";
+$sites['www.reboundgrants.com'] = "reboundgrants.etypegoogle9.com";
