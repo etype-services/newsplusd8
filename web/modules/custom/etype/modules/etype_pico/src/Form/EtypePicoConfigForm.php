@@ -73,7 +73,7 @@ class EtypePicoConfigForm extends ConfigFormBase {
       '#type' => 'checkboxes',
       '#description' => $this->t('Choose the content type for restricted access.'),
       '#options' => $this->nodeTypeOptions,
-      //'#default_value' => $config->get('nodeType'),
+      '#default_value' => $config->get('nodeType'),
     ];
 
     return parent::buildForm($form, $form_state);
