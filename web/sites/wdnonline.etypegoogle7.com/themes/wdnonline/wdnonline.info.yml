@@ -1,0 +1,27 @@
+name: Tiempos for Weatherford Daily News
+type: theme
+base theme: tiempos
+description: 'Tiempos Custom Theme'
+version: 8.1.1
+core: 8.x
+core_version_requirement: ^8 || ^9
+regions:
+  large_ad: 'Large Ad'
+  top_bar: 'Top Bar'
+  header_left: 'Header Left'
+  header_center: 'Header Center'
+  header_right: 'Header Right'
+  header_bottom: 'Header Bottom'
+  navigation: 'Navigation'
+  breadcrumb: 'Breadcrumb'
+  leaderboard: 'Leaderboard'
+  top_content: 'Top Content'
+  content: 'Content'
+  sidebar: 'Sidebar'
+  footer_left: 'Footer Left'
+  footer_center: 'Footer Center'
+  footer_right: 'Footer Right'
+  coupons: 'Coupons'
+  hidden_blocks: 'Hidden Blocks'
+libraries:
+  - wdnonline/global-styling
