@@ -945,6 +945,9 @@ nav h2 {
 .top-menu p, .top-menu .block {
   margin: 0;
 }
+.top-menu > div {
+  float: left;
+}
 
 .region-top-menu ul {
   margin: 0;

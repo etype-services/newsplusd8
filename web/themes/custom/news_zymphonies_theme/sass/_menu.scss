@@ -106,23 +106,28 @@ nav h2{
 
 /*Top Menu*/
 
-.top-menu{
+.top-menu {
 	font-size: .75em;
 	background: #f9f9f9;
 
-	.top-blocks{
+	.top-blocks {
 		overflow: hidden;
 
 		.region {
 			padding: 10px 10px 10px 0;
 		}
-		.social-media{
+
+		.social-media {
 			padding: 9px 0;
 		}
 	}
 
 	p, .block {
 		margin: 0;
+	}
+
+	> div {
+		float: left;
 	}
 
 }
@@ -151,10 +156,10 @@ nav h2{
 	}
 }
 
-.region-header-ads{
+.region-header-ads {
 	text-align: right;
 
-	img{
+	img {
 		vertical-align: top;
 	}
 }
