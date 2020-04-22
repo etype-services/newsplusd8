@@ -1,4 +1,5 @@
 /*Header*/
+@import "variables-and-mixins";
 
 .main-header {
 	overflow: auto;
@@ -33,7 +34,7 @@
 	margin: 0;
 }
 
-.region-header .brand{
+.region-header .brand {
 	display: inline-block;
 	vertical-align: middle;
 	font-size: 1.5em;
@@ -42,6 +43,7 @@
 		font-weight: bold;
 		display: block;
 		text-transform: uppercase;
+		font-size: 5rem;
 		
 		img{
 			vertical-align: middle;

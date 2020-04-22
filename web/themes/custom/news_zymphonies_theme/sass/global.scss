@@ -7,13 +7,12 @@
 					support@zymphonies.com
 **/
 
-@import "compass/reset";
-@import "compass/CSS3";
+@import "bootstrap";
 @import "variables-and-mixins";
 @import "base";
 @import "typhography";
 @import "global-styles";
-@import "home.scss";
+@import "home";
 @import "header";
 @import "slider";
 @import "menu";
