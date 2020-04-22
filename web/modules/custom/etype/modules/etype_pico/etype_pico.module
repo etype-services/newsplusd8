@@ -18,7 +18,6 @@ function etype_pico_preprocess_html(&$variables) {
     $config = Drupal::config('etype_pico.settings');
     $picoPublisherId = $config->get('picoPublisherId');
     $nodeTypes = $config->get('nodeTypes');
-    dsm($nodeTypes);
     if (!empty($picoPublisherId)) {
 
       $head_script .= <<<EOF
@@ -37,7 +36,7 @@ EOF;
       $nid = '0';
       $node = Drupal::routeMatch()->getParameter('node');
       if ($node instanceof NodeInterface) {
-        if ($node->getType() == 'article') {
+        if (in_array($node->getType(), $nodeTypes)) {
           $nid = $node->id();
           $page['#attached']['drupalSettings']['nid'] = $nid;
           $tids = $node->get('field_section')->getValue();
