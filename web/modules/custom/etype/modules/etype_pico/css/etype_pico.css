@@ -1,0 +1,4 @@
+.PicoRule[data-pico-status=registered], .PicoRule[data-pico-status="paying"] {
+  display: none;
+  visibility: hidden;
+}
