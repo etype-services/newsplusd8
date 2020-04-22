@@ -5,7 +5,6 @@ namespace Drupal\etype_xml_importer\Form;
 use Drupal;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\node\Entity\Node;
 use Drupal\node\Entity\NodeType;
 use Drupal\user\Entity\User;
 use Drupal\taxonomy\Entity\Term;

@@ -4,6 +4,8 @@ namespace Drupal\etype_pico\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\etype_xml_importer\Form\EtypeXMLImporterConfigForm;
+use Drupal\node\Entity\NodeType;
 
 /**
  * Class eTypePicoConfigForm.
@@ -11,6 +13,13 @@ use Drupal\Core\Form\FormStateInterface;
  * @package Drupal\etype\Form
  */
 class EtypePicoConfigForm extends ConfigFormBase {
+
+  /**
+   * Array of Node Types, used to choose which to import into.
+   *
+   * @var eTypePicoConfigForm
+   */
+  protected $nodeTypeOptions = [];
 
   /**
    * {@inheritdoc}
@@ -29,17 +38,35 @@ class EtypePicoConfigForm extends ConfigFormBase {
   }
 
   /**
+   * Get node types and make options array.
+   */
+  protected function getNodeTypeOptions() {
+    $nodeTypes = NodeType::loadMultiple();
+    foreach ($nodeTypes as $nodeType) {
+      $this->nodeTypeOptions[$nodeType->id()] = $nodeType->label();
+    }
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
     $config = $this->config('etype_pico.settings');
 
-    $form['e_edition']['picoPublisherId'] = [
+    $form['picoPublisherId'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Pico Publisher Id'),
       '#size' => 55,
       '#default_value' => $config->get('picoPublisherId'),
+    ];
+
+    $form['nodeType'] = [
+      '#title' => $this->t('Content Type'),
+      '#type' => 'select',
+      '#description' => $this->t('Choose a content type into which to import stories.'),
+      '#options' => $this->nodeTypeOptions,
+      '#default_value' => $config->get('nodeType'),
     ];
 
     return parent::buildForm($form, $form_state);
@@ -52,6 +79,7 @@ class EtypePicoConfigForm extends ConfigFormBase {
     parent::submitForm($form, $form_state);
     $this->config('etype_pico.settings')
       ->set('picoPublisherId', $form_state->getValue('picoPublisherId'))
+      ->set('nodeType', $form_state->getValue('nodeType'))
       ->save();
   }
 
