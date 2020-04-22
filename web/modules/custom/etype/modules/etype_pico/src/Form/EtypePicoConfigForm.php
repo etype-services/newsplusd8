@@ -68,12 +68,12 @@ class EtypePicoConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('picoPublisherId'),
     ];
 
-    $form['nodeType'] = [
+    $form['nodeTypes'] = [
       '#title' => $this->t('Content Type'),
       '#type' => 'checkboxes',
-      '#description' => $this->t('Choose the content type for restricted access.'),
+      '#description' => $this->t('Choose the content type(s) for restricted access.'),
       '#options' => $this->nodeTypeOptions,
-      '#default_value' => $config->get('nodeType'),
+      '#default_value' => $config->get('nodeTypes'),
     ];
 
     return parent::buildForm($form, $form_state);
@@ -86,7 +86,7 @@ class EtypePicoConfigForm extends ConfigFormBase {
     parent::submitForm($form, $form_state);
     $this->config('etype_pico.settings')
       ->set('picoPublisherId', $form_state->getValue('picoPublisherId'))
-      ->set('nodeType', $form_state->getValue('nodeType'))
+      ->set('nodeTypes', $form_state->getValue('nodeTypes'))
       ->save();
   }
 
