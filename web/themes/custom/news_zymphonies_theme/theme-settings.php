@@ -21,7 +21,14 @@ function news_zymphonies_theme_form_system_theme_settings_alter(array &$form, $f
 EOF,
   ];
 
-  $form['news_zymphonies_theme_settings']['header_left_class'] = [
+  $form['news_zymphonies_theme_settings']['custom'] = [
+    '#type' => 'details',
+    '#title' => t('Various Settings'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  ];
+
+  $form['news_zymphonies_theme_settings']['custom']['header_left_class'] = [
     '#type' => 'textfield',
     '#title' => t('Header Left (logo area) class'),
     '#default_value' => theme_get_setting('header_left_class', 'news_zymphonies'),
@@ -29,7 +36,7 @@ EOF,
     '#maxlength' => 12,
   ];
 
-  $form['news_zymphonies_theme_settings']['header_right_class'] = [
+  $form['news_zymphonies_theme_settings']['custom']['header_right_class'] = [
     '#type' => 'textfield',
     '#title' => t('Header Right (advertisement) class'),
     '#default_value' => theme_get_setting('header_right_class', 'news_zymphonies'),
@@ -81,7 +88,7 @@ EOF,
     '#default_value' => theme_get_setting('rss_url'),
   ];
 
-  //Show/Hide credit
+  // Show/Hide credit.
   $form['news_zymphonies_theme_settings']['credit_link'] = [
     '#type' => 'details',
     '#title' => t('Footer Credit Link'),
