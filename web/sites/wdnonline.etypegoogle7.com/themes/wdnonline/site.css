@@ -19,4 +19,11 @@
   font-family: "Manrope", sans-serif;
 }
 
+#block-wdnonline-branding a {
+  width: 100%;
+}
+#block-wdnonline-branding a img {
+  width: 100%;
+}
+
 /*# sourceMappingURL=site.css.map */
