@@ -15,7 +15,6 @@
   .flexslider .slider-caption {
     display: block;
   }
-
   .flexslider .flex-direction-nav {
     display: block;
     margin-top: -24px;
@@ -45,11 +44,9 @@
     margin: 0;
     background: none;
   }
-
   .region-primary-menu ul {
     border: 0;
   }
-
   .region-primary-menu ul ul {
     background: #fff;
     background: #19232d;
@@ -67,17 +64,14 @@
     color: #fff;
     font-size: 0.8em;
   }
-
   .region-primary-menu li {
     border: 0;
   }
-
   .region-primary-menu li a {
     background: none;
     border: 0;
     color: #fff;
   }
-
   .region-primary-menu li a span.sub-arrow {
     padding: 0;
     top: 20px;
@@ -133,7 +127,6 @@
   .comment-wrap .author-details {
     width: 10%;
   }
-
   .comment-wrap .author-comments {
     width: 90%;
   }
