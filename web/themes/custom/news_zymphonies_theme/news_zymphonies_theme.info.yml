@@ -20,19 +20,20 @@ regions:
   header: 'Header'
   contact_email: 'Contact email'
   top_menu: 'Top menu'
-  primary_menu: 'Primary menu'
   search: 'Search'
   header_ads: 'Header Ads'
+  primary_menu: 'Primary menu'
+  leaderboard_below_menu: 'Leaderboard Below Menu'
 
   #Home Page
-  homepagemessage: 'Home page message'
-
   topwidget_first: 'Top first widget'
   topwidget_second: 'Top second widget'
-  topwidget_third: 'Top third widget' 
+  topwidget_third: 'Top third widget'
+
+  homepagemessage: 'Home page message'
 
   #Global Region
-  highlighted: 'Highlighted' 
+  highlighted: 'Highlighted'
   page_title: 'Page title'
   breadcrumb: 'Breadcrumb'
   content: 'Content'
