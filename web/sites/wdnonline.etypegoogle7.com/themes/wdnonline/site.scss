@@ -7,9 +7,14 @@
 }
 
 #main-navbar-menu a {
-  font-family: Manrope, sans-serif;
+  font-family: "Manrope", sans-serif;
+  font-size: 1.2rem;
 }
 
 .region-sidebar .fc-toolbar .fc-right {
   float: none;
+}
+
+.is-sans-serif {
+  font-family: "Manrope", sans-serif;
 }
