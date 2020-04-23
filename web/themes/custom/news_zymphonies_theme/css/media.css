@@ -145,7 +145,7 @@
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
-  .top-menu .topnav .row {
+  .main-header .topnav .row {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
