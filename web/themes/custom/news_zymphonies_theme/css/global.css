@@ -12,16 +12,16 @@
 .carousel-caption h2 {
   display: none;
   margin-top: 0;
-  color: #3686be;
+  color: #3686BE;
 }
 
 .carousel-indicators li {
-  border: 1px solid #3686be;
+  border: 1px solid #3686BE;
   width: 20px;
   height: 20px;
 }
 .carousel-indicators .active {
-  background-color: #3686be;
+  background-color: #3686BE;
   width: 22px;
   height: 22px;
 }
@@ -302,16 +302,16 @@ th.select-all {
 @media screen and (max-width: 37.5em) {
   /* 600px */
   th.priority-low,
-  td.priority-low,
-  th.priority-medium,
-  td.priority-medium {
+td.priority-low,
+th.priority-medium,
+td.priority-medium {
     display: none;
   }
 }
 @media screen and (max-width: 60em) {
   /* 920px */
   th.priority-low,
-  td.priority-low {
+td.priority-low {
     display: none;
   }
 }
@@ -494,7 +494,7 @@ input[type=submit]:hover {
   overflow: hidden;
   margin-bottom: 20px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #f5f5f5;
+  border-bottom: 1px solid #F5F5F5;
 }
 .comment-wrap .author-details {
   float: left;
@@ -903,8 +903,8 @@ nav h2 {
   font-size: 22px;
   padding: 5px;
   border-radius: 2px;
-  border: 1px solid #dcdcdc;
-  background: #efefef;
+  border: 1px solid #DCDCDC;
+  background: #EFEFEF;
 }
 .menu-base-theme li a span.sub-arrow {
   line-height: 120%;
@@ -1036,9 +1036,9 @@ nav h2 {
 .contact-message-feedback-form {
   max-width: 650px;
   margin: 0 auto;
-  border: 1px solid #e9e8ed;
+  border: 1px solid #E9E8ED;
   padding: 10px 20px;
-  background: #fdfdfd;
+  background: #FDFDFD;
 }
 
 .contact-message-feedback-form .form-text,
@@ -1078,7 +1078,7 @@ nav h2 {
 	Maintainance
 -----------------------------*/
 .maintenance-page {
-  background: image-url("maintenance-bg.png") #66cbff center no-repeat;
+  background: image-url("maintenance-bg.png") #66CBFF center no-repeat;
   color: #fff;
   text-align: center;
   padding-top: 220px;
@@ -1156,6 +1156,14 @@ nav h2 {
 .content-image {
   float: left;
   margin: 0 10px 5px 0;
+}
+
+.region-leaderboard-below-menu {
+  margin-top: 2rem;
+}
+.region-leaderboard-below-menu .block-views-blockadvertisements-block-9 .views-row {
+  display: flex;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=global.css.map */
