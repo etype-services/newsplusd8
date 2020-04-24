@@ -12,10 +12,10 @@ namespace Drupal\etype_xml_importer\Controller;
 use Drupal;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\File\FileSystemInterface;
+use Drupal\etype_xml_importer\Plugin\ForceUTF8\Encoding;
 use Drupal\user\Entity\User;
 use Exception;
 use FilesystemIterator;
-use Drupal\etype_xml_importer\Plugin\ForceUTF8\Encoding;
 use ZipArchive;
 use SimpleXMLElement;
 
@@ -373,14 +373,14 @@ class ImportOliveXMLController {
       $pub_date = strtotime($array['pub_date']);
 
       $node = [
-        'title' => (new Encoding)->toUtf8($array['title']),
+        'title' => Encoding::toUtf8($array['title']),
         'summary' => strip_tags(Encoding::toUtf8(preg_replace("/\s+/", " ", $array['description']))),
-        'body' => (new Encoding)->toUtf8($array['body']),
+        'body' => Encoding::toUtf8($array['body']),
       ];
 
       /* Create User based on byline */
       $node['uid'] = $this->author;
-      $byline = (new Encoding)->toUtf8($array['byline']);
+      $byline = Encoding::toUtf8($array['byline']);
       $byline = preg_replace('/\s+/', " ", $byline);
       $byline = preg_replace('/^By:/i', " ", $byline);
       $byline = trim(ucfirst($byline));
@@ -416,7 +416,7 @@ class ImportOliveXMLController {
       }
 
       if ($this->subheadField !== "None") {
-        $node[$this->subheadField] = (new Encoding)->toUtf8($array['slugline']);
+        $node[$this->subheadField] = Encoding::toUtf8($array['slugline']);
       }
 
       $array = [];
@@ -427,7 +427,7 @@ class ImportOliveXMLController {
           $array[] = [
             'name' => $image['image'],
             'path' => $ipath,
-            'caption' => (new Encoding)->toUtf8(preg_replace("/\s+/", " ", $image['caption'])),
+            'caption' => Encoding::toUtf8(preg_replace("/\s+/", " ", $image['caption'])),
           ];
           $ptr++;
           if (($this->imageNumber == 1) && ($ptr == 1)) {
