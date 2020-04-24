@@ -189,53 +189,62 @@ class Encoding {
             // yeah, almost sure it's UTF8 already.
             $buf .= $c1 . $c2;
             $i++;
-          } else {
+          }
+          else {
             // Not valid UTF8.  Convert it.
             $cc1 = (chr(ord($c1) / 64) | "\xc0");
             $cc2 = ($c1 & "\x3f") | "\x80";
             $buf .= $cc1 . $cc2;
           }
-        } elseif ($c1 >= "\xe0" & $c1 <= "\xef") {
+        }
+        elseif ($c1 >= "\xe0" & $c1 <= "\xef") {
           // Looks like 3 bytes UTF8.
           if ($c2 >= "\x80" && $c2 <= "\xbf" && $c3 >= "\x80" && $c3 <= "\xbf") {
             // Yeah, almost sure it's UTF8 already.
             $buf .= $c1 . $c2 . $c3;
             $i = $i + 2;
-          } else {
+          }
+          else {
             // Not valid UTF8.  Convert it.
             $cc1 = (chr(ord($c1) / 64) | "\xc0");
             $cc2 = ($c1 & "\x3f") | "\x80";
             $buf .= $cc1 . $cc2;
           }
-        } elseif ($c1 >= "\xf0" & $c1 <= "\xf7") {
+        }
+        elseif ($c1 >= "\xf0" & $c1 <= "\xf7") {
           // Looks like 4 bytes UTF8.
           if ($c2 >= "\x80" && $c2 <= "\xbf" && $c3 >= "\x80" && $c3 <= "\xbf" && $c4 >= "\x80" && $c4 <= "\xbf") {
             // Yeah, almost sure it's UTF8 already.
             $buf .= $c1 . $c2 . $c3 . $c4;
             $i = $i + 3;
-          } else {
+          }
+          else {
             // Not valid UTF8.  Convert it.
             $cc1 = (chr(ord($c1) / 64) | "\xc0");
             $cc2 = ($c1 & "\x3f") | "\x80";
             $buf .= $cc1 . $cc2;
           }
-        } else {
+        }
+        else {
           // Doesn't look like UTF8, but should be converted.
           $cc1 = (chr(ord($c1) / 64) | "\xc0");
           $cc2 = (($c1 & "\x3f") | "\x80");
           $buf .= $cc1 . $cc2;
         }
-      } elseif (($c1 & "\xc0") == "\x80") {
+      }
+      elseif (($c1 & "\xc0") == "\x80") {
         // Needs conversion.
         if (isset(self::$win1252ToUtf8[ord($c1)])) {
           // Found in Windows-1252 special cases.
           $buf .= self::$win1252ToUtf8[ord($c1)];
-        } else {
+        }
+        else {
           $cc1 = (chr(ord($c1) / 64) | "\xc0");
           $cc2 = (($c1 & "\x3f") | "\x80");
           $buf .= $cc1 . $cc2;
         }
-      } else {
+      }
+      else {
         // It doesn't need conversion.
         $buf .= $c1;
       }
@@ -250,6 +259,7 @@ class Encoding {
    *   Parameter Comment.
    * @param string $option
    *   Parameter Comment.
+   *
    * @return array|bool|false|string
    *   Description.
    */
@@ -259,9 +269,11 @@ class Encoding {
         $text[$k] = self::toWin1252($v, $option);
       }
       return $text;
-    } elseif (is_string($text)) {
+    }
+    elseif (is_string($text)) {
       return static::utf8Decode($text, $option);
-    } else {
+    }
+    else {
       return $text;
     }
   }
@@ -271,6 +283,7 @@ class Encoding {
    *
    * @param string $text
    *   Parameter Comment.
+   *
    * @return array|bool|false|string
    *   Parameter Comment.
    */
@@ -283,6 +296,7 @@ class Encoding {
    *
    * @param string $text
    *   Parameter Comment.
+   *
    * @return array|bool|false|string
    *   Parameter Comment.
    */
@@ -297,6 +311,7 @@ class Encoding {
    *   Parameter Comment.
    * @param string $option
    *   Parameter Comment.
+   *
    * @return array|string
    *   Parameter Comment.
    */
@@ -322,6 +337,7 @@ class Encoding {
    *
    * @param string $text
    *   Parameter Comment.
+   *
    * @return string|string[]
    *   Description
    */
@@ -338,6 +354,7 @@ class Encoding {
    *
    * @param string $str
    *   Parameter Comment.
+   *
    * @return false|string
    *   Parameter Comment.
    */
@@ -353,6 +370,7 @@ class Encoding {
    *
    * @param string $text
    *   Parameter Comment.
+   *
    * @return bool|false|int
    *   Parameter Comment.
    */
@@ -365,6 +383,7 @@ class Encoding {
    *
    * @param string $encodingLabel
    *   Parameter Comment.
+   *
    * @return string
    *   Parameter Comment.
    */
@@ -415,13 +434,15 @@ class Encoding {
    *   Parameter Comment.
    * @param mixed $option
    *   Parameter Comment.
+   *
    * @return bool|false|string
    *   Parameter Comment.
    */
   protected static function utf8Decode($text, $option) {
     if ($option == self::WITHOUT_ICONV || !function_exists('iconv')) {
       $o = utf8Decode(str_replace(array_keys(self::$utf8ToWin1252), array_values(self::$utf8ToWin1252), self::toUtf8($text)));
-    } else {
+    }
+    else {
       $o = iconv("UTF-8", "Windows-1252" . ($option == self::ICONV_TRANSLIT ? '//TRANSLIT' : ($option == self::ICONV_IGNORE ? '//IGNORE' : '')), $text);
     }
     return $o;

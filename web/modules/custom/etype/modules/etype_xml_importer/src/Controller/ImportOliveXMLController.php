@@ -441,7 +441,8 @@ class ImportOliveXMLController {
 
       // Otherwise field is initiated and shows empty on node page.
       if (!empty($array['pulled_quote'])) {
-        $node['field_pulled_quote'] = $array['pulled_quote'];
+        $pulled_quote = $array['pulled_quote'];
+        $node['field_pulled_quote'] = $pulled_quote;
       }
 
       $node['created'] = $pub_date;
