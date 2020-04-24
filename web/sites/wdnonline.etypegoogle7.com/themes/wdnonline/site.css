@@ -26,4 +26,15 @@
   width: 100%;
 }
 
+#block-eeditionextratext {
+  margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+  #block-eeditionextratext {
+    visibility: hidden;
+    display: none;
+  }
+}
+
 /*# sourceMappingURL=site.css.map */
