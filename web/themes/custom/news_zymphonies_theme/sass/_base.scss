@@ -9,9 +9,9 @@ img {
 
 .messages {
   background: no-repeat 10px 17px; /* LTR */
-  border: 1px solid;
   border-width: 1px 1px 1px 0; /* LTR */
   border-radius: 2px;
+  border-style: solid;
   padding: 10px 20px 10px 20px; /* LTR */
   word-wrap: break-word;
   overflow-wrap: break-word;
