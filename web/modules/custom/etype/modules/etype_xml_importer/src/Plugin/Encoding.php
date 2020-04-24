@@ -1,11 +1,11 @@
 <?php
 
-namespace Drupal\etype_xml_importer\Plugin\ForceUTF8;
+namespace Drupal\etype_xml_importer\Plugin;
 
 /**
  * Class Encoding.
  *
- * @package ForceUTF8
+ * @package Drupal\etype_xml_importer\Plugin
  */
 class Encoding {
 
