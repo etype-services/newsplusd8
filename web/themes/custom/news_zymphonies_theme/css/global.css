@@ -664,11 +664,6 @@ abbr.ajax-changed {
   padding: 20px 0;
 }
 
-/* Home Page Top Blocks */
-#block-views-block-home-page-top-blocks-block-1 .list-item a {
-  color: #333;
-}
-
 /*Header*/
 /*Variables*/
 /*Header*/
@@ -1033,6 +1028,9 @@ nav h2 {
   padding-bottom: 6px;
   margin-bottom: 6px;
   border-bottom: 1px solid #ddd;
+}
+.topwidget ul li a {
+  color: #333;
 }
 
 /*----------------------------
