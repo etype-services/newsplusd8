@@ -68,5 +68,9 @@
     float: none;
   }
 }
+.block-etype-blue-orchid {
+  display: flex;
+  justify-content: center;
+}
 
 /*# sourceMappingURL=ads.css.map */
