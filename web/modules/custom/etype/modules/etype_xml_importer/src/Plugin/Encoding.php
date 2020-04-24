@@ -156,6 +156,7 @@ class Encoding {
    *   2) when any of these: àáâãäåæçèéêëìíîï
    *   are followed by TWO chars from group B,
    *   3) when any of these: ðñòó  are followed by THREE chars from group B.
+   *
    * @return string
    *   The same string, UTF8 encoded.
    */
