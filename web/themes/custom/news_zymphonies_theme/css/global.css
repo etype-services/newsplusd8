@@ -1032,6 +1032,9 @@ nav h2 {
 .topwidget ul li a {
   color: #333;
 }
+.topwidget ul li ahover {
+  color: #ee3224;
+}
 
 /*----------------------------
 	Contact page

@@ -26,7 +26,10 @@
       margin-bottom: 6px;
       border-bottom: 1px solid #ddd;
       a {
-        color: #333;
+        color: $baseFontColor;
+        &hover {
+          color: $linkColor;
+        }
       }
     }
   }
