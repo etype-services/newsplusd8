@@ -29,12 +29,21 @@
   }
 }
 
+#block-views-blockadvertisements-block-3 {
+  clear: both;
+}
+
 #block-eeditionextratext {
   margin-bottom: 0;
 }
 
+#block-wdnonline-facebooksidebar {
+  display: flex;
+  justify-content: center;
+}
+
 @media (max-width: 767px) {
-  #block-eeditionextratext {
+  #block-eeditionextratext, #block-wdnonline-searchform {
     visibility: hidden;
     display: none;
   }

@@ -1,10 +1,1 @@
-{
-  "version": 3,
-  "sourceRoot": "",
-  "sources": [
-    "site.scss"
-  ],
-  "names": [],
-  "mappings": "AAAA;EACE;;;AAGF;EACE;;;AAGF;EACE;EACA;;;AAGF;EACE;;;AAGF;EACE;;;AAIA;EACE;;AAEA;EACE;;;AAKN;EACE;;;AAGF;EACE;IACE;IACA",
-  "file": "site.css"
-}
+{"version":3,"sourceRoot":"","sources":["site.scss"],"names":[],"mappings":"AAAA;EACE;;;AAGF;EACE;;;AAGF;EACE;EACA;;;AAGF;EACE;;;AAGF;EACE;;;AAIA;EACE;;AAEA;EACE;;;AAKN;EACE;;;AAGF;EACE;;;AAGF;EACE;EACA;;;AAGF;EACE;IACE;IACA","file":"site.css"}
