@@ -15,11 +15,9 @@ use Drupal\Core\File\FileSystemInterface;
 use Drupal\user\Entity\User;
 use Exception;
 use FilesystemIterator;
-use ForceUTF8\Encoding;
+use Drupal\etype_xml_importer\Plugin\ForceUTF8\Encoding;
 use ZipArchive;
 use SimpleXMLElement;
-
-require_once __DIR__ . '/../Plugin/Encoding.php';
 
 /**
  * Class ImportOliveXMLController.

@@ -1,6 +1,6 @@
 <?php
 
-namespace ForceUTF8;
+namespace Drupal\etype_xml_importer\Plugin\ForceUTF8;
 
 /**
  * Class Encoding.
