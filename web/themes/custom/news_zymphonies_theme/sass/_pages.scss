@@ -27,7 +27,7 @@
       border-bottom: 1px solid #ddd;
       a {
         color: $baseFontColor;
-        &hover {
+        &:hover {
           color: $linkColor;
         }
       }

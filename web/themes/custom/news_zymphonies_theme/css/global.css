@@ -1032,7 +1032,7 @@ nav h2 {
 .topwidget ul li a {
   color: #333;
 }
-.topwidget ul li ahover {
+.topwidget ul li a:hover {
   color: #ee3224;
 }
 
