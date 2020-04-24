@@ -664,7 +664,8 @@ abbr.ajax-changed {
   padding: 20px 0;
 }
 
-.block-views-block-home-page-top-blocks-block-1 .list-item a {
+/* Home Page Top Blocks */
+#block-views-block-home-page-top-blocks-block-1 .list-item a {
   color: #333;
 }
 
