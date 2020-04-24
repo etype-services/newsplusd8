@@ -307,7 +307,7 @@ class Encoding {
   /**
    * Short Description.
    *
-   * @param string $text
+   * @param array|string $text
    *   Parameter Comment.
    * @param string $option
    *   Parameter Comment.
@@ -416,6 +416,7 @@ class Encoding {
    *   Parameter Comment.
    * @param string $text
    *   Parameter Comment.
+   *
    * @return array|bool|false|string
    *   Parameter Comment.
    */
