@@ -10,9 +10,7 @@ namespace Drupal\etype_xml_importer\Plugin;
 class Encoding {
 
   const ICONV_TRANSLIT = "TRANSLIT";
-
   const ICONV_IGNORE = "IGNORE";
-
   const WITHOUT_ICONV = "";
 
   /**
