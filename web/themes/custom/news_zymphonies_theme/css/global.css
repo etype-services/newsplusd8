@@ -1177,4 +1177,9 @@ nav h2 {
   justify-content: center;
 }
 
+.adblock {
+  display: flex;
+  justify-content: center;
+}
+
 /*# sourceMappingURL=global.css.map */
