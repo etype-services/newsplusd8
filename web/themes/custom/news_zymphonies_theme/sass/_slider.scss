@@ -50,6 +50,8 @@
 
   .slides {
     background-image: linear-gradient(to bottom right, #f2655a, #ccc);
+    /* hide ghost thumbnails */
+    height: 691px;
     li {
       position: relative;
       img {
