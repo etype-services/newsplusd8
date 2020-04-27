@@ -841,19 +841,17 @@ abbr.ajax-changed {
 .flexslider .slides {
   background-image: linear-gradient(to bottom right, #f2655a, #ccc);
   /* hide ghost thumbnails */
-  height: 691px;
+  height: 692px;
   overflow: hidden;
 }
 .flexslider .slides li {
   position: relative;
 }
-.flexslider .slides li img {
+.flexslider .slides li .image-style-slideshow {
   -moz-user-select: none;
   user-select: none;
   width: auto;
   margin: auto;
-  border-left: 1px solid #ee3224;
-  border-right: 1px solid #ee3224;
 }
 .flexslider .flex-direction-nav {
   display: none;

@@ -179,4 +179,14 @@
       }
     }
   }
+
+  .flexslider {
+    .slides {
+      height: 392px;
+      overflow: hidden;
+      .image-style-slideshow {
+        height: 400px;
+      }
+    }
+  }
 }

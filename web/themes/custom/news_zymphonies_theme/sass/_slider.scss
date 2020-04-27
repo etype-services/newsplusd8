@@ -51,17 +51,15 @@
   .slides {
     background-image: linear-gradient(to bottom right, #f2655a, #ccc);
     /* hide ghost thumbnails */
-    height: 691px;
+    height: 692px;
     overflow: hidden;
     li {
       position: relative;
-      img {
+      .image-style-slideshow {
         -moz-user-select: none;
         user-select: none;
         width: auto;
         margin: auto;
-        border-left: 1px solid #ee3224;
-        border-right: 1px solid #ee3224;
       }
     }
   }

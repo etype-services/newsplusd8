@@ -145,6 +145,14 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+
+  .flexslider .slides {
+    height: 392px;
+    overflow: hidden;
+  }
+  .flexslider .slides .image-style-slideshow {
+    height: 400px;
+  }
 }
 
 /*# sourceMappingURL=media.css.map */
