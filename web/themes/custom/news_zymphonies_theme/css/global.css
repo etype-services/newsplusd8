@@ -838,6 +838,9 @@ abbr.ajax-changed {
   display: inline-block;
   text-transform: uppercase;
 }
+.flexslider .slides {
+  background-image: linear-gradient(to bottom right, #f2655a, #ccc);
+}
 .flexslider .slides li {
   position: relative;
 }
@@ -846,6 +849,8 @@ abbr.ajax-changed {
   user-select: none;
   width: auto;
   margin: auto;
+  border-left: 1px solid #ee3224;
+  border-right: 1px solid #ee3224;
 }
 .flexslider .flex-direction-nav {
   display: none;
