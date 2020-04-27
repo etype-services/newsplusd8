@@ -812,8 +812,8 @@ abbr.ajax-changed {
   text-align: left;
   font-size: 1em;
   line-height: 150%;
-  background: #fff;
   background: rgba(255, 255, 255, 0.68);
+  padding-bottom: 1rem;
 }
 .flexslider h2 {
   font-size: 1.3em;
