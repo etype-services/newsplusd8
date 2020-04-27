@@ -113,3 +113,4 @@ $sites['www.wdnonline.com'] = "wdnonline.etypegoogle7.com";
 $sites['www.silvertonstandard.com'] = "silvertonstandard.etypegoogle7.com";
 $sites['www.beardstownnewspapers.com'] = "beardstownnewspapers.etypegoogle9.com";
 $sites['www.reboundgrants.com'] = "reboundgrants.etypegoogle9.com";
+$sites['www.tecumsehchieftain.com'] = "tecumsehchieftain.etypegoogle9.com";
