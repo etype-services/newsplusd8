@@ -843,6 +843,8 @@ abbr.ajax-changed {
   /* hide ghost thumbnails */
   height: 692px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 .flexslider .slides li {
   position: relative;
