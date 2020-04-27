@@ -841,6 +841,12 @@ abbr.ajax-changed {
 .flexslider .slides li {
   position: relative;
 }
+.flexslider .slides li img {
+  -moz-user-select: none;
+  user-select: none;
+  width: auto;
+  margin: auto;
+}
 .flexslider .flex-direction-nav {
   display: none;
   position: absolute;

@@ -52,6 +52,12 @@
 
     li {
       position: relative;
+      img {
+        -moz-user-select: none;
+        user-select: none;
+        width: auto;
+        margin: auto;
+      }
     }
   }
 
