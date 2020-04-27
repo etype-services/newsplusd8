@@ -842,6 +842,7 @@ abbr.ajax-changed {
   background-image: linear-gradient(to bottom right, #f2655a, #ccc);
   /* hide ghost thumbnails */
   height: 691px;
+  overflow: hidden;
 }
 .flexslider .slides li {
   position: relative;
