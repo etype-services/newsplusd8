@@ -395,6 +395,14 @@ ul.links.inline li {
   margin-bottom: 10px;
 }
 
+#block-etypeeedition p a {
+  font-weight: bold;
+}
+
+/*Variables*/
+/*Header*/
+/*Menu Color*/
+/*Mixins*/
 body {
   font-family: "Roboto", sans-serif;
   font-size: 14px;
