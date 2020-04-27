@@ -11,6 +11,10 @@
   font-size: 1.2rem;
 }
 
+footer {
+  font-family: "Manrope", sans-serif;
+}
+
 .region-sidebar .fc-toolbar .fc-right {
   float: none;
 }
@@ -24,6 +28,26 @@
 }
 #block-wdnonline-branding a img {
   width: 100%;
+}
+
+#block-wdnonline-views-block-advertisements-block-3 {
+  clear: both;
+}
+
+#block-eeditionextratext {
+  margin-bottom: 0;
+}
+
+#block-wdnonline-facebooksidebar {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 767px) {
+  #block-eeditionextratext, #block-wdnonline-searchform {
+    visibility: hidden;
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=site.css.map */
