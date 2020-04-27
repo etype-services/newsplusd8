@@ -2,3 +2,7 @@ a[data-drupal-link-system-path="user/login"] {
   display: none!important;
   visibility: hidden;
 }
+
+#block-weatherwidget iframe {
+  max-width: 100%;
+}
