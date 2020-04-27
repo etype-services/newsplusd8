@@ -2,7 +2,7 @@
 /*Header*/
 /*Menu Color*/
 /*Mixins*/
-@media (min-width: 767px) {
+@media (min-width: 768px) {
   .site-branding {
     padding: 20px 0;
   }
@@ -152,6 +152,12 @@
   }
   .flexslider .slides .image-style-slideshow {
     height: 400px;
+  }
+}
+@media (max-width: 767px) {
+  .flexslider {
+    display: none;
+    visibility: hidden;
   }
 }
 
