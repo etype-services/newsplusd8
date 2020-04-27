@@ -827,7 +827,10 @@ abbr.ajax-changed {
   display: inline-block;
   clear: both;
   padding: 0 10px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
+}
+.flexslider .slider-description a {
+  color: #333;
 }
 .flexslider .more-link {
   padding: 8px 10px;

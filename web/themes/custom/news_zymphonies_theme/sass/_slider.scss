@@ -35,7 +35,10 @@
     display: inline-block;
     clear: both;
     padding: 0 10px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
+    a {
+      color: #333;
+    }
   }
 
   .more-link {
