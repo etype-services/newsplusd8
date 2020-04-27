@@ -155,7 +155,7 @@
   }
 }
 @media (max-width: 767px) {
-  .flexslider {
+  .path-frontpage .flexslider {
     display: none;
     visibility: hidden;
   }
