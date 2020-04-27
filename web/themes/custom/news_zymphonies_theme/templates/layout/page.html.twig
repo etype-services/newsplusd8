@@ -349,27 +349,6 @@
 
 <!-- End: Main content -->
 
-
-<!-- Start: Services -->
-
-{% if is_front and page.services %}
-
-  <div class="parallax-widget- two" id="services">
-    <div class="container">
-      <div class="parallax-region wow- bounceInDown">
-        <div class="row">
-          <div class="col-md-12">
-            {{ page.services }}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-{% endif %}
-
-<!--End: Services -->
-
-
 <!-- Start: Bottom widgets -->
 
 {% if is_front and (page.bottom_first or page.bottom_second or page.bottom_third or page.bottom_forth) %}
@@ -418,6 +397,24 @@
 
 <!--End: Bottom widgets -->
 
+<!-- Start: Services -->
+
+{% if is_front and page.services %}
+
+  <div class="parallax-widget- two" id="services">
+    <div class="container">
+      <div class="parallax-region wow- bounceInDown">
+        <div class="row">
+          <div class="col-md-12">
+            {{ page.services }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+<!--End: Services -->
 
 <!-- Start: Footer widgets -->
 
@@ -458,26 +455,6 @@
 {% endif %}
 
 <!--End: Footer widgets -->
-
-
-<!-- Start: Clients -->
-
-{% if is_front and page.clients %}
-  <div class="parallax-widget- three" id="clients">
-    <div class="container">
-      <div class="parallax-region wow- bounceInDown">
-        <div class="row">
-          <div class="col-md-12">
-            {{ page.clients }}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-{% endif %}
-
-<!--End: Clients -->
-
 
 <!-- Start: Map -->
 

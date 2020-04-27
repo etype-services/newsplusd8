@@ -40,17 +40,14 @@ regions:
   sidebar_first: 'Left sidebar'
   sidebar_second: 'Right sidebar'
 
-  #Parallax Widgets
-  services: 'Services'
-
   #Bottom Widgets
   bottom_first: 'Bottom first widget'
   bottom_second: 'Bottom second widget'
   bottom_third: 'Bottom third widget'
   bottom_forth: 'Bottom forth widget'
 
-  #Clients Widgets
-  clients: 'Clients'
+  #Local Services Widgets
+  services: 'Local Services'
 
   #Footer widgets
   footer_first: 'Footer first widget'
