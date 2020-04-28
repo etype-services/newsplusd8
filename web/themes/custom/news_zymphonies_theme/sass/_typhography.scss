@@ -79,8 +79,17 @@ ul.links.inline {
   margin-bottom: 10px;
 }
 
-#block-etypeeedition p a {
-  font-weight: 500;
-  font-size: 1.2rem;
+#block-etypeeedition p {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  background: rgba(255, 255, 255, 0.68);
+  padding: 1rem;
+  display: block;
   text-transform: capitalize;
+  a {
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+  }
 }
