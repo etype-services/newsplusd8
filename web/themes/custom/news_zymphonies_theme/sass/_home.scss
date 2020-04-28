@@ -46,6 +46,13 @@
 
   .region-content {
     padding-top: 10px;
+    #block-news-zymphonies-theme-content {
+      article {
+        h2 {
+          margin-bottom: 4px;
+        }
+      }
+    }
   }
 
   .region-homepage {
