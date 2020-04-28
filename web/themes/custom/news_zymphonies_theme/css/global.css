@@ -662,6 +662,9 @@ abbr.ajax-changed {
 .path-frontpage .region-content {
   padding-top: 10px;
 }
+.path-frontpage .region-content #block-news-zymphonies-theme-content {
+  /* Home page content */
+}
 .path-frontpage .region-content #block-news-zymphonies-theme-content article h2 {
   margin-bottom: 4px;
 }
