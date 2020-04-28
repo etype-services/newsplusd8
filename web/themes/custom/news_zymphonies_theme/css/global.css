@@ -689,6 +689,10 @@ abbr.ajax-changed {
   padding-top: 10px;
 }
 
+.region-leaderboard-below-content {
+  margin-bottom: 30px;
+}
+
 /*Bottom Widgets*/
 .bottom-widgets {
   text-align: center;
