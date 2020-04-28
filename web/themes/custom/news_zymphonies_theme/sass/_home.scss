@@ -1,3 +1,5 @@
+@import "variables-and-mixins";
+
 /* Testimonials */
 
 .testimonials-wrap {
@@ -39,6 +41,13 @@
 
 .path-frontpage .feed-icon {
   display: none;
+  .region-content {
+    padding-top: 10px;
+  }
+}
+
+.region-homepage {
+  padding-top: 10px;
 }
 
 

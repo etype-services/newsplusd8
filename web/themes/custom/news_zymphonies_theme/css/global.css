@@ -615,6 +615,10 @@ abbr.ajax-changed {
   width: 7px;
 }
 
+/*Variables*/
+/*Header*/
+/*Menu Color*/
+/*Mixins*/
 /* Testimonials */
 .testimonials-wrap {
   background: #fafafa;
@@ -653,6 +657,13 @@ abbr.ajax-changed {
 .path-frontpage .feed-icon {
   display: none;
 }
+.path-frontpage .feed-icon .region-content {
+  padding-top: 10px;
+}
+
+.region-homepage {
+  padding-top: 10px;
+}
 
 /*Bottom Widgets*/
 .bottom-widgets {
@@ -677,11 +688,11 @@ abbr.ajax-changed {
   padding: 20px 0;
 }
 
-/*Header*/
 /*Variables*/
 /*Header*/
 /*Menu Color*/
 /*Mixins*/
+/*Header*/
 .main-header {
   overflow: auto;
 }
