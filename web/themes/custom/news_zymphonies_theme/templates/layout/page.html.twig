@@ -192,7 +192,7 @@
 <!-- Start: Top widget -->
 
 {% if (is_front) and (page.topwidget_first or page.topwidget_second or page.topwidget_third) %}
-  <div class="parallax-widget- zero" id="about">
+  <div class="parallax-widget- zero" id="top-widgets">
     <div class="container">
       <div class="parallax-region wow- bounceInDown">
 
@@ -229,7 +229,7 @@
 
 
 <!-- Start: Main content -->
-<div class="parallax-widget- one">
+<div class="parallax-widget- one" id="highlighted">
   <div class="parallax-region- wow- bounceInDown">
     
     <!--Start: Highlighted -->
@@ -351,7 +351,7 @@
 
 <!-- Home Page ad below content -->
 {% if (is_front) and (page.leaderboard_below_content) %}
-<div class="parallax-widget- two" id="about">
+<div class="parallax-widget- two" id="leaderboard_below_content">
   <div class="container">
     <div class="parallax-region wow- bounceInDown">
       {{ page.leaderboard_below_content }}
@@ -364,7 +364,7 @@
 <!-- Start: Bottom widgets -->
 
 {% if is_front and (page.bottom_first or page.bottom_second or page.bottom_third or page.bottom_forth) %}
-  <div class="parallax-widget- three" id="products">
+  <div class="parallax-widget- three" id="bottom-widgets">
     <div class="container">
       <div class="parallax-region wow- bounceInDown">
         <div class="row">
