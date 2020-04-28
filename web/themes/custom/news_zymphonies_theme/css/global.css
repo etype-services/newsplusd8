@@ -669,8 +669,9 @@ abbr.ajax-changed {
   margin-bottom: 4px;
 }
 .path-frontpage .region-content #block-news-zymphonies-theme-content article .comment-submitted {
-  padding: 0;
+  padding: 0 0 0.7rem 0.3rem;
   font-size: 1.3rem;
+  border: none;
 }
 .path-frontpage .region-homepage {
   padding-top: 10px;
