@@ -402,12 +402,11 @@ ul.links.inline li {
   background: rgba(255, 255, 255, 0.68);
   padding: 1rem;
   display: block;
-  text-transform: capitalize;
 }
 #block-etypeeedition p a {
   font-weight: 500;
   font-size: 1.2rem;
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 
 /*Variables*/

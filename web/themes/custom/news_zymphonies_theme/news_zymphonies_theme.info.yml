@@ -31,6 +31,7 @@ regions:
   topwidget_third: 'Top third widget'
 
   homepage: 'Home page'
+  leaderboard_below_content: 'Leaderboard Below Content'
 
   #Global Region
   highlighted: 'Highlighted'
