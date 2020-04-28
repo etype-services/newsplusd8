@@ -55,6 +55,9 @@ regions:
   footer_second: 'Footer second widget'
   footer_third: 'Footer third widget'
 
+  #Leaderboard in Footer
+  leaderboard_footer: 'Leaderboard in Footer'
+
   #Address
   google_map: 'Google map'
 

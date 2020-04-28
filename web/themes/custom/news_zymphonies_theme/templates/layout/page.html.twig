@@ -438,7 +438,7 @@
 
           <!-- Start: Footer First -->
           {% if page.footer_first %}
-            <div class = {{ footer_first_class }}>
+            <div class={{ footer_first_class }}>
               {{ page.footer_first }}
             </div>
           {% endif %}
@@ -446,7 +446,7 @@
 
           <!-- Start :Footer Second -->
           {% if page.footer_second %}
-            <div class = {{ footer_class }}>
+            <div class={{ footer_class }}>
               {{ page.footer_second }}
             </div>
           {% endif %}
@@ -454,7 +454,7 @@
 
           <!-- Start: Footer third -->
           {% if page.footer_third %}
-            <div class = {{ footer_class }}>
+            <div class={{ footer_class }}>
               {{ page.footer_third }}
             </div>
           {% endif %}
@@ -468,6 +468,18 @@
 
 <!--End: Footer widgets -->
 
+<!-- Home Page ad below content -->
+{% if (page.leaderboard_footer) %}
+  <div class="parallax-widget- six" id="leaderboard_footer">
+    <div class="container">
+      <div class="parallax-region wow- bounceInDown">
+        {{ page.leaderboard_footer }}
+      </div>
+    </div>
+  </div>
+{% endif %}
+<!-- End: Home Page ad below content -->
+
 <!-- Start: Map -->
 
 {% if is_front and page.google_map%}
@@ -477,7 +489,6 @@
 {% endif %}
 
 <!--End: Map -->
-
 
 <!-- Start: Copyright -->
 <div class="copyright">
