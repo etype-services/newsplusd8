@@ -41,14 +41,14 @@ regions:
   sidebar_first: 'Left sidebar'
   sidebar_second: 'Right sidebar'
 
+  #Local Services Widgets
+  services: 'Local Services'
+
   #Bottom Widgets
   bottom_first: 'Bottom first widget'
   bottom_second: 'Bottom second widget'
   bottom_third: 'Bottom third widget'
   bottom_forth: 'Bottom forth widget'
-
-  #Local Services Widgets
-  services: 'Local Services'
 
   #Footer widgets
   footer_first: 'Footer first widget'
