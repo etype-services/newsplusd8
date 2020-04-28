@@ -30,7 +30,7 @@ regions:
   topwidget_second: 'Top second widget'
   topwidget_third: 'Top third widget'
 
-  homepagemessage: 'Home page message'
+  homepage: 'Home page'
 
   #Global Region
   highlighted: 'Highlighted'
