@@ -396,7 +396,9 @@ ul.links.inline li {
 }
 
 #block-etypeeedition p a {
-  font-weight: bold;
+  font-weight: 500;
+  font-size: 1.2rem;
+  text-transform: capitalize;
 }
 
 /*Variables*/
@@ -657,7 +659,10 @@ abbr.ajax-changed {
 .path-frontpage .feed-icon {
   display: none;
 }
-.path-frontpage .feed-icon .region-content {
+.path-frontpage .region-content {
+  padding-top: 10px;
+}
+.path-frontpage .region-homepage {
   padding-top: 10px;
 }
 

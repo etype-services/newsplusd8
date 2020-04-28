@@ -39,11 +39,19 @@
 
 /*Front Page*/
 
-.path-frontpage .feed-icon {
-  display: none;
+.path-frontpage {
+  .feed-icon {
+    display: none;
+  }
+
   .region-content {
     padding-top: 10px;
   }
+
+  .region-homepage {
+    padding-top: 10px;
+  }
+
 }
 
 .region-homepage {
