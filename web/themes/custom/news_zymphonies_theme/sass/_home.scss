@@ -75,6 +75,15 @@
   margin-bottom: 30px;
 }
 
+.flex-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  img {
+    border: 1px solid $linkColor;
+  }
+}
+
 /*Bottom Widgets*/
 
 .bottom-widgets {

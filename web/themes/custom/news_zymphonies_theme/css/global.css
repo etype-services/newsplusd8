@@ -693,6 +693,15 @@ abbr.ajax-changed {
   margin-bottom: 30px;
 }
 
+.flex-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.flex-grid img {
+  border: 1px solid #ee3224;
+}
+
 /*Bottom Widgets*/
 .bottom-widgets {
   text-align: center;
