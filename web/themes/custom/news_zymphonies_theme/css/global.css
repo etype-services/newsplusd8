@@ -695,10 +695,15 @@ abbr.ajax-changed {
 
 .flex-grid {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-evenly;
 }
-.flex-grid img {
+.flex-grid div {
+  margin-right: 10px;
+}
+.flex-grid div:last-child {
+  margin-right: 0;
+}
+.flex-grid div img {
   border: 1px solid #ee3224;
 }
 

@@ -77,10 +77,15 @@
 
 .flex-grid {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-evenly;
-  img {
-    border: 1px solid $linkColor;
+  div {
+    margin-right: 10px;
+    &:last-child {
+      margin-right: 0;
+    }
+    img {
+      border: 1px solid $linkColor;
+    }
   }
 }
 
