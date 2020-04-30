@@ -805,7 +805,7 @@ abbr.ajax-changed {
   width: 30px;
 }
 #search-block-form input.form-submit {
-  background: image-url("search.png") no-repeat center #ee3224;
+  background: url("../images/search.png") no-repeat center #ee3224;
   font-size: 0;
   width: 100%;
   height: 30px;
@@ -1254,14 +1254,6 @@ nav h2 {
 /*Header*/
 /*Menu Color*/
 /*Mixins*/
-#block-searchform svg {
-  position: relative;
-  top: -30px;
-  color: #ccc;
-  font-size: 3rem;
-  cursor: pointer;
-}
-
 #block-localservices {
   margin-top: 47px;
 }
