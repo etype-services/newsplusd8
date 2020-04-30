@@ -35,7 +35,7 @@ function theme_menu () {
     //Mobile menu toggle
     jQuery('.navbar-toggle').click(function () {
         jQuery('.region-primary-menu').slideToggle();
-    })
+    });
 
     //Mobile dropdown menu
     if (jQuery(window).width() < 767) {
@@ -61,4 +61,4 @@ jQuery(document).ready(function ($) {
     service_owl();
     theme_menu();
     theme_home();
-})
+});
