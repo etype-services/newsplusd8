@@ -54,12 +54,11 @@
                 $('.block-searchform #edit-submit').after("<i class=\"fas fa-search\"></i>");
             };
 
-            $(document).ready(function ($) {
-                clientsOwl();
-                serviceOwl();
-                themeMenu();
-                searchForm();
-            });
+            clientsOwl();
+            serviceOwl();
+            themeMenu();
+            searchForm();
+
         }
     };
 })(jQuery, Drupal);
