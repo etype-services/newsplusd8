@@ -37,10 +37,9 @@
                 // Main menu
                 $('#main-menu').smartmenus();
 
-                alert('test');
                 // Mobile menu toggle
-                $('.navbar-toggle').click(function () {
-                    $('.region-primary-menu').toggle();
+                $('.navbar-toggle').once("newszymphoniesBehavior").click(function () {
+                    $('.region-primary-menu').ToggleSlide();
                 });
 
                 // Mobile dropdown menu
@@ -52,7 +51,7 @@
             };
 
             var searchForm = function() {
-                $('.block-searchform #edit-submit').after("<i class=\"fas fa-search\"></i>");
+                $('.block-searchform #edit-submit').once("newszymphoniesBehavior").append("<i class=\"fas fa-search\"></i>");
             };
 
             // clientsOwl();
