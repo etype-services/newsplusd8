@@ -39,7 +39,7 @@
 
                 // Mobile menu toggle
                 $('.navbar-toggle').click(function () {
-                    $('.region-primary-menu').slideToggle();
+                    $('.region-primary-menu').toggle();
                 });
 
                 // Mobile dropdown menu
@@ -52,7 +52,7 @@
 
             var searchForm  = function() {
                 $('.block-searchform #edit-submit').after("<i class=\"fas fa-search\"></i>");
-            }
+            };
 
             $(document).ready(function ($) {
                 clientsOwl();
