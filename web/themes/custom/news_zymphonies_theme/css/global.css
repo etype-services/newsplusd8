@@ -972,13 +972,14 @@ nav h2 {
 }
 .menu-base-theme li a {
   font-family: "Roboto", sans-serif;
-  color: #fff;
+  color: #ee3224;
   border-bottom: 1px solid #383737;
   line-height: 100%;
   padding: 17px 20px;
   text-transform: uppercase;
   font-size: 1em;
   font-weight: bold;
+  background-color: #eee;
 }
 .menu-base-theme li a:hover, .menu-base-theme li a:focus, .menu-base-theme li a:active, .menu-base-theme li a.highlighted {
   background: none;
