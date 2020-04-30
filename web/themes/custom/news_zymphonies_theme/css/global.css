@@ -1275,6 +1275,10 @@ nav h2 {
   margin-top: 0.6rem;
   color: #ee3224;
 }
+.page-node-type-article .flexslider .slides .flex-direction-nav {
+  display: none;
+  visibility: hidden;
+}
 
 /*Variables*/
 /*Header*/
