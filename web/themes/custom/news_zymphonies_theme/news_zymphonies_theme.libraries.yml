@@ -55,10 +55,10 @@ owl:
 # fontawesome
 fontawesome:
   version: 5.8.1
-  remote: //use.fontawesome.com/
+  remote: //kit.fontawesome.com/
   license:
     name: MIT
     url: //opensource.org/licenses/mit-license.html
     gpl-compatible: true
   js:
-    //use.fontawesome.com/releases/v5.8.1/js/all.js: { type: external, attributes: { defer: true } }
+    //kit.fontawesome.com/9da32a2ce1.js: { type: external, attributes: { crossorigin: anonymous } }
