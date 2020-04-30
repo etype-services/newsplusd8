@@ -1,3 +1,5 @@
+@import "variables-and-mixins";
+
 .page-node-type-article {
   .field--name-field-subhead {
     p {
@@ -16,6 +18,7 @@
       font-style: italic;
       font-size: 1.3rem;
       margin-top: 0.6rem;
+      color: $linkColor;
     }
   }
 }
