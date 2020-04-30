@@ -39,7 +39,7 @@
 
                 // Mobile menu toggle
                 $('.navbar-toggle').once("newszymphoniesBehavior").click(function () {
-                    $('.region-primary-menu').toggle();
+                    $('.region-primary-menu').slideToggle();
                 });
 
                 // Mobile dropdown menu
@@ -51,7 +51,7 @@
             };
 
             var searchForm = function() {
-                $('.block-searchform #edit-submit').once("newszymphoniesBehavior").append("<i class=\"fas fa-search\"></i>");
+                $('.block-searchform #edit-submit').once("newszymphoniesBehavior").after("<i class=\"fas fa-search\"></i>");
             };
 
             // clientsOwl();
