@@ -54,8 +54,13 @@
                 $('.block-searchform #edit-submit').after("<i class=\"fas fa-search\"></i>");
             };
 
-            clientsOwl();
-            serviceOwl();
+            // Mobile menu toggle
+            $('.navbar-toggle').click(function () {
+                $('.region-primary-menu').toggle();
+            });
+
+            // clientsOwl();
+            // serviceOwl();
             themeMenu();
             searchForm();
 
