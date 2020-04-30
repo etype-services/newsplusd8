@@ -56,20 +56,10 @@ function news_zymphonies_theme_form_system_theme_settings_alter(array &$form, $f
     '#title' => t('Facebook URL'),
     '#default_value' => theme_get_setting('facebook_url'),
   ];
-  $form['news_zymphonies_theme_settings']['social_icon']['google_plus_url'] = [
-    '#type' => 'textfield',
-    '#title' => t('Google plus URL'),
-    '#default_value' => theme_get_setting('google_plus_url'),
-  ];
   $form['news_zymphonies_theme_settings']['social_icon']['twitter_url'] = [
     '#type' => 'textfield',
     '#title' => t('Twitter URL'),
     '#default_value' => theme_get_setting('twitter_url'),
-  ];
-  $form['news_zymphonies_theme_settings']['social_icon']['linkedin_url'] = [
-    '#type' => 'textfield',
-    '#title' => t('LinkedIn URL'),
-    '#default_value' => theme_get_setting('linkedin_url'),
   ];
   $form['news_zymphonies_theme_settings']['social_icon']['pinterest_url'] = [
     '#type' => 'textfield',
