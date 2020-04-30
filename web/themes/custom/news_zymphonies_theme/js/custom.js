@@ -50,11 +50,17 @@
                 }
             };
 
-            $('#search-block-form #edit-submit').once("newszymphoniesBehavior").after("<i class=\"fas fa-search\"></i>");
+            var themeSearch = function() {
+                $('#search-block-form #edit-submit').once("newszymphoniesBehavior").after("<i class=\"fas fa-search\"></i>");
+                $('#search-block-form svg').click(function () {
+                    $('#search-block-form').submit();
+                });
+            };
 
             // clientsOwl();
             // serviceOwl();
             themeMenu();
+            themeSearch();
 
         }
     };
