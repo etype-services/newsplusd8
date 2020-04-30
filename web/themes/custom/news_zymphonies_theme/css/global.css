@@ -1255,6 +1255,9 @@ nav h2 {
 .page-node-type-article h1.page-title {
   font-size: 2rem;
 }
+.page-node-type-article article {
+  margin-bottom: 2rem;
+}
 .page-node-type-article .field--name-field-subhead p {
   font-weight: 600;
   margin: 20px 0 30px 0;
