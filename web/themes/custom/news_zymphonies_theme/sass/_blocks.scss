@@ -1,0 +1,15 @@
+@import "variables-and-mixins";
+
+#block-searchform {
+  svg {
+    position: relative;
+    top: -30px;
+    color: #ccc;
+    font-size: 3rem;
+    cursor: pointer;
+  }
+}
+
+#block-localservices {
+  margin-top: 47px;
+}

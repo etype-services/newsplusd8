@@ -34,6 +34,10 @@
  * @file
  * Styles for system messages.
  */
+/*Variables*/
+/*Header*/
+/*Menu Color*/
+/*Mixins*/
 img {
   max-width: 100%;
 }
@@ -685,10 +689,6 @@ abbr.ajax-changed {
   padding-top: 10px;
 }
 
-#block-localservices {
-  margin-top: 47px;
-}
-
 .region-leaderboard-below-content, .region-leaderboard-footer {
   margin-bottom: 30px;
 }
@@ -1247,6 +1247,22 @@ nav h2 {
 .content-image {
   float: left;
   margin: 0 10px 5px 0;
+}
+
+/*Variables*/
+/*Header*/
+/*Menu Color*/
+/*Mixins*/
+#block-searchform svg {
+  position: relative;
+  top: -30px;
+  color: #ccc;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+#block-localservices {
+  margin-top: 47px;
 }
 
 .region-leaderboard-below-menu {
