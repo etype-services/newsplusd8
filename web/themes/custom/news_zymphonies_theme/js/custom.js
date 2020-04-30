@@ -39,7 +39,7 @@
 
                 // Mobile menu toggle
                 $('.navbar-toggle').once("newszymphoniesBehavior").click(function () {
-                    $('.region-primary-menu').ToggleSlide();
+                    $('.region-primary-menu').toggle();
                 });
 
                 // Mobile dropdown menu

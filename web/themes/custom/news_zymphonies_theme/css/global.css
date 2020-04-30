@@ -935,6 +935,10 @@ abbr.ajax-changed {
   bottom: 0;
 }
 
+/*Variables*/
+/*Header*/
+/*Menu Color*/
+/*Mixins*/
 /*Menu*/
 .navbar-default .navbar-toggle {
   z-index: 999;
@@ -1047,9 +1051,6 @@ nav h2 {
   text-transform: uppercase;
   font-weight: bold;
   line-height: 100%;
-}
-.region-top-menu nav li a:hover {
-  /*background: #23b962;*/
 }
 
 .region-header-ads {
