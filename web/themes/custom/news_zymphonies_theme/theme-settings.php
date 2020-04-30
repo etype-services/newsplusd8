@@ -72,20 +72,6 @@ function news_zymphonies_theme_form_system_theme_settings_alter(array &$form, $f
     '#default_value' => theme_get_setting('rss_url'),
   ];
 
-  // Show/Hide credit.
-  $form['news_zymphonies_theme_settings']['credit_link'] = [
-    '#type' => 'details',
-    '#title' => t('Footer Credit Link'),
-    '#collapsible' => TRUE,
-    '#collapsed' => FALSE,
-  ];
-  $form['news_zymphonies_theme_settings']['credit_link']['show_credit_link'] = [
-    '#type' => 'checkbox',
-    '#title' => t("Show/Hide 'Designed by Zymphonies' credit text"),
-    '#default_value' => theme_get_setting('show_credit_link'),
-    '#description' => t("Highly recomend to display credit in footer"),
-  ];
-
   $form['news_zymphonies_theme_settings']['slideshow'] = [
     '#type' => 'details',
     '#title' => t('Front Page Slideshow'),
