@@ -29,17 +29,6 @@ global-components:
     - core/drupalSettings
     - core/jquery.once
 
-# flexslider
-flexslider:
-  version: 1.x
-  css:
-    theme:
-      includes/flexslider/css/flexslider.css: {}
-  js:
-    includes/flexslider/js/jquery.flexslider-min.js: {}
-  dependencies:
-    - core/jquery
-
 # smartmenus
 smartmenus:
   version: 1.x
@@ -63,7 +52,7 @@ owl:
   dependencies:
     - core/jquery
 
-# font aweome
+# fontawesome
 fontawesome:
   version: 5.8.1
   remote: //use.fontawesome.com/
