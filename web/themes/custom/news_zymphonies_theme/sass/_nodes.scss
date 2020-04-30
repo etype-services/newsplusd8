@@ -1,0 +1,14 @@
+.page-node-type-article {
+  .flexslider .slides {
+    background-image: none;
+    height: auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    .flex-caption {
+      font-style: italic;
+      font-size: 1.3rem;
+      margin-top: 0.6rem;
+    }
+  }
+}
