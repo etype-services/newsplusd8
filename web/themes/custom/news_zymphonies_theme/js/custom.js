@@ -1,12 +1,3 @@
-/* ---------------------------------------------
-* Filename:     custom.js
-* Version:      1.0.0 (2017-02-12)
-* Website:      http://www.zymphonies.com
-* Description:  Global Script
-* Author:       Zymphonies Team
-                info@zymphonies.com
------------------------------------------------*/
-
 (function ($, Drupal) {
     "use strict";
     Drupal.behaviors.newszymphoniesBehavior = {
