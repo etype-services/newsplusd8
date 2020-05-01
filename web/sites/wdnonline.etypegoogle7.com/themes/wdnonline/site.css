@@ -43,6 +43,15 @@ footer {
   justify-content: center;
 }
 
+/* fix social icons */
+#main-nav .navbar .navbar-end {
+  display: flex;
+  align-items: center;
+  position: inherit;
+  top: auto;
+  right: auto;
+}
+
 @media (max-width: 767px) {
   #block-eeditionextratext, #block-wdnonline-searchform {
     visibility: hidden;
