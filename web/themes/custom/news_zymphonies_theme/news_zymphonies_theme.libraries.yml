@@ -29,23 +29,6 @@ global-components:
     - core/drupalSettings
     - core/jquery.once
 
-# flexslider
-flexslider:
-  version: 1.x
-  css:
-    theme:
-      includes/flexslider/css/flexslider.css: {}
-  js:
-    includes/flexslider/js/jquery.flexslider-min.js: {}
-  dependencies:
-    - core/jquery
-
-fontawesome:
-  version: 1.x
-  css:
-    theme:
-      includes/fontawesome/css/font-awesome.css: {}
-
 # smartmenus
 smartmenus:
   version: 1.x
@@ -69,3 +52,13 @@ owl:
   dependencies:
     - core/jquery
 
+# fontawesome
+fontawesome:
+  version: latest
+  remote: //kit.fontawesome.com/
+  license:
+    name: MIT
+    url: //opensource.org/licenses/mit-license.html
+    gpl-compatible: true
+  js:
+    //kit.fontawesome.com/9da32a2ce1.js: { type: external, attributes: { crossorigin: anonymous } }

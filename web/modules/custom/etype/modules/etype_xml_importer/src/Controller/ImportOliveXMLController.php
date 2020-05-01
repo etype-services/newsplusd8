@@ -12,14 +12,12 @@ namespace Drupal\etype_xml_importer\Controller;
 use Drupal;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\File\FileSystemInterface;
+use Drupal\etype_xml_importer\Plugin\Encoding;
 use Drupal\user\Entity\User;
 use Exception;
 use FilesystemIterator;
-use ForceUTF8\Encoding;
 use ZipArchive;
 use SimpleXMLElement;
-
-require_once __DIR__ . '/../Plugin/Encoding.php';
 
 /**
  * Class ImportOliveXMLController.
@@ -375,14 +373,14 @@ class ImportOliveXMLController {
       $pub_date = strtotime($array['pub_date']);
 
       $node = [
-        'title' => Encoding::toUTF8($array['title']),
-        'summary' => strip_tags(Encoding::toUTF8(preg_replace("/\s+/", " ", $array['description']))),
-        'body' => Encoding::toUTF8($array['body']),
+        'title' => (new Encoding)->toUtf8($array['title']),
+        'summary' => strip_tags((new Encoding)->toUtf8(preg_replace("/\s+/", " ", $array['description']))),
+        'body' => (new Encoding)->toUtf8($array['body']),
       ];
 
       /* Create User based on byline */
       $node['uid'] = $this->author;
-      $byline = Encoding::toUTF8($array['byline']);
+      $byline = (new Encoding)->toUtf8($array['byline']);
       $byline = preg_replace('/\s+/', " ", $byline);
       $byline = preg_replace('/^By:/i', " ", $byline);
       $byline = trim(ucfirst($byline));
@@ -418,7 +416,7 @@ class ImportOliveXMLController {
       }
 
       if ($this->subheadField !== "None") {
-        $node[$this->subheadField] = Encoding::toUTF8($array['slugline']);
+        $node[$this->subheadField] = (new Encoding)->toUtf8($array['slugline']);
       }
 
       $array = [];
@@ -429,7 +427,7 @@ class ImportOliveXMLController {
           $array[] = [
             'name' => $image['image'],
             'path' => $ipath,
-            'caption' => Encoding::toUTF8(preg_replace("/\s+/", " ", $image['caption'])),
+            'caption' => (new Encoding)->toUtf8(preg_replace("/\s+/", " ", $image['caption'])),
           ];
           $ptr++;
           if (($this->imageNumber == 1) && ($ptr == 1)) {
@@ -441,7 +439,8 @@ class ImportOliveXMLController {
 
       // Otherwise field is initiated and shows empty on node page.
       if (!empty($array['pulled_quote'])) {
-        $node['field_pulled_quote'] = $array['pulled_quote'];
+        $pulled_quote = $array['pulled_quote'];
+        $node['field_pulled_quote'] = $pulled_quote;
       }
 
       $node['created'] = $pub_date;

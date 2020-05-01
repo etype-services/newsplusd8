@@ -87,7 +87,7 @@
   {% if display_submitted %}
     <footer class="comment-submitted">
       <div{{ author_attributes.addClass('node__submitted') }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+        {% trans %}By {{ author_name }} – {{ date }}{% endtrans %}
         {{ metadata }}
       </div>
     </footer>

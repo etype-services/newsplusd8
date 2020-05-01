@@ -1,71 +1,115 @@
+@import "variables-and-mixins";
 
 /* Testimonials */
 
-.testimonials-wrap{
-	background: #fafafa;
-	border-top: solid 1px #e3e3e3;
-	border-bottom: solid 1px #e3e3e3;
-	padding: 20px 0;
-	text-align: center;
-	font-size: 1em;
-	line-height: 160%;
+.testimonials-wrap {
+  background: #fafafa;
+  border-top: solid 1px #e3e3e3;
+  border-bottom: solid 1px #e3e3e3;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 1em;
+  line-height: 160%;
 }
 
-.region-testimonials{
-	max-width: 600px;
-	margin: 0 auto;
+.region-testimonials {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.testimonials-pic{
-	width: 40px;
-	height: 40px;
-	display: inline-block;
-	vertical-align: bottom;
-	margin-right: 10px;
+.testimonials-pic {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  vertical-align: bottom;
+  margin-right: 10px;
 
 }
 
-.testimonials-pic img{
-	@include border-radius(50%);
+.testimonials-pic img {
+  @include border-radius(50%);
 }
 
-.testimonials-author{
-	padding: 0 5px;
-	font-size: .75em;
-	color: #555;
+.testimonials-author {
+  padding: 0 5px;
+  font-size: .75em;
+  color: #555;
 }
 
 
 /*Front Page*/
 
-.path-frontpage .feed-icon{
-  display: none;
+.path-frontpage {
+  .feed-icon {
+    display: none;
+  }
+
+  .region-content {
+    padding-top: 10px;
+    #block-news-zymphonies-theme-content {
+      /* Home page content */
+      article {
+        h2 {
+          margin-bottom: 4px;
+        }
+        .comment-submitted {
+          padding: 0 0 0.7rem 0.3rem;
+          font-size: 1.3rem;
+          border: none;
+        }
+      }
+    }
+  }
+
+  .region-homepage {
+    padding-top: 10px;
+  }
+
 }
 
+.region-leaderboard-below-content, .region-leaderboard-footer {
+  margin-bottom: 30px;
+}
+
+/* Services and Sections */
+.flex-grid {
+  display: flex;
+  justify-content: space-evenly;
+  div {
+    margin-right: 10px;
+    &:last-child {
+      margin-right: 0;
+    }
+    img {
+      border: 1px solid $baseFontColor;
+    }
+  }
+}
 
 /*Bottom Widgets*/
 
-.bottom-widgets{
-	text-align: center;
-	margin: 0 auto;
-	padding-bottom: 30px;
-	background: #27ae60;
-    color: #b4dec6;
+.bottom-widgets {
+  text-align: center;
+  margin: 0 auto;
+  padding-bottom: 30px;
+  background: #27ae60;
+  color: #b4dec6;
 
-	.block h2.title{
-	  margin: 5px 0 10px 0;
-	  color: #fff;
-	}
+  .block h2.title {
+    margin: 5px 0 10px 0;
+    color: #fff;
+  }
 
-	.row > div{
-		border-right: 1px solid #2ec16c;
+  .row > div {
+    border-right: 1px solid #2ec16c;
 
-		&:last-child{
-			border: 0;
-		}
-	}
+    &:last-child {
+      border: 0;
+    }
+  }
 }
 
-.path-frontpage .bottom-widgets{
-	padding: 20px 0;
+.path-frontpage .bottom-widgets {
+  padding: 20px 0;
 }
+

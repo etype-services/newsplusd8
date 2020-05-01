@@ -1,73 +1,50 @@
-/* --------------------------------------------- 
-* Filename:     custom.js
-* Version:      1.0.0 (2017-02-12)
-* Website:      http://www.zymphonies.com
-* Description:  Global Script
-* Author:       Zymphonies Team
-                info@zymphonies.com
------------------------------------------------*/
+(function ($, Drupal) {
+    "use strict";
+    Drupal.behaviors.newszymphoniesBehavior = {
+        attach: function (context, settings) {
 
-function clients_owl(){
-	jQuery('.field--name-field-clients-logo').owlCarousel({
-		items: 2,
-		margin:10,
-		dots: true,
-		autoPlay: 3000,
-		navigation : true,
-		responsive : {
-			500:{ items: 2, dots: true, navigation : true },
-			700:{ items: 3, dots: true, navigation : true },
-			900:{ items: 5, dots: true, navigation : true }
-		}
-	});
-}
+            var clientsOwl = function() {
+                $('.field--name-field-clients-logo').owlCarousel({
+                    items: 2, margin: 10, dots: true, autoPlay: 3000, navigation: true, responsive: {
+                        500: {items: 2, dots: true, navigation: true},
+                        700: {items: 3, dots: true, navigation: true},
+                        900: {items: 5, dots: true, navigation: true},
+                    },
+                });
+            };
 
-function service_owl(){
-	jQuery('.field--name-field-service').owlCarousel({
-		items: 1,
-		margin:10,
-		dots: true,
-		autoPlay: 3000,
-		navigation : true,
-		responsive : {
-			500:{ items: 1, dots: true, navigation : true },
-			700:{ items: 2, dots: true, navigation : true },
-			900:{ items: 4, dots: true, navigation : true }
-		}
-	});
-}
+            var serviceOwl  = function() {
+                $('.field--name-field-service').owlCarousel({
+                    items: 1, margin: 10, dots: true, autoPlay: 3000, navigation: true, responsive: {
+                        500: {items: 1, dots: true, navigation: true},
+                        700: {items: 2, dots: true, navigation: true},
+                        900: {items: 4, dots: true, navigation: true},
+                    },
+                });
+            };
 
-function theme_menu(){
+            var themeMenu = function() {
 
-	//Main menu
-	jQuery('#main-menu').smartmenus();
-	
-	//Mobile menu toggle
-	jQuery('.navbar-toggle').click(function(){
-		jQuery('.region-primary-menu').slideToggle();
-	});
+                // Main menu
+                $('#main-menu').smartmenus();
 
-	//Mobile dropdown menu
-	if ( jQuery(window).width() < 767) {
-		jQuery(".region-primary-menu li a:not(.has-submenu)").click(function () {
-			jQuery('.region-primary-menu').hide();
-	    });
-	}
+                // Mobile menu toggle
+                $('.navbar-toggle').once("newszymphoniesBehavior").click(function () {
+                    $('.region-primary-menu').slideToggle();
+                });
 
-}
+                // Mobile dropdown menu
+                if ($(window).width() < 767) {
+                    $('.region-primary-menu li a:not(.has-submenu)').click(function () {
+                        $('.region-primary-menu').hide();
+                    });
+                }
+            };
 
-function theme_home(){
-	
-	//flexslider
-	jQuery('.flexslider').flexslider({
-    	animation: "slide"	
-    });
+            // clientsOwl();
+            // serviceOwl();
+            themeMenu();
 
-}
-
-jQuery(document).ready(function($){
-	clients_owl();
-	service_owl();
-	theme_menu();
-	theme_home();
-});
+        }
+    };
+})(jQuery, Drupal);

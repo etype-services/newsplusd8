@@ -1,0 +1,36 @@
+@import "variables-and-mixins";
+
+.page-node-type-article {
+  h1.page-title {
+    font-size: 2rem;
+  }
+
+  article {
+    margin-bottom: 2rem;
+  }
+
+  .field--name-field-subhead {
+    p {
+      font-weight: 600;
+      margin: 20px 0 30px 0;
+    }
+  }
+
+  .flexslider .slides {
+    background-image: none;
+    height: auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    .flex-caption {
+      font-style: italic;
+      font-size: 1.3rem;
+      margin-top: 0.6rem;
+      color: $linkColor;
+    }
+    .flex-direction-nav {
+      display: none;
+      visibility: hidden;
+    }
+  }
+}

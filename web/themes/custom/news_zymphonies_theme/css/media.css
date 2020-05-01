@@ -2,7 +2,7 @@
 /*Header*/
 /*Menu Color*/
 /*Mixins*/
-@media (min-width: 767px) {
+@media (min-width: 768px) {
   .site-branding {
     padding: 20px 0;
   }
@@ -51,15 +51,13 @@
     background: #fff;
     background: #19232d;
   }
-
   .region-primary-menu ul ul li a,
-  .region-primary-menu ul ul li a:hover,
-  .region-primary-menu ul ul li a:focus,
-  .region-primary-menu ul ul li a:active,
-  .region-primary-menu ul ul li a.highlighted {
+.region-primary-menu ul ul li a:hover,
+.region-primary-menu ul ul li a:focus,
+.region-primary-menu ul ul li a:active,
+.region-primary-menu ul ul li a.highlighted {
     padding: 12px 15px;
   }
-
   .region-primary-menu ul ul li a {
     color: #fff;
     font-size: 0.8em;
@@ -88,14 +86,12 @@
     font-size: 2em;
     line-height: 100%;
   }
-
   .region-primary-menu li li span.sub-arrow {
     top: 12px;
     border-color: transparent transparent transparent #848484;
   }
-
   .region-primary-menu li.active a,
-  .region-primary-menu li a.is-active {
+.region-primary-menu li a.is-active {
     background: #ee3224;
     color: #fff;
   }
@@ -109,7 +105,6 @@
   }
 
   .carousel-caption {
-    background-color: #fff;
     background: rgba(0, 0, 0, 0.84);
     color: #ddd;
     text-shadow: none;
@@ -135,14 +130,34 @@
   .top-menu .top-blocks {
     overflow: hidden;
   }
-
   .top-menu .top-blocks .region,
-  .top-menu .top-blocks .social-media {
+.top-menu .top-blocks .social-media {
     float: left;
   }
 
   .region-header-ads {
     display: block;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .main-header .topnav .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .flexslider .slides {
+    height: 392px;
+    overflow: hidden;
+  }
+  .flexslider .slides .image-style-slideshow {
+    height: 400px;
+  }
+}
+@media (max-width: 767px) {
+  .path-frontpage .flexslider {
+    display: none;
+    visibility: hidden;
   }
 }
 

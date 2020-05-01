@@ -15,24 +15,25 @@
  */
 function news_zymphonies_theme_form_system_theme_settings_alter(array &$form, $form_state) {
 
-  $form['news_zymphonies_theme_info'] = [
-    '#markup' => <<<EOF
-    <h2>Advanced Theme Settings</h2>
-EOF,
+  $form['news_zymphonies_theme_settings']['custom'] = [
+    '#type' => 'details',
+    '#title' => t('Various Settings'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
   ];
 
-  $form['news_zymphonies_theme_settings']['header_left_class'] = [
+  $form['news_zymphonies_theme_settings']['custom']['header_left_class'] = [
     '#type' => 'textfield',
     '#title' => t('Header Left (logo area) class'),
-    '#default_value' => theme_get_setting('header_left_class', 'news_zymphonies'),
+    '#default_value' => theme_get_setting('header_left_class', 'news_zymphonies_theme'),
     '#size' => 12,
     '#maxlength' => 12,
   ];
 
-  $form['news_zymphonies_theme_settings']['header_right_class'] = [
+  $form['news_zymphonies_theme_settings']['custom']['header_right_class'] = [
     '#type' => 'textfield',
     '#title' => t('Header Right (advertisement) class'),
-    '#default_value' => theme_get_setting('header_right_class', 'news_zymphonies'),
+    '#default_value' => theme_get_setting('header_right_class', 'news_zymphonies_theme'),
     '#size' => 12,
     '#maxlength' => 12,
   ];
@@ -55,20 +56,10 @@ EOF,
     '#title' => t('Facebook URL'),
     '#default_value' => theme_get_setting('facebook_url'),
   ];
-  $form['news_zymphonies_theme_settings']['social_icon']['google_plus_url'] = [
-    '#type' => 'textfield',
-    '#title' => t('Google plus URL'),
-    '#default_value' => theme_get_setting('google_plus_url'),
-  ];
   $form['news_zymphonies_theme_settings']['social_icon']['twitter_url'] = [
     '#type' => 'textfield',
     '#title' => t('Twitter URL'),
     '#default_value' => theme_get_setting('twitter_url'),
-  ];
-  $form['news_zymphonies_theme_settings']['social_icon']['linkedin_url'] = [
-    '#type' => 'textfield',
-    '#title' => t('LinkedIn URL'),
-    '#default_value' => theme_get_setting('linkedin_url'),
   ];
   $form['news_zymphonies_theme_settings']['social_icon']['pinterest_url'] = [
     '#type' => 'textfield',
@@ -79,20 +70,6 @@ EOF,
     '#type' => 'textfield',
     '#title' => t('RSS URL'),
     '#default_value' => theme_get_setting('rss_url'),
-  ];
-
-  //Show/Hide credit
-  $form['news_zymphonies_theme_settings']['credit_link'] = [
-    '#type' => 'details',
-    '#title' => t('Footer Credit Link'),
-    '#collapsible' => TRUE,
-    '#collapsed' => FALSE,
-  ];
-  $form['news_zymphonies_theme_settings']['credit_link']['show_credit_link'] = [
-    '#type' => 'checkbox',
-    '#title' => t("Show/Hide 'Designed by Zymphonies' credit text"),
-    '#default_value' => theme_get_setting('show_credit_link'),
-    '#description' => t("Highly recomend to display credit in footer"),
   ];
 
   $form['news_zymphonies_theme_settings']['slideshow'] = [

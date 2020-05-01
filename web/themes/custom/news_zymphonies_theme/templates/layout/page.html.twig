@@ -82,19 +82,13 @@
             {% if show_social_icon %}
               <div class="social-media">
                 {% if facebook_url %}
-                  <a href="{{ facebook_url }}"  class="facebook" target="_blank" ><i class="fa fa-facebook"></i></a>
-                {% endif %}
-                {% if google_plus_url %}
-                  <a href="{{ google_plus_url }}"  class="google-plus" target="_blank" ><i class="fa fa-google-plus"></i></a>
+                  <a href="{{ facebook_url }}"  class="facebook" target="_blank" ><i class="fab fa-facebook-square"></i></a>
                 {% endif %}
                 {% if twitter_url %}
-                  <a href="{{ twitter_url }}" class="twitter" target="_blank" ><i class="fa fa-twitter"></i></a>
-                {% endif %}
-                {% if linkedin_url %}
-                  <a href="{{ linkedin_url }}" class="linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
+                  <a href="{{ twitter_url }}" class="twitter" target="_blank" ><i class="fab fa-twitter"></i></i></a>
                 {% endif %}
                 {% if pinterest_url %}
-                  <a href="{{ pinterest_url }}" class="pinterest" target="_blank" ><i class="fa fa-pinterest"></i></a>
+                  <a href="{{ pinterest_url }}" class="pinterest" target="_blank" ><i class="fab fa-pinterest"></i></a>
                 {% endif %}
                 {% if rss_url %}
                   <a href="{{ rss_url }}" class="rss" target="_blank" ><i class="fa fa-rss"></i></a>
@@ -132,7 +126,7 @@
 
         <!-- Start: Header -->
 
-        <div class="navbar-header col-md-6">
+        <div class="navbar-header {{ header_left_col }}">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navigation">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -149,7 +143,7 @@
         <!-- Start: Header Ads -->
 
         {% if page.header_ads %}
-          <div class="col-md-6">
+          <div class="{{ header_right_col }}">
             {{ page.header_ads }}
           </div>
         {% endif %}
@@ -176,13 +170,23 @@
   </div>
 {% endif %}
 
+{% if page.leaderboard_below_menu %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        {{ page.leaderboard_below_menu }}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
 <!-- End: Main menu -->
 
 
 <!-- Start: Top widget -->
 
 {% if (is_front) and (page.topwidget_first or page.topwidget_second or page.topwidget_third) %}
-  <div class="parallax-widget- zero" id="about">
+  <div class="parallax-widget- zero" id="top-widgets">
     <div class="container">
       <div class="parallax-region wow- bounceInDown">
 
@@ -219,7 +223,7 @@
 
 
 <!-- Start: Main content -->
-<div class="parallax-widget- one">
+<div class="parallax-widget- one" id="highlighted">
   <div class="parallax-region- wow- bounceInDown">
     
     <!--Start: Highlighted -->
@@ -303,8 +307,8 @@
 
                 <!-- Start: Home page message -->
 
-                {% if is_front and page.homepagemessage %}
-                  {{ page.homepagemessage }}
+                {% if is_front and page.homepage %}
+                  {{ page.homepage }}
                 {% endif %}
 
                 <!--End: Home page message -->
@@ -339,31 +343,22 @@
 
 <!-- End: Main content -->
 
-
-<!-- Start: Services -->
-
-{% if is_front and page.services %}
-
-  <div class="parallax-widget- two" id="services">
-    <div class="container">
-      <div class="parallax-region wow- bounceInDown">
-        <div class="row">
-          <div class="col-md-12">
-            {{ page.services }}
-          </div>
-        </div>
-      </div>
+<!-- Home Page ad below content -->
+{% if (is_front) and (page.leaderboard_below_content) %}
+<div class="parallax-widget- two" id="leaderboard_below_content">
+  <div class="container">
+    <div class="parallax-region wow- bounceInDown">
+      {{ page.leaderboard_below_content }}
     </div>
   </div>
+</div>
 {% endif %}
-
-<!--End: Services -->
-
+<!-- End: Home Page ad below content -->
 
 <!-- Start: Bottom widgets -->
 
 {% if is_front and (page.bottom_first or page.bottom_second or page.bottom_third or page.bottom_forth) %}
-  <div class="parallax-widget- four" id="products">    
+  <div class="parallax-widget- three" id="bottom-widgets">
     <div class="container">
       <div class="parallax-region wow- bounceInDown">
         <div class="row">
@@ -408,18 +403,36 @@
 
 <!--End: Bottom widgets -->
 
+<!-- Start: Services -->
+
+{% if is_front and page.services %}
+
+  <div class="parallax-widget- four" id="services">
+    <div class="container">
+      <div class="parallax-region wow- bounceInDown">
+        <div class="row">
+          <div class="col-md-12">
+            {{ page.services }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+<!--End: Services -->
 
 <!-- Start: Footer widgets -->
 
 {% if  is_front and (page.footer_first or page.footer_second or page.footer_third) %}
-  <div class="parallax-widget- six" id="footer">
+  <div class="parallax-widget- five" id="footer">
     <div class="container">
       <div class="parallax-region wow- bounceInUp">  
         <div class="row">
 
           <!-- Start: Footer First -->
           {% if page.footer_first %}
-            <div class = {{ footer_first_class }}>
+            <div class={{ footer_first_class }}>
               {{ page.footer_first }}
             </div>
           {% endif %}
@@ -427,7 +440,7 @@
 
           <!-- Start :Footer Second -->
           {% if page.footer_second %}
-            <div class = {{ footer_class }}>
+            <div class={{ footer_class }}>
               {{ page.footer_second }}
             </div>
           {% endif %}
@@ -435,7 +448,7 @@
 
           <!-- Start: Footer third -->
           {% if page.footer_third %}
-            <div class = {{ footer_class }}>
+            <div class={{ footer_class }}>
               {{ page.footer_third }}
             </div>
           {% endif %}
@@ -449,25 +462,17 @@
 
 <!--End: Footer widgets -->
 
-
-<!-- Start: Clients -->
-
-{% if is_front and page.clients %}
-  <div class="parallax-widget- three" id="clients">
+<!-- Home Page ad below content -->
+{% if (page.leaderboard_footer) %}
+  <div class="parallax-widget- six" id="leaderboard_footer">
     <div class="container">
       <div class="parallax-region wow- bounceInDown">
-        <div class="row">
-          <div class="col-md-12">
-            {{ page.clients }}
-          </div>
-        </div>
+        {{ page.leaderboard_footer }}
       </div>
     </div>
   </div>
 {% endif %}
-
-<!--End: Clients -->
-
+<!-- End: Home Page ad below content -->
 
 <!-- Start: Map -->
 
@@ -479,7 +484,6 @@
 
 <!--End: Map -->
 
-
 <!-- Start: Copyright -->
 <div class="copyright">
   <div class="container">
@@ -487,18 +491,10 @@
 
       <!-- Start: Copyright -->
       <div class="col-sm-6">
-        <p>Copyright © {{ "now"|date("Y") }}. All rights reserved.</p>
+        <p>Copyright © {{ "now"|date("Y") }} {{ site_name }}. All rights reserved.</p>
       </div>
       <!-- End: Copyright -->
 
-      <!-- Start: Credit link -->
-      {% if show_credit_link %}
-        <div class="col-sm-6">
-          <p class="credit-link">Designed By <a href="http://www.zymphonies.com" target="_blank">Zymphonies</a></p>
-        </div>
-      {% endif %}
-      <!-- End: Credit link -->
-      
     </div>
   </div>
 </div>

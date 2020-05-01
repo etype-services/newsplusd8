@@ -78,15 +78,22 @@ function news_zymphonies_theme_preprocess_page(&$variables) {
   $variables['pinterest_url'] = theme_get_setting('pinterest_url');
   $variables['rss_url'] = theme_get_setting('rss_url');
   $variables['show_credit_link'] = theme_get_setting('show_credit_link');
-  
+
   // Slider
   // Asign Variable for Slider
   if ($variables['is_front']) {
-    if (theme_get_setting('show_slideshow','news_zymphonies_theme') == 1) {
+    if (theme_get_setting('show_slideshow', 'news_zymphonies_theme') == 1) {
       $variables['show_slideshow'] = 1;
       $variables['slider_content'] = news_zymphonies_theme_get_slider_content();
     }
   }
+
+  $variables['header_left_col'] = theme_get_setting('header_left_class', 'news_zymphonies_theme');
+  $variables['header_right_col'] = theme_get_setting('header_right_class', 'news_zymphonies_theme');
+
+  /* Site name */
+  $config = Drupal::config('system.site');
+  $variables['site_name'] = $config->get('name');
 
 }
 
