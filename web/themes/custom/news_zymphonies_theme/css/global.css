@@ -456,6 +456,10 @@ body {
   margin: 20px 0;
   line-height: 100%;
 }
+.copyright .container .row {
+  display: flex;
+  align-items: center;
+}
 
 /*Google Map*/
 .map-and-address h2.title {

@@ -49,6 +49,13 @@ body {
     margin: 20px 0;
     line-height: 100%;
   }
+
+  .container {
+    .row {
+      display: flex;
+      align-items: center;
+    }
+  }
 }
 
 
