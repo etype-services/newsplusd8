@@ -54,6 +54,11 @@ body {
     .row {
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
+
+      .menu {
+        direction: rtl;
+      }
     }
   }
 }

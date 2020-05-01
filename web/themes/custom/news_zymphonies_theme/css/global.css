@@ -459,6 +459,10 @@ body {
 .copyright .container .row {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+}
+.copyright .container .row .menu {
+  direction: rtl;
 }
 
 /*Google Map*/
@@ -1170,7 +1174,7 @@ nav h2 {
 	Maintainance
 -----------------------------*/
 .maintenance-page {
-  background: url("maintenance-bg.png") #66CBFF center no-repeat;
+  background: url("../images/maintenance-bg.png") #66CBFF center no-repeat;
   text-align: center;
   padding-top: 220px;
   padding-bottom: 100px;
