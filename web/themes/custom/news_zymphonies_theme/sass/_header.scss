@@ -26,6 +26,15 @@
   p, .block {
     margin: 0;
   }
+
+  .topnav {
+    .container {
+      .row {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
 }
 
 

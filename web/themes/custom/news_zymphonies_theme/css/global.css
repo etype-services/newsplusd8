@@ -757,6 +757,10 @@ abbr.ajax-changed {
 .main-header p, .main-header .block {
   margin: 0;
 }
+.main-header .topnav .container .row {
+  display: flex;
+  align-items: center;
+}
 
 /*Region Header*/
 .site-branding {
