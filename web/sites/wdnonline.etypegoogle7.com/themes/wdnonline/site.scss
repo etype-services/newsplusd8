@@ -59,7 +59,7 @@ footer {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: $tablet - 1) {
   #block-eeditionextratext, #block-wdnonline-searchform {
     visibility: hidden;
     display: none;

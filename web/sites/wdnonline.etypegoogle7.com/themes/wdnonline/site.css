@@ -54,7 +54,7 @@ footer {
     right: auto;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   #block-eeditionextratext, #block-wdnonline-searchform {
     visibility: hidden;
     display: none;
