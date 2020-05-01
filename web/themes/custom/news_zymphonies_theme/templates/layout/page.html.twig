@@ -488,18 +488,17 @@
 <div class="copyright">
   <div class="container">
     <div class="row">
-
       <!-- Start: Copyright -->
-      <div class="col-sm-8">
+      <div>
         <p>Copyright © {{ "now"|date("Y") }} {{ site_name }}. All rights reserved.</p>
       </div>
       <!-- End: Copyright -->
 
+      <!-- Start: Footer Menu -->
       {% if page.footer_menu%}
-      <div class="col-sm-4">
         {{ page.footer_menu }}
-      </div>
       {% endif %}
+      <!-- End: Footer Menu -->
 
     </div>
   </div>

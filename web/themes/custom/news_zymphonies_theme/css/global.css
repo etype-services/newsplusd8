@@ -461,9 +461,6 @@ body {
   align-items: center;
   flex-wrap: wrap;
 }
-.copyright .container .row .menu {
-  direction: rtl;
-}
 
 /*Google Map*/
 .map-and-address h2.title {
