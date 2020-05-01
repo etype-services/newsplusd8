@@ -1290,6 +1290,10 @@ nav h2 {
 #block-localservices {
   margin-top: 47px;
 }
+#block-localservices .content {
+  display: flex;
+  justify-content: center;
+}
 
 #block-mostrecentpoll legend {
   border-bottom: none;

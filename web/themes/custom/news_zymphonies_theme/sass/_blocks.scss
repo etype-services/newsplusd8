@@ -2,6 +2,10 @@
 
 #block-localservices {
   margin-top: 47px;
+  .content {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 #block-mostrecentpoll {
