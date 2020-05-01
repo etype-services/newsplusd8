@@ -1,3 +1,5 @@
+@import "../../../../themes/custom/tiempos/scss/vars";
+
 .region-sidebar .block-etype-block p {
   font-size: 1.2rem;
 }
@@ -47,12 +49,14 @@ footer {
 }
 
 /* fix social icons */
-#main-nav .navbar .navbar-end {
-  display: flex;
-  align-items: center;
-  position: inherit;
-  top: auto;
-  right: auto;
+@media screen and (min-width: $desktop) {
+  #main-nav .navbar .navbar-end {
+    display: flex;
+    align-items: center;
+    position: inherit;
+    top: auto;
+    right: auto;
+  }
 }
 
 @media (max-width: 767px) {
