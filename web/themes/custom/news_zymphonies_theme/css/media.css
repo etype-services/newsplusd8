@@ -160,10 +160,10 @@
     visibility: hidden;
   }
 
-  .copyright .container .row {
+  .footer .container .row {
     display: block;
   }
-  .copyright .container .row > div {
+  .footer .container .row > div {
     margin-left: 15px;
   }
 }

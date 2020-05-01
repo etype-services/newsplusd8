@@ -447,20 +447,23 @@ body {
   margin: 10px 10px 0 0;
 }
 
-.copyright {
+.footer {
   font-size: 0.9em;
   background: #19232d;
   color: #fff;
 }
-.copyright p {
+.footer p {
   margin: 20px 0;
   line-height: 100%;
 }
-.copyright .container .row {
+.footer .container .row {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+.footer .container .row .copyright {
+  flex-grow: 1;
 }
 
 /*Google Map*/
