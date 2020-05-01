@@ -478,7 +478,7 @@
 
 {% if is_front and page.google_map%}
   <div class="map-and-address">
-    <div class="google_map">{{ page.google_map }}</div>
+    <div class="google-map">{{ page.google_map }}</div>
   </div>
 {% endif %}
 
@@ -494,6 +494,12 @@
         <p>Copyright © {{ "now"|date("Y") }} {{ site_name }}. All rights reserved.</p>
       </div>
       <!-- End: Copyright -->
+
+      {% if page.footer_menu%}
+        <div class="footer-menu">
+          {{ page.footer_menu }}
+        </div>
+      {% endif %}
 
     </div>
   </div>

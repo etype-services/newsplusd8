@@ -462,10 +462,10 @@ body {
   display: none;
 }
 
-.google_map p, .google_map .block {
+.google-map p, .google-map .block {
   margin: 0;
 }
-.google_map iframe {
+.google-map iframe {
   display: block;
 }
 

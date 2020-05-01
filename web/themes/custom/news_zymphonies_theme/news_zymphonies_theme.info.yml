@@ -58,6 +58,7 @@ regions:
   leaderboard_footer: 'Leaderboard in Footer'
 
   #Address
-  google_map: 'Google map'
+  google_map: 'Google Map'
+  footer_menu: 'Footer Menu'
 
   auto_hidden_block: 'Auto hidden blocks'
