@@ -198,4 +198,14 @@
       visibility: hidden;
     }
   }
+  .copyright {
+    .container {
+      .row {
+        display: block;
+        > div {
+          margin-left: 15px;
+        }
+      }
+    }
+  }
 }

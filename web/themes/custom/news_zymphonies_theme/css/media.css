@@ -159,6 +159,13 @@
     display: none;
     visibility: hidden;
   }
+
+  .copyright .container .row {
+    display: block;
+  }
+  .copyright .container .row > div {
+    margin-left: 15px;
+  }
 }
 
 /*# sourceMappingURL=media.css.map */
