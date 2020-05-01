@@ -469,16 +469,14 @@ body {
   display: block;
 }
 
-/*Social Media*/
 .footer-menu {
   margin: 0;
   border: 0;
-  background: image-url("social-media-bg.png");
   color: #fff;
-  background-size: cover;
   padding: 80px 0;
 }
 
+/*Social Media*/
 .social-media a {
   line-height: 100%;
   font-size: 1em;
