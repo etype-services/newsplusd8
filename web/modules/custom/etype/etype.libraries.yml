@@ -28,8 +28,3 @@ ada-compliance:
   js:
     js/ada_compliance.js: {}
 
-addtohomescreen:
-  version: VERSION
-    js:
-      addtohomescreen/addtohomescreen.js: {}
-
