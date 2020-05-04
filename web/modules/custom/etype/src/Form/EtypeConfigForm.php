@@ -145,6 +145,14 @@ class EtypeConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('instagram'),
     ];
 
+    $form['social']['rss'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('RSS URL'),
+      '#description' => $this->t('Enter the complete web address.'),
+      '#size' => 55,
+      '#default_value' => $config->get('rss'),
+    ];
+
     $form['other'] = [
       '#type' => 'fieldset',
       '#title' => $this->t('Other Settings'),
@@ -173,13 +181,6 @@ class EtypeConfigForm extends ConfigFormBase {
       '#cols' => '100',
       '#default_value' => $config->get('bottom_script'),
     ];
-
-    /*$form['other']['mercolocal_id'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('MercoLocal Affiliate Id'),
-      '#size' => 10,
-      '#default_value' => $config->get('mercolocal_id'),
-    ];*/
 
     $form['other']['author'] = [
       '#type' => 'entity_autocomplete',
@@ -212,6 +213,7 @@ class EtypeConfigForm extends ConfigFormBase {
       ->set('facebook', $form_state->getValue('facebook'))
       ->set('twitter', $form_state->getValue('twitter'))
       ->set('instagram', $form_state->getValue('instagram'))
+      ->set('rss', $form_state->getValue('rss'))
       ->set('weather_code', $form_state->getValue('weather_code'))
       ->set('head_script', $form_state->getValue('head_script'))
       ->set('bottom_script', $form_state->getValue('bottom_script'))
