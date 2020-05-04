@@ -32,7 +32,4 @@ addtohomescreen:
   version: VERSION
     js:
       addtohomescreen/addtohomescreen.js: {}
-    css:
-      theme:
-        addtohomescreen/addtohomescreen.css: {}
 
