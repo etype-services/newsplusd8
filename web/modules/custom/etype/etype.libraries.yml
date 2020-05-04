@@ -27,3 +27,12 @@ ada-compliance:
   header: true
   js:
     js/ada_compliance.js: {}
+
+addtohomescreen:
+  version: VERSION
+    js:
+      addtohomescreen/addtohomescreen.js: {}
+    css:
+      theme:
+        addtohomescreen/addtohomescreen.css: {}
+
