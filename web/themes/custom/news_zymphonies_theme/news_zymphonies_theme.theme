@@ -72,10 +72,10 @@ function news_zymphonies_theme_preprocess_page(&$variables) {
   // Social media global variable.
   $config = Drupal::config('etype.adminsettings');
   $variables['show_social_icon'] = theme_get_setting('show_social_icon');
-  $variables['facebook_'] = theme_get_setting('facebook');
-  $variables['twitter'] = theme_get_setting('twitter');
-  $variables['instagram'] = theme_get_setting('twitter');
-  $variables['rss'] = theme_get_setting('rss');
+  $variables['facebook_'] = $config->get('facebook');
+  $variables['twitter'] = $config->get('twitter');
+  $variables['instagram'] = $config->get('twitter');
+  $variables['rss'] = $config->get('rss');
   $variables['show_credit_link'] = theme_get_setting('show_credit_link');
 
   // Slider
