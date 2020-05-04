@@ -86,14 +86,11 @@ body {
 /*Social Media*/
 
 .social-media {
-
   a {
-    line-height: 100%;
-    font-size: 1em;
-    display: inline-block;
-    padding: 8px 8px;
-    width: 26px;
-
+    padding: 0 8px;
+    .svg-inline--fa {
+      font-size: 2rem!important;
+    }
     &:hover {
       color: $linkColorHover;
     }
