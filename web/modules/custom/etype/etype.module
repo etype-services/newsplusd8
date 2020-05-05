@@ -40,6 +40,18 @@ function etype_preprocess_html(&$variables) {
 }
 
 /**
+ * Preprocess node.
+ *
+ * @param $variables
+ */
+function etype_preprocess_node(&$variables) {
+  $config = Drupal::config('etype.adminsettings');
+  $variables['premium_content_message'] = $config->get('premium_content_message');
+  $variables['premium_preview'] = $config->get('premium_preview');
+  $variables['premium_content'] = $variables['node']->get('premium_content')->value;
+}
+
+/**
  * Implements hook_page_attachments().
  * css hides system login link.
  *
