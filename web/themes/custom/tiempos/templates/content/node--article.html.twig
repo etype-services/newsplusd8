@@ -113,7 +113,7 @@
       {% if logged_in %}
         {{ content }}
       {% else %}
-        {%  if premium_content == 1 %}
+        {%  if node.premium_content.value == 1 %}
           {{ content.field_subhead }}
           {% set preview %}
             {% if content.field_image[0] is not null %}
