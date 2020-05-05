@@ -116,3 +116,4 @@ $sites['www.tecumsehchieftain.com'] = "tecumsehchieftain.etypegoogle9.com";
 $sites['www.ozonastockman.com'] = "ozonastockman.etypegoogle9.com";
 $sites['www.fredericksburgtexasjobs.com'] = "fredericksburgtexasjobs.etypegoogle9.com";
 $sites['www.fayettecountyrecord.com'] = "fayettecountyrecord.etypegoogle9.com";
+$sites['www.bpnewstx.com'] = "bpnewstx.etypegoogle9.com";
