@@ -16,7 +16,6 @@ function etype_pico_preprocess_html(&$variables) {
   $picoPublisherId = $config->get('picoPublisherId');
   $nodeTypes = $config->get('nodeTypes');
   var_dump($nodeTypes);
-  exit;
 
   if (!empty($picoPublisherId)) {
 
@@ -36,6 +35,8 @@ EOF;
     $nid = '0';
     $node = Drupal::routeMatch()->getParameter('node');
     if ($node instanceof NodeInterface) {
+      var_dump($node->getType());
+      exit;
       if (in_array($node->getType(), $nodeTypes)) {
         $nid = $node->id();
         $page['#attached']['drupalSettings']['nid'] = $nid;
