@@ -16,6 +16,10 @@ header {
 main {
   /* Override .columns default margin */
   margin-top: 0!important;
+
+  .main-content-inner {
+    @include border-right-light;
+  }
 }
 
 .messages {

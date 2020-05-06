@@ -34,9 +34,8 @@
   position: initial;
 }
 
-.region-content {
+.region-content, .region-content-ads, .region-bottom-content {
   flex-wrap: wrap;
-  @include border-right-light;
   overflow: hidden; /* For owl carousel in Business Directory. */
   margin-bottom: 0;
   padding-bottom: 0;

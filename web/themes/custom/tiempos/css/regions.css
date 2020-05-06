@@ -33,9 +33,8 @@
   position: initial;
 }
 
-.region-content {
+.region-content, .region-content-ads, .region-bottom-content {
   flex-wrap: wrap;
-  border-right: 1px solid #b5b5b5;
   overflow: hidden;
   /* For owl carousel in Business Directory. */
   margin-bottom: 0;
