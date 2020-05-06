@@ -33,12 +33,22 @@
   position: initial;
 }
 
-.region-content, .region-content-ads, .region-bottom-content {
+.region-content, .region-bottom-content {
   flex-wrap: wrap;
   overflow: hidden;
   /* For owl carousel in Business Directory. */
   margin-bottom: 0;
   padding-bottom: 0;
+}
+
+.region-content-ads {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  margin: 0.75rem 0;
+}
+.region-content-ads > div {
+  max-width: 30%;
 }
 
 .region-sidebar {
