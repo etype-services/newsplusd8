@@ -16,6 +16,7 @@ function etype_pico_preprocess_html(&$variables) {
   $picoPublisherId = $config->get('picoPublisherId');
   $nodeTypes = $config->get('nodeTypes');
   dsm($nodeTypes);
+  exit;
 
   if (!empty($picoPublisherId)) {
 
