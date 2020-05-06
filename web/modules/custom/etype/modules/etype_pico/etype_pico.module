@@ -17,7 +17,9 @@ function etype_pico_preprocess_html(&$variables) {
   $types = $config->get('nodeTypes');
   $nodeTypes = [];
   foreach ($types as $k => $v) {
-    $nodeTypes[] = $v;
+    if (!empty($v)) {
+      $nodeTypes[] = $v;
+    }
   }
   var_dump($nodeTypes);
 
