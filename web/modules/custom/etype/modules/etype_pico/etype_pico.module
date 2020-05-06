@@ -36,8 +36,9 @@ EOF;
     $node = Drupal::routeMatch()->getParameter('node');
     if ($node instanceof NodeInterface) {
       var_dump($node->getType());
-      exit;
       if (in_array($node->getType(), $nodeTypes)) {
+        echo 'Yes';
+        exit;
         $nid = $node->id();
         $page['#attached']['drupalSettings']['nid'] = $nid;
         $tids = $node->get('field_section')->getValue();
