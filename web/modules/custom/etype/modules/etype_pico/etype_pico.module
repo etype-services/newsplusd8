@@ -21,7 +21,6 @@ function etype_pico_preprocess_html(&$variables) {
       $nodeTypes[] = $v;
     }
   }
-  var_dump($nodeTypes);
 
   if (!empty($picoPublisherId)) {
 
@@ -41,10 +40,7 @@ EOF;
     $nid = '0';
     $node = Drupal::routeMatch()->getParameter('node');
     if ($node instanceof NodeInterface) {
-      var_dump($node->getType());
       if (in_array($node->getType(), $nodeTypes)) {
-        echo 'Yes';
-        exit;
         $nid = $node->id();
         $page['#attached']['drupalSettings']['nid'] = $nid;
         $tids = $node->get('field_section')->getValue();
