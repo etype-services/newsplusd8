@@ -17,6 +17,8 @@ regions:
   leaderboard: 'Leaderboard'
   top_content: 'Top Content'
   content: 'Content'
+  content_ads: 'Content Ads'
+  content_two: 'Content Two'
   sidebar: 'Sidebar'
   footer_left: 'Footer Left'
   footer_center: 'Footer Center'
