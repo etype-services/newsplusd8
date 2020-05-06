@@ -14,7 +14,11 @@ function etype_pico_preprocess_html(&$variables) {
   $bottom_script = $e_config->get('bottom_script');
   $config = Drupal::config('etype_pico.settings');
   $picoPublisherId = $config->get('picoPublisherId');
-  $nodeTypes = $config->get('nodeTypes');
+  $types = $config->get('nodeTypes');
+  $nodeTypes = [];
+  foreach ($types as $k => $v) {
+    $nodeTypes[] = $v;
+  }
   var_dump($nodeTypes);
 
   if (!empty($picoPublisherId)) {
