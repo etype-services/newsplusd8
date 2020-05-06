@@ -58,18 +58,19 @@
 
     <main role="main" class="columns">
       <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+      <div class="main-content-inner column">
+        {% if page.content %}
+          {{ page.content }}
+        {% endif %}
 
-      {% if page.content %}
-        {{ page.content }}
-      {% endif %}
+        {% if page.content_ads %}
+          {{ page.content_ads }}
+        {% endif %}
 
-      {% if page.content_ads %}
-        {{ page.content_ads }}
-      {% endif %}
-
-      {% if page.bottom_content %}
-        {{ page.bottom_content }}
-      {% endif %}
+        {% if page.bottom_content %}
+          {{ page.bottom_content }}
+        {% endif %}
+      </div>
 
       {% if page.sidebar %}
         {{ page.sidebar }}
