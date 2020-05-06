@@ -2,7 +2,7 @@
 // @codingStandardsIgnoreFile
 
 /* testing */
-$sites['newsplusd8.local'] = 'newsplusd8.etypegoogle7.com';
+// $sites['newsplusd8.local'] = 'newsplusd8.etypegoogle7.com';
 // $sites['local.drupal8.com'] = 'local.drupal8.com';
 $sites['www.etypetest.com'] = 'etypetest.etypegoogle7.com';
 
@@ -67,8 +67,6 @@ $sites['www.valleynewsandviews.com'] = 'valleynewsandviews.etypegoogle7.com';
 $sites['stocktonsentinel.com'] = 'stocktonsentinel.etypegoogle7.com';
 $sites['aroundosceola.com'] = 'aroundosceola.etypegoogle7.com';
 $sites['wwd1.org'] = 'wwd1.etypegoogle7.com';
-
-/* jackie */
 $sites['www.bellvilletimes.com'] = "bellvilletimes.etypegoogle11.com";
 $sites['www.bookernews.com'] = "bookernews.etypegoogle7.com";
 $sites['www.colfaxchronicle.com'] = "colfaxchronicle.etypegoogle11.com";
