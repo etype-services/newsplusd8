@@ -173,7 +173,7 @@
     height: 400px;
   }
 
-  .region-primary-menu li a:hover, .region-primary-menu li a:focus, .region-primary-menu li a:active, .region-primary-menu li a.highlighted, .region-primary-menu li li a:hover, .region-primary-menu li li a:focus, .region-primary-menu li li a:active, .region-primary-menu li li a.highlighted {
+  .region-primary-menu li a, .region-primary-menu li li a {
     padding: 17px 14px;
   }
 }

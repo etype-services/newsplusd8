@@ -208,17 +208,8 @@
     }
   }
 
-  .region-primary-menu {
-    li {
-      a, li a {
-        &:hover,
-        &:focus,
-        &:active,
-        &.highlighted {
-          padding: 17px 14px;
-        }
-      }
-    }
+  .region-primary-menu li a, .region-primary-menu li li a {
+    padding: 17px 14px;
   }
 }
 
