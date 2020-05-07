@@ -47,8 +47,11 @@
   flex-wrap: nowrap;
   margin: 0.75rem 0;
 }
-.region-content-ads > div {
-  max-width: 30%;
+.region-content-ads .view-content {
+  margin-right: 0.75rem;
+}
+.region-content-ads > div:last-child .view-content {
+  margin-right: 0;
 }
 
 .region-sidebar {

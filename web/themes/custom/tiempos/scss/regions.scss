@@ -46,8 +46,15 @@
   justify-content: space-between;
   flex-wrap: nowrap;
   margin: .75rem 0;
+  .view-content {
+    margin-right: $column-gap;
+  }
   > div {
-    max-width: 30%;
+    &:last-child {
+      .view-content {
+        margin-right: 0;
+      }
+    }
   }
 }
 
