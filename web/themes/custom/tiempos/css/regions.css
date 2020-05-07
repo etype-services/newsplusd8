@@ -33,13 +33,25 @@
   position: initial;
 }
 
-.region-content {
+.region-content, .region-bottom-content {
   flex-wrap: wrap;
-  border-right: 1px solid #b5b5b5;
   overflow: hidden;
   /* For owl carousel in Business Directory. */
   margin-bottom: 0;
   padding-bottom: 0;
+}
+
+.region-content-ads {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  margin: 0.75rem 0;
+}
+.region-content-ads .view-content {
+  margin-right: 0.75rem;
+}
+.region-content-ads > div:last-child .view-content {
+  margin-right: 0;
 }
 
 .region-sidebar {

@@ -34,12 +34,28 @@
   position: initial;
 }
 
-.region-content {
+.region-content, .region-bottom-content {
   flex-wrap: wrap;
-  @include border-right-light;
   overflow: hidden; /* For owl carousel in Business Directory. */
   margin-bottom: 0;
   padding-bottom: 0;
+}
+
+.region-content-ads {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  margin: .75rem 0;
+  .view-content {
+    margin-right: $column-gap;
+  }
+  > div {
+    &:last-child {
+      .view-content {
+        margin-right: 0;
+      }
+    }
+  }
 }
 
 .region-sidebar {

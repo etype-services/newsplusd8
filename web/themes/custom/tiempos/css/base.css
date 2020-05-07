@@ -16,6 +16,9 @@ main {
   /* Override .columns default margin */
   margin-top: 0 !important;
 }
+main .main-content-inner {
+  border-right: 1px solid #b5b5b5;
+}
 
 .messages {
   margin: 0 0 0.75rem 0.5rem;

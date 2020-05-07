@@ -16,9 +16,11 @@ function etype_pico_preprocess_html(&$variables) {
   $picoPublisherId = $config->get('picoPublisherId');
   $types = $config->get('nodeTypes');
   $nodeTypes = [];
-  foreach ($types as $k => $v) {
-    if (!empty($v)) {
-      $nodeTypes[] = $v;
+  if (count($types) > 0) {
+    foreach ($types as $k => $v) {
+      if (!empty($v)) {
+        $nodeTypes[] = $v;
+      }
     }
   }
 
