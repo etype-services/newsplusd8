@@ -92,7 +92,8 @@
     border-color: transparent transparent transparent #848484;
   }
   .region-primary-menu li.active a,
-.region-primary-menu li a.is-active {
+.region-primary-menu li a.is-active,
+.region-primary-menu li li.active-trail a {
     background: #ee3224;
     color: #fff;
   }

@@ -107,7 +107,8 @@
       }
 
       &.active a,
-      a.is-active {
+      a.is-active,
+      li.active-trail a {
         background: $linkColor;
         color: #fff;
       }
