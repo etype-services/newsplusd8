@@ -12,7 +12,7 @@
         margin-bottom: calc(#{$column-gap} * 2);
       }
       .field--name-field-small-image {
-        margin-right: calc(#{$column-gap} * 2);
+        margin-right: $column-gap;
         float: left;
       }
       .field--name-field-long-caption {
