@@ -38,6 +38,9 @@
     background: #19232d;
     border-bottom: 3px solid #ee3224;
   }
+  .main-menu .container {
+    width: 100%;
+  }
 
   .region-primary-menu {
     display: block !important;

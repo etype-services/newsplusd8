@@ -42,6 +42,9 @@
   .main-menu {
     background: $desktopMenuBackgroundColor;
     border-bottom: 3px solid $linkColor;
+    .container {
+      width: 100%;
+    }
   }
 
   .region-primary-menu {
