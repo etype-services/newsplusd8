@@ -61,9 +61,15 @@ footer {
     top: auto;
     right: auto;
   }
-  .region-header-left, .region-header-right {
+  .region-header-left {
     flex-basis: unset;
     flex-shrink: 0;
+  }
+  .region-header-right {
+    flex-basis: unset;
+    flex-shrink: 0;
+    margin: auto 0;
+    padding-right: 0;
     .user-menu {
       flex-wrap: nowrap;
       .button {
