@@ -220,11 +220,30 @@
       margin-bottom: calc(#{$column-gap} * 2);
     }
   }
-  #block-mainnavigation {
-    margin-bottom: 0;
-    .sf-accordion-toggle {
-      display: none;
-      visibility: hidden;
+  .region-primary-menu {
+    #block-mainnavigation {
+      margin-bottom: 0;
+      #superfish-main-accordion {
+        margin-top: calc(#{$column-gap} * 2);
+        border-bottom: 20px solid #333;
+        li {
+          a {
+            font-family: "Roboto", sans-serif;
+            color: #ee3224;
+            border-bottom: 1px solid #ec5648;
+            background-color: #333;
+          }
+          /* remove superfish duplicated parent */
+          li.sf-clone-parent {
+            display: none;
+            visibility: hidden;
+          }
+        }
+      }
+      .sf-accordion-toggle {
+        display: none;
+        visibility: hidden;
+      }
     }
   }
 }
