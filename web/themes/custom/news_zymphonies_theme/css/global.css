@@ -997,7 +997,7 @@ nav h2 {
   background-color: #eee;
 }
 .region-primary-menu li a:hover, .region-primary-menu li a:focus, .region-primary-menu li a:active, .region-primary-menu li a.highlighted {
-  background: none;
+  background: #000;
   color: #ee3224;
   line-height: 100%;
   padding: 17px 20px;
@@ -1013,14 +1013,6 @@ nav h2 {
 .region-primary-menu li a span.sub-arrow {
   line-height: 120%;
   font-size: 2em;
-}
-
-.region-primary-menu {
-  display: none;
-  width: 100%;
-  background: #212020;
-  margin-bottom: 15px;
-  border-radius: 5px;
 }
 
 /*Footer Menu*/
