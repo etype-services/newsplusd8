@@ -96,6 +96,7 @@
         background: none;
         border: 0;
         color: $desktopMenuTextColor;
+        white-space: nowrap;
 
         span.sub-arrow {
           padding: 0;
@@ -203,6 +204,19 @@
       overflow: hidden;
       .image-style-slideshow {
         height: 400px;
+      }
+    }
+  }
+
+  .region-primary-menu {
+    li {
+      a, li a {
+        &:hover,
+        &:focus,
+        &:active,
+        &.highlighted {
+          padding: 17px 14px;
+        }
       }
     }
   }

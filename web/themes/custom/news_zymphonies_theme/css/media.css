@@ -87,6 +87,7 @@
     background: none;
     border: 0;
     color: #fff;
+    white-space: nowrap;
   }
   .region-primary-menu li a span.sub-arrow {
     padding: 0;
@@ -170,6 +171,10 @@
   }
   .flexslider .slides .image-style-slideshow {
     height: 400px;
+  }
+
+  .region-primary-menu li a:hover, .region-primary-menu li a:focus, .region-primary-menu li a:active, .region-primary-menu li a.highlighted, .region-primary-menu li li a:hover, .region-primary-menu li li a:focus, .region-primary-menu li li a:active, .region-primary-menu li li a.highlighted {
+    padding: 17px 14px;
   }
 }
 @media (max-width: 767px) {
