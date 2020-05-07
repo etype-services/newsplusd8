@@ -3,6 +3,7 @@
     Drupal.behaviors.newszymphoniesBehavior = {
         attach: function (context, settings) {
 
+            /*
             var clientsOwl = function() {
                 $('.field--name-field-clients-logo').owlCarousel({
                     items: 2, margin: 10, dots: true, autoPlay: 3000, navigation: true, responsive: {
@@ -22,8 +23,9 @@
                     },
                 });
             };
+            */
 
-            var themeMenu = function() {
+            var themeMenu = function themeMenuFunc() {
 
                 // Mobile menu toggle
                 $('.navbar-toggle').once("newszymphoniesBehavior").click(function () {
