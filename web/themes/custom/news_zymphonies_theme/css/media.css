@@ -187,9 +187,6 @@
     margin-top: calc(0.75rem * 2);
     border-bottom: 20px solid #333;
   }
-  .region-primary-menu #block-mainnavigation #superfish-main-accordion li {
-    /* remove superfish duplicated parent */
-  }
   .region-primary-menu #block-mainnavigation #superfish-main-accordion li a {
     font-family: "Roboto", sans-serif;
     color: #fff;
@@ -198,10 +195,6 @@
   }
   .region-primary-menu #block-mainnavigation #superfish-main-accordion li a:hover {
     color: #ee3224;
-  }
-  .region-primary-menu #block-mainnavigation #superfish-main-accordion li li.sf-clone-parent {
-    display: none;
-    visibility: hidden;
   }
   .region-primary-menu #block-mainnavigation .sf-accordion-toggle {
     display: none;
