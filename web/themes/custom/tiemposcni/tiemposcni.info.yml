@@ -23,6 +23,7 @@ regions:
   footer_left: 'Footer Left'
   footer_center: 'Footer Center'
   footer_right: 'Footer Right'
+  coupons: 'Coupons'
   hidden_blocks: 'Hidden Blocks'
 libraries:
   - tiemposcni/global-styling

@@ -17,10 +17,13 @@ regions:
   leaderboard: 'Leaderboard'
   top_content: 'Top Content'
   content: 'Content'
+  content_ads: 'Content Ads'
+  bottom_content: 'Bottom Content'
   sidebar: 'Sidebar'
   footer_left: 'Footer Left'
   footer_center: 'Footer Center'
   footer_right: 'Footer Right'
+  coupons: 'Coupons'
   hidden_blocks: 'Hidden Blocks'
 libraries:
   - tiemposbeaumont/global-styling
