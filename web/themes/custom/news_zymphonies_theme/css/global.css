@@ -1282,6 +1282,7 @@ nav h2 {
   font-size: 1.3rem;
   margin-top: 0.6rem;
   color: #ee3224;
+  float: left;
 }
 .page-node-type-article .field--name-field-subhead p {
   font-weight: 600;
