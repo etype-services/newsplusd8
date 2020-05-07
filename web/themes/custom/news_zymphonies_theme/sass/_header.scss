@@ -67,6 +67,13 @@
   }
 }
 
+.region-header-ads {
+  text-align: right;
+  img {
+    vertical-align: top;
+  }
+}
+
 /*Search Form*/
 
 .search-block-form {
@@ -133,8 +140,4 @@
       }
     }
   }
-}
-
-.region-header-ads {
-  display: none;
 }
