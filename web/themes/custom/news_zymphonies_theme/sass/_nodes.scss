@@ -8,6 +8,9 @@
   article {
     margin-bottom: 2rem;
     &.node--view-mode-full {
+      .comment-submitted {
+        margin-bottom: $column-gap;
+      }
       .field--name-field-small-image {
         margin-right: $column-gap;
         float: left;
