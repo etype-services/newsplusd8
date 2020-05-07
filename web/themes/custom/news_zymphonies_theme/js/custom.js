@@ -29,7 +29,7 @@
 
                 // Mobile menu toggle
                 $('.navbar-toggle').once("newszymphoniesBehavior").click(function () {
-                    $('#superfish-main-accordion').toggleClass('sf-hidden');
+                    $('#superfish-main-accordion').toggleClass('sf-hidden').slideToggle();
                 });
 
             };
