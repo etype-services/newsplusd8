@@ -229,9 +229,12 @@
         li {
           a {
             font-family: "Roboto", sans-serif;
-            color: #ee3224;
+            color: #fff;
             border-bottom: 1px solid #ec5648;
             background-color: #333;
+            &:hover {
+              color: #ee3224;
+            }
           }
           /* remove superfish duplicated parent */
           li.sf-clone-parent {

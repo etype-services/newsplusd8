@@ -192,9 +192,12 @@
   }
   .region-primary-menu #block-mainnavigation #superfish-main-accordion li a {
     font-family: "Roboto", sans-serif;
-    color: #ee3224;
+    color: #fff;
     border-bottom: 1px solid #ec5648;
     background-color: #333;
+  }
+  .region-primary-menu #block-mainnavigation #superfish-main-accordion li a:hover {
+    color: #ee3224;
   }
   .region-primary-menu #block-mainnavigation #superfish-main-accordion li li.sf-clone-parent {
     display: none;
