@@ -29,6 +29,7 @@
 /*Variables*/
 /*Header*/
 /*Menu Color*/
+/*Spacing*/
 /*Mixins*/
 /**
  * @file
@@ -37,6 +38,7 @@
 /*Variables*/
 /*Header*/
 /*Menu Color*/
+/*Spacing*/
 /*Mixins*/
 img {
   max-width: 100%;
@@ -322,6 +324,7 @@ td.priority-low {
 /*Variables*/
 /*Header*/
 /*Menu Color*/
+/*Spacing*/
 /*Mixins*/
 p {
   margin: 0 0 10px 0;
@@ -416,6 +419,7 @@ ul.links.inline li {
 /*Variables*/
 /*Header*/
 /*Menu Color*/
+/*Spacing*/
 /*Mixins*/
 body {
   font-family: "Roboto", sans-serif;
@@ -631,6 +635,7 @@ abbr.ajax-changed {
 /*Variables*/
 /*Header*/
 /*Menu Color*/
+/*Spacing*/
 /*Mixins*/
 /* Testimonials */
 .testimonials-wrap {
@@ -733,6 +738,7 @@ abbr.ajax-changed {
 /*Variables*/
 /*Header*/
 /*Menu Color*/
+/*Spacing*/
 /*Mixins*/
 /*Header*/
 .main-header {
@@ -851,6 +857,7 @@ abbr.ajax-changed {
 /*Variables*/
 /*Header*/
 /*Menu Color*/
+/*Spacing*/
 /*Mixins*/
 .flexslider {
   border: 0;
@@ -942,6 +949,7 @@ abbr.ajax-changed {
 /*Variables*/
 /*Header*/
 /*Menu Color*/
+/*Spacing*/
 /*Mixins*/
 /*Menu*/
 .navbar-default .navbar-toggle {
@@ -1097,6 +1105,7 @@ nav h2 {
 /*Variables*/
 /*Header*/
 /*Menu Color*/
+/*Spacing*/
 /*Mixins*/
 .topwidget {
   text-align: left;
@@ -1256,12 +1265,23 @@ nav h2 {
 /*Variables*/
 /*Header*/
 /*Menu Color*/
+/*Spacing*/
 /*Mixins*/
 .page-node-type-article h1.page-title {
   font-size: 2rem;
 }
 .page-node-type-article article {
   margin-bottom: 2rem;
+}
+.page-node-type-article article.node--view-mode-full .field--name-field-small-image {
+  margin-right: 20px;
+  float: left;
+}
+.page-node-type-article article.node--view-mode-full .field--name-field-long-caption {
+  font-style: italic;
+  font-size: 1.3rem;
+  margin-top: 0.6rem;
+  color: #ee3224;
 }
 .page-node-type-article .field--name-field-subhead p {
   font-weight: 600;
@@ -1288,6 +1308,7 @@ nav h2 {
 /*Variables*/
 /*Header*/
 /*Menu Color*/
+/*Spacing*/
 /*Mixins*/
 #block-localservices {
   margin-top: 47px;

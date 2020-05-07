@@ -7,6 +7,18 @@
 
   article {
     margin-bottom: 2rem;
+    &.node--view-mode-full {
+      .field--name-field-small-image {
+        margin-right: $column-gap;
+        float: left;
+      }
+      .field--name-field-long-caption {
+        font-style: italic;
+        font-size: 1.3rem;
+        margin-top: 0.6rem;
+        color: $linkColor;
+      }
+    }
   }
 
   .field--name-field-subhead {
