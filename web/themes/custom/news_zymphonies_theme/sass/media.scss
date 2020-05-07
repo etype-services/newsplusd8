@@ -1,7 +1,6 @@
 @import "variables-and-mixins";
 
 @media (min-width: 768px) {
-
   .site-branding {
     padding: 20px 0;
   }
@@ -50,6 +49,10 @@
     width: auto;
     margin: 0;
     background: none;
+
+    #block-mainnavigation {
+      margin-bottom: 0;
+    }
 
     ul {
       border: 0;
@@ -207,6 +210,20 @@
           margin-left: 15px;
         }
       }
+    }
+  }
+  /* logo and header ad */
+  .main-header .topnav .container .row {
+    flex-wrap: wrap;
+    justify-content: center;
+    .navbar-header {
+      margin-bottom: calc(#{$column-gap} * 2);
+    }
+  }
+  #block-mainnavigation {
+    .sf-accordion-toggle {
+      display: none;
+      visibility: hidden;
     }
   }
 }

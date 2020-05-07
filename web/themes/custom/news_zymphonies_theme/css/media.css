@@ -45,6 +45,9 @@
     margin: 0;
     background: none;
   }
+  .region-primary-menu #block-mainnavigation {
+    margin-bottom: 0;
+  }
   .region-primary-menu ul {
     border: 0;
   }
@@ -166,6 +169,20 @@
   }
   .footer .container .row > div {
     margin-left: 15px;
+  }
+
+  /* logo and header ad */
+  .main-header .topnav .container .row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .main-header .topnav .container .row .navbar-header {
+    margin-bottom: calc(0.75rem * 2);
+  }
+
+  #block-mainnavigation .sf-accordion-toggle {
+    display: none;
+    visibility: hidden;
   }
 }
 

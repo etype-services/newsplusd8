@@ -30,7 +30,7 @@
 
                 // Mobile menu toggle
                 $('.navbar-toggle').once("newszymphoniesBehavior").click(function () {
-                    $('.region-primary-menu').slideToggle();
+                    $('.region-primary-menu, .superfish-main-accordion').slideToggle();
                 });
 
                 // Mobile dropdown menu
