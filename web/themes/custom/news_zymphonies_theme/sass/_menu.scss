@@ -31,8 +31,10 @@ nav h2 {
   display: none;
 }
 
-.menu-base-theme, #block-mainnavigation {
-  background: none;
+.region-primary-menu {
+  .menu-base-theme, #block-mainnavigation {
+    background: none;
+  }
   ul {
     background: none;
   }

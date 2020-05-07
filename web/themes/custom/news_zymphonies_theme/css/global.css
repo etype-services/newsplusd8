@@ -979,13 +979,13 @@ nav h2 {
   display: none;
 }
 
-.menu-base-theme, #block-mainnavigation {
+.region-primary-menu .menu-base-theme, .region-primary-menu #block-mainnavigation {
   background: none;
 }
-.menu-base-theme ul, #block-mainnavigation ul {
+.region-primary-menu ul {
   background: none;
 }
-.menu-base-theme li a, #block-mainnavigation li a {
+.region-primary-menu li a {
   font-family: "Roboto", sans-serif;
   color: #ee3224;
   border-bottom: 1px solid #383737;
@@ -996,13 +996,13 @@ nav h2 {
   font-weight: bold;
   background-color: #eee;
 }
-.menu-base-theme li a:hover, .menu-base-theme li a:focus, .menu-base-theme li a:active, .menu-base-theme li a.highlighted, #block-mainnavigation li a:hover, #block-mainnavigation li a:focus, #block-mainnavigation li a:active, #block-mainnavigation li a.highlighted {
+.region-primary-menu li a:hover, .region-primary-menu li a:focus, .region-primary-menu li a:active, .region-primary-menu li a.highlighted {
   background: none;
   color: #ee3224;
   line-height: 100%;
   padding: 17px 20px;
 }
-.menu-base-theme li a.sub-arrow, #block-mainnavigation li a.sub-arrow {
+.region-primary-menu li a.sub-arrow {
   color: #999;
   font-size: 22px;
   padding: 5px;
@@ -1010,7 +1010,7 @@ nav h2 {
   border: 1px solid #DCDCDC;
   background: #EFEFEF;
 }
-.menu-base-theme li a span.sub-arrow, #block-mainnavigation li a span.sub-arrow {
+.region-primary-menu li a span.sub-arrow {
   line-height: 120%;
   font-size: 2em;
 }
