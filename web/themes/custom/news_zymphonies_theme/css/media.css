@@ -41,6 +41,13 @@
   .main-menu .container {
     width: 100%;
   }
+  .main-menu .container #superfish-main {
+    display: flex;
+    justify-content: center;
+  }
+  .main-menu .container #superfish-main li {
+    float: none;
+  }
 
   .region-primary-menu {
     display: block !important;
