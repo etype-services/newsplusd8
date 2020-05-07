@@ -1,4 +1,8 @@
 /* Center column for tiempos theme */
+.region-top-bar {
+  margin-bottom: 0;
+}
+
 .region-sidebar .block-etype-block p {
   font-size: 1.2rem;
 }
@@ -52,6 +56,20 @@ footer {
     position: inherit;
     top: auto;
     right: auto;
+  }
+
+  .region-header-left, .region-header-right {
+    flex-basis: unset;
+    flex-shrink: 0;
+  }
+  .region-header-left .user-menu, .region-header-right .user-menu {
+    flex-wrap: nowrap;
+  }
+  .region-header-left .user-menu .button, .region-header-right .user-menu .button {
+    width: 7rem;
+  }
+  .region-header-left .user-menu .button:last-child, .region-header-right .user-menu .button:last-child {
+    margin-right: 0;
   }
 }
 @media (max-width: 768px) {

@@ -1,5 +1,9 @@
 @import "../../../../themes/custom/tiempos/scss/vars";
 
+.region-top-bar {
+  margin-bottom: 0;
+}
+
 .region-sidebar .block-etype-block p {
   font-size: 1.2rem;
 }
@@ -56,6 +60,19 @@ footer {
     position: inherit;
     top: auto;
     right: auto;
+  }
+  .region-header-left, .region-header-right {
+    flex-basis: unset;
+    flex-shrink: 0;
+    .user-menu {
+      flex-wrap: nowrap;
+      .button {
+        width: 7rem;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
   }
 }
 
