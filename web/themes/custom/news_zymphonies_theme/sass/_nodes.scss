@@ -9,10 +9,10 @@
     margin-bottom: 2rem;
     &.node--view-mode-full {
       .comment-submitted {
-        margin-bottom: $column-gap;
+        margin-bottom: calc(#{$column-gap} * 2);
       }
       .field--name-field-small-image {
-        margin-right: $column-gap;
+        margin-right: calc(#{$column-gap} * 2);
         float: left;
       }
       .field--name-field-long-caption {

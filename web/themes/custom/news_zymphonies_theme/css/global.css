@@ -1259,10 +1259,10 @@ nav h2 {
   margin-bottom: 2rem;
 }
 .page-node-type-article article.node--view-mode-full .comment-submitted {
-  margin-bottom: 0.75rem;
+  margin-bottom: calc(0.75rem * 2);
 }
 .page-node-type-article article.node--view-mode-full .field--name-field-small-image {
-  margin-right: 0.75rem;
+  margin-right: calc(0.75rem * 2);
   float: left;
 }
 .page-node-type-article article.node--view-mode-full .field--name-field-long-caption {
