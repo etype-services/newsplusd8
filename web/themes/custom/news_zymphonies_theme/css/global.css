@@ -985,7 +985,7 @@ nav h2 {
 .region-primary-menu ul {
   background: none;
 }
-.region-primary-menu li a {
+.region-primary-menu li a, .region-primary-menu li li a {
   font-family: "Roboto", sans-serif;
   color: #ee3224;
   border-bottom: 1px solid #383737;
@@ -996,13 +996,13 @@ nav h2 {
   font-weight: bold;
   background-color: #eee;
 }
-.region-primary-menu li a:hover, .region-primary-menu li a:focus, .region-primary-menu li a:active, .region-primary-menu li a.highlighted {
+.region-primary-menu li a:hover, .region-primary-menu li a:focus, .region-primary-menu li a:active, .region-primary-menu li a.highlighted, .region-primary-menu li li a:hover, .region-primary-menu li li a:focus, .region-primary-menu li li a:active, .region-primary-menu li li a.highlighted {
   background: #000;
   color: #ee3224;
   line-height: 100%;
   padding: 17px 20px;
 }
-.region-primary-menu li a.sub-arrow {
+.region-primary-menu li a.sub-arrow, .region-primary-menu li li a.sub-arrow {
   color: #999;
   font-size: 22px;
   padding: 5px;
@@ -1010,7 +1010,7 @@ nav h2 {
   border: 1px solid #DCDCDC;
   background: #EFEFEF;
 }
-.region-primary-menu li a span.sub-arrow {
+.region-primary-menu li a span.sub-arrow, .region-primary-menu li li a span.sub-arrow {
   line-height: 120%;
   font-size: 2em;
 }

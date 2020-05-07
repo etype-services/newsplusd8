@@ -39,7 +39,7 @@ nav h2 {
     background: none;
   }
   li {
-    a {
+    a, li a {
       font-family: $titleFontFamily;
       color: $linkColor;
       border-bottom: 1px solid #383737;
