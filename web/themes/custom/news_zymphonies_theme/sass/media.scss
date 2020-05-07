@@ -40,7 +40,7 @@
   }
 
   .main-menu {
-    background: #19232d;
+    background: $desktopMenuBackgroundColor;
     border-bottom: 3px solid $linkColor;
   }
 
@@ -56,9 +56,8 @@
 
     ul {
       border: 0;
-
       ul {
-        background: #fff;
+        background: $desktopMenuBackgroundColor;
         background: $desktopMenuDropDownBg;
 
         li a,
@@ -68,10 +67,8 @@
         li a.highlighted {
           padding: 12px 15px;
         }
-
         li a {
           color: $desktopMenuTextColor;
-          font-size: .8em;
         }
       }
     }
@@ -105,7 +102,7 @@
       li {
         span.sub-arrow {
           top: 12px;
-          border-color: transparent transparent transparent #848484
+          border-color: transparent transparent transparent #848484;
         }
       }
 
@@ -113,7 +110,7 @@
       a.is-active,
       &.active-trail a {
         background: $linkColor;
-        color: #fff;
+        color: $desktopMenuTextColor;
       }
     }
   }
@@ -226,13 +223,13 @@
       margin-bottom: 0;
       #superfish-main-accordion {
         margin-top: calc(#{$column-gap} * 2);
-        border-bottom: 20px solid #333;
+        border-bottom: 20px solid $desktopMenuBackgroundColor;
         li {
           a {
             font-family: "Roboto", sans-serif;
-            color: #fff;
+            color: $desktopMenuTextColor;
             border-bottom: 1px solid #ec5648;
-            background-color: #333;
+            background-color: $desktopMenuBackgroundColor;
             &:hover {
               color: #ee3224;
             }

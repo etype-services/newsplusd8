@@ -994,7 +994,6 @@ nav h2 {
   text-transform: uppercase;
   font-size: 1em;
   font-weight: bold;
-  background-color: #eee;
 }
 .region-primary-menu li a:hover, .region-primary-menu li a:focus, .region-primary-menu li a:active, .region-primary-menu li a.highlighted, .region-primary-menu li li a:hover, .region-primary-menu li li a:focus, .region-primary-menu li li a:active, .region-primary-menu li li a.highlighted {
   background: #000;
