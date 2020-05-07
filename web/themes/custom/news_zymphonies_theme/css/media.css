@@ -47,6 +47,11 @@
   }
   .region-primary-menu #block-mainnavigation {
     margin-bottom: 0;
+    /* Direct override of superfish.css */
+  }
+  .region-primary-menu #block-mainnavigation ul.sf-menu li:hover > ul,
+.region-primary-menu #block-mainnavigation ul.sf-menu li.sfHover > ul {
+    top: 5rem;
   }
   .region-primary-menu ul {
     border: 0;
@@ -60,7 +65,7 @@
 .region-primary-menu ul ul li a:focus,
 .region-primary-menu ul ul li a:active,
 .region-primary-menu ul ul li a.highlighted {
-    padding: 12px 15px;
+    padding: 12px 12px 12px 20px;
   }
   .region-primary-menu ul ul li a {
     color: #fff;

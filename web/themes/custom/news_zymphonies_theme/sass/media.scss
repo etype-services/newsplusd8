@@ -52,6 +52,12 @@
 
     #block-mainnavigation {
       margin-bottom: 0;
+
+      /* Direct override of superfish.css */
+      ul.sf-menu li:hover > ul,
+      ul.sf-menu li.sfHover > ul {
+        top: 5rem;
+      }
     }
 
     ul {
@@ -65,7 +71,7 @@
         li a:focus,
         li a:active,
         li a.highlighted {
-          padding: 12px 15px;
+          padding: 12px 12px 12px 20px;
         }
         li a {
           color: $desktopMenuTextColor;
