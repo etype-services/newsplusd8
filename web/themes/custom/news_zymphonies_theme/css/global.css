@@ -1300,11 +1300,14 @@ article.node--view-mode-teaser {
 article.node--view-mode-teaser .node__content {
   display: flex;
 }
-article.node--view-mode-teaser .node__content .image-container {
-  margin-left: 0.75rem;
+article.node--view-mode-teaser .node__content .content-container {
+  flex-grow: 1;
 }
 article.node--view-mode-teaser .node__content .content-container h2 {
-  margin-top: 0;
+  margin: 0 0 0.75rem;
+}
+article.node--view-mode-teaser .node__content .image-container {
+  margin-left: 0.75rem;
 }
 
 /*Variables*/

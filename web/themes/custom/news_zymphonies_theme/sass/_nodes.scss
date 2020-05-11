@@ -55,13 +55,14 @@ article.node--view-mode-teaser {
   margin: calc(#{$column-gap} * 2) 0;
   .node__content {
     display: flex;
+    .content-container {
+      flex-grow: 1;
+      h2 {
+        margin: 0 0 $column-gap;
+      }
+    }
     .image-container {
       margin-left: $column-gap;
-    }
-    .content-container {
-      h2 {
-        margin-top: 0;
-      }
     }
   }
 }
