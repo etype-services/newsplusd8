@@ -63,7 +63,7 @@ article.node--view-mode-teaser {
         font-style: oblique;
         display: flex;
         .field--name-uid {
-          margin-left: $column-gap;
+          margin: 0 $column-gap;
         }
       }
       h2 {

@@ -1323,7 +1323,7 @@ article.node--view-mode-teaser .node__content .content-container .submitted {
   display: flex;
 }
 article.node--view-mode-teaser .node__content .content-container .submitted .field--name-uid {
-  margin-left: 0.75rem;
+  margin: 0 0.75rem;
 }
 article.node--view-mode-teaser .node__content .content-container h2 {
   margin: 0;
