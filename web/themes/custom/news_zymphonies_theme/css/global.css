@@ -1301,7 +1301,7 @@ article.node--view-mode-teaser .node__content {
   display: flex;
 }
 article.node--view-mode-teaser .node__content .image-container {
-  margin-right: 0.75rem;
+  margin-left: 0.75rem;
 }
 article.node--view-mode-teaser .node__content .content-container h2 {
   margin-top: 0;
