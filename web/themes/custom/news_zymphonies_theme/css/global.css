@@ -1306,8 +1306,17 @@ article.node--view-mode-teaser .node__content {
 article.node--view-mode-teaser .node__content .content-container {
   flex-grow: 1;
 }
+article.node--view-mode-teaser .node__content .content-container .submitted {
+  margin: 0.5rem 0;
+  font-size: 1.3rem;
+  font-style: oblique;
+  display: flex;
+}
+article.node--view-mode-teaser .node__content .content-container .submitted .field--name-uid {
+  margin-left: 0.75rem;
+}
 article.node--view-mode-teaser .node__content .content-container h2 {
-  margin: 0 0 0.75rem;
+  margin: 0;
 }
 article.node--view-mode-teaser .node__content .image-container {
   margin-left: 0.75rem;

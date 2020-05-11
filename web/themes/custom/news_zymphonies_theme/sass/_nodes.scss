@@ -57,8 +57,17 @@ article.node--view-mode-teaser {
     display: flex;
     .content-container {
       flex-grow: 1;
+      .submitted {
+        margin: 0.5rem 0;
+        font-size: 1.3rem;
+        font-style: oblique;
+        display: flex;
+        .field--name-uid {
+          margin-left: $column-gap;
+        }
+      }
       h2 {
-        margin: 0 0 $column-gap;
+        margin: 0;
       }
     }
     .image-container {
