@@ -61,6 +61,12 @@ ol, ul {
   li {
     list-style: outside;
   }
+
+  &.js-pager__items {
+    li {
+      list-style: non;
+    }
+  }
 }
 
 ol li {

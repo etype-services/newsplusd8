@@ -386,6 +386,9 @@ ol, ul {
 ol li, ul li {
   list-style: outside;
 }
+ol.js-pager__items li, ul.js-pager__items li {
+  list-style: non;
+}
 
 ol li {
   list-style-type: decimal;
