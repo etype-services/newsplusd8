@@ -387,7 +387,7 @@ ol li, ul li {
   list-style: outside;
 }
 ol.js-pager__items li, ul.js-pager__items li {
-  list-style: non;
+  list-style: none;
 }
 
 ol li {
