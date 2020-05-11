@@ -88,13 +88,15 @@
         {% elseif content.field_small_image[0] is not null %}
             <div class="image-container">{{ content.field_small_image[0] }}</div>
         {% endif %}
-        <h2{{ title_attributes }}>
-            <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-        </h2>
-        <div class="submitted">
-            {{ author_name }}
-            <div class="date">{{ node.created.value|format_date('teaser') }}</div>
+        <div class="content-container">
+            <h2{{ title_attributes }}>
+                <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+            </h2>
+            <div class="submitted">
+                {{ author_name }}
+                <div class="date">{{ node.created.value|format_date('teaser') }}</div>
+            </div>
+            {{ content.body }}
         </div>
-        {{ content.body }}
     </div>
 </article>
