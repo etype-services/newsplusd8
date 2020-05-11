@@ -386,8 +386,13 @@ ol, ul {
 ol li, ul li {
   list-style: outside;
 }
+ol.js-pager__items, ul.js-pager__items {
+  font-size: 1.2rem;
+}
 ol.js-pager__items li, ul.js-pager__items li {
   list-style: none;
+  font-style: oblique;
+  display: inline-block;
 }
 
 ol li {
@@ -403,6 +408,11 @@ ul.links.inline li {
 
 .block {
   margin-bottom: 10px;
+}
+
+.feed-icon {
+  font-size: 1.2rem;
+  font-style: oblique;
 }
 
 #block-etypeeedition p {
@@ -1270,7 +1280,7 @@ nav h2 {
 }
 .page-node-type-article article.node--view-mode-full .field--name-field-long-caption {
   font-style: italic;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin-top: 0.6rem;
   color: #ee3224;
   float: left;
@@ -1288,7 +1298,7 @@ nav h2 {
 }
 .page-node-type-article .flexslider .slides .flex-caption {
   font-style: italic;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin-top: 0.6rem;
   color: #ee3224;
 }
@@ -1308,7 +1318,7 @@ article.node--view-mode-teaser .node__content .content-container {
 }
 article.node--view-mode-teaser .node__content .content-container .submitted {
   margin: 0.5rem 0;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-style: oblique;
   display: flex;
 }

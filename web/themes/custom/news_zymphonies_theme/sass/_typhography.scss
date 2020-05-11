@@ -63,8 +63,11 @@ ol, ul {
   }
 
   &.js-pager__items {
+    font-size: $smallerFontSize;
     li {
       list-style: none;
+      font-style: oblique;
+      display: inline-block;
     }
   }
 }
@@ -83,6 +86,11 @@ ul.links.inline {
 
 .block {
   margin-bottom: 10px;
+}
+
+.feed-icon {
+  font-size: $smallerFontSize;
+  font-style: oblique;
 }
 
 #block-etypeeedition p {

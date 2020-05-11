@@ -17,7 +17,7 @@
       }
       .field--name-field-long-caption {
         font-style: italic;
-        font-size: 1.3rem;
+        font-size: $smallerFontSize;
         margin-top: 0.6rem;
         color: $linkColor;
         float: left
@@ -40,7 +40,7 @@
     align-items: center;
     .flex-caption {
       font-style: italic;
-      font-size: 1.3rem;
+      font-size: $smallerFontSize;
       margin-top: 0.6rem;
       color: $linkColor;
     }
@@ -59,7 +59,7 @@ article.node--view-mode-teaser {
       flex-grow: 1;
       .submitted {
         margin: 0.5rem 0;
-        font-size: 1.3rem;
+        font-size: $smallerFontSize;
         font-style: oblique;
         display: flex;
         .field--name-uid {
