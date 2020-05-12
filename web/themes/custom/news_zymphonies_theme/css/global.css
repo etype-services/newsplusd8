@@ -1309,26 +1309,23 @@ nav h2 {
 
 article.node--view-mode-teaser {
   margin: calc(0.75rem * 2) 0;
-}
-article.node--view-mode-teaser .node__content {
-  display: flex;
+  clear: both;
 }
 article.node--view-mode-teaser .node__content .image-container {
   margin-right: 0.75rem;
   width: 300px;
+  float: left;
 }
 article.node--view-mode-teaser .node__content .image-container img {
   width: 300px;
   height: auto;
-}
-article.node--view-mode-teaser .node__content .content-container {
-  flex-grow: 1;
 }
 article.node--view-mode-teaser .node__content .content-container .submitted {
   margin: 0.5rem 0;
   font-size: 1.2rem;
   font-style: oblique;
   display: flex;
+  white-space: nowrap;
 }
 article.node--view-mode-teaser .node__content .content-container .submitted .field--name-uid {
   margin: 0 0.75rem;

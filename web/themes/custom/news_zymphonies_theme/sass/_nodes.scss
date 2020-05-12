@@ -53,23 +53,24 @@
 
 article.node--view-mode-teaser {
   margin: calc(#{$column-gap} * 2) 0;
+  clear: both;
   .node__content {
-    display: flex;
     .image-container {
       margin-right: $column-gap;
       width: 300px;
+      float: left;
       img {
         width: 300px;
         height: auto;
       }
     }
     .content-container {
-      flex-grow: 1;
       .submitted {
         margin: 0.5rem 0;
         font-size: $smallerFontSize;
         font-style: oblique;
         display: flex;
+        white-space: nowrap;
         .field--name-uid {
           margin: 0 $column-gap;
         }

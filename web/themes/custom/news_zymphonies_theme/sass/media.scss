@@ -1,6 +1,6 @@
 @import "variables-and-mixins";
 
-@media (min-width: 768px) {
+@media (min-width: $medium) {
   .site-branding {
     padding: 20px 0;
   }
@@ -187,7 +187,7 @@
 
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: $medium) and (max-width: $large - 1) {
   .main-header {
     .topnav {
       .row {
@@ -213,7 +213,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: $medium - 1) {
   .path-frontpage {
     .flexslider {
       display: none;
@@ -260,6 +260,23 @@
       .sf-accordion-toggle {
         display: none;
         visibility: hidden;
+      }
+    }
+  }
+}
+
+
+@media (max-width: $small - 1) {
+  article.node--view-mode-teaser {
+    .node__content {
+      .image-container {
+        margin-right: 0;
+        width: 100%;
+        float: none;
+        img {
+          width: 100%;
+          height: auto;
+        }
       }
     }
   }
