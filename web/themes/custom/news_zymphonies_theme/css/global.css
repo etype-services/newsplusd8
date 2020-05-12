@@ -732,6 +732,10 @@ abbr.ajax-changed {
   right: 0.75rem;
   bottom: 0;
 }
+#block-views-block-special-sections-block-1 .flex-grid .more-link svg {
+  position: relative;
+  top: 1px;
+}
 
 /*Bottom Widgets*/
 .bottom-widgets {

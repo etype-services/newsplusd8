@@ -35,7 +35,7 @@
             };
 
             var moreLink = function moreLinkFunc() {
-                $(".more-link a").once("newszymphoniesBehavior").append('<i class="fas fa-angle-double-right"></i>');
+                $(".more-link a").once("newszymphoniesBehavior").append(' <i class="fas fa-angle-double-right"></i>');
             };
 
             // clientsOwl();

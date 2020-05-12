@@ -92,6 +92,10 @@
       position: absolute;
       right: $column-gap;
       bottom: 0;
+      svg {
+        position: relative;
+        top: 1px;
+      }
     }
   }
 }
