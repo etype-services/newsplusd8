@@ -189,14 +189,18 @@
 	Sections Page
 -----------------------------*/
 .path-special-sections {
-  .views-element-container > div {
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    .views-row {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: calc(#{$column-gap} * 2);
+  .region-content {
+    #block-news-zymphonies-theme-content {
+      .views-element-container > div {
+        display: grid;
+        grid-template-columns: 25% 25% 25% 25%;
+        .views-row {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: calc(#{$column-gap} * 2);
+        }
+      }
     }
   }
 }
