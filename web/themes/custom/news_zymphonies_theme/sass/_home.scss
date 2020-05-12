@@ -72,16 +72,25 @@
 }
 
 /* Services and Sections */
-.flex-grid {
-  display: flex;
-  justify-content: space-evenly;
-  div {
-    margin-right: 10px;
-    &:last-child {
-      margin-right: 0;
+#block-views-block-special-sections-block-1 {
+  .flex-grid {
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 1rem;
+    position: relative;
+    div.views-row {
+      margin-right: $column-gap;
+      &:last-child {
+        margin-right: 0;
+      }
+      img {
+        border: 1px solid $baseFontColor;
+      }
     }
-    img {
-      border: 1px solid $baseFontColor;
+    .more-link {
+      position: absolute;
+      right: $column-gap;
+      bottom: 0;
     }
   }
 }

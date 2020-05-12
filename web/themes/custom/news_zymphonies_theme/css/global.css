@@ -711,18 +711,25 @@ abbr.ajax-changed {
 }
 
 /* Services and Sections */
-.flex-grid {
+#block-views-block-special-sections-block-1 .flex-grid {
   display: flex;
   justify-content: space-evenly;
+  padding-bottom: 1rem;
+  position: relative;
 }
-.flex-grid div {
-  margin-right: 10px;
+#block-views-block-special-sections-block-1 .flex-grid div.views-row {
+  margin-right: 0.75rem;
 }
-.flex-grid div:last-child {
+#block-views-block-special-sections-block-1 .flex-grid div.views-row:last-child {
   margin-right: 0;
 }
-.flex-grid div img {
+#block-views-block-special-sections-block-1 .flex-grid div.views-row img {
   border: 1px solid #333;
+}
+#block-views-block-special-sections-block-1 .flex-grid .more-link {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0;
 }
 
 /*Bottom Widgets*/
