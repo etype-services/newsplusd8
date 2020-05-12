@@ -178,11 +178,6 @@
   }
 }
 @media (max-width: 767px) {
-  .path-frontpage .flexslider {
-    display: none;
-    visibility: hidden;
-  }
-
   .footer .container .row {
     display: block;
   }
