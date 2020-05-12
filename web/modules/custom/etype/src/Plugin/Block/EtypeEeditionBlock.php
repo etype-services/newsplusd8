@@ -21,7 +21,6 @@ class EtypeEeditionBlock extends BlockBase {
    */
   public function build() {
     $e_editions = etype_e_editions();
-    var_dump($e_editions);
     $logged_in = Drupal::currentUser()->isAuthenticated();
     $class = '';
     if ($logged_in > 0) {
