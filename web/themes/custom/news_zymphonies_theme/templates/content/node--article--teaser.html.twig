@@ -83,6 +83,11 @@
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
     <div{{ content_attributes.addClass('node__content') }}>
+        {% if content.field_image[0] is not null %}
+            <div class="image-container">{{ content.field_image[0] }}</div>
+        {% elseif content.field_small_image[0] is not null %}
+            <div class="image-container">{{ content.field_small_image[0] }}</div>
+        {% endif %}
         <div class="content-container">
             <h2{{ title_attributes }}>
                 <a href="{{ url }}" rel="bookmark">{{ label }}</a>
@@ -93,10 +98,5 @@
             </div>
             {{ content.body }}
         </div>
-        {% if content.field_image[0] is not null %}
-            <div class="image-container">{{ content.field_image[0] }}</div>
-        {% elseif content.field_small_image[0] is not null %}
-            <div class="image-container">{{ content.field_small_image[0] }}</div>
-        {% endif %}
     </div>
 </article>

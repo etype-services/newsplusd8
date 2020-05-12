@@ -55,6 +55,9 @@ article.node--view-mode-teaser {
   margin: calc(#{$column-gap} * 2) 0;
   .node__content {
     display: flex;
+    .image-container {
+      margin-right: $column-gap;
+    }
     .content-container {
       flex-grow: 1;
       .submitted {
@@ -69,9 +72,6 @@ article.node--view-mode-teaser {
       h2 {
         margin: 0;
       }
-    }
-    .image-container {
-      margin-left: $column-gap;
     }
   }
 }
