@@ -57,6 +57,7 @@ article.node--view-mode-teaser {
     display: flex;
     .image-container {
       margin-right: $column-gap;
+      width: 300px;
     }
     .content-container {
       flex-grow: 1;

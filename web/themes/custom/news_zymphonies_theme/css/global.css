@@ -1315,6 +1315,7 @@ article.node--view-mode-teaser .node__content {
 }
 article.node--view-mode-teaser .node__content .image-container {
   margin-right: 0.75rem;
+  width: 300px;
 }
 article.node--view-mode-teaser .node__content .content-container {
   flex-grow: 1;
