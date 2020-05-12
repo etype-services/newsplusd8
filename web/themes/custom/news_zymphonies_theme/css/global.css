@@ -715,10 +715,12 @@ abbr.ajax-changed {
   display: flex;
   justify-content: space-evenly;
   padding-bottom: 3rem;
+  flex-wrap: wrap;
   position: relative;
 }
 #block-views-block-special-sections-block-1 .flex-grid div.views-row {
   margin-left: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 #block-views-block-special-sections-block-1 .flex-grid div.views-row:first-child {
   margin-left: 0;
@@ -1265,6 +1267,20 @@ nav h2 {
 .content-image {
   float: left;
   margin: 0 10px 5px 0;
+}
+
+/*----------------------------
+	Sections Page
+-----------------------------*/
+.path-special-sections .views-element-container > div {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+}
+.path-special-sections .views-element-container > div .views-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: calc(0.75rem * 2);
 }
 
 /*Variables*/

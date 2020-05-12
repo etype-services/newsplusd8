@@ -35,7 +35,6 @@
   }
 }
 
-
 /*----------------------------
 	Contact page
 -----------------------------*/
@@ -57,7 +56,6 @@
   }
 
 }
-
 
 /*----------------------------
 	User Login Form
@@ -126,7 +124,6 @@
   }
 }
 
-
 /*----------------------------
 	Profile Page
 -----------------------------*/
@@ -186,4 +183,20 @@
 .content-image {
   float: left;
   margin: 0 10px 5px 0;
+}
+
+/*----------------------------
+	Sections Page
+-----------------------------*/
+.path-special-sections {
+  .views-element-container > div {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    .views-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: calc(#{$column-gap} * 2);
+    }
+  }
 }
