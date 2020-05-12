@@ -718,10 +718,10 @@ abbr.ajax-changed {
   position: relative;
 }
 #block-views-block-special-sections-block-1 .flex-grid div.views-row {
-  margin-right: 0.75rem;
+  margin-left: 0.75rem;
 }
-#block-views-block-special-sections-block-1 .flex-grid div.views-row:last-child {
-  margin-right: 0;
+#block-views-block-special-sections-block-1 .flex-grid div.views-row:first-child {
+  margin-left: 0;
 }
 #block-views-block-special-sections-block-1 .flex-grid div.views-row img {
   border: 1px solid #333;

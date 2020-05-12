@@ -79,9 +79,9 @@
     padding-bottom: 1rem;
     position: relative;
     div.views-row {
-      margin-right: $column-gap;
-      &:last-child {
-        margin-right: 0;
+      margin-left: $column-gap;
+      &:first-child {
+        margin-left: 0;
       }
       img {
         border: 1px solid $baseFontColor;
