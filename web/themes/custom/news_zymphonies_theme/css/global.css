@@ -714,7 +714,7 @@ abbr.ajax-changed {
 #block-views-block-special-sections-block-1 .flex-grid {
   display: flex;
   justify-content: space-evenly;
-  padding-bottom: 1rem;
+  padding-bottom: 3rem;
   position: relative;
 }
 #block-views-block-special-sections-block-1 .flex-grid div.views-row {
