@@ -58,6 +58,10 @@ article.node--view-mode-teaser {
     .image-container {
       margin-right: $column-gap;
       width: 300px;
+      img {
+        width: 300px;
+        height: auto;
+      }
     }
     .content-container {
       flex-grow: 1;
