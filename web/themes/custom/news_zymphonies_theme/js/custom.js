@@ -34,9 +34,14 @@
 
             };
 
+            var moreLink = function moreLinkFunc() {
+                $(".more-link a").append('<i class="fas fa-angle-double-right"></i>');
+            };
+
             // clientsOwl();
             // serviceOwl();
             themeMenu();
+            moreLink();
 
         }
     };
