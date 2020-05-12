@@ -159,7 +159,7 @@ function etype_e_editions() {
         if ($logged_in > 0) {
           $account = Drupal\user\Entity\User::load(Drupal::currentUser()->id());
           $name = $account->get('name')->value;
-          $path = $base_url . 'ReadTheEdition.aspx?Username=' . $name . "&Pub=" . $pub . "&PType=" . addslashes($ptype);
+          $path = $base_url . 'ReadTheEdition.aspx?Username=' . $name . "&Pub=" . $pub . "&PType=" . htmlspecialchars($ptype);
         } else {
           $path = $base_url . $e_edition . '/';
         }
