@@ -152,16 +152,16 @@ function etype_e_editions() {
 
     switch ($v2) {
       case 1:
-        $path = $base_url . 'dividerpage/' . $pub . '/';
+        $path = $base_url . 'dividerpage/' . $pub;
         break;
 
       default;
         if ($logged_in > 0) {
           $account = Drupal\user\Entity\User::load(Drupal::currentUser()->id());
           $name = $account->get('name')->value;
-          $path = $base_url . 'ReadTheEdition.aspx?Username=' . $name . "&Pub=" . $pub . "&PType=" . $ptype;
+          $path = $base_url . 'ReadTheEdition.aspx?Username=' . $name . "&Pub=" . $pub . "&PType=" . htmlspecialchars($ptype);
         } else {
-          $path = $base_url . $e_edition . '/';
+          $path = $base_url . $e_edition . '/' . $pub;
         }
     }
 
