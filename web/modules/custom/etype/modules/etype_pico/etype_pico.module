@@ -44,7 +44,6 @@ EOF;
     if ($node instanceof NodeInterface) {
       if (in_array($node->getType(), $nodeTypes)) {
         $nid = $node->id();
-        $page['#attached']['drupalSettings']['nid'] = $nid;
         $tids = $node->get('field_section')->getValue();
         $terms = ['article'];
         if (count($tids) > 0) {
