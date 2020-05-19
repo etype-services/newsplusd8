@@ -84,6 +84,9 @@
 {{ attach_library('classy/node') }}
 {{ attach_library('tiempos/article') }}
 <article{{ attributes.addClass(classes) }}>
+
+  <div id="google_translate_element"></div>
+
   {{ title_prefix }}
   {% if not page %}
     <h2{{ title_attributes }}>
