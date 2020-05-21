@@ -40,6 +40,7 @@ EOF;
     $picoOn = 'false';
     $picoType = 'page';
     $nid = '0';
+    $picoCategories = '[]';
     $node = Drupal::routeMatch()->getParameter('node');
     if ($node instanceof NodeInterface) {
       if (in_array($node->getType(), $nodeTypes)) {
@@ -56,7 +57,7 @@ EOF;
         $picoType = 'article';
       }
     }
-    $picoCategories = json_encode($terms);
+    ≈
     $bottom_script .= <<<EOF
 <script>
 var pageInfo = {

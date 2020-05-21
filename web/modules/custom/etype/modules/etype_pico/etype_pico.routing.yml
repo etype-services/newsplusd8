@@ -8,12 +8,12 @@ etype_pico.settings:
   options:
     _admin_route: TRUE
 
-etype_pico.login:
-  path: '/login'
+etype_pico.pico_login:
+  path: '/pico-login'
   defaults:
     _title: 'Pico Login'
 
-etype_pico.subscribe:
-  path: '/subscribe'
+etype_pico.pico_subscribe:
+  path: '/pico-subscribe'
   defaults:
     _title: 'Pico Subscribe'
