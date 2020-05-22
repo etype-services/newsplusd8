@@ -83,6 +83,10 @@ footer {
     visibility: hidden;
     display: none;
   }
+
+  #main-nav .navbar .navbar-end {
+    top: -3.4rem;
+  }
 }
 
 /*# sourceMappingURL=site.css.map */
