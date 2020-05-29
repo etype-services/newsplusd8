@@ -1,4 +1,4 @@
 File: local.site.yml
 local:
-  root: /Users/charlie/Sites/ETypeServices/repos/newsplusd8
+  root: /Users/charlie/Sites/ETypeServices/repos/harold/web
   uri: http://local.drupal8.com

@@ -122,7 +122,6 @@ $sites['www.highlandernews.com'] = "highlandernews.etypegoogle9.com";
 $sites['www.caldwellwatchman.com'] = "caldwellwatchman.etypegoogle11.com";
 $sites['www.caldwelltoday.com'] = "caldwellwatchman.etypegoogle11.com";
 $sites['www.cantonguide.com'] = "cantonguide.etypegoogle11.com";
-$sites['www.chevroletalto.com'] = "chevroletalto.etypegoogle11.com";
 $sites['www.cninewspapers.com'] = "cninewspapers.etypegoogle11.com";
 $sites['www.lakelife.today'] = "lakelife.etypegoogle11.com";
 $sites['www.rileycountian.com'] = "rileycountian.etypegoogle11.com";
