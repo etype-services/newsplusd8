@@ -7,7 +7,7 @@
 $sites['www.etypetest.com'] = 'etypetest.etypegoogle7.com';
 
 /* for *drall* updates */
-$sites['cni.etypegoogle7.com'] = "cni.etypegoogle7.com";
+$sites['tiemposcni.etypegoogle9.com'] = "tiemposcni.etypegoogle9.com";
 $sites['tiempos.etypegoogle9.com'] = "tiempos.etypegoogle9.com";
 $sites['newsplus.etypegoogle9.com'] = "newsplus.etypegoogle9.com";
 $sites['kiamo.etypegoogle9.com'] = "kiamo.etypegoogle9.com";
@@ -136,3 +136,9 @@ $sites['www.wesnerpublications.com'] = "wespubco.etypegoogle11.com";
 $sites['www.westcarrollgazette.com'] = "westcarrollgazette.etypegoogle11.com";
 $sites['www.westcarrolltoday.com'] = "westcarrollgazette.etypegoogle11.com";
 $sites['www.whitneytheatre.com'] = "whitneytheatre.etypegoogle11.com";
+$sites['www.taniafrench.com'] = "taniafrench.etypegoogle11.com";
+$sites['www.indydailyreporter.com'] = "indydailyreporter.etypegoogle9.com";
+$sites['www.beachesleader.com'] = "beachesleader.etypegoogle9.com";
+$sites['www.beachesleader.com'] = "beachesleader.etypegoogle9.com";
+$sites['www.beachesleader.com'] = "beachesleader.etypegoogle9.com";
+$sites['www.beachesleader.com'] = "beachesleader.etypegoogle9.com";

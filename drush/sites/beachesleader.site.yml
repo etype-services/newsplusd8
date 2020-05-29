@@ -1,0 +1,4 @@
+File: beachesleader.site.yml
+prod:
+  root: /mnt/data/web/public/harold/drupal/web
+  uri: http://beachesleader.etypegoogle9.com
