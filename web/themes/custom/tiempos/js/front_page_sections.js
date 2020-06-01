@@ -2,12 +2,12 @@
     "use strict";
     Drupal.behaviors.tiemposHomePage = {
         attach: function (context, settings) {
-            var imageFixer = function () {
+            let imageFixer = function () {
                 $(".front-page-sections").each(function () {
-                    var obj = this;
-                    var height;
-                    var heights = [];
-                    var maxHeight;
+                    let obj = this;
+                    let height;
+                    let heights = [];
+                    let maxHeight;
                     $("img", obj).each(function () {
                         height = $(this).height();
                         // console.log(height);

@@ -93,12 +93,9 @@ function etype_pico_preprocess_node(&$variables) {
 /**
  * Implements hook_page_attachments().
  *
- * Only show Pico pop-up/controls
- *
  * @param array $page
  */
 
 function etype_pico_page_attachments(array &$page) {
-  $moduleHandler = Drupal::service('module_handler');
   $page['#attached']['library'][] = 'etype_pico/pico';
 }
