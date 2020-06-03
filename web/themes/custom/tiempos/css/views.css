@@ -190,30 +190,49 @@
   padding-left: calc(0.75rem / 2);
 }
 
-/* Video Page. */
-.path-videos .view-videos, .path-chamber-videos .view-videos {
+/* Video Pages. */
+.path-videos .view-videos {
   /* title */
 }
-.path-videos .view-videos .view-header, .path-chamber-videos .view-videos .view-header {
+.path-videos .view-videos .view-header {
   margin-bottom: calc(0.75rem * 2);
 }
-.path-videos .view-videos .view-content, .path-chamber-videos .view-videos .view-content {
+.path-videos .view-videos .view-content {
+  margin-bottom: calc(0.75rem * 2);
+}
+.path-videos .view-videos .view-content .field--name-field-video-embed {
+  margin-bottom: 0.2rem;
+}
+.path-videos .view-videos .attachment .view-videos {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  gap: 0.75rem;
+}
+.path-videos .view-videos .attachment h2 {
+  font-size: 1rem;
+  line-height: 1.1rem;
+  margin-bottom: 0.2rem;
+}
+.path-videos .view-videos .attachment .field--name-body p {
+  font-size: 0.9rem;
+  line-height: 1.1rem;
+}
+
+/* Around Osceola */
+.path-chamber-videos .view-videos {
+  /* title */
+}
+.path-chamber-videos .view-videos .view-header {
+  margin-bottom: calc(0.75rem * 2);
+}
+.path-chamber-videos .view-videos .view-content {
   display: grid;
   grid-template-columns: 50% 50%;
   gap: 0.75rem;
   margin-bottom: calc(0.75rem * 2);
 }
-.path-videos .view-videos .view-content .field--name-field-video-embed, .path-chamber-videos .view-videos .view-content .field--name-field-video-embed {
+.path-chamber-videos .view-videos .view-content .field--name-field-video-embed {
   margin-bottom: 0.2rem;
-}
-.path-videos .view-videos .attachment h2, .path-chamber-videos .view-videos .attachment h2 {
-  font-size: 1rem;
-  line-height: 1.1rem;
-  margin-bottom: 0.2rem;
-}
-.path-videos .view-videos .attachment .field--name-body p, .path-chamber-videos .view-videos .attachment .field--name-body p {
-  font-size: 0.9rem;
-  line-height: 1.1rem;
 }
 
 @media screen and (min-width: 769px) {
