@@ -188,9 +188,13 @@
   }
 }
 
-/* Video Page. */
+/* Video Pages. */
 .path-videos {
   .view-videos {
+    /* title */
+    .view-header {
+      margin-bottom: calc(#{$column-gap} * 2);
+    }
     .view-content {
       margin-bottom: calc(#{$column-gap} * 2);
       .field--name-field-video-embed {
@@ -198,6 +202,13 @@
       }
     }
     .attachment {
+      .view-videos {
+        .view-content {
+          display: grid;
+          grid-template-columns: 33% 33% 33%;
+          gap: $column-gap;
+        }
+      }
       h2 {
         font-size: 1rem;
         line-height: 1.1rem;
@@ -213,22 +224,24 @@
   }
 }
 
-.video-page {
-  /* title */
-  .view-header {
-    margin-bottom: calc(#{$column-gap} * 2);
-  }
-  .view-content {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    gap: $column-gap;
-    margin-bottom: calc(#{$column-gap} * 2);
-    .field--name-field-video-embed {
-      margin-bottom: 0.2rem;
+/* Around Osceola */
+.path-chamber-videos {
+  .view-videos {
+    /* title */
+    .view-header {
+      margin-bottom: calc(#{$column-gap} * 2);
+    }
+    .view-content {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      gap: $column-gap;
+      margin-bottom: calc(#{$column-gap} * 2);
+      .field--name-field-video-embed {
+        margin-bottom: 0.2rem;
+      }
     }
   }
 }
-
 @media screen and (min-width: $tablet) {
   .block-views-blockmobile-front-page-block-1 {
     @include is-really-invisible;
