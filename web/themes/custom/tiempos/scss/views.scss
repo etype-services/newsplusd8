@@ -189,9 +189,16 @@
 }
 
 /* Video Page. */
-.path-videos {
+.path-videos, .video-page {
   .view-videos {
+    /* title */
+    .view-header {
+      margin-bottom: calc(#{$column-gap} * 2);
+    }
     .view-content {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      gap: $column-gap;
       margin-bottom: calc(#{$column-gap} * 2);
       .field--name-field-video-embed {
         margin-bottom: 0.2rem;
