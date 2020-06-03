@@ -191,29 +191,36 @@
 }
 
 /* Video Page. */
-.path-videos .view-videos, .video-page .view-videos {
-  /* title */
-}
-.path-videos .view-videos .view-header, .video-page .view-videos .view-header {
+.path-videos .view-videos .view-content {
   margin-bottom: calc(0.75rem * 2);
 }
-.path-videos .view-videos .view-content, .video-page .view-videos .view-content {
+.path-videos .view-videos .view-content .field--name-field-video-embed {
+  margin-bottom: 0.2rem;
+}
+.path-videos .view-videos .attachment h2 {
+  font-size: 1rem;
+  line-height: 1.1rem;
+  margin-bottom: 0.2rem;
+}
+.path-videos .view-videos .attachment .field--name-body p {
+  font-size: 0.9rem;
+  line-height: 1.1rem;
+}
+
+.video-page {
+  /* title */
+}
+.video-page .view-header {
+  margin-bottom: calc(0.75rem * 2);
+}
+.video-page .view-content {
   display: grid;
   grid-template-columns: 50% 50%;
   gap: 0.75rem;
   margin-bottom: calc(0.75rem * 2);
 }
-.path-videos .view-videos .view-content .field--name-field-video-embed, .video-page .view-videos .view-content .field--name-field-video-embed {
+.video-page .view-content .field--name-field-video-embed {
   margin-bottom: 0.2rem;
-}
-.path-videos .view-videos .attachment h2, .video-page .view-videos .attachment h2 {
-  font-size: 1rem;
-  line-height: 1.1rem;
-  margin-bottom: 0.2rem;
-}
-.path-videos .view-videos .attachment .field--name-body p, .video-page .view-videos .attachment .field--name-body p {
-  font-size: 0.9rem;
-  line-height: 1.1rem;
 }
 
 @media screen and (min-width: 769px) {
