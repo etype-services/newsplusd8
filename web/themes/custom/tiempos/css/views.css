@@ -203,7 +203,7 @@
 .path-videos .view-videos .view-content .field--name-field-video-embed {
   margin-bottom: 0.2rem;
 }
-.path-videos .view-videos .attachment .view-videos {
+.path-videos .view-videos .attachment .view-videos .view-content {
   display: grid;
   grid-template-columns: 33% 33% 33%;
   gap: 0.75rem;
