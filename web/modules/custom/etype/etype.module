@@ -156,11 +156,12 @@ function etype_e_editions() {
       if ($logged_in > 0) {
         $account = Drupal\user\Entity\User::load(Drupal::currentUser()->id());
         $name = $account->get('name')->value;
-        $password = $account->get('password')->value;
+        $path = $base_url . 'e-edition/' . $pub . '/' . $name;
+      } else {
+        $path = $base_url . 'e-edition/' . $pub;
       }
-      $path = $base_url . 'subscriber-account?pubid=' . $pub . '&username=' . $name;
-      $path_anon = $base_url . '/' . $pub;
-      $sub_link = $base_url . '/' . $pub;
+      $path_anon = $base_url . 'e-edition/' . $pub;
+      $sub_link = $base_url . 'e-edition/' . $pub;
       break;
 
       /* V1 */ default;
