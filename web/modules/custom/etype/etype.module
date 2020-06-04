@@ -138,42 +138,47 @@ function etype_e_editions() {
     $e_edition = trim($arr[0]);
 
     switch ($v2) {
-      case 1:
-        $e_editions[$ptr]['image'] = 'https://etypeproductionstorage1.blob.core.windows.net/$web/Production_Prod/Publications/' . $pub . '/thumbnail.jpg';
-        break;
+      /* Thumbnail */ case 1:
+      $e_editions[$ptr]['image'] = 'https://etypeproductionstorage1.blob.core.windows.net/$web/Production_Prod/Publications/' . $pub . '/thumbnail.jpg';
+      break;
 
       default;
         $ar2 = preg_split("/ID[0-9]+/", $arr[0]); // make LandingImage
         // directory name
         $imagedir = trim($ar2[0]);
-        $e_editions[$ptr]['image'] = $base_url . 'LandingPageImages/' . $imagedir .
-          '/currentpg1.jpg';
+        $e_editions[$ptr]['image'] = $base_url . 'LandingPageImages/' . $imagedir . '/currentpg1.jpg';
     }
 
+    /* Account Links */
     switch ($v2) {
-      case 1:
-        $name = '';
-        if ($logged_in > 0) {
-          $account = Drupal\user\Entity\User::load(Drupal::currentUser()->id());
-          $name = $account->get('name')->value;
-        }
-        $path = $base_url . 'subscriber-account?pubid=' . $pub . '&username=' . $name;
-        break;
+      /* V2 */ case 1:
+      $name = '';
+      if ($logged_in > 0) {
+        $account = Drupal\user\Entity\User::load(Drupal::currentUser()->id());
+        $name = $account->get('name')->value;
+        $password = $account->get('password')->value;
+      }
+      $path = $base_url . 'subscriber-account?pubid=' . $pub . '&username=' . $name;
+      $path_anon = $base_url . '/' . $pub;
+      $sub_link = $base_url . '/' . $pub;
+      break;
 
-      default;
-        if ($logged_in > 0) {
-          $account = Drupal\user\Entity\User::load(Drupal::currentUser()->id());
-          $name = $account->get('name')->value;
-          $path = $base_url . 'ReadTheEdition.aspx?Username=' . $name . "&Pub=" . $pub . "&PType=" . htmlspecialchars($ptype);
-        } else {
-          $path = $base_url . $e_edition;
-        }
+      /* V1 */ default;
+      if ($logged_in > 0) {
+        $account = Drupal\user\Entity\User::load(Drupal::currentUser()->id());
+        $name = $account->get('name')->value;
+        $path = $base_url . 'ReadTheEdition.aspx?Username=' . $name . "&Pub=" . $pub . "&PType=" . htmlspecialchars($ptype);
+      } else {
+        $path = $base_url . $e_edition;
+      }
+      $path_anon = $base_url . $e_edition . '/';
+      $sub_link = $base_url . $e_edition . "/default.aspx?PubID=" . $pub;
     }
 
     $e_editions[$ptr]['site_name'] = trim($site);
     $e_editions[$ptr]['path'] = $path;
-    $e_editions[$ptr]['path_anon'] = $base_url . $e_edition . '/';
-    $e_editions[$ptr]['sub_link'] = $base_url . $e_edition . "/default.aspx?PubID=" . $pub;
+    $e_editions[$ptr]['path_anon'] = $path_anon;
+    $e_editions[$ptr]['sub_link'] = $sub_link;
     $e_editions[$ptr]['pubId'] = $pub;
     $ptr++;
   }
