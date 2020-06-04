@@ -227,15 +227,15 @@
 /* Around Osceola */
 .path-chamber-videos {
   .view-videos {
+    margin-bottom: calc(#{$column-gap} * 2);
     /* title */
     .view-header {
       margin-bottom: calc(#{$column-gap} * 2);
     }
     .view-content {
       display: grid;
-      grid-template-columns: 50% 50%;
+      grid-template-columns: 33% 33% 33%;
       gap: $column-gap;
-      margin-bottom: calc(#{$column-gap} * 2);
       .field--name-field-video-embed {
         margin-bottom: 0.2rem;
       }
