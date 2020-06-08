@@ -120,6 +120,9 @@ class EtypeV2LoginForm extends FormBase {
    *   The form.
    * @param \Drupal\Core\Form\FormStateInterface $form_state
    *   The form state.
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   *   On user->save().
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
@@ -163,6 +166,7 @@ class EtypeV2LoginForm extends FormBase {
             $user->setEmail($subscriberEmail);
             $user->setUsername($username);
             $user->activate();
+            $user->save();
             user_login_finalize($user);
             Drupal::messenger()->addMessage($success_message);
           }
