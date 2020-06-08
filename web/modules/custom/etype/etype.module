@@ -59,7 +59,7 @@ function etype_preprocess_node(&$variables) {
 function etype_page_attachments(array &$page) {
   $page['#attached']['library'][] = 'etype/global-styling';
   $page['#attached']['library'][] = 'etype/ada-compliance';
-  $moduleHandler = \Drupal::service('module_handler');
+  $moduleHandler = Drupal::service('module_handler');
   if ($moduleHandler->moduleExists('pwa')) {
     $page['#attached']['library'][] = 'etype/addtohomescreen';
   }
@@ -88,7 +88,7 @@ function etype_e_editions() {
   $config = Drupal::config('etype.adminsettings');
 
   $v2 = 0;
-  $moduleHandler = \Drupal::service('module_handler');
+  $moduleHandler = Drupal::service('module_handler');
   if ($moduleHandler->moduleExists('etype_login_v2')) {
     $v2 = 1;
   }
@@ -151,29 +151,24 @@ function etype_e_editions() {
 
     /* Account Links */
     switch ($v2) {
-      /* V2 */ case 1:
-      $name = '';
-      if ($logged_in > 0) {
-        $account = Drupal\user\Entity\User::load(Drupal::currentUser()->id());
-        $name = $account->get('name')->value;
-        $path = $base_url . 'e-edition/' . $pub . '/' . $name;
-      } else {
+      /* V2 */
+      case 1:
         $path = $base_url . 'e-edition/' . $pub;
-      }
-      $path_anon = $base_url . 'e-edition/' . $pub;
-      $sub_link = $base_url . 'e-edition/' . $pub;
-      break;
+        $path_anon = $base_url . 'e-edition/' . $pub;
+        $sub_link = $base_url . 'e-edition/' . $pub;
+        break;
 
-      /* V1 */ default;
-      if ($logged_in > 0) {
-        $account = Drupal\user\Entity\User::load(Drupal::currentUser()->id());
-        $name = $account->get('name')->value;
-        $path = $base_url . 'ReadTheEdition.aspx?Username=' . $name . "&Pub=" . $pub . "&PType=" . htmlspecialchars($ptype);
-      } else {
-        $path = $base_url . $e_edition;
-      }
-      $path_anon = $base_url . $e_edition . '/';
-      $sub_link = $base_url . $e_edition . "/default.aspx?PubID=" . $pub;
+      /* V1 */
+      default;
+        if ($logged_in > 0) {
+          $account = Drupal\user\Entity\User::load(Drupal::currentUser()->id());
+          $name = $account->get('name')->value;
+          $path = $base_url . 'ReadTheEdition.aspx?Username=' . $name . "&Pub=" . $pub . "&PType=" . htmlspecialchars($ptype);
+        } else {
+          $path = $base_url . $e_edition;
+        }
+        $path_anon = $base_url . $e_edition . '/';
+        $sub_link = $base_url . $e_edition . "/default.aspx?PubID=" . $pub;
     }
 
     $e_editions[$ptr]['site_name'] = trim($site);
@@ -188,6 +183,8 @@ function etype_e_editions() {
 
 /**
  * This sets up the logged out e-Edition path
+ *
+ * @param $links
  */
 function etype_menu_links_discovered_alter(&$links) {
   $e_editions = etype_e_editions();

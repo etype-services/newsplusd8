@@ -6,11 +6,11 @@ use Drupal;
 use Drupal\Core\Controller\ControllerBase;
 
 /**
- * Class EtypeMyAccountController.
+ * Class EtypeV2MyAccountController.
  *
  * @package Drupal\etype_login_v2\Controller
  */
-class EtypeMyAccountController extends ControllerBase {
+class EtypeV2MyAccountController extends ControllerBase {
 
   /**
    * Returns a renderable array.
@@ -24,7 +24,7 @@ class EtypeMyAccountController extends ControllerBase {
       '#children' => "<script type='text/javascript'>
                 window.addEventListener('message', receiveMessage, false);
                 function receiveMessage(event) {
-                    var ifrmAccountUpdateForm = document.getElementById('ifrmAccountUpdateForm');
+                    let ifrmAccountUpdateForm = document.getElementById('ifrmAccountUpdateForm');
 		    if (event.data.docHeight != undefined && event.data.docHeight != 'undefined')
                         ifrmAccountUpdateForm.height = event.data.docHeight;
                 }

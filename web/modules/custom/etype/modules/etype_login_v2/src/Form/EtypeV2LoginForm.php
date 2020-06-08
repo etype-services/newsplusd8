@@ -14,7 +14,7 @@ use SoapClient;
  *
  * @package Drupal\etype_login\Form
  */
-class EtypeLoginForm extends FormBase {
+class EtypeV2LoginForm extends FormBase {
 
   /**
    * Settings holder.

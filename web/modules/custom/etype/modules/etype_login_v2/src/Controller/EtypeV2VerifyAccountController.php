@@ -8,11 +8,11 @@ use SoapClient;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class EtypeVerifyAccountController.
+ * Class EtypeV2VerifyAccountController.
  *
  * @package Drupal\etype_login_v2\Controller
  */
-class EtypeVerifyAccountController extends ControllerBase {
+class EtypeV2VerifyAccountController extends ControllerBase {
 
   /**
    * Returns SOAP response.
@@ -21,7 +21,6 @@ class EtypeVerifyAccountController extends ControllerBase {
    * This is used to open the etypeservices page for the paper.
    */
   public function getToken() {
-
     $username = Drupal::currentUser()->getAccountName();
     $config = Drupal::config('etype.adminsettings');
     $pubId = (int) $config->get('etype_pub');

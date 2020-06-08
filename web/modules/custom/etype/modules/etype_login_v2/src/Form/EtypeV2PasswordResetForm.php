@@ -12,7 +12,7 @@ use SoapClient;
  *
  * @package Drupal\etype_login\Form
  */
-class EtypePasswordResetForm extends FormBase {
+class EtypeV2PasswordResetForm extends FormBase {
 
   /**
    * Settings holder.
