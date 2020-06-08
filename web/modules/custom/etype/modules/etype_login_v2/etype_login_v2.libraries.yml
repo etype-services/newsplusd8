@@ -15,14 +15,6 @@ etype_login_v2_page:
     - core/jquery.once
     - etype_login_v2/js.cookie
 
-etype_login_v2.soap_login:
-  version: VERSION
-  js:
-    js/etype_login_v2.soap_login.js:
-  dependencies:
-    - core/drupal
-    - core/jquery.once
-
 global-styling:
   version: VERSION
   css:
