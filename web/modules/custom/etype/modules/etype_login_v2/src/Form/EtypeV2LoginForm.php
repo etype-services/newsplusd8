@@ -13,7 +13,7 @@ use SoapClient;
 /**
  * Class EtypeLoginForm.
  *
- * @package Drupal\etype_login\Form
+ * @package Drupal\etype_login_v2\Form
  */
 class EtypeV2LoginForm extends FormBase {
 
@@ -85,7 +85,7 @@ class EtypeV2LoginForm extends FormBase {
         '#markup' => t('<a href="/etype-forgot-password">I forgot my password.</a>'),
       ];
 
-      $form['#attached']['library'][] = 'etype_login/etype_login';
+      $form['#attached']['library'][] = 'etype_login_v2/etype_login_v2';
 
       $form['actions']['#type'] = 'actions';
 
