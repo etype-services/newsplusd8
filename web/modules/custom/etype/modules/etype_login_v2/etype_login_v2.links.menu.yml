@@ -3,6 +3,9 @@ etype_login_v2.e_edition:
   weight: 10
   route_name: etype_login_v2.e_edition
   menu_name: account
+  options:
+    attributes:
+      target: _blank
 
 etype_login_v2.login:
   title: 'Log In'

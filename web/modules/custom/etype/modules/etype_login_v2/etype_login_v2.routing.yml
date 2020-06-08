@@ -31,8 +31,6 @@ etype_login_v2.e_edition:
     parameters:
       pubId:
         type: pubId
-    attributes:
-      target: _blank
   requirements:
     _permission: 'access content'
 
