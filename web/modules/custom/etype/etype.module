@@ -85,6 +85,8 @@ function etype_preprocess_image(&$variables) {
 function etype_e_editions() {
 
   global $base_url;
+  echo $base_url;
+  exit;
   $v1_url = "https://publisher.etype.services/";
 
   $logged_in = Drupal::currentUser()->isAuthenticated();
