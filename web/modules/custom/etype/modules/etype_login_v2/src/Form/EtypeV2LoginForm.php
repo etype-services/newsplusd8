@@ -163,7 +163,7 @@ class EtypeV2LoginForm extends FormBase {
             $user->setEmail($subscriberEmail);
             $user->setUsername($username);
             $user->activate();
-            $account = UserInterface::Load($user->id());
+            $account = user_load_by_mail($subscriberEmail);
             user_login_finalize($account);
             Drupal::messenger()->addMessage($success_message);
           }
@@ -173,8 +173,7 @@ class EtypeV2LoginForm extends FormBase {
           }
         }
         else {
-          $account = user_load_by_mail($subscriberEmail);
-          $user = UserInterface::load($account->id());
+          $user = user_load_by_mail($subscriberEmail);
           user_login_finalize($user);
           Drupal::messenger()->addMessage($success_message);
         }
