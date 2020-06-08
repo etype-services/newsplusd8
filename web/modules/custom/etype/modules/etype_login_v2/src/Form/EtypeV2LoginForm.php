@@ -163,8 +163,7 @@ class EtypeV2LoginForm extends FormBase {
             $user->setEmail($subscriberEmail);
             $user->setUsername($username);
             $user->activate();
-            $account = user_load_by_mail($subscriberEmail);
-            user_login_finalize($account);
+            user_login_finalize($user);
             Drupal::messenger()->addMessage($success_message);
           }
           else {
