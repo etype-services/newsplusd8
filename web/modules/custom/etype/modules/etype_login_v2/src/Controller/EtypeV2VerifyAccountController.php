@@ -5,7 +5,6 @@ namespace Drupal\etype_login_v2\Controller;
 use Drupal;
 use Drupal\Core\Controller\ControllerBase;
 use SoapClient;
-use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class EtypeV2VerifyAccountController.
@@ -19,9 +18,17 @@ class EtypeV2VerifyAccountController extends ControllerBase {
    *
    * A *logged in* url for the subscriber.
    * This is used to open the etypeservices page for the paper.
+   *
+   * @param string $username
+   *   The user name.
+   *
+   * @return string
+   *   The url with the token.
    */
-  public function getToken() {
-    $username = Drupal::currentUser()->getAccountName();
+  public function getToken($username = NULL) {
+    if (empty($username)) {
+      $username = Drupal::currentUser()->getAccountName();
+    }
     $config = Drupal::config('etype.adminsettings');
     $pubId = (int) $config->get('etype_pub');
     $client = new soapclient('https://publisher.etype.services/webservice.asmx?WSDL');
@@ -30,12 +37,6 @@ class EtypeV2VerifyAccountController extends ControllerBase {
       'username' => $username,
     ];
     $data = $client->GenerateUrlForSubscriber($params);
-    return new Response(
-      $data->GenerateUrlForSubscriberResult,
-      Response::HTTP_OK,
-      ['content-type' => 'text/plain']
-    );
-
+    return $data->GenerateUrlForSubscriberResult;
   }
-
 }

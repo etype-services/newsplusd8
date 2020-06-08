@@ -96,15 +96,6 @@ function etype_e_editions() {
   $pub = $config->get('etype_pub');
   $ptype = $config->get('etype_ptype');
 
-  switch ($v2) {
-    case 1:
-      $base_url = "https://publisher.etype.services/";
-      break;
-
-    default;
-      $base_url = "https://etypeservices.com/";
-  }
-
   $config = Drupal::config('system.site');
   $site = $config->get('name');
 
@@ -138,28 +129,27 @@ function etype_e_editions() {
     $e_edition = trim($arr[0]);
 
     switch ($v2) {
-      /* Thumbnail */ case 1:
-      $e_editions[$ptr]['image'] = 'https://etypeproductionstorage1.blob.core.windows.net/$web/Production_Prod/Publications/' . $pub . '/thumbnail.jpg';
+      case 1:
+        $host = Drupal::request()->getSchemeAndHttpHost();
+        /* Thumbnail */
+        $e_editions[$ptr]['image'] = 'https://etypeproductionstorage1.blob.core.windows.net/$web/Production_Prod/Publications/' . $pub . '/thumbnail.jpg';
+
+        /* Account Links */
+        $path = $host .'/e-edition/'. $pub;
+        $path_anon = $host. '/e-edition/'. $pub;
+        $sub_link = $host . '/e-edition/'. $pub;
+        break;
       break;
 
       default;
-        $ar2 = preg_split("/ID[0-9]+/", $arr[0]); // make LandingImage
-        // directory name
+        $base_url = "https://publisher.etype.services/";
+        /* Thumbnail */
+        $ar2 = preg_split("/ID[0-9]+/", $arr[0]);
+        // make LandingImage directory name
         $imagedir = trim($ar2[0]);
         $e_editions[$ptr]['image'] = $base_url . 'LandingPageImages/' . $imagedir . '/currentpg1.jpg';
-    }
 
-    /* Account Links */
-    switch ($v2) {
-      /* V2 */
-      case 1:
-        $path = $base_url . 'e-edition/' . $pub;
-        $path_anon = $base_url . 'e-edition/' . $pub;
-        $sub_link = $base_url . 'e-edition/' . $pub;
-        break;
-
-      /* V1 */
-      default;
+        /* Account Links */
         if ($logged_in > 0) {
           $account = Drupal\user\Entity\User::load(Drupal::currentUser()->id());
           $name = $account->get('name')->value;
@@ -167,7 +157,7 @@ function etype_e_editions() {
         } else {
           $path = $base_url . $e_edition;
         }
-        $path_anon = $base_url . $e_edition . '/';
+        $path_anon = $base_url . $e_edition;
         $sub_link = $base_url . $e_edition . "/default.aspx?PubID=" . $pub;
     }
 

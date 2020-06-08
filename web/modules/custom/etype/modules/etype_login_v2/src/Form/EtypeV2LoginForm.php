@@ -7,6 +7,7 @@ use Drupal\Core\Url;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\user\Entity\User;
+use Drupal\user\UserInterface;
 use SoapClient;
 
 /**
@@ -119,9 +120,6 @@ class EtypeV2LoginForm extends FormBase {
    *   The form.
    * @param \Drupal\Core\Form\FormStateInterface $form_state
    *   The form state.
-   *
-   * @throws \Drupal\Core\Entity\EntityStorageException
-   * @throws \SoapFault
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
@@ -131,7 +129,6 @@ class EtypeV2LoginForm extends FormBase {
     $password = $form_state->getValue('password');
     $pubId = $form_state->getValue('pubId');
 
-    $v2 = $this->config->get('etype_v2');
     $message = "We‘re sorry, either your user name or password is incorrect!";
     $success_message = "Hello $username, you are now logged in!";
 
@@ -166,8 +163,8 @@ class EtypeV2LoginForm extends FormBase {
             $user->setEmail($subscriberEmail);
             $user->setUsername($username);
             $user->activate();
-            $user->save();
-            user_login_finalize($user);
+            $account = UserInterface::Load($user->id());
+            user_login_finalize($account);
             Drupal::messenger()->addMessage($success_message);
           }
           else {
@@ -177,7 +174,7 @@ class EtypeV2LoginForm extends FormBase {
         }
         else {
           $account = user_load_by_mail($subscriberEmail);
-          $user = User::load($account->id());
+          $user = UserInterface::load($account->id());
           user_login_finalize($user);
           Drupal::messenger()->addMessage($success_message);
         }

@@ -27,6 +27,12 @@ etype_login_v2.e_edition:
   defaults:
     _title: 'e-Edition'
     _controller: '\Drupal\etype_login_v2\Controller\EtypeV2EeditionController::goToEedition'
+  options:
+    parameters:
+      pubId:
+        type: pubId
+  requirements:
+    _permission: 'access content'
 
 etype_login_v2.subscribe:
   path: '/etype-subscribe'
