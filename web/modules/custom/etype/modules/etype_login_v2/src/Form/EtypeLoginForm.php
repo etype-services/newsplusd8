@@ -121,7 +121,6 @@ class EtypeLoginForm extends FormBase {
    *   The form state.
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
-   * @throws \SoapFault
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
@@ -131,7 +130,6 @@ class EtypeLoginForm extends FormBase {
     $password = $form_state->getValue('password');
     $pubId = $form_state->getValue('pubId');
 
-    $v2 = $this->config->get('etype_v2');
     $message = "We‘re sorry, either your user name or password is incorrect!";
     $success_message = "Hello $username, you are now logged in!";
 
@@ -151,14 +149,7 @@ class EtypeLoginForm extends FormBase {
         break;
 
       case "-2":
-        switch ($v2) {
-          case 1:
-            $message1 = "Your subscription has expired.";
-            break;
-
-          default;
-            $message1 = "Your subscription has expired. <a href='https://www.etypeservices.com/Subscriber/SignIn.aspx?ReturnUrl=https://www.etypeservices.com/Subscriber/ReSubscribe.aspx?PubID=$pubId'>Re-subscribe now!</a> .";
-        }
+        $message1 = "Your subscription has expired.";
         Drupal::messenger()->addMessage($message1);
         break;
 
