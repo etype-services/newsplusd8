@@ -1,4 +1,0 @@
-File: drupal8.site.yml
-local:
-  root: /Users/charlie/Sites/ETypeServices/repos/harold/web
-  uri: http://local.drupal8.com

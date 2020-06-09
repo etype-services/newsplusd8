@@ -1,4 +1,4 @@
 File: ssnewstelegram.site.yml
 prod:
   root: /mnt/data/web/public/harold/drupal/web
-  uri: http://ssnewstelegram.etypegoogle7.com
+  uri: https://www.ssnewstelegram.com

@@ -1,11 +1,11 @@
 etype_login_v2.e_edition:
-  title: 'E-edition'
-  url: '/e-edition'
+  title: 'e-Edition'
+  weight: 10
+  route_name: etype_login_v2.e_edition
   menu_name: account
   options:
     attributes:
       target: _blank
-      id: 'etype_login_e_edition'
 
 etype_login_v2.login:
   title: 'Log In'

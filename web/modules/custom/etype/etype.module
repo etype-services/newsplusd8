@@ -59,7 +59,7 @@ function etype_preprocess_node(&$variables) {
 function etype_page_attachments(array &$page) {
   $page['#attached']['library'][] = 'etype/global-styling';
   $page['#attached']['library'][] = 'etype/ada-compliance';
-  $moduleHandler = \Drupal::service('module_handler');
+  $moduleHandler = Drupal::service('module_handler');
   if ($moduleHandler->moduleExists('pwa')) {
     $page['#attached']['library'][] = 'etype/addtohomescreen';
   }
@@ -84,26 +84,20 @@ function etype_preprocess_image(&$variables) {
  */
 function etype_e_editions() {
 
+  global $base_url;
+  $v1_url = "https://publisher.etype.services/";
+
   $logged_in = Drupal::currentUser()->isAuthenticated();
   $config = Drupal::config('etype.adminsettings');
 
   $v2 = 0;
-  $moduleHandler = \Drupal::service('module_handler');
+  $moduleHandler = Drupal::service('module_handler');
   if ($moduleHandler->moduleExists('etype_login_v2')) {
     $v2 = 1;
   }
   $e_edition = $config->get('etype_e_edition');
   $pub = $config->get('etype_pub');
   $ptype = $config->get('etype_ptype');
-
-  switch ($v2) {
-    case 1:
-      $base_url = "https://publisher.etype.services/";
-      break;
-
-    default;
-      $base_url = "https://etypeservices.com/";
-  }
 
   $config = Drupal::config('system.site');
   $site = $config->get('name');
@@ -138,42 +132,34 @@ function etype_e_editions() {
     $e_edition = trim($arr[0]);
 
     switch ($v2) {
-      /* Thumbnail */ case 1:
-      $e_editions[$ptr]['image'] = 'https://etypeproductionstorage1.blob.core.windows.net/$web/Production_Prod/Publications/' . $pub . '/thumbnail.jpg';
+      case 1:
+        /* Thumbnail */
+        $e_editions[$ptr]['image'] = 'https://etypeproductionstorage1.blob.core.windows.net/$web/Production_Prod/Publications/' . $pub . '/thumbnail.jpg';
+
+        /* Account Links */
+        $path = $base_url .'/e-edition/'. $pub;
+        $path_anon = $base_url. '/e-edition/'. $pub;
+        $sub_link = $base_url . '/e-edition/'. $pub;
+        break;
       break;
 
       default;
-        $ar2 = preg_split("/ID[0-9]+/", $arr[0]); // make LandingImage
-        // directory name
+        /* Thumbnail */
+        $ar2 = preg_split("/ID[0-9]+/", $arr[0]);
+        // make LandingImage directory name
         $imagedir = trim($ar2[0]);
         $e_editions[$ptr]['image'] = $base_url . 'LandingPageImages/' . $imagedir . '/currentpg1.jpg';
-    }
 
-    /* Account Links */
-    switch ($v2) {
-      /* V2 */ case 1:
-      $name = '';
-      if ($logged_in > 0) {
-        $account = Drupal\user\Entity\User::load(Drupal::currentUser()->id());
-        $name = $account->get('name')->value;
-        $path = $base_url . 'e-edition/' . $pub . '/' . $name;
-      } else {
-        $path = $base_url . 'e-edition/' . $pub;
-      }
-      $path_anon = $base_url . 'e-edition/' . $pub;
-      $sub_link = $base_url . 'e-edition/' . $pub;
-      break;
-
-      /* V1 */ default;
-      if ($logged_in > 0) {
-        $account = Drupal\user\Entity\User::load(Drupal::currentUser()->id());
-        $name = $account->get('name')->value;
-        $path = $base_url . 'ReadTheEdition.aspx?Username=' . $name . "&Pub=" . $pub . "&PType=" . htmlspecialchars($ptype);
-      } else {
-        $path = $base_url . $e_edition;
-      }
-      $path_anon = $base_url . $e_edition . '/';
-      $sub_link = $base_url . $e_edition . "/default.aspx?PubID=" . $pub;
+        /* Account Links */
+        if ($logged_in > 0) {
+          $account = Drupal\user\Entity\User::load(Drupal::currentUser()->id());
+          $name = $account->get('name')->value;
+          $path = $v1_url . 'ReadTheEdition.aspx?Username=' . $name . "&Pub=" . $pub . "&PType=" . htmlspecialchars($ptype);
+        } else {
+          $path = $v1_url . $e_edition;
+        }
+        $path_anon = $v1_url . $e_edition;
+        $sub_link = $v1_url . $e_edition . "/default.aspx?PubID=" . $pub;
     }
 
     $e_editions[$ptr]['site_name'] = trim($site);
@@ -188,6 +174,8 @@ function etype_e_editions() {
 
 /**
  * This sets up the logged out e-Edition path
+ *
+ * @param $links
  */
 function etype_menu_links_discovered_alter(&$links) {
   $e_editions = etype_e_editions();

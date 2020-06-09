@@ -1,4 +1,4 @@
 File: palatkadailynews.site.yml
 prod:
   root: /mnt/data/web/public/harold/drupal/web
-  uri: http://palatkadailynews.etypegoogle7.com
+  uri: https://www.palatkadailynews.com

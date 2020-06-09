@@ -2,7 +2,7 @@ etype_login_v2.login:
   path: '/etype-login'
   defaults:
     _title: 'Subscriber Login'
-    _form: '\Drupal\etype_login_v2\Form\EtypeLoginForm'
+    _form: '\Drupal\etype_login_v2\Form\EtypeV2LoginForm'
   requirements:
     _user_is_logged_in: 'FALSE'
 
@@ -10,7 +10,7 @@ etype_login_v2.forgot:
   path: '/etype-forgot-password'
   defaults:
     _title: 'Password Reset'
-    _form: '\Drupal\etype_login_v2\Form\EtypePasswordResetForm'
+    _form: '\Drupal\etype_login_v2\Form\EtypeV2PasswordResetForm'
   requirements:
     _user_is_logged_in: 'FALSE'
 
@@ -18,9 +18,21 @@ etype_login_v2.account:
   path: '/etype-my-account'
   defaults:
     _title: 'My Account'
-    _controller: '\Drupal\etype_login_v2\Controller\EtypeMyAccountController::content'
+    _controller: '\Drupal\etype_login_v2\Controller\EtypeV2MyAccountController::content'
   requirements:
     _user_is_logged_in: 'TRUE'
+
+etype_login_v2.e_edition:
+  path: '/e-edition/{pubId}'
+  defaults:
+    _title: 'e-Edition'
+    _controller: '\Drupal\etype_login_v2\Controller\EtypeV2EeditionController::goToEedition'
+  options:
+    parameters:
+      pubId:
+        type: pubId
+  requirements:
+    _permission: 'access content'
 
 etype_login_v2.subscribe:
   path: '/etype-subscribe'
@@ -31,6 +43,6 @@ etype_login_v2.verify_account:
   path: '/etype-verify-account'
   defaults:
     _title: 'Verify Account'
-    _controller: '\Drupal\etype_login_v2\Controller\EtypeVerifyAccountController::getToken'
+    _controller: '\Drupal\etype_login_v2\Controller\EtypeV2VerifyAccountController::getToken'
   requirements:
     _user_is_logged_in: 'TRUE'
