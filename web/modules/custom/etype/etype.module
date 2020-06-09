@@ -85,7 +85,15 @@ function etype_preprocess_image(&$variables) {
 function etype_e_editions() {
 
   $v1_url = "https://publisher.etype.services/";
-
+  $host = Drupal::request()->getHost();
+  $tmp = explode(".", $host);
+  $arr = array_filter($tmp);
+  if (strpos($arr[1], 'etypegoogle') !== false) {
+    $host = $arr[0];
+  } else {
+    $host = $arr[1];
+  }
+  $v2_url = 'https://www.' . $host . '.com';
   $logged_in = Drupal::currentUser()->isAuthenticated();
   $config = Drupal::config('etype.adminsettings');
 
