@@ -10,11 +10,11 @@ use Drupal\user\Entity\User;
 use SoapClient;
 
 /**
- * Class EtypeLoginForm.
+ * Class EtypeV2LoginForm.
  *
- * @package Drupal\etype_login\Form
+ * @package Drupal\etype_login_v2\Form
  */
-class EtypeLoginForm extends FormBase {
+class EtypeV2LoginForm extends FormBase {
 
   /**
    * Settings holder.
