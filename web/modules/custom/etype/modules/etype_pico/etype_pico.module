@@ -57,7 +57,7 @@ EOF;
         $picoType = 'article';
       }
     }
-    ≈
+
     $bottom_script .= <<<EOF
 <script>
 var pageInfo = {
