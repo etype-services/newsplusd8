@@ -8,9 +8,9 @@ use Drupal\Core\Form\FormStateInterface;
 use SoapClient;
 
 /**
- * Class EtypePasswordResetForm.
+ * Class EtypeV2PasswordResetForm.
  *
- * @package Drupal\etype_login\Form
+ * @package Drupal\etype_login_v2\Form
  */
 class EtypeV2PasswordResetForm extends FormBase {
 
@@ -71,7 +71,7 @@ class EtypeV2PasswordResetForm extends FormBase {
         ];
       }
 
-      $form['#attached']['library'][] = 'etype_login/etype_login';
+      $form['#attached']['library'][] = 'etype_login_v2/etype_login_v2';
 
       $form['actions']['#type'] = 'actions';
 

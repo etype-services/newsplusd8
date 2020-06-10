@@ -1,0 +1,4 @@
+File: local9.site.yml
+local:
+  root: /Users/charlie/Sites/ETypeServices/repos/drupal9/web
+  uri: http://local.drupal9.com

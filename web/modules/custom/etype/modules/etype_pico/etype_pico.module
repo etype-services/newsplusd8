@@ -57,10 +57,10 @@ EOF;
         $picoType = 'article';
       }
     }
-    ≈
+
     $bottom_script .= <<<EOF
 <script>
-var pageInfo = {
+let pageInfo = {
 	article: $picoOn,
 	post_id: $nid,
 	post_type: "$picoType",
