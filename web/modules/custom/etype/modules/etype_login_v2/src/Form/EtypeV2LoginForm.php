@@ -84,7 +84,7 @@ class EtypeV2LoginForm extends FormBase {
         '#markup' => t('<a href="/etype-forgot-password">I forgot my password.</a>'),
       ];
 
-      $form['#attached']['library'][] = 'etype_login/etype_login';
+      $form['#attached']['library'][] = 'etype_login_v2/etype_login_v2';
 
       $form['actions']['#type'] = 'actions';
 
