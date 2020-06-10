@@ -1,4 +1,4 @@
 File: madillrecord.site.yml
 prod:
   root: /mnt/data/web/public/harold/drupal/web
-  uri: https://www.madillrecord.com
+  uri: http://madillrecord.etypegoogle7.com
