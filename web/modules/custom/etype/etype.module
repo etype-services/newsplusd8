@@ -93,7 +93,7 @@ function etype_e_editions() {
   } else {
     $domain = $arr[1];
   }
-  $v2_url = 'https://www.' . $host . '/';
+  $v2_url = 'https://' . $host . '/';
   $logged_in = Drupal::currentUser()->isAuthenticated();
   $config = Drupal::config('etype.adminsettings');
 
