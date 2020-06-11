@@ -2,6 +2,7 @@ name: 'eType Services XML Importer'
 type: module
 description: 'Import XML to nodes'
 core: 8.x
+core_version_requirement: ^8 || ^9
 package: 'eType Services'
 configure: etype_xml_importer.admin_settings
 dependencies:

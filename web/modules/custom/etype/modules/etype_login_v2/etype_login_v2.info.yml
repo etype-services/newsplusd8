@@ -2,4 +2,5 @@ name: 'eType Services Login V2'
 type: module
 description: 'Provides Subscriber Login to V2 eType system.'
 core: 8.x
+core_version_requirement: ^8 || ^9
 package: 'eType Services'

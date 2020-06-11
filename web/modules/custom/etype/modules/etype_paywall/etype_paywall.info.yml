@@ -2,5 +2,6 @@ name: 'eType Services Paywall'
 type: module
 description: 'Paywall for eType Services.'
 core: 8.x
+core_version_requirement: ^8 || ^9
 package: 'eType Services'
 configure: etype_paywall.settings
