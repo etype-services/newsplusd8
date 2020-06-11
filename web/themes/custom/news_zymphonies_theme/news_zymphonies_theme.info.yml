@@ -1,5 +1,6 @@
 name: News Zymphonies Theme
 type: theme
+base theme: classy
 description: 'Designed & Developed by <a href=http://www.zymphonies.com>Zymphonies</a>'
 package: core
 core: 8.x

@@ -1,5 +1,6 @@
 name: Drupal8 Zymphonies Theme
 type: theme
+base theme: classy
 description: 'Designed & Developed by <a href=http://www.zymphonies.com>Zymphonies</a><br/>Contact us for any kind of Drupal services <a href=mailto:info@zymphonies.com>info@zymphonies.com</a>'
 package: core
 # core: 8.x
