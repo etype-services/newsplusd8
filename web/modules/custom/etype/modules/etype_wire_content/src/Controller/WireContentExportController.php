@@ -82,7 +82,7 @@ class WireContentExportController {
       $site_name = $config->get('name');
       Database::setActiveConnection('wire');
       $db = Database::getConnection();
-      $db->delete('node')
+      $db->delete('wire_node')
         ->condition('site_name', $site_name)
         ->execute();
       /* link to original article */

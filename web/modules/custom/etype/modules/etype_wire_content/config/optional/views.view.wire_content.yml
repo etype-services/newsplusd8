@@ -12,7 +12,7 @@ label: 'Wire Content'
 module: views
 description: ''
 tag: ''
-base_table: node
+base_table: wire_node
 base_field: nid
 core: 8.x
 display:
@@ -141,7 +141,7 @@ display:
       fields:
         site:
           id: site
-          table: node
+          table: wire_node
           field: site
           relationship: none
           group_type: group
@@ -191,7 +191,7 @@ display:
           plugin_id: standard
         nid:
           id: nid
-          table: node
+          table: wire_node
           field: nid
           relationship: none
           group_type: group
@@ -249,7 +249,7 @@ display:
           plugin_id: numeric
         title:
           id: title
-          table: node
+          table: wire_node
           field: title
           relationship: none
           group_type: group
@@ -299,7 +299,7 @@ display:
           plugin_id: standard
         site_name:
           id: site_name
-          table: node
+          table: wire_node
           field: site_name
           relationship: none
           group_type: group
@@ -349,7 +349,7 @@ display:
           plugin_id: standard
         changed:
           id: changed
-          table: node
+          table: wire_node
           field: changed
           relationship: none
           group_type: group
@@ -457,7 +457,7 @@ display:
       filters:
         title:
           id: title
-          table: node
+          table: wire_node
           field: title
           relationship: none
           group_type: group
@@ -499,7 +499,7 @@ display:
           plugin_id: string
         site_name:
           id: site_name
-          table: node
+          table: wire_node
           field: site_name
           relationship: none
           group_type: group
@@ -541,7 +541,7 @@ display:
           plugin_id: string
         cluster:
           id: cluster
-          table: node
+          table: wire_node
           field: cluster
           relationship: none
           group_type: group
@@ -579,7 +579,7 @@ display:
           plugin_id: string
         site_name_1:
           id: site_name_1
-          table: node
+          table: wire_node
           field: site_name
           relationship: none
           group_type: group

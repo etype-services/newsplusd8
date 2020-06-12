@@ -79,7 +79,7 @@ class WireContentAddController {
     /* Connect to wire database and get settings. */
     Database::setActiveConnection('wire');
     $db = Database::getConnection();
-    $result = $db->select('node', 'n')
+    $result = $db->select('wire_node', 'n')
       ->fields('n')
       ->condition('nid', $nid, '=')
       ->condition('site', $db->escapeLike($site), 'LIKE')
