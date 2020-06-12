@@ -50,9 +50,6 @@ function etype_wire_content_views_query_alter($view, $query) {
     } else {
       $site = $arr[1];
     }
-    var_dump($groups);
-    var_dump($site);
     $query->addWhere('', 'wire_node.site', $site, '!=');
-    exit;
   }
 }
