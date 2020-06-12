@@ -455,8 +455,8 @@ display:
           exposed: true
           expose:
             operator_id: cluster_op
-            label: 'Match Groups - any of these: coastal franklin murphy neg nwga wnc special'
-            description: ''
+            label: 'Group'
+            description: 'Match any of these: coastal franklin murphy neg nwga wnc special'
             use_operator: false
             operator: cluster_op
             operator_limit_selection: false
