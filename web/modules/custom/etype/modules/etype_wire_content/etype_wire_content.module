@@ -58,10 +58,10 @@ function etype_wire_content_views_query_alter($view, $query) {
       echo $k;
       echo $v;
       if ($k == $v) {
+        echo $v;
         $orStatement = db_or()->condition('wire_node.cluster', "%$v%", 'LIKE');
       }
     }
-    echo $orStatement;
     exit;
     $query->addWhere(2, $orStatement);
   }
