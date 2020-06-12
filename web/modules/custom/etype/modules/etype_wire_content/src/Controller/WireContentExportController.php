@@ -76,8 +76,6 @@ class WireContentExportController {
       // ->addTag('debug')
       ->execute();
     $storage_handler = $this->entityTypeManager->getStorage('node');
-    var_dump($nids);
-    exit;
     $nodes = $storage_handler->loadMultiple($nids);
     if (count($nodes) > 0) {
       /* Delete current matching rows in wire.node */
@@ -103,7 +101,7 @@ class WireContentExportController {
               $url = file_create_url($uri);
             }
           }
-          $db->insert('node')
+          $db->insert('wire_node')
             ->fields([
               'nid' => $node->id(),
               'vid' => $node->get('vid')->value,
