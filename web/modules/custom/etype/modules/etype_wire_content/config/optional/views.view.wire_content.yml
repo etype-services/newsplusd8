@@ -449,7 +449,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: contains
+          operator: word
           value: coastal
           group: 1
           exposed: true
