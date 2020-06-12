@@ -186,7 +186,7 @@ function etype_e_editions() {
  */
 function etype_menu_links_discovered_alter(&$links) {
   $e_editions = etype_e_editions();
-  $links['etype.e_edition']['url'] = $e_editions[0]['path_anon'];
+  //$links['etype.e_edition']['url'] = $e_editions[0]['path_anon'];
 }
 
 /**
