@@ -38,3 +38,22 @@ function etype_wire_content_node_update(Drupal\node\NodeInterface $node) {
   $exporter = new WireContentExportController();
   $exporter->exportWireContent();
 }
+
+function etype_wire_content_views_query_alter($view, $query) {
+  echo $view->id();
+  if ($view->id() == 'my_views' && $view->getDisplay()->display['id'] == 'attachment_1') {
+    // Traverse through the 'where' part of the query.
+    foreach ($query->where as &$condition_group) {
+      foreach ($condition_group['conditions'] as &$condition) {
+        if (strpos($condition['field'], 'groups_field_data_id')) {
+          $db = \Drupal::database();
+          $result = $db->select('group_content_field_data', 'gcfd');
+          $result->fields('gcfd', array('gid'))
+            ->condition('gcfd.entity_id', \Drupal::currentUser()->id());
+          $val = $result->execute()->fetchCol();
+          $condition['value'][':groups_field_data_id[]'] = $val;
+        }
+      }
+    }
+  }
+}
