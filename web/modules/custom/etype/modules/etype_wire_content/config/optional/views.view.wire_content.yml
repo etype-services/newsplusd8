@@ -1,12 +1,10 @@
-uuid: 27236658-3490-476d-aa06-84bb37e0b2e9
+uuid: 1be08163-4214-420a-b86d-1b6865e47289
 langcode: en
 status: true
 dependencies:
   module:
-    - node
     - user
-_core:
-  default_config_hash: __LhSBGvxFE57YjSS_En2G5Or0wZgofxiGM8MzXsJAk
+    - views_database_connector
 id: wire_content
 label: 'Wire Content'
 module: views
@@ -14,7 +12,6 @@ description: ''
 tag: ''
 base_table: wire_node
 base_field: nid
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -55,8 +52,8 @@ display:
           id: 0
           total_pages: null
           tags:
-            previous: ‹‹
-            next: ››
+            previous: '‹ Previous'
+            next: 'Next ›'
             first: '« First'
             last: 'Last »'
           expose:
@@ -70,183 +67,9 @@ display:
           quantity: 9
       style:
         type: table
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-          override: true
-          sticky: false
-          caption: ''
-          summary: ''
-          description: ''
-          columns:
-            site: site
-            nid: nid
-            title: title
-            site_name: site_name
-            changed: changed
-            nothing: nothing
-          info:
-            site:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            nid:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            title:
-              sortable: true
-              default_sort_order: asc
-              align: views-align-left
-              separator: ''
-              empty_column: false
-              responsive: ''
-            site_name:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            changed:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            nothing:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          default: '-1'
-          empty_table: false
       row:
         type: fields
-        options:
-          default_field_elements: false
-          inline: {  }
-          separator: ''
-          hide_empty: false
       fields:
-        site:
-          id: site
-          table: wire_node
-          field: site
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          entity_type: node
-          plugin_id: standard
-        nid:
-          id: nid
-          table: wire_node
-          field: nid
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          set_precision: false
-          precision: 0
-          decimal: .
-          separator: ''
-          format_plural: false
-          format_plural_string: !!binary MQNAY291bnQ=
-          prefix: ''
-          suffix: ''
-          entity_type: node
-          plugin_id: numeric
         title:
           id: title
           table: wire_node
@@ -254,13 +77,13 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Title
+          label: title
           exclude: false
           alter:
             alter_text: false
             text: ''
-            make_link: true
-            path: '{{ site }}/node/{{ nid }}'
+            make_link: false
+            path: ''
             absolute: false
             external: false
             replace_spaces: false
@@ -271,7 +94,7 @@ display:
             link_class: ''
             prefix: ''
             suffix: ''
-            target: _blank
+            target: ''
             nl2br: false
             max_length: 0
             word_boundary: true
@@ -295,7 +118,6 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          entity_type: node
           plugin_id: standard
         site_name:
           id: site_name
@@ -304,7 +126,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Newspaper
+          label: site_name
           exclude: false
           alter:
             alter_text: false
@@ -337,7 +159,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -345,20 +167,19 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          entity_type: node
           plugin_id: standard
-        changed:
-          id: changed
+        created:
+          id: created
           table: wire_node
-          field: changed
+          field: created
           relationship: none
           group_type: group
           admin_label: ''
-          label: Updated
+          label: created
           exclude: false
           alter:
             alter_text: true
-            text: '{{ changed|date("m/d/Y") }}'
+            text: '{{ created|date("m/d/Y") }}'
             make_link: false
             path: ''
             absolute: false
@@ -387,7 +208,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -403,7 +224,6 @@ display:
           format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
-          entity_type: node
           plugin_id: numeric
         nothing:
           id: nothing
@@ -412,11 +232,11 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Operations
+          label: Add
           exclude: false
           alter:
             alter_text: true
-            text: '<a href="/admin/content/add_wire_content/{{ nid }}/{{ site | replace({''http://'': ""}) }}">Add</a>'
+            text: '<a href="/admin/content/add_wire_content/{{ nid }}/{{ site }}">Add</a>'
             make_link: false
             path: ''
             absolute: false
@@ -445,7 +265,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -455,90 +275,6 @@ display:
           hide_alter_empty: false
           plugin_id: custom
       filters:
-        title:
-          id: title
-          table: wire_node
-          field: title
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: starts
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: title_op
-            label: Title
-            description: ''
-            use_operator: true
-            operator: title_op
-            identifier: title
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              editor: '0'
-              reporter: '0'
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          plugin_id: string
-        site_name:
-          id: site_name
-          table: wire_node
-          field: site_name
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: contains
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: site_name_op
-            label: Newspaper
-            description: ''
-            use_operator: false
-            operator: site_name_op
-            identifier: site_name
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              editor: '0'
-              reporter: '0'
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          plugin_id: string
         cluster:
           id: cluster
           table: wire_node
@@ -546,22 +282,28 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: word
-          value: 'neg nwga'
+          operator: contains
+          value: coastal
           group: 1
-          exposed: false
+          exposed: true
           expose:
-            operator_id: ''
-            label: ''
-            description: ''
+            operator_id: cluster_op
+            label: cluster
+            description: Group
             use_operator: false
-            operator: ''
-            identifier: ''
+            operator: cluster_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: cluster
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              editor: '0'
+              reporter: '0'
             placeholder: ''
           is_grouped: false
           group_info:
@@ -575,45 +317,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: node
-          plugin_id: string
-        site_name_1:
-          id: site_name_1
-          table: wire_node
-          field: site_name
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: not
-          value: dahlonega
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
           plugin_id: string
       sorts: {  }
       title: 'Wire Content'
@@ -623,16 +326,12 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
-      filter_groups:
-        operator: AND
-        groups: {  }
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - 'user.node_grants:view'
         - user.permissions
       tags: {  }
   page_1:
@@ -645,7 +344,7 @@ display:
       path: admin/content/wire_content
       menu:
         type: tab
-        title: 'Wire Content'
+        title: ' Wire Content'
         description: ''
         expanded: false
         parent: system.admin_content
@@ -658,6 +357,5 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - 'user.node_grants:view'
         - user.permissions
       tags: {  }
