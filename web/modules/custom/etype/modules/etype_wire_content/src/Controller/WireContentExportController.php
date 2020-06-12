@@ -73,6 +73,7 @@ class WireContentExportController {
       ->condition('status', '1')
       ->condition('changed', $date_diff, '>')
       ->sort('changed', 'DESC')
+      ->addTag('debug')
       ->execute();
     $storage_handler = $this->entityTypeManager->getStorage('node');
     $nodes = $storage_handler->loadMultiple($nids);
