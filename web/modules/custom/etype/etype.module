@@ -260,7 +260,11 @@ function etype_user_logout($account) {
 
 /**
  * Helper to split string on word boundary.
- * {@inheritdoc}
+ *
+ * @param $text
+ * @param $maxchar
+ * @param string $end
+ * @return string
  */
 function substrwords($text, $maxchar, $end = '...') {
   if (strlen($text) > $maxchar || $text == '') {

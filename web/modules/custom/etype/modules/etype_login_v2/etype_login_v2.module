@@ -34,12 +34,11 @@ function etype_login_v2_user_logout($account) {
 }
 
 /**
- * {@inheritdoc}
- *
  * This sets up the logged in e-Edition path
+ * @param $links
  */
 function etype_login_v2_menu_links_discovered_alter(&$links) {
   $e_editions = etype_e_editions();
-  $links['etype_login_v2.e_edition']['url'] = $e_editions[0]['path'];
-  $links['etype_login_v2.subscribe']['url'] = $e_editions[0]['sub_link'];
+  //$links['etype_login_v2.e_edition']['url'] = $e_editions[0]['path'];
+  //$links['etype_login_v2.subscribe']['url'] = $e_editions[0]['sub_link'];
 }
