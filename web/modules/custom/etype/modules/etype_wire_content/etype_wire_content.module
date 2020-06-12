@@ -56,11 +56,18 @@ function etype_wire_content_views_query_alter($view, $query) {
     } else {
       $site = $arr[1];
     }
-    $query->addWhere(1, 'wire_node.site', "%$site%", 'NOT LIKE');
-    $query->setWhereGroup('OR', 2);
+    // Check for existing filters
+    $groupNumber = 0;
+    foreach ($query->where as &$condition_group) {
+      $groupNumber ++;
+    }
+    $groupNumber ++;
+    $query->addWhere($groupNumber, 'wire_node.site', "%$site%", 'NOT LIKE');
+    $groupNumber ++;
+    $query->setWhereGroup('OR', $groupNumber);
     foreach ($groups as $group) {
       if (strlen($group) > 1) {
-        $query->addWhere(2, 'wire_node.cluster', "%$group%", 'LIKE');
+        $query->addWhere($groupNumber, 'wire_node.cluster', "%$group%", 'LIKE');
       }
     }
   }
