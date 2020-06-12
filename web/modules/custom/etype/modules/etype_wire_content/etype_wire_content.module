@@ -54,7 +54,7 @@ function etype_wire_content_views_query_alter($view, $query) {
     $query->groupOperator = 'OR';
     foreach ($groups as $group) {
       if (strlen($group) > 1) {
-        $query->addWhere('', 'wire_node.cluster', "%$group%", 'LIKE');
+        //$query->addWhere('', 'wire_node.cluster', "%$group%", 'LIKE');
       }
     }
   }
