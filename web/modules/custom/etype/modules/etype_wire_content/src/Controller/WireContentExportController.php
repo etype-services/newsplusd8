@@ -73,9 +73,11 @@ class WireContentExportController {
       ->condition('status', '1')
       ->condition('changed', $date_diff, '>')
       ->sort('changed', 'DESC')
-      ->addTag('debug')
+      // ->addTag('debug')
       ->execute();
     $storage_handler = $this->entityTypeManager->getStorage('node');
+    var_dump($nids);
+    exit;
     $nodes = $storage_handler->loadMultiple($nids);
     if (count($nodes) > 0) {
       /* Delete current matching rows in wire.node */
