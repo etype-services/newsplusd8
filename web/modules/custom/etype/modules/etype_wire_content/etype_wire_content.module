@@ -42,17 +42,17 @@ function etype_wire_content_node_update(Drupal\node\NodeInterface $node) {
 function etype_wire_content_views_query_alter($view, $query) {
   if ($view->id() == 'wire_content') {
     $config = Drupal::config('etype_wire_content.settings');
-    $groups = implode(',', $config->get('groups'));
+    $groups = $config->get('groups');
     $host = Drupal::request()->getHost();
-    $tmp = explode(".", $host);
-    $arr = array_filter($tmp);
+    $arr = explode(".", $host);;
     if (strpos($arr[1], 'etypegoogle') !== false) {
       $site = $arr[0];
     } else {
       $site = $arr[1];
     }
     var_dump($groups);
-    var_dump($host);
+    var_dump($site);
+    $query->addWhere('', 'wire_node.site', $site, '!=');
     exit;
   }
 }

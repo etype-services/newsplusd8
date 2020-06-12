@@ -13,8 +13,7 @@ use Drupal\user\Entity\User;
 function tiempos_preprocess_html(&$variables) {
   /* Add domain to styles */
   $host = Drupal::request()->getHost();
-  $tmp = explode(".", $host);
-  $arr = array_filter($tmp);
+  $arr = explode(".", $host);
   if (strpos($arr[1], 'etypegoogle') !== false) {
     $variables["host"] = $arr[0];
   } else {
