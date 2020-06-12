@@ -50,10 +50,12 @@ function etype_wire_content_views_query_alter($view, $query) {
     } else {
       $site = $arr[1];
     }
-    $query->addWhere('', 'wire_node.site', $site, '!=');
+    $query->addWhere(1, 'wire_node.site', $site, '!=');
     $query->group_operator = 'OR';
-    foreach (array_keys($groups) as $cluster) {
-      $query->addWhere(1, 'wire_node.cluster', "%$cluster%", 'LIKE');
+    foreach ($groups as $k => $v) {
+      if ($v == 1) {
+        $query->addWhere(2, 'wire_node.cluster', "%$k%", 'LIKE');
+      }
     }
   }
 }
