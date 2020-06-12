@@ -42,7 +42,7 @@ function etype_wire_content_node_update(Drupal\node\NodeInterface $node) {
 function etype_wire_content_views_query_alter($view, $query) {
   if ($view->id() == 'wire_content') {
     $config = Drupal::config('etype_wire_content.settings');
-    $groups = implode(',', $config->get('groups'));
+    $groups = $config->get('groups');
     $host = Drupal::request()->getHost();
     $arr = explode(".", $host);;
     if (strpos($arr[1], 'etypegoogle') !== false) {
@@ -55,8 +55,11 @@ function etype_wire_content_views_query_alter($view, $query) {
         var_dump($condition);
       }
     }
-    $query->addWhere('', 'wire_node.site', $site, '!=');
-    $query->addWhere('', 'wire_node.cluster', $site, 'IN');
-    exit;
+    $or = $query->orConditionGroup();
+    foreach (array_keys($groups) as $cluster) {
+      $or->condition('wire_node.cluster', "%$cluster%", 'LIKE');
+    }
+    $query->condition($or);
+    $query->addWhere('', 'wire_node.site', $site, '!=');;
   }
 }
