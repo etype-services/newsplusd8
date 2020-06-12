@@ -53,9 +53,11 @@ function etype_wire_content_views_query_alter($view, $query) {
     $query->addWhere(1, 'wire_node.site', "%$site%", 'NOT LIKE');
     $orStatement = '';
     $query->group_operator = 'OR';
-    foreach ($groups as $group) {
-      $val = key($group);
-      if ($val == $group) {
+    var_dump($groups);
+    exit;
+    foreach ($groups as $k => $v) {
+      $val = $k;
+      if ($val == $v) {
         $orStatement = db_or()->condition('wire_node.cluster', "%$val%", 'LIKE');
       }
     }
