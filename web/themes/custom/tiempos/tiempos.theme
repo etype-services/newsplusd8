@@ -43,7 +43,6 @@ function tiempos_preprocess_page(&$variables) {;
  * @param $variables
  */
 function tiempos_preprocess_block(&$variables) {
-  echo $variables['base_plugin_id'];
   if (isset($variables['elements']['#id'])) {
     switch ($variables['elements']['#id']) {
       /* Add classes to some blocks. */
