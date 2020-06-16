@@ -409,6 +409,8 @@ function newsplus_preprocess_node(&$variables) {
 
 /**
  * Implements hook_preprocess_block() for block.html.twig.
+ *
+ * @param $variables
  */
 function newsplus_preprocess_block(&$variables) {
   // Add a clearfix class to system branding blocks.
@@ -418,6 +420,7 @@ function newsplus_preprocess_block(&$variables) {
   $variables['date'] = date('Y');
   $variables['site_name'] = $site_name = Drupal::config('system.site')->get('name');
 
+  /* Copied from system_preprocess_block - why is it necessary here? */
   switch ($variables['base_plugin_id']) {
     case 'system_branding_block':
       $variables['site_logo'] = '';
@@ -435,7 +438,6 @@ function newsplus_preprocess_block(&$variables) {
         ];
       }
       break;
-
   }
 }
 
