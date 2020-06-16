@@ -1,0 +1,11 @@
+.fc {
+  font-size: 0.8rem!important;
+}
+
+.fc-center {
+  margin-top: 0.75rem;
+}
+
+.fc .fc-toolbar>*>* {
+  margin-left: 0!important;
+}

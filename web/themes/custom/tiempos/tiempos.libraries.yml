@@ -112,3 +112,9 @@ classified:
   version: VERSION
   js:
     js/classified.js: {}
+
+fullcalendar:
+  version: VERSION
+  css:
+    theme:
+      css/fullcalendar.css: { weight: 999 }
