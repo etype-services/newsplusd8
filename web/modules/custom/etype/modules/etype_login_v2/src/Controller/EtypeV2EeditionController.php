@@ -29,6 +29,8 @@ class EtypeV2EeditionController extends ControllerBase {
       $username = Drupal::currentUser()->getAccountName();
     }
     $url = (new EtypeV2VerifyAccountController)->getToken($username);
+    echo $url;
+    exit;
     return new TrustedRedirectResponse($url);
   }
 
