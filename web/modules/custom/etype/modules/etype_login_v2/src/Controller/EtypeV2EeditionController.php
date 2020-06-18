@@ -15,7 +15,7 @@ use Drupal\Core\Routing\TrustedRedirectResponse;
 class EtypeV2EeditionController extends ControllerBase {
 
   /**
-   * Returns a renderable array.
+   * Returns a TrustedRedirectResponse.
    *
    * @param int $pubId
    *   the Id of the publication.
@@ -31,6 +31,7 @@ class EtypeV2EeditionController extends ControllerBase {
     }
     $url = (new EtypeV2VerifyAccountController)->getToken($username);
     $response = new TrustedRedirectResponse($url);
+    /* We do not want the response cached */
     $cacheable_metadata = new CacheableMetadata();
     $cacheable_metadata->setCacheMaxAge(0);
     $response->addCacheableDependency($cacheable_metadata);
