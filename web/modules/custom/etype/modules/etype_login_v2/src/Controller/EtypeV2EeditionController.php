@@ -21,7 +21,7 @@ class EtypeV2EeditionController extends ControllerBase {
    *   the Id of the publication.
    *
    * @return \Drupal\Core\Routing\TrustedRedirectResponse
-   *   the url to go to
+   *   Redirect to external uri.
    */
   public function gotoEedition($pubId = NULL) {
     $username = 'invalid';
