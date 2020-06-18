@@ -3,6 +3,7 @@
 namespace Drupal\etype_login_v2\Controller;
 
 use Drupal;
+use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Routing\TrustedRedirectResponse;
 
@@ -19,6 +20,8 @@ class EtypeV2EeditionController extends ControllerBase {
    * @param int $pubId
    *   the Id of the publication.
    *
+   * @return \Drupal\Core\Routing\TrustedRedirectResponse
+   *   the url to go to
    */
   public function gotoEedition($pubId = NULL) {
     $username = 'invalid';
@@ -27,9 +30,13 @@ class EtypeV2EeditionController extends ControllerBase {
       $username = Drupal::currentUser()->getAccountName();
     }
     $url = (new EtypeV2VerifyAccountController)->getToken($username);
-    echo $url . "\n";
-    echo "<a href=\"$url\" target=\"_blank\">$url</a>";
-    return new TrustedRedirectResponse($url);
+    // echo $url . "\n";
+    // echo "<a href=\"$url\" target=\"_blank\">$url</a>";
+    $response = new TrustedRedirectResponse($url);
+    $cacheable_metadata = new CacheableMetadata();
+    $cacheable_metadata->setCacheMaxAge(0);
+    $response->addCacheableDependency($cacheable_metadata);
+    return $response;
   }
 
 }
