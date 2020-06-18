@@ -30,8 +30,6 @@ class EtypeV2EeditionController extends ControllerBase {
       $username = Drupal::currentUser()->getAccountName();
     }
     $url = (new EtypeV2VerifyAccountController)->getToken($username);
-    // echo $url . "\n";
-    // echo "<a href=\"$url\" target=\"_blank\">$url</a>";
     $response = new TrustedRedirectResponse($url);
     $cacheable_metadata = new CacheableMetadata();
     $cacheable_metadata->setCacheMaxAge(0);
