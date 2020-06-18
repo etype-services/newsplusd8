@@ -29,7 +29,7 @@ class EtypeV2EeditionController extends ControllerBase {
     $url = (new EtypeV2VerifyAccountController)->getToken($username);
     echo $url . "\n";
     echo "<a href=\"$url\" target=\"_blank\">$url</a>";
-    //return new TrustedRedirectResponse($url);
+    return new TrustedRedirectResponse($url);
   }
 
 }
