@@ -19,8 +19,6 @@ class EtypeV2EeditionController extends ControllerBase {
    * @param int $pubId
    *   the Id of the publication.
    *
-   * @return \Drupal\Core\Routing\TrustedRedirectResponse
-   *   The redirect response.
    */
   public function gotoEedition($pubId = NULL) {
     $username = 'invalid';
@@ -29,9 +27,10 @@ class EtypeV2EeditionController extends ControllerBase {
       $username = Drupal::currentUser()->getAccountName();
     }
     $url = (new EtypeV2VerifyAccountController)->getToken($username);
-    echo $url;
-    exit;
-    return new TrustedRedirectResponse($url);
+    return [
+      '#markup' => "<a href=\"$url\" target=\"_blank\">$url</a>"
+    ];
+    //return new TrustedRedirectResponse($url);
   }
 
 }
