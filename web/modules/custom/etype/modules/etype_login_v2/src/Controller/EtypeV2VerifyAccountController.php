@@ -14,9 +14,8 @@ use SoapClient;
 class EtypeV2VerifyAccountController extends ControllerBase {
 
   /**
-   * Returns SOAP response.
+   * Returns a verified url for the subscriber with an access token.
    *
-   * A *logged in* url for the subscriber.
    * This is used to open the etypeservices page for the paper.
    *
    * @param string $username
