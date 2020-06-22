@@ -187,7 +187,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("../images/loading.gif");
+    background: url("../images/loading.gif") no-repeat center;
     img {
       visibility: hidden;
       width: auto;
