@@ -4,7 +4,7 @@
     Drupal.behaviors.tiemposHomePage = {
         attach: function (context, settings) {
             let imageFixer = function () {
-                $(".front-page-sections").once("tiemposHomePage").each(function () {
+                $(".front-page-sections").each(function () {
                     let obj = this;
                     let height;
                     let heights = [];
