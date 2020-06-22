@@ -25,7 +25,7 @@
                     }
                 });
             };
-            imagesLoaded().done( function( instance ) {
+            $(".region-content").imagesLoaded().done( function( instance ) {
                 console.log('all images successfully loaded');
             });
             $(window).resize(function () {
