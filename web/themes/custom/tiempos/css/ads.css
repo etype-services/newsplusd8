@@ -1,6 +1,6 @@
 /* Center column for tiempos theme */
-/* DFP Blocks. */
-.block-dfp {
+/* DFP and Ad Blocks. */
+.block-dfp, div[class*=advertisement] {
   display: flex;
   justify-content: center;
 }
@@ -59,7 +59,7 @@
 }
 
 /* fairly arbitrary width */
-@media screen and (max-width: 1087px) {
+@media screen and (max-width: 1023px) {
   .region-content .network-ad {
     display: block;
   }
