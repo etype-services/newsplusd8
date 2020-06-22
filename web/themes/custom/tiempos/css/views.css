@@ -196,6 +196,7 @@
   align-items: center;
   justify-content: center;
   background: url("../images/loading.gif") no-repeat center;
+  background-size: 50%;
 }
 .front-page-sections .image-container img {
   visibility: hidden;
