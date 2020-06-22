@@ -92,20 +92,18 @@
 .block-views-blockspecial-sections-block-1,
 .block-views-blockspecial-sections-block-2 {
   .view-content {
-    display: flex;
     margin-left: -$column-gap;
     margin-right: -$column-gap;
-  }
-  .view-content > div {
-    @include column;
-    /* For Fields in Views where there is no image */
-    align-content: flex-start;
-    /* Override defaults - we want the last child to have the same margin, since these are horizontal. */
-    margin-bottom: 1rem!important;
-    /* For Special Sections, might have adverse effects elsewhere. */
-    div {
-      flex: 1 1 100%;
-    }
+    display: grid;
+    grid-template-columns: 24% 24% 24% 24%;
+    grid-gap: $column-gap;
+    > div {
+      @include column;
+      /* For Fields in Views where there is no image */
+      align-content: flex-start;
+      /* Override defaults - we want the last child to have the same margin, since these are horizontal. */
+      margin-bottom: 1rem!important;
+      justify-content: center;
   }
 }
 

@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 (function ($, Drupal) {
     "use strict";
     Drupal.behaviors.tiemposHomePage = {
@@ -22,7 +23,7 @@
                 });
             };
             imageFixer();
-            $(window).resize(function() {
+            $(window).resize(function () {
                 imageFixer();
             });
         }
