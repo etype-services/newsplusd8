@@ -6,6 +6,12 @@
   justify-content: center;
 }
 
+.region-leaderboard {
+  div[id*='blueorchid'] {
+    margin-bottom: calc(#{$column-gap} * 2);
+  }
+}
+
 /* Advertisement Blocks. */
 .view-advertisements {
   .views-row {
@@ -47,7 +53,6 @@
 }
 
 /* Network ads */
-
 /* Rectangular ads in main column */
 .region-content .network-ad {
   display: inline-block;

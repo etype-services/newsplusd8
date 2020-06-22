@@ -5,6 +5,10 @@
   justify-content: center;
 }
 
+.region-leaderboard div[id*=blueorchid] {
+  margin-bottom: calc(0.75rem * 2);
+}
+
 /* Advertisement Blocks. */
 .view-advertisements .views-row {
   display: flex;
