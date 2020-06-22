@@ -1,7 +1,7 @@
 @import "./vars";
 
 /* DFP and Ad Blocks. */
-.block-dfp, div[class*='advertisement']  {
+.block-dfp, div[class*='advertisement'], div[id*='blueorchid']  {
   display: flex;
   justify-content: center;
 }
