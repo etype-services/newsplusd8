@@ -116,7 +116,6 @@
     display: grid;
     grid-template-columns: 24% 24% 24% 24%;
     grid-gap: $column-gap;
-
     > div {
       @include column;
       /* For Fields in Views where there is no image */
