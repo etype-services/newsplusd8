@@ -14,7 +14,7 @@
                         // console.log(height);
                         heights.push(parseInt(height));
                     });
-                    // console.log(heights);
+                    console.log(heights);
                     maxHeight = Math.min.apply(Math, heights);
                     // console.log(maxHeight);
                     if (maxHeight > 0) {
