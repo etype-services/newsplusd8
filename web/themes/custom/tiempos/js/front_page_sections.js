@@ -20,7 +20,7 @@
                     if (maxHeight > 0) {
                         $(".image-container img", obj).css({
                             height: maxHeight,
-                            visibility: "show"
+                            visibility: "visible"
                         });
                     }
                 });
