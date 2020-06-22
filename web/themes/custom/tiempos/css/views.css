@@ -140,10 +140,12 @@
 .block-views-blockspecial-sections-block-1 .view-content > div a:nth-child(2),
 .block-views-blockspecial-sections-block-2 .view-content > div a:nth-child(2) {
   text-align: center;
+  font-weight: 600;
 }
 .block-views-blockspecial-sections-block-1 .view-content > div .views-field-title a,
 .block-views-blockspecial-sections-block-2 .view-content > div .views-field-title a {
   text-align: center;
+  font-weight: 600;
 }
 
 /* Taxonomy Pages. */
