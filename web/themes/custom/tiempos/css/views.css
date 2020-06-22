@@ -197,6 +197,7 @@
   justify-content: center;
 }
 .front-page-sections .image-container img {
+  visibility: hidden;
   width: auto;
 }
 

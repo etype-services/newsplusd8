@@ -19,7 +19,8 @@
                     console.log('maxHeight: ' + maxHeight);
                     if (maxHeight > 0) {
                         $(".image-container img", obj).css({
-                            height: maxHeight
+                            height: maxHeight,
+                            visibility: "visible"
                         });
                     }
                 });
