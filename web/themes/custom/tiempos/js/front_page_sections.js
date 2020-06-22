@@ -4,21 +4,21 @@
     Drupal.behaviors.tiemposHomePage = {
         attach: function (context, settings) {
             let imageFixer = function () {
-                $(".front-page-sections").each(function () {
+                $(".front-page-sections").once("tiemposHomePage").each(function () {
                     let obj = this;
                     let height;
                     let heights = [];
                     let maxHeight;
                     $("img", obj).each(function () {
                         height = $(this).height();
-                        // console.log(height);
+                        console.log(height);
                         heights.push(parseInt(height));
                     });
                     // console.log(heights);
                     maxHeight = Math.min.apply(Math, heights);
                     // console.log(maxHeight);
                     if (maxHeight > 0) {
-                        $(".image-container img", obj).css("height", maxHeight);
+                        $(".image-container img", obj).css("height", maxHeight + 'px');
                     }
                 });
             };

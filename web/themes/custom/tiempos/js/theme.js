@@ -1,22 +1,26 @@
+/* jshint esversion: 6 */
 function getIEVersion() {
-    var sAgent = window.navigator.userAgent;
-    var Idx = sAgent.indexOf("MSIE");
+    "use strict";
+    let sAgent = window.navigator.userAgent;
+    let iDx = sAgent.indexOf("MSIE");
+    let version;
     // If IE, return version number.
-    if (Idx > 0) {
-        return parseInt(sAgent.substring(Idx + 5, sAgent.indexOf(".", Idx)));
+    if (iDx > 0) {
+        version = parseInt(sAgent.substring(iDx + 5, sAgent.indexOf(".", iDx)));
     } else if (!!navigator.userAgent.match(/Trident\/7\./)) {
         // If IE 11 then look for Updated user agent string.
-        return 11;
+        version = '11';
     } else {
-        return 0; // It is not IE
+        version = 0; // It is not IE
     }
+    return version;
 }
 
 (function ($, Drupal) {
     "use strict";
     Drupal.behaviors.tiemposBehavior = {
         attach: function (context, settings) {
-            var caption = $(".page-node-type-feature .is-three-quarters img").attr("alt");
+            let caption = $(".page-node-type-feature .is-three-quarters img").attr("alt");
             // var w = $("#main-nav > .navbar > .navbar-end").width();
             // var t = $("#main-navbar-menu").children().length;
             // var check = w > 40 ? 10 : 11;
@@ -35,8 +39,8 @@ function getIEVersion() {
 
             /* Search form. (No ids because the form is repeated.) */
             $(".search-edit-submit").once("tiemposBehavior").click(function () {
-                var keys = $('[data-drupal-selector="search-edit-keys"]');
-                var reg = /[a-z]+/;
+                let keys = $('[data-drupal-selector="search-edit-keys"]');
+                let reg = /[a-z]+/;
                 if (keys.hasClass("is-really-invisible")) {
                     keys.removeClass("is-really-invisible").focus();
                 } else {
