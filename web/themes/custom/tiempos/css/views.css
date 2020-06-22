@@ -195,6 +195,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-image: url("../images/loading.gif");
 }
 .front-page-sections .image-container img {
   visibility: hidden;
