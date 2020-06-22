@@ -27,6 +27,7 @@
             };
             $(".region-content").imagesLoaded().done( function( instance ) {
                 console.log('all images successfully loaded');
+                imageFixer();
             });
             $(window).resize(function () {
                 imageFixer();
