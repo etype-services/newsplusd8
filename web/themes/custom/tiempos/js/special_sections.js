@@ -1,8 +1,9 @@
+/* jshint esversion: 6 */
 (function ($, Drupal) {
     "use strict";
     Drupal.behaviors.tiemposSections = {
         attach: function (context, settings) {
-            var text;
+            let text;
             /* Add aria-label to special sections image links for ada compliance */
             $(".view-special-sections .view-content div").once("tiemposSections").each(function () {
                 text = $(this).children("a:nth-child(2)").html();

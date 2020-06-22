@@ -25,7 +25,9 @@
                     }
                 });
             };
-            imageFixer();
+            $('.region-content').imagesLoaded(function () {
+                imageFixer();
+            });
             $(window).resize(function () {
                 imageFixer();
             });

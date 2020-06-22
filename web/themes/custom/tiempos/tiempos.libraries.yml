@@ -74,6 +74,16 @@ owl.carousel:
   js:
     node_modules/owl.carousel/dist/owl.carousel.min.js: {}
 
+imagesloaded:
+  remote: //registry.npmjs.org/imagesloaded
+  version: 4.1.4
+  license:
+    name: MIT
+    url: //imagesloaded.desandro.com/#mit-license
+    gpl-compatible: true
+  js:
+    node_modules/imagesloaded/imagesloaded.pkgd.min.js: {}
+
 breaking_news:
   version: VERSION
   js:
