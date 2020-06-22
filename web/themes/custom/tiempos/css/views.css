@@ -88,19 +88,15 @@
   margin-bottom: 0;
 }
 
-/* Front Page Sections, Business Directory, and Special Sections (don't use id, for sub-themes). */
+/* Front Page Sections, Business Directory (don't use id, for sub-themes). */
 .front-page-sections .view-content,
-.block-views-blockbusiness-directory-block-1 .view-content,
-.block-views-blockspecial-sections-block-1 .view-content,
-.block-views-blockspecial-sections-block-2 .view-content {
+.block-views-blockbusiness-directory-block-1 .view-content {
   display: flex;
   margin-left: -0.75rem;
   margin-right: -0.75rem;
 }
 .front-page-sections .view-content > div,
-.block-views-blockbusiness-directory-block-1 .view-content > div,
-.block-views-blockspecial-sections-block-1 .view-content > div,
-.block-views-blockspecial-sections-block-2 .view-content > div {
+.block-views-blockbusiness-directory-block-1 .view-content > div {
   display: flex;
   flex-basis: 0;
   flex-grow: 1;
@@ -114,10 +110,32 @@
   /* For Special Sections, might have adverse effects elsewhere. */
 }
 .front-page-sections .view-content > div div,
-.block-views-blockbusiness-directory-block-1 .view-content > div div,
-.block-views-blockspecial-sections-block-1 .view-content > div div,
-.block-views-blockspecial-sections-block-2 .view-content > div div {
+.block-views-blockbusiness-directory-block-1 .view-content > div div {
   flex: 1 1 100%;
+}
+
+/* Special Sections (don't use id, for sub-themes). */
+.block-views-blockspecial-sections-block-1 .view-content,
+.block-views-blockspecial-sections-block-2 .view-content {
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+  display: grid;
+  grid-template-columns: 24% 24% 24% 24%;
+  grid-gap: 0.75rem;
+}
+.block-views-blockspecial-sections-block-1 .view-content > div,
+.block-views-blockspecial-sections-block-2 .view-content > div {
+  display: flex;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-wrap: wrap;
+  padding: 0.75rem;
+  /* For Fields in Views where there is no image */
+  align-content: flex-start;
+  /* Override defaults - we want the last child to have the same margin, since these are horizontal. */
+  margin-bottom: 1rem !important;
+  justify-content: center;
 }
 
 /* Taxonomy Pages. */

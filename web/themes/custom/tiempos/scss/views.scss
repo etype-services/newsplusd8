@@ -116,16 +116,17 @@
     display: grid;
     grid-template-columns: 24% 24% 24% 24%;
     grid-gap: $column-gap;
+
     > div {
       @include column;
       /* For Fields in Views where there is no image */
       align-content: flex-start;
       /* Override defaults - we want the last child to have the same margin, since these are horizontal. */
-      margin-bottom: 1rem!important;
+      margin-bottom: 1rem !important;
       justify-content: center;
     }
   }
-
+}
 
 /* Taxonomy Pages. */
 .view-taxonomy-term, .view-classified {
