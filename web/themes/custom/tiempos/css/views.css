@@ -137,6 +137,11 @@
   margin-bottom: 1rem !important;
   justify-content: center;
 }
+.block-views-blockspecial-sections-block-1 .view-content > div a:nth-child(1),
+.block-views-blockspecial-sections-block-2 .view-content > div a:nth-child(1) {
+  text-align: center;
+  font-size: 0.75rem;
+}
 
 /* Taxonomy Pages. */
 .view-taxonomy-term, .view-classified {
@@ -260,7 +265,7 @@
     display: none !important;
   }
 }
-@media screen and (min-width: 1088px) {
+@media screen and (min-width: 1024px) {
   /* Section Pages Formatting */
   .view-taxonomy-term article.node--type-feature.node--view-mode-teaser,
 .view-taxonomy-term article.node--type-article.node--view-mode-teaser {

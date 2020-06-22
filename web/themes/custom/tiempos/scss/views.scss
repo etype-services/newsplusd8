@@ -124,6 +124,12 @@
       /* Override defaults - we want the last child to have the same margin, since these are horizontal. */
       margin-bottom: 1rem !important;
       justify-content: center;
+      a {
+        &:nth-child(1) {
+          text-align: center;
+          font-size: $size-7;
+        }
+      }
     }
   }
 }
