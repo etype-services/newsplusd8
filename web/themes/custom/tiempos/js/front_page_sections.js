@@ -18,7 +18,10 @@
                     maxHeight = Math.min.apply(Math, heights);
                     console.log('maxHeight: ' + maxHeight);
                     if (maxHeight > 0) {
-                        $(".image-container img", obj).css("height", maxHeight);
+                        $(".image-container img", obj).css({
+                            height: maxHeight,
+                            display: "block",
+                        });
                     }
                 });
             };
