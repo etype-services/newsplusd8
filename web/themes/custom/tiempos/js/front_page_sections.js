@@ -11,12 +11,12 @@
                     let maxHeight;
                     $("img", obj).each(function () {
                         height = $(this).height();
-                        console.log(height);
+                        // console.log(height);
                         heights.push(parseInt(height));
                     });
-                    console.log(heights);
+                    // console.log(heights);
                     maxHeight = Math.min.apply(Math, heights);
-                    console.log(maxHeight);
+                    // console.log(maxHeight);
                     if (maxHeight > 0) {
                         $(".image-container img", obj).css("height", maxHeight);
                     }
