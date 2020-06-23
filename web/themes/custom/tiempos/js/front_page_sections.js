@@ -1,7 +1,7 @@
 /* jshint esversion: 6 */
 (function ($, Drupal) {
     "use strict";
-    Drupal.behaviors.tiemposHomePage = {
+    Drupal.behaviors.tiemposFrontPageSections = {
         attach: function (context, settings) {
             let showImages = function () {
                 $(".image-container img").css({
