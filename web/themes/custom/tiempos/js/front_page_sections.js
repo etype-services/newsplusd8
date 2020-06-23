@@ -3,6 +3,12 @@
     "use strict";
     Drupal.behaviors.tiemposHomePage = {
         attach: function (context, settings) {
+            let showImages = function () {
+                $(".image-container img").css({
+                    visibility: "visible"
+                });
+            };
+
             let imageFixer = function () {
                 $(".front-page-sections").each(function () {
                     let obj = this;
@@ -32,9 +38,12 @@
                 // console.log('All images successfully loaded');
                 imageFixer();
             });
+
             $(window).resize(function () {
                 imageFixer();
             });
+
+            setTimeout(showImages, 1000);
         }
     };
 })(jQuery, Drupal);
