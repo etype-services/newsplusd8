@@ -23,6 +23,9 @@
                             visibility: "visible"
                         });
                     }
+                    $(".image-container").css({
+                        background: "none"
+                    });
                 });
             };
             $(".region-content").imagesLoaded().done(function(instance) {
