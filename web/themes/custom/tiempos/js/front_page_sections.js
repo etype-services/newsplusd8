@@ -44,7 +44,7 @@
             });
 
             // Make sure images show, as sometimes buggy ad scripts seem to prevent the script completing.
-            setTimeout(showImages, 1000);
+            setTimeout(showImages, 2000);
         }
     };
 })(jQuery, Drupal);
