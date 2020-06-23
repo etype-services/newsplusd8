@@ -34,7 +34,7 @@
                     });
                 });
             };
-            $(".region-content").imagesLoaded().done(function(instance) {
+            $(".image-container").imagesLoaded().done(function(instance) {
                 // console.log('All images successfully loaded');
                 imageFixer();
             });
@@ -43,6 +43,7 @@
                 imageFixer();
             });
 
+            // Make sure images show, as sometimes buggy ad scripts seem to prevent the script completing.
             setTimeout(showImages, 1000);
         }
     };
