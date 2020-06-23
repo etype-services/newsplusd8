@@ -34,7 +34,7 @@
                     });
                 });
             };
-            $(".image-container").imagesLoaded().done(function(instance) {
+            $(".front-page-sections").imagesLoaded().done(function(instance) {
                 // console.log('All images successfully loaded');
                 imageFixer();
             });
