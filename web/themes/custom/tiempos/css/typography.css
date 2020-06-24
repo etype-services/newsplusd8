@@ -46,8 +46,9 @@ a:hover {
 
 .submitted {
   color: #363636;
-  font-size: 0.6rem;
-  margin-top: 0.2rem;
+  font-size: 0.8rem;
+  margin: 0.1rem 0;
+  line-height: 1.1rem;
 }
 
 .node--view-mode-full .field--name-field-subhead {
