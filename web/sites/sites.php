@@ -3,8 +3,7 @@
 
 /* testing */
 // $sites['newsplusd8.local'] = 'newsplusd8.etypegoogle7.com';
-//$sites['local.drupal8.com'] = 'local.drupal8.com';
-$sites['local.drupal8.com'] = 'fredericksburgstandard.etypegoogle7.com';
+$sites['local.drupal8.com'] = 'local.drupal8.com';
 $sites['www.etypetest.com'] = 'etypetest.etypegoogle7.com';
 
 /* for *drall* updates */
