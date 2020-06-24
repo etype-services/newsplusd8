@@ -1,20 +1,19 @@
 /* jshint esversion: 6 */
-
 (function ($, Drupal) {
     "use strict";
     Drupal.behaviors.tiemposFrontPageSections = {
         attach: function (context, settings) {
 
-            function showImages () {
+            let showImages = function () {
                 $(".image-container").css({
                     background: "none"
                 });
                 $(".image-container img").css({
                     visibility: "visible"
                 });
-            }
+            };
 
-            function imageFixer () {
+            let imageFixer = function () {
                 $(".front-page-sections").each(function () {
                     let obj = this;
                     let height;
@@ -39,7 +38,6 @@
                     });
                 });
             };
-
             $(".front-page-sections").imagesLoaded().done(function(instance) {
                 // console.log('All images successfully loaded');
                 imageFixer();
