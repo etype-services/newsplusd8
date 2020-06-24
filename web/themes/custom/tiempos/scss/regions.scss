@@ -89,8 +89,8 @@
 }
 
 @media screen and (max-width: $desktop - 1px) {
+
   .region-header-right {
-    /* Fine tuning weather widget */
     padding: 0.5rem calc(#{$column-gap} * 2) 0 $column-gap;
   }
 

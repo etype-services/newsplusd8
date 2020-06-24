@@ -64,7 +64,7 @@
   font-size: 0.75rem;
 }
 
-@media screen and (min-width: 1088px) {
+@media screen and (min-width: 1024px) {
   .user-menu {
     justify-content: flex-end;
   }
@@ -126,7 +126,7 @@
 }
 
 /* Tablet */
-@media screen and (max-width: 1087px) {
+@media screen and (max-width: 1023px) {
   #main-nav .navbar {
     /* Make sure navbar completely hidden */
     min-height: 0;
@@ -200,7 +200,7 @@
   }
 }
 /* Mobile */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1023px) {
   #main-nav .navbar {
     border-top: 0;
     /* Social Icons */
