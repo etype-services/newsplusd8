@@ -711,28 +711,28 @@ abbr.ajax-changed {
 }
 
 /* Services and Sections */
-#block-views-block-special-sections-block-1 .flex-grid, #block-views-block-special-sections-block-1-2 .flex-grid {
+div [id*=block-views-block-special-sections-block] .flex-grid {
   display: flex;
   justify-content: space-evenly;
   padding-bottom: 3rem;
   flex-wrap: wrap;
   position: relative;
 }
-#block-views-block-special-sections-block-1 .flex-grid div.views-row, #block-views-block-special-sections-block-1-2 .flex-grid div.views-row {
+div [id*=block-views-block-special-sections-block] .flex-grid div.views-row {
   margin-bottom: 0.75rem;
 }
-#block-views-block-special-sections-block-1 .flex-grid div.views-row:first-child, #block-views-block-special-sections-block-1-2 .flex-grid div.views-row:first-child {
+div [id*=block-views-block-special-sections-block] .flex-grid div.views-row:first-child {
   margin-left: 0;
 }
-#block-views-block-special-sections-block-1 .flex-grid div.views-row img, #block-views-block-special-sections-block-1-2 .flex-grid div.views-row img {
+div [id*=block-views-block-special-sections-block] .flex-grid div.views-row img {
   border: 1px solid #333;
 }
-#block-views-block-special-sections-block-1 .flex-grid .more-link, #block-views-block-special-sections-block-1-2 .flex-grid .more-link {
+div [id*=block-views-block-special-sections-block] .flex-grid .more-link {
   position: absolute;
   right: 0.75rem;
   bottom: 0;
 }
-#block-views-block-special-sections-block-1 .flex-grid .more-link svg, #block-views-block-special-sections-block-1-2 .flex-grid .more-link svg {
+div [id*=block-views-block-special-sections-block] .flex-grid .more-link svg {
   position: relative;
   top: 1px;
 }

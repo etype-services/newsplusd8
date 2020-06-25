@@ -72,7 +72,7 @@
 }
 
 /* Services and Sections */
-#block-views-block-special-sections-block-1, #block-views-block-special-sections-block-1-2 {
+div [id*='block-views-block-special-sections-block'] {
   .flex-grid {
     display: flex;
     justify-content: space-evenly;
