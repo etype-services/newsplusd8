@@ -8,6 +8,7 @@
             let flexslider = $("#flexslider-1 > .slides li");
             let len = flexslider.length;
             let img = $(".page-node-type-article article .field--name-body img, .page-node-type-article article .field--type-image img");
+            console.log ($('#flex-caption').length);
             if ($('#flex-caption').length === 0) {
                 img.each(function () {
                     let text = $(this).attr("alt");
