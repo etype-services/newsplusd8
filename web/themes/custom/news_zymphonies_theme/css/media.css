@@ -208,9 +208,6 @@
   .main-menu .col-md-12 .region-primary-menu div[id*=mainnavigation] {
     margin-bottom: 0;
   }
-  .main-menu .col-md-12 .region-primary-menu div[id*=mainnavigation] #superfish-main-accordion li:hover {
-    color: #fff;
-  }
   .main-menu .col-md-12 .region-primary-menu div[id*=mainnavigation] #superfish-main-accordion li a {
     font-family: "Roboto", sans-serif;
     color: #fff;
@@ -220,6 +217,7 @@
   }
   .main-menu .col-md-12 .region-primary-menu div[id*=mainnavigation] #superfish-main-accordion li a:hover {
     color: #ee3224;
+    background-color: #fff;
   }
   .main-menu .col-md-12 .region-primary-menu div[id*=mainnavigation] .sf-accordion-toggle {
     display: none;

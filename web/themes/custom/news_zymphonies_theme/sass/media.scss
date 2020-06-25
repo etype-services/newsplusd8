@@ -248,9 +248,6 @@
           margin-bottom: 0;
           #superfish-main-accordion {
             li {
-              &:hover {
-                color: $desktopMenuTextColor;
-              }
               a {
                 font-family: "Roboto", sans-serif;
                 color: $desktopMenuTextColor;
@@ -259,6 +256,7 @@
                 border-radius: 4px;
                 &:hover {
                   color: #ee3224;
+                  background-color: $desktopMenuTextColor;;
                 }
               }
             }
