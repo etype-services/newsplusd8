@@ -9,7 +9,7 @@
             let len = flexslider.length;
             let img = $(".page-node-type-article article .field--name-body img, .page-node-type-article article .field--type-image img");
             console.log ($('#flex-caption').length);
-            if ($('#flex-caption').length === 0) {
+            if (!$('#flex-caption').length) {
                 img.each(function () {
                     let text = $(this).attr("alt");
                     let width = $(this).width();
