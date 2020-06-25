@@ -9,3 +9,7 @@ a {
 a:hover {
   color: #5B102E;
 }
+
+.slides {
+  background-image: none;
+}
