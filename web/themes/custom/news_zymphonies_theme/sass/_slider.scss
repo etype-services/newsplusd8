@@ -19,7 +19,7 @@
     font-size: 1em;
     line-height: 150%;
     background: rgba(255, 255, 255, 0.68);
-    padding-bottom: 1rem;
+    padding: 1rem;
   }
 
   h2 {
@@ -28,13 +28,11 @@
     text-transform: uppercase;
     margin: 0;
     line-height: 100%;
-    padding: 10px;
   }
 
   .slider-description {
     display: inline-block;
     clear: both;
-    padding: 0 10px;
     margin-bottom: 0;
     a {
       color: #333;

@@ -880,7 +880,7 @@ div [id*=block-views-block-special-sections-block] .flex-grid .more-link svg {
   font-size: 1em;
   line-height: 150%;
   background: rgba(255, 255, 255, 0.68);
-  padding-bottom: 1rem;
+  padding: 1rem;
 }
 .flexslider h2 {
   font-size: 1.3em;
@@ -888,12 +888,10 @@ div [id*=block-views-block-special-sections-block] .flex-grid .more-link svg {
   text-transform: uppercase;
   margin: 0;
   line-height: 100%;
-  padding: 10px;
 }
 .flexslider .slider-description {
   display: inline-block;
   clear: both;
-  padding: 0 10px;
   margin-bottom: 0;
 }
 .flexslider .slider-description a {
@@ -1356,7 +1354,7 @@ article.node--view-mode-teaser .node__content .content-container h2 {
   margin-top: 0.75rem;
   display: grid;
   grid-template-columns: 15% auto;
-  align-items: center;
+  align-items: baseline;
 }
 #block-views-block-breaking-news-block-block-1 .content > div > div {
   display: flex;
