@@ -237,7 +237,7 @@
   /* Main menu on mobile */
   .main-menu {
     position: absolute;
-    top: 24rem;
+    top: 175px;
     left: 0;
     z-index: 999;
     width: 100%;
@@ -254,6 +254,7 @@
                 border-bottom: 1px solid #ec5648;
                 background-color: $desktopMenuBackgroundColor;
                 border-radius: 4px;
+                text-align: center;
                 &:hover {
                   color: #ee3224;
                   background-color: $desktopMenuTextColor;;

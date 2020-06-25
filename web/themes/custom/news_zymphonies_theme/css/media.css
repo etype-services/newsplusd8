@@ -197,7 +197,7 @@
   /* Main menu on mobile */
   .main-menu {
     position: absolute;
-    top: 24rem;
+    top: 175px;
     left: 0;
     z-index: 999;
     width: 100%;
@@ -214,6 +214,7 @@
     border-bottom: 1px solid #ec5648;
     background-color: #19232d;
     border-radius: 4px;
+    text-align: center;
   }
   .main-menu .col-md-12 .region-primary-menu div[id*=mainnavigation] #superfish-main-accordion li a:hover {
     color: #ee3224;
