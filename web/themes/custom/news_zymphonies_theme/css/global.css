@@ -1377,6 +1377,19 @@ article.node--view-mode-teaser .node__content .content-container h2 {
   border-bottom: none;
 }
 
+#block-views-block-breaking-news-block-block-1 {
+  display: grid;
+  grid-template-columns: 15% auto;
+  align-items: center;
+}
+#block-views-block-breaking-news-block-block-1 .content > div > div {
+  display: flex;
+  justify-content: left;
+}
+#block-views-block-breaking-news-block-block-1 .views-row {
+  margin-right: 0.75rem;
+}
+
 .region-leaderboard-below-menu {
   margin-top: 2rem;
 }

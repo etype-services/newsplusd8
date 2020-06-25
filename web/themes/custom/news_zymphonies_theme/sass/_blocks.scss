@@ -13,3 +13,16 @@
     border-bottom: none;
   }
 }
+
+#block-views-block-breaking-news-block-block-1 {
+  display: grid;
+  grid-template-columns: 15% auto;
+  align-items: center;
+  .content > div > div {
+    display: flex;
+    justify-content: left;
+  }
+  .views-row {
+    margin-right: $column-gap;
+  }
+}
