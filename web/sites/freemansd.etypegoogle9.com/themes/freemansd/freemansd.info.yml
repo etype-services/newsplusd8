@@ -1,0 +1,61 @@
+name: Z1 for Freeman SD
+type: theme
+base theme: news_zymphonies_theme
+description: 'Freeman SD'
+version: 8.1.1
+core: 8.x
+core_version_requirement: ^8 || ^9
+
+#Regions
+regions:
+
+  #Header
+  header: 'Header'
+  contact_email: 'Contact email'
+  top_menu: 'Top menu'
+  search: 'Search'
+  header_ads: 'Header Ads'
+  primary_menu: 'Primary menu'
+  leaderboard_below_menu: 'Leaderboard Below Menu'
+
+  #Home Page
+  topwidget_first: 'Top first widget'
+  topwidget_second: 'Top second widget'
+  topwidget_third: 'Top third widget'
+
+  homepage: 'Home page'
+  leaderboard_below_content: 'Leaderboard Below Content'
+
+  #Global Region
+  highlighted: 'Highlighted'
+  page_title: 'Page title'
+  breadcrumb: 'Breadcrumb'
+  content: 'Content'
+  sidebar_first: 'Left sidebar'
+  sidebar_second: 'Right sidebar'
+
+  #Local Services Widgets
+  services: 'Local Services'
+
+  #Bottom Widgets
+  bottom_first: 'Bottom first widget'
+  bottom_second: 'Bottom second widget'
+  bottom_third: 'Bottom third widget'
+  bottom_forth: 'Bottom forth widget'
+
+  #Footer widgets
+  footer_first: 'Footer first widget'
+  footer_second: 'Footer second widget'
+  footer_third: 'Footer third widget'
+
+  #Leaderboard in Footer
+  leaderboard_footer: 'Leaderboard in Footer'
+
+  #Address
+  google_map: 'Google Map'
+  footer_menu: 'Footer Menu'
+
+  auto_hidden_block: 'Auto hidden blocks'
+
+libraries:
+  - freemansd/global-styling
