@@ -194,23 +194,27 @@
     margin-bottom: calc(0.75rem * 2);
   }
 
-  .region-primary-menu div[id*=mainnavigation] {
+  /* Main menu on mobile */
+  .main-menu .col-md-12 {
+    padding-left: 0;
+  }
+  .main-menu .col-md-12 .region-primary-menu div[id*=mainnavigation] {
     margin-bottom: 0;
   }
-  .region-primary-menu div[id*=mainnavigation] #superfish-main-accordion {
+  .main-menu .col-md-12 .region-primary-menu div[id*=mainnavigation] #superfish-main-accordion {
     margin-top: calc(0.75rem * 2);
     border-bottom: 20px solid #19232d;
   }
-  .region-primary-menu div[id*=mainnavigation] #superfish-main-accordion li a {
+  .main-menu .col-md-12 .region-primary-menu div[id*=mainnavigation] #superfish-main-accordion li a {
     font-family: "Roboto", sans-serif;
     color: #fff;
     border-bottom: 1px solid #ec5648;
     background-color: #19232d;
   }
-  .region-primary-menu div[id*=mainnavigation] #superfish-main-accordion li a:hover {
+  .main-menu .col-md-12 .region-primary-menu div[id*=mainnavigation] #superfish-main-accordion li a:hover {
     color: #ee3224;
   }
-  .region-primary-menu div[id*=mainnavigation] .sf-accordion-toggle {
+  .main-menu .col-md-12 .region-primary-menu div[id*=mainnavigation] .sf-accordion-toggle {
     display: none;
     visibility: hidden;
   }
