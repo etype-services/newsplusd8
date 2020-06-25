@@ -35,7 +35,7 @@
 }
 
 /* Services and Sections */
-div [id*='block-views-block-special-sections-block'] {
+div[id*='block-views-block-special-sections-block'] {
   .flex-grid {
     display: flex;
     justify-content: space-evenly;

@@ -234,7 +234,7 @@
     }
   }
   .region-primary-menu {
-    #block-mainnavigation {
+    div[id*='mainnavigation'] {
       margin-bottom: 0;
       #superfish-main-accordion {
         margin-top: calc(#{$column-gap} * 2);
