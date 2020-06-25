@@ -55,12 +55,12 @@
     margin: 0;
     background: none;
   }
-  .region-primary-menu div[id~=mainnavigation] {
+  .region-primary-menu div[id~='mainnavigation'] {
     margin-bottom: 0;
     /* Direct override of superfish.css */
   }
-  .region-primary-menu div[id~=mainnavigation] ul.sf-menu li:hover > ul,
-.region-primary-menu div[id~=mainnavigation] ul.sf-menu li.sfHover > ul {
+  .region-primary-menu div[id~='mainnavigation'] ul.sf-menu li:hover > ul,
+.region-primary-menu div[id~='mainnavigation'] ul.sf-menu li.sfHover > ul {
     top: 5rem;
   }
   .region-primary-menu ul {
