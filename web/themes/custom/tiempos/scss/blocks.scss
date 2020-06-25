@@ -91,6 +91,7 @@
     overflow: hidden;
     font-size: 1.2rem;
     align-items: center;
+    flex-wrap: wrap;
     .view-header {
       white-space: nowrap;
       margin-right: calc(#{$column-gap} / 2);
