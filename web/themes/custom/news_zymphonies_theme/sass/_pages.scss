@@ -14,6 +14,14 @@
 
   .region {
     padding: 10px;
+
+    &.region-topwidget-first {
+      padding-left: 0;
+    }
+
+    &.region-topwidget-third {
+      padding-right: 0;
+    }
   }
 
   ul {

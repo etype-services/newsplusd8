@@ -676,15 +676,6 @@ abbr.ajax-changed {
   margin-bottom: 30px;
 }
 
-/* Top Widgets */
-.region-topwidget-first {
-  padding-left: 0;
-}
-
-.region-topwidget-third {
-  padding-right: 0;
-}
-
 /* Services and Sections */
 div [id*=block-views-block-special-sections-block] .flex-grid {
   display: flex;
@@ -1102,6 +1093,12 @@ nav h2 {
 }
 .topwidget .region {
   padding: 10px;
+}
+.topwidget .region.region-topwidget-first {
+  padding-left: 0;
+}
+.topwidget .region.region-topwidget-third {
+  padding-right: 0;
 }
 .topwidget ul {
   margin: 0;
