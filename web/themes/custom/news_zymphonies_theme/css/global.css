@@ -1004,7 +1004,7 @@ nav h2 {
   display: none;
 }
 
-.region-primary-menu .menu-base-theme, .region-primary-menu #block-mainnavigation {
+.region-primary-menu .menu-base-theme, .region-primary-menu div [id*=mainnavigation] {
   background: none;
 }
 .region-primary-menu ul {
