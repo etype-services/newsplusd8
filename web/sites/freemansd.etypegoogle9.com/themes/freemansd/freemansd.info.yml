@@ -16,6 +16,7 @@ regions:
   search: 'Search'
   header_ads: 'Header Ads'
   primary_menu: 'Primary menu'
+  breaking_news: 'Breaking News'
   leaderboard_below_menu: 'Leaderboard Below Menu'
 
   #Home Page
