@@ -99,7 +99,7 @@ article {
       }
       .flex-caption {
         @include caption;
-        margin: auto;
+        margin: 0.75rem auto 0;
         width: fit-content;
       }
     }

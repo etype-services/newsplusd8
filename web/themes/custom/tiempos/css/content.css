@@ -93,7 +93,7 @@ article .node--view-mode-full .node__content h2 {
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   color: #0a0a0a;
-  margin: auto;
+  margin: 0.75rem auto 0;
   width: fit-content;
 }
 .page-node-type-article article .node__content .image-container {
@@ -273,7 +273,7 @@ article .node--view-mode-full .node__content h2 {
 }
 
 /* Wider screen overrides for Article nodes. */
-@media screen and (min-width: 1088px) {
+@media screen and (min-width: 1024px) {
   body:not(.page-node-type-feature) #main-nav .navbar {
     /* Can't use is-hidden-desktop because of Article formatting. */
   }

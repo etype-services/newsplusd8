@@ -1,4 +1,5 @@
 /* jshint esversion: 6 */
+/* Flexslider update June 25th 2020 makes this deprecated */
 (function ($, Drupal) {
     "use strict";
     Drupal.behaviors.tiemposArticle = {
