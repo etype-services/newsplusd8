@@ -32,7 +32,7 @@ nav h2 {
 }
 
 .region-primary-menu {
-  .menu-base-theme, div[id~='mainnavigation'] {
+  .menu-base-theme, div[id*='mainnavigation'] {
     background: none;
   }
   ul {
