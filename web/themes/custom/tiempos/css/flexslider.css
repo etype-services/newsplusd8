@@ -1,9 +1,15 @@
 /* Center column for tiempos theme */
 .flexslider {
   /* needs space for nav */
-  margin: 0 0 0.75rem 0; }
+  margin: 0 0 0.75rem 0;
+  /* Flexslider update June 25th 2020 seems to have broken something */
+}
+.flexslider .slides > li {
+  width: 100% !important;
+}
 
 .flex-direction-nav a {
-  height: 54px; }
+  height: 54px;
+}
 
 /*# sourceMappingURL=flexslider.css.map */

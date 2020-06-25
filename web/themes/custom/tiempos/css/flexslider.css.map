@@ -1,7 +1,1 @@
-{
-"version": 3,
-"mappings": ";AAEA,WAAY;EACV,yBAAyB;EACzB,MAAM,EAAE,aAAiB;;AAG3B,qBAAsB;EACpB,MAAM,EAAE,IAAI",
-"sources": ["../scss/flexslider.scss"],
-"names": [],
-"file": "flexslider.css"
-}
+{"version":3,"sourceRoot":"","sources":["../scss/vars.sass","../scss/flexslider.scss"],"names":[],"mappings":"AA+CA;AC7CA;AACE;EACA;AACA;;AACA;EACE;;;AAIJ;EACE","file":"flexslider.css"}

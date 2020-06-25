@@ -3,6 +3,10 @@
 .flexslider {
   /* needs space for nav */
   margin: 0 0 $column-gap 0;
+  /* Flexslider update June 25th 2020 seems to have broken something */
+  .slides > li {
+    width: 100%!important;
+  }
 }
 
 .flex-direction-nav a {
