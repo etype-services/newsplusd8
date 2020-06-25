@@ -1349,13 +1349,16 @@ article.node--view-mode-teaser .node__content .content-container h2 {
 
 #block-views-block-breaking-news-block-block-1 {
   margin-top: 0.75rem;
-  display: grid;
-  grid-template-columns: 15% auto;
+  display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
 }
 #block-views-block-breaking-news-block-block-1 .content > div > div {
   display: flex;
   justify-content: left;
+}
+#block-views-block-breaking-news-block-block-1 .title {
+  margin-right: 0.75rem;
 }
 #block-views-block-breaking-news-block-block-1 .views-row {
   margin-right: 0.75rem;

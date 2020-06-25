@@ -16,12 +16,15 @@
 
 #block-views-block-breaking-news-block-block-1 {
   margin-top: $column-gap;
-  display: grid;
-  grid-template-columns: 15% auto;
+  display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   .content > div > div {
     display: flex;
     justify-content: left;
+  }
+  .title {
+    margin-right: $column-gap;
   }
   .views-row {
     margin-right: $column-gap;
