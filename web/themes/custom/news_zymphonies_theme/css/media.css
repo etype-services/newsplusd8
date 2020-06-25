@@ -195,15 +195,21 @@
   }
 
   /* Main menu on mobile */
+  .main-menu {
+    position: absolute;
+    top: 24rem;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+  }
   .main-menu .col-md-12 {
-    padding-left: 0;
+    padding: 0;
   }
   .main-menu .col-md-12 .region-primary-menu div[id*=mainnavigation] {
     margin-bottom: 0;
   }
   .main-menu .col-md-12 .region-primary-menu div[id*=mainnavigation] #superfish-main-accordion {
     margin-top: calc(0.75rem * 2);
-    border-bottom: 20px solid #19232d;
   }
   .main-menu .col-md-12 .region-primary-menu div[id*=mainnavigation] #superfish-main-accordion li a {
     font-family: "Roboto", sans-serif;

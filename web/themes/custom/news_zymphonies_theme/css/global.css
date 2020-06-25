@@ -1021,12 +1021,13 @@ nav h2 {
 }
 .top-menu .top-blocks {
   overflow: hidden;
+  display: flex;
 }
 .top-menu .top-blocks .region {
   padding: 10px 10px 10px 0;
 }
 .top-menu .top-blocks .social-media {
-  padding: 9px 0 0;
+  padding: 5px 0 0;
   display: flex;
   align-items: center;
 }

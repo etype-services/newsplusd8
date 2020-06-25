@@ -236,14 +236,18 @@
 
   /* Main menu on mobile */
   .main-menu {
+    position: absolute;
+    top: 24rem;
+    left: 0;
+    z-index: 999;
+    width: 100%;
     .col-md-12 {
-      padding-left: 0;
+      padding: 0;
       .region-primary-menu {
         div[id*='mainnavigation'] {
           margin-bottom: 0;
           #superfish-main-accordion {
             margin-top: calc(#{$column-gap} * 2);
-            border-bottom: 20px solid $desktopMenuBackgroundColor;
             li {
               a {
                 font-family: "Roboto", sans-serif;
