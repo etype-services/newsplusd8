@@ -5,7 +5,7 @@
     Drupal.behaviors.tiemposArticle = {
         attach: function (context, settings) {
             let articleCaption;
-            let flexCaption = $('.flex-caption');
+            let flexCaption = $('.flex-caption'); /* provided by Flexslider */
             let styles = "caption is-sans-serif is-size-7";
             let flexslider = $("#flexslider-1 > .slides li");
             let len = flexslider.length;
