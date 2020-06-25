@@ -7,6 +7,9 @@
 .flexslider .slides > li {
   width: 100% !important;
 }
+.flexslider .flex-caption {
+  display: none;
+}
 
 .flex-direction-nav a {
   height: 54px;
