@@ -90,7 +90,7 @@ function tiempos_preprocess_node(&$variables) {
           if (!is_null($term)) {
             $term_name = $term->getName();
             /* 'columns' is a class in bulma */
-            if ($term_name != 'Columns') {
+            if (strpos($term_name, 'Columns') === false) {
               $arr[] = strtolower($term_name);
             }
           }
