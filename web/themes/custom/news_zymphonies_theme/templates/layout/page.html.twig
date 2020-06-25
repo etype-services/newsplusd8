@@ -60,98 +60,101 @@
 
 
 {% if page.contact_email or page.top_menu %}
-  <div class="top-menu">
-    <div class="container">
-      <div class="row">
+    <div class="top-menu">
+        <div class="container">
+            <div class="row">
 
-        <!-- Start: Contact Phone & Email -->
+                <!-- Start: Contact Phone & Email -->
 
-        <div class="col-sm-9">
-          
-          <div class="top-blocks">
-            {% if page.top_menu %}
-              {{ page.top_menu }}
-            {% endif %}
+                <div class="col-sm-9">
 
-            {% if page.contact_email %}
-              {{ page.contact_email }}
-            {% endif %}
+                    <div class="top-blocks">
+                        {% if page.top_menu %}
+                            {{ page.top_menu }}
+                        {% endif %}
 
-            <!-- Start: Social media icons -->
+                        {% if page.contact_email %}
+                            {{ page.contact_email }}
+                        {% endif %}
 
-            {% if show_social_icon %}
-              <div class="social-media">
-                {% if facebook %}
-                  <a href="{{ facebook }}"  class="facebook" target="_blank" ><i class="fab fa-facebook-square"></i></a>
+                        <!-- Start: Social media icons -->
+
+                        {% if show_social_icon %}
+                            <div class="social-media">
+                                {% if facebook %}
+                                    <a href="{{ facebook }}" class="facebook" target="_blank"><i
+                                                class="fab fa-facebook-square"></i></a>
+                                {% endif %}
+                                {% if twitter %}
+                                    <a href="{{ twitter }}" class="twitter" target="_blank"><i
+                                                class="fab fa-twitter"></i></i></a>
+                                {% endif %}
+                                {% if pinterest %}
+                                    <a href="{{ instagram }}" class="pinterest" target="_blank"><i
+                                                class="fab fa-instagram"></i></a>
+                                {% endif %}
+                                {% if rss_url %}
+                                    <a href="{{ rss }}" class="rss" target="_blank"><i class="fa fa-rss"></i></a>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+
+                        <!-- End: Social media icons -->
+
+                    </div>
+
+                </div>
+
+                <!-- End: Contact Phone & Email -->
+
+                <!-- Start: Top menu -->
+
+                {% if page.search %}
+                    <div class="col-sm-3">
+                        {{ page.search }}
+                    </div>
                 {% endif %}
-                {% if twitter %}
-                  <a href="{{ twitter }}" class="twitter" target="_blank" ><i class="fab fa-twitter"></i></i></a>
-                {% endif %}
-                {% if pinterest %}
-                  <a href="{{ instagram }}" class="pinterest" target="_blank" ><i class="fab fa-instagram"></i></a>
-                {% endif %}
-                {% if rss_url %}
-                  <a href="{{ rss }}" class="rss" target="_blank" ><i class="fa fa-rss"></i></a>
-                {% endif %}
-              </div>
-            {% endif %}
 
-            <!-- End: Social media icons -->
+                <!-- End: Top menu -->
 
-          </div>
-
+            </div>
         </div>
-
-        <!-- End: Contact Phone & Email -->
-
-        <!-- Start: Top menu -->
-
-        {% if page.search %}
-          <div class="col-sm-3">
-            {{ page.search }}
-          </div>
-        {% endif %}
-
-        <!-- End: Top menu -->
-
-      </div>
     </div>
-  </div>
 {% endif %}
 
 <header class="main-header">
-  <nav class="navbar topnav navbar-default" role="navigation">
-    <div class="container">
-      <div class="row">
+    <nav class="navbar topnav navbar-default" role="navigation">
+        <div class="container">
+            <div class="row">
 
-        <!-- Start: Header -->
+                <!-- Start: Header -->
 
-        <div class="navbar-header {{ header_left_col }}">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navigation">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          {% if page.header %}
-            {{ page.header }}
-          {% endif %}
+                <div class="navbar-header {{ header_left_col }}">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    {% if page.header %}
+                        {{ page.header }}
+                    {% endif %}
+                </div>
+
+                <!-- End: Header -->
+
+                <!-- Start: Header Ads -->
+
+                {% if page.header_ads %}
+                    <div class="{{ header_right_col }}">
+                        {{ page.header_ads }}
+                    </div>
+                {% endif %}
+
+                <!-- End: Header Ads -->
+
+            </div>
         </div>
-
-        <!-- End: Header -->
-
-        <!-- Start: Header Ads -->
-
-        {% if page.header_ads %}
-          <div class="{{ header_right_col }}">
-            {{ page.header_ads }}
-          </div>
-        {% endif %}
-
-        <!-- End: Header Ads -->
-
-        </div>
-      </div>
     </nav>
 </header>
 
@@ -159,37 +162,35 @@
 <!-- End: Main menu -->
 
 {% if page.primary_menu %}
-  <div class="main-menu">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          {{ page.primary_menu }}
+    <div class="main-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    {{ page.primary_menu }}
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 {% endif %}
 
 {% if page.breaking_news %}
-  <div class="breaking_news-menu">
     <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          {{ page.breaking_news }}
+        <div class="row">
+            <div class="col-md-12">
+                {{ page.breaking_news }}
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 {% endif %}
 
 {% if page.leaderboard_below_menu %}
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        {{ page.leaderboard_below_menu }}
-      </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                {{ page.leaderboard_below_menu }}
+            </div>
+        </div>
     </div>
-  </div>
 {% endif %}
 
 <!-- End: Main menu -->
@@ -198,37 +199,37 @@
 <!-- Start: Top widget -->
 
 {% if (is_front) and (page.topwidget_first or page.topwidget_second or page.topwidget_third) %}
-  <div class="parallax-widget- zero" id="top-widgets">
-    <div class="container">
-      <div class="parallax-region wow- bounceInDown">
+    <div class="parallax-widget- zero" id="top-widgets">
+        <div class="container">
+            <div class="parallax-region wow- bounceInDown">
 
-        {% if (is_front) and (page.topwidget_first or page.topwidget_second or page.topwidget_third) %}
-          <div class="row clearfix topwidget">
+                {% if (is_front) and (page.topwidget_first or page.topwidget_second or page.topwidget_third) %}
+                    <div class="row clearfix topwidget">
 
-            <!-- Start: Top widget first -->          
-            {% if page.topwidget_first %}
-              <div class = {{ topwidget_class }}>{{ page.topwidget_first }}</div>
-            {% endif %}          
-            <!-- End: Top widget first --> 
+                        <!-- Start: Top widget first -->
+                        {% if page.topwidget_first %}
+                            <div class= {{ topwidget_class }}>{{ page.topwidget_first }}</div>
+                        {% endif %}
+                        <!-- End: Top widget first -->
 
-            <!-- Start: Top widget second -->          
-            {% if page.topwidget_second %}
-              <div class = {{ topwidget_class }}>{{ page.topwidget_second }}</div>
-            {% endif %}          
-            <!-- End: Top widget second --> 
-            
-            <!-- Start: Top widget third -->         
-            {% if page.topwidget_third %}
-              <div class = {{ topwidget_third_class }}>{{ page.topwidget_third }}</div>
-            {% endif %}          
-            <!-- End: Top widget third -->
+                        <!-- Start: Top widget second -->
+                        {% if page.topwidget_second %}
+                            <div class= {{ topwidget_class }}>{{ page.topwidget_second }}</div>
+                        {% endif %}
+                        <!-- End: Top widget second -->
 
-          </div>
-        {% endif %}
+                        <!-- Start: Top widget third -->
+                        {% if page.topwidget_third %}
+                            <div class= {{ topwidget_third_class }}>{{ page.topwidget_third }}</div>
+                        {% endif %}
+                        <!-- End: Top widget third -->
 
-      </div>
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
     </div>
-  </div>
 {% endif %}
 
 <!--End: Top widget -->
@@ -236,181 +237,181 @@
 
 <!-- Start: Main content -->
 <div class="parallax-widget- one" id="highlighted">
-  <div class="parallax-region- wow- bounceInDown">
-    
-    <!--Start: Highlighted -->
+    <div class="parallax-region- wow- bounceInDown">
 
-    {% if page.highlighted %}
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            {{ page.highlighted }}
-          </div>
-        </div>
-      </div>
-    {% endif %}
+        <!--Start: Highlighted -->
 
-    <!--End: Highlighted -->
-
-    <!--Start: Title -->
-
-    {%  if page.page_title and not is_front %}
-      <div id="page-title">
-        <div id="page-title-inner">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12">
-                {{ page.page_title }}
-              </div>
+        {% if page.highlighted %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        {{ page.highlighted }}
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    {% endif %}
-
-    <!--End: Title -->
-
-    <div class="container">
-      <div class="parallax-region">
-
-        <!--Start: Breadcrumb -->
-
-        {% if not is_front %}
-          <div class="row">
-            <div class="col-md-12">{{ page.breadcrumb }}</div>
-          </div>
         {% endif %}
 
-        <!--End: Breadcrumb -->
+        <!--End: Highlighted -->
 
-        <div class="row layout">
+        <!--Start: Title -->
 
-          <!--Start: Sidebar -->
-
-          {% if page.sidebar_first %}
-            <div class="sidebar">
-              <div class={{sidebarfirst}}> {{page.sidebar_first}} </div>
+        {% if page.page_title and not is_front %}
+            <div id="page-title">
+                <div id="page-title-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                {{ page.page_title }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          {% endif %}
+        {% endif %}
 
-          <!--End: Sidebar -->
+        <!--End: Title -->
 
-          <!--End: Content -->
+        <div class="container">
+            <div class="parallax-region">
 
-          {% if page.content %}
+                <!--Start: Breadcrumb -->
 
-            <div class="content_layout">
-
-              <div class={{contentlayout}}> 
-
-                <!-- Start: Slider -->
-
-                {% if is_front and show_slideshow%}
-                  <div class="flexslider wow- bounceInUp">
-                    <ul class="slides">
-                      {% for slider_contents in slider_content %}
-                        {{ slider_contents | raw }}
-                      {% endfor %}
-                    </ul>
-                  </div>
+                {% if not is_front %}
+                    <div class="row">
+                        <div class="col-md-12">{{ page.breadcrumb }}</div>
+                    </div>
                 {% endif %}
 
-                <!-- End: Slider -->
+                <!--End: Breadcrumb -->
 
-                <!-- Start: Home page message -->
+                <div class="row layout">
 
-                {% if is_front and page.homepage %}
-                  {{ page.homepage }}
-                {% endif %}
+                    <!--Start: Sidebar -->
 
-                <!--End: Home page message -->
+                    {% if page.sidebar_first %}
+                        <div class="sidebar">
+                            <div class={{ sidebarfirst }}> {{ page.sidebar_first }} </div>
+                        </div>
+                    {% endif %}
 
-                {{page.content}} 
+                    <!--End: Sidebar -->
 
-              </div>
+                    <!--End: Content -->
 
+                    {% if page.content %}
+
+                        <div class="content_layout">
+
+                            <div class={{ contentlayout }}>
+
+                                <!-- Start: Slider -->
+
+                                {% if is_front and show_slideshow %}
+                                    <div class="flexslider wow- bounceInUp">
+                                        <ul class="slides">
+                                            {% for slider_contents in slider_content %}
+                                                {{ slider_contents | raw }}
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                {% endif %}
+
+                                <!-- End: Slider -->
+
+                                <!-- Start: Home page message -->
+
+                                {% if is_front and page.homepage %}
+                                    {{ page.homepage }}
+                                {% endif %}
+
+                                <!--End: Home page message -->
+
+                                {{ page.content }}
+
+                            </div>
+
+                        </div>
+
+                    {% endif %}
+
+                    <!--End: Content -->
+
+                    <!--Start: Sidebar -->
+
+                    {% if page.sidebar_second %}
+
+                        <div class="sidebar">
+                            <div class={{ sidebarsecond }}> {{ page.sidebar_second }} </div>
+                        </div>
+
+                    {% endif %}
+
+                    <!--End: Sidebar -->
+
+                </div>
             </div>
-
-          {% endif %}
-
-          <!--End: Content -->
-
-          <!--Start: Sidebar -->
-
-          {% if page.sidebar_second %}
-
-            <div class="sidebar">
-              <div class={{sidebarsecond}}> {{page.sidebar_second}} </div>
-            </div>
-            
-          {% endif %}
-
-          <!--End: Sidebar -->
-
         </div>
-      </div>
     </div>
-  </div>
 </div>
 
 <!-- End: Main content -->
 
 <!-- Home Page ad below content -->
 {% if (is_front) and (page.leaderboard_below_content) %}
-<div class="parallax-widget- two" id="leaderboard_below_content">
-  <div class="container">
-    <div class="parallax-region wow- bounceInDown">
-      {{ page.leaderboard_below_content }}
+    <div class="parallax-widget- two" id="leaderboard_below_content">
+        <div class="container">
+            <div class="parallax-region wow- bounceInDown">
+                {{ page.leaderboard_below_content }}
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 {% endif %}
 <!-- End: Home Page ad below content -->
 
 <!-- Start: Bottom widgets -->
 
 {% if is_front and (page.bottom_first or page.bottom_second or page.bottom_third or page.bottom_forth) %}
-  <div class="parallax-widget- three" id="bottom-widgets">
-    <div class="container">
-      <div class="parallax-region wow- bounceInDown">
-        <div class="row">
+    <div class="parallax-widget- three" id="bottom-widgets">
+        <div class="container">
+            <div class="parallax-region wow- bounceInDown">
+                <div class="row">
 
-          <!-- Start: Bottom First -->          
-          {% if page.bottom_first %}
-            <div class = {{ bottom_class }}>
-              {{ page.bottom_first }}
+                    <!-- Start: Bottom First -->
+                    {% if page.bottom_first %}
+                        <div class= {{ bottom_class }}>
+                            {{ page.bottom_first }}
+                        </div>
+                    {% endif %}
+                    <!-- End: Bottom First -->
+
+                    <!-- Start: Bottom Second -->
+                    {% if page.bottom_second %}
+                        <div class= {{ bottom_class }}>
+                            {{ page.bottom_second }}
+                        </div>
+                    {% endif %}
+                    <!-- End: Bottom Second -->
+
+                    <!-- Start: Bottom third -->
+                    {% if page.bottom_third %}
+                        <div class= {{ bottom_class }}>
+                            {{ page.bottom_third }}
+                        </div>
+                    {% endif %}
+                    <!-- End: Bottom Third -->
+
+                    <!-- Start: Bottom Forth -->
+                    {% if page.bottom_forth %}
+                        <div class= {{ bottom_class }}>
+                            {{ page.bottom_forth }}
+                        </div>
+                    {% endif %}
+                    <!-- End: Bottom Forth -->
+
+                </div>
             </div>
-          {% endif %}          
-          <!-- End: Bottom First -->
-
-          <!-- Start: Bottom Second -->
-          {% if page.bottom_second %}
-            <div class = {{ bottom_class }}>
-              {{ page.bottom_second }}
-            </div>
-          {% endif %}          
-          <!-- End: Bottom Second -->
-
-          <!-- Start: Bottom third -->          
-          {% if page.bottom_third %}
-            <div class = {{ bottom_class }}>
-              {{ page.bottom_third }}
-            </div>
-          {% endif %}          
-          <!-- End: Bottom Third -->
-
-          <!-- Start: Bottom Forth -->
-          {% if page.bottom_forth %}
-            <div class = {{ bottom_class }}>
-              {{ page.bottom_forth }}
-            </div>
-          {% endif %}
-          <!-- End: Bottom Forth -->
-
         </div>
-      </div>
     </div>
-  </div>
 {% endif %}
 
 <!--End: Bottom widgets -->
@@ -419,17 +420,17 @@
 
 {% if is_front and page.services %}
 
-  <div class="parallax-widget- four" id="services">
-    <div class="container">
-      <div class="parallax-region wow- bounceInDown">
-        <div class="row">
-          <div class="col-md-12">
-            {{ page.services }}
-          </div>
+    <div class="parallax-widget- four" id="services">
+        <div class="container">
+            <div class="parallax-region wow- bounceInDown">
+                <div class="row">
+                    <div class="col-md-12">
+                        {{ page.services }}
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 {% endif %}
 
 <!--End: Services -->
@@ -437,81 +438,81 @@
 <!-- Start: Footer widgets -->
 
 {% if  is_front and (page.footer_first or page.footer_second or page.footer_third) %}
-  <div class="parallax-widget- five" id="footer">
-    <div class="container">
-      <div class="parallax-region wow- bounceInUp">  
-        <div class="row">
+    <div class="parallax-widget- five" id="footer">
+        <div class="container">
+            <div class="parallax-region wow- bounceInUp">
+                <div class="row">
 
-          <!-- Start: Footer First -->
-          {% if page.footer_first %}
-            <div class={{ footer_first_class }}>
-              {{ page.footer_first }}
+                    <!-- Start: Footer First -->
+                    {% if page.footer_first %}
+                        <div class={{ footer_first_class }}>
+                            {{ page.footer_first }}
+                        </div>
+                    {% endif %}
+                    <!-- End: Footer First -->
+
+                    <!-- Start :Footer Second -->
+                    {% if page.footer_second %}
+                        <div class={{ footer_class }}>
+                            {{ page.footer_second }}
+                        </div>
+                    {% endif %}
+                    <!-- End: Footer Second -->
+
+                    <!-- Start: Footer third -->
+                    {% if page.footer_third %}
+                        <div class={{ footer_class }}>
+                            {{ page.footer_third }}
+                        </div>
+                    {% endif %}
+                    <!-- End: Footer Third -->
+
+                </div>
             </div>
-          {% endif %}
-          <!-- End: Footer First -->
-
-          <!-- Start :Footer Second -->
-          {% if page.footer_second %}
-            <div class={{ footer_class }}>
-              {{ page.footer_second }}
-            </div>
-          {% endif %}
-          <!-- End: Footer Second -->
-
-          <!-- Start: Footer third -->
-          {% if page.footer_third %}
-            <div class={{ footer_class }}>
-              {{ page.footer_third }}
-            </div>
-          {% endif %}
-          <!-- End: Footer Third -->
-
         </div>
-      </div>
     </div>
-  </div>
 {% endif %}
 
 <!--End: Footer widgets -->
 
 <!-- Home Page ad below content -->
 {% if (page.leaderboard_footer) %}
-  <div class="parallax-widget- six" id="leaderboard_footer">
-    <div class="container">
-      <div class="parallax-region wow- bounceInDown">
-        {{ page.leaderboard_footer }}
-      </div>
+    <div class="parallax-widget- six" id="leaderboard_footer">
+        <div class="container">
+            <div class="parallax-region wow- bounceInDown">
+                {{ page.leaderboard_footer }}
+            </div>
+        </div>
     </div>
-  </div>
 {% endif %}
 <!-- End: Home Page ad below content -->
 
 <!-- Start: Map -->
 
-{% if is_front and page.google_map%}
-  <div class="map-and-address">
-    <div class="google-map">{{ page.google_map }}</div>
-  </div>
+{% if is_front and page.google_map %}
+    <div class="map-and-address">
+        <div class="google-map">{{ page.google_map }}</div>
+    </div>
 {% endif %}
 
 <!--End: Map -->
 
 <!-- Start: Copyright -->
 <div class="footer">
-  <div class="container">
-    <div class="row">
-      <!-- Start: Copyright -->
-      <div class="copyright">
-        <p>Copyright © {{ "now"|date("Y") }} {{ site_name }}. All rights reserved.</p>
-      </div>
-      <!-- End: Copyright -->
+    <div class="container">
+        <div class="row">
+            <!-- Start: Copyright -->
+            <div class="copyright">
+                <p>Copyright © {{ "now"|date("Y") }} {{ site_name }}. All rights reserved.</p>
+            </div>
+            <!-- End: Copyright -->
 
-      <!-- Start: Footer Menu -->
-      {% if page.footer_menu%}
-        {{ page.footer_menu }}
-      {% endif %}
-      <!-- End: Footer Menu -->
+            <!-- Start: Footer Menu -->
+            {% if page.footer_menu %}
+                {{ page.footer_menu }}
+            {% endif %}
+            <!-- End: Footer Menu -->
 
+        </div>
     </div>
-  </div>
 </div>

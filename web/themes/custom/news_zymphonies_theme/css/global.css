@@ -1378,6 +1378,7 @@ article.node--view-mode-teaser .node__content .content-container h2 {
 }
 
 #block-views-block-breaking-news-block-block-1 {
+  margin-top: 0.75rem;
   display: grid;
   grid-template-columns: 15% auto;
   align-items: center;
