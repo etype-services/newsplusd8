@@ -225,6 +225,11 @@
     }
   }
 
+  /* Top Menu */
+  .region-top-menu nav li a {
+    padding: 2px 2px;
+  }
+
   /* logo and header ad */
   .main-header .topnav .container .row {
     flex-wrap: wrap;
@@ -271,7 +276,6 @@
     }
   }
 }
-
 
 @media (max-width: $small - 1) {
   article.node--view-mode-teaser {
