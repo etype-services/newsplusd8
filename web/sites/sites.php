@@ -115,6 +115,7 @@ $sites['www.fredericksburgtexasjobs.com'] = "fredericksburgtexasjobs.etypegoogle
 $sites['www.fayettecountyrecord.com'] = "fayettecountyrecord.etypegoogle9.com";
 $sites['www.bpnewstx.com'] = "bpnewstx.etypegoogle9.com";
 $sites['www.pawneerepublican.com'] = "pawneerepublican.com";
+$sites['www.pawneenews.com'] = "pawneerepublican.com";
 $sites['www.perrytonherald.com'] = "perrytonherald.etypegoogle9.com";
 $sites['www.falmouthoutlook.com'] = "falmouthoutlook.etypegoogle9.com";
 $sites['www.highlandernews.com'] = "highlandernews.etypegoogle9.com";
