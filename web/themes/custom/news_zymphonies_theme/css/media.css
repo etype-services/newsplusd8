@@ -149,9 +149,15 @@
   .top-menu .top-blocks {
     overflow: hidden;
   }
-  .top-menu .top-blocks .region,
-.top-menu .top-blocks .social-media {
+  .top-menu .top-blocks .region {
     float: left;
+  }
+  .top-menu .top-blocks .social-media {
+    float: left;
+    padding: 2px 0 0;
+  }
+  .top-menu .top-blocks .social-media a {
+    padding: 0 4px;
   }
 
   .region-header-ads {

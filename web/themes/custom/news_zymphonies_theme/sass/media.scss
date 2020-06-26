@@ -173,9 +173,15 @@
     .top-blocks {
       overflow: hidden;
 
-      .region,
+      .region {
+        float: left;
+      }
       .social-media {
         float: left;
+        padding: 2px 0 0;
+        a {
+          padding: 0 4px;
+        }
       }
     }
 
