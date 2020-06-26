@@ -235,6 +235,10 @@
     display: none;
     visibility: hidden;
   }
+
+  div[id*=block-views-block-special-sections-block] .flex-grid {
+    grid-template-columns: 50% 50%;
+  }
 }
 @media (max-width: 639px) {
   article.node--view-mode-teaser .node__content .image-container {

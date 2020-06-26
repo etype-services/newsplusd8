@@ -37,13 +37,14 @@
 /* Services and Sections */
 div[id*='block-views-block-special-sections-block'] {
   .flex-grid {
-    display: flex;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
     justify-content: space-evenly;
-    padding-bottom: 3rem;
-    flex-wrap: wrap;
     position: relative;
     div.views-row {
       margin-bottom: $column-gap;
+      display: flex;
+      justify-content: center;
       &:first-child {
         margin-left: 0;
       }
