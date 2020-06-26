@@ -748,10 +748,7 @@ div[id*=block-views-block-special-sections-block] .flex-grid .more-link svg {
   position: relative;
   padding: 10px 0;
 }
-.main-header .block {
-  margin: 0;
-}
-.main-header p, .main-header .block {
+.main-header p {
   margin: 0;
 }
 .main-header .topnav .container .row {
