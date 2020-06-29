@@ -20,7 +20,8 @@ a:hover {
   }
 
   .main-menu {
-    background: grey;
+    background: #5b102e;
+    border-bottom: 3px solid grey;
   }
 }
 
@@ -28,7 +29,7 @@ a:hover {
   color: #ffffff;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .main-menu .col-md-12 .region-primary-menu div[id*=mainnavigation] #superfish-main-accordion li a {
     background-color: #5b102e;
   }
@@ -38,9 +39,6 @@ a:hover {
     color: #fff;
   }
 
-  .main-menu {
-    border-bottom: 3px solid grey;
-  }
 }
 
 #search-block-form input.form-submit {
