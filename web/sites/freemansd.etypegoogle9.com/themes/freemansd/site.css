@@ -16,12 +16,12 @@ a:hover {
 
 @media (min-width: 768px) {
   .region-primary-menu li.active a, .region-primary-menu li a.is-active, .region-primary-menu li.active-trail a {
-    color: #ffffff;
+    background: grey;
   }
 
   .main-menu {
     background: #5b102e;
-    border-bottom: 3px solid grey;
+    border-bottom: 3px solid black;
   }
 }
 
@@ -43,4 +43,8 @@ a:hover {
 
 #search-block-form input.form-submit {
   background-color: grey;
+}
+
+#search-block-form input.form-submit:hover {
+  background-color: #5b102e;
 }
