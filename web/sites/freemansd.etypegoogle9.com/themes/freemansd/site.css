@@ -41,7 +41,19 @@ a:hover {
 
   .region-primary-menu li.active a, .region-primary-menu li a.is-active, .region-primary-menu li.active-trail a {
     background: grey;
-    color: #fffffff;
+    color: #ffffff;
+  }
+
+  .main-menu .col-md-12 .region-primary-menu div[id*=mainnavigation] #superfish-main-accordion li a {
+    color: #fff;
+    border-bottom: 1px solid grey;
+    background-color: #5b102e;
+    border-radius: 4px;
+  }
+
+  .main-menu .col-md-12 .region-primary-menu div[id*=mainnavigation] #superfish-main-accordion li a:hover {
+    color: #ffffff;
+    background-color: #000000;
   }
 
 }
