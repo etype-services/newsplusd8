@@ -20,7 +20,7 @@ a:hover {
   }
 
   .main-menu {
-    background: #5B102E;
+    background: grey;
   }
 }
 
@@ -28,8 +28,21 @@ a:hover {
   color: #ffffff;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .main-menu .col-md-12 .region-primary-menu div[id*=mainnavigation] #superfish-main-accordion li a {
     background-color: #5b102e;
   }
+
+  .region-primary-menu li.active a, .region-primary-menu li a.is-active, .region-primary-menu li.active-trail a {
+    background: grey;
+    color: #fff;
+  }
+
+  .main-menu {
+    border-bottom: 3px solid grey;
+  }
+}
+
+#search-block-form input.form-submit {
+  background-color: grey;
 }
