@@ -114,11 +114,13 @@ function tiempos_preprocess_node(&$variables) {
       $arr = [];
       foreach($authors as $item) {
         $author = User::load($item['target_id']);
-        if ($authorLinksOff == 1) {
-          $arr[] = $author->getUsername();
-        } else {
-          $arr[] = '<a href="/user/' . $item['target_id'] .'">' .
-            $author->getUsername() . '</a>';
+        if (!is_null($author)) {
+          if ($authorLinksOff == 1) {
+            $arr[] = $author->getUsername();
+          } else {
+            $arr[] = '<a href="/user/' . $item['target_id'] .'">' .
+              $author->getUsername() . '</a>';
+          }
         }
       }
       $variables['author_name'] = Markup::create(implode(" and ", $arr));
