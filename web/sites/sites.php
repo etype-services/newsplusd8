@@ -150,3 +150,7 @@ $sites['www.thedcregister.com'] = "thedcregister.com";
 $sites['thedcregister.etypegoogle9.com'] = "thedcregister.com";
 $sites['www.cliftonrecord.com'] = "cliftonrecord.com";
 $sites['cliftonrecord.etypegoogle9.com'] = "cliftonrecord.com";
+$sites['www.gfnaturalbeef.com'] = "gfnaturalbeef.com";
+$sites['gfnaturalbeef.etypegoogle9.com'] = "gfnaturalbeef.com";
+$sites['www.lcherald.com'] = "lcherald.com";
+$sites['lcherald.etypegoogle9.com'] = "lcherald.com";
