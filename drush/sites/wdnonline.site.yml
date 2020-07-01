@@ -1,4 +1,4 @@
 File: wdnonline.site.yml
 prod:
-  root: /mnt/data/web/public/harold/drupal/web
+  root: /mnt/www/drupal8/web
   uri: https://www.wdnonline.com
