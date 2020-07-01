@@ -16,7 +16,7 @@ function etype_pico_preprocess_html(&$variables) {
   $picoPublisherId = $config->get('picoPublisherId');
   $types = $config->get('nodeTypes');
   $nodeTypes = [];
-  if (count($types) > 0) {
+  if (is_countable($types)) {
     foreach ($types as $k => $v) {
       if (!empty($v)) {
         $nodeTypes[] = $v;
@@ -47,7 +47,7 @@ EOF;
         $nid = $node->id();
         $tids = $node->get('field_section')->getValue();
         $terms = ['article'];
-        if (count($tids) > 0) {
+        if (is_countable($tids)) {
           foreach ($tids as $tid) {
             $term = Term::load($tid['target_id']);
             $terms[] = $term->getName();
