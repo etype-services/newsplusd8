@@ -679,9 +679,10 @@ abbr.ajax-changed {
 /* Services and Sections */
 div[id*=block-views-block-special-sections-block] .flex-grid {
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: 20% 20% 20% 20% 20%;
   justify-content: space-evenly;
   position: relative;
+  grid-column-gap: 0.5rem;
 }
 div[id*=block-views-block-special-sections-block] .flex-grid div.views-row {
   margin-bottom: 0.75rem;
