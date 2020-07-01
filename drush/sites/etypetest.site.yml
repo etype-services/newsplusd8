@@ -1,4 +1,4 @@
 File: etypetest.site.yml
 dev:
-  root: /mnt/data/web/public/harold/development/web
+  root: /mnt/www/development/web
   uri: https://www.etypetest.com

@@ -1,4 +1,4 @@
 File: migrate.site.yml
 prod:
-  root: /mnt/data/web/public/harold/drupal/web
+  root: /mnt/www/drupal8/web
   uri: http://migrate.etypegoogle7.com
