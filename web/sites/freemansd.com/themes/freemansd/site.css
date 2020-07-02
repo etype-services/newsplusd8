@@ -34,6 +34,10 @@ input[type=submit] {
   color: #000000;
 }
 
+.region-footer-menu nav li a, .region-footer-menu nav li a:hover {
+  color: #ffffff;
+}
+
 .region-primary-menu li a:hover, .region-primary-menu li a:focus, .region-primary-menu li a:active, .region-primary-menu li a.highlighted, .region-primary-menu li li a:hover, .region-primary-menu li li a:focus, .region-primary-menu li li a:active, .region-primary-menu li li a.highlighted {
   background: #000000;
   color: #ffffff;
