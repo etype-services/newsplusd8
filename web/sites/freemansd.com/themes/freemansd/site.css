@@ -30,6 +30,10 @@ input[type=submit] {
   background: grey;
 }
 
+.page-node-type-article .flexslider .slides .flex-caption {
+  color: #000000;
+}
+
 .region-primary-menu li a:hover, .region-primary-menu li a:focus, .region-primary-menu li a:active, .region-primary-menu li a.highlighted, .region-primary-menu li li a:hover, .region-primary-menu li li a:focus, .region-primary-menu li li a:active, .region-primary-menu li li a.highlighted {
   background: #000000;
   color: #ffffff;
