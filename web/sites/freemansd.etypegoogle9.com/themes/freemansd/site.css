@@ -10,6 +10,10 @@ a:hover {
   color: #5B102E;
 }
 
+input[type=submit] {
+  background: #5B102E;
+}
+
 .flexslider .slides {
   background-image: none;
 }
