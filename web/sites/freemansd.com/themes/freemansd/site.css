@@ -18,6 +18,18 @@ input[type=submit] {
   background-image: none;
 }
 
+#search-block-form input.form-submit {
+  background-color: grey;
+}
+
+#search-block-form input.form-submit:hover {
+  background-color: #5b102e;
+}
+
+#block-freemansd-mostrecentpoll input[type=submit] {
+  background: grey;
+}
+
 .region-primary-menu li a:hover, .region-primary-menu li a:focus, .region-primary-menu li a:active, .region-primary-menu li a.highlighted, .region-primary-menu li li a:hover, .region-primary-menu li li a:focus, .region-primary-menu li li a:active, .region-primary-menu li li a.highlighted {
   background: #000000;
   color: #ffffff;
@@ -59,13 +71,4 @@ input[type=submit] {
     color: #ffffff;
     background-color: #000000;
   }
-
-}
-
-#search-block-form input.form-submit {
-  background-color: grey;
-}
-
-#search-block-form input.form-submit:hover {
-  background-color: #5b102e;
 }
