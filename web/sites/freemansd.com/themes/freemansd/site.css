@@ -34,8 +34,13 @@ input[type=submit] {
   color: #000000;
 }
 
-.region-footer-menu nav li a, .region-footer-menu nav li a:hover {
+.region-footer-menu nav li a {
   color: #ffffff;
+}
+
+.region-footer-menu nav li a:hover {
+  color: #ffffff;
+  text-decoration: underline;
 }
 
 .region-primary-menu li a:hover, .region-primary-menu li a:focus, .region-primary-menu li a:active, .region-primary-menu li a.highlighted, .region-primary-menu li li a:hover, .region-primary-menu li li a:focus, .region-primary-menu li li a:active, .region-primary-menu li li a.highlighted {
