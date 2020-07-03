@@ -576,7 +576,7 @@ ul.links.inline li {
 .sidebar .region .content {
   padding: 10px 0;
 }
-.sidebar .region .content:first-child {
+.sidebar .region div:first-child .content {
   padding: 0 0 10px;
 }
 

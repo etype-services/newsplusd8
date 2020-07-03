@@ -178,7 +178,10 @@ ul.links.inline li {
 
     .content {
       padding: 10px 0;
-      &:first-child {
+    }
+
+    div:first-child {
+      .content {
         padding: 0 0 10px;
       }
     }
