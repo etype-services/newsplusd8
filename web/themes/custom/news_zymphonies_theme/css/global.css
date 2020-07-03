@@ -576,6 +576,9 @@ ul.links.inline li {
 .sidebar .region .content {
   padding: 10px 0;
 }
+.sidebar .region .content:first-child {
+  padding: 0 0 10px;
+}
 
 .region-content {
   min-height: 300px;
