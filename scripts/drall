@@ -8,7 +8,7 @@ $argv = $_SERVER['argv'];
 
 array_shift($_SERVER['argv']);
 $parameters = implode(' ', $_SERVER['argv']);
-$commandPattern = "~/public/harold/drupal/vendor/bin/drush --uri=:key $parameters";
+$commandPattern = "/mnt/www/drupal8/vendor/bin/drush --uri=:key $parameters";
 
 foreach ($sites as $key => $site) {
 
