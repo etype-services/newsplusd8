@@ -151,3 +151,7 @@ $sites['www.gfnaturalbeef.com'] = "gfnaturalbeef.com";
 $sites['gfnaturalbeef.etypegoogle9.com'] = "gfnaturalbeef.com";
 $sites['www.lcherald.com'] = "lcherald.com";
 $sites['lcherald.etypegoogle9.com'] = "lcherald.com";
+$sites['www.wausharaargus.com'] = "wausharaargus.com";
+$sites['wausharaargus.etypegoogle9.com'] = "wausharaargus.com";
+$sites['www.auroranewsregister.com'] = "auroranewsregister.com";
+$sites['auroranewsregister.etypegoogle9.com'] = "auroranewsregister.com";
