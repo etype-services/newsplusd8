@@ -2,22 +2,28 @@
 /* Additional Helper Classes. */
 .is-really-invisible {
   visibility: hidden !important;
-  display: none !important; }
+  display: none !important;
+}
 
 .is-really-visible {
   visibility: visible !important;
-  display: block !important; }
+  display: block !important;
+}
 
 /* Match mixin. */
 .border-top-light {
-  border-top: 1px solid #b5b5b5; }
+  border-top: 1px solid #b5b5b5;
+}
 
 /* Match font */
 .is-sans-serif {
-  font-family: "Open Sans", sans-serif; }
+  font-family: "Open Sans", sans-serif;
+}
 
 @media screen and (min-width: 769px) {
   .is-pulled-right-desktop {
-    float: right; } }
+    float: right;
+  }
+}
 
 /*# sourceMappingURL=helpers.css.map */

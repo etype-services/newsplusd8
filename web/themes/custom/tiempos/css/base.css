@@ -29,7 +29,7 @@ main .main-content-inner {
   display: flex;
 }
 
-@media screen and (min-width: 1088px) {
+@media screen and (min-width: 1024px) {
   .region-sidebar {
     /* Make border go to the bottom. */
     height: 100%;
@@ -40,7 +40,7 @@ main .main-content-inner {
     margin: 0 0 2rem 0 !important;
   }
 }
-@media screen and (min-width: 467px) and (max-width: 1087px) {
+@media screen and (min-width: 467px) and (max-width: 1023px) {
   footer {
     margin-top: 0 !important;
   }
