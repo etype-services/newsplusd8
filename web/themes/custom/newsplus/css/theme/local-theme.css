@@ -143,4 +143,8 @@ article .field--name-field-tags h3 {
   padding-bottom: 12px;
 }
 
+.indydailyreporter #pre-header, .indydailyreporter #header-top, .indydailyreporter #header, .indydailyreporter .nav-tabs > li.active > a, .indydailyreporter .nav-tabs > li.active > a:hover, .indydailyreporter .nav-tabs > li.active > a:focus {
+  background-color: #004d7b;
+}
+
 /*# sourceMappingURL=local-theme.css.map */
