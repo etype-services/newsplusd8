@@ -355,16 +355,16 @@ class ImportOliveXMLController {
             preg_match("'<pam:mediaReference pam:refid=\"(.*)\"\s*/>'", $item,
               $arr);
             if (isset($arr[1])) {
-              $iarray = [];
-              $iarray['image'] = $arr[1];
+              $iArray = [];
+              $iArray['image'] = $arr[1];
               preg_match("'<pam:caption>(.*?)</pam:caption>'s", $item, $arr);
               if (isset($arr[1])) {
-                $iarray['caption'] = trim(strip_tags($arr[1]));
+                $iArray['caption'] = trim(strip_tags($arr[1]));
               }
               else {
-                $iarray['caption'] = '';
+                $iArray['caption'] = '';
               }
-              $images[] = $iarray;
+              $images[] = $iArray;
             }
           }
         }
@@ -372,9 +372,18 @@ class ImportOliveXMLController {
 
       $pub_date = strtotime($array['pub_date']);
 
+      /* Make sure summary is long enough */
+      $summary = strip_tags((new Encoding)->toUtf8(preg_replace("/\s+/", " ", $array['description'])));
+      if (strlen($summary) < 200) {
+        $string = strip_tags((new Encoding)->toUtf8(preg_replace("/\s+/", " ", $array['body'])));
+        $arr = explode('. ', $string);
+        $summary = implode('. ', array_slice($arr, 0, 2));
+        $summary .= '.';
+      }
+
       $node = [
         'title' => (new Encoding)->toUtf8($array['title']),
-        'summary' => strip_tags((new Encoding)->toUtf8(preg_replace("/\s+/", " ", $array['description']))),
+        'summary' => $summary,
         'body' => (new Encoding)->toUtf8($array['body']),
       ];
 
