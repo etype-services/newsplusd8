@@ -175,8 +175,10 @@
       width: 30%;
       margin-left: 0.5rem;
       margin-top: 0.3rem;
+      display: flex;
+      justify-content: center;
       img {
-        width: 100%;
+        width: auto;
       }
     }
   }

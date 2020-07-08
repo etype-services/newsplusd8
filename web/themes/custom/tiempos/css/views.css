@@ -185,9 +185,11 @@
   width: 30%;
   margin-left: 0.5rem;
   margin-top: 0.3rem;
+  display: flex;
+  justify-content: center;
 }
 .view-taxonomy-term .node--view-mode-teaser .image-container img, .view-classified .node--view-mode-teaser .image-container img {
-  width: 100%;
+  width: auto;
 }
 
 /* Front Page Sections, class is applied in the View */

@@ -108,6 +108,11 @@ front_page_sections:
   js:
     js/front_page_sections.js: {}
 
+taxonomy_page:
+  version: VERSION
+  js:
+    js/taxonomy_page.js: {}
+
 special_sections:
   version: VERSION
   js:
