@@ -1,7 +1,5 @@
 /* Center column for tiempos theme */
-
 /* Front Page Attachment View (left-hand column). */
-
 .view-id-frontpage.columns > .attachment {
   /* Emulate column css. */
   display: flex;
