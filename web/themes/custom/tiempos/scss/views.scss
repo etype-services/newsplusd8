@@ -165,20 +165,26 @@
     /* These items to make teaser full-width and as tall as image. */
     display: inline-block;
     width: 100%;
-    .field--name-field-ad-category {
-      margin-bottom: 0;
-      font-family: $sans-serif;
-      font-size: $size-7;
-    }
-    .image-container {
-      float: right;
-      width: 30%;
-      margin-left: 0.5rem;
-      margin-top: 0.3rem;
-      display: flex;
-      justify-content: center;
-      img {
-        width: auto;
+    .node__content {
+      display: grid;
+      grid-template-columns: 30% auto;
+      grid-gap: $column-gap;
+      .field--name-field-ad-category {
+        margin-bottom: 0;
+        font-family: $sans-serif;
+        font-size: $size-7;
+      }
+      .image-container {
+        margin-left: 0.5rem;
+        margin-top: 0.3rem;
+        display: flex;
+        justify-content: center;
+        background: url("../images/loading.gif") no-repeat center;
+        background-size: 30%;
+        img {
+          visibility: hidden;
+          width: auto;
+        }
       }
     }
   }
@@ -290,14 +296,7 @@
     article.node--type-article.node--view-mode-teaser {
       position: relative;
       .node__content {
-        h2, .field--name-body {
-          margin-left: 8rem;
-        }
         .submitted {
-          position: absolute;
-          top: 0;
-          max-width: 7rem;
-          margin-top: 0;
           .field--name-uid {
             font-size: 0.8rem;
           }
@@ -347,7 +346,6 @@
       &:not(last-child) {
         margin-bottom: $column-gap;
       }
-
       .field--name-body {
         margin-bottom: 0;
         display: inline;

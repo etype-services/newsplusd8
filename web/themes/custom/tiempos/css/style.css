@@ -751,20 +751,26 @@ footer .footer-menu li > a {
   display: inline-block;
   width: 100%;
 }
-.view-taxonomy-term .node--view-mode-teaser .field--name-field-ad-category, .view-classified .node--view-mode-teaser .field--name-field-ad-category {
+.view-taxonomy-term .node--view-mode-teaser .node__content, .view-classified .node--view-mode-teaser .node__content {
+  display: grid;
+  grid-template-columns: 30% auto;
+  grid-gap: 0.75rem;
+}
+.view-taxonomy-term .node--view-mode-teaser .node__content .field--name-field-ad-category, .view-classified .node--view-mode-teaser .node__content .field--name-field-ad-category {
   margin-bottom: 0;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
 }
-.view-taxonomy-term .node--view-mode-teaser .image-container, .view-classified .node--view-mode-teaser .image-container {
-  float: right;
-  width: 30%;
+.view-taxonomy-term .node--view-mode-teaser .node__content .image-container, .view-classified .node--view-mode-teaser .node__content .image-container {
   margin-left: 0.5rem;
   margin-top: 0.3rem;
   display: flex;
   justify-content: center;
+  background: url("../images/loading.gif") no-repeat center;
+  background-size: 30%;
 }
-.view-taxonomy-term .node--view-mode-teaser .image-container img, .view-classified .node--view-mode-teaser .image-container img {
+.view-taxonomy-term .node--view-mode-teaser .node__content .image-container img, .view-classified .node--view-mode-teaser .node__content .image-container img {
+  visibility: hidden;
   width: auto;
 }
 
@@ -855,18 +861,6 @@ footer .footer-menu li > a {
   .view-taxonomy-term article.node--type-feature.node--view-mode-teaser,
 .view-taxonomy-term article.node--type-article.node--view-mode-teaser {
     position: relative;
-  }
-  .view-taxonomy-term article.node--type-feature.node--view-mode-teaser .node__content h2, .view-taxonomy-term article.node--type-feature.node--view-mode-teaser .node__content .field--name-body,
-.view-taxonomy-term article.node--type-article.node--view-mode-teaser .node__content h2,
-.view-taxonomy-term article.node--type-article.node--view-mode-teaser .node__content .field--name-body {
-    margin-left: 8rem;
-  }
-  .view-taxonomy-term article.node--type-feature.node--view-mode-teaser .node__content .submitted,
-.view-taxonomy-term article.node--type-article.node--view-mode-teaser .node__content .submitted {
-    position: absolute;
-    top: 0;
-    max-width: 7rem;
-    margin-top: 0;
   }
   .view-taxonomy-term article.node--type-feature.node--view-mode-teaser .node__content .submitted .field--name-uid,
 .view-taxonomy-term article.node--type-article.node--view-mode-teaser .node__content .submitted .field--name-uid {

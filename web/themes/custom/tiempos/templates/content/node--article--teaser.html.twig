@@ -83,11 +83,13 @@
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
     <div{{ content_attributes.addClass('node__content') }}>
-        {% if content.field_image[0] is not null %}
-            <div class="image-container">{{ content.field_image[0] }}</div>
+      <div class="image-container">{% if content.field_image[0] is not null %}
+            {{ content.field_image[0] }}
         {% elseif content.field_small_image[0] is not null %}
-            <div class="image-container">{{ content.field_small_image[0] }}</div>
+            {{ content.field_small_image[0] }}
         {% endif %}
+      </div>
+      <div class="content-container">
         <h2{{ title_attributes }}>
             <a href="{{ url }}" rel="bookmark">{{ label }}</a>
         </h2>
@@ -96,5 +98,6 @@
             <div class="date">{{ node.created.value|format_date('teaser') }}</div>
         </div>
         {{ content.body }}
+      </div>
     </div>
 </article>

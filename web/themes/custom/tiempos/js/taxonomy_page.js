@@ -38,13 +38,13 @@
           });
         });
       };
-      $(".front-page-sections").imagesLoaded().done(function(instance) {
+      $(".view-content").imagesLoaded().done(function(instance) {
         // console.log('All images successfully loaded');
         imageFixer();
       });
 
       $(window).resize(function () {
-        imageFixer();
+        window.location.reload(false);
       });
 
       // Make sure images show, as sometimes buggy ad scripts seem to prevent the script completing.
