@@ -8,17 +8,7 @@ global-styling:
   version: VERSION
   css:
     base:
-      css/base.css: { weight: 1 }
-      css/regions.css: { weight: 1 }
-      css/typography.css: { weight: 1 }
-      css/navigation.css: { weight: 1 }
-      css/helpers.css: { weight: 1 }
-      css/views.css: { weight: 1 }
-      css/blocks.css: { weight: 1 }
-      css/content.css: { weight: 1 }
-      css/flexslider.css: { weight: 1 }
-      css/ads.css: { weight: 1 }
-      css/sites.css: { weight: 1 }
+      css/style.css: { weight: 1 }
 
 global-scripts:
   version: VERSION

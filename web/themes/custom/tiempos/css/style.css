@@ -1,0 +1,1683 @@
+/* Center column for tiempos theme */
+.page-node-type-article article .flexslider ul.slides img {
+  display: block;
+  height: auto;
+  width: initial;
+  max-width: 100%;
+  margin: auto;
+}
+
+/* Bulma overrides */
+.column {
+  flex-basis: unset;
+}
+
+.layout-container {
+  margin: 0.75rem;
+}
+
+header {
+  position: relative;
+}
+
+main {
+  /* Override .columns default margin */
+  margin-top: 0 !important;
+}
+main .main-content-inner {
+  border-right: 1px solid #b5b5b5;
+}
+
+.messages {
+  margin: 0 0 0.75rem 0.5rem;
+}
+
+/* Make radio buttons inline. */
+.form-type-radio {
+  display: flex;
+}
+
+@media screen and (min-width: 1024px) {
+  .region-sidebar {
+    /* Make border go to the bottom. */
+    height: 100%;
+  }
+
+  /* Override Bulma 'columns' formatting to get correct border width. */
+  footer {
+    margin: 0 0 2rem 0 !important;
+  }
+}
+@media screen and (min-width: 467px) and (max-width: 1023px) {
+  footer {
+    margin-top: 0 !important;
+  }
+}
+/* Bulma overrides for tiles, for Special Sections. */
+.tile {
+  flex-basis: unset;
+  flex-grow: unset;
+}
+
+@media screen and (min-width: 769px) {
+  /* Bulma overrides for tiles, for Special Sections. */
+  .tile.is-ancestor {
+    margin-left: 0;
+    margin-right: -0.5rem;
+  }
+
+  .tile.is-parent {
+    padding: 0;
+    flex-wrap: wrap;
+  }
+
+  .tile.is-child.is-3 {
+    padding-right: 0.5rem !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .region-header > div {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  /* Bulma overrides for tiles, for Special Sections. */
+  .tile.is-ancestor {
+    margin-right: -1.5rem;
+  }
+
+  .tile.is-parent {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .tile.is-child.is-3 {
+    padding-right: 0.5rem !important;
+  }
+}
+/* Center column for tiempos theme */
+.page-node-type-article article .flexslider ul.slides img {
+  display: block;
+  height: auto;
+  width: initial;
+  max-width: 100%;
+  margin: auto;
+}
+
+.region-large-ad {
+  margin-top: 0.75rem;
+}
+
+.region-top-bar {
+  margin-bottom: 0.75rem;
+}
+
+.region-header-left, .region-header-center, .region-header-right {
+  padding-bottom: 0;
+}
+.region-header-left .block, .region-header-center .block, .region-header-right .block {
+  margin-bottom: 0;
+}
+
+.region-header-left {
+  /* Adjust spacing to line up text. */
+  padding: calc(0.75rem * 2) 0.75rem 0 calc(0.75rem * 2);
+}
+
+.region-header-center {
+  /* Make logo area bigger */
+  flex-grow: 2;
+}
+
+.region-header-right {
+  /* No top padding because header aligns center. */
+  padding: 0.75rem calc(0.75rem * 2) 0 0.75rem;
+}
+
+.region-navigation {
+  position: initial;
+}
+
+.region-content, .region-bottom-content {
+  flex-wrap: wrap;
+  overflow: hidden;
+  /* For owl carousel in Business Directory. */
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.region-content-ads {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  margin: 0.75rem 0;
+}
+.region-content-ads .view-content {
+  margin-right: 0.75rem;
+}
+.region-content-ads > div:last-child .view-content {
+  margin-right: 0;
+}
+
+.region-sidebar {
+  flex-wrap: wrap;
+  flex: 0 0 calc(300px + 0.75rem * 2);
+  /* Fixed size, does not grow or shrink. */
+  margin-bottom: 0.75rem;
+}
+
+#coupons {
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 768px) {
+  .region-header-left {
+    padding: 0.75rem 0.75rem 0 0.75rem;
+    height: 3.5rem;
+  }
+
+  .region-header-right {
+    padding: 0.75rem 0.75rem 0 0.75rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .region-sidebar {
+    border-left: none !important;
+  }
+
+  .region-footer-left, .region-footer-right {
+    visibility: hidden !important;
+    display: none !important;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .region-header-right {
+    padding: 0.5rem calc(0.75rem * 2) 0 0.75rem;
+  }
+
+  .region-navigation {
+    position: absolute;
+    top: 70px;
+    right: 10px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  /* Center logo, prevent search input from shifting logo */
+  .region-header-left, .region-header-right {
+    flex-basis: 20%;
+    flex-shrink: 0;
+  }
+}
+@media screen and (min-width: 769px) {
+  /* Center logo, prevent search input from shifting logo */
+  .region-header-left, .region-header-right {
+    flex-basis: 20%;
+    flex-shrink: 0;
+  }
+}
+/* Center column for tiempos theme */
+.page-node-type-article article .flexslider ul.slides img {
+  display: block;
+  height: auto;
+  width: initial;
+  max-width: 100%;
+  margin: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.5rem;
+}
+
+.is-size-3 {
+  line-height: 2.2rem;
+}
+
+body {
+  font-family: "Petrona", serif;
+}
+
+input {
+  font-family: "Open Sans", sans-serif;
+}
+input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+svg, img {
+  outline: none;
+}
+
+a {
+  color: #121212;
+  box-shadow: none;
+}
+a:hover {
+  color: #3273dc !important;
+}
+
+.section-tag-heading {
+  text-transform: uppercase;
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  color: #121212;
+  border-bottom: 1px solid #b5b5b5;
+}
+.section-tag-heading svg {
+  font-size: 0.8rem;
+}
+
+.submitted {
+  color: #363636;
+  font-size: 0.8rem;
+  margin: 0.1rem 0;
+  line-height: 1.1rem;
+}
+
+.node--view-mode-full .field--name-field-subhead {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.node--view-mode-full .field--name-body p {
+  margin-bottom: 0.5rem;
+}
+
+.region-sidebar p:not(.submitted) {
+  font-size: 0.9rem;
+}
+
+footer {
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+}
+footer .footer-menu li > a {
+  /* Fix padding. */
+  padding-top: 0.375em;
+}
+
+/* Center column for tiempos theme */
+.page-node-type-article article .flexslider ul.slides img {
+  display: block;
+  height: auto;
+  width: initial;
+  max-width: 100%;
+  margin: auto;
+}
+
+/**
+ * Styles build on bulma nav component.
+ */
+#main-navbar-menu {
+  justify-content: center;
+}
+#main-navbar-menu a {
+  height: 100%;
+}
+#main-navbar-menu .dropdown > div {
+  height: 100%;
+}
+#main-navbar-menu .dropdown .dropdown-menu {
+  padding-top: 2px;
+}
+#main-navbar-menu .dropdown .dropdown-menu .dropdown-content {
+  border-radius: 0;
+  box-shadow: none;
+  padding-bottom: 0;
+  padding-top: 0;
+  display: flex;
+  width: fit-content;
+}
+#main-navbar-menu .dropdown .dropdown-menu .dropdown-content a {
+  border-bottom: 1px solid #b5b5b5;
+  background-color: white;
+}
+
+/* User Menu */
+.user-menu .button, .user-menu .button:first-child {
+  margin-left: 0.5rem;
+  margin-right: 0;
+  display: flex;
+}
+
+.footer-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.footer-menu .menu-item {
+  flex: 1 1 30%;
+  display: flex;
+}
+.footer-menu .menu-item a {
+  flex: 1 1 100%;
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+  /* Override Drupal default css. */
+  margin-bottom: calc(0.75rem * 2) !important;
+  padding-bottom: 0 !important;
+}
+.breadcrumb li {
+  /* Override Drupal default css. */
+  display: flex !important;
+}
+
+/* Pager */
+.pager {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .user-menu {
+    justify-content: flex-end;
+  }
+
+  .region-header-right .user-menu {
+    flex-wrap: wrap;
+  }
+  .region-header-right .user-menu .button {
+    width: 9rem;
+  }
+}
+/* Default (Wide Screen) Desktop */
+#main-nav .navbar {
+  border-top: 1px solid #b5b5b5;
+  border-bottom: 1px solid #b5b5b5;
+  /* navbar-start is only shown when hamburger clicked */
+}
+#main-nav .navbar .navbar-start {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding: 0.5rem 1.5rem 1rem 1rem;
+  background-color: white;
+  /* Used to close "pop-up", override bulma margin. */
+  /* The logo. */
+}
+#main-nav .navbar .navbar-start .column {
+  flex-basis: 30%;
+}
+#main-nav .navbar .navbar-start .navbar-item {
+  width: fit-content;
+  max-width: 50%;
+  /* some browsers do not understand fit-content */
+}
+#main-nav .navbar .navbar-start .navbar-burger {
+  margin-left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#main-nav .navbar .navbar-start .block-system-branding-block .site-logo img {
+  width: 30vw;
+}
+#main-nav .navbar .navbar-start .block-search {
+  margin-left: 0.75rem;
+}
+#main-nav .navbar .navbar-end {
+  /* Social Icons */
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: -40px;
+  right: 0;
+}
+#main-nav .navbar .navbar-end a {
+  margin-right: 0.75rem;
+}
+
+/* Tablet */
+@media screen and (max-width: 1023px) {
+  #main-nav .navbar {
+    /* Make sure navbar completely hidden */
+    min-height: 0;
+    border-bottom: 0;
+    /* Show User Menu in pop-up, using is-hidden-touch to identify the menu. */
+    /* Social Icons */
+  }
+  #main-nav .navbar .navbar-start {
+    /* Align menu to right. */
+  }
+  #main-nav .navbar .navbar-start .navbar-menu {
+    display: block !important;
+    height: fit-content;
+    width: fit-content;
+    float: right;
+  }
+  #main-nav .navbar .navbar-start .navbar-menu .button, #main-nav .navbar .navbar-start .navbar-menu .button:first-child {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 0.3rem;
+    height: 1.6rem;
+    /* Fix padding. */
+  }
+  #main-nav .navbar .navbar-start [data-drupal-selector=search-block-form] {
+    /* Stop search icon from jumping. */
+    line-height: 2rem;
+  }
+  #main-nav .navbar .navbar-start [data-drupal-selector=search-edit-submit] {
+    cursor: pointer;
+    margin-right: 0.5rem;
+  }
+  #main-nav .navbar .navbar-end {
+    position: absolute;
+    top: -2.6rem;
+    right: 0;
+    margin-right: 0;
+    z-index: -1;
+  }
+
+  .user-menu {
+    float: right;
+  }
+
+  /* Close X in front of user menu */
+  .region-navigation {
+    z-index: 32;
+  }
+
+  /* Move menus below admin toolbar. */
+  .toolbar-fixed .navbar-start, .toolbar-vertical .navbar-start {
+    margin-top: 20px;
+  }
+
+  .toolbar-fixed.toolbar-horizontal.toolbar-tray-open .navbar-start {
+    margin-top: 60px;
+  }
+
+  /* To show header in moble menu */
+  .z-index-fix {
+    z-index: 35;
+    float: right;
+    width: fit-content;
+    max-width: 30%;
+    /* IE & Edge */
+    position: fixed;
+    right: 0;
+  }
+  .z-index-fix.region-top-bar {
+    margin-right: 0.75rem;
+  }
+}
+/* Mobile */
+@media screen and (max-width: 1023px) {
+  #main-nav .navbar {
+    border-top: 0;
+    /* Social Icons */
+  }
+  #main-nav .navbar .navbar-start .block-system-branding-block {
+    visibility: hidden !important;
+    display: none !important;
+  }
+  #main-nav .navbar .navbar-end {
+    position: absolute;
+    top: -2.6rem;
+    right: 0;
+    z-index: -1;
+  }
+  #main-nav .navbar .navbar-end a {
+    margin-left: 0.5rem;
+  }
+  #main-nav .navbar .navbar-end a .is-size-3 {
+    font-size: 1.5rem !important;
+  }
+}
+/* Center column for tiempos theme */
+.page-node-type-article article .flexslider ul.slides img {
+  display: block;
+  height: auto;
+  width: initial;
+  max-width: 100%;
+  margin: auto;
+}
+
+/* Additional Helper Classes. */
+.is-really-invisible {
+  visibility: hidden !important;
+  display: none !important;
+}
+
+.is-really-visible {
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Match mixin. */
+.border-top-light {
+  border-top: 10px solid #b5b5b5;
+}
+
+/* Match font */
+.is-sans-serif {
+  font-family: "Open Sans", sans-serif;
+}
+
+@media screen and (min-width: 769px) {
+  .is-pulled-right-desktop {
+    float: right;
+  }
+}
+/* Center column for tiempos theme */
+.page-node-type-article article .flexslider ul.slides img {
+  display: block;
+  height: auto;
+  width: initial;
+  max-width: 100%;
+  margin: auto;
+}
+
+/* Front Page Attachment View (left-hand column). */
+.view-id-frontpage.columns > .attachment {
+  /* Emulate column css. */
+  display: flex;
+  flex: 1 1 0;
+  flex-wrap: wrap;
+  padding: 0 calc(0.75rem * 2) 0 0;
+}
+.view-id-frontpage.columns > .attachment .view-content {
+  /* Teaser formatting, for sites that use it. */
+}
+.view-id-frontpage.columns > .attachment .view-content > div {
+  clear: both;
+}
+.view-id-frontpage.columns > .attachment .view-content > div > a {
+  /* Deal with images that are taller than wide. */
+  float: left;
+  width: 40%;
+  margin-right: 0.5rem;
+  margin-top: 0.2rem;
+}
+.view-id-frontpage.columns > .attachment .view-content .image-container {
+  float: left;
+  width: 40%;
+  margin-right: 0.5rem;
+  margin-top: 0.1rem;
+  position: relative;
+  top: 0.1rem;
+}
+.view-id-frontpage.columns > .attachment .view-content h2 {
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+}
+.view-id-frontpage.columns > .attachment .view-content .node--view-mode-teaser {
+  margin-bottom: 0;
+}
+.view-id-frontpage.columns > .attachment .view-content .node--view-mode-teaser h2 {
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+}
+.view-id-frontpage.columns > .attachment .view-content .node--view-mode-teaser .field--name-body {
+  margin-bottom: 0;
+  /* Fine-tuning. TODO: Why does Feature not have p tag? */
+  line-height: 1.3rem;
+}
+.view-id-frontpage.columns > .attachment .view-content .node--view-mode-teaser .field--name-body p {
+  /* Fine-tuning. */
+  line-height: 1.3rem;
+}
+
+/* Front Page Featured View (center column). */
+.view-id-frontpage.columns > .view-content {
+  display: flex;
+  flex: 2 1 0;
+  flex-wrap: wrap;
+  padding: 0;
+}
+.view-id-frontpage.columns > .view-content > div > a,
+.view-id-frontpage.columns > .view-content .views-field-field-image a {
+  /* Deal with images that are taller than wide. */
+  margin: auto;
+  display: table;
+}
+.view-id-frontpage.columns > .view-content > div > a img,
+.view-id-frontpage.columns > .view-content .views-field-field-image a img {
+  width: 100%;
+}
+.view-id-frontpage.columns > .view-content h2 {
+  line-height: 1.8rem;
+}
+
+/* Generic. */
+.view {
+  /* Make image fill defined space, might cause upscaling */
+  /* For unformatted Views without default classes */
+}
+.view h2 {
+  font-size: 1.2rem;
+}
+.view .field--type-image img {
+  width: 100%;
+}
+.view .view-content > div {
+  margin-bottom: 1rem;
+}
+.view .view-content > div:last-child {
+  margin-bottom: 0;
+}
+
+/* Front Page Sections, Business Directory (don't use id, for sub-themes). */
+.front-page-sections .view-content,
+.block-views-blockbusiness-directory-block-1 .view-content {
+  display: flex;
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+}
+.front-page-sections .view-content > div,
+.block-views-blockbusiness-directory-block-1 .view-content > div {
+  display: flex;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-wrap: wrap;
+  padding: 0.75rem;
+  /* For Fields in Views where there is no image */
+  align-content: flex-start;
+  /* Override defaults - we want the last child to have the same margin, since these are horizontal. */
+  margin-bottom: 1rem !important;
+  /* For Special Sections, might have adverse effects elsewhere. */
+}
+.front-page-sections .view-content > div div,
+.block-views-blockbusiness-directory-block-1 .view-content > div div {
+  flex: 1 1 100%;
+}
+
+/* Special Sections (don't use id, for sub-themes). */
+.block-views-blockspecial-sections-block-1 .view-content,
+.block-views-blockspecial-sections-block-2 .view-content {
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+  display: grid;
+  grid-template-columns: 24% 24% 24% 24%;
+  grid-gap: 0.75rem;
+}
+.block-views-blockspecial-sections-block-1 .view-content > div,
+.block-views-blockspecial-sections-block-2 .view-content > div {
+  display: flex;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-wrap: wrap;
+  padding: 0.75rem;
+  /* For Fields in Views where there is no image */
+  align-content: flex-start;
+  /* Override defaults - we want the last child to have the same margin, since these are horizontal. */
+  margin-bottom: 1rem !important;
+  justify-content: center;
+}
+.block-views-blockspecial-sections-block-1 .view-content > div a:nth-child(2),
+.block-views-blockspecial-sections-block-2 .view-content > div a:nth-child(2) {
+  text-align: center;
+  font-weight: 600;
+}
+.block-views-blockspecial-sections-block-1 .view-content > div .views-field-title a,
+.block-views-blockspecial-sections-block-2 .view-content > div .views-field-title a {
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Taxonomy Pages. */
+.view-taxonomy-term, .view-classified {
+  /* Page title is faked in View header. */
+  /* Teaser formatting. */
+}
+.view-taxonomy-term #block-tiempos-page-title, .view-classified #block-tiempos-page-title {
+  visibility: hidden !important;
+  display: none !important;
+}
+.view-taxonomy-term .view-header, .view-classified .view-header {
+  /* Emulate page title. */
+  margin-bottom: 1.5rem;
+}
+.view-taxonomy-term .view-content > div, .view-classified .view-content > div {
+  border-bottom: 1px solid #dbdbdb;
+  padding-bottom: 1rem;
+}
+.view-taxonomy-term .view-content > div:last-child, .view-classified .view-content > div:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: calc(0.75rem * 2);
+}
+.view-taxonomy-term .node--view-mode-teaser, .view-classified .node--view-mode-teaser {
+  /* These items to make teaser full-width and as tall as image. */
+  display: inline-block;
+  width: 100%;
+}
+.view-taxonomy-term .node--view-mode-teaser .field--name-field-ad-category, .view-classified .node--view-mode-teaser .field--name-field-ad-category {
+  margin-bottom: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+}
+.view-taxonomy-term .node--view-mode-teaser .image-container, .view-classified .node--view-mode-teaser .image-container {
+  float: right;
+  width: 30%;
+  margin-left: 0.5rem;
+  margin-top: 0.3rem;
+  display: flex;
+  justify-content: center;
+}
+.view-taxonomy-term .node--view-mode-teaser .image-container img, .view-classified .node--view-mode-teaser .image-container img {
+  width: auto;
+}
+
+/* Front Page Sections, class is applied in the View */
+.front-page-sections h2.field-content {
+  /* match top section */
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+}
+.front-page-sections .image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("../images/loading.gif") no-repeat center;
+  background-size: 30%;
+}
+.front-page-sections .image-container img {
+  visibility: hidden;
+  width: auto;
+}
+
+/* Special Sections Page. */
+.path-special-sections article {
+  margin-bottom: 0.75rem;
+}
+
+/* Special Sections Page -- Palatka. */
+.path-magazines .views-view-grid.horizontal.cols-2 .col-1 {
+  padding-right: calc(0.75rem / 2);
+}
+.path-magazines .views-view-grid.horizontal.cols-2 .col-2 {
+  padding-left: calc(0.75rem / 2);
+}
+
+/* Video Pages. */
+.path-videos .view-videos {
+  /* title */
+}
+.path-videos .view-videos .view-header {
+  margin-bottom: calc(0.75rem * 2);
+}
+.path-videos .view-videos .view-content {
+  margin-bottom: calc(0.75rem * 2);
+}
+.path-videos .view-videos .view-content .field--name-field-video-embed {
+  margin-bottom: 0.2rem;
+}
+.path-videos .view-videos .attachment .view-videos .view-content {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  gap: 0.75rem;
+}
+.path-videos .view-videos .attachment h2 {
+  font-size: 1rem;
+  line-height: 1.1rem;
+  margin-bottom: 0.2rem;
+}
+.path-videos .view-videos .attachment .field--name-body p {
+  font-size: 0.9rem;
+  line-height: 1.1rem;
+}
+
+/* Around Osceola */
+.path-st-cloud-main-street .view-videos {
+  margin-bottom: calc(0.75rem * 2);
+  /* title */
+}
+.path-st-cloud-main-street .view-videos .view-header {
+  margin-bottom: calc(0.75rem * 2);
+}
+.path-st-cloud-main-street .view-videos .view-content {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  gap: 0.75rem;
+}
+.path-st-cloud-main-street .view-videos .view-content .field--name-field-video-embed {
+  margin-bottom: 0.2rem;
+}
+
+@media screen and (min-width: 769px) {
+  .block-views-blockmobile-front-page-block-1 {
+    visibility: hidden !important;
+    display: none !important;
+  }
+}
+@media screen and (min-width: 1024px) {
+  /* Section Pages Formatting */
+  .view-taxonomy-term article.node--type-feature.node--view-mode-teaser,
+.view-taxonomy-term article.node--type-article.node--view-mode-teaser {
+    position: relative;
+  }
+  .view-taxonomy-term article.node--type-feature.node--view-mode-teaser .node__content h2, .view-taxonomy-term article.node--type-feature.node--view-mode-teaser .node__content .field--name-body,
+.view-taxonomy-term article.node--type-article.node--view-mode-teaser .node__content h2,
+.view-taxonomy-term article.node--type-article.node--view-mode-teaser .node__content .field--name-body {
+    margin-left: 8rem;
+  }
+  .view-taxonomy-term article.node--type-feature.node--view-mode-teaser .node__content .submitted,
+.view-taxonomy-term article.node--type-article.node--view-mode-teaser .node__content .submitted {
+    position: absolute;
+    top: 0;
+    max-width: 7rem;
+    margin-top: 0;
+  }
+  .view-taxonomy-term article.node--type-feature.node--view-mode-teaser .node__content .submitted .field--name-uid,
+.view-taxonomy-term article.node--type-article.node--view-mode-teaser .node__content .submitted .field--name-uid {
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  /* Show front page mobile blocks on mobile. */
+  .path-frontpage .region-content .block-views-blockmobile-front-page-block-1 {
+    visibility: visible !important;
+    display: block !important;
+  }
+  .path-frontpage .region-content .block-views-blockmobile-front-page-block-1 .view-id-mobile_front_page > .view-content {
+    padding-bottom: 0.75rem;
+  }
+  .path-frontpage .region-content .block-views-blockmobile-front-page-block-1 .view-id-mobile_front_page .attachment .view-display-id-attachment_1 {
+    padding: 0;
+  }
+
+  /* Teaser formatting. */
+  .block-views-blockmobile-front-page-block-1 .view, .view-taxonomy-term .view {
+    padding: 0 0.75rem;
+  }
+  .block-views-blockmobile-front-page-block-1 .view img, .view-taxonomy-term .view img {
+    float: right;
+    width: 48%;
+    /* Bottom margin for stories with no body */
+    margin: 0.3rem 0 0.75rem 0.75rem;
+  }
+  .block-views-blockmobile-front-page-block-1 .view .views-row, .view-taxonomy-term .view .views-row {
+    clear: both;
+  }
+  .block-views-blockmobile-front-page-block-1 .node--view-mode-teaser, .view-taxonomy-term .node--view-mode-teaser {
+    min-height: 30vw;
+  }
+  .block-views-blockmobile-front-page-block-1 .node--view-mode-teaser:not(last-child), .view-taxonomy-term .node--view-mode-teaser:not(last-child) {
+    margin-bottom: 0.75rem;
+  }
+  .block-views-blockmobile-front-page-block-1 .node--view-mode-teaser .field--name-body, .view-taxonomy-term .node--view-mode-teaser .field--name-body {
+    margin-bottom: 0;
+    display: inline;
+  }
+  .block-views-blockmobile-front-page-block-1 .node--view-mode-teaser .field--name-body p, .view-taxonomy-term .node--view-mode-teaser .field--name-body p {
+    /* Fine-tuning. */
+    line-height: 1.4;
+  }
+
+  /* Special Sections Page. */
+  .path-special-sections article {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .path-special-sections article a {
+    flex: 1 0 100%;
+  }
+}
+/* Center column for tiempos theme */
+.page-node-type-article article .flexslider ul.slides img {
+  display: block;
+  height: auto;
+  width: initial;
+  max-width: 100%;
+  margin: auto;
+}
+
+/* Top left "Date" block. */
+.block-date-block {
+  width: fit-content;
+}
+.block-date-block div {
+  width: auto;
+}
+.block-date-block .navbar-burger {
+  /* Flex to center fontawesome icon. */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto 0 auto;
+}
+.block-date-block .navbar-burger span {
+  height: 2px;
+}
+.block-date-block .block-search [data-drupal-selector=search-block-form] {
+  display: flex;
+  align-items: center;
+  /* Match navbar-burger. */
+  height: 3.25rem;
+}
+.block-date-block .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-submit] {
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+.block-date-block .block-search [data-drupal-selector=search-block-form] [data-drupal-selector=search-edit-keys] {
+  width: 70%;
+}
+
+.block-system-branding-block {
+  /* Center logo. */
+  display: flex;
+  justify-content: center;
+}
+
+#block-iemessage {
+  display: none;
+  visibility: hidden;
+}
+
+/* Poll Block formatting */
+.block-poll-recent-block h2 {
+  text-transform: uppercase;
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  color: #121212;
+  border-bottom: 1px solid #b5b5b5;
+}
+.block-poll-recent-block input[type=radio] {
+  height: 1.2rem;
+  width: 1.2rem;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+/* Video Block */
+.block-views-blockvideos-block-1 > h2 {
+  text-transform: uppercase;
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  color: #121212;
+  border-bottom: 1px solid #b5b5b5;
+}
+
+/* Statistics Block */
+.block-statistics-popular-block .item-list:not(:last-child) {
+  margin: 0 0 0.5rem 0;
+}
+.block-statistics-popular-block .item-list:not(:last-child) h3 {
+  font-style: oblique;
+}
+.block-statistics-popular-block .item-list:not(:last-child) ul {
+  margin: 0;
+}
+.block-statistics-popular-block .item-list:not(:last-child) ul li {
+  margin: 0 0 0 0.5rem;
+  padding: 0;
+  font-size: 1rem;
+}
+.block-statistics-popular-block br {
+  display: none;
+}
+
+.block-views-blockbreaking-news-block-1 {
+  margin-bottom: 0 !important;
+}
+.block-views-blockbreaking-news-block-1 .view-id-breaking_news {
+  display: flex;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+  font-size: 1.2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.block-views-blockbreaking-news-block-1 .view-id-breaking_news .view-header {
+  white-space: nowrap;
+  margin-right: calc(0.75rem / 2);
+}
+.block-views-blockbreaking-news-block-1 .view-id-breaking_news .view-header h3 > .svg-inline--fa {
+  vertical-align: -0.15em !important;
+}
+.block-views-blockbreaking-news-block-1 .view-id-breaking_news .view-content a {
+  white-space: nowrap;
+  color: #800000;
+}
+
+/* Facebook block */
+#block-facebooksidebar, #block-twitterblock, .block-centered {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1023px) {
+  .block-date-block .block-search {
+    /* Hide search, goes in navbar-start */
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .block-date-block {
+    /* Align date with hamburger and search on mobile. */
+  }
+  .block-date-block p {
+    float: left;
+    margin-top: 1.1rem;
+    margin-right: 0;
+    padding-right: 0;
+  }
+  .block-date-block div {
+    float: left;
+  }
+}
+/* e-Edition */
+.region-sidebar .block-etype-block {
+  flex-basis: 100%;
+}
+.region-sidebar .block-etype-block p {
+  font-size: 0.8rem;
+}
+
+/* Custom Blocks */
+#block-friends2followsidebar iframe, #block-friends2followsidebar-2 iframe {
+  height: 600px;
+}
+
+#block-mercobannerblock, #block-mercobannerblock-2 {
+  margin-bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  min-height: 257px;
+  /* to set sidebar height because Merco code loads slowly */
+}
+
+#block-mercobannerblock,
+#block-mercobannerblock-2 #block-views-block-front-page-sections-block-1,
+#block-views-block-front-page-sections-block-1-2,
+#block-views-block-front-page-sections-block-2,
+#block-views-block-front-page-sections-block-2-2,
+#block-views-block-front-page-sections-block-3,
+#block-views-block-front-page-sections-block-3-2,
+#block-views-block-front-page-sections-block-4,
+#block-views-block-front-page-sections-block-4-2,
+.block-views-blockvideos-block-1 {
+  clear: both;
+}
+
+/* Weather Widget */
+.weatherwidget {
+  width: 100%;
+  height: 64px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.region-content .block-etype-block {
+  visibility: hidden !important;
+  display: none !important;
+}
+
+/* Breaking news block */
+#block-views-block-breaking-news-block-block-1 {
+  display: flex;
+  align-items: center;
+  background-color: #ce0000;
+  padding: 1rem 1rem 0.5rem 1rem;
+  margin-top: -1.5rem;
+}
+#block-views-block-breaking-news-block-block-1 .title, #block-views-block-breaking-news-block-block-1 a {
+  color: #ffffff;
+  font-weight: bold;
+}
+#block-views-block-breaking-news-block-block-1 .content {
+  margin-left: 1rem;
+}
+#block-views-block-breaking-news-block-block-1 .view .view-content > div {
+  margin-bottom: inherit;
+}
+
+/* Business Directory Grid Block */
+#block-views-block-business-directory-block-2 .view-content {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-gap: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  /* Hide content on mobile */
+  .path-frontpage .view-display-id-page_1,
+#block-views-block-front-page-sections-block-1,
+#block-views-block-front-page-sections-block-1-2,
+#block-views-block-front-page-sections-block-2,
+#block-views-block-front-page-sections-block-2-2,
+#block-views-block-front-page-sections-block-3,
+#block-views-block-front-page-sections-block-3-2,
+#block-views-block-front-page-sections-block-4,
+#block-views-block-front-page-sections-block-4-2,
+#block-friends2followsidebar,
+#block-friends2followsidebar-2,
+.region-sidebar .block-etype-block {
+    visibility: hidden !important;
+    display: none !important;
+  }
+
+  .region-content .block-etype-block {
+    visibility: visible !important;
+    display: block !important;
+  }
+}
+/* Center column for tiempos theme */
+.page-node-type-article article .flexslider ul.slides img {
+  display: block;
+  height: auto;
+  width: initial;
+  max-width: 100%;
+  margin: auto;
+}
+
+/* Nav overrides for Feature nodes. */
+.page-node-type-feature #navbar-burger {
+  display: block;
+  color: white;
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  margin: auto;
+  height: 3.25rem;
+  width: 3.25rem;
+}
+.page-node-type-feature #main-nav {
+  padding: 0;
+}
+.page-node-type-feature #main-nav .navbar {
+  /* Make sure navbar completely hidden, overriding bulma min-height. */
+  min-height: 0;
+  border: 0;
+}
+.page-node-type-feature .navbar-end {
+  visibility: hidden !important;
+  display: none !important;
+}
+
+/* CONTENT */
+.field--name-user-picture .caption {
+  display: none;
+}
+
+.field--name-field-tags {
+  display: flex;
+}
+.field--name-field-tags .field__label {
+  margin-right: 0.2rem;
+}
+.field--name-field-tags .field__label:after {
+  content: ":";
+}
+.field--name-field-tags .field__items {
+  display: flex;
+}
+.field--name-field-tags .field__items .field__item {
+  margin-right: 0.2rem;
+  font-style: oblique;
+}
+.field--name-field-tags .field__items .field__item:not(:last-child):after {
+  content: ",";
+}
+
+/* Teaser formatting. */
+.node--view-mode-teaser {
+  /* Add ellipsis after body content */
+}
+.node--view-mode-teaser .field--name-body > p::after,
+.node--view-mode-teaser .field--name-body > .field__item::after {
+  content: "...";
+}
+
+/* All Content Types */
+article .node--view-mode-full .node__content h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Article formatting. */
+.page-node-type-article #block-pagetitle-2 {
+  margin-bottom: 0;
+}
+.page-node-type-article article {
+  /* Small and Embedded images */
+}
+.page-node-type-article article .node__meta {
+  display: inline-block;
+  margin-bottom: calc(0.75rem * 2);
+}
+.page-node-type-article article .node__meta .field--name-user-picture {
+  float: left;
+  margin-right: 0.5rem;
+}
+.page-node-type-article article .flexslider ul.slides img {
+  width: auto;
+}
+.page-node-type-article article .flexslider .flex-caption {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  color: #0a0a0a;
+  margin: 0.75rem auto 0;
+  width: fit-content;
+}
+.page-node-type-article article .node__content .image-container {
+  /* Images on Premium Content pages */
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 0.75rem;
+}
+.page-node-type-article article .field--name-field-small-image, .page-node-type-article article .field--name-body p.align-left {
+  float: left;
+  margin-right: 0.75rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0;
+  max-width: 40vh;
+}
+.page-node-type-article article .field--name-body p.align-right {
+  float: right;
+  margin-left: 0.75rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0;
+  max-width: 40vh;
+}
+.page-node-type-article article .field--name-body p.align-center {
+  margin-top: 0.3rem;
+  text-align: center;
+}
+.page-node-type-article article .field--name-body p.align-center .caption {
+  margin: auto;
+}
+.page-node-type-article article .field--name-field-long-caption {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  color: #0a0a0a;
+  margin: auto;
+}
+.page-node-type-article article .field--name-body blockquote {
+  margin: 0.75rem 3rem 0.75rem 0.5rem;
+}
+.page-node-type-article article .field--name-body blockquote p {
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-style: italic;
+}
+.page-node-type-article article .field--name-body figure.align-left, .page-node-type-article article .field--name-body img.align-left {
+  margin-right: 0.75rem;
+}
+.page-node-type-article article .field--name-body figure.align-right, .page-node-type-article article .field--name-body img.align-right {
+  margin-left: 0.75rem;
+}
+.page-node-type-article article .field--name-body figure figcaption, .page-node-type-article article .field--name-body img figcaption {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  color: #0a0a0a;
+  margin: auto;
+}
+.page-node-type-article article .field--name-body ul {
+  list-style-type: disc;
+  margin: 1rem 0 1rem 3rem;
+}
+.page-node-type-article article .field--name-body ol {
+  margin: 1rem 0 1rem 3rem;
+}
+
+/* Feature formatting. */
+.page-node-type-feature {
+  /* Hide system page title */
+}
+.page-node-type-feature #block-tiempos-page-title {
+  visibility: hidden !important;
+  display: none !important;
+}
+.page-node-type-feature .region-content {
+  padding: 0;
+  border-right: none;
+}
+.page-node-type-feature .addtoany {
+  position: fixed;
+  top: 0.15rem;
+  right: 0.75rem;
+  z-index: 9999;
+}
+.page-node-type-feature .addtoany svg {
+  background-color: #7a7a7a !important;
+}
+.page-node-type-feature.toolbar-fixed .addtoany_list {
+  top: 42px;
+}
+.page-node-type-feature.toolbar-fixed.toolbar-tray-open .addtoany_list {
+  top: 82px;
+}
+.page-node-type-feature #block-tiempos-local-tasks {
+  background-color: #0a0a0a;
+  margin-bottom: 0;
+}
+.page-node-type-feature #block-tiempos-local-tasks .tabs {
+  margin: 0;
+  border: none;
+}
+.page-node-type-feature article {
+  flex-wrap: wrap;
+  margin: 0;
+}
+.page-node-type-feature article .is-one-quarter {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 3.5rem;
+}
+.page-node-type-feature article .is-one-quarter .navbar-burger {
+  position: absolute;
+}
+.page-node-type-feature article .is-one-quarter .site-logo {
+  display: block;
+  margin-bottom: 1rem;
+}
+.page-node-type-feature article .is-three-quarters img {
+  width: 100%;
+}
+.page-node-type-feature article .is-full .main-caption {
+  margin: 0.5rem 7rem auto;
+}
+.page-node-type-feature article .is-full .node__content {
+  padding: 5rem 0 3rem;
+}
+.page-node-type-feature article .is-full .node__content p {
+  margin: 0 4rem 0.75rem 13rem;
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+.page-node-type-feature article .is-full .node__content figure, .page-node-type-feature article .is-full .node__content img {
+  width: 100%;
+  width: -moz-available;
+  /* WebKit-based browsers will ignore this. */
+  width: -webkit-fill-available;
+  /* Mozilla-based browsers will ignore this. */
+  width: stretch;
+  margin: 3rem auto 3rem auto;
+}
+.page-node-type-feature article .is-full .node__content figure img, .page-node-type-feature article .is-full .node__content img img {
+  width: 100%;
+  width: -moz-available;
+  /* WebKit-based browsers will ignore this. */
+  width: -webkit-fill-available;
+  /* Mozilla-based browsers will ignore this. */
+  width: stretch;
+  height: auto;
+}
+.page-node-type-feature article .is-full .node__content figure figcaption, .page-node-type-feature article .is-full .node__content img figcaption {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  color: #0a0a0a;
+  margin: 0.5rem auto 0.5rem 3rem;
+  text-align: center;
+}
+.page-node-type-feature article .is-full .node__content .field--name-body blockquote {
+  margin: 0.75rem 4rem 0.75rem 8rem;
+}
+.page-node-type-feature article .is-full .node__content .field--name-body blockquote p {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-style: italic;
+}
+.page-node-type-feature article .is-full .node__content .field--name-body ul {
+  list-style-type: disc;
+  margin: 1rem 6rem 1rem 15rem;
+}
+.page-node-type-feature article .is-full .node__content .field--name-body ol {
+  margin: 1rem 6rem 1rem 15rem;
+}
+.page-node-type-feature article .is-full .node__content .field--name-field-tags {
+  margin: 4rem 4rem 0.75rem 13rem;
+}
+.page-node-type-feature article .node__submitted a {
+  color: whitesmoke;
+}
+
+/* Wider screen overrides for Article nodes. */
+@media screen and (min-width: 1024px) {
+  body:not(.page-node-type-feature) #main-nav .navbar {
+    /* Can't use is-hidden-desktop because of Article formatting. */
+  }
+  body:not(.page-node-type-feature) #main-nav .navbar .navbar-start {
+    visibility: hidden !important;
+    display: none !important;
+  }
+
+  body.page-node-type-feature main {
+    position: relative;
+    top: 42px;
+  }
+  body.page-node-type-feature #main-nav {
+    position: fixed;
+    width: 100%;
+    z-index: 9;
+  }
+  body.page-node-type-feature #main-nav .navbar {
+    border-top: 1px solid #b5b5b5;
+    border-bottom: 1px solid #b5b5b5;
+    background-color: white;
+    padding: 0 1rem;
+  }
+  body.page-node-type-feature #main-nav .navbar .navbar-start {
+    visibility: hidden !important;
+    display: none !important;
+  }
+  body.page-node-type-feature #main-nav .navbar .navbar-start .user-menu {
+    position: fixed;
+    top: 1rem;
+    right: calc(0.75rem * 2);
+    height: fit-content;
+    flex-flow: column;
+  }
+  body.page-node-type-feature #main-nav .navbar .navbar-start .search-block-form {
+    line-height: 2rem;
+  }
+  body.page-node-type-feature #main-nav .navbar .navbar-burger {
+    visibility: hidden !important;
+    display: none !important;
+  }
+  body.page-node-type-feature #main-nav .navbar #main-navbar-menu {
+    /* Keep social icons out of scroll bar. */
+    margin: auto 1rem;
+  }
+  body.page-node-type-feature .is-one-quarter {
+    /* No hamburger, so move up. */
+    padding-top: 1.5em;
+  }
+}
+@media screen and (max-width: 768px) {
+  .page-node-type-feature .addtoany_list {
+    width: 32px;
+  }
+  .page-node-type-feature article .is-one-quarter .page-title {
+    max-width: 90vw;
+  }
+  .page-node-type-feature article .is-one-quarter .site-logo {
+    position: absolute;
+    right: 49px;
+    top: 0.7rem;
+    width: 40vw;
+  }
+  .page-node-type-feature article .is-full .node__content {
+    padding-top: 2rem;
+  }
+  .page-node-type-feature article .is-full .node__content p {
+    margin: 0 4rem 0.75rem 4rem;
+  }
+  .page-node-type-feature article .is-full .node__content .field--name-body blockquote {
+    margin: 0.75rem 4rem 0.75rem 4rem;
+  }
+  .page-node-type-feature article .is-full .node__content .field--name-body blockquote p {
+    margin: 0 0 0.75rem 0;
+  }
+  .page-node-type-feature article .is-full .node__content .field--name-body ul, .page-node-type-feature article .is-full .node__content .field--name-body ol {
+    margin: 0 4rem 0.75rem 6rem;
+  }
+  .page-node-type-feature article .is-full .node__content .field--name-field-tags {
+    margin: 3rem 4rem 0.75rem 4rem;
+  }
+}
+/* Mobile */
+@media screen and (max-width: 467px) {
+  .page-node-type-article article .node__content .image-container {
+    /* Images on Premium Content pages - flex displays stretched vertically on many phones (iPhone/iPad) */
+    display: block;
+  }
+
+  .page-node-type-feature article .is-full .main-caption {
+    margin: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .page-node-type-feature article .is-full .node__content > .field {
+    margin: 2rem 1rem 1rem;
+  }
+  .page-node-type-feature article .is-full .node__content > .field--name-body {
+    margin: 0;
+  }
+  .page-node-type-feature article .is-full .node__content > .field--name-body p, .page-node-type-feature article .is-full .node__content > .field--name-body blockquote, .page-node-type-feature article .is-full .node__content > .field--name-body ul, .page-node-type-feature article .is-full .node__content > .field--name-body ol {
+    margin: 1rem;
+  }
+}
+/* Center column for tiempos theme */
+.page-node-type-article article .flexslider ul.slides img {
+  display: block;
+  height: auto;
+  width: initial;
+  max-width: 100%;
+  margin: auto;
+}
+
+.flexslider {
+  /* needs space for nav */
+  margin: 0 0 0.75rem 0;
+  /* Flexslider update June 25th 2020 seems to have broken something */
+}
+.flexslider .slides > li {
+  width: 100% !important;
+}
+
+.flex-direction-nav a {
+  height: 54px;
+}
+
+/* Center column for tiempos theme */
+.page-node-type-article article .flexslider ul.slides img {
+  display: block;
+  height: auto;
+  width: initial;
+  max-width: 100%;
+  margin: auto;
+}
+
+/* DFP and Ad Blocks. */
+.block-dfp, div[class*=advertisement], div[id*=blueorchid] {
+  display: flex;
+  justify-content: center;
+}
+
+.region-leaderboard div[id*=blueorchid] {
+  margin-bottom: calc(0.75rem * 2);
+}
+
+/* Advertisement Blocks. */
+.view-advertisements .views-row {
+  display: flex;
+  justify-content: center;
+}
+
+#block-views-block-advertisements-block-1 {
+  margin-bottom: calc(0.75rem * 2);
+}
+
+/* Main Classified Page. */
+.path-classified .view-content h3 {
+  text-transform: uppercase;
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  color: #121212;
+  border-bottom: 1px solid #b5b5b5;
+}
+.path-classified .view-content .views-view-grid {
+  display: flex;
+}
+.path-classified .view-content .views-view-grid > div {
+  flex-basis: 50%;
+}
+
+/* NewzWare Classified */
+.view-classified-ads .field--name-field-ad-category {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+/* The block underneath needs to clear float */
+#block-views-block-videos-block-1 {
+  clear: both;
+}
+
+/* Network ads */
+/* Rectangular ads in main column */
+.region-content .network-ad {
+  display: inline-block;
+}
+
+.region-content .network-ad.left {
+  float: left;
+  margin-left: 2rem;
+}
+
+.region-content .network-ad.right {
+  float: right;
+  margin-right: 2rem;
+}
+
+/* fairly arbitrary width */
+@media screen and (max-width: 1023px) {
+  .region-content .network-ad {
+    display: block;
+  }
+  .region-content .network-ad.left, .region-content .network-ad.right {
+    margin: 0 auto;
+    float: none;
+  }
+}
+.block-etype-blue-orchid {
+  display: flex;
+  justify-content: center;
+}
+
+/* Center column for tiempos theme */
+.page-node-type-article article .flexslider ul.slides img {
+  display: block;
+  height: auto;
+  width: initial;
+  max-width: 100%;
+  margin: auto;
+}
+
+@media screen and (min-width: 1024px) {
+  /* Move Social icons into Navbar, depends on site main links, logo and number of icons */
+  .bctribune #main-nav .navbar .navbar-end, .schulenburgsticker #main-nav .navbar .navbar-end, .pawneerepublican #main-nav .navbar .navbar-end, .tecumsehchieftain #main-nav .navbar .navbar-end {
+    /* Social Icons */
+    position: inherit;
+    top: 0;
+  }
+
+  .welchpublishing footer .region {
+    flex-basis: 30%;
+  }
+}
+/* left as example of font change
+body.aroundosceola, .aroundosceola footer {
+  font-family: sans-serif;
+}
+*/
+
+/*# sourceMappingURL=style.css.map */
