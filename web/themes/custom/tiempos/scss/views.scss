@@ -148,6 +148,10 @@
   .view-header {
     /* Emulate page title. */
     margin-bottom: 1.5rem;
+    h1.columns {
+      margin: 0;
+      display: block;
+    }
   }
   .view-content {
     & > div {

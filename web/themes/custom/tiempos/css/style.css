@@ -7,6 +7,15 @@
   margin: auto;
 }
 
+/* Center column for tiempos theme */
+.page-node-type-article article .flexslider ul.slides img {
+  display: block;
+  height: auto;
+  width: initial;
+  max-width: 100%;
+  margin: auto;
+}
+
 /* Bulma overrides */
 .column {
   flex-basis: unset;
@@ -736,6 +745,10 @@ footer .footer-menu li > a {
 .view-taxonomy-term .view-header, .view-classified .view-header {
   /* Emulate page title. */
   margin-bottom: 1.5rem;
+}
+.view-taxonomy-term .view-header h1.columns, .view-classified .view-header h1.columns {
+  margin: 0;
+  display: block;
 }
 .view-taxonomy-term .view-content > div, .view-classified .view-content > div {
   border-bottom: 1px solid #dbdbdb;
