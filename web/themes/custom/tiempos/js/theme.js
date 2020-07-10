@@ -21,9 +21,6 @@ function getIEVersion() {
     Drupal.behaviors.tiemposBehavior = {
         attach: function (context, settings) {
             let caption = $(".page-node-type-feature .is-three-quarters img").attr("alt");
-            // var w = $("#main-nav > .navbar > .navbar-end").width();
-            // var t = $("#main-navbar-menu").children().length;
-            // var check = w > 40 ? 10 : 11;
 
             if (getIEVersion() > 0) {
                 $("head").once("tiemposBehavior").append('<link rel="stylesheet" type="text/css" href="/themes/custom/tiempos/css/ie.css">');
@@ -56,7 +53,7 @@ function getIEVersion() {
             $(".footer-menu li > a").once("tiemposBehavior").clone().addClass("is-hidden-desktop").appendTo($(".user-menu"));
 
             /* Add arrows to section header. */
-            $(".section-tag-heading").once("tiemposBehavior").append("&nbsp;<i class=\"fas fa-angle-right\" aria-hidden=\"true\"></i>");
+            // $(".section-tag-heading").once("tiemposBehavior").append("&nbsp;<i class=\"fas fa-angle-right\" aria-hidden=\"true\"></i>");
 
             /* Add down arrows to dropdowns */
             $(".dropdown-trigger > a").once("tiemposBehavior").append("&nbsp;<i class=\"fas fa-angle-down\" aria-hidden=\"true\"></i>");
