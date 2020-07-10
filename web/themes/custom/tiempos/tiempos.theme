@@ -53,8 +53,14 @@ function tiempos_preprocess_block(&$variables) {
         break;
 
       case 'date':
-        $variabless['#cache']['max-age'] = 0;
+        $variables['#cache']['max-age'] = 0;
         break;
+    }
+    /* Front Page Sections - add Title link */
+    if (strpos($variables['elements']['#id'], 'front_page_sections_block') !== FALSE) {
+      $title = $variables['elements']['content']['#title']['#markup'];
+      $link = strtolower(str_replace(' ', '-', $title));
+      $variables['label'] = Markup::create('<a href="' . $link.'">' . $title .'</a>');
     }
   }
 }
@@ -129,7 +135,6 @@ function tiempos_preprocess_node(&$variables) {
 }
 
 /**
- * @inheritDoc
  *
  * @param $variables
  */
