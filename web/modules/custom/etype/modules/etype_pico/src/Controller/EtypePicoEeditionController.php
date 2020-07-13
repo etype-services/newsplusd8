@@ -2,7 +2,6 @@
 
 namespace Drupal\etype_pico\Controller;
 
-use Drupal;
 use Drupal\Core\Controller\ControllerBase;
 
 /**
@@ -16,8 +15,6 @@ class EtypePicoEeditionController extends ControllerBase {
    * Returns a render-able array.
    */
   public function content() {
-
-    $user_name = Drupal::currentUser()->getAccountName();
 
     return [
       '#children' => "<p>iFrame code needed.</p>",
