@@ -18,10 +18,3 @@ etype_pico.pico_subscribe:
   defaults:
     _title: 'Pico Subscribe'
 
-etype_pico.e_edition:
-  path: '/e-edition'
-  defaults:
-    _title: 'e-Edition'
-    _controller: '\Drupal\etype_pico\Controller\EtypePicoEeditionController::content'
-  requirements:
-    _permission: 'access content'
