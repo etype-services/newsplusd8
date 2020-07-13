@@ -45,12 +45,14 @@ EOF;
     if ($node instanceof NodeInterface) {
       if (in_array($node->getType(), $nodeTypes)) {
         $nid = $node->id();
-        $tids = $node->get('field_section')->getValue();
-        $terms = ['article'];
-        if (is_countable($tids)) {
-          foreach ($tids as $tid) {
-            $term = Term::load($tid['target_id']);
-            $terms[] = $term->getName();
+        if ($node->hasField('field_section')) {
+          $tids = $node->get('field_section')->getValue();
+          $terms = ['article'];
+          if (is_countable($tids)) {
+            foreach ($tids as $tid) {
+              $term = Term::load($tid['target_id']);
+              $terms[] = $term->getName();
+            }
           }
         }
         $picoOn = 'true';
