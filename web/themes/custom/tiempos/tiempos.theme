@@ -62,7 +62,7 @@ function tiempos_preprocess_block(&$variables) {
       case strpos($variables['elements']['#id'], 'special_sections_block'):
         $title = $variables['elements']['content']['#title']['#markup'];
         $link = strtolower(str_replace(' ', '-', $title));
-        $variables['label'] = Markup::create('<a href="' . $link.'">' . $title .'</a>&nbsp;<i class="fas fa-angle-right" aria-hidden="true"></i>');
+        // $variables['label'] = Markup::create('<a href="' . $link.'">' . $title .'</a>&nbsp;<i class="fas fa-angle-right" aria-hidden="true"></i>');
         break;
     }
   }
