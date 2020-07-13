@@ -15,3 +15,9 @@ etype_pico.pico_subscribe:
   weight: 10
   route_name: etype_pico.pico_subscribe
   menu_name: account
+
+etype_pico.e_edition:
+  title: 'e-Edition'
+  weight: 10
+  route_name: etype_pico.e_edition
+  menu_name: account

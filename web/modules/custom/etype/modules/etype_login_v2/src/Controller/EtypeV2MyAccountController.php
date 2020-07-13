@@ -13,7 +13,7 @@ use Drupal\Core\Controller\ControllerBase;
 class EtypeV2MyAccountController extends ControllerBase {
 
   /**
-   * Returns a renderable array.
+   * Returns a render-able array.
    */
   public function content() {
 
