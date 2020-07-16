@@ -737,6 +737,11 @@ footer .footer-menu li > a {
   font-weight: 600;
 }
 
+/* Override for Aurora */
+.auroranewsregister .block-views-blockbusiness-directory-block-2 .view-content {
+  grid-template-columns: 16% 16% 16% 16% 16% 16%;
+}
+
 /* Taxonomy Pages. */
 .view-taxonomy-term, .view-classified {
   /* Page title is faked in View header. */
