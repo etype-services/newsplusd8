@@ -738,7 +738,11 @@ footer .footer-menu li > a {
   font-weight: 600;
 }
 
-/* Override for Aurora */
+/* Override for Aurora News Register */
+.auroranewsregister .block-views-blockspecial-sections-block-1 .view-content {
+  grid-template-columns: 30% 30% 30%;
+  column-gap: 0;
+}
 .auroranewsregister .block-views-blockbusiness-directory-block-2 .view-content {
   grid-template-columns: 15% 15% 15% 15% 15% 15%;
   column-gap: 0;
