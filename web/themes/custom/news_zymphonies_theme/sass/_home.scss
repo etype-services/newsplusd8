@@ -66,7 +66,7 @@ div[id*='block-views-block-special-sections-block'] {
 .freemansd {
   div[id*='block-views-block-special-sections-block'] {
     .flex-grid {
-      @include flex-grid(25% 25% 25% 25% );
+      @include flex-grid(25% 25% 25% 25%);
     }
   }
 }
