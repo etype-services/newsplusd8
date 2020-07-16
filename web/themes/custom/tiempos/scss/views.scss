@@ -107,9 +107,10 @@
   }
 }
 
-/* Special Sections (don't use id, for sub-themes). */
+/* Special Sections (don't use id, for sub-themes). Business Directory for Aurora */
 .block-views-blockspecial-sections-block-1,
-.block-views-blockspecial-sections-block-2 {
+.block-views-blockspecial-sections-block-2,
+.block-views-blockbusiness-directory-block-2 {
   .view-content {
     margin-left: -$column-gap;
     margin-right: -$column-gap;

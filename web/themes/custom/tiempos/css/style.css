@@ -699,9 +699,10 @@ footer .footer-menu li > a {
   flex: 1 1 100%;
 }
 
-/* Special Sections (don't use id, for sub-themes). */
+/* Special Sections (don't use id, for sub-themes). Business Directory for Aurora */
 .block-views-blockspecial-sections-block-1 .view-content,
-.block-views-blockspecial-sections-block-2 .view-content {
+.block-views-blockspecial-sections-block-2 .view-content,
+.block-views-blockbusiness-directory-block-2 .view-content {
   margin-left: -0.75rem;
   margin-right: -0.75rem;
   display: grid;
@@ -709,7 +710,8 @@ footer .footer-menu li > a {
   grid-gap: 0.75rem;
 }
 .block-views-blockspecial-sections-block-1 .view-content > div,
-.block-views-blockspecial-sections-block-2 .view-content > div {
+.block-views-blockspecial-sections-block-2 .view-content > div,
+.block-views-blockbusiness-directory-block-2 .view-content > div {
   display: flex;
   flex-basis: 0;
   flex-grow: 1;
@@ -723,12 +725,14 @@ footer .footer-menu li > a {
   justify-content: center;
 }
 .block-views-blockspecial-sections-block-1 .view-content > div a:nth-child(2),
-.block-views-blockspecial-sections-block-2 .view-content > div a:nth-child(2) {
+.block-views-blockspecial-sections-block-2 .view-content > div a:nth-child(2),
+.block-views-blockbusiness-directory-block-2 .view-content > div a:nth-child(2) {
   text-align: center;
   font-weight: 600;
 }
 .block-views-blockspecial-sections-block-1 .view-content > div .views-field-title a,
-.block-views-blockspecial-sections-block-2 .view-content > div .views-field-title a {
+.block-views-blockspecial-sections-block-2 .view-content > div .views-field-title a,
+.block-views-blockbusiness-directory-block-2 .view-content > div .views-field-title a {
   text-align: center;
   font-weight: 600;
 }
