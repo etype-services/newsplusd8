@@ -708,6 +708,7 @@ footer .footer-menu li > a {
   display: grid;
   grid-template-columns: 24% 24% 24% 24%;
   grid-gap: 0.75rem;
+  justify-content: center;
 }
 .block-views-blockspecial-sections-block-1 .view-content > div,
 .block-views-blockspecial-sections-block-2 .view-content > div,
