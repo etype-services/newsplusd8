@@ -6,11 +6,26 @@
  */
 
 /**
+ * Preprocess html.
+ *
+ * @param $variables
+ */
+function news_zymphonies_theme_preprocess_html(&$variables) {
+  /* Add domain to styles */
+  $host = Drupal::request()->getHost();
+  $arr = explode(".", $host);
+  if (strpos($arr[1], 'etypegoogle') !== false) {
+    $variables["host"] = $arr[0];
+  } else {
+    $variables["host"] = $arr[1];
+  }
+}
+
+/**
  * Implements hook_preprocess_page() for block templates.
  *
  * @param $variables
  */
-
 function news_zymphonies_theme_preprocess_page(&$variables) {
 
   // Add Responsive class for Top Widget.

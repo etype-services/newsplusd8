@@ -37,11 +37,7 @@
 /* Services and Sections */
 div[id*='block-views-block-special-sections-block'] {
   .flex-grid {
-    display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
-    justify-content: space-evenly;
-    position: relative;
-    grid-column-gap: 0.5rem;
+    @include flex-grid(20% 20% 20% 20% 20%);
     div.views-row {
       margin-bottom: $column-gap;
       display: flex;
@@ -61,6 +57,16 @@ div[id*='block-views-block-special-sections-block'] {
         position: relative;
         top: 1px;
       }
+    }
+  }
+}
+
+/* Freeman SD */
+/* TODO: a better way to do this */
+.freemansd {
+  div[id*='block-views-block-special-sections-block'] {
+    .flex-grid {
+      @include flex-grid(25% 25% 25% 25% );
     }
   }
 }

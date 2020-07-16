@@ -59,3 +59,11 @@ $column-gap: 0.75rem;
 @mixin box-shadow($shadow) {
   box-shadow: $shadow;
 }
+
+@mixin flex-grid ($columns) {
+  display: grid;
+  grid-template-columns: $columns;
+  justify-content: space-evenly;
+  position: relative;
+  grid-column-gap: 0.5rem;
+}
