@@ -1151,13 +1151,6 @@ footer .footer-menu li > a {
   margin-bottom: inherit;
 }
 
-/* Business Directory Grid Block */
-#block-views-block-business-directory-block-2 .view-content {
-  display: grid;
-  grid-template-columns: auto auto auto auto auto;
-  grid-gap: 1rem;
-}
-
 @media screen and (max-width: 768px) {
   /* Hide content on mobile */
   .path-frontpage .view-display-id-page_1,
