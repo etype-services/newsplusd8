@@ -1,5 +1,21 @@
 @import "./vars";
 
+/* Override for Aurora News Register */
+.auroranewsregister {
+  .block-views-blockspecial-sections-block-1 {
+    .view-content {
+      grid-template-columns: 30% 30% 30%;
+      column-gap: 0;
+    }
+  }
+  .block-views-blockbusiness-directory-block-2 {
+    .view-content {
+      grid-template-columns: 15% 15% 15% 15% 15% 15%;
+      column-gap: 0;
+    }
+  }
+}
+
 @media screen and (min-width: $desktop) {
   /* Move Social icons into Navbar, depends on site main links, logo and number of icons */
   .bctribune, .schulenburgsticker, .pawneerepublican, .tecumsehchieftain {
@@ -11,6 +27,15 @@
   }
   .welchpublishing footer .region {
     flex-basis: 30%;
+  }
+
+  /* Waushara Argus main menu vertical */
+  .wausharaargus {
+    #main-navbar-menu .dropdown .dropdown-menu .dropdown-content {
+      display: block;
+      width: fit-content;
+      background-color: $white;
+    }
   }
 }
 

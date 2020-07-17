@@ -56,6 +56,7 @@ function tiempos_preprocess_block(&$variables) {
         $variables['#cache']['max-age'] = 0;
         break;
     }
+
     /* Front Page Sections - add Title link */
     switch (true) {
       case strpos($variables['elements']['#id'], 'front_page_sections_block'):
