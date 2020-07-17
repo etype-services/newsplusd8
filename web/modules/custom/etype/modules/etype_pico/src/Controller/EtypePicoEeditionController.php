@@ -37,13 +37,10 @@ class EtypePicoEeditionController extends ControllerBase {
   /**
    * Returns a TrustedRedirectResponse.
    *
-   * @param int $pubId
-   *   the Id of the publication.
-   *
    * @return \Drupal\Core\Routing\TrustedRedirectResponse
    *   Redirect to external uri.
    */
-  public function gotoEedition($pubId = NULL) {
+  public function gotoEedition() {
     $url = $this->getToken();
     $response = new TrustedRedirectResponse($url);
     /* We do not want the response cached */
