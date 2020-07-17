@@ -1683,7 +1683,7 @@ article .node--view-mode-full .node__content h2 {
 
 @media screen and (min-width: 1024px) {
   /* Move Social icons into Navbar, depends on site main links, logo and number of icons */
-  .bctribune #main-nav .navbar .navbar-end, .schulenburgsticker #main-nav .navbar .navbar-end, .pawneerepublican #main-nav .navbar .navbar-end, .tecumsehchieftain #main-nav .navbar .navbar-end {
+  .bctribune #main-nav .navbar .navbar-end, .schulenburgsticker #main-nav .navbar .navbar-end, .pawneerepublican #main-nav .navbar .navbar-end, .tecumsehchieftain #main-nav .navbar .navbar-end, .wausharaargus #main-nav .navbar .navbar-end {
     /* Social Icons */
     position: inherit;
     top: 0;
