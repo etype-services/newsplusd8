@@ -138,7 +138,7 @@
   }
 }
 
-/* Tablet */
+/* Tablet & Mobile */
 @media screen and (max-width: $desktop - 1px) {
   #main-nav {
     .navbar {
@@ -233,10 +233,6 @@
       }
       /* Social Icons */
       .navbar-end {
-        position: absolute;
-        top: -2.6rem;
-        right: 0;
-        z-index: -1; // Prevent display in "pop-up" menu
         a {
           margin-left: 0.5rem;
           .is-size-3 {

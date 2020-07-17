@@ -442,7 +442,7 @@ footer .footer-menu li > a {
   margin-right: 0.75rem;
 }
 
-/* Tablet */
+/* Tablet & Mobile */
 @media screen and (max-width: 1023px) {
   #main-nav .navbar {
     /* Make sure navbar completely hidden */
@@ -528,12 +528,6 @@ footer .footer-menu li > a {
   #main-nav .navbar .navbar-start .block-system-branding-block {
     visibility: hidden !important;
     display: none !important;
-  }
-  #main-nav .navbar .navbar-end {
-    position: absolute;
-    top: -2.6rem;
-    right: 0;
-    z-index: -1;
   }
   #main-nav .navbar .navbar-end a {
     margin-left: 0.5rem;
