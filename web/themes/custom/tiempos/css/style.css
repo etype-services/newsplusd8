@@ -207,9 +207,10 @@ main .main-content-inner {
   }
 
   .region-navigation {
-    position: absolute;
+    /* position: absolute;
     top: 70px;
-    right: 10px;
+    right: 10px; */
+    border-bottom: 3px solid #000;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -401,7 +402,7 @@ footer .footer-menu li > a {
   /* navbar-start is only shown when hamburger clicked */
 }
 #main-nav .navbar .navbar-start {
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   left: 0;
   height: 100%;
@@ -487,7 +488,8 @@ footer .footer-menu li > a {
   }
 
   .user-menu {
-    float: right;
+    /* float: right; */
+    margin-top: 1rem;
   }
 
   /* Close X in front of user menu */
@@ -509,10 +511,9 @@ footer .footer-menu li > a {
     z-index: 35;
     float: right;
     width: fit-content;
-    max-width: 30%;
-    /* IE & Edge */
-    position: fixed;
-    right: 0;
+    /* max-width: 30%; IE & Edge */
+    /* position: fixed;
+    right: 0; */
   }
   .z-index-fix.region-top-bar {
     margin-right: 0.75rem;
@@ -569,6 +570,11 @@ footer .footer-menu li > a {
 /* Match font */
 .is-sans-serif {
   font-family: "Open Sans", sans-serif;
+}
+
+/* Navigation on mobile */
+.border-bottom {
+  border-bottom: 3px solid #000;
 }
 
 @media screen and (min-width: 769px) {
@@ -1695,18 +1701,6 @@ article .node--view-mode-full .node__content h2 {
     display: block;
     width: fit-content;
     background-color: white;
-  }
-}
-@media screen and (max-width: 768px) {
-  .wausharaargus #main-nav .navbar .navbar-start .column {
-    display: none;
-  }
-  .wausharaargus #main-nav .navbar .navbar-start .column:first-child {
-    width: 70%;
-    display: block;
-  }
-  .wausharaargus #main-nav .navbar .navbar-start .navbar-item {
-    float: left;
   }
 }
 /* left as example of font change

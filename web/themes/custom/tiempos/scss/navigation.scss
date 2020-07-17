@@ -94,7 +94,7 @@
       .column {
         flex-basis: 30%;
       }
-      position: fixed;
+      /* position: fixed; */
       top: 0;
       left: 0;
       height:100%;
@@ -183,7 +183,8 @@
     }
   }
   .user-menu {
-    float: right;
+    /* float: right; */
+    margin-top: 1rem;
   }
 
   /* Close X in front of user menu */
@@ -208,9 +209,9 @@
     z-index: 35;
     float: right;
     width: fit-content;
-    max-width: 30%; /* IE & Edge */
-    position: fixed;
-    right: 0;
+    /* max-width: 30%; IE & Edge */
+    /* position: fixed;
+    right: 0; */
     &.region-top-bar {
       margin-right: $column-gap;
     }

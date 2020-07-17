@@ -32,6 +32,7 @@ function getIEVersion() {
                 $(".user-menu, .region-header-left, .region-header-center").toggleClass("is-hidden-touch");
                 /* User menu might be in top-bar */
                 $("header, .region-top-bar").toggleClass("z-index-fix");
+                $(".region-navigation").toggleClass("border-bottom");
             });
 
             /* Search form. (No ids because the form is repeated.) */
@@ -51,9 +52,6 @@ function getIEVersion() {
 
             /* Add footer menu to user-menu */
             $(".footer-menu li > a").once("tiemposBehavior").clone().addClass("is-hidden-desktop").appendTo($(".user-menu"));
-
-            /* Add arrows to section header. Removed because most of them are not links, see tiempos_preprocess_block() */
-            // $(".section-tag-heading").once("tiemposBehavior").append("&nbsp;<i class=\"fas fa-angle-right\" aria-hidden=\"true\"></i>");
 
             /* Add down arrows to dropdowns */
             $(".dropdown-trigger > a").once("tiemposBehavior").append("&nbsp;<i class=\"fas fa-angle-down\" aria-hidden=\"true\"></i>");

@@ -21,6 +21,10 @@
   font-family: $sans-serif;
 }
 
+/* Navigation on mobile */
+.border-bottom {
+  border-bottom: 3px solid #000;
+}
 
 @media screen and (min-width: $tablet) {
   .is-pulled-right-desktop {
