@@ -405,7 +405,8 @@ footer .footer-menu li > a {
   top: 0;
   left: 0;
   height: 100%;
-  width: 100%;
+  width: 102%;
+  /* why? */
   padding: 0.5rem 1.5rem 1rem 1rem;
   background-color: white;
   /* Used to close "pop-up", override bulma margin. */
@@ -1694,6 +1695,17 @@ article .node--view-mode-full .node__content h2 {
     display: block;
     width: fit-content;
     background-color: white;
+  }
+}
+@media screen and (max-width: 768px) {
+  .wausharaargus #main-nav .navbar .navbar-start .column {
+    display: none;
+  }
+  .wausharaargus #main-nav .navbar .navbar-start .column:first-child {
+    width: 70%;
+  }
+  .wausharaargus #main-nav .navbar .navbar-start .navbar-item {
+    float: left;
   }
 }
 /* left as example of font change

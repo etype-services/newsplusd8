@@ -39,6 +39,20 @@
   }
 }
 
+@media screen and (max-width: $tablet - 1px ) {
+  .wausharaargus {
+    #main-nav .navbar .navbar-start .column {
+      display: none;
+    }
+    #main-nav .navbar .navbar-start .column:first-child {
+      width: 70%;
+    }
+    #main-nav .navbar .navbar-start .navbar-item {
+      float: left;
+    }
+  }
+}
+
 /* left as example of font change
 body.aroundosceola, .aroundosceola footer {
   font-family: sans-serif;
