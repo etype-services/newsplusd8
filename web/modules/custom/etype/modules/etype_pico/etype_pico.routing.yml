@@ -23,3 +23,5 @@ etype_pico.e_edition:
   defaults:
     _title: 'e-Edition'
     _controller: '\Drupal\etype_pico\Controller\EtypePicoEeditionController::goToEedition'
+    requirements:
+      _permission: 'access content'
