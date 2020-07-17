@@ -1703,6 +1703,7 @@ article .node--view-mode-full .node__content h2 {
   }
   .wausharaargus #main-nav .navbar .navbar-start .column:first-child {
     width: 70%;
+    display: block;
   }
   .wausharaargus #main-nav .navbar .navbar-start .navbar-item {
     float: left;
