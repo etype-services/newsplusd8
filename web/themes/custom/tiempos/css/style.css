@@ -448,6 +448,8 @@ footer .footer-menu li > a {
     /* Make sure navbar completely hidden */
     min-height: 0;
     border-bottom: 0;
+    /* Override Bulma */
+    position: inherit;
     /* Show User Menu in pop-up, using is-hidden-touch to identify the menu. */
     /* Social Icons */
   }
@@ -479,7 +481,7 @@ footer .footer-menu li > a {
   #main-nav .navbar .navbar-end {
     position: absolute;
     /*top: -2.6rem;*/
-    top: -7.4rem;
+    top: 2rem;
     right: 0;
     margin-right: 0;
     z-index: -1;

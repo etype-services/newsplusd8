@@ -145,6 +145,8 @@
       /* Make sure navbar completely hidden */
       min-height: 0;
       border-bottom: 0;
+      /* Override Bulma */
+      position: inherit;
       /* Show User Menu in pop-up, using is-hidden-touch to identify the menu. */
       .navbar-start {
         /* Align menu to right. */
@@ -176,7 +178,7 @@
       .navbar-end {
         position: absolute;
         /*top: -2.6rem;*/
-        top: -7.4rem;
+        top: 2rem;
         right: 0;
         margin-right: 0;
         z-index: -1; // Prevent display in "pop-up" menu
