@@ -89,15 +89,8 @@
 }
 
 @media screen and (max-width: $desktop - 1px) {
-
   .region-header-right {
     padding: 0.5rem calc(#{$column-gap} * 2) 0 $column-gap;
-  }
-
-  .region-navigation {
-    /* position: absolute;
-    top: 70px;
-    right: 10px; */
   }
 }
 
@@ -106,6 +99,9 @@
   .region-header-left, .region-header-right {
     flex-basis: 20%;
     flex-shrink: 0;
+  }
+  .region-navigation.border-bottom {
+    border-bottom: none;
   }
 }
 

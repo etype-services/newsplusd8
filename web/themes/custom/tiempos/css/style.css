@@ -205,18 +205,16 @@ main .main-content-inner {
   .region-header-right {
     padding: 0.5rem calc(0.75rem * 2) 0 0.75rem;
   }
-
-  .region-navigation {
-    /* position: absolute;
-    top: 70px;
-    right: 10px; */
-  }
 }
 @media screen and (min-width: 1024px) {
   /* Center logo, prevent search input from shifting logo */
   .region-header-left, .region-header-right {
     flex-basis: 20%;
     flex-shrink: 0;
+  }
+
+  .region-navigation.border-bottom {
+    border-bottom: none;
   }
 }
 @media screen and (min-width: 769px) {
