@@ -22,4 +22,4 @@ etype_pico.e_edition:
   path: '/e-edition'
   defaults:
     _title: 'e-Edition'
-    _controller: '\Drupal\etype_login_v2\Controller\EtypePicoEeditionController::goToEedition'
+    _controller: '\Drupal\etype_pico\Controller\EtypePicoEeditionController::goToEedition'
