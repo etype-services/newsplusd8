@@ -6,6 +6,7 @@ use Drupal;
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Routing\TrustedRedirectResponse;
+use SoapClient;
 
 /**
  * Class EtypePicoEeditionController.
@@ -25,7 +26,7 @@ class EtypePicoEeditionController extends ControllerBase {
   public function getToken() {
     $config = Drupal::config('etype.adminsettings');
     $pubId = (int) $config->get('etype_pub');
-    $client = new soapclient('https://publisher.etype.services/webservice.asmx?WSDL');
+    $client = new SoapClient('https://publisher.etype.services/webservice.asmx?WSDL');
     $params = [
       'publicationId' => $pubId,
       'username' => 'Pico',
