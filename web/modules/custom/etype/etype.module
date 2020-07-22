@@ -141,7 +141,7 @@ function etype_e_editions() {
         $path_anon = $v2_url . 'e-edition/'. $pub;
         $sub_link = $v2_url . 'e-edition/'. $pub;
         break;
-      break;
+        break;
 
       default;
         /* Thumbnail */
@@ -319,7 +319,9 @@ function getFields($nodeType) {
  */
 function etype_preprocess_views_view_row_rss(&$variables) {
   $item = $variables['row'];
-  $variables['image'] = $item->image;
+  if (isset($item->image)) {
+    $variables['image'] = $item->image;
+  }
 }
 
 /**
