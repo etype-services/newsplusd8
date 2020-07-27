@@ -102,15 +102,21 @@
   {% endif %}
 
   <div{{ content_attributes.addClass('node__content') }}>
-    {% if logged_in %}
+    {% if picoEnabled %}
+    <div id="pico">
       {{ content }}
+    </div>
     {% else %}
-      {%  if premium_content == 1 %}
-        {{ content.field_subhead }}
-        <div class="field">{{ content.body[0]['#text']|truncate(premium_preview, true, true) }}</div>
-        <div class="premium_message is-sans-serif">{{ premium_content_message['value']|raw }}</div>
-      {% else %}
+      {% if logged_in %}
         {{ content }}
+      {% else %}
+        {%  if premium_content == 1 %}
+          {{ content.field_subhead }}
+          <div class="field">{{ content.body[0]['#text']|truncate(premium_preview, true, true) }}</div>
+          <div class="premium_message is-sans-serif">{{ premium_content_message['value']|raw }}</div>
+        {% else %}
+          {{ content }}
+        {% endif %}
       {% endif %}
     {% endif %}
   </div>
