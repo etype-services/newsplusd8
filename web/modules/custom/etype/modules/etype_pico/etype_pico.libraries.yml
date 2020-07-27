@@ -9,3 +9,12 @@ pico:
     - core/drupal
     - core/drupalSettings
     - core/jquery.once
+
+pico-check:
+  version: VERSION
+  js:
+    js/etype_pico_check.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once

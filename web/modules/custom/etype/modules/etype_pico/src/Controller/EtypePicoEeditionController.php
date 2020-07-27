@@ -24,8 +24,6 @@ class EtypePicoEeditionController extends ControllerBase {
    *   The url with the token.
    */
   public function getToken() {
-    print_r($_COOKIE);
-    exit;
     $config = Drupal::config('etype.adminsettings');
     $pubId = (int) $config->get('etype_pub');
     $client = new SoapClient('https://publisher.etype.services/webservice.asmx?WSDL');
@@ -44,6 +42,7 @@ class EtypePicoEeditionController extends ControllerBase {
    *   Redirect to external uri.
    */
   public function gotoEedition() {
+    exit;
     $url = $this->getToken();
     $response = new TrustedRedirectResponse($url);
     /* We do not want the response cached */
