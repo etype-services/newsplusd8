@@ -1,8 +1,7 @@
 <p id="the_message">Please wait while we check access.</p>
 <script>
-    console.log(window.location.pathname);
     if (typeof window.Pico === 'undefined') {
-        document.getElementById("the_message").text('Please log in to read the e-Edition.');
+        document.getElementById("the_message").textContent='Please log in to read the e-Edition.';
     } else {
         window.location.href = "{{ url }}";
     }
