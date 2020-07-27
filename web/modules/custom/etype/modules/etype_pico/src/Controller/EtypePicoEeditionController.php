@@ -24,6 +24,8 @@ class EtypePicoEeditionController extends ControllerBase {
    *   The url with the token.
    */
   public function getToken() {
+    print_r($_COOKIE);
+    exit;
     $config = Drupal::config('etype.adminsettings');
     $pubId = (int) $config->get('etype_pub');
     $client = new SoapClient('https://publisher.etype.services/webservice.asmx?WSDL');
