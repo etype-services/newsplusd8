@@ -44,13 +44,12 @@ class EtypePicoEeditionController extends ControllerBase {
   public function gotoEedition() {
     $url = $this->getToken();
     echo $url;
-    exit;
-    $response = new TrustedRedirectResponse($url);
+    //$response = new TrustedRedirectResponse($url);
     /* We do not want the response cached */
-    $cacheable_metadata = new CacheableMetadata();
-    $cacheable_metadata->setCacheMaxAge(0);
-    $response->addCacheableDependency($cacheable_metadata);
-    return $response;
+    //$cacheable_metadata = new CacheableMetadata();
+    //$cacheable_metadata->setCacheMaxAge(0);
+    //$response->addCacheableDependency($cacheable_metadata);
+    //return $response;
   }
 
 }

@@ -4,6 +4,22 @@ use Drupal\node\NodeInterface;
 use Drupal\taxonomy\Entity\Term;
 
 /**
+ * @param $existing
+ * @param $type
+ * @param $theme
+ * @param $path
+ * @return array
+ */
+function etype_pico_theme($existing, $type, $theme, $path) {
+  return [
+    'e-edition' => [
+      'variables' => [],
+      'template' => 'e-edition',
+    ],
+  ];
+}
+
+/**
  * Preprocess html.
  *
  * @param $variables
