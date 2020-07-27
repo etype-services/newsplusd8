@@ -42,7 +42,6 @@ class EtypePicoEeditionController extends ControllerBase {
    *   Redirect to external uri.
    */
   public function gotoEedition() {
-    exit;
     $url = $this->getToken();
     $response = new TrustedRedirectResponse($url);
     /* We do not want the response cached */
