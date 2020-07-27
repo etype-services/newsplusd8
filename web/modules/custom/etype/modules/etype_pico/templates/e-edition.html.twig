@@ -1,8 +1,8 @@
 <p>Please wait while we check access.</p>
 <script>
-    if (typeof window.Pico.user !== 'undefined') {
-        window.location.href = "{{  url }}";
+    if (window.Pico.user !== 'undefined') {
+        window.location.href = "{{ url }}";
     } else {
-        document.write('Please log into read the e-Edition.');
+        document.write('Please log in to read the e-Edition.');
     }
 </script>
