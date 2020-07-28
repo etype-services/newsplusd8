@@ -4,8 +4,8 @@
 <script src="/modules/custom/etype/modules/etype_pico/js/Encryption.js"></script>
 <script type="text/javascript">
     window.addEventListener('pico.loaded', function() {
-        // console.log(window.Pico.user);
         if (window.Pico.user.verified === true) {
+            let encryption = new Encryption();
             window.location.href = encryption.decrypt('{{ url }}', 'pico_key');
         } else {
             window.location.href = "/";
