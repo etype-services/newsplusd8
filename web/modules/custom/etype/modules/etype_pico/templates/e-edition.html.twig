@@ -3,11 +3,11 @@
 <script type="text/javascript">
     window.addEventListener('pico.loaded', function() {
         console.log(window.Pico.user);
-        if (typeof window.Pico.user === 'undefined') {
+        if (window.Pico.user.verified === false) {
             document.getElementById("the_message").textContent =
                     'Log in to read the e-Edition.';
         } else {
-            //window.location.href = "{{ url }}";
+            window.location.href = "{{ url }}";
         }
     })
 </script>
