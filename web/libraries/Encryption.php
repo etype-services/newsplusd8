@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\etype_pico\ThirdParty;
+namespace Drupal\libraries;
 
 /**
  * Encryption class for encrypt/decrypt that works between programming languages.
@@ -10,7 +10,6 @@ namespace Drupal\etype_pico\ThirdParty;
  */
 class Encryption
 {
-
 
     /**
      * @link http://php.net/manual/en/function.openssl-get-cipher-methods.php Available methods.
