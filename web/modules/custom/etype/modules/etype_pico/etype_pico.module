@@ -33,11 +33,13 @@ function etype_pico_get_token() {
  */
 function etype_pico_theme($existing, $type, $theme, $path) {
   $url = etype_pico_get_token();
-  $encrypted = (new Encryption)->encrypt($url, 'pico_key');
+  $salt = mt_rand();
+  $encrypted = (new Encryption)->encrypt($url, $salt);
   return [
     'e-edition' => [
       'variables' => [
         'url' => $encrypted,
+        'salt' => $salt,
       ],
       'template' => 'e-edition',
     ],
