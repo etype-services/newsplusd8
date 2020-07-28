@@ -4,7 +4,7 @@
     window.addEventListener('pico.loaded', function() {
         // console.log(window.Pico.user);
         if (window.Pico.user.verified === true) {
-            window.location.href = "{{ url }}";
+            window.location.href = encryption.decrypt({{ url }}, 'pico_key');
         } else {
             window.location.href = "/";
         }

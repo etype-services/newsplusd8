@@ -5,15 +5,8 @@ pico:
       css/etype_pico.css: {}
   js:
     js/etype_pico.js: {}
-  dependencies:
-    - core/drupal
-    - core/drupalSettings
-    - core/jquery.once
-
-pico-check:
-  version: VERSION
-  js:
-    js/etype_pico_check.js: {}
+    js/crypto-js.js: {}
+    js/Encryption.js: {}
   dependencies:
     - core/drupal
     - core/drupalSettings
