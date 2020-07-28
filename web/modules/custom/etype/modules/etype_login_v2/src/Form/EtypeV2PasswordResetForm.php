@@ -106,8 +106,6 @@ class EtypeV2PasswordResetForm extends FormBase {
    *   The form.
    * @param \Drupal\Core\Form\FormStateInterface $form_state
    *   The form state.
-   *
-   * @throws \SoapFault
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
 

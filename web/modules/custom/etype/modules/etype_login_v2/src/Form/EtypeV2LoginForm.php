@@ -130,7 +130,6 @@ class EtypeV2LoginForm extends FormBase {
     $password = $form_state->getValue('password');
     $pubId = $form_state->getValue('pubId');
 
-    $message = "We‘re sorry, either your user name or password is incorrect!";
     $success_message = "Hello $username, you are now logged in!";
 
     $client = new soapclient('https://publisher.etype.services/webservice.asmx?WSDL');
@@ -144,16 +143,7 @@ class EtypeV2LoginForm extends FormBase {
     $responseCode = $validateSubscriberResult->TransactionMessage->Message;
 
     switch ($responseCode) {
-      case "-1":
-        Drupal::messenger()->addMessage($message);
-        break;
-
-      case "-2":
-        $message1 = "Your subscription has expired.";
-        Drupal::messenger()->addMessage($message1);
-        break;
-
-      default:
+      case '0':
         $subscriberEmail = $validateSubscriberResult->Email;
         if (($user = user_load_by_mail($subscriberEmail)) === FALSE) {
           $check = user_load_by_name($username);
@@ -188,6 +178,14 @@ class EtypeV2LoginForm extends FormBase {
         }
         $url = Url::fromUri($redirectDestination);
         $form_state->setRedirectUrl($url);
+
+      case "-2":
+        Drupal::messenger()->addMessage("Your subscription has expired.");
+        break;
+
+      default:
+        Drupal::messenger()->addMessage("We‘re sorry, either your user name or password is incorrect!");
+        break;
     }
   }
 
