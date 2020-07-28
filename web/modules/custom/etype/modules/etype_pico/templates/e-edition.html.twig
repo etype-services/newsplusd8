@@ -3,12 +3,8 @@
 <script src="/modules/custom/etype/modules/etype_pico/js/crypto-js.js"></script>
 <script src="/modules/custom/etype/modules/etype_pico/js/Encryption.js"></script>
 <script type="text/javascript">
+    let encryption = new Encryption();
     window.addEventListener('pico.loaded', function() {
-        if (window.Pico.user.verified === true) {
-            let encryption = new Encryption();
-            window.location.href = encryption.decrypt('{{ url }}', 'pico_key');
-        } else {
-            window.location.href = "/";
-        }
+        window.location.href = window.Pico.user.verified === true ? encryption.decrypt('{{ url }}', 'pico_key'):'/'
     })
 </script>
