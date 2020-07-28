@@ -5,6 +5,8 @@
         // console.log(window.Pico.user);
         if (window.Pico.user.verified === true) {
             window.location.href = "{{ url }}";
+        } else {
+            window.location.href = "/";
         }
     })
 </script>
