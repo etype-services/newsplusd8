@@ -39,7 +39,7 @@ class EtypePicoEeditionController extends ControllerBase {
    */
   public function content() {
     return [
-      '#title' => 'Read the Paper Online',
+      '#title' => '',
       '#theme' => 'e-edition',
     ];
   }
