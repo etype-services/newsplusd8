@@ -178,6 +178,7 @@ class EtypeV2LoginForm extends FormBase {
         }
         $url = Url::fromUri($redirectDestination);
         $form_state->setRedirectUrl($url);
+        break;
 
       case "-2":
         Drupal::messenger()->addMessage("Your subscription has expired.");
