@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\libraries\Encryption;
+namespace Drupal\etype_pico\ThirdParty;
 
 /**
  * Encryption class for encrypt/decrypt that works between programming languages.
