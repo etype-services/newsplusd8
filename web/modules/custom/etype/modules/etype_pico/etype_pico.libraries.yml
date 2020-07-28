@@ -5,8 +5,6 @@ pico:
       css/etype_pico.css: {}
   js:
     js/etype_pico.js: {}
-    js/crypto-js.js: {}
-    js/Encryption.js: {}
   dependencies:
     - core/drupal
     - core/drupalSettings
