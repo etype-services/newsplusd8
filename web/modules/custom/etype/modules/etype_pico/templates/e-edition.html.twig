@@ -1,7 +1,8 @@
 <p id="the_message" class="PicoRule" style="text-decoration: underline; cursor:pointer;">Please wait while we check
     access.</p>
 <script type="text/javascript">
-    if (typeof window.Pico === 'undefined') {
+    console.log(window.Pico.user);
+    if (typeof window.Pico.user === 'undefined') {
         document.getElementById("the_message").textContent =
                 'Log in to read the e-Edition.';
     } else {
