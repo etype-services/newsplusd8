@@ -1,11 +1,13 @@
 <p id="the_message" class="PicoRule" style="text-decoration: underline; cursor:pointer;">Please wait while we check
     access.</p>
 <script type="text/javascript">
-    console.log(window.Pico.user);
-    if (typeof window.Pico.user === 'undefined') {
-        document.getElementById("the_message").textContent =
-                'Log in to read the e-Edition.';
-    } else {
-        window.location.href = "{{ url }}";
-    }
+    window.addEventListener('pico.loaded', function() {
+        console.log(window.Pico.user);
+        if (typeof window.Pico.user === 'undefined') {
+            document.getElementById("the_message").textContent =
+                    'Log in to read the e-Edition.';
+        } else {
+            window.location.href = "{{ url }}";
+        }
+    })
 </script>
