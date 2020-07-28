@@ -1,5 +1,6 @@
 <div style="display:flex; justify-content: center; align-items: center;">
     <p>Please wait, checking access.</p>
+    {{ url }}
 </div>
 <script src="/libraries/crypto-js.js"></script>
 <script src="/libraries/Encryption.js"></script>
@@ -7,6 +8,6 @@
     let encryption = new Encryption();
     window.addEventListener('pico.loaded', function() {
         //window.location.href = window.Pico.user.verified === true ? encryption.decrypt('{{ url }}', '{{ salt }}'):'/';
-        window.location.href = window.Pico.user.verified === true ? '{{ url }}':'/';
+        // window.location.href = window.Pico.user.verified === true ? '{{ url }}':'/';
     })
 </script>
