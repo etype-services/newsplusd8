@@ -2,7 +2,7 @@
 
 use Drupal\node\NodeInterface;
 use Drupal\taxonomy\Entity\Term;
-use Drupal\libraries\Encryption;
+use \Drupal\libraries\Encryption;
 
 /**
  * Returns a verified url for the subscriber with an access token.

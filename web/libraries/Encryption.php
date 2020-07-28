@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\libraries;
+namespace Drupal\libraries\Encryption;
 
 /**
  * Encryption class for encrypt/decrypt that works between programming languages.
