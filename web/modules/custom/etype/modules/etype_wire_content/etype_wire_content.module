@@ -8,6 +8,7 @@
 
 use Drupal\Core\Database\Database;
 use Drupal\etype_wire_content\Controller\WireContentExportController;
+use Drupal\views\ViewExecutable;
 
 /**
  * Callback function for the cron job.
@@ -37,6 +38,32 @@ function _etype_wire_content_check_connection() {
 function etype_wire_content_node_update(Drupal\node\NodeInterface $node) {
   $exporter = new WireContentExportController();
   $exporter->exportWireContent();
+}
+
+/**
+ * @param ViewExecutable $view
+ * @param $display_id
+ * @param array $args
+ */
+function etype_wire_content_views_pre_view(ViewExecutable $view, $display_id, array &$args) {
+  if ($view->id() == 'wire_content') {
+    $config = Drupal::config('system.site');
+    $site_name = $config->get('name');
+    Database::setActiveConnection('wire');
+    $db = Database::getConnection();
+    $result = $db->select('wire_node', 'w')
+      ->fields('w', ['site'])
+      ->condition('site_name', $site_name, '!=')
+      ->distinct()
+      ->execute()
+      ->fetchAll();
+    var_dump($result);
+    exit;
+
+
+    /* Reset connection. */
+    Database::setActiveConnection();
+  }
 }
 
 /**
