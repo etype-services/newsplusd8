@@ -3,9 +3,7 @@
 namespace Drupal\etype_pico\Controller;
 
 use Drupal;
-use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Routing\TrustedRedirectResponse;
 use SoapClient;
 
 /**
@@ -16,12 +14,10 @@ use SoapClient;
 class EtypePicoEeditionController extends ControllerBase {
 
   /**
-   * Returns a verified url for the subscriber with an access token.
+   * Get Token for access to etype.services.
    *
-   * This is used to open the etypeservices page for the paper.
-   *
-   * @return string
-   *   The url with the token.
+   * @return mixed
+   *   Object.
    */
   public function getToken() {
     $config = Drupal::config('etype.adminsettings');
@@ -36,19 +32,16 @@ class EtypePicoEeditionController extends ControllerBase {
   }
 
   /**
-   * Returns a TrustedRedirectResponse.
+   * Content.
    *
-   * @return \Drupal\Core\Routing\TrustedRedirectResponse
-   *   Redirect to external uri.
+   * @return array
+   *   markup
    */
-  public function gotoEedition() {
-    $url = $this->getToken();
-    $response = new TrustedRedirectResponse($url);
-    /* We do not want the response cached */
-    $cacheable_metadata = new CacheableMetadata();
-    $cacheable_metadata->setCacheMaxAge(0);
-    $response->addCacheableDependency($cacheable_metadata);
-    return $response;
+  public function content() {
+    return [
+      '#title' => '',
+      '#theme' => 'e-edition',
+    ];
   }
 
 }

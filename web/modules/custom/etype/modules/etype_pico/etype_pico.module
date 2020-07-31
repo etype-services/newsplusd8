@@ -2,6 +2,49 @@
 
 use Drupal\node\NodeInterface;
 use Drupal\taxonomy\Entity\Term;
+use Drupal\etype_pico\ThirdParty\Encryption;
+
+/**
+ * Returns a verified url for the subscriber with an access token.
+ *
+ * This is used to open the etypeservices page for the paper.
+ *
+ * @return string
+ *   The url with the token.
+ */
+function etype_pico_get_token() {
+  $config = Drupal::config('etype.adminsettings');
+  $pubId = (int) $config->get('etype_pub');
+  $client = new SoapClient('https://publisher.etype.services/webservice.asmx?WSDL');
+  $params = [
+    'publicationId' => $pubId,
+    'username' => 'Pico',
+  ];
+  $data = $client->GenerateUrlForSubscriber($params);
+  return $data->GenerateUrlForSubscriberResult;
+}
+
+/**
+ * @param $existing
+ * @param $type
+ * @param $theme
+ * @param $path
+ * @return array
+ */
+function etype_pico_theme($existing, $type, $theme, $path) {
+  $url = etype_pico_get_token();
+  $salt = mt_rand();
+  $encrypted = (new Encryption)->encrypt($url, $salt);
+  return [
+    'e-edition' => [
+      'variables' => [
+        'url' => $encrypted,
+        'salt' => $salt,
+      ],
+      'template' => 'e-edition',
+    ],
+  ];
+}
 
 /**
  * Preprocess html.
@@ -9,58 +52,60 @@ use Drupal\taxonomy\Entity\Term;
  * @param $variables
  */
 function etype_pico_preprocess_html(&$variables) {
-  $e_config = Drupal::config('etype.adminsettings');
-  $head_script = $e_config->get('head_script');
-  $bottom_script = $e_config->get('bottom_script');
-  $config = Drupal::config('etype_pico.settings');
-  $picoPublisherId = $config->get('picoPublisherId');
-  $types = $config->get('nodeTypes');
-  $nodeTypes = [];
-  if (is_countable($types)) {
-    foreach ($types as $k => $v) {
-      if (!empty($v)) {
-        $nodeTypes[] = $v;
+  $current_user_roles = \Drupal::currentUser()->getRoles();
+  if (!in_array('administrator', $current_user_roles)) {
+    $e_config = Drupal::config('etype.adminsettings');
+    $head_script = $e_config->get('head_script');
+    $bottom_script = $e_config->get('bottom_script');
+    $config = Drupal::config('etype_pico.settings');
+    $picoPublisherId = $config->get('picoPublisherId');
+    $types = $config->get('nodeTypes');
+    $nodeTypes = [];
+    if (is_countable($types)) {
+      foreach ($types as $k => $v) {
+        if (!empty($v)) {
+          $nodeTypes[] = $v;
+        }
       }
     }
-  }
 
-  if (!empty($picoPublisherId)) {
+    if (!empty($picoPublisherId)) {
 
-    $head_script .= <<<EOF
+      $head_script .= <<<EOF
 <script>
 (function(p,i,c,o){var n=new Event("pico-init");i[p]=i[p]||function(){(i[p].queue=i[p].queue||[]).push(arguments)},i.document.addEventListener("pico-init",function(e){var t=i.Pico.getInstance(e,{publisherId:o,picoInit:n},i);t.handleQueueItems(i[p].queue),i[p]=function(){return t.handleQueueItems([arguments])}},!1);var e=i.document.createElement("script"),t=i.document.getElementsByTagName("script")[0];e.async=1,e.src=c,e.onload=function(e){return i.Pico.getInstance(e,{publisherId:o,picoInit:n},i)},t.parentNode.insertBefore(e,t)})("pico",window,"https://widget.pico.tools/wrapper.min.js","$picoPublisherId");
 </script>
 EOF;
 
-    /**
-     * bottom script
-     * see https://help.trypico.com/en/articles/3199263-installing-pico-on-your-website
-     */
-    $terms = [];
-    $picoOn = 'false';
-    $picoType = 'page';
-    $nid = '0';
-    $picoCategories = '[]';
-    $node = Drupal::routeMatch()->getParameter('node');
-    if ($node instanceof NodeInterface) {
-      if (in_array($node->getType(), $nodeTypes)) {
-        $nid = $node->id();
-        if ($node->hasField('field_section')) {
-          $tids = $node->get('field_section')->getValue();
-          $terms = ['article'];
-          if (is_countable($tids)) {
-            foreach ($tids as $tid) {
-              $term = Term::load($tid['target_id']);
-              $terms[] = $term->getName();
+      /**
+       * bottom script
+       * see https://help.trypico.com/en/articles/3199263-installing-pico-on-your-website
+       */
+      $terms = [];
+      $picoOn = 'false';
+      $picoType = 'page';
+      $nid = '0';
+      $picoCategories = '[]';
+      $node = Drupal::routeMatch()->getParameter('node');
+      if ($node instanceof NodeInterface) {
+        if (in_array($node->getType(), $nodeTypes)) {
+          $nid = $node->id();
+          if ($node->hasField('field_section')) {
+            $tids = $node->get('field_section')->getValue();
+            $terms = ['article'];
+            if (is_countable($tids)) {
+              foreach ($tids as $tid) {
+                $term = Term::load($tid['target_id']);
+                $terms[] = $term->getName();
+              }
             }
           }
+          $picoOn = 'true';
+          $picoType = 'article';
         }
-        $picoOn = 'true';
-        $picoType = 'article';
       }
-    }
 
-    $bottom_script .= <<<EOF
+      $bottom_script .= <<<EOF
 <script>
 var pageInfo = {
 	article: $picoOn,
@@ -73,10 +118,11 @@ window.pico('visit', pageInfo);
 </script>"
 EOF;
 
-  } // end if pico id
+    } // end if pico id
 
-  $variables['head_script'] = $head_script;
-  $variables['bottom_script'] = $bottom_script;
+    $variables['head_script'] = $head_script;
+    $variables['bottom_script'] = $bottom_script;
+  }
 }
 
 /**
@@ -88,7 +134,7 @@ function etype_pico_preprocess_node(&$variables) {
   $config = Drupal::config('etype_pico.settings');
   $picoPublisherId = $config->get('picoPublisherId');
   if (!empty($picoPublisherId)) {
-    $variables['picoEnabled'] = true;
+    $variables['picoEnabled'] = TRUE;
   }
 }
 
