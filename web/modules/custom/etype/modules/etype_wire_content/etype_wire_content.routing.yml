@@ -37,3 +37,11 @@ etype_wire_content.add_wire_content:
     _permission: 'access wire content'
   options:
     _admin_route: TRUE
+
+etype_wire_content.export_wire_content_public:
+  path: '/export_wire_content'
+  defaults:
+    _title: 'Export Wire Content'
+    _controller: '\Drupal\etype_wire_content\Controller\WireContentExportController::exportWireContent'
+  requirements:
+    _permission: 'access content'
