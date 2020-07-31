@@ -8,6 +8,7 @@
 
 use Drupal\Core\Database\Database;
 use Drupal\etype_wire_content\Controller\WireContentExportController;
+use Drupal\views\ViewExecutable;
 
 /**
  * Callback function for the cron job.
@@ -37,6 +38,42 @@ function _etype_wire_content_check_connection() {
 function etype_wire_content_node_update(Drupal\node\NodeInterface $node) {
   $exporter = new WireContentExportController();
   $exporter->exportWireContent();
+}
+
+/**
+ * Refresh Wire Content on loading View
+ * @param ViewExecutable $view
+ * @param $display_id
+ * @param array $args
+ */
+function etype_wire_content_views_pre_view(ViewExecutable $view, $display_id, array &$args) {
+  if ($view->id() == 'wire_content') {
+    $config = Drupal::config('system.site');
+    $site_name = $config->get('name');
+    $config = Drupal::config('etype_wire_content.settings');
+    $groups = $config->get('groups');
+    $grps = implode(',', $groups);
+    Database::setActiveConnection('wire');
+    $db = Database::getConnection();
+    $result = $db->select('wire_node', 'w')
+      ->fields('w', ['site'])
+      ->condition('site_name', $site_name, '!=')
+      ->condition('cluster', $grps, '=')
+      ->distinct()
+      ->execute()
+      ->fetchAll();
+    if (is_countable($result)) {
+      foreach ($result as $site) {
+        $url = 'https://' . $site->site . "/export_wire_content";
+        $ch = curl_init($url);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_VERBOSE, false);
+        curl_exec($ch);
+      }
+    }
+    /* Reset connection. */
+    Database::setActiveConnection();
+  }
 }
 
 /**
