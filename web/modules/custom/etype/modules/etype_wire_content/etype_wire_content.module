@@ -41,6 +41,7 @@ function etype_wire_content_node_update(Drupal\node\NodeInterface $node) {
 }
 
 /**
+ * Refresh Wire Content on loading View
  * @param ViewExecutable $view
  * @param $display_id
  * @param array $args
@@ -49,25 +50,27 @@ function etype_wire_content_views_pre_view(ViewExecutable $view, $display_id, ar
   if ($view->id() == 'wire_content') {
     $config = Drupal::config('system.site');
     $site_name = $config->get('name');
+    $config = Drupal::config('etype_wire_content.settings');
+    $groups = $config->get('groups');
+    $grps = implode(',', $groups);
     Database::setActiveConnection('wire');
     $db = Database::getConnection();
     $result = $db->select('wire_node', 'w')
       ->fields('w', ['site'])
       ->condition('site_name', $site_name, '!=')
+      ->condition('cluster', $grps, '=')
       ->distinct()
       ->execute()
       ->fetchAll();
     if (is_countable($result)) {
       foreach ($result as $site) {
-        $ch = curl_init('https://' . $site->site . "/export_wire_content/false");
+        $url = 'https://' . $site->site . "/export_wire_content";
+        $ch = curl_init($url);
         curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_VERBOSE, false);
         curl_exec($ch);
       }
     }
-    exit;
-
-
     /* Reset connection. */
     Database::setActiveConnection();
   }
