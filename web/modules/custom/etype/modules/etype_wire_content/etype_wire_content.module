@@ -57,7 +57,14 @@ function etype_wire_content_views_pre_view(ViewExecutable $view, $display_id, ar
       ->distinct()
       ->execute()
       ->fetchAll();
-    var_dump($result);
+    if (is_countable($result)) {
+      foreach ($result as $site) {
+        $ch = curl_init('https://' . $site->site . "/export_wire_content/false");
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_VERBOSE, false);
+        curl_exec($ch);
+      }
+    }
     exit;
 
 
