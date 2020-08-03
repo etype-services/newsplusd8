@@ -35,11 +35,13 @@ function _etype_wire_content_check_connection() {
  * TODO: remove
  * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
  * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
- */
+ *
 function etype_wire_content_node_update(Drupal\node\NodeInterface $node) {
   $exporter = new WireContentExportController();
   $exporter->exportWireContent();
 }
+ *
+ */
 
 /**
  * Refresh Wire Content on loading View
