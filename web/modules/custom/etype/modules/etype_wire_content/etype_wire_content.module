@@ -60,16 +60,14 @@ function etype_wire_content_views_pre_view(ViewExecutable $view, $display_id, ar
       }
     }
     Database::setActiveConnection('wire');
-    $query = \Drupal::database()->select('wire_node', 'w');
-    $query->fields('w', ['site']);
+    $db = Database::getConnection();
+    $query = $db->select('wire_node', 'w')->fields('w', ['site']);
     $query->condition('site_name', $site_name, '!=');
     foreach ($groupsArr as $g) {
       $query->condition('groups', "%" . $query->escapeLike($g) . "%", 'LIKE');
     }
     $query->distinct();
     $result = $query->execute()->fetchAll();
-    var_dump($result);
-    exit;
     if (is_countable($result)) {
       foreach ($result as $site) {
         $url = 'https://' . $site->site . "/export_wire_content";
@@ -113,6 +111,7 @@ function etype_wire_content_views_query_alter($view, $query) {
     foreach ($groups as $group) {
       if (strlen($group) > 1) {
         $query->addWhere($groupNumber, 'wire_node.cluster', "%$group%", 'LIKE');
+        $query->addWhere($groupNumber, 'wire_node.groups', "%$group%", 'LIKE');
       }
     }
   }

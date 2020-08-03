@@ -195,7 +195,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
     /* Reset connection. */
     Database::setActiveConnection();
     $data = unserialize($result[0]->data);
-    $options = $data['cluster'];
+    $options = $data['groups'];
 
     $form['help'] = [
       '#type' => 'item',

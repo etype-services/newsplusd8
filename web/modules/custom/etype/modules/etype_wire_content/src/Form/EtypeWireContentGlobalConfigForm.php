@@ -103,11 +103,11 @@ class EtypeWireContentGlobalConfigForm extends ConfigFormBase {
 
     /* Set Group Options */
     $options = '';
-    $data = ['cluster', 'sections', 'taxonomy'];
+    $data = ['groups', 'sections', 'taxonomy'];
     if (isset($result[0]->data)) {
       $data = unserialize($result[0]->data);
-      if (!empty($data['cluster'])) {
-        $groups = $data['cluster'];
+      if (!empty($data['groups'])) {
+        $groups = $data['groups'];
         foreach ($groups as $k => $v) {
           $options .= "$k|$v\n";
         }
@@ -160,7 +160,7 @@ class EtypeWireContentGlobalConfigForm extends ConfigFormBase {
       }
     }
 
-    $data['cluster'] = $arr;
+    $data['groups'] = $arr;
     $data['sections'] = $form_state->getValue('sections');
     $data['taxonomy'] = $form_state->getValue('taxonomy');
     $serialized = serialize($data);
