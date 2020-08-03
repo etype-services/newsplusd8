@@ -32,6 +32,7 @@ function _etype_wire_content_check_connection() {
 
 /**
  * @param \Drupal\node\NodeInterface $node
+ * TODO: remove
  * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
  * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
  */
