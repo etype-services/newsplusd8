@@ -52,16 +52,24 @@ function etype_wire_content_views_pre_view(ViewExecutable $view, $display_id, ar
     $site_name = $config->get('name');
     $config = Drupal::config('etype_wire_content.settings');
     $groups = $config->get('groups');
-    $grps = implode(',', $groups);
+    $groupsArr = [];
+    /* $groupsArr should be simple array of actual groups */
+    foreach ($groups as $group) {
+      if ($group !== 0) {
+        $groupsArr[] .= $group;
+      }
+    }
     Database::setActiveConnection('wire');
-    $db = Database::getConnection();
-    $result = $db->select('wire_node', 'w')
-      ->fields('w', ['site'])
-      ->condition('site_name', $site_name, '!=')
-      ->condition('cluster', $grps, '=')
-      ->distinct()
-      ->execute()
-      ->fetchAll();
+    $query = \Drupal::database()->select('wire_node', 'w');
+    $query->fields('w', ['site']);
+    $query->condition('site_name', $site_name, '!=');
+    foreach ($groupsArr as $g) {
+      $query->condition('groups', "%" . $query->escapeLike($g) . "%", 'LIKE');
+    }
+    $query->distinct();
+    $result = $query->execute()->fetchAll();
+    var_dump($result);
+    exit;
     if (is_countable($result)) {
       foreach ($result as $site) {
         $url = 'https://' . $site->site . "/export_wire_content";
