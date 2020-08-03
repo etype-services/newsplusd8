@@ -90,7 +90,15 @@ class WireContentExportController {
       $site = Drupal::request()->getHost();
       foreach ($nodes as $node) {
         try {
-          $groups = implode(',', $this->config->get('groups'));
+          $groupTmp = $this->config->get('groups');
+          $groups = implode(',', $groupTmp);
+          $groupStr = '';
+          foreach ($groupTmp as $group) {
+            if ($group !== 0) {
+              $groupStr .= $group . ',';
+            }
+          }
+          $groupStr = rtrim($groupStr, ',');
           $url = '';
           $caption = '';
           if ($node->get('field_image')->target_id > 0) {
@@ -120,6 +128,7 @@ class WireContentExportController {
               'site' => $site,
               'site_name' => $site_name,
               'cluster' => $groups,
+              'groups' => $groupStr,
             ])
             ->execute();
           $ptr++;
