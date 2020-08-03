@@ -20,7 +20,6 @@ class EtypeWireContentCommands extends DrushCommands {
    * @aliases etype_wire_content:export,wire-export,ewe
    */
   public function export() {
-
     try {
       (new WireContentExportController)->exportWireContent();
     }
@@ -29,5 +28,4 @@ class EtypeWireContentCommands extends DrushCommands {
     catch (PluginNotFoundException $e) {
     }
   }
-
 }
