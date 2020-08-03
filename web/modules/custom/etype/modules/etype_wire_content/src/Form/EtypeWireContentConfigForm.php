@@ -266,7 +266,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
       '#default_value' => $this->conf->get('field'),
     ];
 
-    if (count($this->sections) > 1) {
+    if (is_countable($this->sections)) {
       $form['settings']['sections'] = [
         '#type' => 'checkboxes',
         '#title' => t('Choose which sections to export.'),
