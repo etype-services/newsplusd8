@@ -110,7 +110,6 @@ function etype_wire_content_views_query_alter($view, $query) {
     $query->setWhereGroup('OR', $groupNumber);
     foreach ($groups as $group) {
       if (strlen($group) > 1) {
-        $query->addWhere($groupNumber, 'wire_node.cluster', "%$group%", 'LIKE');
         $query->addWhere($groupNumber, 'wire_node.groups', "%$group%", 'LIKE');
       }
     }

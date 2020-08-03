@@ -127,7 +127,6 @@ class WireContentExportController {
               'uuid' => $node->get('uuid')->value,
               'site' => $site,
               'site_name' => $site_name,
-              'cluster' => $groups, /* legacy */
               'groups' => $groupStr,
             ])
             ->execute();
