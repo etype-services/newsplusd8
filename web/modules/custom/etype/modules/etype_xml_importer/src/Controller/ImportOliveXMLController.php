@@ -132,6 +132,13 @@ class ImportOliveXMLController {
   protected $i;
 
   /**
+   * Var Setup.
+   *
+   * @var ImportOliveXMLController
+   */
+  protected $entry;
+
+  /**
    * ImportOliveXMLController constructor.
    */
   public function __construct() {
@@ -146,6 +153,10 @@ class ImportOliveXMLController {
     $this->longCaptionField = $this->config->get('longCaptionField');
     $this->messenger = Drupal::messenger();
     $this->entityTypeManager = Drupal::entityTypeManager();
+  }
+
+  public function __toString() {
+    return (string)$this->entry;
   }
 
   /**
@@ -209,20 +220,19 @@ class ImportOliveXMLController {
       $fileSystemIterator = new FilesystemIterator($this->extractDir);
       $entries = [];
       foreach ($fileSystemIterator as $fileInfo) {
-        $entry = $fileInfo->getFilename();
-        if (strpos($entry, 'Section') !== FALSE) {
-          $entries[] = $fileInfo->getFilename();
+        $section = $fileInfo->getFilename();
+        if (strpos($section, 'Section') !== FALSE) {
+          $entries[] = $section;
         }
       }
       /* Loop over found files and do the extraction */
       $t = 0;
       if (count($entries) > 0) {
-
-        foreach ($entries as $entry) {
+        foreach ($entries as $this->entry) {
           $this->i = 0;
-          $markup .= "<p>Extracting articles from $entry.<br />";
+          $markup .= "<p>Extracting articles from $this->entry.<br />";
 
-          $xml = file_get_contents((string) $this->extractDir . $entry);
+          $xml = file_get_contents((string) $this->extractDir . $this->entry);
 
           /* throw Exception and return empty page with message if xml is not extractable */
           try {
@@ -232,7 +242,7 @@ class ImportOliveXMLController {
           }
           catch (XMLIsFalseException $e) {
             $this->messenger->addMessage($e->getMessage(), $this->messenger::TYPE_ERROR);
-            $markup .= "<p>XMLIsFalseException thrown for $entry.</p>";
+            $markup .= "<p>XMLIsFalseException thrown for $this->entry.</p>";
           }
 
           /* parse xml in each file */
@@ -243,14 +253,17 @@ class ImportOliveXMLController {
               $item = $stub->item;
               /* xml object processing of stub which contains link, title, and description */
               foreach ($item as $k => $v) {
-                $this->parseItem($v);
+                $message = $this->parseItem($v);
+                if ($message != 'Success') {
+                  $markup .= $message;
+                }
               }
             }
           }
           else {
-            $markup .= "$obj is not an object in $entry.</p>";
+            $markup .= "$obj is not an object in $this->entry.</p>";
           }
-          $markup .= "eType XML Importer found " . $this->i . " articles to import in $entry.</p>";
+          $markup .= "eType XML Importer found " . $this->i . " articles to import in $this->entry.</p>";
           $t += $this->i;
         } /* end foreach $entry */
       }
@@ -280,12 +293,13 @@ class ImportOliveXMLController {
 
     // Title is not an object if the stub is valid.
     if (is_object($array['title'])) {
-      return NULL;
+      return '<p>' . $array['link'] . ' has an issue, title seems to be empty. Please check ' . $this->entry . ' and ' . $array['link'] . '.</p>';
     }
 
     // If the description is empty in the Section file probably an error.
-    if (empty(strip_tags($array['description']))) {
-      return NULL;
+    $desc = strip_tags($array['description']);
+    if (empty($desc)) {
+      return '<p>' . $array['link'] . ' has an issue, description is empty. Please check ' . $this->entry . ' and ' . $array['link'] . '.</p>';
     }
 
     // Full article is in the linked file.
@@ -462,6 +476,7 @@ class ImportOliveXMLController {
     $node['created'] = $pub_date;
     $this->createNode($node);
     $this->i++;
+    return "Success";
   }
 
   /**
