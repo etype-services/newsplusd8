@@ -7,9 +7,9 @@
     let encryption = new Encryption();
     window.addEventListener('pico.loaded', function() {
         console.log(window.Pico.user.verified);
-        console.log(encryption.decrypt('{{ url }}', '{{ salt }}'));
-        // window.location.href = window.Pico.user.verified === true ? encryption.decrypt('{{ url }}', '{{ salt }}'):
-        // '/';
+        let redirect = encryption.decrypt('{{ url }}', '{{ salt }}');
+        console.log(redirect);
+        window.location.href = window.Pico.user.verified == true? redirect: '/';
     })
 </script>
 
