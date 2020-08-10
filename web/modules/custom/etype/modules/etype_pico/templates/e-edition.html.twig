@@ -13,11 +13,8 @@
             console.log(window.Pico.user.verified);
             console.log(redirect);
             if (window.Pico.user.verified == true) {
-                loc = redirect;
-            } else {
-                loc = '/';
+                window.location.href = redirect;
             }
-            window.location.href = loc;
         })
     });
 </script>
