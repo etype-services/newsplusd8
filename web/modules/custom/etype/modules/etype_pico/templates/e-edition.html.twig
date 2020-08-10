@@ -4,6 +4,18 @@
 <script src="/libraries/crypto-js.js"></script>
 <script src="/libraries/Encryption.js"></script>
 <script src="/core/assets/vendor/jquery/jquery.js"></script>
-<script src="/modules/custom/etype/modules/etype_pico/js/etype_pico_auth.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        let encryption = new Encryption();
+        let redirect = encryption.decrypt('{{ url }}', '{{ salt }}');
+        window.addEventListener('pico.loaded', function() {
+            console.log(window.Pico.user.verified);
+            console.log(redirect);
+            if (window.Pico.user.verified == true) {
+                window.location.replace(redirect);
+            }
+        });
+    });
+</script>
 <div id="pico">
 </div>
