@@ -9,7 +9,11 @@
         console.log(window.Pico.user.verified);
         let redirect = encryption.decrypt('{{ url }}', '{{ salt }}');
         console.log(redirect);
-        window.location.href = window.Pico.user.verified == true? redirect: '/';
+        if (window.Pico.user.verified == true) {
+            window.open(redirect, "_blank") || window.location.replace(redirect');
+        } else {
+            window.location.href = '/';
+        }
     })
 </script>
 
