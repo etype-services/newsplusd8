@@ -3,7 +3,9 @@
 namespace Drupal\etype_pico\Controller;
 
 use Drupal;
+use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Routing\TrustedRedirectResponse;
 use SoapClient;
 
 /**
@@ -62,7 +64,7 @@ class EtypePicoEeditionController extends ControllerBase {
    * @throws \SoapFault
    *
    * @return string
-   *    Message from etype.services.
+   *   Message from etype.services.
    */
   public function validateSubscriber() {
     $param = [
@@ -80,7 +82,7 @@ class EtypePicoEeditionController extends ControllerBase {
    * Get Token for access to etype.services.
    *
    * @return string
-   *    Returns url with token.
+   *   Returns url with token.
    *
    * @throws \SoapFault
    */
@@ -101,9 +103,20 @@ class EtypePicoEeditionController extends ControllerBase {
    */
   public function goToEedition() {
     if (($result = $this->validateSubscriber()) == 0) {
-      $redirect = $this->getToken();
+      $url = $this->getToken();
+      $response = new TrustedRedirectResponse($url);
+
+      // We do not want the response cached.
+      $cacheable_metadata = new CacheableMetadata();
+      $cacheable_metadata->setCacheMaxAge(0);
+      $response->addCacheableDependency($cacheable_metadata);
+      return $response;
     }
-    var_dump($redirect);
-    exit;
+    else {
+      Drupal::messenger()->addMessage('Unable to log in the etype.services');
+      $response = new RedirectResponse('<front>');
+      $response->send();
+    }
   }
+
 }
