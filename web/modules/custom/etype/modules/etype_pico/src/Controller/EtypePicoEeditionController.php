@@ -2,11 +2,7 @@
 
 namespace Drupal\etype_pico\Controller;
 
-use Drupal;
-use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Routing\TrustedRedirectResponse;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use SoapClient;
 
 /**
@@ -55,7 +51,7 @@ class EtypePicoEeditionController extends ControllerBase {
    * EtypePicoEeditionController constructor.
    */
   public function __construct() {
-    $this->config = Drupal::config('etype.adminsettings');
+    $this->config = \Drupal::config('etype.adminsettings');
     $this->pubId = (int) $this->config->get('etype_pub');
   }
 
