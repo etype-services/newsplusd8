@@ -2,49 +2,6 @@
 
 use Drupal\node\NodeInterface;
 use Drupal\taxonomy\Entity\Term;
-use Drupal\etype_pico\ThirdParty\Encryption;
-
-/**
- * Returns a verified url for the subscriber with an access token.
- *
- * This is used to open the etypeservices page for the paper.
- *
- * @return string
- *   The url with the token.
- */
-function etype_pico_get_token() {
-  $config = Drupal::config('etype.adminsettings');
-  $pubId = (int) $config->get('etype_pub');
-  $client = new SoapClient('https://publisher.etype.services/webservice.asmx?WSDL');
-  $params = [
-    'publicationId' => $pubId,
-    'username' => 'Pico',
-  ];
-  $data = $client->GenerateUrlForSubscriber($params);
-  return $data->GenerateUrlForSubscriberResult;
-}
-
-/**
- * @param $existing
- * @param $type
- * @param $theme
- * @param $path
- * @return array
- */
-function etype_pico_theme($existing, $type, $theme, $path) {
-  $url = etype_pico_get_token();
-  $salt = mt_rand();
-  $encrypted = (new Encryption)->encrypt($url, $salt);
-  return [
-    'e-edition' => [
-      'variables' => [
-        'url' => $encrypted,
-        'salt' => $salt,
-      ],
-      'template' => 'e-edition',
-    ],
-  ];
-}
 
 /**
  * Preprocess html.
