@@ -4,17 +4,19 @@
 <script src="/libraries/crypto-js.js"></script>
 <script src="/libraries/Encryption.js"></script>
 <script type="text/javascript">
-    let encryption = new Encryption();
-    window.addEventListener('pico.loaded', function() {
-        console.log(window.Pico.user.verified);
-        let redirect = encryption.decrypt('{{ url }}', '{{ salt }}');
-        console.log(redirect);
-        if (window.Pico.user.verified == true) {
-            window.open(redirect, "_blank") || window.location.replace(redirect);
-        } else {
-            window.location.href = '/';
-        }
-    })
+    jQuery(document).ready(function(){
+        let encryption = new Encryption();
+        window.addEventListener('pico.loaded', function() {
+            console.log(window.Pico.user.verified);
+            let redirect = encryption.decrypt('{{ url }}', '{{ salt }}');
+            console.log(redirect);
+            if (window.Pico.user.verified == true) {
+                window.location.href = redirect;
+            } else {
+                window.location.href = '/';
+            }
+        })
+    });
 </script>
 
 <div id="pico">
