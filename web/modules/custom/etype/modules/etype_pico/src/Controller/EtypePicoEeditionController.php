@@ -14,34 +14,96 @@ use SoapClient;
 class EtypePicoEeditionController extends ControllerBase {
 
   /**
+   * Publication Id.
+   *
+   * @var int
+   */
+  public $pubId = '';
+
+  /**
+   * User Name.
+   *
+   * @var string
+   */
+  public $userName = 'Pico';
+
+  /**
+   * Password.
+   *
+   * @var string
+   */
+  public $passwd = 'HYHhZ*vz6K7u@ngH';
+
+  /**
+   * Web Service URL.
+   *
+   * @var string
+   */
+  public $webServiceUrl = 'https://publisher.etype.services/webservice.asmx?WSDL';
+
+  /**
+   * Configuration Settings.
+   *
+   * @var \Drupal\Core\Config\ImmutableConfig
+   */
+  public $config;
+
+  /**
+   * EtypePicoEeditionController constructor.
+   */
+  public function __construct() {
+    $this->config = Drupal::config('etype.adminsettings');
+    $this->pubId = (int) $this->config->get('etype_pub');
+  }
+
+  /**
+   * Validate Subscriber in etype.services.
+   *
+   * @throws \SoapFault
+   *
+   * @return string
+   *    Message from etype.services.
+   */
+  public function validateSubscriber() {
+    $param = [
+      'publicationId' => $this->pubId,
+      'username' => $this->userName,
+      'password' => $this->passwd,
+    ];
+    $client = new SoapClient($this->webServiceUrl);
+    $response = $client->ValidateSubscriber($param);
+    $validateSubscriberResult = $response->ValidateSubscriberResult;
+    return $validateSubscriberResult->TransactionMessage->Message;
+  }
+
+  /**
    * Get Token for access to etype.services.
    *
-   * @return mixed
-   *   Object.
+   * @return string
+   *    Returns url with token.
+   *
+   * @throws \SoapFault
    */
   public function getToken() {
-    $config = Drupal::config('etype.adminsettings');
-    $pubId = (int) $config->get('etype_pub');
-    $client = new SoapClient('https://publisher.etype.services/webservice.asmx?WSDL');
+    $client = new SoapClient($this->webServiceUrl);
     $params = [
-      'publicationId' => $pubId,
-      'username' => 'Pico',
+      'publicationId' => $this->pubId,
+      'username' => $this->userName,
     ];
     $data = $client->GenerateUrlForSubscriber($params);
     return $data->GenerateUrlForSubscriberResult;
   }
 
   /**
-   * Content.
+   * This is the e-Edition Log in for master Pico user.
    *
-   * @return array
-   *   markup
+   * @throws \SoapFault
    */
-  public function content() {
-    return [
-      '#title' => '',
-      '#theme' => 'e-edition',
-    ];
+  public function goToEedition() {
+    if (($result = $this->validateSubscriber()) == 0) {
+      $redirect = $this->getToken();
+    }
+    var_dump($redirect);
+    exit;
   }
-
 }

@@ -17,7 +17,7 @@ class EtypeV2EeditionController extends ControllerBase {
   /**
    * Returns a TrustedRedirectResponse.
    *
-   * @param int $pubId
+   * @param int|null $pubId
    *   the Id of the publication.
    *
    * @return \Drupal\Core\Routing\TrustedRedirectResponse
