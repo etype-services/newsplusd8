@@ -7,6 +7,6 @@
     let encryption = new Encryption();
     window.addEventListener('pico.loaded', function() {
         console.log(window.Pico.user);
-        window.location.href = window.Pico.user.verified === true ? encryption.decrypt('{{ url }}', '{{ salt }}'):'/';
+        //window.location.href = window.Pico.user.verified === true ? encryption.decrypt('{{ url }}', '{{ salt }}'):'/';
     })
 </script>
