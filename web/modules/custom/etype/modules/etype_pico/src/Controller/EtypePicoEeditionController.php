@@ -98,26 +98,29 @@ class EtypePicoEeditionController extends ControllerBase {
   }
 
   /**
-   * This is the e-Edition Log in for master Pico user.
+   * This gets an authenticated e-Edition url.
    *
    * @throws \SoapFault
    */
-  public function goToEedition() {
+  public function getEeditionUrl() {
+    $response = NULL;
     if (($result = $this->validateSubscriber()) == 0) {
-      $url = $this->getToken();
-      $response = new TrustedRedirectResponse($url);
+      $response = $this->getToken();
+    }
+    return $response;
+  }
 
-      // We do not want the response cached.
-      $cacheable_metadata = new CacheableMetadata();
-      $cacheable_metadata->setCacheMaxAge(0);
-      $response->addCacheableDependency($cacheable_metadata);
-      return $response;
-    }
-    else {
-      Drupal::messenger()->addMessage('Unable to log in the etype.services');
-      $response = new RedirectResponse('<front>');
-      $response->send();
-    }
+  /**
+   * Content.
+   *
+   * @return array
+   *   markup
+   */
+  public function content() {
+    return [
+      '#title' => '',
+      '#theme' => 'e-edition',
+    ];
   }
 
 }
