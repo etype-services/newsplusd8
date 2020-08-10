@@ -8,7 +8,6 @@
     $(document).ready(function(){
         let encryption = new Encryption();
         let redirect = encryption.decrypt('{{ url }}', '{{ salt }}');
-        let loc;
         window.addEventListener('pico.loaded', function() {
             console.log(window.Pico.user.verified);
             console.log(redirect);
