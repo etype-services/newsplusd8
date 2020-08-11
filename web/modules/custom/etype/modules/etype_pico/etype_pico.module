@@ -1,10 +1,7 @@
 <?php
 
-use Drupal\etype_pico\Controller\EtypePicoEeditionController;
 use Drupal\node\NodeInterface;
 use Drupal\taxonomy\Entity\Term;
-use Drupal\etype_pico\ThirdParty\Encryption;
-use Drupal\Core\Url;
 
 /**
  * @param $existing
