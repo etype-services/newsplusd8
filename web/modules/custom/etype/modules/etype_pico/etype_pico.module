@@ -22,6 +22,10 @@ function etype_pico_theme($existing, $type, $theme, $path) {
   $encrypted = (new Encryption)->encrypt($url, $salt);
   return [
     'e-edition' => [
+      'variables' => [
+        'url' => $encrypted,
+        'salt' => $salt,
+      ],
       'template' => 'e-edition',
       '#cache' => [
         'max-age' => 0,
