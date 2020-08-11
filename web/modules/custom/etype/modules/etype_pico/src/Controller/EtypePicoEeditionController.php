@@ -2,7 +2,9 @@
 
 namespace Drupal\etype_pico\Controller;
 
+use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Routing\TrustedRedirectResponse;
 use SoapClient;
 
 /**
@@ -83,7 +85,7 @@ class EtypePicoEeditionController extends ControllerBase {
    *
    * @throws \SoapFault
    */
-  public function getToken() {
+  public function getUrlWithToken() {
     $client = new SoapClient($this->webServiceUrl);
     $params = [
       'publicationId' => $this->pubId,
@@ -99,11 +101,27 @@ class EtypePicoEeditionController extends ControllerBase {
    * @throws \SoapFault
    */
   public function getEeditionUrl() {
-    $response = NULL;
+    $url = NULL;
     if (($result = $this->validateSubscriber()) == 0) {
-      $response = $this->getToken();
+      $url = $this->getUrlWithToken();
     }
-    return $response;
+    return $url;
+  }
+
+  /**
+   * This gets an authenticated e-Edition url.
+   *
+   * @throws \SoapFault
+   */
+  public function goToEeditionUrl() {
+    if (($url = $this->getEeditionUrl()) == '') {
+      $response = new TrustedRedirectResponse($url);
+      /* We do not want the response cached */
+      $cacheable_metadata = new CacheableMetadata();
+      $cacheable_metadata->setCacheMaxAge(0);
+      $response->addCacheableDependency($cacheable_metadata);
+      return $response;
+    }
   }
 
   /**

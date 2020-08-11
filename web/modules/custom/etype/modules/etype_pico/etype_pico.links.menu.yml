@@ -21,3 +21,6 @@ etype_pico.e_edition:
   weight: 10
   route_name: etype_pico.e_edition
   menu_name: account
+  options:
+    attributes:
+      target: _blank
