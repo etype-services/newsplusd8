@@ -23,8 +23,7 @@ function etype_pico_theme($existing, $type, $theme, $path) {
   return [
     'e-edition' => [
       'variables' => [
-        'url' => $encrypted,
-        'salt' => $salt,
+        'url' => 'https://publisher.etype.services/Madill-Record',
       ],
       'template' => 'e-edition',
       '#cache' => [
