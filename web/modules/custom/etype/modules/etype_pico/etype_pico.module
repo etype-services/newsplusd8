@@ -4,6 +4,7 @@ use Drupal\etype_pico\Controller\EtypePicoEeditionController;
 use Drupal\node\NodeInterface;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\etype_pico\ThirdParty\Encryption;
+use Drupal\Core\Url;
 
 /**
  * @param $existing
@@ -15,16 +16,9 @@ use Drupal\etype_pico\ThirdParty\Encryption;
  */
 function etype_pico_theme($existing, $type, $theme, $path) {
   \Drupal::service('page_cache_kill_switch')->trigger();
-  $control = new EtypePicoEeditionController;
-  $url = $control->getEeditionUrl();
-  $salt = mt_rand();
-  $encrypted = (new Encryption)->encrypt($url, $salt);
   return [
     'e-edition' => [
-      'variables' => [
-        'url' => $encrypted,
-        'salt' => $salt,
-      ],
+      'variables' => [],
       'template' => 'e-edition',
       '#cache' => [
         'max-age' => 0,
@@ -129,8 +123,17 @@ function etype_pico_preprocess_node(&$variables) {
  * Implements hook_page_attachments().
  *
  * @param array $page
+ * @throws \SoapFault
  */
 
 function etype_pico_page_attachments(array &$page) {
+  $current_url = Url::fromRoute('<current>');
+  $path = $current_url->toString();
+  if ($path == '/e-edition') {
+    $control = new EtypePicoEeditionController;
+    $url = $control->getEeditionUrl();
+    $page['#attached']['drupalSettings']['pico']['url'] = $url;
+    $page['#attached']['library'][] = 'etype_pico/pico-auth';
+  }
   $page['#attached']['library'][] = 'etype_pico/pico';
 }
