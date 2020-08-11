@@ -12,7 +12,6 @@ use Drupal\Core\Url;
  * @param $theme
  * @param $path
  * @return array
- * @throws \SoapFault
  */
 function etype_pico_theme($existing, $type, $theme, $path) {
   \Drupal::service('page_cache_kill_switch')->trigger();
