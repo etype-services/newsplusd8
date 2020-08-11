@@ -1,7 +1,10 @@
 <?php
 
+use Drupal\etype_pico\Controller\EtypePicoEeditionController;
 use Drupal\node\NodeInterface;
 use Drupal\taxonomy\Entity\Term;
+use Drupal\etype_pico\ThirdParty\Encryption;
+use Drupal\Core\Url;
 
 /**
  * @param $existing
@@ -13,8 +16,16 @@ use Drupal\taxonomy\Entity\Term;
  */
 function etype_pico_theme($existing, $type, $theme, $path) {
   \Drupal::service('page_cache_kill_switch')->trigger();
+  $control = new EtypePicoEeditionController;
+  $url = $control->getEeditionUrl();
+  $salt = mt_rand();
+  $encrypted = (new Encryption)->encrypt($url, $salt);
   return [
     'e-edition' => [
+      'variables' => [
+        'url' => $encrypted,
+        'salt' => $salt,
+      ],
       'template' => 'e-edition',
       '#cache' => [
         'max-age' => 0,
