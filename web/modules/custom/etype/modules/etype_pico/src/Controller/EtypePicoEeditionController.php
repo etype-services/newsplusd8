@@ -78,7 +78,7 @@ class EtypePicoEeditionController extends ControllerBase {
   }
 
   /**
-   * Get Token for access to etype.services.
+   * Get Url with Token for access to etype.services.
    *
    * @return string
    *   Returns url with token.
@@ -109,7 +109,7 @@ class EtypePicoEeditionController extends ControllerBase {
   }
 
   /**
-   * This gets an authenticated e-Edition url.
+   * This redirects to the authenticated e-Edition url.
    *
    * @throws \SoapFault
    */
