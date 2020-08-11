@@ -114,14 +114,15 @@ class EtypePicoEeditionController extends ControllerBase {
    * @throws \SoapFault
    */
   public function goToEeditionUrl() {
-    if (($url = $this->getEeditionUrl()) == '') {
+    $response = NULL;
+    if (($url = $this->getEeditionUrl()) !== '') {
       $response = new TrustedRedirectResponse($url);
       /* We do not want the response cached */
       $cacheable_metadata = new CacheableMetadata();
       $cacheable_metadata->setCacheMaxAge(0);
       $response->addCacheableDependency($cacheable_metadata);
-      return $response;
     }
+    return $response;
   }
 
   /**
