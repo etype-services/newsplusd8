@@ -151,7 +151,7 @@ function etype_e_editions() {
         /* Account Links */
         $path = $v2_url . 'e-edition';
         $path_anon = $v2_url . 'e-edition';
-        $sub_link = $v2_url . 'e-edition';
+        $sub_link = $v2_url . 'pico-subscribe';
         break;
 
       default;
