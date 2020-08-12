@@ -4,6 +4,7 @@ namespace Drupal\etype_pico\Controller;
 
 use Drupal;
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Render\Markup;
 use SoapClient;
 use SoapFault;
 
@@ -122,7 +123,7 @@ class EtypePicoEeditionController extends ControllerBase {
   public function content() {
     return [
       '#title' => '',
-      '#markup' => '<div style="padding:5vh;text-align: center;">Redirecting to the e-Edition...</div>',
+      '#children' => Markup::create('<div style="padding:5vh;text-align: center;">Redirecting to the e-Edition...</div>'),
       '#cache' => [
         'max-age' => 0,
       ],
