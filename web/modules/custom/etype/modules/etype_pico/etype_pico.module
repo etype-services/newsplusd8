@@ -47,6 +47,7 @@ EOF;
       if ($node instanceof NodeInterface) {
         if (in_array($node->getType(), $nodeTypes)) {
           $nid = $node->id();
+          /**
           if ($node->hasField('field_section')) {
             $tids = $node->get('field_section')->getValue();
             $terms = ['article'];
@@ -57,6 +58,7 @@ EOF;
               }
             }
           }
+          */
           $picoOn = 'true';
           $picoType = 'article';
         }
