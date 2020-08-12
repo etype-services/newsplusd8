@@ -244,7 +244,7 @@ function etype_user_login($account) {
  * Implements hook_user_logout().
  * Remove nocache cookie
  */
-function etype_user_logout($account) {
+function etype_user_logout() {
   // Set cookie in the past and then remove it.
   $request_time = Drupal::time()->getRequestTime();
   setcookie('nocache', '', $request_time - 3600, '/');

@@ -1,10 +1,10 @@
 <div style="display:flex; justify-content: center; align-items: center;">
-    <p>Please wait, checking access.</p>
+    <p>Please wait, checking access. {{ url }}</p>
 </div>
 <script src="/libraries/crypto-js.js"></script>
 <script src="/libraries/Encryption.js"></script>
 <script src="/core/assets/vendor/jquery/jquery.js"></script>
-<script type="text/javascript">
+<!--<script type="text/javascript">
     $(document).ready(function(){
         let encryption = new Encryption();
         let redirect = encryption.decrypt('{{ url }}', '{{ salt }}');
@@ -12,10 +12,10 @@
             console.log(window.Pico.user.verified);
             console.log(redirect);
             if (window.Pico.user.verified == true) {
-                window.location.replace(redirect);
+                window.location.replace('{{ url }}');
             }
         });
     });
 </script>
 <div id="pico">
-</div>
+</div>-->
