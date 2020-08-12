@@ -122,7 +122,7 @@ class EtypePicoEeditionController extends ControllerBase {
   public function content() {
     return [
       '#title' => '',
-      '#markup' => 'Redirecting to the e-Edition...',
+      '#markup' => '<div style="padding:5vh;text-align: center;">Redirecting to the e-Edition...</div>',
       '#cache' => [
         'max-age' => 0,
       ],
