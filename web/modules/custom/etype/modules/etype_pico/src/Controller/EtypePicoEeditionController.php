@@ -125,6 +125,7 @@ class EtypePicoEeditionController extends ControllerBase {
 <div style="padding:5vh;text-align:center;">
 <div>Redirecting to the e-Edition...</div>
 <div class="button PicoRule mt-4"><a>Log In</a></div>
+<div class="button mt-4"><a href="/">Home</a></div>
 </div>
 ';
     return [
