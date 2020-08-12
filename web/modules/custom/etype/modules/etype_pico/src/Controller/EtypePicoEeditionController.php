@@ -122,8 +122,10 @@ class EtypePicoEeditionController extends ControllerBase {
    */
   public function content() {
     $markup = '
-<div style="padding:5vh;text-align: center;">Redirecting to the e-Edition...</div>
+<div style="padding:5vh;text-align: center;">
+Redirecting to the e-Edition...
 <div class="button PicoRule"><a>Log In</a></div>
+</div>
 ';
     return [
       '#title' => '',
