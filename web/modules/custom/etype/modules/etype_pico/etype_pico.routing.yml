@@ -22,6 +22,6 @@ etype_pico.e_edition:
   path: '/e-edition'
   defaults:
     _title: 'e-Edition'
-    _controller: '\Drupal\etype_pico\Controller\EtypePicoEeditionController::content'
+    _controller: '\Drupal\etype_pico\Controller\EtypePicoEeditionController::directAccess'
   requirements:
     _permission: 'access content'
