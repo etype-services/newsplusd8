@@ -61,8 +61,6 @@ class EtypePicoEeditionController extends ControllerBase {
   /**
    * Validate Subscriber in etype.services.
    *
-   * @throws \SoapFault
-   *
    * @return string
    *   Message from etype.services.
    */
@@ -72,10 +70,17 @@ class EtypePicoEeditionController extends ControllerBase {
       'username' => $this->userName,
       'password' => $this->passwd,
     ];
-    $client = new SoapClient($this->webServiceUrl);
-    $response = $client->ValidateSubscriber($param);
-    $validateSubscriberResult = $response->ValidateSubscriberResult;
-    return $validateSubscriberResult->TransactionMessage->Message;
+    try {
+      $client = new SoapClient($this->webServiceUrl);
+      $response = $client->ValidateSubscriber($param);
+      $validateSubscriberResult = $response->ValidateSubscriberResult;
+      return $validateSubscriberResult->TransactionMessage->Message;
+    }
+    catch (SoapFault $exception) {
+      $message = 'Could not connect to SoapClient.';
+      Drupal::logger('my_module')->error($message);
+      return NULL;
+    }
   }
 
   /**
@@ -85,12 +90,12 @@ class EtypePicoEeditionController extends ControllerBase {
    *   Returns url with token.
    */
   public function getToken() {
+    $params = [
+      'publicationId' => $this->pubId,
+      'username' => $this->userName,
+    ];
     try {
       $client = new SoapClient($this->webServiceUrl);
-      $params = [
-        'publicationId' => $this->pubId,
-        'username' => $this->userName,
-      ];
       $data = $client->GenerateUrlForSubscriber($params);
       return $data->GenerateUrlForSubscriberResult;
     }
@@ -103,8 +108,6 @@ class EtypePicoEeditionController extends ControllerBase {
 
   /**
    * This gets an authenticated e-Edition url.
-   *
-   * @throws \SoapFault
    */
   public function getEeditionUrl() {
     $response = NULL;
