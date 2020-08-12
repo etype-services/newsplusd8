@@ -3,7 +3,7 @@
   visibility: hidden;
 }
 
-.path-e-edition #pico {
+.path-e-edition #pico, .path-e-edition iframe {
   width: 100%;
   height: 100%;
 }
