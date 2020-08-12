@@ -126,6 +126,18 @@ class EtypePicoEeditionController extends ControllerBase {
   }
 
   /**
+   * This redirects to the authenticated e-Edition url.
+   */
+  public function directAccess() {
+    $response = new TrustedRedirectResponse('https://publisher.etype.services/Madill-Record?ut=A114A3EC7623A78E');
+    /* We do not want the response cached */
+    $cacheable_metadata = new CacheableMetadata();
+    $cacheable_metadata->setCacheMaxAge(0);
+    $response->addCacheableDependency($cacheable_metadata);
+    return $response;
+  }
+
+  /**
    * Content.
    *
    * @return array
