@@ -3,32 +3,7 @@
 use Drupal\etype_pico\Controller\EtypePicoEeditionController;
 use Drupal\node\NodeInterface;
 use Drupal\taxonomy\Entity\Term;
-use Drupal\etype_pico\ThirdParty\Encryption;
 use Drupal\Core\Url;
-
-/**
- * @param $existing
- * @param $type
- * @param $theme
- * @param $path
- * @return array
- * @throws \SoapFault
- */
-function etype_pico_theme($existing, $type, $theme, $path) {
-  \Drupal::service('cache.render')->invalidateAll();
-  $data = (new EtypePicoEeditionController)->getEeditionUrl();
-  return [
-    'e-edition' => [
-      'variables' => [
-        'url' => $data,
-      ],
-      'template' => 'e-edition',
-      '#cache' => [
-        'max-age' => 0,
-      ],
-    ],
-  ];
-}
 
 /**
  * Preprocess html.
@@ -133,9 +108,8 @@ function etype_pico_page_attachments(array &$page) {
   $current_url = Url::fromRoute('<current>');
   $path = $current_url->toString();
   if ($path == '/e-edition') {
-    $control = new EtypePicoEeditionController;
-    $url = $control->getEeditionUrl();
-    $page['#attached']['drupalSettings']['pico']['url'] = $url;
+    $url = (new EtypePicoEeditionController)->getEeditionUrl();
+    $page['#attached']['drupalSettings']['toknizdUrl'] = $url;
     $page['#attached']['library'][] = 'etype_pico/pico-auth';
   }
   $page['#attached']['library'][] = 'etype_pico/pico';

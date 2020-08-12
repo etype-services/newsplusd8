@@ -25,3 +25,5 @@ etype_pico.e_edition:
     _controller: '\Drupal\etype_pico\Controller\EtypePicoEeditionController::content'
   requirements:
     _permission: 'access content'
+  options:
+    no_cache: 'TRUE'

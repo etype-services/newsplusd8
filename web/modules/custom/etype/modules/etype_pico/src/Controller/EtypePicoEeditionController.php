@@ -2,8 +2,10 @@
 
 namespace Drupal\etype_pico\Controller;
 
+use Drupal;
 use Drupal\Core\Controller\ControllerBase;
 use SoapClient;
+use SoapFault;
 
 /**
  * Class EtypePicoEeditionController.
@@ -51,7 +53,7 @@ class EtypePicoEeditionController extends ControllerBase {
    * EtypePicoEeditionController constructor.
    */
   public function __construct() {
-    $this->config = \Drupal::config('etype.adminsettings');
+    $this->config = Drupal::config('etype.adminsettings');
     $this->pubId = (int) $this->config->get('etype_pub');
   }
 
@@ -78,19 +80,24 @@ class EtypePicoEeditionController extends ControllerBase {
   /**
    * Get Token for access to etype.services.
    *
-   * @return string
+   * @return string|null
    *   Returns url with token.
-   *
-   * @throws \SoapFault
    */
   public function getToken() {
-    $client = new SoapClient($this->webServiceUrl);
-    $params = [
-      'publicationId' => $this->pubId,
-      'username' => $this->userName,
-    ];
-    $data = $client->GenerateUrlForSubscriber($params);
-    return $data->GenerateUrlForSubscriberResult;
+    try {
+      $client = new SoapClient($this->webServiceUrl);
+      $params = [
+        'publicationId' => $this->pubId,
+        'username' => $this->userName,
+      ];
+      $data = $client->GenerateUrlForSubscriber($params);
+      return $data->GenerateUrlForSubscriberResult;
+    }
+    catch (SoapFault $exception) {
+      $message = 'Could not connect to SoapClient.';
+      Drupal::logger('my_module')->error($message);
+      return NULL;
+    }
   }
 
   /**
@@ -111,11 +118,17 @@ class EtypePicoEeditionController extends ControllerBase {
    *
    * @return array
    *   markup
+   *
+   * @throws \SoapFault
    */
   public function content() {
+    $data = (new EtypePicoEeditionController)->getEeditionUrl();
     return [
       '#title' => '',
-      '#theme' => 'e-edition',
+      '#markup' => $data,
+      '#cache' => [
+        'max-age' => 0,
+      ],
     ];
   }
 

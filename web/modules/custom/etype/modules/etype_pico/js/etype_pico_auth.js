@@ -1,11 +1,15 @@
-$(document).ready(function(){
-    const encryption = new Encryption();
-    const redirect = encryption.decrypt('{{ url }}', '{{ salt }}');
-    window.addEventListener('pico.loaded', function() {
-        console.log(window.Pico.user.verified);
-        console.log(redirect);
-        if (window.Pico.user.verified == true) {
-            window.location.replace(redirect);
+(function ($, Drupal, drupalSettings) {
+    "use strict";
+    Drupal.behaviors.picoAuthBehavior = {
+        attach: function (context, settings){
+            // console.log(window.Pico.user.verified);
+            alert(drupalSettings.toknizdUrl);
+            alert('yes');
+            //window.addEventListener('pico.loaded', function() {
+                //if (window.Pico.user.verified == true) {
+                //    window.location.replace(redirect);
+                //}
+            //});
         }
-    });
-});
+    };
+})(jQuery, Drupal, drupalSettings);
