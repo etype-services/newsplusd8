@@ -103,7 +103,6 @@ function etype_pico_preprocess_node(&$variables) {
  * @param array $page
  * @throws \SoapFault
  */
-
 function etype_pico_page_attachments(array &$page) {
   $current_url = Url::fromRoute('<current>');
   $path = $current_url->toString();

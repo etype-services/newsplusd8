@@ -118,14 +118,11 @@ class EtypePicoEeditionController extends ControllerBase {
    *
    * @return array
    *   markup
-   *
-   * @throws \SoapFault
    */
   public function content() {
-    $data = (new EtypePicoEeditionController)->getEeditionUrl();
     return [
       '#title' => '',
-      '#markup' => $data,
+      '#markup' => 'Redirecting to the e-Edition...',
       '#cache' => [
         'max-age' => 0,
       ],
