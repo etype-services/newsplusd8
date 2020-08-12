@@ -22,7 +22,7 @@ function etype_pico_theme($existing, $type, $theme, $path) {
   return [
     'e-edition' => [
       'variables' => [
-        'url' => 'https://publisher.etype.services/Madill-Record',
+        'url' => 'https://publisher.etype.services/Madill-Record?ut=A114A3EC7623A78E',
       ],
       'template' => 'e-edition',
       '#cache' => [
