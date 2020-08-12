@@ -95,7 +95,6 @@ function etype_e_editions() {
   if ($moduleHandler->moduleExists('etype_login_v2')) {
     $version = 'v2';
   }
-  $moduleHandler = Drupal::service('module_handler');
   if ($moduleHandler->moduleExists('etype_pico')) {
     $version = 'pico';
   }
