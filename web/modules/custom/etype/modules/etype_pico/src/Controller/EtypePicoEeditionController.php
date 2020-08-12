@@ -123,7 +123,7 @@ class EtypePicoEeditionController extends ControllerBase {
   public function content() {
     $markup = '
 <div style="padding:5vh;text-align:center;">
-<div>Redirecting to the e-Edition...</div>
+<div>This page will redirect to the e-Edition if you are logged in.</div>
 <div class="button PicoRule mt-4"><a>Log In</a></div>
 <div class="button mt-4"><a href="/">Home</a></div>
 </div>
