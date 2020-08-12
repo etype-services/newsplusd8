@@ -124,7 +124,7 @@ class EtypePicoEeditionController extends ControllerBase {
     $markup = '
 <div style="padding:5vh;text-align:center;">
 <div>Redirecting to the e-Edition...</div>
-<div class="button PicoRule"><a>Log In</a></div>
+<div class="button PicoRule mt-4"><a>Log In</a></div>
 </div>
 ';
     return [
