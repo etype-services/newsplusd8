@@ -121,9 +121,10 @@ class EtypePicoEeditionController extends ControllerBase {
    *   markup
    */
   public function content() {
+    $markup = '<div style="padding:5vh;text-align: center;">Redirecting to the e-Edition...</div>';
     return [
       '#title' => '',
-      '#children' => Markup::create('<div style="padding:5vh;text-align: center;">Redirecting to the e-Edition...</div>'),
+      '#children' => Markup::create($markup),
       '#cache' => [
         'max-age' => 0,
       ],
