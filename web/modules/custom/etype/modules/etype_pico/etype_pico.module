@@ -2,7 +2,6 @@
 
 use Drupal\etype_pico\Controller\EtypePicoEeditionController;
 use Drupal\node\NodeInterface;
-use Drupal\taxonomy\Entity\Term;
 use Drupal\Core\Url;
 
 /**
@@ -100,7 +99,6 @@ function etype_pico_preprocess_node(&$variables) {
  * Implements hook_page_attachments().
  *
  * @param array $page
- * @throws \SoapFault
  */
 function etype_pico_page_attachments(array &$page) {
   $current_url = Url::fromRoute('<current>');

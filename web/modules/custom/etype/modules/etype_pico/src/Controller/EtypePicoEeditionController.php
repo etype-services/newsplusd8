@@ -84,7 +84,7 @@ class EtypePicoEeditionController extends ControllerBase {
   }
 
   /**
-   * Get Token for access to etype.services.
+   * Get Url with Token for access to etype.services.
    *
    * @return string|null
    *   Returns url with token.
