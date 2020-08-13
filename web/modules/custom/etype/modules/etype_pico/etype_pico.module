@@ -3,34 +3,7 @@
 use Drupal\etype_pico\Controller\EtypePicoEeditionController;
 use Drupal\node\NodeInterface;
 use Drupal\taxonomy\Entity\Term;
-use Drupal\etype_pico\ThirdParty\Encryption;
 use Drupal\Core\Url;
-
-/**
- * @param $existing
- * @param $type
- * @param $theme
- * @param $path
- * @return array
- */
-function etype_pico_theme($existing, $type, $theme, $path) {
-  \Drupal::service('page_cache_kill_switch')->trigger();
-  // $control = new EtypePicoEeditionController;
-  //$url = $control->getEeditionUrl();
-  //$salt = mt_rand();
-  //$encrypted = (new Encryption)->encrypt($url, $salt);
-  return [
-    'e-edition' => [
-      'variables' => [
-        'url' => 'https://publisher.etype.services/Madill-Record?ut=A114A3EC7623A78E',
-      ],
-      'template' => 'e-edition',
-      '#cache' => [
-        'max-age' => 0,
-      ],
-    ],
-  ];
-}
 
 /**
  * Preprocess html.
@@ -56,7 +29,6 @@ function etype_pico_preprocess_html(&$variables) {
     }
 
     if (!empty($picoPublisherId)) {
-
       $head_script .= <<<EOF
 <script>
 (function(p,i,c,o){var n=new Event("pico-init");i[p]=i[p]||function(){(i[p].queue=i[p].queue||[]).push(arguments)},i.document.addEventListener("pico-init",function(e){var t=i.Pico.getInstance(e,{publisherId:o,picoInit:n},i);t.handleQueueItems(i[p].queue),i[p]=function(){return t.handleQueueItems([arguments])}},!1);var e=i.document.createElement("script"),t=i.document.getElementsByTagName("script")[0];e.async=1,e.src=c,e.onload=function(e){return i.Pico.getInstance(e,{publisherId:o,picoInit:n},i)},t.parentNode.insertBefore(e,t)})("pico",window,"https://widget.pico.tools/wrapper.min.js","$picoPublisherId");
@@ -67,7 +39,6 @@ EOF;
        * bottom script
        * see https://help.trypico.com/en/articles/3199263-installing-pico-on-your-website
        */
-      $terms = [];
       $picoOn = 'false';
       $picoType = 'page';
       $nid = '0';
@@ -76,6 +47,7 @@ EOF;
       if ($node instanceof NodeInterface) {
         if (in_array($node->getType(), $nodeTypes)) {
           $nid = $node->id();
+          /**
           if ($node->hasField('field_section')) {
             $tids = $node->get('field_section')->getValue();
             $terms = ['article'];
@@ -86,6 +58,7 @@ EOF;
               }
             }
           }
+          */
           $picoOn = 'true';
           $picoType = 'article';
         }
@@ -105,7 +78,6 @@ window.pico('visit', pageInfo);
 EOF;
 
     } // end if pico id
-
     $variables['head_script'] = $head_script;
     $variables['bottom_script'] = $bottom_script;
   }
@@ -128,8 +100,15 @@ function etype_pico_preprocess_node(&$variables) {
  * Implements hook_page_attachments().
  *
  * @param array $page
+ * @throws \SoapFault
  */
-
 function etype_pico_page_attachments(array &$page) {
+  $current_url = Url::fromRoute('<current>');
+  $path = $current_url->toString();
+  if ($path == '/e-edition') {
+    $url = (new EtypePicoEeditionController)->getEeditionUrl();
+    $page['#attached']['drupalSettings']['toknizdUrl'] = $url;
+    $page['#attached']['library'][] = 'etype_pico/pico-auth';
+  }
   $page['#attached']['library'][] = 'etype_pico/pico';
 }
