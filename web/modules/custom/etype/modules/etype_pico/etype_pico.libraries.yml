@@ -9,3 +9,12 @@ pico:
     - core/drupal
     - core/drupalSettings
     - core/jquery.once
+
+pico-auth:
+  version: VERSION
+  js:
+    js/etype_pico_auth.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once
