@@ -176,3 +176,5 @@ $sites['www.ironcountyreporter.com'] = "ironcountyreporter.com";
 $sites['ironcountyreporter.etypegoogle9.com'] = "ironcountyreporter.com";
 $sites['www.thesnydernews.com'] = "thesnydernews.com";
 $sites['thesnydernews.etypegoogle9.com'] = "thesnydernews.com";
+$sites['www.holdenvillenews.com'] = "holdenvillenews.com";
+$sites['holdenvillenews.etypegoogle9.com'] = "holdenvillenews.com";
