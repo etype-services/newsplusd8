@@ -177,3 +177,7 @@ $sites['www.thesnydernews.com'] = "thesnydernews.com";
 $sites['thesnydernews.etypegoogle9.com'] = "thesnydernews.com";
 $sites['www.holdenvillenews.com'] = "holdenvillenews.com";
 $sites['holdenvillenews.etypegoogle9.com'] = "holdenvillenews.com";
+$sites['www.lambcountyleadernews.com'] = "lambcountyleadernews.com";
+$sites['lambcountyleadernews.etypegoogle9.com'] = "lambcountyleadernews.com";
+$sites['www.drumrightgusher.com'] = "drumrightgusher.com";
+$sites['drumrightgusher.etypegoogle9.com'] = "drumrightgusher.com";
