@@ -1384,6 +1384,9 @@ article.node--view-mode-teaser .node__content .content-container h2 {
   display: flex;
   justify-content: center;
 }
+.region-leaderboard-below-menu .block-views-blockadvertisements-block-9 .views-row img {
+  height: fit-content;
+}
 
 .adblock {
   display: flex;

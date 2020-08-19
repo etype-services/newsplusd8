@@ -67,6 +67,9 @@ article {
   .views-row {
     display: flex;
     justify-content: center;
+    img {
+      height: fit-content;
+    }
   }
 }
 
