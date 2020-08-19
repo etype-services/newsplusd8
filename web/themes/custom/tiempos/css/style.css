@@ -1595,6 +1595,9 @@ article .node--view-mode-full .node__content h2 {
   display: flex;
   justify-content: center;
 }
+.view-advertisements .views-row img {
+  height: fit-content;
+}
 
 #block-views-block-advertisements-block-1 {
   margin-bottom: calc(0.75rem * 2);
