@@ -1596,7 +1596,7 @@ article .node--view-mode-full .node__content h2 {
   justify-content: center;
 }
 .view-advertisements .views-row img {
-  height: fit-content;
+  height: auto;
 }
 
 #block-views-block-advertisements-block-1 {
