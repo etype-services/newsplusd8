@@ -14,8 +14,6 @@ $sites['newsplus.etypegoogle9.com'] = "newsplus.etypegoogle9.com";
 $sites['kiamo.etypegoogle9.com'] = "kiamo.etypegoogle9.com";
 
 /* main section */
-$sites['www.bayoujournal.com'] = 'bayoujournal.etypegoogle7.com';
-$sites['www.bayoupioneer.com'] = 'bayoujournal.etypegoogle7.com';
 $sites['www.ssnewstelegram.com'] = 'ssnewstelegram.etypegoogle7.com';
 $sites['www.southwestledger.news'] = 'southwestledger.etypegoogle7.com';
 $sites['www.etypeservices.com'] = 'etypeservices.etypegoogle7.com';
@@ -161,8 +159,7 @@ $sites['www.thevidorian.com'] = "thevidorian.com";
 $sites['thevidorian.etypegoogle9.com'] = "thevidorian.com";
 $sites['www.timberlakesouthdakota.com'] = "timberlakesouthdakota.com";
 $sites['timberlakesouthdakota.etypegoogle9.com'] = "timberlakesouthdakota.com";
-$sites['www.timberlakesouthdakota.com'] = "timberlakesouthdakota.com";
-$sites['timberlakesouthdakota.etypegoogle9.com'] = "timberlakesouthdakota.com";
+$sites['www.timberlaketopic.com'] = "timberlakesouthdakota.com";
 $sites['www.hugonews.com'] = "hugonews.com";
 $sites['hugonews.etypegoogle9.com'] = "hugonews.com";
 $sites['www.armstrongdevelopments.com'] = "armstrongdevelopments.com";
