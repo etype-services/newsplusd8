@@ -97,7 +97,7 @@ function newsplus_form_system_theme_settings_alter(&$form, &$form_state) {
 
   $form['mtt_settings']['layout_tab']['layout']['pre_header_left_grid_class'] = array(
     '#type' => 'textfield',
-    '#title' => t('Pre Header Left Grid Class, ie col-md-6'),
+    '#title' => t('Pre Header Left Grid Class, ie col-md-6. Left and Right must add up to 12.'),
     '#default_value' => theme_get_setting('pre_header_left_grid_class', 'newsplus'),
   );
 
