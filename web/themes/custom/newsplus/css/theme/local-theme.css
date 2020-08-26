@@ -54,6 +54,9 @@ article .field--name-field-tags h3 {
   display: flex;
   justify-content: center;
 }
+.view-advertisements .views-row img {
+  height: fit-content;
+}
 
 /* region-page-intro ads below main nav */
 .block {
@@ -102,6 +105,11 @@ article .field--name-field-tags h3 {
 }
 
 /* Account Menu */
+@media (min-width: 768px) {
+  #pre-header-right ul.menu {
+    text-align: right;
+  }
+}
 @media (max-width: 991px) {
   #pre-header-right ul.menu .menu-item {
     display: inline-block;

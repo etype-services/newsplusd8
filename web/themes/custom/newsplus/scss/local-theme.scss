@@ -124,6 +124,12 @@ article {
 }
 
 /* Account Menu */
+@media (min-width: 768px) {
+  #pre-header-right ul.menu {
+    text-align: right;
+  }
+}
+
 @media (max-width: 991px) {
   #pre-header-right ul.menu .menu-item {
     display: inline-block;
