@@ -17,6 +17,9 @@
   .views-row {
     display: flex;
     justify-content: center;
+    img {
+      height: auto;
+    }
   }
 }
 

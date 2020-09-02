@@ -2,10 +2,11 @@
 
 namespace Drupal\etype_pico\Controller;
 
-use Drupal\Core\Cache\CacheableMetadata;
+use Drupal;
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Routing\TrustedRedirectResponse;
+use Drupal\Core\Render\Markup;
 use SoapClient;
+use SoapFault;
 
 /**
  * Class EtypePicoEeditionController.
@@ -53,14 +54,12 @@ class EtypePicoEeditionController extends ControllerBase {
    * EtypePicoEeditionController constructor.
    */
   public function __construct() {
-    $this->config = \Drupal::config('etype.adminsettings');
+    $this->config = Drupal::config('etype.adminsettings');
     $this->pubId = (int) $this->config->get('etype_pub');
   }
 
   /**
    * Validate Subscriber in etype.services.
-   *
-   * @throws \SoapFault
    *
    * @return string
    *   Message from etype.services.
@@ -71,69 +70,50 @@ class EtypePicoEeditionController extends ControllerBase {
       'username' => $this->userName,
       'password' => $this->passwd,
     ];
-    $client = new SoapClient($this->webServiceUrl);
-    $response = $client->ValidateSubscriber($param);
-    $validateSubscriberResult = $response->ValidateSubscriberResult;
-    return $validateSubscriberResult->TransactionMessage->Message;
+    try {
+      $client = new SoapClient($this->webServiceUrl);
+      $response = $client->ValidateSubscriber($param);
+      $validateSubscriberResult = $response->ValidateSubscriberResult;
+      return $validateSubscriberResult->TransactionMessage->Message;
+    }
+    catch (SoapFault $exception) {
+      $message = 'Could not connect to SoapClient.';
+      Drupal::logger('my_module')->error($message);
+      return NULL;
+    }
   }
 
   /**
    * Get Url with Token for access to etype.services.
    *
-   * @return string
+   * @return string|null
    *   Returns url with token.
-   *
-   * @throws \SoapFault
    */
-  public function getUrlWithToken() {
-    $client = new SoapClient($this->webServiceUrl);
+  public function getToken() {
     $params = [
       'publicationId' => $this->pubId,
       'username' => $this->userName,
     ];
-    $data = $client->GenerateUrlForSubscriber($params);
-    return $data->GenerateUrlForSubscriberResult;
+    try {
+      $client = new SoapClient($this->webServiceUrl);
+      $data = $client->GenerateUrlForSubscriber($params);
+      return $data->GenerateUrlForSubscriberResult;
+    }
+    catch (SoapFault $exception) {
+      $message = 'Could not connect to SoapClient.';
+      Drupal::logger('my_module')->error($message);
+      return NULL;
+    }
   }
 
   /**
    * This gets an authenticated e-Edition url.
-   *
-   * @throws \SoapFault
    */
   public function getEeditionUrl() {
-    $url = NULL;
-    if (($result = $this->validateSubscriber()) == 0) {
-      $url = $this->getUrlWithToken();
-    }
-    return $url;
-  }
-
-  /**
-   * This redirects to the authenticated e-Edition url.
-   *
-   * @throws \SoapFault
-   */
-  public function goToEeditionUrl() {
     $response = NULL;
-    if (($url = $this->getEeditionUrl()) !== '') {
-      $response = new TrustedRedirectResponse($url);
-      /* We do not want the response cached */
-      $cacheable_metadata = new CacheableMetadata();
-      $cacheable_metadata->setCacheMaxAge(0);
-      $response->addCacheableDependency($cacheable_metadata);
+    if (($result = $this->validateSubscriber()) == 0) {
+      $response = $this->getToken();
     }
-    return $response;
-  }
-
-  /**
-   * This redirects to the authenticated e-Edition url.
-   */
-  public function directAccess() {
-    $response = new TrustedRedirectResponse('https://publisher.etype.services/Madill-Record?ut=A114A3EC7623A78E');
-    /* We do not want the response cached */
-    $cacheable_metadata = new CacheableMetadata();
-    $cacheable_metadata->setCacheMaxAge(0);
-    $response->addCacheableDependency($cacheable_metadata);
     return $response;
   }
 
@@ -144,9 +124,19 @@ class EtypePicoEeditionController extends ControllerBase {
    *   markup
    */
   public function content() {
+    $markup = '
+<div style="padding:5vh;text-align:center;">
+<div>This page will redirect to the e-Edition if you are logged in.</div>
+<div class="button PicoRule mt-4"><a>Log In</a></div>
+<div class="button mt-4"><a href="/">Home</a></div>
+</div>
+';
     return [
       '#title' => '',
-      '#theme' => 'e-edition',
+      '#children' => Markup::create($markup),
+      '#cache' => [
+        'max-age' => 0,
+      ],
     ];
   }
 

@@ -225,8 +225,10 @@ function newsplus_preprocess_page(&$variables) {
   }
 
   if ($pre_header_left && $pre_header_right) {
-    $variables['pre_header_left_grid_class'] = 'col-md-8';
-    $variables['pre_header_right_grid_class'] = 'col-md-4';
+    // $variables['pre_header_left_grid_class'] = 'col-md-8';
+    // $variables['pre_header_right_grid_class'] = 'col-md-4';
+    $variables['pre_header_left_grid_class'] = theme_get_setting('pre_header_left_grid_class', 'newsplus');
+    $variables['pre_header_right_grid_class'] = theme_get_setting('pre_header_right_grid_class', 'newsplus');
   } else {
     $variables['pre_header_left_grid_class'] = 'col-md-12';
     $variables['pre_header_right_grid_class'] = 'col-md-12';

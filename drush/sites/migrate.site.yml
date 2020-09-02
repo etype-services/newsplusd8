@@ -1,4 +1,0 @@
-File: migrate.site.yml
-prod:
-  root: /mnt/www/drupal8/web
-  uri: http://migrate.etypegoogle7.com
