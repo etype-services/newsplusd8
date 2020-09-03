@@ -113,7 +113,6 @@ $sites['www.pawneenews.com'] = "pawneerepublican.com";
 $sites['www.perrytonherald.com'] = "perrytonherald.etypegoogle9.com";
 $sites['www.falmouthoutlook.com'] = "falmouthoutlook.etypegoogle9.com";
 $sites['www.highlandernews.com'] = "highlandernews.etypegoogle9.com";
-$sites['www.cninewspapers.com'] = "cninewspapers.etypegoogle11.com";
 $sites['www.lakelife.today'] = "lakelife.etypegoogle11.com";
 $sites['www.rileycountian.com'] = "rileycountian.etypegoogle11.com";
 $sites['www.taylornews.org'] = "taylornews.etypegoogle11.com";
