@@ -170,3 +170,5 @@ $sites['doublemountainchronicle.etypegoogle9.com'] = "doublemountainchronicle.co
 $sites['www.archercountynews.com'] = "archercountynews.com";
 $sites['archercountynews.etypegoogle9.com'] = "archercountynews.com";
 $sites['theexaminer.etypegoogle9.com'] = "theexaminer.com";
+$sites['www.thedcregister.com'] = "thedcregister.com";
+$sites['thedcregister.etypegoogle9.com'] = "thedcregister.com";
