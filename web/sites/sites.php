@@ -64,7 +64,6 @@ $sites['www.valleynewsandviews.com'] = 'valleynewsandviews.etypegoogle7.com';
 $sites['stocktonsentinel.com'] = 'stocktonsentinel.etypegoogle7.com';
 $sites['aroundosceola.com'] = 'aroundosceola.etypegoogle7.com';
 $sites['wwd1.org'] = 'wwd1.etypegoogle7.com';
-$sites['www.edenecho.net'] = "edenecho.etypegoogle11.com";
 $sites['www.guthrienewsleader.net'] = "guthrienewsleader.etypegoogle7.com";
 $sites['www.beaumontbusinessjournal.com'] = "beaumontbusinessjournal.etypegoogle7.com";
 $sites['www.theexaminer.com'] = "theexaminer.etypegoogle7.com";
