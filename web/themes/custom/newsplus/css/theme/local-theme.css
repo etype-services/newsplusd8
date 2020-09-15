@@ -50,14 +50,15 @@ article .field--name-field-tags h3 {
 }
 
 /* Advertisement Blocks. */
-.view-advertisements .views-row {
-  display: flex;
-  justify-content: center;
+@media (min-width: 768px) {
+  .view-advertisements .views-row {
+    display: flex;
+    justify-content: center;
+  }
+  .view-advertisements .views-row img {
+    height: fit-content;
+  }
 }
-.view-advertisements .views-row img {
-  height: fit-content;
-}
-
 /* region-page-intro ads below main nav */
 .block {
   padding: 15px 0;

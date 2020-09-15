@@ -63,12 +63,14 @@ article {
 }
 
 /* Advertisement Blocks. */
-.view-advertisements {
-  .views-row {
-    display: flex;
-    justify-content: center;
-    img {
-      height: fit-content;
+@media (min-width: 768px) {
+  .view-advertisements {
+    .views-row {
+      display: flex;
+      justify-content: center;
+      img {
+        height: fit-content;
+      }
     }
   }
 }
