@@ -171,3 +171,5 @@ $sites['www.cibolacitizen.com'] = "cibolacitizen.com";
 $sites['cibolacitizen.etypegoogle9.com'] = "cibolacitizen.com";
 $sites['www.dublincitizen.com'] = "dublincitizen.com";
 $sites['dublincitizen.etypegoogle9.com'] = "dublincitizen.com";
+$sites['www.edmondway.com'] = "edmondway.com";
+$sites['edmondway.etypegoogle9.com'] = "edmondway.com";
