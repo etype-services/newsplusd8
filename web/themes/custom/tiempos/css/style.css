@@ -1681,6 +1681,7 @@ article .node--view-mode-full .node__content h2 {
 }
 .auroranewsregister .view.view-frontpage h2 {
   font-size: 1.6rem;
+  line-height: 2.2rem;
 }
 
 @media screen and (min-width: 1024px) {
