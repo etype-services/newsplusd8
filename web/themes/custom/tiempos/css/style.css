@@ -1679,6 +1679,9 @@ article .node--view-mode-full .node__content h2 {
   grid-template-columns: 15% 15% 15% 15% 15% 15%;
   column-gap: 0;
 }
+.auroranewsregister .view.view-frontpage h2 {
+  font-size: 1.6rem;
+}
 
 @media screen and (min-width: 1024px) {
   /* Move Social icons into Navbar, depends on site main links, logo and number of icons */
