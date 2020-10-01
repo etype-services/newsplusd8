@@ -64,9 +64,11 @@ function tiempos_preprocess_block(&$variables) {
         $title = $variables['elements']['content']['#title']['#markup'];
         /* CNI sites have the Block title configured as a link */
         if (strpos($title, 'href') === false) {
-          //$link = strtolower(str_replace(' ', '-', $title));
-          $pattern = "/[\s\&]+/";
-          $link = strtolower(preg_replace($pattern, '-', $title));
+          $pattern = [
+            ' &amp; ',
+            ' ',
+          ];
+          $link = strtolower(str_replace($pattern, '-', $title));
           $variables['label'] = Markup::create('<a href=/"' . $link.'">' . $title .'</a>&nbsp;<i class="fas fa-angle-right" aria-hidden="true"></i>');
         }
         break;
