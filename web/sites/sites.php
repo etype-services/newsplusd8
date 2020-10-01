@@ -15,7 +15,6 @@ $sites['newsplus.etypegoogle9.com'] = "newsplus.etypegoogle9.com";
 /* main section */
 $sites['www.ssnewstelegram.com'] = 'ssnewstelegram.etypegoogle7.com';
 $sites['www.southwestledger.news'] = 'southwestledger.etypegoogle7.com';
-$sites['www.etypeservices.com'] = 'etypeservices.etypegoogle7.com';
 $sites['www.cordellbeacon.com'] = 'cordellbeacon.com';
 $sites['www.madillrecord.net'] = 'madillrecord.net';
 $sites['www.waltersherald.com'] = 'waltersherald.etypegoogle7.com';
