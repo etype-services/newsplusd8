@@ -69,7 +69,7 @@ function tiempos_preprocess_block(&$variables) {
             ' ',
           ];
           $link = strtolower(str_replace($pattern, '-', $title));
-          $variables['label'] = Markup::create('<a href=/"' . $link.'">' . $title .'</a>&nbsp;<i class="fas fa-angle-right" aria-hidden="true"></i>');
+          $variables['label'] = Markup::create('<a href="/' . $link.'">' . $title .'</a>&nbsp;<i class="fas fa-angle-right" aria-hidden="true"></i>');
         }
         break;
     }
