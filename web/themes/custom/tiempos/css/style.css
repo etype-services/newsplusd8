@@ -434,8 +434,10 @@ footer .footer-menu li > a {
   /* Social Icons */
   display: flex;
   align-items: center;
-  position: absolute;
-  top: -40px;
+  /*position: absolute;
+  top: -40px;*/
+  position: inherit;
+  top: 0;
   right: 0;
 }
 #main-nav .navbar .navbar-end a {
@@ -1685,13 +1687,14 @@ article .node--view-mode-full .node__content h2 {
 }
 
 @media screen and (min-width: 1024px) {
-  /* Move Social icons into Navbar, depends on site main links, logo and number of icons */
-  .bctribune #main-nav .navbar .navbar-end, .schulenburgsticker #main-nav .navbar .navbar-end, .pawneerepublican #main-nav .navbar .navbar-end, .tecumsehchieftain #main-nav .navbar .navbar-end, .wausharaargus #main-nav .navbar .navbar-end, .timberlakesouthdakota #main-nav .navbar .navbar-end, .timberlaketopic #main-nav .navbar .navbar-end, .theexaminer #main-nav .navbar .navbar-end {
-    /* Social Icons */
-    position: inherit;
-    top: 0;
-  }
-
+  /* Move Social icons into Navbar, depends on site main links, logo and number of icons
+  .bctribune, .schulenburgsticker, .pawneerepublican, .tecumsehchieftain, .wausharaargus, .timberlakesouthdakota, .timberlaketopic, .theexaminer {
+    #main-nav .navbar .navbar-end {
+      /* Social Icons
+      position: inherit;
+      top: 0;
+    }
+  } */
   .welchpublishing footer .region {
     flex-basis: 30%;
   }

@@ -128,8 +128,10 @@
       /* Social Icons */
       display: flex;
       align-items: center;
-      position: absolute;
-      top: -40px;
+      /*position: absolute;
+      top: -40px;*/
+      position: inherit;
+      top: 0;
       right: 0;
       a {
         margin-right: $column-gap;

@@ -1,13 +1,5 @@
 @import "../tiempos/scss/vars";
 
-@media screen and (min-width: 1088px) {
-  #main-nav .navbar .navbar-end {
-    /* Social Icons */
-    position: inherit;
-    top: 0;
-  }
-}
-
 /* Teaser formatting. */
 .node--view-mode-teaser {
   .field--name-body > p::after,
