@@ -223,6 +223,11 @@ main .main-content-inner {
     flex-basis: 20%;
     flex-shrink: 0;
   }
+
+  .region-header-center {
+    display: flex;
+    align-items: center;
+  }
 }
 /* Center column for tiempos theme */
 .page-node-type-article article .flexslider ul.slides img {
