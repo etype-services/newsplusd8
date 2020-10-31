@@ -124,10 +124,6 @@ function tiempos_preprocess_node(&$variables) {
     $uid = $variables['node']->getOwnerId();
     $author = User::load($uid);
     $variables['author_name'] = $author->getUsername();
-  } else {
-    $uid = $variables['node']->getOwnerId();
-    $author = User::load($uid);
-    $variables['author_name'] = '<a href="/user/' . $uid .'">' . $author->getUsername() . '</a>';
   }
   if ($variables['node']->hasField('field_authors')) {
     $authors = $variables['node']->get('field_authors')->getValue();
