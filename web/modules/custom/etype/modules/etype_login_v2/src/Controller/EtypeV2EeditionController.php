@@ -20,7 +20,7 @@ class EtypeV2EeditionController extends ControllerBase {
    * @param int|null $pubId
    *   the Id of the publication.
    *
-   * @return \Drupal\Core\Routing\TrustedRedirectResponse
+   * @return TrustedRedirectResponse
    *   Redirect to external uri.
    */
   public function gotoEedition($pubId = NULL) {
