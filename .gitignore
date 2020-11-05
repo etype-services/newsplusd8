@@ -40,3 +40,4 @@
 .sass-cache
 *.log
 composer.lock
+.php_cs.cache
