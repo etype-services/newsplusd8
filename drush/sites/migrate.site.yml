@@ -1,4 +1,4 @@
-File: local.site.yml
+File: migrate.site.yml
 local:
   root: /Users/charlie/Sites/ETypeServices/repos/newsplusd8/web
-  uri: http://local.drupal8.com
+  uri: http://migrate.drupal8.com
