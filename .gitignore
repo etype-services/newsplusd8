@@ -19,6 +19,7 @@
 # Ignore Drupal's file directory
 /web/sites/*/files/
 /web/sites/*/tmp/
+/web/sites/*/private/
 
 # Ignore local dev site
 /web/sites/local.drupal8.com/
