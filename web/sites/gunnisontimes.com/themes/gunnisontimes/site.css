@@ -17,11 +17,11 @@ body {
 }
 
 main .main-content-inner {
-  border-right: 1px solid #075986;
+  border-right: 3px solid #075986;
 }
 
 .border-top-light {
-  border-top: 10px solid #075986;
+  border-top: 3px solid #075986;
 }
 
 .button {
