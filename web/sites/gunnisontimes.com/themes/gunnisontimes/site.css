@@ -35,6 +35,10 @@ main .main-content-inner {
   column-gap: 6px;
 }
 
+footer .footer-menu li > a {
+  padding-top: 6px;
+}
+
 .has-background-gunnison-yellow {
   background-color: #fbd65b;
 }
