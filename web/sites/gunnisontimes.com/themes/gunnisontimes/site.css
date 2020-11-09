@@ -1,13 +1,18 @@
-@media screen and (min-width: 1088px) {
+@media screen and (min-width: 1024px) {
+  #main-nav .navbar {
+    border-top: 3px solid #075986;
+    border-bottom: 3px solid #075986;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .region-navigation .border-bottom {
+    border-bottom: 2px solid #075986;
+  }
 }
 
 body {
   color: #1a1818;
-}
-
-#main-nav .navbar {
-  border-top: 3px solid #075986;
-  border-bottom: 3px solid #075986;
 }
 
 .navbar-link, a.navbar-item {
