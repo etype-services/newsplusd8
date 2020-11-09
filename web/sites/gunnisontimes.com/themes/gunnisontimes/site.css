@@ -1,0 +1,7 @@
+@media screen and (min-width: 1088px) {
+  #main-nav .navbar .navbar-end {
+    /* Social Icons */
+    position: inherit;
+    top: 0;
+  }
+}
