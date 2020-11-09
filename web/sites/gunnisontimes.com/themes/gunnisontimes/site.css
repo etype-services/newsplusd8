@@ -6,8 +6,11 @@
 }
 
 @media screen and (max-width: 1023px) {
-  .region-navigation .border-bottom {
+  .region-navigation.border-bottom {
     border-bottom: 2px solid #075986;
+  }
+  #main-nav .navbar .navbar-start .navbar-item {
+    max-width: unset;
   }
 }
 
