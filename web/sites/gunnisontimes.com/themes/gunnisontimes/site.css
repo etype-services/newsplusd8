@@ -1,7 +1,42 @@
 @media screen and (min-width: 1088px) {
-  #main-nav .navbar .navbar-end {
-    /* Social Icons */
-    position: inherit;
-    top: 0;
-  }
 }
+
+body {
+  color: #1a1818;
+}
+
+#main-nav .navbar {
+  border-top: 3px solid #075986;
+  border-bottom: 3px solid #075986;
+}
+
+.navbar-link, a.navbar-item {
+  text-transform: uppercase;
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+main .main-content-inner {
+  border-right: 1px solid #075986;
+}
+
+.border-top-light {
+  border-top: 10px solid #075986;
+}
+
+.button {
+  border: none;
+  font-weight: bold;
+  padding-top: 6px;
+  border-radius: 0;
+}
+
+.footer-menu {
+  column-gap: 6px;
+}
+
+.has-background-gunnison-yellow {
+  background-color: #fbd65b;
+}
+
+>>>>>>> ca073dce95ea84dae533beb0e16d273622e373fb
