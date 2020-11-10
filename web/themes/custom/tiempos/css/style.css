@@ -1176,6 +1176,10 @@ footer .footer-menu li > a {
     visibility: visible !important;
     display: block !important;
   }
+
+  .block-date-block .navbar-burger {
+    margin: auto 5px auto 0;
+  }
 }
 /* Center column for tiempos theme */
 .page-node-type-article article .flexslider ul.slides img {

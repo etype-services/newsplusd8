@@ -226,4 +226,8 @@
   .region-content .block-etype-block {
     @include is-really-visible;
   }
+
+  .block-date-block .navbar-burger {
+    margin: auto 5px auto 0;
+  }
 }
