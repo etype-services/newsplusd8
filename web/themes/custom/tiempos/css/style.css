@@ -439,8 +439,6 @@ footer .footer-menu li > a {
   /* Social Icons */
   display: flex;
   align-items: center;
-  /*position: absolute;
-  top: -40px;*/
   position: inherit;
   top: 0;
   right: 0;
@@ -487,15 +485,15 @@ footer .footer-menu li > a {
   }
   #main-nav .navbar .navbar-end {
     position: absolute;
-    /*top: -2.6rem;*/
     top: 1.5rem;
     right: 0;
     margin-right: 0;
+    z-index: 99999;
   }
 
   .user-menu {
-    /* float: right; */
-    margin-top: 1rem;
+    top: 70px;
+    position: relative;
   }
 
   /* Close X in front of user menu */
