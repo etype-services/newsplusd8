@@ -424,7 +424,7 @@ footer .footer-menu li > a {
   /* some browsers do not understand fit-content */
 }
 #main-nav .navbar .navbar-start .navbar-burger {
-  margin-left: 0;
+  margin-left: -8px;
   display: flex;
   justify-content: center;
   align-items: center;
