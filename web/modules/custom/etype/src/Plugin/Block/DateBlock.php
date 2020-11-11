@@ -17,7 +17,6 @@ use Drupal\Core\Render\Markup;
 class DateBlock extends BlockBase {
 
   /**
-   * {@inheritdoc}
    *
    * Uses Markup rather than '#markup' to return raw html.
    */
