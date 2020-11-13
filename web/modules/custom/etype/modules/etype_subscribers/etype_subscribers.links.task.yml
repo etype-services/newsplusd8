@@ -1,0 +1,5 @@
+etype_subscribers.import_subscribers:
+  title: 'Import Subscribers'
+  route_name: etype_subscribers.import_subscribers
+  base_route: entity.user.collection
+  weight: 99

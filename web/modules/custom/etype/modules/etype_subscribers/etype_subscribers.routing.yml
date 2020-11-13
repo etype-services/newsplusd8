@@ -1,0 +1,9 @@
+etype_subscribers.import_subscribers:
+  path: '/admin/people/import_subscribers'
+  defaults:
+    _title: 'Import Subscribers'
+    _form: '\Drupal\etype_subscribers\Form\EtypeSubscribersImportForm'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE

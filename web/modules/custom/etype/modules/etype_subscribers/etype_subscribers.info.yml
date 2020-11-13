@@ -1,0 +1,8 @@
+name: 'eType Services Subscription Management'
+type: module
+description: 'Manage Subscribers'
+core: 8.x
+core_version_requirement: ^8 || ^9
+package: 'eType Services'
+dependencies:
+  - ultimate_cron
