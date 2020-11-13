@@ -153,7 +153,7 @@
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ],
         "cs-fix": [
-            "php-cs-fixer fix src --rules=@PSR2"
+            "php-cs-fixer fix src --rules=@symfony"
         ]
     },
     "extra": {
