@@ -115,6 +115,7 @@ class EtypeSubscribersImportForm extends FormBase {
             // Password,ID,UserName,Email,FirstName,LastName,Phone1,Phone2,Address,City,State,Zip,SubscriptionExpiryDate,SubscriptionDate,PaymentStatus,Amount,SubscriptionPlan,RowNumber
             // var_dump($data);
             $email = $data[3];
+            // make the Role - roles must match and exist to be effective
             $subLevel = strtolower(trim($data[16]));
             $clean = Html::cleanCssIdentifier($subLevel);
             $role = str_replace(['-', '--', '__'], '_', $clean) . '_';
