@@ -2,12 +2,12 @@
 
 namespace Drupal\etype_subscribers\Form;
 
-use Drupal\Component\Utility\Html;
 use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\file\Entity\File;
 use Drupal\user\Entity\User;
+use Drupal\Core\Language\LanguageInterface;
 
 /**
  * Class EtypeSubscribersImportForm.
@@ -117,8 +117,7 @@ class EtypeSubscribersImportForm extends FormBase {
             $email = $data[3];
             // make the Role - roles must match and exist to be effective
             $subLevel = strtolower(trim($data[16]));
-            $clean = Html::cleanCssIdentifier($subLevel);
-            $role = str_replace(['-', '--', '__'], '_', $clean) . '_';
+            $role = getMachineName($subLevel);
             // Delete User if they exist
             if ($user = user_load_by_mail($email)) {
               if ($deleteall == 1) {
@@ -149,7 +148,11 @@ class EtypeSubscribersImportForm extends FormBase {
     }
   }
 
-  private function createUser($data, $role) {
+  /**
+   * @param $data
+   * @param $role
+   */
+  protected function createUser($data, $role) {
     $user = User::create();
     $user->setPassword($data[0]);
     $user->enforceIsNew();
@@ -164,4 +167,5 @@ class EtypeSubscribersImportForm extends FormBase {
     $this->message = "Account created for $data[3].";
     \Drupal::messenger()->addMessage($this->message);
   }
+
 }

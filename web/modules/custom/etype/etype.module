@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\Core\Language\LanguageInterface;
 use Drupal\file\Entity\File;
 use Drupal\user\Entity\User;
 
@@ -362,4 +363,26 @@ function etype_metatags_alter(array &$metatags, array &$context) {
       }
     }
   }
+}
+
+/**
+ * Generates a machine name from a string.
+ *
+ * This is basically the same as what is done in
+ * \Drupal\Core\Block\BlockBase::getMachineNameSuggestion() and
+ * \Drupal\system\MachineNameController::transliterate(), but it seems
+ * that so far there is no common service for handling this.
+ *
+ * @param string $string
+ *
+ * @return string
+ *
+ * @see \Drupal\Core\Block\BlockBase::getMachineNameSuggestion()
+ * @see \Drupal\system\MachineNameController::transliterate()
+ */
+function getMachineName($string) {
+  $transliterated = \Drupal::transliteration()->transliterate($string, LanguageInterface::LANGCODE_DEFAULT, '_');
+  $transliterated = mb_strtolower($transliterated);
+  $transliterated = preg_replace('@[^a-z0-9_.]+@', '_', $transliterated);
+  return $transliterated;
 }
