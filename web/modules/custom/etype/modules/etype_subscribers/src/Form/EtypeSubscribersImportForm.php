@@ -155,6 +155,8 @@ class EtypeSubscribersImportForm extends FormBase
    *   Role.
    */
   protected function createUser(array $data, $role) {
+    $myDateTime = \DateTime::createFromFormat('m/d/y', $data[12]);
+    $subExpiry = $myDateTime->format('Y-m-d');
     $myDateTime = \DateTime::createFromFormat('m/d/y', $data[13]);
     $subDate = $myDateTime->format('Y-m-d');
     $values = [
@@ -175,6 +177,9 @@ class EtypeSubscribersImportForm extends FormBase
         1 => $data[7],
       ],
       'field_subscription_date' => $subDate,
+      'field_subscription_expiry' => $subExpiry,
+      'field_payment_status' => $data[14],
+      'field_amount' => $data[15],
     ];
     $user = User::create($values);
     $user->enforceIsNew();
