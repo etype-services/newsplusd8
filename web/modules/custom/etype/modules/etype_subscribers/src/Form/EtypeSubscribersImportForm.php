@@ -238,6 +238,9 @@ class EtypeSubscribersImportForm extends FormBase
     elseif (stripos($string, 'arkansas') !== FALSE) {
       $fixed = 'AR';
     }
+    elseif (stripos($string, 'mississippi') !== FALSE) {
+      $fixed = 'MS';
+    }
     else {
       // Remove trailing period, etc.
       $fixed = substr($string, 0, 2);
