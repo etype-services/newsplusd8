@@ -156,7 +156,7 @@ class EtypeSubscribersImportForm extends FormBase
    */
   protected function createUser(array $data, $role) {
     $myDateTime = \DateTime::createFromFormat('m/d/y', $data[13]);
-    $subDate = $myDateTime->format('d-m-Y');
+    $subDate = $myDateTime->format('Y-m-d');
     $values = [
       'pass' => $data[0],
       'name' => $data[2],
