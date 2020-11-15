@@ -168,6 +168,10 @@ class EtypeSubscribersImportForm extends FormBase
         'postal_code' => $data[11],
         'country_code' => 'US',
       ],
+      'field_phone' => [
+        0 => $data[6],
+        1 => $data[7],
+      ],
     ];
     $user = User::create($values);
     $user->enforceIsNew();
