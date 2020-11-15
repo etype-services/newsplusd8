@@ -2,6 +2,7 @@
 
 namespace Drupal\etype_subscribers\Form;
 
+use Drupal\commerce_price\Price;
 use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -179,7 +180,7 @@ class EtypeSubscribersImportForm extends FormBase
       'field_subscription_date' => $subDate,
       'field_subscription_expiry' => $subExpiry,
       'field_payment_status' => $data[14],
-      'field_amount' => $data[15],
+      'field_amount' => new Price(number_format($data[15], 2), 'USD'),
     ];
     $user = User::create($values);
     $user->enforceIsNew();
