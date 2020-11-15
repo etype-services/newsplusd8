@@ -172,6 +172,7 @@ class EtypeSubscribersImportForm extends FormBase
         0 => $data[6],
         1 => $data[7],
       ],
+      'field_subscription_date' => $data[13],
     ];
     $user = User::create($values);
     $user->enforceIsNew();
