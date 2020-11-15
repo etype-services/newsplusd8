@@ -221,13 +221,22 @@ class EtypeSubscribersImportForm extends FormBase
       $fixed = 'IL';
     }
     elseif (stripos($string, 'connecticut') !== FALSE) {
-      $fixed = 'IL';
+      $fixed = 'CT';
     }
     elseif (stripos($string, 'nebraska') !== FALSE) {
       $fixed = 'NE';
     }
     elseif (stripos($string, 'colorado') !== FALSE) {
       $fixed = 'CO';
+    }
+    elseif (stripos($string, 'georgia') !== FALSE) {
+      $fixed = 'GA';
+    }
+    elseif (stripos($string, 'alabama') !== FALSE) {
+      $fixed = 'AL';
+    }
+    elseif (stripos($string, 'arkansas') !== FALSE) {
+      $fixed = 'AR';
     }
     else {
       // Remove trailing period, etc.
