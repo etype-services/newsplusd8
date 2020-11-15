@@ -114,7 +114,7 @@ class EtypeSubscribersImportForm extends FormBase
             // Make the Role - roles must match and exist to be effective.
             $subLevel = strtolower(trim($data[16]));
             $role = etype_get_machine_name($subLevel);
-            // Delete User if they exist.
+            // Delete User if they exist?
             if ($user = user_load_by_mail($email)) {
               if ($deleteall == 1) {
                 $user->delete();
@@ -179,7 +179,7 @@ class EtypeSubscribersImportForm extends FormBase
       'field_subscription_date' => $subDate,
       'field_subscription_expiry' => $subExpiry,
       'field_payment_status' => $data[14],
-      'field_amount' => $data[15],
+      'field_amount' => $data[15] . '.00',
     ];
     $user = User::create($values);
     $user->enforceIsNew();
