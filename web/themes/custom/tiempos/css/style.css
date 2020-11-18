@@ -227,6 +227,7 @@ main .main-content-inner {
   .region-header-center {
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 }
 /* Center column for tiempos theme */
