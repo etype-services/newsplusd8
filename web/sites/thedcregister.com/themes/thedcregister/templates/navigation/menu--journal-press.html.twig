@@ -1,0 +1,91 @@
+{#
+/**
+ * @file
+ * Theme override to display a menu.
+ *
+ * Available variables:
+ * - menu_name: The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *   - is_expanded: TRUE if the link has visible children within the current
+ *     menu tree.
+ *   - is_collapsed: TRUE if the link has children within the current menu tree
+ *     that are not currently visible.
+ *   - in_active_trail: TRUE if the link is in the active trail.
+ */
+#}
+{% import _self as menus %}
+<nav role="navigation" id="main-nav" aria-label="user navigation" class="column">
+    <div class="navbar">
+        {# .navbar-start contains the menu that shows up when the hamburger is clicked #}
+        <div class="navbar-start is-really-invisible columns">
+            <div class="column">
+                {# The hamburger #}
+                <a role="button" class="navbar-burger is-active" aria-label="menu" aria-expanded="false"><i class="fas fa-times"></i></a>
+                {# Search block #}
+                {{ drupal_block('search_form_block') }}
+                <div id="mobile-nav">
+                    {# Main menu items with separate macro for sub-links, as we don't want all the dropdown classes #}
+                    {% for item in items %}
+                        {{ link(item.title, item.url, { 'class':['navbar-item'] }) }}
+                        {% if item.below %}
+                            {{ menus.submenu_links(item.below) }}
+                        {% endif %}
+                    {% endfor %}
+                    {% macro submenu_links(items) %}
+                        {% for item in items %}
+                            {{ link(item.title, item.url, { 'class':['navbar-item'] }) }}
+                        {% endfor %}
+                    {% endmacro %}
+                </div>
+            </div>
+            <div class="column">
+                {{ drupal_block('system_branding_block', {use_site_name: false}) }}
+            </div>
+            <div class="column">&nbsp;</div>
+        </div>
+        {# Main menu shown at width, uses bulma dropdown classes#}
+        <div id="main-navbar-menu" class="navbar-menu has-text-weight-semibold">
+            {#
+            * We call a macro which calls itself to render the full tree.
+            * @see http://twig.sensiolabs.org/doc/tags/macro.html
+            #}
+            {{ menus.menu_links(items, attributes, 0) }}
+            {% macro menu_links(items, attributes, menu_level) %}
+                {% import _self as menus %}
+                {% if items %}
+                    {% for item in items %}
+                        {% if menu_level == 0 %}
+                            {% if item.below %}
+                        <div class="dropdown is-hoverable">
+                            <div class="dropdown-trigger">
+                                {{ link(item.title, item.url, { 'class':['navbar-item'] }) }}
+                            </div>
+                            <div class="dropdown-menu" role="menu">
+                                <div class="dropdown-content">
+                                    {{ menus.menu_links(item.below) }}
+                                </div>
+                            </div>
+                        </div>
+                            {% else %}
+                                {{ link(item.title, item.url, { 'class':['navbar-item'] }) }}
+                            {% endif %}
+                        {% else %}
+                         <div class="dropdown-item">
+                             {{ link(item.title, item.url, { 'class':['navbar-item'] }) }}
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endmacro %}
+        </div>
+        {# Social icons #}
+        <div class="navbar-end">
+            {{ drupal_block('socialmedia_block') }}
+        </div>
+    </div>
+</nav>
