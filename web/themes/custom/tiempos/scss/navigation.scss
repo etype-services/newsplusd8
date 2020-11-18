@@ -149,12 +149,16 @@
       position: inherit;
       /* Show User Menu in pop-up, using is-hidden-touch to identify the menu. */
       .navbar-start {
+        padding: 0 1.5rem 1rem 1rem;
         /* Align menu to right. */
         .navbar-menu {
           display: block!important;
           height: fit-content;
           width: fit-content;
           float: right;
+          .column {
+            padding-top: 0;
+          }
           .button, .button:first-child {
             display: block;
             width: 100%;
