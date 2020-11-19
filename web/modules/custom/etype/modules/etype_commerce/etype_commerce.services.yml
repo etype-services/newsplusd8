@@ -1,0 +1,5 @@
+services:
+  etype_commerce.order_event_subscriber:
+    class: Drupal\etype_commerce\EventSubscriber\OrderEventSubscriber
+    tags:
+      - { name: 'event_subscriber' }
