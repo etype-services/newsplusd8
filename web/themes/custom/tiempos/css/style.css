@@ -227,6 +227,7 @@ main .main-content-inner {
   .region-header-center {
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 }
 /* Center column for tiempos theme */
@@ -459,6 +460,7 @@ footer .footer-menu li > a {
     /* Social Icons */
   }
   #main-nav .navbar .navbar-start {
+    padding: 0 1.5rem 1rem 1rem;
     /* Align menu to right. */
   }
   #main-nav .navbar .navbar-start .navbar-menu {
@@ -466,6 +468,9 @@ footer .footer-menu li > a {
     height: fit-content;
     width: fit-content;
     float: right;
+  }
+  #main-nav .navbar .navbar-start .navbar-menu .column {
+    padding-top: 0;
   }
   #main-nav .navbar .navbar-start .navbar-menu .button, #main-nav .navbar .navbar-start .navbar-menu .button:first-child {
     display: block;
