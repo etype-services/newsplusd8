@@ -98,7 +98,6 @@ class EtypePaywallConfigForm extends ConfigFormBase {
       '#title' => $this->t('Roles that bypass paywall'),
       '#default_value' => ($this->conf->get('roles') ?: []),
       '#options' => $roles,
-      '#access' => $this->conf->get('roles') ?: [],
     ];
 
     $form['subLink'] = [

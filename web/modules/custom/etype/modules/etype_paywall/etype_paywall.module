@@ -2,7 +2,12 @@
 
 function etype_paywall_preprocess_node(&$variables) {
   $config = Drupal::config('etype_paywall.settings');
-  if (Drupal::currentUser()->isAnonymous()) {
+  $userCurrent = \Drupal::currentUser();
+  $user = Drupal\user\Entity\User::load($userCurrent->id());
+  $userRoles = $user->getRoles();
+  $paywallRoles = $config->get('roles');
+  $arr = array_intersect($userRoles, $paywallRoles);
+  if (count($arr) == 0) {
     if (node_is_page($variables['node'])) {
       $nodeType = $variables['node']->getType();
       $arr = [];
