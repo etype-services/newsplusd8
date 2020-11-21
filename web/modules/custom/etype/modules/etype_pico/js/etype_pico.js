@@ -4,7 +4,7 @@
         attach: function (context, settings) {
             $('.user-menu a[href="/pico-login"]').parent('li').addClass('PicoRule PicoSignal');
             $('.user-menu a[href="/pico-subscribe"]').parent('li').addClass('PicoPlan PicoSignal');
-            $('.user-menu a[href="/pico-login"], .user-menu a[href="/pico-subscribe"]').on('click', function (event){
+            $('.user-menu a[href="/pico-login"], .user-menu a[href="/pico-subscribe"]').on('click', function (event) {
                 event.preventDefault();
             });
         }

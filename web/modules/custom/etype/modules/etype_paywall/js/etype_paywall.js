@@ -1,12 +1,10 @@
 /*
  * Paywall for eType
  */
-
 let newTotal;
 
 let etype_paywall_init = function () {
-    "use strict";
-    var total = Cookies.get("paywallViewed");
+    let total = Cookies.get("paywallViewed");
     if (isNaN(total)) {
         newTotal = 1;
     } else {
@@ -20,9 +18,9 @@ etype_paywall_init();
     "use strict";
     Drupal.behaviors.etypePaywallPageBehavior = {
         attach: function (context, settings) {
-            var expiresNumber = parseInt(drupalSettings.etype_paywall.etype_paywall.expiresNumber);
-            var freeNumber = parseInt(drupalSettings.etype_paywall.etype_paywall.freeNumber);
-            var subLink = drupalSettings.etype_paywall.etype_paywall.subLink;
+            let expiresNumber = parseInt(drupalSettings.etype_paywall.etype_paywall.expiresNumber);
+            let freeNumber = parseInt(drupalSettings.etype_paywall.etype_paywall.freeNumber);
+            let subLink = drupalSettings.etype_paywall.etype_paywall.subLink;
             if (newTotal > freeNumber) {
                 $(".node__content .field--name-body").once("etypePaywallPageBehavior").addClass("paywall_blocked").html("You‘ve read all your free articles in this " + expiresNumber + " day period. Please <a href=\"" + subLink + "\">subscribe</a> to read more.");
                 $("#block-paywallblock").html("<p>You have read all your free articles.</p>");
