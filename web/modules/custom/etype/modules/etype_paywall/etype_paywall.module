@@ -1,10 +1,10 @@
 <?php
 
 function etype_paywall_preprocess_node(&$variables) {
+  $config = Drupal::config('etype_paywall.settings');
   if (Drupal::currentUser()->isAnonymous()) {
     if (node_is_page($variables['node'])) {
       $nodeType = $variables['node']->getType();
-      $config = Drupal::config('etype_paywall.settings');
       $arr = [];
       foreach ($config->get('nodeType') as $type) {
         if ($type !== 0) {
