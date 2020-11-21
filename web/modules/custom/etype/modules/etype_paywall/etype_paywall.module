@@ -13,8 +13,12 @@ function etype_paywall_preprocess_node(&$variables) {
       }
       if(in_array($nodeType, $arr)){
         $variables['#attached']['library'][] = 'etype_paywall/etype_paywall';
-        $e_editions = etype_e_editions();
-        $variables['#attached']['drupalSettings']['etype_paywall']['etype_paywall']['subLink'] = $e_editions[0]['path'];
+        $subLink = $config->get('subLink');
+        if (empty($subLink)) {
+          $e_editions = etype_e_editions();
+          $subLink = $e_editions[0]['path'];
+        }
+        $variables['#attached']['drupalSettings']['etype_paywall']['etype_paywall']['subLink'] = $subLink;
         $variables['#attached']['drupalSettings']['etype_paywall']['etype_paywall']['freeNumber'] = $config->get('freeNumber');
         $variables['#attached']['drupalSettings']['etype_paywall']['etype_paywall']['expiresNumber'] = $config->get('expiresNumber');
       }

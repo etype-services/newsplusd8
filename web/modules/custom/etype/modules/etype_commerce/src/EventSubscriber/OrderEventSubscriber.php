@@ -37,10 +37,15 @@ class OrderEventSubscriber implements EventSubscriberInterface {
     $order = $event->getEntity();
     $customer_id = $order->getCustomerId();
     $user = User::load($customer_id);
+    $myDateTime = new \DateTime();
+    $subDate = $myDateTime->format('Y-m-d');
+    $subExpiry = $myDateTime->add(new \DateInterval('P1Y'))->format('Y-m-d');
     foreach ($order->getItems() as $key => $order_item) {
       $product_variation = $order_item->getPurchasedEntity();
       $role = $product_variation->get('field_role')->getValue();
       $user->addRole($role[0]['value']);
+      $user->set('field_subscription_date', $subDate);
+      $user->set('field_subscription_expiry', $subExpiry);
       $user->save();
     }
   }

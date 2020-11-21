@@ -85,11 +85,27 @@ class EtypePaywallConfigForm extends ConfigFormBase {
     ];
 
     $form['nodeType'] = [
-      '#title' => $this->t('Content Types'),
+      '#title' => $this->t('Content Types behind paywall'),
       '#type' => 'checkboxes',
       '#description' => $this->t('Choose content types to paywall.'),
       '#options' => $this->nodeTypeOptions,
       '#default_value' => $this->conf->get('nodeType') ?: [],
+    ];
+
+    $roles = array_map(['\Drupal\Component\Utility\Html', 'escape'], user_role_names(TRUE));
+    $form['roles'] = [
+      '#type' => 'checkboxes',
+      '#title' => $this->t('Roles that bypass paywall'),
+      '#default_value' => ($this->conf->get('roles') ?: []),
+      '#options' => $roles,
+      '#access' => $this->conf->get('roles') ?: [],
+    ];
+
+    $form['subLink'] = [
+      '#title' => $this->t('Subscription Purchase Link'),
+      '#type' => 'textfield',
+      '#description' => $this->t('Url of subscription purchase page. Leave blank for eType default.'),
+      '#default_value' => $this->conf->get('subLink') ?: [],
     ];
 
     return parent::buildForm($form, $form_state);
@@ -105,6 +121,8 @@ class EtypePaywallConfigForm extends ConfigFormBase {
       ->set('freeNumber', $form_state->getValue('freeNumber'))
       ->set('expiresNumber', $form_state->getValue('expiresNumber'))
       ->set('nodeType', $form_state->getValue('nodeType'))
+      ->set('subLink', $form_state->getValue('subLink'))
+      ->set('roles', $form_state->getValue('roles'))
       ->save();
 
     Drupal::cache('menu')->invalidateAll();
