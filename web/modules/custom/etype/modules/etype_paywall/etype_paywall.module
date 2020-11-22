@@ -1,9 +1,11 @@
 <?php
 
+use Drupal\user\Entity\User;
+
 function etype_paywall_preprocess_node(&$variables) {
-  $config = Drupal::config('etype_paywall.settings');
+  $config = \Drupal::config('etype_paywall.settings');
   $userCurrent = \Drupal::currentUser();
-  $user = Drupal\user\Entity\User::load($userCurrent->id());
+  $user = User::load($userCurrent->id());
   $userRoles = $user->getRoles();
   $paywallRoles = $config->get('roles');
   $arr = array_intersect($userRoles, $paywallRoles);
@@ -23,9 +25,9 @@ function etype_paywall_preprocess_node(&$variables) {
           $e_editions = etype_e_editions();
           $subLink = $e_editions[0]['path'];
         }
-        $variables['#attached']['drupalSettings']['etype_paywall']['etype_paywall']['subLink'] = $subLink;
-        $variables['#attached']['drupalSettings']['etype_paywall']['etype_paywall']['freeNumber'] = $config->get('freeNumber');
-        $variables['#attached']['drupalSettings']['etype_paywall']['etype_paywall']['expiresNumber'] = $config->get('expiresNumber');
+        $variables['#attached']['drupalSettings']['etype_paywall']['subLink'] = $subLink;
+        $variables['#attached']['drupalSettings']['etype_paywall']['freeNumber'] = $config->get('freeNumber');
+        $variables['#attached']['drupalSettings']['etype_paywall']['expiresNumber'] = $config->get('expiresNumber');
       }
     }
   }
