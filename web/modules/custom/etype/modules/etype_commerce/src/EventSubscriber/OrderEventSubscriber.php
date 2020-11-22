@@ -25,7 +25,7 @@ class OrderEventSubscriber implements EventSubscriberInterface {
   }
 
   /**
-   * Updates User role an order is placed.
+   * Updates User when an order is placed.
    *
    * @param \Drupal\state_machine\Event\WorkflowTransitionEvent $event
    *   The transition event.
