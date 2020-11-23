@@ -59,6 +59,7 @@ function etype_preprocess_node(&$variables) {
  */
 function etype_page_attachments(array &$page) {
   $page['#attached']['library'][] = 'etype/global-styling';
+  $page['#attached']['library'][] = 'etype/global-styling';
   $moduleHandler = Drupal::service('module_handler');
   if ($moduleHandler->moduleExists('pwa')) {
     $page['#attached']['library'][] = 'etype/addtohomescreen';
