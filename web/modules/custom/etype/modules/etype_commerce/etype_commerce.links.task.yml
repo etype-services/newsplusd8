@@ -1,0 +1,5 @@
+etype_commerce.expire_subscribers:
+  title: 'Expire Subscribers'
+  route_name: etype_commerce.expire_subscribers
+  base_route: entity.user.collection
+  weight: 100

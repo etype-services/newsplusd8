@@ -1,0 +1,9 @@
+etype_commerce.expire_subscribers:
+  path: '/admin/people/expire_subscribers'
+  defaults:
+    _title: 'Expire Subscribers'
+    _controller: '\Drupal\etype_commerce\Controller\ExpireSubscribersController::expireSubscribers'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE

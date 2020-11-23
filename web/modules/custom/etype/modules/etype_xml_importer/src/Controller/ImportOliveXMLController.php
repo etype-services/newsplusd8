@@ -155,8 +155,14 @@ class ImportOliveXMLController {
     $this->entityTypeManager = Drupal::entityTypeManager();
   }
 
+  /**
+   * Return string.
+   *
+   * @return string
+   *   String
+   */
   public function __toString() {
-    return (string)$this->entry;
+    return (string) $this->entry;
   }
 
   /**
