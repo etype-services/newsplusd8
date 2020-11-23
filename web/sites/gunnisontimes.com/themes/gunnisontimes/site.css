@@ -58,3 +58,7 @@ footer .footer-menu li > a {
 .section-tag-heading {
   border-bottom: 1px solid #075986;
 }
+
+.view-id-frontpage.columns > .view-content h2 {
+  font-size: 1.6rem;
+}
