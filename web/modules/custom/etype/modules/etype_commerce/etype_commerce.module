@@ -1,1 +1,35 @@
 <?php
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_form_alter().
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param $form_id
+ */
+function etype_commerce_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Add to cart form id for product 5 is: commerce_order_item_add_to_cart_form_commerce_product_5
+  // Then it's enough to check $form_id contains the string 'commerce_order_item_add_to_cart_form_commerce'
+  if(strpos($form_id, 'commerce_order_item_add_to_cart_form_commerce') !== false) {
+    $form['actions']['submit']['#value'] = t('Checkout');
+    $form['actions']['submit']['#submit'][] = '_redirect_to_checkout';
+  }
+}
+
+/**
+ * Callback for form submission.
+ * @see hook_form_alter()
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ */
+function _redirect_to_checkout(&$form, FormStateInterface $form_state) {
+  /** @var \Drupal\commerce_order\Entity\OrderInterface $cart_id */
+  $cart_id = $form_state->get('cart_id');
+  $url = Url::fromRoute('commerce_checkout.form',
+    ['commerce_order' => $cart_id]
+  );
+  $form_state->setRedirectUrl($url);
+}
