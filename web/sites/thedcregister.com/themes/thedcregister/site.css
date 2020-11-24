@@ -2,8 +2,11 @@
   body:not(.page-node-type-feature) #main-nav .navbar {
     background-color: #00a0e3;
   }
-  .navbar-item,
-  .navbar-item.is-active {
+  .navbar-item {
+    color: #ffffff;
+  }
+  .navbar-link.is-active,
+  a.navbar-item.is-active {
     color: #ffffff;
   }
   .navbar-end a.has-text-grey-dark {
