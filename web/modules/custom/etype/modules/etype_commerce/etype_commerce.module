@@ -46,7 +46,7 @@ function etype_commerce_preprocess_page_title(&$variables) {
   $current_url = Url::fromRoute('<current>');
   $url = $current_url->getInternalPath();
   // Update Checkout page title.
-  if(strpos($url, 'checkout') !== FALSE) {
+  if(preg_match("/^checkout\/.*/", $url)) {
     if (\Drupal::currentUser()->isAnonymous()) {
       $variables['title'] = 'Log in or create a new account to buy a subscription.';
     }
