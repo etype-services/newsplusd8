@@ -25,5 +25,5 @@ h3.section-tag-heading {
   color: #217db0;
 }
 a:hover {
-  color: #185c81;
+  color: #185c81!important;
 }
