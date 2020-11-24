@@ -27,3 +27,16 @@ h3.section-tag-heading {
 a:hover {
   color: #185c81!important;
 }
+
+.front-page-sections .view-content .image-container {
+  background-color: #eaf5fb!important;
+}
+.view-id-frontpage.columns > .attachment .view-content .image-container {
+  overflow: hidden;
+  max-height: 77px;
+}
+#block-etypeeedition {
+  display: grid;
+  grid-template-columns: 47% 47%;
+  column-gap: 6%;
+}
