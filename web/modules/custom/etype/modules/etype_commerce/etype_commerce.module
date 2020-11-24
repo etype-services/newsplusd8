@@ -33,3 +33,13 @@ function _redirect_to_checkout(&$form, FormStateInterface $form_state) {
   );
   $form_state->setRedirectUrl($url);
 }
+
+/**
+ * Callback function for the cron job.
+ *
+ * @throws \Exception
+ */
+function _etype_commerce_expire_subscribers() {
+  $job = new Drupal\etype_commerce\Controller\ExpireSubscribersController;
+  $job->expireSubscribers();
+}

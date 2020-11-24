@@ -1,0 +1,28 @@
+langcode: en
+status: false
+dependencies:
+  module:
+    - etype_commerce
+title: 'Expires Subscibers
+id: etype_commerce_cron
+module: etype_commerce
+callback: _etype_commerce_expire_subscribers
+scheduler:
+  id: crontab
+  configuration:
+    rules:
+      - '0 4 * * *'
+launcher:
+  id: serial
+  configuration:
+    timeouts:
+      lock_timeout: 3600
+      max_execution_time: 3600
+    launcher:
+      max_threads: 1
+logger:
+  id: database
+  configuration:
+    method: '3'
+    expire: 1209600
+    retain: 1000
