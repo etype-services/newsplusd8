@@ -3,7 +3,7 @@ status: false
 dependencies:
   module:
     - etype_commerce
-title: 'Expires Subscibers
+title: 'Expires Subscibers'
 id: etype_commerce_cron
 module: etype_commerce
 callback: _etype_commerce_expire_subscribers
@@ -11,7 +11,7 @@ scheduler:
   id: crontab
   configuration:
     rules:
-      - '0 4 * * *'
+      - '0 4 * * 0'
 launcher:
   id: serial
   configuration:
