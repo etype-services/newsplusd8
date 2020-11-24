@@ -1,6 +1,6 @@
 @media screen and (min-width: 1024px) {
   body:not(.page-node-type-feature) #main-nav .navbar {
-    background-color: #020d4e;
+    background-color: #00a0e3;
   }
   .navbar-item {
     color: #ffffff;
@@ -9,7 +9,7 @@
     color: #ffffff!important;
   }
   .navbar-end a.has-text-grey-dark:hover {
-    color: #3273dc!important;
+    color: #00a0e3!important;
   }
 }
 
