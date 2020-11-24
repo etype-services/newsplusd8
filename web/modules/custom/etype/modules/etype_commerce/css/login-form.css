@@ -1,0 +1,52 @@
+#edit-login-register-user-picture-wrapper,
+#edit-login-register-field-biography-wrapper,
+#edit-login-register-field-phone-wrapper,
+#edit-login-register-field-subscription-date-wrapper,
+#edit-login-register-field-subscription-expiry-wrapper {
+  display: none;
+  visibility: hidden;
+}
+
+.fieldset-legend,
+summary {
+  font-weight: bold;
+}
+
+.password-confirm,
+.password-field,
+.password-strength,
+.password-confirm-match,
+select,
+.address-container-inline,
+.form-type-textfield,
+.form-item {
+  width: 100%!important;
+}
+
+details {
+  border: 0!important;
+}
+
+.details-wrapper {
+  padding: 0!important;
+}
+
+.address-container-inline > .form-item {
+  margin-right: 0!important;
+}
+
+@media (min-width: 780px) {
+  .form-wrapper__returning-customer,
+  .form-wrapper__guest-checkout {
+    float: none;
+  }
+  .form-wrapper__guest-checkout .fieldset-wrapper {
+    margin-top: -16px;
+  }
+}
+
+@media (min-width: 1026px) {
+  #edit-login {
+    display: flex;
+  }
+}

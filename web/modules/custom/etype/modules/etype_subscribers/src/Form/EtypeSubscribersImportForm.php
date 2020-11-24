@@ -179,8 +179,8 @@ class EtypeSubscribersImportForm extends FormBase
       ],
       'field_subscription_date' => $subDate,
       'field_subscription_expiry' => $subExpiry,
-      'field_payment_status' => $data[14],
-      'field_amount' => new Price(number_format($data[15], 2), 'USD'),
+      // 'field_payment_status' => $data[14],
+      // 'field_amount' => new Price(number_format($data[15], 2), 'USD'),
     ];
     $user = User::create($values);
     $user->enforceIsNew();

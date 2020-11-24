@@ -1,0 +1,7 @@
+login-form:
+  version: VERSION
+  js:
+    js/login-form.js: { }
+  css:
+    state:
+      css/login-form.css: { weight: 100 }

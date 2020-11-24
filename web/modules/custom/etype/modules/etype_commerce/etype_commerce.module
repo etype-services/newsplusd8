@@ -16,6 +16,9 @@ function etype_commerce_form_alter(&$form, FormStateInterface $form_state, $form
     $form['actions']['submit']['#value'] = t('Checkout');
     $form['actions']['submit']['#submit'][] = '_redirect_to_checkout';
   }
+  elseif($form_id == 'commerce_checkout_flow_multistep_default') {
+    $form['#attached']['library'][] = 'etype_commerce/login-form';
+  }
 }
 
 /**
@@ -32,6 +35,25 @@ function _redirect_to_checkout(&$form, FormStateInterface $form_state) {
     ['commerce_order' => $cart_id]
   );
   $form_state->setRedirectUrl($url);
+}
+
+/**
+ * Implements etype_commerce_preprocess_page_title()
+ *
+ * @param $variables
+ */
+function etype_commerce_preprocess_page_title(&$variables) {
+  $current_url = Url::fromRoute('<current>');
+  $url = $current_url->getInternalPath();
+  // Update Checkout page title.
+  if(strpos($url, 'checkout') == 0) {
+    if (\Drupal::currentUser()->isAnonymous()) {
+      $variables['title'] = 'Log in or create a new account to buy a subscription.';
+    }
+    else {
+      $variables['title'] = 'Renew your subscription';
+    }
+  }
 }
 
 /**
