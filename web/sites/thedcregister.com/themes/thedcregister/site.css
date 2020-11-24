@@ -6,13 +6,14 @@
     color: #ffffff;
   }
   .navbar-end a.has-text-grey-dark {
-    color: #ffffff;
+    color: #ffffff!important;
   }
 }
 
 h2,
 h2 a,
 h3,
-h3 a {
+h3 a,
+h3.section-tag-heading {
   color: #020d4e;
 }
