@@ -1,6 +1,6 @@
 @media screen and (min-width: 1024px) {
   body:not(.page-node-type-feature) #main-nav .navbar {
-    background-color: #00a0e3;
+    background-color: #217db0;
   }
   .navbar-item {
     color: #ffffff;
@@ -22,5 +22,5 @@ h2 a,
 h3,
 h3 a,
 h3.section-tag-heading {
-  color: #00a0e3;
+  color: #217db0;
 }
