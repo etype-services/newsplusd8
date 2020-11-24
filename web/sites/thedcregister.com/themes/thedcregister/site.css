@@ -9,7 +9,7 @@
     color: #ffffff!important;
   }
   .navbar-end a.has-text-grey-dark:hover {
-    color: #00a0e3!important;
+    color: #020d4e!important;
   }
 }
 
@@ -18,5 +18,5 @@ h2 a,
 h3,
 h3 a,
 h3.section-tag-heading {
-  color: #020d4e;
+  color: #00a0e3;
 }
