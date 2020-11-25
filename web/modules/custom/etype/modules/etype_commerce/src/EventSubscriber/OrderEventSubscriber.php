@@ -67,7 +67,6 @@ class OrderEventSubscriber implements EventSubscriberInterface {
       $user->addRole($role[0]['value']);
       $user->set('field_subscription_date', $subDate);
       $user->set('field_subscription_expiry', $subExpiry);
-      $user->set('field_mailchimp_subscription', 1);
     }
     $user->save();
     $message .= "Hello $username, you are logged in, and your subscription is now valid through $subExpiry";
