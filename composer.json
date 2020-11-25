@@ -50,6 +50,7 @@
         "drupal/clamav": "^1.0",
         "drupal/colorbutton": "^1.1",
         "drupal/commerce": "^2.21",
+        "drupal/commerce_paypal": "1.x-dev@dev",
         "drupal/conditional_styles": "^1.0",
         "drupal/console": "~1.0",
         "drupal/core": "^8.8@beta",

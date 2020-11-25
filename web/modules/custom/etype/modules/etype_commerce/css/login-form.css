@@ -1,3 +1,5 @@
+/* Style fixes for the Checkout process */
+
 #edit-login-register-user-picture-wrapper,
 #edit-login-register-field-biography-wrapper,
 #edit-login-register-field-phone-wrapper,
@@ -14,6 +16,18 @@
 summary {
   font-weight: bold;
 }
+
+/*
+#edit-login-register-field-mailchimp-subscription-wrapper .form-item {
+  display: flex;
+  align-content: center;
+}
+
+#edit-login-register-field-mailchimp-subscription-wrapper .form-item .control {
+  width: 20px;
+  margin-right: 0.75rem;
+}
+*/
 
 .password-confirm,
 .password-field,
