@@ -30,7 +30,7 @@ a:hover {
 
 .user-menu .has-background-black-bis,
 .footer-menu .has-background-black-bis {
-  color: #217db0!important;
+  background-color: #217db0!important;
 }
 
 .user-menu a.has-background-black-bis:hover,
