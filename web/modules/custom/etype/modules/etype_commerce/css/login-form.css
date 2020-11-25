@@ -2,7 +2,10 @@
 #edit-login-register-field-biography-wrapper,
 #edit-login-register-field-phone-wrapper,
 #edit-login-register-field-subscription-date-wrapper,
-#edit-login-register-field-subscription-expiry-wrapper {
+#edit-login-register-field-subscription-expiry-wrapper,
+#edit-login-register-field-mailchimp-subscription-wrapper,
+#edit-subscription-information,
+.form-item-payment-information-add-payment-method-billing-information-copy-to-address-book {
   display: none;
   visibility: hidden;
 }
