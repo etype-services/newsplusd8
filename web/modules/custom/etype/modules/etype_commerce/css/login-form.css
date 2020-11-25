@@ -17,7 +17,7 @@ summary {
   font-weight: bold;
 }
 
-/*
+/* Only needed if #edit-login-register-field-mailchimp-subscription-wrapper is shown.
 #edit-login-register-field-mailchimp-subscription-wrapper .form-item {
   display: flex;
   align-content: center;
