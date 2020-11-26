@@ -66,13 +66,13 @@ class EtypeSubscribersImportForm extends FormBase
     ];
 
     $form['deletebefore'] = [
-      '#title' => $this->t('Check box to delete existing accounts where email address matches, and re-import the subscriber.'),
+      '#title' => $this->t('Re-import subscribers (overwrites existing record).'),
       '#type' => 'checkbox',
       '#default_value' => 0,
     ];
 
     $form['deleteall'] = [
-      '#title' => $this->t('Check box to delete accounts where email address matches AND NOT RE-IMPORT.'),
+      '#title' => $this->t('Delete matching subscribers.'),
       '#type' => 'checkbox',
       '#default_value' => 0,
     ];
