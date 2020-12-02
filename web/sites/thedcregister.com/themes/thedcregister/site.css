@@ -1,7 +1,7 @@
 @media screen and (min-width: 1024px) {
   body:not(.page-node-type-feature) #main-nav .navbar {
     background-color: #217db0;
-    border: 1px solid transparent;
+    border: 1px solid #b5b5b5;
   }
   .navbar-item {
     color: #ffffff;
@@ -33,6 +33,7 @@ body {
 
 main {
   background-color: #ffffff;
+  border-radius: 5px;
 }
 
 main .main-content-inner {
