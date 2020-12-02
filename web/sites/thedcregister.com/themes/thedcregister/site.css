@@ -26,6 +26,10 @@ body {
   margin-bottom: 1.2rem;
 }
 
+main {
+  background-color: #ffffff;
+}
+
 .view-id-frontpage.columns > .attachment .view-content > div {
   border-bottom: 1px solid #217db0;
   padding-bottom: 0.75rem;
