@@ -31,12 +31,12 @@ main {
 }
 
 .view-id-frontpage.columns > .attachment .view-content > div {
-  border-bottom: 1px solid #217db0;
+  border-bottom: 1px solid #b5b5b5;
   padding-bottom: 0.75rem;
 }
 
 .front-page-sections .view-content > div {
-  border-right: 1px solid #217db0;
+  border-right: 1px solid #b5b5b5;
 }
 
 footer.border-top-light {
