@@ -1,6 +1,7 @@
 @media screen and (min-width: 1024px) {
   body:not(.page-node-type-feature) #main-nav .navbar {
     background-color: #217db0;
+    border: 1px solid transparent;
   }
   .navbar-item {
     color: #ffffff;
@@ -15,6 +16,27 @@
   .navbar-end a.has-text-grey-dark:hover {
     color: #185c81!important;
   }
+}
+
+body {
+  background-color: #eaf5fb;
+}
+
+.region-leaderboard {
+  margin-bottom: 1.2rem;
+}
+
+.view-id-frontpage.columns > .attachment .view-content > div {
+  border-bottom: 1px solid #217db0;
+  padding-bottom: 0.75rem;
+}
+
+.front-page-sections .view-content > div {
+  border-right: 1px solid #217db0;
+}
+
+footer.border-top-light {
+  border: none;
 }
 
 h2,
