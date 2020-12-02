@@ -92,3 +92,7 @@ a:hover {
   grid-template-columns: 47% 47%;
   column-gap: 6%;
 }
+
+#block-thedcregister-facebookfeed .field--name-body {
+  text-align: center;
+}
