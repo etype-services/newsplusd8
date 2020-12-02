@@ -49,7 +49,7 @@ main .main-content-inner {
   padding-bottom: 0.75rem;
 }
 
-.front-page-sections .view-content > div {
+.front-page-sections .view-content > div:not(:last-child) {
   border-right: 1px solid #b5b5b5;
 }
 
