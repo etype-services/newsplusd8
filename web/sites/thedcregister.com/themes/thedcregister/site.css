@@ -26,13 +26,22 @@ body {
   margin-bottom: 1.2rem;
 }
 
+#main-nav {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 main {
   background-color: #ffffff;
 }
 
+main .main-content-inner {
+  margin: 0.75rem auto;
+}
+
 .view-id-frontpage.columns > .attachment .view-frontpage {
   border-right: 1px solid #b5b5b5;
-  padding-bottom: 0.75rem;
+  padding-right: 0.75rem;
 }
 
 .view-id-frontpage.columns > .attachment .view-content > div {
