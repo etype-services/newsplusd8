@@ -21,7 +21,7 @@ footer .navigation .gva_menu > li > a {
 
 @media (min-width: 992px) {
   footer .gva_menu {
-    float: none;
+    float: none!important;
   }
 }
 /* End ADA Compliance */
