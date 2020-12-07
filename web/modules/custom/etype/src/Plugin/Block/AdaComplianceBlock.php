@@ -22,7 +22,7 @@ class AdaComplianceBlock extends BlockBase {
   public function build(): array {
 
     $output = '
-<a href="/ada-compliance" aria-label="ADA Compliance Logo"><img src="/modules/custom/etype/img/AdaCompliantLogo.jpg" alt="This site complies with ADA requirements" /></a>
+<a href="/ada-compliance" aria-label="ADA Compliance Logo"><img src="/modules/custom/etype/img/ADACompliantLogo.jpg" alt="This site complies with ADA requirements" /></a>
     ';
 
     return [
