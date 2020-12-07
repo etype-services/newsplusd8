@@ -1,0 +1,17 @@
+footer .gva_menu ul {
+  padding-left: 0;
+}
+
+#block-adacompliance {
+  display: inline-block;
+}
+
+footer .navigation .gva_menu > li > a {
+  padding: 0 0 20px;
+}
+
+@media (min-width: 992px) {
+  footer .gva_menu {
+    float: none;
+  }
+}
