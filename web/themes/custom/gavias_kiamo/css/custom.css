@@ -2,6 +2,10 @@ footer .gva_menu ul {
   padding-left: 0;
 }
 
+footer .gva_menu li {
+  list-style: none;
+}
+
 #block-adacompliance {
   display: inline-block;
 }
