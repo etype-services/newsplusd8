@@ -6,3 +6,12 @@ a[data-drupal-link-system-path="user/login"] {
 #block-weatherwidget iframe {
   max-width: 100%;
 }
+
+#block-adacompliance {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+#block-adacompliance img {
+  width: 100px;
+}
