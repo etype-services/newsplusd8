@@ -3,6 +3,9 @@
     background-color: #217db0;
     border: 1px solid #b5b5b5;
   }
+  .navbar {
+    padding: 0 2rem;
+  }
   .navbar-item {
     color: #ffffff;
   }
@@ -15,6 +18,13 @@
   }
   .navbar-end a.has-text-grey-dark:hover {
     color: #185c81!important;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  #block-thedcregister-weatherwidget {
+    display: none;
+    visibility: hidden;
   }
 }
 
@@ -62,7 +72,8 @@ h2,
 h2 a,
 h3,
 h3 a,
-h3.section-tag-heading {
+h3.section-tag-heading,
+a {
   color: #217db0;
 }
 a:hover {
@@ -88,6 +99,16 @@ a:hover {
   max-height: 77px;
 }
 
+.view-id-frontpage.columns > .attachment .view-header h3 {
+  margin-bottom: 1rem;
+}
+
+#block-thedcregister-date p.is-size-7 {
+  color: #217db0;
+  font-size: 1rem!important;
+}
+
+
 #block-etypeeedition {
   display: grid;
   grid-template-columns: 47% 47%;
@@ -96,4 +117,9 @@ a:hover {
 
 #block-thedcregister-facebookfeed .field--name-body {
   text-align: center;
+}
+
+.path-taxonomy .node__content,
+.path-taxonomy .node__content .submitted {
+  color: #217db0;
 }
