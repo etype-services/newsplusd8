@@ -108,11 +108,14 @@ a:hover {
   font-size: 1rem!important;
 }
 
-
-#block-etypeeedition {
+.region-sidebar #block-thedcregister-etypeeedition {
   display: grid;
-  grid-template-columns: 47% 47%;
-  column-gap: 6%;
+  grid-template-columns: 50% 50%;
+  column-gap: 0.75rem;
+}
+
+.region-sidebar .block-etype-block p {
+  text-align: center;
 }
 
 #block-thedcregister-facebookfeed .field--name-body {
