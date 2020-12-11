@@ -36,7 +36,7 @@
                     $(".image-container").css({
                         background: "none"
                     });
-                  let titleHeight;
+                  /*let titleHeight;
                   let titleHeights = [];
                   let titleMaxHeight;
                   $(".views-field-title", obj).each(function () {
@@ -47,7 +47,7 @@
                   console.log(titleHeights);
                   $(".views-field-title", obj).css({
                     height: titleMaxHeight,
-                  });
+                  });*/
                 });
             };
             $(".front-page-sections").imagesLoaded().done(function (instance) {
