@@ -6,3 +6,21 @@ a[data-drupal-link-system-path="user/login"] {
 #block-weatherwidget iframe {
   max-width: 100%;
 }
+
+#block-adacompliance {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+#block-adacompliance img {
+  width: 100px;
+}
+
+/* DFP Ads - class needs added to ad blocks */
+.dfp-ad {
+  text-align: center;
+}
+
+.region-leaderboard .dfp-ad {
+  margin-bottom: 1.5rem;
+}

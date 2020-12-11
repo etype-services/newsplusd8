@@ -18,7 +18,8 @@ body {
   color: #1a1818;
 }
 
-.navbar-link, a.navbar-item {
+.navbar-link,
+a.navbar-item {
   text-transform: uppercase;
   font-family: Helvetica, sans-serif;
   font-weight: bold;
