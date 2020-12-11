@@ -192,4 +192,5 @@ $sites['lampasasdispatchrecord.etypegoogle9.com'] = "lampasasdispatchrecord.com"
 $sites['www.texaspress.com'] = "texaspress.com";
 $sites['texaspress.etypegoogle9.com'] = "texaspress.com";
 $sites['www.gunnisontimes.com'] = "gunnisontimes.com";
+$sites['www.gunnisoncountrytimes.com'] = "gunnisontimes.com";
 $sites['gunnisontimes.etypegoogle9.com'] = "gunnisontimes.com";
