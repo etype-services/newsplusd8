@@ -3,8 +3,7 @@
 
 /* testing */
 /*$sites['local.drupal8.com'] = 'local.drupal8.com';*/
-$sites['local.drupal8.com'] = 'thedcregister.com';
-$sites['migrate.drupal8.com'] = 'gunnisontimes.com';
+/*$sites['local.drupal8.com'] = 'thedcregister.com';*/
 $sites['www.etypetest.com'] = 'etypetest.etypegoogle7.com';
 
 /* for *drall* updates */
@@ -192,4 +191,5 @@ $sites['lampasasdispatchrecord.etypegoogle9.com'] = "lampasasdispatchrecord.com"
 $sites['www.texaspress.com'] = "texaspress.com";
 $sites['texaspress.etypegoogle9.com'] = "texaspress.com";
 $sites['www.gunnisontimes.com'] = "gunnisontimes.com";
+$sites['www.gunnisoncountrytimes.com'] = "gunnisontimes.com";
 $sites['gunnisontimes.etypegoogle9.com'] = "gunnisontimes.com";
