@@ -3,7 +3,6 @@
 namespace Drupal\etype_commerce\Controller;
 
 use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
-use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\user\Entity\User;
 
 /**
@@ -18,7 +17,7 @@ class ExpireSubscribersController {
    *
    * @throws \Exception
    */
-  public function expireSubscribers() {
+  public function expireSubscribers(): array {
     $markup = '';
     $roles = [];
     /* Get the roles associated with subscription products. */
@@ -33,8 +32,6 @@ class ExpireSubscribersController {
         $roles[] = $role[0]['value'];
       }
       catch (InvalidPluginDefinitionException $e) {
-      }
-      catch (PluginNotFoundException $e) {
       }
     }
     $query = \Drupal::service('entity_type.manager')->getStorage('user')->getQuery();

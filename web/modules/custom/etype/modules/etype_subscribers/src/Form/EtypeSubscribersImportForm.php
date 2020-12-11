@@ -66,13 +66,13 @@ class EtypeSubscribersImportForm extends FormBase
     ];
 
     $form['deletebefore'] = [
-      '#title' => $this->t('Check box to delete existing accounts where email address matches, and re-import the subscriber.'),
+      '#title' => $this->t('Re-import subscribers (overwrites existing record).'),
       '#type' => 'checkbox',
       '#default_value' => 0,
     ];
 
     $form['deleteall'] = [
-      '#title' => $this->t('Check box to delete accounts where email address matches AND NOT RE-IMPORT.'),
+      '#title' => $this->t('Delete matching subscribers.'),
       '#type' => 'checkbox',
       '#default_value' => 0,
     ];
@@ -179,8 +179,6 @@ class EtypeSubscribersImportForm extends FormBase
       ],
       'field_subscription_date' => $subDate,
       'field_subscription_expiry' => $subExpiry,
-      'field_payment_status' => $data[14],
-      'field_amount' => new Price(number_format($data[15], 2), 'USD'),
     ];
     $user = User::create($values);
     $user->enforceIsNew();

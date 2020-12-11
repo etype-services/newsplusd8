@@ -708,6 +708,10 @@ footer .footer-menu li > a {
 .block-views-blockbusiness-directory-block-1 .view-content > div div {
   flex: 1 1 100%;
 }
+.front-page-sections .view-content > div .views-field-title,
+.block-views-blockbusiness-directory-block-1 .view-content > div .views-field-title {
+  margin-bottom: 2px;
+}
 
 /* Special Sections (don't use id, for sub-themes). Business Directory for Aurora */
 .block-views-blockspecial-sections-block-1 .view-content,

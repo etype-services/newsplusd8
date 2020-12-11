@@ -36,9 +36,20 @@
                     $(".image-container").css({
                         background: "none"
                     });
+                  let titleHeight;
+                  let titleHeights = [];
+                  let titleMaxHeight;
+                  $(".views-field-title", obj).each(function () {
+                    titleHeight = $(this).height();
+                    titleHeights.push(parseInt(titleHeight));
+                  });
+                  titleMaxHeight = Math.min.apply(Math, titleHeights);
+                  $(".views-field-title", obj).css({
+                    height: titleMaxHeight,
+                  });
                 });
             };
-            $(".front-page-sections").imagesLoaded().done(function(instance) {
+            $(".front-page-sections").imagesLoaded().done(function (instance) {
                 // console.log('All images successfully loaded');
                 imageFixer();
             });
