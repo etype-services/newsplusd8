@@ -45,7 +45,7 @@
                   });
                   titleMaxHeight = Math.min.apply(Math, titleHeights);
                   $(".views-field-title", obj).css({
-                    height: maxHeight,
+                    height: titleMaxHeight,
                   });
                 });
             };
