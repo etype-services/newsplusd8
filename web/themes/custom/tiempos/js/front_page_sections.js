@@ -51,12 +51,12 @@
                 });
             };
             $(".front-page-sections").imagesLoaded().done(function (instance) {
-                // console.log('All images successfully loaded');
-                imageFixer();
+              // console.log('All images successfully loaded');
+              imageFixer();
             });
 
-            $(window).resize(function () {
-                imageFixer();
+            $(window).resize(function () {;
+              imageFixer();
             });
 
             // Make sure images show, as sometimes buggy ad scripts seem to prevent the script completing.
