@@ -36,18 +36,18 @@
                     $(".image-container").css({
                         background: "none"
                     });
-                  /*let titleHeight;
+                  let titleHeight;
                   let titleHeights = [];
                   let titleMaxHeight;
-                  $(".views-field-title", obj).each(function () {
+                  $("h2", obj).each(function () {
                     titleHeight = $(this).height();
                     titleHeights.push(parseInt(titleHeight));
                   });
-                  titleMaxHeight = Math.min.apply(Math, titleHeights);
+                  titleMaxHeight = Math.max.apply(Math, titleHeights);
                   console.log(titleHeights);
-                  $(".views-field-title", obj).css({
+                  $("h2", obj).css({
                     height: titleMaxHeight,
-                  });*/
+                  });
                 });
             };
             $(".front-page-sections").imagesLoaded().done(function (instance) {
