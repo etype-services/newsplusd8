@@ -44,7 +44,7 @@
                     titleHeights.push(parseInt(titleHeight));
                   });
                   titleMaxHeight = Math.max.apply(Math, titleHeights);
-                  console.log(titleHeights);
+                  // console.log(titleHeights);
                   $("h2", obj).css({
                     height: titleMaxHeight,
                   });
