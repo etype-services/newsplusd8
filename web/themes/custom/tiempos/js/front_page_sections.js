@@ -55,7 +55,7 @@
               imageFixer();
             });
 
-            $(window).resize(function () {;
+            $(window).resize(function () {
               imageFixer();
             });
 
