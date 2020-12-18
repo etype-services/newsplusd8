@@ -2,6 +2,8 @@
 
 namespace Drupal\etype_commerce\EventSubscriber;
 
+use Drupal\commerce_product\Entity\ProductAttribute;
+use Drupal\commerce_product\Entity\ProductVariationType;
 use Drupal\state_machine\Event\WorkflowTransitionEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Drupal\user\Entity\User;
@@ -64,10 +66,15 @@ class OrderEventSubscriber implements EventSubscriberInterface {
     $n = count($order->getItems());
     var_dump($n);
     exit; */
+    /** @var \Drupal\commerce_product\Entity\ProductVariationTypeInterface $variation_type */
     foreach ($order->getItems() as $key => $order_item) {
       $product_variation = $order_item->getPurchasedEntity();
       $role = $product_variation->get('field_role')->getValue();
-      $duration = $product_variation->get('attribute_duration');
+      $duration = $product_variation->get('attribute_duration')->getValue();
+      // $variation_type = ProductVariationType::load($product_variation->bundle());
+      // $color_attribute = ProductAttribute::load('duration');
+      kint($duration);
+      exit;
       $user->addRole($role[0]['value']);
       $user->set('field_subscription_date', $subDate);
       $user->set('field_subscription_expiry', $subExpiry);
