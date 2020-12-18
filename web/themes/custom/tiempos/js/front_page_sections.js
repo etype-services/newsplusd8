@@ -56,6 +56,9 @@
             });
 
             $(window).resize(function () {
+              $(".front-page-sections h2").css({
+                height: "unset",
+              });
               imageFixer();
             });
 
