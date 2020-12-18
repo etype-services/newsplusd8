@@ -36,27 +36,30 @@
                     $(".image-container").css({
                         background: "none"
                     });
-                  /*let titleHeight;
+                  let titleHeight;
                   let titleHeights = [];
                   let titleMaxHeight;
-                  $(".views-field-title", obj).each(function () {
+                  $("h2", obj).each(function () {
                     titleHeight = $(this).height();
                     titleHeights.push(parseInt(titleHeight));
                   });
-                  titleMaxHeight = Math.min.apply(Math, titleHeights);
-                  console.log(titleHeights);
-                  $(".views-field-title", obj).css({
+                  titleMaxHeight = Math.max.apply(Math, titleHeights);
+                  // console.log(titleHeights);
+                  $("h2", obj).css({
                     height: titleMaxHeight,
-                  });*/
+                  });
                 });
             };
             $(".front-page-sections").imagesLoaded().done(function (instance) {
-                // console.log('All images successfully loaded');
-                imageFixer();
+              // console.log('All images successfully loaded');
+              imageFixer();
             });
 
             $(window).resize(function () {
-                imageFixer();
+              $(".front-page-sections h2").css({
+                height: "unset",
+              });
+              imageFixer();
             });
 
             // Make sure images show, as sometimes buggy ad scripts seem to prevent the script completing.
