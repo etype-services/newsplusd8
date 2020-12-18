@@ -60,10 +60,14 @@ class OrderEventSubscriber implements EventSubscriberInterface {
     else {
       $subExpiry = $myDateTime->add(new \DateInterval('P1Y'))->format('Y-m-d');
     }
-    /* TODO: Prevent purchase of multiple subscriptions */
+    /* TODO: Prevent purchase of multiple subscriptions
+    $n = count($order->getItems());
+    var_dump($n);
+    exit; */
     foreach ($order->getItems() as $key => $order_item) {
       $product_variation = $order_item->getPurchasedEntity();
       $role = $product_variation->get('field_role')->getValue();
+      $duration = $product_variation->get('attribute_duration');
       $user->addRole($role[0]['value']);
       $user->set('field_subscription_date', $subDate);
       $user->set('field_subscription_expiry', $subExpiry);
