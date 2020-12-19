@@ -3,13 +3,15 @@
 namespace Drupal\etype_commerce\EventSubscriber;
 
 use Drupal\state_machine\Event\WorkflowTransitionEvent;
+use League\Csv\Exception;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Drupal\user\Entity\User;
 
 /**
  * Class OrderEventSubscriber adds Events on Order Completion.
  *
- * See https://docs.drupalcommerce.org/commerce2/developer-guide/adapting-from-1x/commerce-without-rules.
+ * See
+ * https://docs.drupalcommerce.org/commerce2/developer-guide/adapting-from-1x/commerce-without-rules.
  *
  * @package Drupal\etype_commerce\EventSubscriber
  */
@@ -18,8 +20,7 @@ class OrderEventSubscriber implements EventSubscriberInterface {
   /**
    * {@inheritdoc}
    */
-  public static function getSubscribedEvents(): array
-  {
+  public static function getSubscribedEvents(): array {
     return [
       'commerce_order.place.post_transition' => ['onPlaceTransition'],
     ];
@@ -47,24 +48,16 @@ class OrderEventSubscriber implements EventSubscriberInterface {
     $subDate = $myDateTime->format('Y-m-d');
     /* Get current sub expiry date. */
     $field_subscription_expiry = $user->get('field_subscription_expiry')->getValue();
-    /* Is the Sub expiry date in the past, in the future, or does it exist? */
-    if (isset($field_subscription_expiry[0]['value'])) {
-      $oldSubExpiry = new \DateTime($field_subscription_expiry[0]['value']);
-      $days = $myDateTime->diff($oldSubExpiry)->format('%R%a');
-      if ($days > 0) {
-        $subExpiry = $oldSubExpiry->add(new \DateInterval('P1Y'))->format('Y-m-d');
-      }
-      else {
-        $subExpiry = $myDateTime->add(new \DateInterval('P1Y'))->format('Y-m-d');
-      }
-    }
-    else {
-      $subExpiry = $myDateTime->add(new \DateInterval('P1Y'))->format('Y-m-d');
-    }
     /* TODO: Prevent purchase of multiple subscriptions
     $n = count($order->getItems());
     var_dump($n);
     exit; */
+
+    /*
+     * Loop over order items and process subscription.
+     * There should only be one item
+     * TODO: add logic to prevent buying more than 1 subscription.
+     */
     foreach ($order->getItems() as $key => $order_item) {
       $product_variation = $order_item->getPurchasedEntity();
       $role = $product_variation->get('field_role')->getValue();
@@ -73,14 +66,52 @@ class OrderEventSubscriber implements EventSubscriberInterface {
       $entity = \Drupal::entityTypeManager()->getStorage('commerce_product_attribute')->load('duration')->getValues();
       $arr2 = $entity[$target_id]->name->getValue();
       $duration = $arr2[0]['value'];
-      var_dump($duration);
+
+      switch ($duration) {
+        case '1 year';
+          $formatted_duration = 'P1Y';
+          break;
+
+        case '6 months';
+          $formatted_duration = 'P6M';
+          break;
+
+        default:
+          $formatted_duration = 'P3D';
+      }
+
+      /* Is the Sub expiry date in the past, in the future, or does it exist? */
+      if (isset($field_subscription_expiry[0]['value'])) {
+        $oldSubExpiry = new \DateTime($field_subscription_expiry[0]['value']);
+        $days = $myDateTime->diff($oldSubExpiry)->format('%R%a');
+        if ($days > 0) {
+          $subExpiry = $oldSubExpiry->add(new \DateInterval($formatted_duration))->format('Y-m-d');
+        }
+        else {
+          $subExpiry = $myDateTime->add(new \DateInterval($formatted_duration))->format('Y-m-d');
+        }
+      }
+      else {
+        $subExpiry = $myDateTime->add(new \DateInterval($formatted_duration))->format('Y-m-d');
+      }
+
       $user->addRole($role[0]['value']);
       $user->set('field_subscription_date', $subDate);
       $user->set('field_subscription_expiry', $subExpiry);
     }
-    $user->save();
-    $message .= "Hello $username, you are logged in, and your subscription is now valid through $subExpiry";
-    \Drupal::messenger()->addMessage($message);
+
+    try {
+      if (!$user->save()) {
+        throw new Exception("Unable to save user.");
+      }
+      $message .= "Hello $username, you are logged in, and your subscription is now valid through $subExpiry";
+      \Drupal::messenger()->addMessage($message);
+    }
+    catch (Exception $e) {
+      echo 'Caught Exception: ', $e->getMessage(), "\n";
+      exit;
+    }
+
   }
 
 }

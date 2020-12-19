@@ -19,6 +19,7 @@ function etype_commerce_form_alter(&$form, FormStateInterface $form_state, $form
   elseif($form_id == 'commerce_checkout_flow_multistep_default') {
     $form['#attached']['library'][] = 'etype_commerce/login-form';
   }
+
 }
 
 /**
