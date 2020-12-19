@@ -41,6 +41,7 @@ class OrderEventSubscriber implements EventSubscriberInterface {
     $user = User::load($customer_id);
     $username = $user->getUsername();
     $message = '';
+
     /* Extend subscription by 1 year from today if Sub Expiry is in past, or 1 year from Sub Expiry. */
     /* Initialize  DateTime object. */
     $myDateTime = new \DateTime();
@@ -59,7 +60,10 @@ class OrderEventSubscriber implements EventSubscriberInterface {
       $product_variation = $order_item->getPurchasedEntity();
       $arr = $product_variation->get('attribute_subscription_type')->getValue();
       $target_id = ($arr[0]["target_id"]);
-      $entity = \Drupal::entityTypeManager()->getStorage('commerce_product_attribute')->load('subscription_type')->getValues();
+      $entity = \Drupal::entityTypeManager()
+        ->getStorage('commerce_product_attribute')
+        ->load('subscription_type')
+        ->getValues();
       $arr2 = $entity[$target_id]->name->getValue();
       $role = $arr2[0]['value'];
 
@@ -74,7 +78,10 @@ class OrderEventSubscriber implements EventSubscriberInterface {
 
       $arr = $product_variation->get('attribute_duration')->getValue();
       $target_id = ($arr[0]["target_id"]);
-      $entity = \Drupal::entityTypeManager()->getStorage('commerce_product_attribute')->load('duration')->getValues();
+      $entity = \Drupal::entityTypeManager()
+        ->getStorage('commerce_product_attribute')
+        ->load('duration')
+        ->getValues();
       $arr2 = $entity[$target_id]->name->getValue();
       $duration = $arr2[0]['value'];
 
