@@ -56,11 +56,24 @@ class OrderEventSubscriber implements EventSubscriberInterface {
     /*
      * Loop over order items and process subscription.
      * There should only be one item
-     * TODO: add logic to prevent buying more than 1 subscription.
      */
     foreach ($order->getItems() as $key => $order_item) {
       $product_variation = $order_item->getPurchasedEntity();
-      $role = $product_variation->get('field_role')->getValue();
+      $arr = $product_variation->get('attribute_subscription_type')->getValue();
+      $target_id = ($arr[0]["target_id"]);
+      $entity = \Drupal::entityTypeManager()->getStorage('commerce_product_attribute')->load('subscription_type')->getValues();
+      $arr2 = $entity[$target_id]->name->getValue();
+      $role = $arr2[0]['value'];
+
+      switch ($role) {
+        case 'Print & Digital Subscriber';
+          $formatted_role = 'print_digital_subscriber';
+          break;
+
+        default:
+          $formatted_role = 'digital_subscriber';
+      }
+
       $arr = $product_variation->get('attribute_duration')->getValue();
       $target_id = ($arr[0]["target_id"]);
       $entity = \Drupal::entityTypeManager()->getStorage('commerce_product_attribute')->load('duration')->getValues();
@@ -95,7 +108,7 @@ class OrderEventSubscriber implements EventSubscriberInterface {
         $subExpiry = $myDateTime->add(new \DateInterval($formatted_duration))->format('Y-m-d');
       }
 
-      $user->addRole($role[0]['value']);
+      $user->addRole($formatted_role);
       $user->set('field_subscription_date', $subDate);
       $user->set('field_subscription_expiry', $subExpiry);
     }
