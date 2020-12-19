@@ -48,10 +48,8 @@ class OrderEventSubscriber implements EventSubscriberInterface {
     $subDate = $myDateTime->format('Y-m-d');
     /* Get current sub expiry date. */
     $field_subscription_expiry = $user->get('field_subscription_expiry')->getValue();
-    /* TODO: Prevent purchase of multiple subscriptions
-    $n = count($order->getItems());
-    var_dump($n);
-    exit; */
+
+    /* TODO: Prevent purchase of multiple subscriptions */
 
     /*
      * Loop over order items and process subscription.
