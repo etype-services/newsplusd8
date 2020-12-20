@@ -2,7 +2,6 @@
 
 namespace Drupal\etype_login_v2\Controller;
 
-use Drupal;
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Routing\TrustedRedirectResponse;
@@ -20,14 +19,14 @@ class EtypeV2EeditionController extends ControllerBase {
    * @param int|null $pubId
    *   the Id of the publication.
    *
-   * @return TrustedRedirectResponse
+   * @return \Drupal\Core\Routing\TrustedRedirectResponse
    *   Redirect to external uri.
    */
   public function gotoEedition($pubId = NULL) {
     $username = 'invalid';
-    $logged_in = Drupal::currentUser()->isAuthenticated();
+    $logged_in = \Drupal::currentUser()->isAuthenticated();
     if ($logged_in > 0) {
-      $username = Drupal::currentUser()->getAccountName();
+      $username = \Drupal::currentUser()->getAccountName();
     }
     $url = (new EtypeV2VerifyAccountController)->getToken($username);
     $response = new TrustedRedirectResponse($url);

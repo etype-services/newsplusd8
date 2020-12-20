@@ -6,6 +6,9 @@ use Drupal\state_machine\Event\WorkflowTransitionEvent;
 use League\Csv\Exception;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Drupal\user\Entity\User;
+use Drupal\commerce_cart\Event\CartEntityAddEvent;
+use Drupal\commerce_store\Entity\Store;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * Class OrderEventSubscriber adds Events on Order Completion.
@@ -23,6 +26,7 @@ class OrderEventSubscriber implements EventSubscriberInterface {
   public static function getSubscribedEvents(): array {
     return [
       'commerce_order.place.post_transition' => ['onPlaceTransition'],
+      'commerce_cart.entity.add' => ['onCartEntityAdd'],
     ];
   }
 
@@ -41,6 +45,7 @@ class OrderEventSubscriber implements EventSubscriberInterface {
     $user = User::load($customer_id);
     $username = $user->getUsername();
     $message = '';
+    $subExpiry = '';
 
     /* Extend subscription by 1 year from today if Sub Expiry is in past, or 1 year from Sub Expiry. */
     /* Initialize  DateTime object. */
@@ -130,6 +135,35 @@ class OrderEventSubscriber implements EventSubscriberInterface {
       exit;
     }
 
+  }
+
+  /**
+   * Actions when an entity has been added to the cart.
+   *
+   * Removes more than 1 item from cart.
+   *
+   * @param \Drupal\commerce_cart\Event\CartEntityAddEvent $event
+   *   The event.
+   */
+  public function onCartEntityAdd(CartEntityAddEvent $event) {
+    $store = Store::load(1);
+    $cart_provider = \Drupal::service('commerce_cart.cart_provider');
+    $orders = \Drupal::service('commerce_cart.cart_provider')->getCarts();
+    $items = reset($orders)->getItems();
+    $count = count($items);
+    \Drupal::logger('etype_commerce')->notice($count);
+    if ($count > 0) {
+      $i = 0;
+      $cart_manager = \Drupal::service('commerce_cart.cart_manager');
+      foreach ($items as $item) {
+        if ($i > 0) {
+          foreach ($orders as $order) {
+            $cart_manager->removeOrderItem($order, $item);
+          }
+        }
+        $i++;
+      }
+    }
   }
 
 }
