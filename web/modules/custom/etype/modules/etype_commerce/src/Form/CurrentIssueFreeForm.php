@@ -111,10 +111,13 @@ class CurrentIssueFreeForm extends FormBase {
    *   The form state.
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
+   *   Throw Exception.
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    // Remember entered values.
-    $form_state->setRebuild();
+    /* Initialize  DateTime object. */
+    $myDateTime = new \DateTime();
+    $subExpiry = $myDateTime->add(new \DateInterval('P3D'))
+      ->format('Y-m-d');
 
     // Register new user.
     $email = $form_state->getValue('email');
@@ -125,10 +128,14 @@ class CurrentIssueFreeForm extends FormBase {
     $user->enforceIsNew();
     $user->setEmail($email);
     $user->setUsername($username);
+    $user->set('field_subscription_expiry', $subExpiry);
+    $user->addRole('digital_subscriber');
     $user->activate();
     $user->save();
     user_login_finalize($user);
     \Drupal::messenger()->addMessage("Hello $username! Your account has been created and you are now logged in.");
+    $url = Url::fromRoute('<front>');
+    $form_state->setRedirectUrl($url);
   }
 
 }

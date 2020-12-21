@@ -7,7 +7,6 @@ use League\Csv\Exception;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Drupal\user\Entity\User;
 use Drupal\commerce_cart\Event\CartEntityAddEvent;
-use Drupal\commerce_order\Entity\OrderInterface;
 
 /**
  * Class OrderEventSubscriber adds Events on Order Completion.
@@ -111,11 +110,13 @@ class OrderEventSubscriber implements EventSubscriberInterface
         if ($days > 0) {
           $subExpiry = $oldSubExpiry->add(new \DateInterval($formatted_duration))
             ->format('Y-m-d');
-        } else {
+        }
+        else {
           $subExpiry = $myDateTime->add(new \DateInterval($formatted_duration))
             ->format('Y-m-d');
         }
-      } else {
+      }
+      else {
         $subExpiry = $myDateTime->add(new \DateInterval($formatted_duration))
           ->format('Y-m-d');
       }
