@@ -7,8 +7,7 @@ use League\Csv\Exception;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Drupal\user\Entity\User;
 use Drupal\commerce_cart\Event\CartEntityAddEvent;
-use Drupal\commerce_store\Entity\Store;
-use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\commerce_order\Entity\OrderInterface;
 
 /**
  * Class OrderEventSubscriber adds Events on Order Completion.
@@ -132,7 +131,8 @@ class OrderEventSubscriber implements EventSubscriberInterface
       }
       $message .= "Hello $username, you are logged in, and your subscription is now valid through $subExpiry";
       \Drupal::messenger()->addMessage($message);
-    } catch (Exception $e) {
+    }
+    catch (Exception $e) {
       echo 'Caught Exception: ', $e->getMessage(), "\n";
       exit;
     }
@@ -146,22 +146,26 @@ class OrderEventSubscriber implements EventSubscriberInterface
    *
    * @param \Drupal\commerce_cart\Event\CartEntityAddEvent $event
    *   The event.
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   *
+   * @see https://drupal.stackexchange.com/questions/271489/commerce-limit-the-quantity-of-product-to-1
    */
   public function onCartEntityAdd(CartEntityAddEvent $event) {
-    $orders = \Drupal::service('commerce_cart.cart_provider')->getCarts();
-    $items = reset($orders)->getItems();
-    $count = count($items);
-    \Drupal::logger('etype_commerce')->notice($count);
-    if ($count > 0) {
-      $cart_manager = \Drupal::service('commerce_cart.cart_manager');
-      foreach ($items as $item) {
-        $i = 0;
-        if ($i > 0) {
-          $cart_manager->removeOrderItem($i, $item);
-        }
-        $i++;
+    $cart = $event->getCart();
+    $added_order_item = $event->getOrderItem();
+    $cart_items = $cart->getItems();
+    foreach ($cart_items as $cart_item) {
+      if ($cart_item->id() != $added_order_item->id()) {
+        $cart->removeItem($cart_item);
+        $cart_item->delete();
       }
     }
+    $quantity = $cart_items[0]->getQuantity();
+    if ($quantity > 1) {
+      $cart_items[0]->setQuantity(1);
+    }
+    $cart->save();
   }
 
 }
