@@ -88,7 +88,7 @@ class CurrentIssueFreeForm extends FormBase {
     $confirmPassword = $form_state->getValue('confirmPassword');
     $email = $form_state->getValue('email');
 
-    if (($user = user_load_by_mail($username)) !== FALSE) {
+    if (($user = user_load_by_name($username)) !== FALSE) {
       $form_state->setErrorByName('username', $this->t('We can‘t create an account for you on this website because that user name already exists in our system. Please <a href="/user/login">login</a> or choose a different user name.'));
     }
     elseif (($user = user_load_by_name($email)) !== FALSE) {
@@ -109,16 +109,26 @@ class CurrentIssueFreeForm extends FormBase {
    *   The form.
    * @param \Drupal\Core\Form\FormStateInterface $form_state
    *   The form state.
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     // Remember entered values.
     $form_state->setRebuild();
 
+    // Register new user.
     $email = $form_state->getValue('email');
     $username = $form_state->getValue('username');
     $password = $form_state->getValue('password');
-    // $url = Url::fromUri("<front>");
-    // $form_state->setRedirectUrl($url);
+    $user = User::create();
+    $user->setPassword($password);
+    $user->enforceIsNew();
+    $user->setEmail($email);
+    $user->setUsername($username);
+    $user->activate();
+    $user->save();
+    user_login_finalize($user);
+    \Drupal::messenger()->addMessage("Hello $username! Your account has been created and you are now logged in.");
   }
 
 }
