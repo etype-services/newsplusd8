@@ -18,7 +18,8 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
  *
  * @package Drupal\etype_commerce\EventSubscriber
  */
-class OrderEventSubscriber implements EventSubscriberInterface {
+class OrderEventSubscriber implements EventSubscriberInterface
+{
 
   /**
    * {@inheritdoc}
@@ -53,7 +54,8 @@ class OrderEventSubscriber implements EventSubscriberInterface {
     /* Set variable with new subscription date, today. */
     $subDate = $myDateTime->format('Y-m-d');
     /* Get current sub expiry date. */
-    $field_subscription_expiry = $user->get('field_subscription_expiry')->getValue();
+    $field_subscription_expiry = $user->get('field_subscription_expiry')
+      ->getValue();
 
     /* TODO: Prevent purchase of multiple subscriptions */
 
@@ -108,14 +110,15 @@ class OrderEventSubscriber implements EventSubscriberInterface {
         $oldSubExpiry = new \DateTime($field_subscription_expiry[0]['value']);
         $days = $myDateTime->diff($oldSubExpiry)->format('%R%a');
         if ($days > 0) {
-          $subExpiry = $oldSubExpiry->add(new \DateInterval($formatted_duration))->format('Y-m-d');
+          $subExpiry = $oldSubExpiry->add(new \DateInterval($formatted_duration))
+            ->format('Y-m-d');
+        } else {
+          $subExpiry = $myDateTime->add(new \DateInterval($formatted_duration))
+            ->format('Y-m-d');
         }
-        else {
-          $subExpiry = $myDateTime->add(new \DateInterval($formatted_duration))->format('Y-m-d');
-        }
-      }
-      else {
-        $subExpiry = $myDateTime->add(new \DateInterval($formatted_duration))->format('Y-m-d');
+      } else {
+        $subExpiry = $myDateTime->add(new \DateInterval($formatted_duration))
+          ->format('Y-m-d');
       }
 
       $user->addRole($formatted_role);
@@ -129,8 +132,7 @@ class OrderEventSubscriber implements EventSubscriberInterface {
       }
       $message .= "Hello $username, you are logged in, and your subscription is now valid through $subExpiry";
       \Drupal::messenger()->addMessage($message);
-    }
-    catch (Exception $e) {
+    } catch (Exception $e) {
       echo 'Caught Exception: ', $e->getMessage(), "\n";
       exit;
     }
@@ -146,20 +148,16 @@ class OrderEventSubscriber implements EventSubscriberInterface {
    *   The event.
    */
   public function onCartEntityAdd(CartEntityAddEvent $event) {
-    $store = Store::load(1);
-    $cart_provider = \Drupal::service('commerce_cart.cart_provider');
     $orders = \Drupal::service('commerce_cart.cart_provider')->getCarts();
     $items = reset($orders)->getItems();
     $count = count($items);
     \Drupal::logger('etype_commerce')->notice($count);
     if ($count > 0) {
-      $i = 0;
       $cart_manager = \Drupal::service('commerce_cart.cart_manager');
       foreach ($items as $item) {
+        $i = 0;
         if ($i > 0) {
-          foreach ($orders as $order) {
-            $cart_manager->removeOrderItem($order, $item);
-          }
+          $cart_manager->removeOrderItem($i, $item);
         }
         $i++;
       }
