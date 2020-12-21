@@ -4,6 +4,8 @@ namespace Drupal\etype_commerce\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
+use Drupal\user\Entity\User;
 
 /**
  * Class CurrentIssueFreeForm provides access to free issue.
@@ -38,44 +40,66 @@ class CurrentIssueFreeForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state): array {
 
-    if (\Drupal::currentUser()->isAnonymous()) {
+    $form['email'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Enter your email address'),
+      '#required' => TRUE,
+      '#default_value' => $form_state->getValue('email'),
+    ];
 
-      $form['username'] = [
-        '#type' => 'textfield',
-        '#title' => $this->t('User Name'),
-        '#required' => TRUE,
-      ];
+    $form['username'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Choose a User Name'),
+      '#required' => TRUE,
+      '#default_value' => $form_state->getValue('username'),
+    ];
 
-      $form['password'] = [
-        '#type' => 'password',
-        '#title' => $this->t('Password'),
-        '#required' => TRUE,
-      ];
+    $form['password'] = [
+      '#type' => 'password',
+      '#title' => $this->t('Set a Password'),
+      '#required' => TRUE,
+      '#description' => "At least 8 characters",
+    ];
 
-      $form['actions']['#type'] = 'actions';
+    $form['confirmPassword'] = [
+      '#type' => 'password',
+      '#title' => $this->t('Confirm Your Password'),
+      '#required' => TRUE,
+    ];
 
-      $form['actions']['submit'] = [
-        '#type' => 'submit',
-        '#value' => $this->t('Log In'),
-        '#button_type' => 'primary',
-      ];
+    $form['actions']['#type'] = 'actions';
 
-    }
-    else {
-
-      $name = \Drupal::currentUser()->getDisplayName();
-      $string = t("Hello");
-      $string .= ' ' . $name . ', ';
-      $string .= t("you are already logged in");
-      $form['help'] = [
-        '#type' => 'item',
-        '#markup' => $string,
-      ];
-
-    }
+    $form['actions']['submit'] = [
+      '#type' => 'submit',
+      '#value' => $this->t('Register'),
+      '#button_type' => 'primary',
+    ];
 
     return $form;
 
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function validateForm(array &$form, FormStateInterface $form_state) {
+    $username = $form_state->getValue('username');
+    $password = $form_state->getValue('password');
+    $confirmPassword = $form_state->getValue('confirmPassword');
+    $email = $form_state->getValue('email');
+
+    if (($user = user_load_by_mail($username)) !== FALSE) {
+      $form_state->setErrorByName('username', $this->t('We can‘t create an account for you on this website because that user name already exists in our system. Please <a href="/user/login">login</a> or choose a different user name.'));
+    }
+    elseif (($user = user_load_by_name($email)) !== FALSE) {
+      $form_state->setErrorByName('email', $this->t('We can‘t create an account for you on this website because the email address supplied already exists in our system. Please <a href="/user/login">login</a> or use a different email address.'));
+    }
+    elseif (strlen($password) < 8) {
+      $form_state->setErrorByName('password', $this->t('Please select a password of at least 8 characters.'));
+    }
+    elseif (strcmp($password, $confirmPassword) !== 0) {
+      $form_state->setErrorByName('confirmPassword', $this->t('The passwords entered do not match. Please re-enter your preferred password.'));
+    }
   }
 
   /**
@@ -87,7 +111,14 @@ class CurrentIssueFreeForm extends FormBase {
    *   The form state.
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    // Nothing yet.
+    // Remember entered values.
+    $form_state->setRebuild();
+
+    $email = $form_state->getValue('email');
+    $username = $form_state->getValue('username');
+    $password = $form_state->getValue('password');
+    // $url = Url::fromUri("<front>");
+    // $form_state->setRedirectUrl($url);
   }
 
 }
