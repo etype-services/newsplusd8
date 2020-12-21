@@ -69,3 +69,13 @@ function _etype_commerce_expire_subscribers() {
   $job = new Drupal\etype_commerce\Controller\ExpireSubscribersController;
   $job->expireSubscribers();
 }
+
+/**
+ * Implements hook_page_attachments().
+ * css hides system login link.
+ *
+ * @param array $page
+ */
+function etype_commerce_page_attachments(array &$page) {
+  $page['#attached']['library'][] = 'etype_commerce/global-styling';
+}

@@ -1,3 +1,9 @@
+global-styling:
+  version: VERSION
+  css:
+    state:
+      css/etype-commerce.css: {}
+
 login-form:
   version: VERSION
   js:

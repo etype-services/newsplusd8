@@ -1,0 +1,4 @@
+a[data-drupal-link-system-path="user/login"] {
+  display: block!important;
+  visibility: visible;
+}
