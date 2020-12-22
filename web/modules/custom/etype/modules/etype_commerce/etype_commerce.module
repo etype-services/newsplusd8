@@ -2,6 +2,7 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
+use Drupal\user\Entity\User;
 
 /**
  * Implements hook_form_alter().
@@ -9,17 +10,35 @@ use Drupal\Core\Url;
  * @param $form
  * @param \Drupal\Core\Form\FormStateInterface $form_state
  * @param $form_id
+ *
+ * @throws \Exception
  */
 function etype_commerce_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  // Add to cart form id for product 5 is: commerce_order_item_add_to_cart_form_commerce_product_5
-  // Then it's enough to check $form_id contains the string 'commerce_order_item_add_to_cart_form_commerce'
-  if(strpos($form_id, 'commerce_order_item_add_to_cart_form_commerce') !== false) {
-    $form['actions']['submit']['#value'] = t('Checkout');
-    $form['actions']['submit']['#submit'][] = '_redirect_to_checkout';
+ if (strpos($form_id, 'commerce_order_item_add_to_cart_form_commerce') !== false) {
+   if (\Drupal::currentUser()->isAuthenticated()) {
+     $user = User::load(\Drupal::currentUser()->id());
+     $field_subscription_expiry = $user->get('field_subscription_expiry')->getValue();
+     if (isset($field_subscription_expiry[0]['value'])) {
+       $myDateTime = new \DateTime();
+       $subExpiry = new \DateTime($field_subscription_expiry[0]['value']);
+       $days = $myDateTime->diff($subExpiry)->format('%R%a');
+       if ($days > 0) {
+         $message = 'Your subscription does not expire until ' . $subExpiry->format('l, jS F, Y') . '.';
+       }
+       else {
+         $message = 'Your subscription expired on ' . $subExpiry->format('Y-m-d') . '.';
+       }
+       $form['#markup'] = $message;
+     }
+   }
+   $form['email'] = [
+     '#type' => 'textfield',
+     '#title' => 'Recipient’s email address',
+   ];
+   $form['actions']['submit']['#value'] = t('Checkout');
+   $form['actions']['submit']['#submit'][] = '_etype_commerce_redirect_to_checkout';
   }
-  elseif($form_id == 'commerce_checkout_flow_multistep_default') {
-    $form['#attached']['library'][] = 'etype_commerce/login-form';
-  }
+  $form['#attached']['library'][] = 'etype_commerce/login-form';
 
 }
 
@@ -32,7 +51,7 @@ function etype_commerce_form_alter(&$form, FormStateInterface $form_state, $form
  * @see hook_form_alter()
  *
  */
-function _redirect_to_checkout(&$form, FormStateInterface $form_state) {
+function _etype_commerce_redirect_to_checkout(&$form, FormStateInterface $form_state) {
   /** @var \Drupal\commerce_order\Entity\OrderInterface $cart_id */
   $cart_id = $form_state->get('cart_id');
   $url = Url::fromRoute('commerce_checkout.form',

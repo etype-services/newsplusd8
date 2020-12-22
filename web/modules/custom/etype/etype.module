@@ -83,7 +83,7 @@ function etype_preprocess_image(&$variables) {
 /**
  * Generates links and paths for use as image links, login urls. etc
  */
-function etype_e_editions() {
+function etype_e_editions(): array {
 
   $v1_url = "https://etypeservices.com/";
   $host = Drupal::request()->getHost();

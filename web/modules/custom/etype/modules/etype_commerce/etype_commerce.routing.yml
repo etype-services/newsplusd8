@@ -21,3 +21,5 @@ etype_commerce.gift_subscription:
   defaults:
     _title: 'Gift Subscription'
     _form: '\Drupal\etype_commerce\Form\GiftSubscriptionForm'
+  requirements:
+    _permission: 'access content'

@@ -11,3 +11,7 @@ login-form:
   css:
     state:
       css/login-form.css: { weight: 100 }
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
