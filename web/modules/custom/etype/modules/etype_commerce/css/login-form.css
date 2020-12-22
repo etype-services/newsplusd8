@@ -7,8 +7,7 @@
 #edit-login-register-field-subscription-expiry-wrapper,
 #edit-login-register-field-mailchimp-subscription-wrapper,
 #edit-subscription-information,
-.form-item-payment-information-add-payment-method-billing-information-copy-to-address-book,
-.form-item-email {
+.form-item-payment-information-add-payment-method-billing-information-copy-to-address-book {
   display: none;
   visibility: hidden;
 }

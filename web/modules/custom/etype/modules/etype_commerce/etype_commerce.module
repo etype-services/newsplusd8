@@ -33,13 +33,13 @@ function etype_commerce_form_alter(&$form, FormStateInterface $form_state, $form
    }
    $form['email'] = [
      '#type' => 'textfield',
-     '#title' => 'Recipient’s email address',
+     '#title' => 'Gift recipient’s email address',
+     '#description' => 'If you are buying a gift subscription, please enter the email address of the recipient. They will be notified of the gift and invited to create an account.',
    ];
    $form['actions']['submit']['#value'] = t('Checkout');
    $form['actions']['submit']['#submit'][] = '_etype_commerce_redirect_to_checkout';
+   $form['#attached']['library'][] = 'etype_commerce/login-form';
   }
-  $form['#attached']['library'][] = 'etype_commerce/login-form';
-
 }
 
 /**
@@ -54,6 +54,7 @@ function etype_commerce_form_alter(&$form, FormStateInterface $form_state, $form
 function _etype_commerce_redirect_to_checkout(&$form, FormStateInterface $form_state) {
   /** @var \Drupal\commerce_order\Entity\OrderInterface $cart_id */
   $cart_id = $form_state->get('cart_id');
+  \Drupal::logger('etype_commerce')->info($cart_id);
   $url = Url::fromRoute('commerce_checkout.form',
     ['commerce_order' => $cart_id]
   );
