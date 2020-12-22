@@ -15,3 +15,9 @@ etype_commerce.free_issue:
     _form: '\Drupal\etype_commerce\Form\CurrentIssueFreeForm'
   requirements:
     _user_is_logged_in: 'FALSE'
+
+etype_commerce.gift_subscription:
+  path: '/gift-subscription'
+  defaults:
+    _title: 'Gift Subscription'
+    _form: '\Drupal\etype_commerce\Form\GiftSubscriptionForm'
