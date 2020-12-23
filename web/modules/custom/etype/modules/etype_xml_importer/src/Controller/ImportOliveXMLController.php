@@ -175,7 +175,7 @@ class ImportOliveXMLController {
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  public function importOliveXml(): array {
+  public function importOliveXml() {
 
     /* throw Exception and return empty page with message if no file to import */
     try {
@@ -198,8 +198,8 @@ class ImportOliveXMLController {
       $markup .= '<p>Started import of ' . $item . '</p>';
 
       $rand = md5(time());
-      $zip_file = file_directory_temp() . "/" . $rand . ".zip";
-      $this->extractDir = file_directory_temp() . "/" . $rand . '/';
+      $zip_file = "/tmp/" . $rand . ".zip";
+      $this->extractDir = '/tmp/' . $rand . '/';
 
       /* Copy Zip file from url */
       $import_file = trim($item);
