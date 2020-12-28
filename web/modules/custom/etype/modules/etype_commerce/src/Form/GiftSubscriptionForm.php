@@ -45,7 +45,11 @@ class GiftSubscriptionForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state): array {
+  public function buildForm(array $form, FormStateInterface $form_state, int $orderId = NULL): array {
+
+    $form['text'] = [
+      "#markup" => $orderId,
+    ];
 
     $form['email'] = [
       '#type' => 'textfield',
