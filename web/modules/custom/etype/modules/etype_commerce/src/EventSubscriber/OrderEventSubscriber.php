@@ -108,7 +108,7 @@ class OrderEventSubscriber implements EventSubscriberInterface
    * Extends User Subscription.
    *
    * @param int $uid
-   *   Customer Id.
+   *   Customer/User Id.
    *
    * @throws \Exception
    */
