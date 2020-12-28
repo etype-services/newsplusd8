@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 use Drupal\user\Entity\User;
@@ -54,6 +55,35 @@ function etype_commerce_form_alter(&$form, FormStateInterface $form_state, $form
 function _etype_commerce_redirect_to_checkout(&$form, FormStateInterface $form_state) {
   /** @var \Drupal\commerce_order\Entity\OrderInterface $cart_id */
   $cart_id = $form_state->get('cart_id');
+
+  /* Is this a gift? */
+  if ($_POST['purchased_entity'][0]['attributes']['attribute_gift'] == 10) {
+    $gift_email = ($_POST['email']);
+    // Create a gift subscription object.
+    try {
+      // Delete any entries with the same order id
+      $query = \Drupal::entityQuery('gift_subscription')
+        ->condition('order_id', $cart_id);
+      $nids = $query->execute();
+      foreach ($nids as $nid) {
+        $entity = \Drupal::entityTypeManager()
+          ->getStorage('gift_subscription')
+          ->load($nid);
+        $entity->delete();
+      }
+      $entity = \Drupal::entityTypeManager()
+        ->getStorage('gift_subscription')
+        ->create([
+          'order_id' => $cart_id,
+          'email' => $gift_email,
+        ]);
+      $entity->save();
+    } catch (\Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException | \Drupal\Component\Plugin\Exception\PluginNotFoundException | EntityStorageException $e) {
+      $message = 'Could not save gift subscription entity' . (int) $cart_id;
+      \Drupal::logger('etype_commerce')->error($message);
+    }
+  }
+
   \Drupal::logger('etype_commerce')->info($cart_id);
   $url = Url::fromRoute('commerce_checkout.form',
     ['commerce_order' => $cart_id]
