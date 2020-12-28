@@ -2,7 +2,6 @@
 
 namespace Drupal\etype_commerce\EventSubscriber;
 
-use Drupal\commerce_order\Entity\OrderInterface;
 use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
 use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Core\Entity\EntityStorageException;
@@ -28,21 +27,21 @@ class OrderEventSubscriber implements EventSubscriberInterface
    *
    * @var string
    */
-  protected string $message;
+  protected $message;
 
   /**
    * User role.
    *
    * @var string
    */
-  protected string $role;
+  protected $role;
 
   /**
    * The Order.
    *
    * @var \Drupal\commerce_order\Entity\OrderInterface
    */
-  protected OrderInterface $order;
+  protected $order;
 
   /**
    * OrderEventSubscriber constructor.
@@ -92,6 +91,19 @@ class OrderEventSubscriber implements EventSubscriberInterface
         ->load(reset($ids));
       $email = $entity->get('email')->getValue();
       $gift_email = $email['value'];
+      $check = user_load_by_mail($gift_email);
+      if ($check == FALSE) {
+        $user = User::create();
+        $user->setPassword('chAng3m3');
+        $user->enforceIsNew();
+        $user->setEmail($gift_email);
+        $user->activate();
+        $user->save();
+      }
+      else {
+        /* User exists - extend subscription */
+        $this->extendSubscription($check->id());
+      }
     }
     else {
       /*
@@ -117,6 +129,7 @@ class OrderEventSubscriber implements EventSubscriberInterface
     $username = $user->getUsername();
     $formatted_duration = '';
     $formatted_role = '';
+    $subExpiry = '';
 
     /* Initialize  DateTime object. */
     $myDateTime = new \DateTime();
@@ -212,7 +225,7 @@ class OrderEventSubscriber implements EventSubscriberInterface
       if (!$user->save()) {
         throw new Exception("Unable to save user.");
       }
-      $this->message .= "Hello $username, you are logged in, and your subscription is now valid through $this->subExpiry";
+      $this->message .= "Hello $username, you are logged in, and your subscription is now valid through $subExpiry";
       \Drupal::messenger()->addMessage($this->message);
     }
     catch (Exception | EntityStorageException $e) {

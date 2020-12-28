@@ -15,31 +15,35 @@ use Drupal\user\Entity\User;
  * @throws \Exception
  */
 function etype_commerce_form_alter(&$form, FormStateInterface $form_state, $form_id) {
- if (strpos($form_id, 'commerce_order_item_add_to_cart_form_commerce') !== false) {
-   if (\Drupal::currentUser()->isAuthenticated()) {
-     $user = User::load(\Drupal::currentUser()->id());
-     $field_subscription_expiry = $user->get('field_subscription_expiry')->getValue();
-     if (isset($field_subscription_expiry[0]['value'])) {
-       $myDateTime = new \DateTime();
-       $subExpiry = new \DateTime($field_subscription_expiry[0]['value']);
-       $days = $myDateTime->diff($subExpiry)->format('%R%a');
-       if ($days > 0) {
-         $message = 'Your subscription does not expire until ' . $subExpiry->format('l, jS F, Y') . '.';
-       }
-       else {
-         $message = 'Your subscription expired on ' . $subExpiry->format('Y-m-d') . '.';
-       }
-       $form['#markup'] = $message;
-     }
-   }
-   $form['email'] = [
-     '#type' => 'textfield',
-     '#title' => 'Gift recipient’s email address',
-     '#description' => 'If you are buying a gift subscription, please enter the email address of the recipient. They will be notified of the gift and invited to create an account.',
-   ];
-   $form['actions']['submit']['#value'] = t('Checkout');
-   $form['actions']['submit']['#submit'][] = '_etype_commerce_redirect_to_checkout';
-   $form['#attached']['library'][] = 'etype_commerce/login-form';
+  if (strpos($form_id,
+      'commerce_order_item_add_to_cart_form_commerce') !== false) {
+    if (\Drupal::currentUser()->isAuthenticated()) {
+      $user = User::load(\Drupal::currentUser()->id());
+      $field_subscription_expiry = $user->get('field_subscription_expiry')
+        ->getValue();
+      if (isset($field_subscription_expiry[0]['value'])) {
+        $myDateTime = new \DateTime();
+        $subExpiry = new \DateTime($field_subscription_expiry[0]['value']);
+        $days = $myDateTime->diff($subExpiry)->format('%R%a');
+        if ($days > 0) {
+          $message = 'Your subscription does not expire until ' . $subExpiry->format('l, jS F, Y') . '.';
+        } else {
+          $message = 'Your subscription expired on ' . $subExpiry->format('Y-m-d') . '.';
+        }
+        $form['#markup'] = $message;
+      }
+    }
+    $form['email'] = [
+      '#type' => 'textfield',
+      '#title' => 'Gift recipient’s email address',
+      '#description' => 'If you are buying a gift subscription, please enter the email address of the recipient. They will be notified of the gift and invited to create an account.',
+    ];
+    $form['actions']['submit']['#value'] = t('Checkout');
+    $form['actions']['submit']['#submit'][] = '_etype_commerce_redirect_to_checkout';
+    $form['#attached']['library'][] = 'etype_commerce/login-form';
+  }
+  elseif ($form_id == 'commerce_checkout_flow_multistep_default') {
+    $form['#attached']['library'][] = 'etype_commerce/login-form';
   }
 }
 
