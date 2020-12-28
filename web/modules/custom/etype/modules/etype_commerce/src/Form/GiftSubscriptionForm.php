@@ -22,6 +22,13 @@ class GiftSubscriptionForm extends FormBase {
   protected $config;
 
   /**
+   * The order id.
+   *
+   * @var int
+   */
+  private $orderId;
+
+  /**
    * GiftSubscriptionForm constructor.
    */
   public function __construct() {

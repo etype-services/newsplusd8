@@ -93,15 +93,10 @@ class OrderEventSubscriber implements EventSubscriberInterface
       $gift_email = $email['value'];
       $check = user_load_by_mail($gift_email);
       if ($check == FALSE) {
-        $user = User::create();
-        $user->setPassword('chAng3m3');
-        $user->enforceIsNew();
-        $user->setEmail($gift_email);
-        $user->activate();
-        $user->save();
+        /* TODO: send email to giftee */
       }
       else {
-        /* User exists - extend subscription */
+        /* Gift user exists - extend subscription */
         $this->extendSubscription($check->id());
       }
     }

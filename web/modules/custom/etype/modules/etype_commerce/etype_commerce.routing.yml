@@ -17,7 +17,7 @@ etype_commerce.free_issue:
     _user_is_logged_in: 'FALSE'
 
 etype_commerce.gift_subscription:
-  path: '/gift-subscription'
+  path: '/gift-subscription/{orderId}'
   defaults:
     _title: 'Gift Subscription'
     _form: '\Drupal\etype_commerce\Form\GiftSubscriptionForm'
