@@ -196,7 +196,7 @@ class GiftSubscriptionForm extends FormBase {
     $user->set('field_address', $address);
     $user->activate();
     $user->save();
-    \Drupal::messenger()->addMessage("Hello $username! We’ve created your account. Look for an email with instructions to confirm your subscription.");
+    \Drupal::messenger()->addMessage("Hello $username! We’ve created your account. Please login to activate your subscription.");
     $url = Url::fromRoute('<front>');
     $form_state->setRedirectUrl($url);
   }

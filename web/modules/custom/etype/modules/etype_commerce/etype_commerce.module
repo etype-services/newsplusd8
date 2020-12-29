@@ -92,6 +92,7 @@ function _etype_commerce_redirect_to_checkout(&$form, FormStateInterface $form_s
           'order_id' => $cart_id,
           'email' => $gift_email,
           'print' => $_POST['purchased_entity'][0]['attributes']['attribute_subscription_type'],
+          'duration' => $_POST['purchased_entity'][0]['attributes']['attribute_duration'],
         ]);
       $entity->save();
     } catch (\Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException | PluginNotFoundException | EntityStorageException $e) {
@@ -159,6 +160,7 @@ function etype_commerce_user_login(UserInterface $account) {
   if (count($field_subscription_expiry) == 0) {
     /* There's no expiry date. */
     $printSub = '';
+    $orderId = 0;
     $email = $account->getEmail();
     $query = \Drupal::entityQuery('gift_subscription')
       ->condition('email', $email);
@@ -170,33 +172,33 @@ function etype_commerce_user_login(UserInterface $account) {
         $entity = \Drupal::entityTypeManager()
           ->getStorage('gift_subscription')
           ->load(reset($ids));
-        $print = $entity->get('print')->getValue();
-        $printSub = $print[0]['value'];
+        $arr = $entity->get('print')->getValue();
+        $printSub = $arr[0]['value'];
+        /* Get the right role to add, add it and save user. */
+        try {
+          $commerce_entity = \Drupal::entityTypeManager()
+            ->getStorage('commerce_product_attribute')
+            ->load('subscription_type')
+            ->getValues();
+          $arr2 = $commerce_entity[$printSub]->name->getValue();
+          $role = $arr2[0]['value'];
+          switch ($role) {
+            case 'Print & Digital';
+              $formatted_role = 'print_digital_subscriber';
+              break;
+            default:
+              $formatted_role = 'digital_subscriber';
+          }
+          $account->addRole($formatted_role);
+          $account->save();
+          $entity->delete();
+        }
+        catch (InvalidPluginDefinitionException | PluginNotFoundException | EntityStorageException $e) {
+          \Drupal::messenger()->addError('Could not save Account entity.');
+        }
       }
       catch (InvalidPluginDefinitionException | PluginNotFoundException $e) {
         \Drupal::messenger()->addError('Could not retrieve Gift Subscription entity.');
-      }
-
-      /* Get the right role to add, add it and save user. */
-      try {
-        $entity = \Drupal::entityTypeManager()
-          ->getStorage('commerce_product_attribute')
-          ->load('subscription_type')
-          ->getValues();
-        $arr2 = $entity[$printSub]->name->getValue();
-        $role = $arr2[0]['value'];
-        switch ($role) {
-          case 'Print & Digital Subscriber';
-            $formatted_role = 'print_digital_subscriber';
-            break;
-          default:
-            $formatted_role = 'digital_subscriber';
-        }
-        $account->addRole($formatted_role);
-        $account->save();
-      }
-      catch (InvalidPluginDefinitionException | PluginNotFoundException | EntityStorageException $e) {
-        \Drupal::messenger()->addError('Could not save Account entity.');
       }
     }
   }

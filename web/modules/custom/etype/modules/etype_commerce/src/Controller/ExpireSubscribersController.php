@@ -37,7 +37,7 @@ class ExpireSubscribersController {
         $arr2 = $entity[$target_id]->name->getValue();
         $role = $arr2[0]['value'];
         switch ($role) {
-          case 'Print & Digital Subscriber';
+          case 'Print & Digital';
             $formatted_role = 'print_digital_subscriber';
             break;
 

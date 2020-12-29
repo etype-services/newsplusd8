@@ -97,7 +97,7 @@ class OrderEventSubscriber implements EventSubscriberInterface
       }
       else {
         /* Gift user exists - extend subscription */
-        $this->extendSubscription($check->id());
+        $this->extendSubscription($check->id(), 1);
       }
     }
     else {
@@ -116,12 +116,15 @@ class OrderEventSubscriber implements EventSubscriberInterface
    *
    * @param int $uid
    *   Customer/User Id.
+   * @param int $gift
+   *   Flag for Gift subscription.
    *
    * @throws \Exception
    */
-  public function extendSubscription(int $uid) {
+  public function extendSubscription(int $uid, int $gift = NULL) {
     $user = User::load($uid);
     $username = $user->getUsername();
+    $email = $user->getEmail();
     $formatted_duration = '';
     $formatted_role = '';
     $subExpiry = '';
@@ -150,7 +153,7 @@ class OrderEventSubscriber implements EventSubscriberInterface
         $arr2 = $entity[$target_id]->name->getValue();
         $this->role = $arr2[0]['value'];
         switch ($this->role) {
-          case 'Print & Digital Subscriber';
+          case 'Print & Digital';
             $formatted_role = 'print_digital_subscriber';
             break;
 
@@ -220,7 +223,15 @@ class OrderEventSubscriber implements EventSubscriberInterface
       if (!$user->save()) {
         throw new Exception("Unable to save user.");
       }
-      $this->message .= "Hello $username, you are logged in, and your subscription is now valid through $subExpiry";
+      switch ($gift) {
+        case 1:
+          $this->message .= "You’ve successfully purchased a gift subscription for $email. They will receive an email inviting them to comfirm the subscription.";
+          break;
+
+        default:
+          $this->message .= "Hello $username, you are logged in, and your subscription is now valid through $subExpiry";
+      }
+
       \Drupal::messenger()->addMessage($this->message);
     }
     catch (Exception | EntityStorageException $e) {
