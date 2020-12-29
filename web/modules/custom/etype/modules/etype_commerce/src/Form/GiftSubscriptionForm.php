@@ -2,6 +2,8 @@
 
 namespace Drupal\etype_commerce\Form;
 
+use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
+use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
@@ -47,44 +49,74 @@ class GiftSubscriptionForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state, int $orderId = NULL): array {
 
-    $form['text'] = [
-      "#markup" => $orderId,
-    ];
+    $subEmail = '';
+    $printSub = '';
 
-    $form['email'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Enter your email address'),
-      '#required' => TRUE,
-      '#default_value' => $form_state->getValue('email'),
-    ];
+    $query = \Drupal::entityQuery('gift_subscription')
+      ->condition('order_id', $orderId);
+    $ids = $query->execute();
+    if (count($ids) == 0) {
+      $form['text'] = [
+        "#markup" => "This gift subscription has already been redeemed or is invalid.",
+      ];
+    }
+    else {
+      try {
+        $entity = \Drupal::entityTypeManager()
+          ->getStorage('gift_subscription')
+          ->load(reset($ids));
+        $email = $entity->get('email')->getValue();
+        $subEmail = $email[0]['value'];
+        $print = $entity->get('print')->getValue();
+        $printSub = $print[0]['value'];
+      }
+      catch (InvalidPluginDefinitionException | PluginNotFoundException $e) {
+      }
+      $check = user_load_by_mail($subEmail);
+      if ($check !== FALSE) {
+        $form['text'] = [
+          "#markup" => "There is already an account for <strong>$subEmail</strong>. Please <a href=\"/user/login\">login here</a>.",
+        ];
+      }
+      else {
+        $form['text'] = [
+          "#markup" => "This gift subcription is for <strong>" . $subEmail . "</strong>. Please fill out this form then look for a confirmation email with a link to complete your registration.",
+        ];
 
-    $form['username'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Choose a User Name'),
-      '#required' => TRUE,
-      '#default_value' => $form_state->getValue('username'),
-    ];
+        $form['username'] = [
+          '#type' => 'textfield',
+          '#title' => $this->t('Choose a User Name'),
+          '#required' => TRUE,
+          '#default_value' => $form_state->getValue('username'),
+        ];
 
-    $form['password'] = [
-      '#type' => 'password',
-      '#title' => $this->t('Set a Password'),
-      '#required' => TRUE,
-      '#description' => "At least 8 characters",
-    ];
+        $form['password'] = [
+          '#type' => 'password',
+          '#title' => $this->t('Set a Password'),
+          '#required' => TRUE,
+          '#description' => "At least 8 characters",
+        ];
 
-    $form['confirmPassword'] = [
-      '#type' => 'password',
-      '#title' => $this->t('Confirm Your Password'),
-      '#required' => TRUE,
-    ];
+        $form['confirmPassword'] = [
+          '#type' => 'password',
+          '#title' => $this->t('Confirm Your Password'),
+          '#required' => TRUE,
+        ];
 
-    $form['actions']['#type'] = 'actions';
+        // @todo better way to check for Print Subscription.
+        if ($printSub == 7) {
 
-    $form['actions']['submit'] = [
-      '#type' => 'submit',
-      '#value' => $this->t('Register'),
-      '#button_type' => 'primary',
-    ];
+        }
+
+        $form['actions']['#type'] = 'actions';
+
+        $form['actions']['submit'] = [
+          '#type' => 'submit',
+          '#value' => $this->t('Register'),
+          '#button_type' => 'primary',
+        ];
+      }
+    }
 
     return $form;
 
