@@ -82,7 +82,6 @@ class OrderEventSubscriber implements EventSubscriberInterface
     $ids = $query->execute();
     if (count($ids) > 0) {
       /* This is a gift. There should only be one entity matching order id */
-      /* TODO: send email to gift subscriber */
       $query = \Drupal::entityQuery('gift_subscription')
         ->condition('order_id', $order_id);
       $ids = $query->execute();
@@ -93,12 +92,14 @@ class OrderEventSubscriber implements EventSubscriberInterface
       $gift_email = $email[0]['value'];
       $check = user_load_by_mail($gift_email);
       if ($check == FALSE) {
-        /* TODO: send email to giftee */
+        /* @todo send email to giftee */
       }
       else {
         /* Gift user exists - extend subscription */
         $this->extendSubscription($check->id(), 1);
       }
+      /* Mark gift sub as Paid */
+      $entity->set("paid", 1);
     }
     else {
       /*

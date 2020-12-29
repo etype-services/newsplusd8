@@ -54,8 +54,10 @@ class GiftSubscriptionForm extends FormBase {
     $subEmail = '';
     $printSub = '';
 
+    /* @todo Check order is completed */
     $query = \Drupal::entityQuery('gift_subscription')
-      ->condition('order_id', $orderId);
+      ->condition('order_id', $orderId)
+      ->condition('paid', 1);
     $ids = $query->execute();
     if (count($ids) == 0) {
       $form['text'] = [
