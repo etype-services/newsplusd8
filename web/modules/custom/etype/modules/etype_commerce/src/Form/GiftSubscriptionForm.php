@@ -85,6 +85,11 @@ class GiftSubscriptionForm extends FormBase {
           "#markup" => "This gift subcription is for <strong>" . $subEmail . "</strong>. Please fill out this form then look for a confirmation email with a link to complete your registration.",
         ];
 
+        $form['email'] = [
+          '#type' => 'hidden',
+          '#default_value' => $subEmail,
+        ];
+
         $form['username'] = [
           '#type' => 'textfield',
           '#title' => $this->t('Choose a User Name'),
@@ -155,7 +160,7 @@ class GiftSubscriptionForm extends FormBase {
     if (($user = user_load_by_name($username)) !== FALSE) {
       $form_state->setErrorByName('username', $this->t('We can‘t create an account for you on this website because that user name already exists in our system. Please <a href="/user/login">login</a> or choose a different user name.'));
     }
-    elseif (($user = user_load_by_name($email)) !== FALSE) {
+    elseif (($user = user_load_by_mail($email)) !== FALSE) {
       $form_state->setErrorByName('email', $this->t('We can‘t create an account for you on this website because the email address supplied already exists in our system. Please <a href="/user/login">login</a> or use a different email address.'));
     }
     elseif (strlen($password) < 8) {
