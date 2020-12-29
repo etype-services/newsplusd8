@@ -100,6 +100,7 @@ class OrderEventSubscriber implements EventSubscriberInterface
       }
       /* Mark gift sub as Paid */
       $entity->set("paid", 1);
+      $entity->save();
     }
     else {
       /*

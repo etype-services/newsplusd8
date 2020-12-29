@@ -159,11 +159,10 @@ function etype_commerce_user_login(UserInterface $account) {
     ->getValue();
   if (count($field_subscription_expiry) == 0) {
     /* There's no expiry date. */
-    $printSub = '';
-    $orderId = 0;
     $email = $account->getEmail();
     $query = \Drupal::entityQuery('gift_subscription')
-      ->condition('email', $email);
+      ->condition('email', $email)
+      ->condition('paid', 1);
     $ids = $query->execute();
     if (count($ids) > 0) {
       /* There is a matching gift sub for this email address. */
@@ -174,6 +173,9 @@ function etype_commerce_user_login(UserInterface $account) {
           ->load(reset($ids));
         $arr = $entity->get('print')->getValue();
         $printSub = $arr[0]['value'];
+        $arr2 = $entity->get('duration')->getValue();
+        $subDuration = $arr2[0]['value'];
+
         /* Get the right role to add, add it and save user. */
         try {
           $commerce_entity = \Drupal::entityTypeManager()
