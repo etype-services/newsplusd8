@@ -165,7 +165,7 @@ function etype_commerce_user_login(UserInterface $account) {
     $ids = $query->execute();
     if (count($ids) > 0) {
       /* There is a matching gift sub for this email address. */
-      /* Let's load the entity */
+      /* Let's load the entity, and get the role identifier. */
       try {
         $entity = \Drupal::entityTypeManager()
           ->getStorage('gift_subscription')
