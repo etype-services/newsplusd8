@@ -57,6 +57,11 @@ class GiftSubscription extends ContentEntityBase implements ContentEntityInterfa
       ->setDescription(t('The email address of the recipient.'))
       ->setReadOnly(FALSE);
 
+    $fields['print'] = BaseFieldDefinition::create('boolean')
+      ->setLabel(t('Print Subscription'))
+      ->setDescription(t('Flag for print subscription'))
+      ->setReadOnly(FALSE);
+
     return $fields;
   }
 

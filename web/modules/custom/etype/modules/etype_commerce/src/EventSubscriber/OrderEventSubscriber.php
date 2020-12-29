@@ -90,7 +90,7 @@ class OrderEventSubscriber implements EventSubscriberInterface
         ->getStorage('gift_subscription')
         ->load(reset($ids));
       $email = $entity->get('email')->getValue();
-      $gift_email = $email['value'];
+      $gift_email = $email[0]['value'];
       $check = user_load_by_mail($gift_email);
       if ($check == FALSE) {
         /* TODO: send email to giftee */

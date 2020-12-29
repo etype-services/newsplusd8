@@ -65,7 +65,8 @@ function _etype_commerce_redirect_to_checkout(&$form, FormStateInterface $form_s
     $gift_email = ($_POST['email']);
     // Create a gift subscription object.
     try {
-      // Delete any entries with the same order id
+      // Delete any entries with the same order id.
+      // People should only be able to but 1 subscription at a a time.
       $query = \Drupal::entityQuery('gift_subscription')
         ->condition('order_id', $cart_id);
       $nids = $query->execute();
@@ -75,11 +76,13 @@ function _etype_commerce_redirect_to_checkout(&$form, FormStateInterface $form_s
           ->load($nid);
         $entity->delete();
       }
+      /* Add new gift subscription entity */
       $entity = \Drupal::entityTypeManager()
         ->getStorage('gift_subscription')
         ->create([
           'order_id' => $cart_id,
           'email' => $gift_email,
+          'print' => $_POST['purchased_entity'][0]['attributes']['attribute_subscription_type'],
         ]);
       $entity->save();
     } catch (\Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException | \Drupal\Component\Plugin\Exception\PluginNotFoundException | EntityStorageException $e) {
