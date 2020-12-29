@@ -8,6 +8,8 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 use Drupal\user\Entity\User;
+use CommerceGuys\Addressing\AddressFormat\AddressField;
+use CommerceGuys\Addressing\AddressFormat\FieldOverride;
 
 /**
  * Class GiftSubscriptionForm provides access to free issue.
@@ -87,7 +89,6 @@ class GiftSubscriptionForm extends FormBase {
           '#type' => 'textfield',
           '#title' => $this->t('Choose a User Name'),
           '#required' => TRUE,
-          '#default_value' => $form_state->getValue('username'),
         ];
 
         $form['password'] = [
@@ -105,7 +106,27 @@ class GiftSubscriptionForm extends FormBase {
 
         // @todo better way to check for Print Subscription.
         if ($printSub == 7) {
+          $form['addressText'] = [
+            "#markup" => "Your gift subscription includes a printed copy of the paper. Please enter the address where you wish to receive this.",
+          ];
 
+          $form['address'] = [
+            '#type' => 'address',
+            '#title' => t('Delivery Address'),
+            '#used_fields' => [
+              'givenName',
+              'familyName',
+              'addressLine1',
+              'addressLine2',
+              'locality',
+              'postalCode',
+              'administrativeArea',
+            ],
+            '#field_overrides' => [
+              AddressField::ORGANIZATION => FieldOverride::REQUIRED,
+            ],
+            '#available_countries' => ['US'],
+          ];
         }
 
         $form['actions']['#type'] = 'actions';
@@ -157,26 +178,20 @@ class GiftSubscriptionForm extends FormBase {
    *   Throw Exception.
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    /* Initialize  DateTime object. */
-    $myDateTime = new \DateTime();
-    $subExpiry = $myDateTime->add(new \DateInterval('P3D'))
-      ->format('Y-m-d');
-
-    // Register new user.
+    // Create new user.
     $email = $form_state->getValue('email');
     $username = $form_state->getValue('username');
     $password = $form_state->getValue('password');
+    $address = $form_state->getValue('address');
     $user = User::create();
     $user->setPassword($password);
     $user->enforceIsNew();
     $user->setEmail($email);
     $user->setUsername($username);
-    $user->set('field_subscription_expiry', $subExpiry);
-    $user->addRole('digital_subscriber');
+    $user->set('field_address', $address);
     $user->activate();
     $user->save();
-    user_login_finalize($user);
-    \Drupal::messenger()->addMessage("Hello $username! Your account has been created and you are now logged in.");
+    \Drupal::messenger()->addMessage("Hello $username! We’ve created your account. Look for an email with instructions to confirm your subscription.");
     $url = Url::fromRoute('<front>');
     $form_state->setRedirectUrl($url);
   }

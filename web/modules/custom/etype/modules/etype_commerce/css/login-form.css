@@ -35,17 +35,6 @@ summary {
 }
 */
 
-.password-confirm,
-.password-field,
-.password-strength,
-.password-confirm-match,
-select,
-.address-container-inline,
-.form-type-textfield,
-.form-item {
-  width: 100%!important;
-}
-
 details {
   border: 0!important;
 }

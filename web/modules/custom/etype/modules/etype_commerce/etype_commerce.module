@@ -42,8 +42,15 @@ function etype_commerce_form_alter(&$form, FormStateInterface $form_state, $form
     $form['actions']['submit']['#submit'][] = '_etype_commerce_redirect_to_checkout';
     $form['#attached']['library'][] = 'etype_commerce/login-form';
   }
-  elseif ($form_id == 'commerce_checkout_flow_multistep_default') {
-    $form['#attached']['library'][] = 'etype_commerce/login-form';
+
+  switch ($form_id) {
+    case 'gift_subscription_form':
+      $form['#attached']['library'][] = 'etype_commerce/gift-subscription-form';
+      break;
+
+    case 'commerce_checkout_flow_multistep_default':
+      $form['#attached']['library'][] = 'etype_commerce/login-form';
+      break;
   }
 }
 
