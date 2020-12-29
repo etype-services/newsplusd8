@@ -1,9 +1,12 @@
 <?php
 
+use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
+use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 use Drupal\user\Entity\User;
+use Drupal\user\UserInterface;
 
 /**
  * Implements hook_form_alter().
@@ -79,7 +82,10 @@ function _etype_commerce_redirect_to_checkout(&$form, FormStateInterface $form_s
           ->load($nid);
         $entity->delete();
       }
-      /* Add new gift subscription entity */
+      /*
+       * Add new gift subscription entity.
+       * @todo Check that there is not already a gift subscription with this email.
+       */
       $entity = \Drupal::entityTypeManager()
         ->getStorage('gift_subscription')
         ->create([
@@ -88,7 +94,7 @@ function _etype_commerce_redirect_to_checkout(&$form, FormStateInterface $form_s
           'print' => $_POST['purchased_entity'][0]['attributes']['attribute_subscription_type'],
         ]);
       $entity->save();
-    } catch (\Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException | \Drupal\Component\Plugin\Exception\PluginNotFoundException | EntityStorageException $e) {
+    } catch (\Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException | PluginNotFoundException | EntityStorageException $e) {
       $message = 'Could not save gift subscription entity' . (int) $cart_id;
       \Drupal::logger('etype_commerce')->error($message);
     }
@@ -138,4 +144,60 @@ function _etype_commerce_expire_subscribers() {
  */
 function etype_commerce_page_attachments(array &$page) {
   $page['#attached']['library'][] = 'etype_commerce/global-styling';
+}
+
+/**
+ * @param UserInterface $account
+ */
+function etype_commerce_user_login(UserInterface $account) {
+  /*
+   * Check for gift Subscription.
+   * If there is no sub expiry date then the gift sub has not been redeemed.
+   */
+  $field_subscription_expiry = $account->get('field_subscription_expiry')
+    ->getValue();
+  if (count($field_subscription_expiry) == 0) {
+    /* There's no expiry date. */
+    $printSub = '';
+    $email = $account->getEmail();
+    $query = \Drupal::entityQuery('gift_subscription')
+      ->condition('email', $email);
+    $ids = $query->execute();
+    if (count($ids) > 0) {
+      /* There is a matching gift sub for this email address. */
+      /* Let's load the entity */
+      try {
+        $entity = \Drupal::entityTypeManager()
+          ->getStorage('gift_subscription')
+          ->load(reset($ids));
+        $print = $entity->get('print')->getValue();
+        $printSub = $print[0]['value'];
+      }
+      catch (InvalidPluginDefinitionException | PluginNotFoundException $e) {
+        \Drupal::messenger()->addError('Could not retrieve Gift Subscription entity.');
+      }
+
+      /* Get the right role to add, add it and save user. */
+      try {
+        $entity = \Drupal::entityTypeManager()
+          ->getStorage('commerce_product_attribute')
+          ->load('subscription_type')
+          ->getValues();
+        $arr2 = $entity[$printSub]->name->getValue();
+        $role = $arr2[0]['value'];
+        switch ($role) {
+          case 'Print & Digital Subscriber';
+            $formatted_role = 'print_digital_subscriber';
+            break;
+          default:
+            $formatted_role = 'digital_subscriber';
+        }
+        $account->addRole($formatted_role);
+        $account->save();
+      }
+      catch (InvalidPluginDefinitionException | PluginNotFoundException | EntityStorageException $e) {
+        \Drupal::messenger()->addError('Could not save Account entity.');
+      }
+    }
+  }
 }
