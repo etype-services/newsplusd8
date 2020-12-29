@@ -116,7 +116,7 @@ class OrderEventSubscriber implements EventSubscriberInterface
    *
    * @param int $uid
    *   Customer/User Id.
-   * @param int $gift
+   * @param int|null $gift
    *   Flag for Gift subscription.
    *
    * @throws \Exception
