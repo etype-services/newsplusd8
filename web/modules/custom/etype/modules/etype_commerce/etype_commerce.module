@@ -176,7 +176,7 @@ function etype_commerce_user_login(UserInterface $account) {
         $arr2 = $entity->get('duration')->getValue();
         $subDuration = $arr2[0]['value'];
 
-        /* Get the right role to add, add it and save user. */
+        /* Get the right role to add, add it. */
         try {
           $commerce_entity = \Drupal::entityTypeManager()
             ->getStorage('commerce_product_attribute')
@@ -192,15 +192,46 @@ function etype_commerce_user_login(UserInterface $account) {
               $formatted_role = 'digital_subscriber';
           }
           $account->addRole($formatted_role);
-          $account->save();
-          $entity->delete();
+
+          /* Get the sub duration, add it, and save user. */
+          try {
+            $entity = \Drupal::entityTypeManager()
+              ->getStorage('commerce_product_attribute')
+              ->load('duration')
+              ->getValues();
+            $arr2 = $entity[$subDuration]->name->getValue();
+            $duration = $arr2[0]['value'];
+            switch ($duration) {
+              case '1 year';
+                $formatted_duration = 'P1Y';
+                break;
+
+              case '6 months';
+                $formatted_duration = 'P6M';
+                break;
+
+              default:
+                $formatted_duration = 'P3D';
+            }
+            $myDateTime = new \DateTime();
+            $subDate = $myDateTime->format('Y-m-d');
+            $subExpiry = $myDateTime->add(new \DateInterval($formatted_duration))
+              ->format('Y-m-d');
+            $account->set('field_subscription_date', $subDate);
+            $account->set('field_subscription_expiry', $subExpiry);
+            $account->save();
+            $entity->delete();
+          } catch (InvalidPluginDefinitionException | PluginNotFoundException | EntityStorageException $e) {
+            \Drupal::messenger()->addError('Could not save Account entity.');
+          } catch (Exception $e) {
+          }
+        } catch (InvalidPluginDefinitionException | PluginNotFoundException $e) {
+          \Drupal::messenger()
+            ->addError('Could not retrieve Gift Subscription entity.');
         }
-        catch (InvalidPluginDefinitionException | PluginNotFoundException | EntityStorageException $e) {
-          \Drupal::messenger()->addError('Could not save Account entity.');
-        }
-      }
-      catch (InvalidPluginDefinitionException | PluginNotFoundException $e) {
-        \Drupal::messenger()->addError('Could not retrieve Gift Subscription entity.');
+      } catch (InvalidPluginDefinitionException | PluginNotFoundException $e) {
+        Drupal::messenger()
+          ->addError('Could not retrieve Gift Subscription entity.');
       }
     }
   }
