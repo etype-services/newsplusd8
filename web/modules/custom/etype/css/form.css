@@ -1,0 +1,10 @@
+body:not(.path-admin) .password-confirm,
+body:not(.path-admin) .password-field,
+body:not(.path-admin) .password-strength,
+body:not(.path-admin) .password-confirm-match,
+body:not(.path-admin) select,
+body:not(.path-admin) .address-container-inline,
+body:not(.path-admin) .form-type-textfield,
+:not(.path-admin) .form-item {
+  width: 100%!important;
+}

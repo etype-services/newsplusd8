@@ -16,11 +16,3 @@ login-form:
     - core/jquery
     - core/jquery.once
 
-gift-subscription-form:
-  version: VERSION
-  js:
-    js/gift-subscription-form.js: { }
-  dependencies:
-    - core/drupal
-    - core/jquery
-    - core/jquery.once

@@ -1,6 +1,6 @@
 (function ($, Drupal) {
   "use strict";
-  Drupal.behaviors.etypeGiftSubscription = {
+  Drupal.behaviors.etypeForm = {
     attach: function (context, settings) {
       $("select").addClass("select");
     }

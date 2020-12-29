@@ -44,10 +44,6 @@ function etype_commerce_form_alter(&$form, FormStateInterface $form_state, $form
   }
 
   switch ($form_id) {
-    case 'gift_subscription_form':
-      $form['#attached']['library'][] = 'etype_commerce/gift-subscription-form';
-      break;
-
     case 'commerce_checkout_flow_multistep_default':
       $form['#attached']['library'][] = 'etype_commerce/login-form';
       break;

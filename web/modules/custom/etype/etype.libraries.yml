@@ -36,3 +36,14 @@ addtohomescreen:
     theme:
       addtohomescreen/addtohomescreen.css: {}
 
+form:
+  version: VERSION
+  js:
+    js/form.js: { }
+  css:
+    state:
+      css/form.css: { weight: 100 }
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
