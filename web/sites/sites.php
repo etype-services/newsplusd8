@@ -200,3 +200,5 @@ $sites['www.madisonvillemeteor.com'] = "madisonvillemeteor.com";
 $sites['madisonvillemeteor.etypegoogle9.com'] = "madisonvillemeteor.com";
 $sites['www.sealynews.com'] = "sealynews.com";
 $sites['sealynews.etypegoogle9.com'] = "sealynews.com";
+$sites['www.robconews.com'] = "robconews.com";
+$sites['robconews.etypegoogle9.com'] = "robconews.com";
