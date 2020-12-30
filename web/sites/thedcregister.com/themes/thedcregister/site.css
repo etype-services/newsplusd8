@@ -79,9 +79,8 @@ a:hover {
   color: #185c81!important;
 }
 
-h3.section-tag-heading a {
+h3.section-tag-heading {
   background-color: #217db0;
-  color: #ffffff;
   border-color: #dbdbdb;
   border-width: 1px;
   cursor: pointer;
@@ -90,6 +89,12 @@ h3.section-tag-heading a {
   text-align: center;
   white-space: nowrap;
   border-radius: 4px;
+  color: #ffffff;
+}
+
+h3.section-tag-heading a,
+h3.section-tag-heading a:hover {
+  color: #ffffff;
 }
 
 .user-menu .has-background-black-bis,
