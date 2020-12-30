@@ -422,8 +422,6 @@ footer .footer-menu li > a {
 }
 #main-nav .navbar .navbar-start .navbar-item {
   width: fit-content;
-  max-width: 50%;
-  /* some browsers do not understand fit-content */
 }
 #main-nav .navbar .navbar-start .navbar-burger {
   margin-left: -8px;
