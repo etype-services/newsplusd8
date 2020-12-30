@@ -498,7 +498,7 @@ footer .footer-menu li > a {
   }
 
   .user-menu {
-    margin-top: 2rem;
+    margin-top: 4rem;
   }
 
   /* Close X in front of user menu */
@@ -543,9 +543,6 @@ footer .footer-menu li > a {
   }
   #main-nav .navbar .navbar-end a .is-size-3 {
     font-size: 1.5rem !important;
-  }
-  #main-nav .user-menu {
-    margin-top: 3rem;
   }
 }
 /* Center column for tiempos theme */
