@@ -88,7 +88,8 @@ h3.section-tag-heading {
   border-radius: 4px;
 }
 
-h3.section-tag-heading a {
+h3.section-tag-heading a,
+h3.section-tag-heading svg {
   color: #ffffff;
 }
 
