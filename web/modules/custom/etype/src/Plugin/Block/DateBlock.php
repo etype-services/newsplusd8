@@ -17,10 +17,9 @@ use Drupal\Core\Render\Markup;
 class DateBlock extends BlockBase {
 
   /**
-   *
    * Uses Markup rather than '#markup' to return raw html.
    */
-  public function build() {
+  public function build(): array {
 
     $output = '
 <p class="is-size-7">' . date("F j, Y") . '</p>
