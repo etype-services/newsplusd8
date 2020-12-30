@@ -53,6 +53,7 @@
         "drupal/commerce_paypal": "1.x-dev@dev",
         "drupal/conditional_styles": "^1.0",
         "drupal/console": "~1.0",
+        "drupal/copyprevention": "^1.2",
         "drupal/core": "^8.8@beta",
         "drupal/custom_pub": "^1.0",
         "drupal/delete_all": "^1.1",
