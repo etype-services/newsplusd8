@@ -126,3 +126,7 @@ a:hover {
 .path-taxonomy .node__content .submitted {
   color: #217db0;
 }
+
+#block-thedcregister-mercobannerblock {
+  text-align: center;
+}
