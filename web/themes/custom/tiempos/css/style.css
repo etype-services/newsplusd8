@@ -459,6 +459,7 @@ footer .footer-menu li > a {
     /* Social Icons */
   }
   #main-nav .navbar .navbar-start {
+    display: flex;
     padding: 0 1.5rem 1rem 1rem;
     /* Align menu to right. */
   }
