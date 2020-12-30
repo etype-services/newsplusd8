@@ -7,14 +7,15 @@
 #edit-login-register-field-subscription-expiry-wrapper,
 #edit-login-register-field-mailchimp-subscription-wrapper,
 #edit-subscription-information,
-.form-item-payment-information-add-payment-method-billing-information-copy-to-address-book {
+#edit-login-register-field-biography-wrapper,
+#edit-login-register-field-phone-wrapper,
+#edit-login-register-field-subscription-date-wrapper,
+#edit-login-register-field-subscription-expiry-wrapper,
+#edit-login-register-field-mailchimp-subscription-wrapper,
+.form-item-payment-information-add-payment-method-billing-information-copy-to-address-book,
+.field--type-image {
   display: none;
   visibility: hidden;
-}
-
-.fieldset-legend,
-summary {
-  font-weight: bold;
 }
 
 /* Only needed if #edit-login-register-field-mailchimp-subscription-wrapper is shown.
@@ -29,17 +30,6 @@ summary {
 }
 */
 
-.password-confirm,
-.password-field,
-.password-strength,
-.password-confirm-match,
-select,
-.address-container-inline,
-.form-type-textfield,
-.form-item {
-  width: 100%!important;
-}
-
 details {
   border: 0!important;
 }
@@ -50,6 +40,10 @@ details {
 
 .address-container-inline > .form-item {
   margin-right: 0!important;
+}
+
+.form-item-login-register-password-pass2 {
+  margin-bottom: 0!important;
 }
 
 @media (min-width: 780px) {

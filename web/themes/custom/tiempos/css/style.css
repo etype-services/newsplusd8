@@ -405,6 +405,7 @@ footer .footer-menu li > a {
   /* navbar-start is only shown when hamburger clicked */
 }
 #main-nav .navbar .navbar-start {
+  display: flex;
   /* position: fixed; */
   top: 0;
   left: 0;
@@ -417,7 +418,7 @@ footer .footer-menu li > a {
   /* The logo. */
 }
 #main-nav .navbar .navbar-start .column {
-  flex-basis: 30%;
+  flex-basis: 50%;
 }
 #main-nav .navbar .navbar-start .navbar-item {
   width: fit-content;
@@ -479,6 +480,7 @@ footer .footer-menu li > a {
     margin-bottom: 0.3rem;
     height: 1.6rem;
     /* Fix padding. */
+    line-height: 1;
   }
   #main-nav .navbar .navbar-start [data-drupal-selector=search-block-form] {
     /* Stop search icon from jumping. */
@@ -497,8 +499,7 @@ footer .footer-menu li > a {
   }
 
   .user-menu {
-    top: 70px;
-    position: relative;
+    margin-top: 2rem;
   }
 
   /* Close X in front of user menu */
@@ -543,6 +544,9 @@ footer .footer-menu li > a {
   }
   #main-nav .navbar .navbar-end a .is-size-3 {
     font-size: 1.5rem !important;
+  }
+  #main-nav .user-menu {
+    margin-top: 3rem;
   }
 }
 /* Center column for tiempos theme */

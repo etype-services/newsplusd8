@@ -11,7 +11,7 @@ use Drupal\user\Entity\User;
  * @param $path
  * @return array
  */
-function etype_theme($existing, $type, $theme, $path) {
+function etype_theme($existing, $type, $theme, $path): array {
   return [
     'ada_compliance' => [
       'variables' => [],
@@ -83,7 +83,7 @@ function etype_preprocess_image(&$variables) {
 /**
  * Generates links and paths for use as image links, login urls. etc
  */
-function etype_e_editions() {
+function etype_e_editions(): array {
 
   $v1_url = "https://etypeservices.com/";
   $host = Drupal::request()->getHost();
@@ -195,6 +195,10 @@ function etype_menu_links_discovered_alter(&$links) {
 
 /**
  * Implements hook_form_alter().
+ *
+ * @param $form
+ * @param $form_state
+ * @param $form_id
  */
 function etype_form_alter(&$form, &$form_state, $form_id) {
   /* Set default author information. */
@@ -225,6 +229,8 @@ function etype_form_alter(&$form, &$form_state, $form_id) {
 <p><em>The next three fields only need to be filled out if \"Front Page Slideshow\" (under CUSTOM PUBLISHING OPTIONS) is checked. The defaults should work fine.</em></p>";
     }
   }
+  /* Add default form css */
+  $form['#attached']['library'][] = 'etype/form';
 }
 
 /**
@@ -270,7 +276,7 @@ function etype_user_logout() {
  * @param string $end
  * @return string
  */
-function substrwords($text, $maxchar, $end = '...') {
+function substrwords($text, $maxchar, $end = '...'): string {
   if (strlen($text) > $maxchar || $text == '') {
     $words = preg_split('/\s/', $text);
     $output = '';
@@ -298,7 +304,7 @@ function substrwords($text, $maxchar, $end = '...') {
  * @param $haystack
  * @return bool
  */
-function in_array_any($needles, $haystack) {
+function in_array_any($needles, $haystack): bool {
   return (bool) (array_intersect($needles, $haystack));
 }
 
@@ -309,7 +315,7 @@ function in_array_any($needles, $haystack) {
  *   The node type for which to get fields.
  * @return array
  */
-function getFields($nodeType) {
+function getFields($nodeType): array {
   $fields["None"] = "None";
   if (!empty($nodeType)) {
     $entityManager = Drupal::service('entity_field.manager');
@@ -381,7 +387,7 @@ function etype_metatags_alter(array &$metatags, array &$context) {
  * @see \Drupal\Core\Block\BlockBase::getMachineNameSuggestion()
  * @see \Drupal\system\MachineNameController::transliterate()
  */
-function etype_get_machine_name($string) {
+function etype_get_machine_name(string $string): string {
   $transliterated = \Drupal::transliteration()->transliterate($string, LanguageInterface::LANGCODE_DEFAULT, '_');
   $transliterated = mb_strtolower($transliterated);
   $transliterated = preg_replace('@[^a-z0-9_.]+@', '_', $transliterated);

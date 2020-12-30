@@ -28,8 +28,23 @@ class ExpireSubscribersController {
         $loaded_entity = \Drupal::entityTypeManager()
           ->getStorage('commerce_product_variation')
           ->load($entityId);
-        $role = $loaded_entity->get('field_role')->getValue();
-        $roles[] = $role[0]['value'];
+        $arr = $loaded_entity->get('attribute_subscription_type')->getValue();
+        $target_id = ($arr[0]["target_id"]);
+        $entity = \Drupal::entityTypeManager()
+          ->getStorage('commerce_product_attribute')
+          ->load('subscription_type')
+          ->getValues();
+        $arr2 = $entity[$target_id]->name->getValue();
+        $role = $arr2[0]['value'];
+        switch ($role) {
+          case 'Print & Digital';
+            $formatted_role = 'print_digital_subscriber';
+            break;
+
+          default:
+            $formatted_role = 'digital_subscriber';
+        }
+        $roles[] = $formatted_role;
       }
       catch (InvalidPluginDefinitionException $e) {
       }
@@ -49,9 +64,6 @@ class ExpireSubscribersController {
         $subExpiry = new \DateTime($field_subscription_expiry[0]['value']);
         $days = $myDateTime->diff($subExpiry)->format('%R%a');
         $num = (int) $days;
-        // $markup .= $userId . "<br />";
-        // $markup .= $num . "<br />";
-        // $markup .= $field_subscription_expiry[0]['value'] . "<br /><br />";
       }
       if ($num < 0) {
         foreach ($roles as $role) {

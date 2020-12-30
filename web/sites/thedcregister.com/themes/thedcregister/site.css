@@ -72,12 +72,24 @@ h2,
 h2 a,
 h3,
 h3 a,
-h3.section-tag-heading,
 a {
   color: #217db0;
 }
 a:hover {
   color: #185c81!important;
+}
+
+h3.section-tag-heading a {
+  background-color: #217db0;
+  color: #ffffff;
+  border-color: #dbdbdb;
+  border-width: 1px;
+  cursor: pointer;
+  justify-content: center;
+  padding: calc(.5em - 1px) 1em;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: 4px;
 }
 
 .user-menu .has-background-black-bis,
@@ -125,4 +137,8 @@ a:hover {
 .path-taxonomy .node__content,
 .path-taxonomy .node__content .submitted {
   color: #217db0;
+}
+
+#block-thedcregister-mercobannerblock {
+  text-align: center;
 }

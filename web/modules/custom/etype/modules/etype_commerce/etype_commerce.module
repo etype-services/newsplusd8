@@ -1,6 +1,12 @@
 <?php
+
+use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
+use Drupal\Component\Plugin\Exception\PluginNotFoundException;
+use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
+use Drupal\user\Entity\User;
+use Drupal\user\UserInterface;
 
 /**
  * Implements hook_form_alter().
@@ -8,29 +14,94 @@ use Drupal\Core\Url;
  * @param $form
  * @param \Drupal\Core\Form\FormStateInterface $form_state
  * @param $form_id
+ *
+ * @throws \Exception
  */
 function etype_commerce_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  // Add to cart form id for product 5 is: commerce_order_item_add_to_cart_form_commerce_product_5
-  // Then it's enough to check $form_id contains the string 'commerce_order_item_add_to_cart_form_commerce'
-  if(strpos($form_id, 'commerce_order_item_add_to_cart_form_commerce') !== false) {
+  if (strpos($form_id,
+      'commerce_order_item_add_to_cart_form_commerce') !== false) {
+    if (\Drupal::currentUser()->isAuthenticated()) {
+      $user = User::load(\Drupal::currentUser()->id());
+      $field_subscription_expiry = $user->get('field_subscription_expiry')
+        ->getValue();
+      if (isset($field_subscription_expiry[0]['value'])) {
+        $myDateTime = new \DateTime();
+        $subExpiry = new \DateTime($field_subscription_expiry[0]['value']);
+        $days = $myDateTime->diff($subExpiry)->format('%R%a');
+        if ($days > 0) {
+          $message = 'Your subscription does not expire until ' . $subExpiry->format('l, jS F, Y') . '.';
+        } else {
+          $message = 'Your subscription expired on ' . $subExpiry->format('Y-m-d') . '.';
+        }
+        $form['#markup'] = $message;
+      }
+    }
+    $form['email'] = [
+      '#type' => 'textfield',
+      '#title' => 'Gift recipient’s email address',
+      '#description' => 'If you are buying a gift subscription, please enter the email address of the recipient. They will be notified of the gift and invited to create an account.',
+    ];
     $form['actions']['submit']['#value'] = t('Checkout');
-    $form['actions']['submit']['#submit'][] = '_redirect_to_checkout';
-  }
-  elseif($form_id == 'commerce_checkout_flow_multistep_default') {
+    $form['actions']['submit']['#submit'][] = '_etype_commerce_redirect_to_checkout';
     $form['#attached']['library'][] = 'etype_commerce/login-form';
+  }
+
+  switch ($form_id) {
+    case 'commerce_checkout_flow_multistep_default':
+      $form['#attached']['library'][] = 'etype_commerce/login-form';
+      break;
   }
 }
 
 /**
  * Callback for form submission.
- * @see hook_form_alter()
  *
  * @param $form
  * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *
+ * @see hook_form_alter()
+ *
  */
-function _redirect_to_checkout(&$form, FormStateInterface $form_state) {
+function _etype_commerce_redirect_to_checkout(&$form, FormStateInterface $form_state) {
   /** @var \Drupal\commerce_order\Entity\OrderInterface $cart_id */
   $cart_id = $form_state->get('cart_id');
+
+  /* Is this a gift? */
+  if ($_POST['purchased_entity'][0]['attributes']['attribute_gift'] == 10) {
+    $gift_email = ($_POST['email']);
+    // Create a gift subscription object.
+    try {
+      // Delete any entries with the same order id.
+      // People should only be able to but 1 subscription at a a time.
+      $query = \Drupal::entityQuery('gift_subscription')
+        ->condition('order_id', $cart_id);
+      $nids = $query->execute();
+      foreach ($nids as $nid) {
+        $entity = \Drupal::entityTypeManager()
+          ->getStorage('gift_subscription')
+          ->load($nid);
+        $entity->delete();
+      }
+      /*
+       * Add new gift subscription entity.
+       * @todo Check that there is not already a gift subscription with this email.
+       */
+      $entity = \Drupal::entityTypeManager()
+        ->getStorage('gift_subscription')
+        ->create([
+          'order_id' => $cart_id,
+          'email' => $gift_email,
+          'print' => $_POST['purchased_entity'][0]['attributes']['attribute_subscription_type'],
+          'duration' => $_POST['purchased_entity'][0]['attributes']['attribute_duration'],
+        ]);
+      $entity->save();
+    } catch (\Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException | PluginNotFoundException | EntityStorageException $e) {
+      $message = 'Could not save gift subscription entity' . (int) $cart_id;
+      \Drupal::logger('etype_commerce')->error($message);
+    }
+  }
+
+  \Drupal::logger('etype_commerce')->info($cart_id);
   $url = Url::fromRoute('commerce_checkout.form',
     ['commerce_order' => $cart_id]
   );
@@ -64,4 +135,138 @@ function etype_commerce_preprocess_page_title(&$variables) {
 function _etype_commerce_expire_subscribers() {
   $job = new Drupal\etype_commerce\Controller\ExpireSubscribersController;
   $job->expireSubscribers();
+}
+
+/**
+ * Implements hook_page_attachments().
+ * css hides system login link.
+ *
+ * @param array $page
+ */
+function etype_commerce_page_attachments(array &$page) {
+  $page['#attached']['library'][] = 'etype_commerce/global-styling';
+}
+
+/**
+ * @param UserInterface $account
+ *
+ * @throws \Exception
+ */
+function etype_commerce_user_login(UserInterface $account) {
+  /*
+   * Check for gift Subscription.
+   * If there is no sub expiry date then the gift sub has not been redeemed.
+   */
+  $field_subscription_expiry = $account->get('field_subscription_expiry')
+    ->getValue();
+  if (count($field_subscription_expiry) == 0) {
+    /* There's no expiry date. */
+    $email = $account->getEmail();
+    $query = \Drupal::entityQuery('gift_subscription')
+      ->condition('email', $email)
+      ->condition('paid', 1);
+    $ids = $query->execute();
+    /* Look for a Gift Subscription. */
+    if (count($ids) > 0) {
+      /* There is a matching gift sub for this email address. */
+      /* Let's load the entity, and get the role identifier. */
+      try {
+        $entity = \Drupal::entityTypeManager()
+          ->getStorage('gift_subscription')
+          ->load(reset($ids));
+        $arr = $entity->get('print')->getValue();
+        $printSub = $arr[0]['value'];
+        $arr2 = $entity->get('duration')->getValue();
+        $subDuration = $arr2[0]['value'];
+
+        /* Get the right role to add, add it. */
+        try {
+          $sub_entity = \Drupal::entityTypeManager()
+            ->getStorage('commerce_product_attribute')
+            ->load('subscription_type')
+            ->getValues();
+          $arr2 = $sub_entity[$printSub]->name->getValue();
+          $role = $arr2[0]['value'];
+          switch ($role) {
+            case 'Print & Digital';
+              $formatted_role = 'print_digital_subscriber';
+              break;
+            default:
+              $formatted_role = 'digital_subscriber';
+          }
+          $account->addRole($formatted_role);
+
+          /* Get the sub duration, add it, and save user. */
+          try {
+            $duration_entity = \Drupal::entityTypeManager()
+              ->getStorage('commerce_product_attribute')
+              ->load('duration')
+              ->getValues();
+            $arr2 = $duration_entity[$subDuration]->name->getValue();
+            $duration = $arr2[0]['value'];
+            switch ($duration) {
+              case '1 year';
+                $formatted_duration = 'P1Y';
+                break;
+
+              case '6 months';
+                $formatted_duration = 'P6M';
+                break;
+
+              default:
+                $formatted_duration = 'P3D';
+            }
+            $myDateTime = new \DateTime();
+            $subDate = $myDateTime->format('Y-m-d');
+            $subExpiry = $myDateTime->add(new \DateInterval($formatted_duration))
+              ->format('Y-m-d');
+            $account->set('field_subscription_date', $subDate);
+            $account->set('field_subscription_expiry', $subExpiry);
+            $account->save();
+            $entity->delete();
+          } catch (InvalidPluginDefinitionException | PluginNotFoundException | EntityStorageException $e) {
+            \Drupal::messenger()->addError('Could not save Account entity.');
+          } catch (Exception $e) {
+          }
+        } catch (InvalidPluginDefinitionException | PluginNotFoundException $e) {
+          \Drupal::messenger()
+            ->addError('Could not retrieve Gift Subscription entity.');
+        }
+      } catch (InvalidPluginDefinitionException | PluginNotFoundException $e) {
+        Drupal::messenger()
+          ->addError('Could not retrieve Gift Subscription entity.');
+      }
+    }
+  }
+  elseif (isset($field_subscription_expiry[0]['value'])) {
+    $myDateTime = new \DateTime();
+    $subExpiry = new \DateTime($field_subscription_expiry[0]['value']);
+    $days = $myDateTime->diff($subExpiry)->format('%R%a');
+    $num = (int) $days;
+    if ($num < 0) {
+      Drupal::messenger()
+        ->addWarning('Your subscription has expired. You will not be albe to access content until you renew it.');
+    }
+  }
+}
+
+/**
+ * @param $key
+ * @param $message
+ * @param $params
+ */
+function etype_commerce_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'gift_subscription':
+      $message['subject'] = sprintf(t("Gift Subscription to %s"),
+        $params['site_name']
+      );
+      $message['body'][] = sprintf(t("You’ve been given a subscription to %s by %s.\n\nPlease visit %s/gift-subscription/%d to redeem your gift."),
+        $params['site_name'],
+        $params['gifter'],
+        $params['site_url'],
+        $params['orderId']
+      );
+      break;
+  }
 }
