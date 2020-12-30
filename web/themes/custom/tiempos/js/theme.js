@@ -28,10 +28,9 @@ function getIEVersion() {
 
             /* Menu toggle. */
             $(".navbar-burger").once("tiemposBehavior").click(function () {
-                $(".navbar-start").toggleClass("is-really-invisible");
-                $(".user-menu, .region-header-left, .region-header-center, #block-tiempos-branding").toggleClass("is-hidden-touch");
+                $("header, .navbar-start").toggleClass("is-really-invisible");
                 /* User menu might be in top-bar */
-                $("header, .region-top-bar").toggleClass("z-index-fix");
+                $(".region-top-bar").toggleClass("z-index-fix");
                 $(".region-navigation").toggleClass("border-bottom");
             });
 

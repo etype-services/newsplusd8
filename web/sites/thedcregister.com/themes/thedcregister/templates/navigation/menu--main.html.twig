@@ -43,10 +43,7 @@
                     {% endmacro %}
                 </div>
             </div>
-            <div class="column">
-                {{ drupal_block('system_branding_block', {use_site_name: false}) }}
-            </div>
-            <div class="column">&nbsp;</div>
+          <div class="column">{{ drupal_block('system_menu_block:account') }}</div>
         </div>
         {# Main menu shown at width, uses bulma dropdown classes#}
         <div id="main-navbar-menu" class="navbar-menu has-text-weight-semibold">
