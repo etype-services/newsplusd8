@@ -86,10 +86,12 @@ h3.section-tag-heading {
   padding: calc(.5em - 1px) 1em;
   white-space: nowrap;
   border-radius: 4px;
+}
+
+h3.section-tag-heading a {
   color: #ffffff;
 }
 
-h3.section-tag-heading a,
 h3.section-tag-heading a:hover {
   color: #b4dff7!important;
 }
