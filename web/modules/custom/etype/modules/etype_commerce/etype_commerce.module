@@ -178,11 +178,11 @@ function etype_commerce_user_login(UserInterface $account) {
 
         /* Get the right role to add, add it. */
         try {
-          $commerce_entity = \Drupal::entityTypeManager()
+          $sub_entity = \Drupal::entityTypeManager()
             ->getStorage('commerce_product_attribute')
             ->load('subscription_type')
             ->getValues();
-          $arr2 = $commerce_entity[$printSub]->name->getValue();
+          $arr2 = $sub_entity[$printSub]->name->getValue();
           $role = $arr2[0]['value'];
           switch ($role) {
             case 'Print & Digital';
@@ -195,11 +195,11 @@ function etype_commerce_user_login(UserInterface $account) {
 
           /* Get the sub duration, add it, and save user. */
           try {
-            $entity = \Drupal::entityTypeManager()
+            $duration_entity = \Drupal::entityTypeManager()
               ->getStorage('commerce_product_attribute')
               ->load('duration')
               ->getValues();
-            $arr2 = $entity[$subDuration]->name->getValue();
+            $arr2 = $duration_entity[$subDuration]->name->getValue();
             $duration = $arr2[0]['value'];
             switch ($duration) {
               case '1 year';
