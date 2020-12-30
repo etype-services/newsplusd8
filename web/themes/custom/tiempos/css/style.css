@@ -405,6 +405,7 @@ footer .footer-menu li > a {
   /* navbar-start is only shown when hamburger clicked */
 }
 #main-nav .navbar .navbar-start {
+  display: flex;
   /* position: fixed; */
   top: 0;
   left: 0;
@@ -543,6 +544,9 @@ footer .footer-menu li > a {
   }
   #main-nav .navbar .navbar-end a .is-size-3 {
     font-size: 1.5rem !important;
+  }
+  #main-nav .user-menu {
+    margin-top: 3rem;
   }
 }
 /* Center column for tiempos theme */

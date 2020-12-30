@@ -91,6 +91,7 @@
 
     /* navbar-start is only shown when hamburger clicked */
     .navbar-start {
+      display: flex;
       .column {
         flex-basis: 50%;
       }
@@ -243,6 +244,9 @@
           }
         }
       }
+    }
+    .user-menu {
+      margin-top: 3rem;
     }
   }
 }
