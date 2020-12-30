@@ -149,6 +149,8 @@ function etype_commerce_page_attachments(array &$page) {
 
 /**
  * @param UserInterface $account
+ *
+ * @throws \Exception
  */
 function etype_commerce_user_login(UserInterface $account) {
   /*
@@ -164,6 +166,7 @@ function etype_commerce_user_login(UserInterface $account) {
       ->condition('email', $email)
       ->condition('paid', 1);
     $ids = $query->execute();
+    /* Look for a Gift Subscription. */
     if (count($ids) > 0) {
       /* There is a matching gift sub for this email address. */
       /* Let's load the entity, and get the role identifier. */
@@ -233,6 +236,16 @@ function etype_commerce_user_login(UserInterface $account) {
         Drupal::messenger()
           ->addError('Could not retrieve Gift Subscription entity.');
       }
+    }
+  }
+  elseif (isset($field_subscription_expiry[0]['value'])) {
+    $myDateTime = new \DateTime();
+    $subExpiry = new \DateTime($field_subscription_expiry[0]['value']);
+    $days = $myDateTime->diff($subExpiry)->format('%R%a');
+    $num = (int) $days;
+    if ($num < 0) {
+      Drupal::messenger()
+        ->addWarning('Your subscription has expired. You will not be albe to access content until you renew it.');
     }
   }
 }
