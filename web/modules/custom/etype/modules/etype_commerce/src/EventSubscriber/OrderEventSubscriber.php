@@ -92,7 +92,19 @@ class OrderEventSubscriber implements EventSubscriberInterface
       $gift_email = $email[0]['value'];
       $check = user_load_by_mail($gift_email);
       if ($check == FALSE) {
-        /* @todo send email to giftee */
+        /* Send email to giftee. */
+        $user = User::load($customer_id);
+        $config = \Drupal::config('system.site');
+        $host = \Drupal::request()->getSchemeAndHttpHost();
+        $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+        $params = [
+          'site_name' => $config->get('name'),
+          'site_url' => $host,
+          'gifter' => $user->getUserName(),
+          'orderId' => $order_id,
+        ];
+        \Drupal::service('plugin.manager.mail')
+          ->mail('etype_commerce', 'gift_subscription', $gift_email, $language, $params);
       }
       else {
         /* Gift user exists - extend subscription */

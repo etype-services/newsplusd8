@@ -249,3 +249,24 @@ function etype_commerce_user_login(UserInterface $account) {
     }
   }
 }
+
+/**
+ * @param $key
+ * @param $message
+ * @param $params
+ */
+function etype_commerce_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'gift_subscription':
+      $message['subject'] = sprintf(t("Gift Subscription to %s"),
+        $params['site_name']
+      );
+      $message['body'][] = sprintf(t("You’ve been given a subscription to %s by %s.\n\nPlease visit %s/gift-subscription/%d to redeem your gift."),
+        $params['site_name'],
+        $params['gifter'],
+        $params['site_url'],
+        $params['orderId']
+      );
+      break;
+  }
+}
