@@ -83,10 +83,7 @@ h3.section-tag-heading {
   background-color: #217db0;
   border-color: #dbdbdb;
   border-width: 1px;
-  cursor: pointer;
-  justify-content: center;
   padding: calc(.5em - 1px) 1em;
-  text-align: center;
   white-space: nowrap;
   border-radius: 4px;
   color: #ffffff;
