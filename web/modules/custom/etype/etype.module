@@ -47,7 +47,13 @@ function etype_preprocess_html(&$variables) {
  */
 function etype_preprocess_node(&$variables) {
   $config = Drupal::config('etype.adminsettings');
-  $variables['premium_content_message'] = $config->get('premium_content_message');
+  $editions = etype_e_editions();
+  $premium_content_message = $config->get('premium_content_message');
+  $patterns = ["#login", "#subscribe"];
+  $login_url = $editions[0]['login_link'] . '?destination=' . $_SERVER['REQUEST_URI'];
+  $replace = [$login_url, $editions[0]['sub_link']];
+  $str = str_replace($patterns, $replace, $premium_content_message);
+  $variables['premium_content_message'] = $str;
   $variables['premium_preview'] = $config->get('premium_preview');
 }
 
@@ -143,6 +149,7 @@ function etype_e_editions(): array {
         $path = $v2_url . 'e-edition/'. $pub;
         $path_anon = $v2_url . 'e-edition/'. $pub;
         $sub_link = $v2_url . 'e-edition/'. $pub;
+        $login_link = '/etype-login';
         break;
 
       case 'pico':
@@ -152,6 +159,7 @@ function etype_e_editions(): array {
         $path = $v2_url . 'e-edition';
         $path_anon = $v2_url . 'e-edition';
         $sub_link = $v2_url . 'pico-subscribe';
+        $login_link = '';
         break;
 
       default;
@@ -171,12 +179,14 @@ function etype_e_editions(): array {
         }
         $path_anon = $v1_url . $e_edition;
         $sub_link = $v1_url . $e_edition . "/default.aspx?PubID=" . $pub;
+        $login_link = $v1_url . $e_edition;
     }
 
     $e_editions[$ptr]['site_name'] = trim($site);
     $e_editions[$ptr]['path'] = $path;
     $e_editions[$ptr]['path_anon'] = $path_anon;
     $e_editions[$ptr]['sub_link'] = $sub_link;
+    $e_editions[$ptr]['login_link'] = $login_link;
     $e_editions[$ptr]['pubId'] = $pub;
     $ptr++;
   }
