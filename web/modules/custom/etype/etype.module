@@ -179,7 +179,7 @@ function etype_e_editions(): array {
         }
         $path_anon = $v1_url . $e_edition;
         $sub_link = $v1_url . $e_edition . "/default.aspx?PubID=" . $pub;
-        $login_link = $v1_url . $e_edition;
+        $login_link = $v1_url . $e_edition . "/default.aspx?PubID=" . $pub;
     }
 
     $e_editions[$ptr]['site_name'] = trim($site);
