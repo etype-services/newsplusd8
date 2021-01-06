@@ -52,8 +52,7 @@ namespace Drupal\etype_commerce\Form {
     public function buildForm(array $form, FormStateInterface $form_state) :array {
 
       $form['MailChimpAPIKey'] = [
-        '#title' => $this->t('Free articles'),
-        '#description' => 'MailChimp API Key',
+        '#title' => $this->t('MailChimp API Key'),
         '#type' => 'textfield',
         '#default_value' => $this->conf->get('MailChimpAPIKey'),
       ];
