@@ -3,9 +3,3 @@ etype_commerce.expire_subscribers:
   route_name: etype_commerce.expire_subscribers
   base_route: entity.user.collection
   weight: 100
-
-etype_commerce.admin_settings:
-  title: 'eType Commerce Settings'
-  parent: system.admin_config_etype
-  description: 'Configure Commerce settings.'
-  route_name: etype_commerce.admin_settings

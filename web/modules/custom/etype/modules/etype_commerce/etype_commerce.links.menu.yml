@@ -1,0 +1,5 @@
+etype_commerce.admin_settings:
+  title: 'eType Commerce Settings'
+  parent: system.admin_config_etype
+  description: 'Configure eType Commerce Integration.'
+  route_name: etype_commerce.admin_settings
