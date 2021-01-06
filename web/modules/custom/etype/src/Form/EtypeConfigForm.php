@@ -102,7 +102,7 @@ class EtypeConfigForm extends ConfigFormBase {
     $form['e_edition']['premium_content_message'] = [
       '#type' => 'text_format',
       '#title' => $this->t('Premium Content Message'),
-      '#description' => $this->t('Message shown to unauthenticated users attempting to access premium content nodes.<br />Use these replacement patterns patterns:<br />#login - just the login url, #subscribe - just the subscribe url, #sublinks - A sentence with subscribe links \(for sites conntected to multiple papers.\)'),
+      '#description' => $this->t('Message shown to unauthenticated users attempting to access premium content nodes.<br />Use these replacement patterns patterns: #login - just the login url, #subscribe - just the subscribe url, #sublinks - A sentence with subscribe links (for sites conntected to multiple papers.)'),
       '#cols' => '100',
       '#default_value' => $premium_content_message['value'],
       '#format' => $premium_content_message['format'],
