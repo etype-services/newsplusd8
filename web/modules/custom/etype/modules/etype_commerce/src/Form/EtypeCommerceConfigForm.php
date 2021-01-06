@@ -4,6 +4,8 @@ namespace Drupal\etype_commerce\Form {
 
   use Drupal\Core\Form\ConfigFormBase;
   use Drupal\Core\Form\FormStateInterface;
+  use MailchimpMarketing\ApiClient;
+  use MailchimpMarketing\ApiException;
 
   /**
    * Class eTypeConfigForm.
@@ -60,15 +62,35 @@ namespace Drupal\etype_commerce\Form {
         '#default_value' => $this->conf->get('MailChimpServerPrefix'),
       ];
 
-      $mailchimp = new \MailchimpMarketing\ApiClient();
+      $mailchimp = new ApiClient();
 
       $mailchimp->setConfig([
         'apiKey' => $this->conf->get('MailChimpAPIKey'),
         'server' => $this->conf->get('MailChimpServerPrefix'),
       ]);
 
-      //$response = $mailchimp->ping->get();
-      //print_r($response);
+      $response = $mailchimp->ping->get();
+      print_r($response);
+
+      $list_id = "bd3273b6d1";
+
+      try {
+        $response = $mailchimp->lists->getAllLists();
+        print_r($response);
+
+        $response = $mailchimp->lists->addListMember($list_id, [
+          "email_address" => "prudence.mcvankab@example.com",
+          "status" => "subscribed",
+          "merge_fields" => [
+            "FNAME" => "Prudence",
+            "LNAME" => "McVankab",
+          ],
+        ]);
+        print_r($response);
+      }
+      catch (ApiException $e) {
+        echo $e->getMessage();
+      }
 
       return parent::buildForm($form, $form_state);
     }
