@@ -55,7 +55,7 @@ function etype_preprocess_node(&$variables) {
   $str = str_replace($patterns, $replace, $premium_content_message);
   if (count($editions) > 1) {
     $i = 0;
-    $sub_str = "Subscribe";
+    $sub_str = "You can subscribe ";
     foreach ($editions as $edition) {
       $sub_str .= "to the <a href=\"" . $edition['sub_link'] . "\">" . $edition['site_name'] . "</a>";
       if ($i < count($editions)) {
