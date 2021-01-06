@@ -64,7 +64,7 @@ function etype_preprocess_node(&$variables) {
       $i ++;
     }
     $sub_str .= '.';
-    $str = str_replace("#subscribemultiple", $sub_str, $tmpstr);
+    $str = str_replace("#sublinks", $sub_str, $tmpstr);
   } else {
     $str = $tmpstr;
   }
