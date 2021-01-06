@@ -10,6 +10,8 @@ use League\Csv\Exception;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Drupal\user\Entity\User;
 use Drupal\commerce_cart\Event\CartEntityAddEvent;
+use MailchimpMarketing\ApiClient;
+use MailchimpMarketing\ApiException;
 
 /**
  * Class OrderEventSubscriber adds Events on Order Completion.
@@ -21,6 +23,13 @@ use Drupal\commerce_cart\Event\CartEntityAddEvent;
  */
 class OrderEventSubscriber implements EventSubscriberInterface
 {
+
+  /**
+   * Config.
+   *
+   * @var OrderEventSubscriber
+   */
+  protected $conf;
 
   /**
    * Success or failure message.
@@ -49,6 +58,7 @@ class OrderEventSubscriber implements EventSubscriberInterface
   public function __construct() {
     $this->message = '';
     $this->role = '';
+    $this->conf = \Drupal::config('etype_commerce.adminsettings');
   }
 
   /**
@@ -252,6 +262,10 @@ class OrderEventSubscriber implements EventSubscriberInterface
       echo 'Caught Exception: ', $e->getMessage(), "\n";
       exit;
     }
+
+    /* Add subscriber to MailChimp */
+    $this->addToMailChimp($email);
+
   }
 
   /**
@@ -281,6 +295,42 @@ class OrderEventSubscriber implements EventSubscriberInterface
       $cart_items[0]->setQuantity(1);
     }
     $cart->save();
+  }
+
+  /**
+   * Add subscriber to MailChimp.
+   *
+   * @param string $email
+   *   Email Address to add to MailChimp.
+   */
+  public function addToMailChimp(string $email) {
+
+    $mailchimp = new ApiClient();
+
+    $mailchimp->setConfig([
+      'apiKey' => $this->conf->get('MailChimpAPIKey'),
+      'server' => $this->conf->get('MailChimpServerPrefix'),
+    ]);
+
+    try {
+      $mailchimp->ping->get();
+    }
+    catch (ApiException $e) {
+      echo $e->getMessage();
+    }
+
+    $list_id = $this->conf->get('MailChimpListId');
+    $subscriber_hash = md5($email);
+
+    try {
+      $mailchimp->lists->setListMember($list_id, $subscriber_hash, [
+        "email_address" => $email,
+        "status_if_new" => "subscribed",
+      ]);
+    }
+    catch (ApiException $e) {
+      echo $e->getMessage();
+    }
   }
 
 }
