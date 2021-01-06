@@ -53,6 +53,18 @@ function etype_preprocess_node(&$variables) {
   $login_url = $editions[0]['login_link'] . '?destination=' . $_SERVER['REQUEST_URI'];
   $replace = [$login_url, $editions[0]['sub_link']];
   $str = str_replace($patterns, $replace, $premium_content_message);
+  if (count($editions) > 1) {
+    $i = 0;
+    $sub_str = "Subscribe";
+    foreach ($editions as $edition) {
+      $sub_str .= "to the <a href=\"" . $edition['sub_link'] . "\">" . $edition['site_name'] . "</a>";
+      if ($i < count($editions)) {
+        $sub_str .= " or ";
+      }
+      $i ++;
+    }
+    $str = str_replace("#subscribemultiple", $sub_str, $str);
+  }
   $variables['premium_content_message'] = $str;
   $variables['premium_preview'] = $config->get('premium_preview');
 }
