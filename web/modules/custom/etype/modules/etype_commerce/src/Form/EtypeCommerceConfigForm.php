@@ -79,12 +79,8 @@ namespace Drupal\etype_commerce\Form {
         print_r($response);
 
         $response = $mailchimp->lists->addListMember($list_id, [
-          "email_address" => "prudence.mcvankab@example.com",
+          "email_address" => "prudencemcvankab@example.com",
           "status" => "subscribed",
-          "merge_fields" => [
-            "FNAME" => "Prudence",
-            "LNAME" => "McVankab",
-          ],
         ]);
         print_r($response);
       }
