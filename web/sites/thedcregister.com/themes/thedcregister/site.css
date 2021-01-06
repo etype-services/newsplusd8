@@ -41,6 +41,10 @@ body {
   padding-right: 0;
 }
 
+#main-navbar-menu .dropdown .dropdown-menu .dropdown-content a {
+  color: #185c81!important;
+}
+
 main {
   background-color: #ffffff;
   border-radius: 5px;
