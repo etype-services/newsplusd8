@@ -2,10 +2,8 @@
 
 namespace Drupal\etype_commerce\Form {
 
-  use Drupal;
   use Drupal\Core\Form\ConfigFormBase;
   use Drupal\Core\Form\FormStateInterface;
-  use Drupal\node\Entity\NodeType;
 
   /**
    * Class eTypeConfigForm.
@@ -28,7 +26,6 @@ namespace Drupal\etype_commerce\Form {
       parent::__construct($this->configFactory());
       $this->conf = $this->config('etype_commerce.settings');
     }
-
 
     /**
      * {@inheritdoc}
@@ -58,10 +55,20 @@ namespace Drupal\etype_commerce\Form {
       ];
 
       $form['MailChimpServerPrefix'] = [
-        '#title' => $this->t('MailChimp API Key'),
+        '#title' => $this->t('MailChimp Server Prefix'),
         '#type' => 'textfield',
         '#default_value' => $this->conf->get('MailChimpServerPrefix'),
       ];
+
+      $mailchimp = new \MailchimpMarketing\ApiClient();
+
+      $mailchimp->setConfig([
+        'apiKey' => $this->conf->get('MailChimpAPIKey'),
+        'server' => $this->conf->get('MailChimpServerPrefix'),
+      ]);
+
+      $response = $mailchimp->ping->get();
+      print_r($response);
 
       return parent::buildForm($form, $form_state);
     }
