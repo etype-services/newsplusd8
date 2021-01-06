@@ -57,7 +57,7 @@ function etype_preprocess_node(&$variables) {
     $i = 1;
     $sub_str = "Subscribe ";
     foreach ($editions as $edition) {
-      $sub_str .= "to the <a href=\"" . $edition['sub_link'] . "\">" . $edition['site_name'] . "</a>";
+      $sub_str .= "to <a href=\"" . $edition['sub_link'] . "\">" . $edition['site_name'] . "</a>";
       if ($i < count($editions)) {
         $sub_str .= " or ";
       }
