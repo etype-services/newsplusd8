@@ -45,6 +45,10 @@ body {
   color: #185c81!important;
 }
 
+#main-navbar-menu .dropdown .dropdown-menu .dropdown-content a:hover {
+  color: #217db0!important;
+}
+
 main {
   background-color: #ffffff;
   border-radius: 5px;
