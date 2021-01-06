@@ -57,6 +57,12 @@ namespace Drupal\etype_commerce\Form {
         '#default_value' => $this->conf->get('MailChimpAPIKey'),
       ];
 
+      $form['MailChimpServerPrefix'] = [
+        '#title' => $this->t('MailChimp API Key'),
+        '#type' => 'textfield',
+        '#default_value' => $this->conf->get('MailChimpServerPrefix'),
+      ];
+
       return parent::buildForm($form, $form_state);
     }
 
@@ -68,6 +74,7 @@ namespace Drupal\etype_commerce\Form {
 
       $this->config('etype_commerce.settings')
         ->set('MailChimpAPIKey', $form_state->getValue('MailChimpAPIKey'))
+        ->set('MailChimpServerPrefix', $form_state->getValue('MailChimpServerPrefix'))
         ->save();
 
     }
