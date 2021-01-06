@@ -63,6 +63,7 @@ function etype_preprocess_node(&$variables) {
       }
       $i ++;
     }
+    $sub_str .= '.';
     $str = str_replace("#subscribemultiple", $sub_str, $str);
   }
   $variables['premium_content_message'] = $str;
