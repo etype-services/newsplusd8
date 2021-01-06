@@ -56,9 +56,10 @@ class OrderEventSubscriber implements EventSubscriberInterface
    * OrderEventSubscriber constructor.
    */
   public function __construct() {
+
     $this->message = '';
     $this->role = '';
-    $this->conf = \Drupal::config('etype_commerce.adminsettings');
+    $this->conf = \Drupal::config('etype_commerce.settings');
   }
 
   /**
@@ -306,22 +307,18 @@ class OrderEventSubscriber implements EventSubscriberInterface
   public function addToMailChimp(string $email) {
 
     $mailchimp = new ApiClient();
-
     $mailchimp->setConfig([
       'apiKey' => $this->conf->get('MailChimpAPIKey'),
       'server' => $this->conf->get('MailChimpServerPrefix'),
     ]);
-
     try {
       $mailchimp->ping->get();
     }
     catch (ApiException $e) {
       echo $e->getMessage();
     }
-
     $list_id = $this->conf->get('MailChimpListId');
     $subscriber_hash = md5($email);
-
     try {
       $mailchimp->lists->setListMember($list_id, $subscriber_hash, [
         "email_address" => $email,
