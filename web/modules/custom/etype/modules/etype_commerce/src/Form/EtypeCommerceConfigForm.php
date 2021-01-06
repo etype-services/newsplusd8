@@ -67,8 +67,8 @@ namespace Drupal\etype_commerce\Form {
         'server' => $this->conf->get('MailChimpServerPrefix'),
       ]);
 
-      $response = $mailchimp->ping->get();
-      print_r($response);
+      //$response = $mailchimp->ping->get();
+      //print_r($response);
 
       return parent::buildForm($form, $form_state);
     }
