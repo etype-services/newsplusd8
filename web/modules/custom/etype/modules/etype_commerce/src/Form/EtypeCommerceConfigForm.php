@@ -69,18 +69,25 @@ namespace Drupal\etype_commerce\Form {
         'server' => $this->conf->get('MailChimpServerPrefix'),
       ]);
 
-      $response = $mailchimp->ping->get();
-      print_r($response);
+      try {
+        $response = $mailchimp->ping->get();
+      }
+      catch (ApiException $e) {
+        echo $e->getMessage();
+      }
 
       $list_id = "bd3273b6d1";
+      $email = "charlie@etypeservices.com";
+      $subscriber_hash = md5($email);
 
       try {
-        $response = $mailchimp->lists->getAllLists();
-        print_r($response);
-
-        $response = $mailchimp->lists->addListMember($list_id, [
-          "email_address" => "prudencemcvankab@example.com",
-          "status" => "subscribed",
+        $response = $mailchimp->lists->setListMember($list_id, $subscriber_hash, [
+          "email_address" => $email,
+          "status_if_new" => "subscribed",
+          "merge_fields" => [
+            "FNAME" => "Prudence",
+            "LNAME" => "McVankab",
+          ],
         ]);
         print_r($response);
       }
