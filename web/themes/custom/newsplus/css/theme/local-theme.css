@@ -104,6 +104,11 @@ article .field--name-field-tags h3 {
   margin-left: 1rem;
 }
 
+/* Webforms Page */
+#webforms h2.node__title {
+  margin-bottom: 0;
+}
+
 /* Account Menu */
 @media (min-width: 768px) {
   #pre-header-right ul.menu {
