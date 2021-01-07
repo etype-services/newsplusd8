@@ -32,13 +32,13 @@ function getIEVersion() {
           let titleHeight;
           let titleHeights = [];
           let titleMaxHeight;
-          $("h2", obj).each(function () {
+          $(".views-field-title", obj).each(function () {
             titleHeight = $(this).height();
             titleHeights.push(parseInt(titleHeight));
           });
           titleMaxHeight = Math.max.apply(Math, titleHeights);
           // console.log(titleHeights);
-          $("h2", obj).css({
+          $(".views-field-title", obj).css({
             height: titleMaxHeight,
           });
         });
