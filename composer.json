@@ -118,6 +118,7 @@
         "drupal/weather_block": "^1.1",
         "drupal/webform": "^5.0",
         "drush/drush": "^9.0",
+        "mailchimp/marketing": "^3.0",
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",

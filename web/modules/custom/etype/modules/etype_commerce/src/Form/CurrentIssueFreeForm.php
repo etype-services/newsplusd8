@@ -25,7 +25,7 @@ class CurrentIssueFreeForm extends FormBase {
    * CurrentIssueFreeForm constructor.
    */
   public function __construct() {
-    $this->config = $config = \Drupal::config('etype_commerce.adminsettings');
+    $this->config = $config = \Drupal::config('etype_commerce.settings');
   }
 
   /**

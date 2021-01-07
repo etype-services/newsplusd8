@@ -10,6 +10,8 @@ use League\Csv\Exception;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Drupal\user\Entity\User;
 use Drupal\commerce_cart\Event\CartEntityAddEvent;
+use MailchimpMarketing\ApiClient;
+use MailchimpMarketing\ApiException;
 
 /**
  * Class OrderEventSubscriber adds Events on Order Completion.
@@ -21,6 +23,13 @@ use Drupal\commerce_cart\Event\CartEntityAddEvent;
  */
 class OrderEventSubscriber implements EventSubscriberInterface
 {
+
+  /**
+   * Config.
+   *
+   * @var OrderEventSubscriber
+   */
+  protected $conf;
 
   /**
    * Success or failure message.
@@ -44,11 +53,20 @@ class OrderEventSubscriber implements EventSubscriberInterface
   protected $order;
 
   /**
+   * The User.
+   *
+   * @var \Drupal\user\Entity\User
+   */
+  protected $user;
+
+  /**
    * OrderEventSubscriber constructor.
    */
   public function __construct() {
+
     $this->message = '';
     $this->role = '';
+    $this->conf = \Drupal::config('etype_commerce.settings');
   }
 
   /**
@@ -136,9 +154,9 @@ class OrderEventSubscriber implements EventSubscriberInterface
    * @throws \Exception
    */
   public function extendSubscription(int $uid, int $gift = NULL) {
-    $user = User::load($uid);
-    $username = $user->getUsername();
-    $email = $user->getEmail();
+    $this->user = User::load($uid);
+    $username = $this->user->getUsername();
+    $email = $this->user->getEmail();
     $formatted_duration = '';
     $formatted_role = '';
     $subExpiry = '';
@@ -148,7 +166,7 @@ class OrderEventSubscriber implements EventSubscriberInterface
     /* Set variable with new subscription date, today. */
     $subDate = $myDateTime->format('Y-m-d');
     /* Get current sub expiry date. */
-    $field_subscription_expiry = $user->get('field_subscription_expiry')
+    $field_subscription_expiry = $this->user->get('field_subscription_expiry')
       ->getValue();
 
     /*
@@ -228,13 +246,13 @@ class OrderEventSubscriber implements EventSubscriberInterface
           ->format('Y-m-d');
       }
 
-      $user->addRole($formatted_role);
-      $user->set('field_subscription_date', $subDate);
-      $user->set('field_subscription_expiry', $subExpiry);
+      $this->user->addRole($formatted_role);
+      $this->user->set('field_subscription_date', $subDate);
+      $this->user->set('field_subscription_expiry', $subExpiry);
     }
 
     try {
-      if (!$user->save()) {
+      if (!$this->user->save()) {
         throw new Exception("Unable to save user.");
       }
       switch ($gift) {
@@ -252,6 +270,10 @@ class OrderEventSubscriber implements EventSubscriberInterface
       echo 'Caught Exception: ', $e->getMessage(), "\n";
       exit;
     }
+
+    /* Add subscriber to MailChimp */
+    $this->addToMailChimp($email);
+
   }
 
   /**
@@ -281,6 +303,38 @@ class OrderEventSubscriber implements EventSubscriberInterface
       $cart_items[0]->setQuantity(1);
     }
     $cart->save();
+  }
+
+  /**
+   * Add subscriber to MailChimp.
+   *
+   * @param string $email
+   *   Email Address to add to MailChimp.
+   */
+  public function addToMailChimp(string $email) {
+
+    $mailchimp = new ApiClient();
+    $mailchimp->setConfig([
+      'apiKey' => $this->conf->get('MailChimpAPIKey'),
+      'server' => $this->conf->get('MailChimpServerPrefix'),
+    ]);
+    try {
+      $mailchimp->ping->get();
+    }
+    catch (ApiException $e) {
+      echo $e->getMessage();
+    }
+    $list_id = $this->conf->get('MailChimpListId');
+    $subscriber_hash = md5($email);
+    try {
+      $mailchimp->lists->setListMember($list_id, $subscriber_hash, [
+        "email_address" => $email,
+        "status_if_new" => "subscribed",
+      ]);
+    }
+    catch (ApiException $e) {
+      echo $e->getMessage();
+    }
   }
 
 }

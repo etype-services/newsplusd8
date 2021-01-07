@@ -23,3 +23,13 @@ etype_commerce.gift_subscription:
     _form: '\Drupal\etype_commerce\Form\GiftSubscriptionForm'
   requirements:
     _permission: 'access content'
+
+etype_commerce.admin_settings:
+  path: '/admin/config/etype_commerce/adminsettings'
+  defaults:
+    _form: '\Drupal\etype_commerce\Form\EtypeCommerceConfigForm'
+    _title: 'eType Commerce Configuration'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
