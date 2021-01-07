@@ -45,14 +45,14 @@
   padding-bottom: 30px;
 }
 #top-content {
-  padding: 20px 0 0 0;
+  padding: 0;
 }
 #top-content #slideshow {
   margin-right: -15px;
   margin-left: -15px;
 }
 #top-content + #main-content {
-  padding-top: 10px;
+  padding-top: 0;
 }
 .front #banner #slideshow {
   margin-top: 10px;
