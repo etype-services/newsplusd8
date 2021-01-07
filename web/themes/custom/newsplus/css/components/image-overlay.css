@@ -7,8 +7,10 @@
   overflow: hidden;
   display: block;
   max-width: 100%;
-  width: 100%;
   /*float: left;*/
+}
+.overlayed img {
+  width: 100%;
 }
 .overlay {
   position: absolute;
