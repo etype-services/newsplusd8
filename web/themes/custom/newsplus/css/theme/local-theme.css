@@ -10,15 +10,17 @@
   padding: 0;
 }
 
-/* Second Sidebar */
-.region-sidebar-second {
-  /* Most Recent Poll Block */
+.e-edition {
+  text-align: center;
 }
+
+/* Second Sidebar */
 .region-sidebar-second #block-mostrecentpoll {
-  /* Adjust choice box margins */
+  /* Most Recent Poll Block */
   /* Adjust Input Margin and Positioning */
 }
 .region-sidebar-second #block-mostrecentpoll #edit-choice--wrapper {
+  /* Adjust choice box margins */
   margin: 1px 0;
 }
 .region-sidebar-second #block-mostrecentpoll input[type=radio], .region-sidebar-second #block-mostrecentpoll input[type=checkbox] {
