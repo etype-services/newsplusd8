@@ -38,7 +38,6 @@ function getIEVersion() {
             titleHeights.push(parseInt(titleHeight));
           });
           titleMaxHeight = Math.max.apply(Math, titleHeights);
-          console.log(titleHeights);
           $(".views-field-title", obj).css({
             height: titleMaxHeight,
           });
