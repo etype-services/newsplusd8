@@ -7,7 +7,7 @@
 }
 .region-header-top-left,
 .region-header-top-right {
-  padding-top: 45px;
+  padding-top: 5px;
   padding-bottom: 5px;
 }
 @media (max-width: 767px) {
