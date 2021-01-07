@@ -29,6 +29,7 @@ function getIEVersion() {
 
       let frontFixer = function () {
         $("#block-views-block-mt-hot-posts-block-1").each(function () {
+          let obj = this;
           let titleHeight;
           let titleHeights = [];
           let titleMaxHeight;
