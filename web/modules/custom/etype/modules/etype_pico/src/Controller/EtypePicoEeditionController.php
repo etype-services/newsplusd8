@@ -51,11 +51,20 @@ class EtypePicoEeditionController extends ControllerBase {
   public $config;
 
   /**
+   * Configuration Settings.
+   *
+   * @var \Drupal\Core\Config\ImmutableConfig
+   */
+  public $picoConfig;
+
+  /**
    * EtypePicoEeditionController constructor.
    */
   public function __construct() {
     $this->config = Drupal::config('etype.adminsettings');
+    $this->picoConfig = Drupal::config('etype_pico.settings');
     $this->pubId = (int) $this->config->get('etype_pub');
+    $this->passwd = $this->picoConfig->get('picoPassword');
   }
 
   /**
