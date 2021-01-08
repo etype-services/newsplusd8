@@ -89,7 +89,7 @@ class EtypePicoEeditionController extends ControllerBase {
    * @return string|null
    *   Returns url with token.
    */
-  public function getToken() {
+  public function getToken(): ?string {
     $params = [
       'publicationId' => $this->pubId,
       'username' => $this->userName,
