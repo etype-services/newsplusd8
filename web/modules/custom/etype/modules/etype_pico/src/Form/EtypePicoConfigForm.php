@@ -57,7 +57,7 @@ class EtypePicoConfigForm extends ConfigFormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state) {
+  public function buildForm(array $form, FormStateInterface $form_state): array {
 
     $config = $this->config('etype_pico.settings');
 
