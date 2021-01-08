@@ -64,7 +64,7 @@ class EtypePicoEeditionController extends ControllerBase {
    * @return string
    *   Message from etype.services.
    */
-  public function validateSubscriber() {
+  public function validateSubscriber(): ?string {
     $param = [
       'publicationId' => $this->pubId,
       'username' => $this->userName,
@@ -109,7 +109,7 @@ class EtypePicoEeditionController extends ControllerBase {
   /**
    * This gets an authenticated e-Edition url.
    */
-  public function getEeditionUrl() {
+  public function getEeditionUrl(): ?string {
     $response = NULL;
     if (($result = $this->validateSubscriber()) == 0) {
       $response = $this->getToken();
@@ -123,7 +123,7 @@ class EtypePicoEeditionController extends ControllerBase {
    * @return array
    *   markup
    */
-  public function content() {
+  public function content(): array {
     $markup = '
 <div style="padding:5vh;text-align:center;">
 <div>This page will redirect to the e-Edition if you are logged in.</div>
