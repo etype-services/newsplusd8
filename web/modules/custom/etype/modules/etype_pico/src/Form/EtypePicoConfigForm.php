@@ -40,7 +40,7 @@ class EtypePicoConfigForm extends ConfigFormBase {
   /**
    * {@inheritdoc}
    */
-  public function getFormId() {
+  public function getFormId(): string {
     return 'etype_pico_admin_form';
   }
 

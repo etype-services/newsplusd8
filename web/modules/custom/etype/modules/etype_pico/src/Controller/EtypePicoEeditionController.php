@@ -34,7 +34,7 @@ class EtypePicoEeditionController extends ControllerBase {
    *
    * @var string
    */
-  public $passwd = 'HYHhZ*vz6K7u@ngH';
+  public $passwd = '';
 
   /**
    * Web Service URL.
