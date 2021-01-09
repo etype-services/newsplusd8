@@ -1,0 +1,22 @@
+#!/usr/bin/php
+<?php
+
+// Path to sites.php file.
+include(__DIR__ . '/../web/sites/sites.php');
+$done = [];
+$argv = $_SERVER['argv'];
+
+array_shift($_SERVER['argv']);
+$parameters = implode(' ', $_SERVER['argv']);
+$commandPattern = "/mnt/www/drupal8/vendor/bin/drush -y --uri=:key ";
+
+foreach ($sites as $key => $site) {
+
+    if (!in_array($site, $done)) {
+
+        $command = str_replace(':key', $key, $commandPattern);
+        echo "$command\n";
+        $done[] = $site;
+    }
+
+}
