@@ -3,7 +3,6 @@
 
 /* testing */
 $sites['local.drupal8.com'] = 'local.drupal8.com';
-/* $sites['local.drupal8.com'] = 'thedcregister.com'; */
 $sites['migrate.drupal8.com'] = 'gunnisontimes.com';
 $sites['www.etypetest.com'] = 'etypetest.etypegoogle7.com';
 
@@ -160,6 +159,8 @@ $sites['www.archercountynews.com'] = "archercountynews.com";
 $sites['archercountynews.etypegoogle9.com'] = "archercountynews.com";
 $sites['theexaminer.etypegoogle9.com'] = "theexaminer.com";
 $sites['www.thedcregister.com'] = "thedcregister.com";
+$sites['www.theharrison-press.com'] = "thedcregister.com";
+$sites['www.theohiocountynews.com'] = "thedcregister.com";
 $sites['thedcregister.etypegoogle9.com'] = "thedcregister.com";
 $sites['www.cibolacitizen.com'] = "cibolacitizen.com";
 $sites['cibolacitizen.etypegoogle9.com'] = "cibolacitizen.com";
