@@ -3,7 +3,6 @@
 
 /* testing */
 $sites['local.drupal8.com'] = 'local.drupal8.com';
-/* $sites['local.drupal8.com'] = 'thedcregister.com'; */
 $sites['migrate.drupal8.com'] = 'gunnisontimes.com';
 $sites['www.etypetest.com'] = 'etypetest.etypegoogle7.com';
 
@@ -122,12 +121,8 @@ $sites['www.beachesleader.com'] = "beachesleader.com";
 $sites['beachesleader.etypegoogle9.com'] = "beachesleader.com";
 $sites['freemansd.etypegoogle9.com'] = "freemansd.com";
 $sites['www.freemansd.com'] = "freemansd.com";
-$sites['www.meridiantribune.com'] = "bosquecountytoday.com";
-$sites['meridiantribune.etypegoogle9.com'] = "meridiantribune.com";
-$sites['www.meridiantribune.com'] = "meridiantribune.com";
+$sites['www.bosquecountytoday.com'] = "bosquecountytoday.com";
 $sites['burnetbulletin.etypegoogle9.com'] = "burnetbulletin.com";
-$sites['www.cliftonrecord.com'] = "cliftonrecord.com";
-$sites['cliftonrecord.etypegoogle9.com'] = "cliftonrecord.com";
 $sites['www.gfnaturalbeef.com'] = "gfnaturalbeef.com";
 $sites['gfnaturalbeef.etypegoogle9.com'] = "gfnaturalbeef.com";
 $sites['www.lcherald.com'] = "lcherald.com";
@@ -164,6 +159,8 @@ $sites['www.archercountynews.com'] = "archercountynews.com";
 $sites['archercountynews.etypegoogle9.com'] = "archercountynews.com";
 $sites['theexaminer.etypegoogle9.com'] = "theexaminer.com";
 $sites['www.thedcregister.com'] = "thedcregister.com";
+$sites['www.theharrison-press.com'] = "thedcregister.com";
+$sites['www.theohiocountynews.com'] = "thedcregister.com";
 $sites['thedcregister.etypegoogle9.com'] = "thedcregister.com";
 $sites['www.cibolacitizen.com'] = "cibolacitizen.com";
 $sites['cibolacitizen.etypegoogle9.com'] = "cibolacitizen.com";
@@ -202,3 +199,5 @@ $sites['www.sealynews.com'] = "sealynews.com";
 $sites['sealynews.etypegoogle9.com'] = "sealynews.com";
 $sites['www.robconews.com'] = "robconews.com";
 $sites['robconews.etypegoogle9.com'] = "robconews.com";
+$sites['www.newguthrie.com'] = "newguthrie.com";
+$sites['newguthrie.etypegoogle9.com'] = "newguthrie.com";
