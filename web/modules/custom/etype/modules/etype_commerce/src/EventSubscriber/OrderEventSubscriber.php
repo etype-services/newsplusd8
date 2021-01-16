@@ -93,54 +93,55 @@ class OrderEventSubscriber implements EventSubscriberInterface
     $this->order = $order;
     $order_id = $this->order->id();
     $customer_id = $this->order->getCustomerId();
-
-    /* Is this a gift? */
-    $query = \Drupal::entityQuery('gift_subscription')
-      ->condition('order_id', $order_id);
-    $ids = $query->execute();
-    if (count($ids) > 0) {
-      /* This is a gift. There should only be one entity matching order id */
+    /* Attempt to stop oddness where role added to uid 0 */
+    if ($customer_id > 0) {
+      /* Is this a gift? */
       $query = \Drupal::entityQuery('gift_subscription')
         ->condition('order_id', $order_id);
       $ids = $query->execute();
-      $entity = \Drupal::entityTypeManager()
-        ->getStorage('gift_subscription')
-        ->load(reset($ids));
-      $email = $entity->get('email')->getValue();
-      $gift_email = $email[0]['value'];
-      $check = user_load_by_mail($gift_email);
-      if ($check == FALSE) {
-        /* Send email to giftee. */
-        $user = User::load($customer_id);
-        $config = \Drupal::config('system.site');
-        $host = \Drupal::request()->getSchemeAndHttpHost();
-        $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
-        $params = [
-          'site_name' => $config->get('name'),
-          'site_url' => $host,
-          'gifter' => $user->getUserName(),
-          'orderId' => $order_id,
-        ];
-        \Drupal::service('plugin.manager.mail')
-          ->mail('etype_commerce', 'gift_subscription', $gift_email, $language, $params);
+      if (count($ids) > 0) {
+        /* This is a gift. There should only be one entity matching order id */
+        $query = \Drupal::entityQuery('gift_subscription')
+          ->condition('order_id', $order_id);
+        $ids = $query->execute();
+        $entity = \Drupal::entityTypeManager()
+          ->getStorage('gift_subscription')
+          ->load(reset($ids));
+        $email = $entity->get('email')->getValue();
+        $gift_email = $email[0]['value'];
+        $check = user_load_by_mail($gift_email);
+        if ($check == FALSE) {
+          /* Send email to giftee. */
+          $user = User::load($customer_id);
+          $config = \Drupal::config('system.site');
+          $host = \Drupal::request()->getSchemeAndHttpHost();
+          $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+          $params = [
+            'site_name' => $config->get('name'),
+            'site_url' => $host,
+            'gifter' => $user->getUserName(),
+            'orderId' => $order_id,
+          ];
+          \Drupal::service('plugin.manager.mail')
+            ->mail('etype_commerce', 'gift_subscription', $gift_email, $language, $params);
+        }
+        else {
+          /* Gift user exists - extend subscription */
+          $this->extendSubscription($check->id(), 1);
+        }
+        /* Mark gift sub as Paid */
+        $entity->set("paid", 1);
+        $entity->save();
       }
       else {
-        /* Gift user exists - extend subscription */
-        $this->extendSubscription($check->id(), 1);
+        /*
+         * Not a gift.
+         * Extend subscription by 1 year from today if Sub Expiry is in past,
+         * or 1 year from Sub Expiry.
+         */
+        $this->extendSubscription($customer_id);
       }
-      /* Mark gift sub as Paid */
-      $entity->set("paid", 1);
-      $entity->save();
     }
-    else {
-      /*
-       * Not a gift.
-       * Extend subscription by 1 year from today if Sub Expiry is in past,
-       * or 1 year from Sub Expiry.
-       */
-      $this->extendSubscription($customer_id);
-    }
-
   }
 
   /**
