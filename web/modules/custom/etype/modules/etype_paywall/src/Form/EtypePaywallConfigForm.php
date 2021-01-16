@@ -72,7 +72,13 @@ namespace Drupal\etype_paywall\Form {
         '#title' => $this->t('Free articles'),
         '#description' => 'The number of articles a site visitor can read for free.',
         '#type' => 'select',
-        '#options' => ['4' => '4', '6' => '6', '10' => '10'],
+        '#options' => [
+          '0' => '0',
+          '1' => '1',
+          '4' => '4',
+          '6' => '6',
+          '10' => '10',
+        ],
         '#default_value' => $this->conf->get('freeNumber'),
       ];
 

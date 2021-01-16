@@ -21,7 +21,7 @@ etype_paywall_init();
           let freeNumber = parseInt(drupalSettings.etype_paywall.freeNumber);
           let subLink = drupalSettings.etype_paywall.subLink;
           if (newTotal > freeNumber) {
-            let message = "You‘ve read all your free articles in this " + expiresNumber + " day period. Please <a href=\"" + subLink + "\">subscribe</a> to read more.";
+            let message = "You‘ve read all your free articles for this " + expiresNumber + " day period. Please <a href=\"" + subLink + "\">subscribe</a> to read more.";
             $(".node__content .field--name-body").once("etypePaywallPageBehavior").addClass("paywall_blocked").html(message);
             $("#block-paywallblock").html(message);
           } else {
