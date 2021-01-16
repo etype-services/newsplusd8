@@ -1,11 +1,12 @@
 #edit-field-section {
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
+  column-gap: 1rem;
 }
 
-#edit-field-section-42,
-#edit-field-section-43,
-#edit-field-section-44,
-#edit-field-section-45 {
+#edit-field-section-42 label,
+#edit-field-section-43 label,
+#edit-field-section-44 label,
+#edit-field-section-45 label {
   font-weight: bold;
 }
