@@ -1,5 +1,5 @@
-global-styling:
+admin-styling:
   version: VERSION
   css:
     base:
-      site.css: { weight: 1 }
+      register_admin.css: { weight: 1 }

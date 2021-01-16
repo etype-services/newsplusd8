@@ -17,4 +17,4 @@ regions:
 regions_hidden:
   - sidebar_first
 libraries:
-  - thedcregisteradmin/global-styling
+  - thedcregisteradmin/admin-styling
