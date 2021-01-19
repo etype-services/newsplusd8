@@ -139,6 +139,13 @@ class ImportOliveXMLController {
   protected $entry;
 
   /**
+   * Var Setup.
+   *
+   * @var ImportOliveXMLController
+   */
+  protected $issue;
+
+  /**
    * ImportOliveXMLController constructor.
    */
   public function __construct() {
@@ -175,7 +182,7 @@ class ImportOliveXMLController {
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  public function importOliveXml() {
+  public function importOliveXml(): array {
 
     /* throw Exception and return empty page with message if no file to import */
     try {
@@ -231,7 +238,7 @@ class ImportOliveXMLController {
           $entries[] = $section;
         }
       }
-      /* Loop over found files and do the extraction */
+      /* Loop over found Section files and do the extraction */
       $t = 0;
       if (count($entries) > 0) {
         foreach ($entries as $this->entry) {
@@ -253,6 +260,7 @@ class ImportOliveXMLController {
 
           /* parse xml in each file */
           $obj = simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA);
+          $this->issue = $obj->channel->title;
           if (is_object($obj) && (count($obj) > 0)) {
             /* loop over items in Section file */
             foreach ($obj as $stub) {
@@ -531,6 +539,10 @@ class ImportOliveXMLController {
     /* Add subhead to new entity. */
     if (isset($node[$this->subheadField])) {
       $insert[$this->subheadField] = $node[$this->subheadField];
+    }
+    /* Add issue to new entity. */
+    if (isset($node['field_issue'])) {
+      $insert['field_issue'] = $this->issue;
     }
     /* Add images to new entity. */
     if (count($field_image) > 0) {
