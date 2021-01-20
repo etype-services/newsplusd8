@@ -201,3 +201,7 @@ $sites['www.robconews.com'] = "robconews.com";
 $sites['robconews.etypegoogle9.com'] = "robconews.com";
 $sites['www.newguthrie.com'] = "newguthrie.com";
 $sites['newguthrie.etypegoogle9.com'] = "newguthrie.com";
+$sites['www.alpineavalanche.com'] = "alpineavalanche.com";
+$sites['alpineavalanche.etypegoogle9.com'] = "alpineavalanche.com";
+$sites['www.taylorpress.net'] = "taylorpress.net";
+$sites['taylorpress.etypegoogle9.com'] = "taylorpress.net";
