@@ -140,6 +140,13 @@ class ImportOliveXMLController {
    *
    * @var ImportOliveXMLController
    */
+  protected $publication;
+
+  /**
+   * Var Setup.
+   *
+   * @var ImportOliveXMLController
+   */
   protected $storage;
 
   /**
@@ -261,9 +268,14 @@ class ImportOliveXMLController {
 
           /* parse xml in each file */
           $obj = simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA);
+
+          /* Get Issue and Publication */
           $str = $obj->channel->title;
           $arr = explode(' - ', $str);
-          $this->issue = $arr[1];
+          $date = \DateTime::createFromFormat("l, j F, Y", $arr[1]);
+          $this->issue = $date->format("U");
+          $this->publication = $arr[0];
+
           if (is_object($obj) && (count($obj) > 0)) {
             /* loop over items in Section file */
             foreach ($obj as $stub) {
@@ -546,6 +558,11 @@ class ImportOliveXMLController {
     /* Add issue to new entity. */
     if (entityTypeHasField('field_issue', 'node')) {
       $insert['field_issue'] = $this->issue;
+    }
+
+    /* Add publication to new entity. */
+    if (entityTypeHasField('field_publication', 'node')) {
+      $insert['field_publication'] = $this->publication;
     }
 
     /* Add images to new entity. */
