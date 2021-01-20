@@ -541,9 +541,8 @@ class ImportOliveXMLController {
       $insert[$this->subheadField] = $node[$this->subheadField];
     }
     /* Add issue to new entity. */
-    if (isset($node['field_issue'])) {
-      $insert['field_issue'] = $this->issue;
-    }
+    $insert['field_issue'] = $this->issue;
+
     /* Add images to new entity. */
     if (count($field_image) > 0) {
       $insert[$this->imageField] = $field_image;
