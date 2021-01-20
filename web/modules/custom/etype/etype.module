@@ -419,3 +419,26 @@ function etype_get_machine_name(string $string): string {
   $transliterated = preg_replace('@[^a-z0-9_.]+@', '_', $transliterated);
   return $transliterated;
 }
+
+/**
+ * Check if an entity type has a field.
+ *
+ * @param string $field_name
+ *   The field name.
+ *
+ * @param string $entity_type
+ *   The entity type.
+ *
+ * @return bool
+ *   Returns a TRUE if the entity type has the field.
+ */
+function entityTypeHasField(string $field_name, string $entity_type): bool {
+  $bundles = \Drupal::service('entity_type.bundle.info')->getBundleInfo($entity_type);
+  foreach($bundles as $bundle => $label) {
+    $all_bundle_fields = \Drupal::service('entity_field.manager')->getFieldDefinitions($entity_type, $bundle);
+    if (isset($all_bundle_fields[$field_name])) {
+      return TRUE;
+    }
+  }
+  return FALSE;
+}

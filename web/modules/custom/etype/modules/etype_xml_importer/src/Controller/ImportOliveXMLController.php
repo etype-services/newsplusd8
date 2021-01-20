@@ -9,18 +9,15 @@
 
 namespace Drupal\etype_xml_importer\Controller;
 
-use Drupal;
+use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
+use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\etype_xml_importer\Plugin\Encoding;
 use Drupal\user\Entity\User;
-use Exception;
-use FilesystemIterator;
-use ZipArchive;
-use SimpleXMLElement;
 
 /**
- * Class ImportOliveXMLController.
+ * Class ImportOliveXMLController imports XML content.
  *
  * @package Drupal\etype_xml_importer\Controller
  */
@@ -120,13 +117,6 @@ class ImportOliveXMLController {
   /**
    * Var Setup.
    *
-   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
-   */
-  protected $entityTypeManager;
-
-  /**
-   * Var Setup.
-   *
    * @var ImportOliveXMLController
    */
   protected $i;
@@ -146,10 +136,17 @@ class ImportOliveXMLController {
   protected $issue;
 
   /**
+   * Var Setup.
+   *
+   * @var ImportOliveXMLController
+   */
+  protected $storage;
+
+  /**
    * ImportOliveXMLController constructor.
    */
   public function __construct() {
-    $this->config = Drupal::config('etype_xml_importer.settings');
+    $this->config = \Drupal::config('etype_xml_importer.settings');
     $this->importUrls = $this->config->get('importUrls');
     $this->nodeType = $this->config->get('nodeType');
     $this->langCode = 'en';
@@ -158,8 +155,12 @@ class ImportOliveXMLController {
     $this->author = $this->config->get('author');
     $this->subheadField = $this->config->get('subheadField');
     $this->longCaptionField = $this->config->get('longCaptionField');
-    $this->messenger = Drupal::messenger();
-    $this->entityTypeManager = Drupal::entityTypeManager();
+    $this->messenger = \Drupal::messenger();
+    try {
+      $this->storage = \Drupal::entityTypeManager()->getStorage('node');
+    }
+    catch (InvalidPluginDefinitionException | PluginNotFoundException $e) {
+    }
   }
 
   /**
@@ -217,7 +218,7 @@ class ImportOliveXMLController {
       }
 
       /* Extract Zip Archive using PHP core */
-      $zip = new ZipArchive();
+      $zip = new \ZipArchive();
       $res = $zip->open($zip_file);
       if ($res === TRUE) {
         $zip->extractTo($this->extractDir);
@@ -230,7 +231,7 @@ class ImportOliveXMLController {
       }
 
       /* Loop over directory and get the Files */
-      $fileSystemIterator = new FilesystemIterator($this->extractDir);
+      $fileSystemIterator = new \FilesystemIterator($this->extractDir);
       $entries = [];
       foreach ($fileSystemIterator as $fileInfo) {
         $section = $fileInfo->getFilename();
@@ -260,7 +261,9 @@ class ImportOliveXMLController {
 
           /* parse xml in each file */
           $obj = simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA);
-          $this->issue = $obj->channel->title;
+          $str = $obj->channel->title;
+          $arr = explode(' - ', $str);
+          $this->issue = $arr[1];
           if (is_object($obj) && (count($obj) > 0)) {
             /* loop over items in Section file */
             foreach ($obj as $stub) {
@@ -285,7 +288,7 @@ class ImportOliveXMLController {
 
     $message = "eType XML Importer imported $t articles.";
     $markup .= "<p>$message</p>";
-    Drupal::logger('etype_xml_importer')->notice($message);
+    \Drupal::logger('etype_xml_importer')->notice($message);
     return ['#markup' => $markup];
   }
 
@@ -302,7 +305,7 @@ class ImportOliveXMLController {
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  protected function parseItem(SimpleXMLElement $item) {
+  protected function parseItem(\SimpleXMLElement $item) {
     $array = (array) $item;
 
     // Title is not an object if the stub is valid.
@@ -504,7 +507,6 @@ class ImportOliveXMLController {
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   protected function createNode(array $node) {
-    $storage = $this->entityTypeManager->getStorage('node');
     $field_image = [];
     if (isset($node['images'])) {
       $rand = substr(md5(uniqid(mt_rand(), TRUE)), 0, 10);
@@ -540,8 +542,11 @@ class ImportOliveXMLController {
     if (isset($node[$this->subheadField])) {
       $insert[$this->subheadField] = $node[$this->subheadField];
     }
+
     /* Add issue to new entity. */
-    $insert['field_issue'] = $this->issue;
+    if (entityTypeHasField('field_issue', 'node')) {
+      $insert['field_issue'] = $this->issue;
+    }
 
     /* Add images to new entity. */
     if (count($field_image) > 0) {
@@ -558,7 +563,7 @@ class ImportOliveXMLController {
       $insert['premium_content'] = 1;
     }
 
-    $new_entity = $storage->create($insert);
+    $new_entity = $this->storage->create($insert);
     $new_entity->save();
 
     /* Reset variable for next node. */
@@ -618,7 +623,7 @@ class ImportOliveXMLController {
  *
  * @package Drupal\etype_xml_importer\Controller
  */
-class ImportFileMissingException extends Exception {
+class ImportFileMissingException extends \Exception {
 
   /**
    * ImportFileMissingException constructor.
@@ -635,7 +640,7 @@ class ImportFileMissingException extends Exception {
  *
  * @package Drupal\etype_xml_importer\Controller
  */
-class XMLIsFalseException extends Exception {
+class XMLIsFalseException extends \Exception {
 
   /**
    * Constructs an XMLIsFalseException.
@@ -652,7 +657,7 @@ class XMLIsFalseException extends Exception {
  *
  * @package Drupal\etype_xml_importer\Controller
  */
-class UserErrorException extends Exception {
+class UserErrorException extends \Exception {
 
   /**
    * Constructs an XMLIsFalseException.
@@ -663,3 +668,4 @@ class UserErrorException extends Exception {
   }
 
 }
+
