@@ -157,7 +157,7 @@ h3.section-tag-heading a:hover {
   text-align: center;
 }
 
-/* Article captions */
+/* Article captions
 .page-node-type-article article .flexslider .flex-caption {
   display: none;
   visibility: hidden;
@@ -166,10 +166,9 @@ h3.section-tag-heading a:hover {
 .page-node-type-article article .field--name-field-image {
   margin-bottom: 0;
 }
-
+*/
 
 .page-node-type-article article .field--name-field-long-caption {
   text-align: center;
-  margin-top: -0.75rem;
   margin-bottom: 0.75rem;
 }
