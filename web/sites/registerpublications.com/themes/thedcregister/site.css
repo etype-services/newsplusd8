@@ -162,3 +162,7 @@ h3.section-tag-heading a:hover {
   display: none;
   visibility: hidden;
 }
+
+.field--name-field-long-caption {
+  text-align: center;
+}
