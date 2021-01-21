@@ -163,6 +163,12 @@ h3.section-tag-heading a:hover {
   visibility: hidden;
 }
 
-.field--name-field-long-caption {
+.page-node-type-article article .field--name-field-image {
+  margin-bottom: 0;
+}
+
+
+.page-node-type-article article .field--name-field-long-caption {
   text-align: center;
+  margin-bottom: 0.75rem;
 }
