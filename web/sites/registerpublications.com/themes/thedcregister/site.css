@@ -156,3 +156,9 @@ h3.section-tag-heading a:hover {
 #block-thedcregister-mercobannerblock {
   text-align: center;
 }
+
+/* Article captions */
+.page-node-type-article article .flexslider .flex-caption {
+  display: none;
+  visibility: hidden;
+}
