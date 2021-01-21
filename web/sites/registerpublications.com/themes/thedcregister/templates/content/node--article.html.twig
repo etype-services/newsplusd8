@@ -119,8 +119,7 @@
           {{ content.field_subhead }}
           {% set preview %}
             {% if content.field_image[0] is not null %}
-              <div class="image-container">{{ content.field_image[0] }}
-              <p>{{ content.field_long_caption }}</p></div>
+              <div class="image-container">{{ content.field_image[0] }}</div>
             {% elseif content.field_small_image[0] is not null %}
               <div class="image-container">{{ content.field_small_image[0] }}</div>
             {% endif %}
@@ -129,7 +128,7 @@
           {% endset %}
           {{ preview }}
         {% else %}
-          {{ content | without('field_long_caption') }}
+          {{ content }}
         {% endif %}
       {% endif %}
     {% endif %}
