@@ -186,8 +186,6 @@ class ImportOliveXMLController {
    * @return array
    *   Markup
    *
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
-   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function importOliveXml(): array {
@@ -313,8 +311,6 @@ class ImportOliveXMLController {
    * @return array|string|null
    *   Markup
    *
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
-   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   protected function parseItem(\SimpleXMLElement $item) {
@@ -348,6 +344,25 @@ class ImportOliveXMLController {
 
     preg_match("/<dc:title>([^<]+)/", $ar_xml, $coincidencias);
     $array['title'] = substr($coincidencias[1], 0, 255);
+
+    preg_match("/<dc:identifier>([^<]+)/", $ar_xml, $coincidencias);
+    $array['identifier'] = substr($coincidencias[1], 0, 255);
+
+    /* Check for Duplicates */
+    if (entityTypeHasField('field_issue_identifier', 'node')) {
+      if (!empty($array['identifier'])) {
+        $nids = \Drupal::entityQuery('node')
+          ->condition('type', $this->nodeType)
+          ->condition('title', $array['title'], "=")
+          ->condition('field_issue_identifier', $array['identifier'], "=")
+          ->addTag('debug')
+          ->execute();
+
+        if (count($nids) > 0) {
+          return "Duplicate found for <strong>" . $array['title'] . " / " . $array['identifier'] . "</strong>. Story was not imported. <br />";
+        }
+      }
+    }
 
     preg_match("/<prism:coverDate>([^<]+)/", $ar_xml, $coincidencias);
     $array['pub_date'] = $coincidencias[1];
@@ -435,6 +450,7 @@ class ImportOliveXMLController {
       'title' => (new Encoding)->toUtf8($array['title']),
       'summary' => $summary,
       'body' => (new Encoding)->toUtf8($array['body']),
+      'identifier' => $array['identifier'],
     ];
 
     /* Create User based on byline */
@@ -478,12 +494,12 @@ class ImportOliveXMLController {
       $node[$this->subheadField] = (new Encoding)->toUtf8($array['slugline']);
     }
 
-    $array = [];
+    $images_array = [];
     if (count($images) > 0) {
       $ptr = 0;
       foreach ($images as $image) {
         $ipath = (string) $this->extractDir . 'img/' . $image['image'];
-        $array[] = [
+        $images_array[] = [
           'name' => $image['image'],
           'path' => $ipath,
           'caption' => (new Encoding)->toUtf8(preg_replace("/\s+/", " ", $image['caption'])),
@@ -493,7 +509,7 @@ class ImportOliveXMLController {
           break;
         }
       }
-      $node['images'] = $array;
+      $node['images'] = $images_array;
     }
 
     // Otherwise field is initiated and shows empty on node page.
@@ -514,8 +530,6 @@ class ImportOliveXMLController {
    * @param array $node
    *   Node array.
    *
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
-   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   protected function createNode(array $node) {
@@ -563,6 +577,11 @@ class ImportOliveXMLController {
     /* Add publication to new entity. */
     if (entityTypeHasField('field_publication', 'node')) {
       $insert['field_publication'] = $this->publication;
+    }
+
+    /* Add issue identifier to new entity. */
+    if (entityTypeHasField('field_issue_identifier', 'node')) {
+      $insert['field_issue_identifier'] = $node['identifier'];
     }
 
     /* Add images to new entity. */
@@ -653,7 +672,7 @@ class ImportFileMissingException extends \Exception {
 }
 
 /**
- * Class XMLIsFalseException.
+ * Class XMLIsFalseException reports a problem extracting XML.
  *
  * @package Drupal\etype_xml_importer\Controller
  */
@@ -670,7 +689,7 @@ class XMLIsFalseException extends \Exception {
 }
 
 /**
- * Class UserErrorException.
+ * Class UserErrorException reports a problem creating new User.
  *
  * @package Drupal\etype_xml_importer\Controller
  */
