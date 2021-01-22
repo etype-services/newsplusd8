@@ -2,7 +2,7 @@
 // @codingStandardsIgnoreFile
 
 /* testing */
-$sites['local.drupal8.com'] = 'local.drupal8.com';
+$sites['local.drupal8.com'] = 'registerpublications.com';
 $sites['migrate.drupal8.com'] = 'gunnisontimes.com';
 $sites['www.etypetest.com'] = 'etypetest.etypegoogle7.com';
 
@@ -158,9 +158,6 @@ $sites['doublemountainchronicle.etypegoogle9.com'] = "doublemountainchronicle.co
 $sites['www.archercountynews.com'] = "archercountynews.com";
 $sites['archercountynews.etypegoogle9.com'] = "archercountynews.com";
 $sites['theexaminer.etypegoogle9.com'] = "theexaminer.com";
-$sites['www.thedcregister.com'] = "registerpublications.com";
-$sites['www.theharrison-press.com'] = "registerpublications.com";
-$sites['www.theohiocountynews.com'] = "registerpublications.com";
 $sites['www.registerpublications.com'] = "registerpublications.com";
 $sites['www.cibolacitizen.com'] = "cibolacitizen.com";
 $sites['cibolacitizen.etypegoogle9.com'] = "cibolacitizen.com";
