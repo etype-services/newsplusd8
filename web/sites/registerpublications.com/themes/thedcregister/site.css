@@ -196,3 +196,8 @@ h3.section-tag-heading a:hover {
 #block-poll div {
   margin: auto;
 }
+
+.fc-scroller {
+  overflow: visible!important;
+  height: fit-content!important;
+}
