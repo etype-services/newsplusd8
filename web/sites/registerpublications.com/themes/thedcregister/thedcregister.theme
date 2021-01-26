@@ -14,9 +14,11 @@ function thedcregister_preprocess_node(&$variables) {
   $variables['slider_images'] = [];
   $caption_data = [];
   $node = $variables['node'];
-  $captions = $node->get('field_image_captions')->getValue();
-  foreach ($captions as $item) {
-    $caption_data[] = Markup::create($item['value']);
+  if (entityTypeHasField('field_image_captions', 'node')) {
+    $captions = $node->get('field_image_captions')->getValue();
+    foreach ($captions as $item) {
+      $caption_data[] = Markup::create($item['value']);
+    }
   }
   $i = 0;
   foreach ($node->get('field_image')->getValue() as $key => $value) {
