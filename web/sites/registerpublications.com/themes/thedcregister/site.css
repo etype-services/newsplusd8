@@ -164,16 +164,25 @@ h3.section-tag-heading a:hover {
   margin: 0 auto;
 }
 
-/* Article captions
-.page-node-type-article article .flexslider .flex-caption {
-  display: none;
-  visibility: hidden;
+.owl-carousel .owl-nav {
+  position: absolute;
+  top: 3rem;
+  font-size: 14rem;
+  width: 100%;
 }
 
-.page-node-type-article article .field--name-field-image {
-  margin-bottom: 0;
+.owl-carousel .owl-nav button {
+  outline: none;
 }
-*/
+
+.owl-carousel .owl-nav button:nth-child(2) {
+  float: right;
+}
+
+.owl-carousel .caption {
+  display: flex;
+  align-items: center;
+}
 
 .page-node-type-article article .field--name-field-long-caption {
   text-align: center;

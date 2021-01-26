@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\Core\Render\Markup;
 use Drupal\file\Entity\File;
 use Drupal\image\Entity\ImageStyle;
 
@@ -10,8 +11,14 @@ use Drupal\image\Entity\ImageStyle;
  */
 function thedcregister_preprocess_node(&$variables) {
   // Add new variable that will be available in the template (for images data).
-  $variables['flexslider_images'] = [];
+  $variables['slider_images'] = [];
+  $caption_data = [];
   $node = $variables['node'];
+  $captions = $node->get('field_image_captions')->getValue();
+  foreach ($captions as $item) {
+    $caption_data[] = Markup::create($item['value']);
+  }
+  $i = 0;
   foreach ($node->get('field_image')->getValue() as $key => $value) {
     $image_data = [
       'title' => $value['title'],
@@ -27,7 +34,11 @@ function thedcregister_preprocess_node(&$variables) {
       $image_data['uri'] = ImageStyle::load('article_420')->buildUrl($image_file->getFileUri());
       $image_data['url'] = file_create_url($image_data['uri']);
     }
+    if (isset($caption_data[$i])) {
+      $image_data['caption'] = $caption_data[$i];
+    }
     // Store an image data to the new variable for using in template.
-    $variables['flexslider_images'][] = $image_data;
+    $variables['slider_images'][] = $image_data;
+    $i ++;
   }
 }
