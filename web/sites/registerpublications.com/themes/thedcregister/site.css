@@ -158,6 +158,10 @@ h3.section-tag-heading a:hover {
   text-align: center;
 }
 
+.owl-carousel {
+  margin-bottom: 1.5rem;
+}
+
 .owl-carousel .owl-item img {
   width: auto!important;
   height: 420px!important;
