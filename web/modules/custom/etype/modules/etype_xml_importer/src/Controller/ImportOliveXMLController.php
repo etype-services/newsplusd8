@@ -638,7 +638,7 @@ class ImportOliveXMLController {
               'field_name' => $this->imageField,
               'entity_id' => $nid,
               'revision_id' => $vid,
-              'language' => '',
+              'language' => 'en',
               'delta' => $i,
               'caption' => $caption,
               'caption_format' => 'plain_text',
