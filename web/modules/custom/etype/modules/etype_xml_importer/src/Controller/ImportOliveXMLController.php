@@ -546,6 +546,7 @@ class ImportOliveXMLController {
           'target_id' => $file->id(),
           'alt' => $caption,
           'title' => $caption,
+          'caption' => $caption,
         ];
       }
     }
