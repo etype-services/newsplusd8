@@ -193,7 +193,7 @@ class ImportOliveXMLController {
    * @return string
    *   String
    */
-  public function __toString() {
+  public function __toString(): string {
     return (string) $this->entry;
   }
 
