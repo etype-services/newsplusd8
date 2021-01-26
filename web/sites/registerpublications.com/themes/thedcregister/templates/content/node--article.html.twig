@@ -82,7 +82,7 @@
   ]
 %}
 {{ attach_library('classy/node') }}
-{{ attach_library('thedcregister/flexslider') }}
+{{ attach_library('thedcregister/owl-carousel') }}
 {{ attach_library('thedcregister/article') }}
 <article{{ attributes.addClass(classes) }}>
 
@@ -106,7 +106,7 @@
       </div>
     </footer>
   {% endif %}
-  {{ node.field_image[0]|file_url }}
+
   <div{{ content_attributes.addClass('node__content') }}>
     {% if picoEnabled %}
       <div id="pico">
@@ -114,13 +114,11 @@
       </div>
     {% else %}
       {% if logged_in %}
-      <div class="flexslider">
-        <ul class="slides">
-          <li>
-            <img src="{{ node.field_image[0]|file_url }}" />
-          </li>
-        </ul>
-      </div>
+        <div class="owl-carousel">
+          {%- for img in flexslider_images -%}
+            <div class="item"><img alt="{{ img.alt }}" src="{{ img.url }}" /></div>
+          {%- endfor -%}
+        </div>
         {{ content }}
       {% else %}
         {% if node.premium_content.value == 1 %}

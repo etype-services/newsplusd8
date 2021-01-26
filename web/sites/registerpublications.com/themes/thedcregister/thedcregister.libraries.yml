@@ -20,3 +20,11 @@ flexslider:
   css:
     component:
       /libraries/flexslider/flexslider.css: {}
+
+owl-carousel:
+  css:
+    component:
+      /libraries/owlcarousel/dist/assets/owl.carousel.min.css: {}
+      /libraries/owlcarousel/dist/assets/owl.theme.default.min.css: {}
+  js:
+    /libraries/owlcarousel/dist/owl.carousel.min.js: { }

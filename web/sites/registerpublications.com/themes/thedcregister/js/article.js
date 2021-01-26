@@ -3,8 +3,13 @@
   "use strict";
   Drupal.behaviors.dcRegisterArticle = {
     attach: function (context, settings) {
-      $('.flexslider').flexslider({
-        animation: "slide"
+      $(".owl-carousel").owlCarousel({
+        items: 1,
+        loop: true,
+        center: true,
+        autoplay: true,
+        nav: true,
+        autoplayHoverPause: true,
       });
     }
   };

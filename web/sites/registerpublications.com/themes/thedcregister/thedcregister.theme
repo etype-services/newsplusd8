@@ -1,1 +1,33 @@
 <?php
+
+use Drupal\file\Entity\File;
+use Drupal\image\Entity\ImageStyle;
+
+/**
+ * Implements hook_preprocess_views_view_fields().
+ *
+ * @param $variables
+ */
+function thedcregister_preprocess_node(&$variables) {
+  // Add new variable that will be available in the template (for images data).
+  $variables['flexslider_images'] = [];
+  $node = $variables['node'];
+  foreach ($node->get('field_image')->getValue() as $key => $value) {
+    $image_data = [
+      'title' => $value['title'],
+      'alt' => $value['alt'],
+      'width' => $value['width'],
+      'height' => $value['height'],
+      'uri' => '',
+      'url' => '',
+    ];
+    // Load an image file to ger uri.
+    $image_file = File::load($value['target_id']);
+    if ($image_file) {
+      $image_data['uri'] = ImageStyle::load('article_420')->buildUrl($image_file->getFileUri());
+      $image_data['url'] = file_create_url($image_data['uri']);
+    }
+    // Store an image data to the new variable for using in template.
+    $variables['flexslider_images'][] = $image_data;
+  }
+}

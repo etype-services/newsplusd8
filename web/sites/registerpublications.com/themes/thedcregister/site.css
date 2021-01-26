@@ -56,6 +56,7 @@ main {
 
 main .main-content-inner {
   margin: 0.75rem auto;
+  overflow: hidden;
 }
 
 .view-id-frontpage.columns > .attachment .view-frontpage {
@@ -155,6 +156,12 @@ h3.section-tag-heading a:hover {
 
 #block-thedcregister-mercobannerblock {
   text-align: center;
+}
+
+.owl-carousel .owl-item img {
+  width: auto!important;
+  height: 420px!important;
+  margin: 0 auto;
 }
 
 /* Article captions
