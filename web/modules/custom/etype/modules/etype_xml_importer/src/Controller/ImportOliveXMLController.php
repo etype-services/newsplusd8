@@ -15,6 +15,7 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\etype_xml_importer\Plugin\Encoding;
 use Drupal\user\Entity\User;
+use Drupal\Core\Database\Database;
 
 /**
  * Class ImportOliveXMLController imports XML content.
@@ -117,6 +118,13 @@ class ImportOliveXMLController {
   /**
    * Var Setup.
    *
+   * @var \Drupal\Core\Extension\ModuleHandlerInterface
+   */
+  protected $moduleHandler;
+
+  /**
+   * Var Setup.
+   *
    * @var ImportOliveXMLController
    */
   protected $i;
@@ -150,6 +158,13 @@ class ImportOliveXMLController {
   protected $storage;
 
   /**
+   * The database connection.
+   *
+   * @var \Drupal\Core\Database\Connection
+   */
+  protected $database;
+
+  /**
    * ImportOliveXMLController constructor.
    */
   public function __construct() {
@@ -168,6 +183,8 @@ class ImportOliveXMLController {
     }
     catch (InvalidPluginDefinitionException | PluginNotFoundException $e) {
     }
+    $this->moduleHandler = \Drupal::service('module_handler');
+    $this->database = Database::getConnection();
   }
 
   /**
@@ -530,6 +547,7 @@ class ImportOliveXMLController {
    *   Node array.
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
+   * @throws \Exception
    */
   protected function createNode(array $node) {
     $field_image = [];
@@ -546,7 +564,6 @@ class ImportOliveXMLController {
           'target_id' => $file->id(),
           'alt' => $caption,
           'title' => $caption,
-          'caption' => $caption,
         ];
       }
     }
@@ -604,6 +621,33 @@ class ImportOliveXMLController {
 
     /* Reset variable for next node. */
     $this->longCaption = '';
+
+    /* Add Image Captions */
+    if ($this->moduleHandler->moduleExists('image_field_caption')) {
+      if (isset($node['images'])) {
+        $nid = $new_entity->getId();
+        $vid = $new_entity->getLatestRevisionId($nid);
+        $i = 0;
+        foreach ($node['images'] as $image) {
+          $caption = empty($image['caption']) ? "Alt Text for Image" : $image['caption'];
+          $query = $this->database->insert('image_field_caption');
+          $query
+            ->fields([
+              'entity_type' => 'node',
+              'bundle' => $this->nodeType,
+              'field_name' => $this->imageField,
+              'entity_id' => $nid,
+              'revision_id' => $vid,
+              'language' => '',
+              'delta' => $i,
+              'caption' => $caption,
+              'caption_format' => 'plain_text',
+            ])
+            ->execute();
+          $i++;
+        }
+      }
+    }
   }
 
   /**
@@ -615,7 +659,7 @@ class ImportOliveXMLController {
    * @return array
    *   Processed Images.
    */
-  protected function captions(array $images) {
+  protected function captions(array $images): array {
 
     $processed = $images;
 
@@ -639,7 +683,7 @@ class ImportOliveXMLController {
    * @return array
    *   Processed Images.
    */
-  protected function fixCaptions(array $images) {
+  protected function fixCaptions(array $images): array {
     $processed = [];
     foreach ($images as $k) {
       $this->longCaption .= $k['caption'] . ' ';

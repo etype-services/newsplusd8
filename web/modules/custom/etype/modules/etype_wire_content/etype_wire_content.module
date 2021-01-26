@@ -7,7 +7,6 @@
  */
 
 use Drupal\Core\Database\Database;
-use Drupal\etype_wire_content\Controller\WireContentExportController;
 use Drupal\views\ViewExecutable;
 
 /**
@@ -26,22 +25,9 @@ function _etype_wire_content_node_export() {
  *
  * @return bool
  */
-function _etype_wire_content_check_connection() {
+function _etype_wire_content_check_connection(): bool {
   return (bool) Database::getConnectionInfo('wire');
 }
-
-/**
- * @param \Drupal\node\NodeInterface $node
- * TODO: remove
- * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
- * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
- *
-function etype_wire_content_node_update(Drupal\node\NodeInterface $node) {
-  $exporter = new WireContentExportController();
-  $exporter->exportWireContent();
-}
- *
- */
 
 /**
  * Refresh Wire Content on loading View
