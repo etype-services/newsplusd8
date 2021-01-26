@@ -186,6 +186,7 @@ h3.section-tag-heading a:hover {
 .owl-carousel .caption {
   display: flex;
   align-items: center;
+  text-align: center;
 }
 
 .page-node-type-article article .field--name-field-long-caption {
