@@ -355,7 +355,6 @@ class ImportOliveXMLController {
           ->condition('type', $this->nodeType)
           ->condition('title', $array['title'], "=")
           ->condition('field_issue_identifier', $array['identifier'], "=")
-          ->addTag('debug')
           ->execute();
 
         if (count($nids) > 0) {
