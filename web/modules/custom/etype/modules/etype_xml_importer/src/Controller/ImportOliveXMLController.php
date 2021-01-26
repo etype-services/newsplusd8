@@ -618,6 +618,7 @@ class ImportOliveXMLController {
 
     $new_entity = $this->storage->create($insert);
     $new_entity->save();
+    $nid = $new_entity->id();
 
     /* Reset variable for next node. */
     $this->longCaption = '';
@@ -625,8 +626,7 @@ class ImportOliveXMLController {
     /* Add Image Captions */
     if ($this->moduleHandler->moduleExists('image_field_caption')) {
       if (isset($node['images'])) {
-        $nid = $new_entity->getId();
-        $vid = $new_entity->getLatestRevisionId($nid);
+        $vid = $this->storage->getLatestRevisionId($nid);
         $i = 0;
         foreach ($node['images'] as $image) {
           $caption = empty($image['caption']) ? "Alt Text for Image" : $image['caption'];
