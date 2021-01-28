@@ -1195,7 +1195,7 @@ article .node--view-mode-full .node__content h2 {
   margin-bottom: 0;
 }
 .page-node-type-article article {
-  /*.flexslider {
+  .flexslider {
     ul.slides {
       img {
         @extend %extend_1;
@@ -1207,7 +1207,7 @@ article .node--view-mode-full .node__content h2 {
       margin: 0.75rem auto 0;
       width: fit-content;
     }
-  }*/
+  }
   /* Small and Embedded images */
 }
 .page-node-type-article article .node__meta {
