@@ -1,5 +1,21 @@
 /* Center column for tiempos theme */
+.page-node-type-article article .flexslider ul.slides img {
+  display: block;
+  height: auto;
+  width: initial;
+  max-width: 100%;
+  margin: auto;
+}
+
 /* Center column for tiempos theme */
+.page-node-type-article article .flexslider ul.slides img {
+  display: block;
+  height: auto;
+  width: initial;
+  max-width: 100%;
+  margin: auto;
+}
+
 /* Bulma overrides */
 .column {
   flex-basis: unset;
@@ -89,6 +105,14 @@ main .main-content-inner {
   }
 }
 /* Center column for tiempos theme */
+.page-node-type-article article .flexslider ul.slides img {
+  display: block;
+  height: auto;
+  width: initial;
+  max-width: 100%;
+  margin: auto;
+}
+
 .region-large-ad {
   margin-top: 0.75rem;
 }
@@ -207,6 +231,14 @@ main .main-content-inner {
   }
 }
 /* Center column for tiempos theme */
+.page-node-type-article article .flexslider ul.slides img {
+  display: block;
+  height: auto;
+  width: initial;
+  max-width: 100%;
+  margin: auto;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   line-height: 1.5rem;
@@ -281,6 +313,14 @@ footer .footer-menu li > a {
 }
 
 /* Center column for tiempos theme */
+.page-node-type-article article .flexslider ul.slides img {
+  display: block;
+  height: auto;
+  width: initial;
+  max-width: 100%;
+  margin: auto;
+}
+
 /**
  * Styles build on bulma nav component.
  */
@@ -507,6 +547,14 @@ footer .footer-menu li > a {
   }
 }
 /* Center column for tiempos theme */
+.page-node-type-article article .flexslider ul.slides img {
+  display: block;
+  height: auto;
+  width: initial;
+  max-width: 100%;
+  margin: auto;
+}
+
 /* Additional Helper Classes. */
 .is-really-invisible {
   visibility: hidden !important;
@@ -539,6 +587,14 @@ footer .footer-menu li > a {
   }
 }
 /* Center column for tiempos theme */
+.page-node-type-article article .flexslider ul.slides img {
+  display: block;
+  height: auto;
+  width: initial;
+  max-width: 100%;
+  margin: auto;
+}
+
 /* Front Page Attachment View (left-hand column). */
 .view-id-frontpage.columns > .attachment {
   /* Emulate column css. */
@@ -895,6 +951,14 @@ footer .footer-menu li > a {
   }
 }
 /* Center column for tiempos theme */
+.page-node-type-article article .flexslider ul.slides img {
+  display: block;
+  height: auto;
+  width: initial;
+  max-width: 100%;
+  margin: auto;
+}
+
 /* Top left "Date" block. */
 .block-date-block {
   width: fit-content;
@@ -1126,6 +1190,14 @@ footer .footer-menu li > a {
   }
 }
 /* Center column for tiempos theme */
+.page-node-type-article article .flexslider ul.slides img {
+  display: block;
+  height: auto;
+  width: initial;
+  max-width: 100%;
+  margin: auto;
+}
+
 /* Nav overrides for Feature nodes. */
 .page-node-type-feature #navbar-burger {
   display: block;
@@ -1195,19 +1267,6 @@ article .node--view-mode-full .node__content h2 {
   margin-bottom: 0;
 }
 .page-node-type-article article {
-  .flexslider {
-    ul.slides {
-      img {
-        @extend %extend_1;
-        width: auto;
-      }
-    }
-    .flex-caption {
-      @include caption;
-      margin: 0.75rem auto 0;
-      width: fit-content;
-    }
-  }
   /* Small and Embedded images */
 }
 .page-node-type-article article .node__meta {
@@ -1217,6 +1276,16 @@ article .node--view-mode-full .node__content h2 {
 .page-node-type-article article .node__meta .field--name-user-picture {
   float: left;
   margin-right: 0.5rem;
+}
+.page-node-type-article article .flexslider ul.slides img {
+  width: auto;
+}
+.page-node-type-article article .flexslider .flex-caption {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  color: #0a0a0a;
+  margin: 0.75rem auto 0;
+  width: fit-content;
 }
 .page-node-type-article article .node__content .image-container {
   /* Images on Premium Content pages */
@@ -1500,6 +1569,14 @@ article .node--view-mode-full .node__content h2 {
   }
 }
 /* Center column for tiempos theme */
+.page-node-type-article article .flexslider ul.slides img {
+  display: block;
+  height: auto;
+  width: initial;
+  max-width: 100%;
+  margin: auto;
+}
+
 .flexslider {
   /* needs space for nav */
   margin: 0 0 0.75rem 0;
@@ -1514,6 +1591,14 @@ article .node--view-mode-full .node__content h2 {
 }
 
 /* Center column for tiempos theme */
+.page-node-type-article article .flexslider ul.slides img {
+  display: block;
+  height: auto;
+  width: initial;
+  max-width: 100%;
+  margin: auto;
+}
+
 /* DFP and Ad Blocks. */
 .block-dfp, div[class*=advertisement], div[id*=blueorchid] {
   display: flex;
@@ -1596,6 +1681,14 @@ article .node--view-mode-full .node__content h2 {
 }
 
 /* Center column for tiempos theme */
+.page-node-type-article article .flexslider ul.slides img {
+  display: block;
+  height: auto;
+  width: initial;
+  max-width: 100%;
+  margin: auto;
+}
+
 /* Override for Aurora News Register */
 .auroranewsregister .block-views-blockspecial-sections-block-1 .view-content {
   grid-template-columns: 30% 30% 30%;
