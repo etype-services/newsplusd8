@@ -9,18 +9,16 @@
 
 namespace Drupal\etype_xml_importer\Controller;
 
-use Drupal;
+use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
+use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\etype_xml_importer\Plugin\Encoding;
 use Drupal\user\Entity\User;
-use Exception;
-use FilesystemIterator;
-use ZipArchive;
-use SimpleXMLElement;
+use Drupal\Core\Database\Database;
 
 /**
- * Class ImportOliveXMLController.
+ * Class ImportOliveXMLController imports XML content.
  *
  * @package Drupal\etype_xml_importer\Controller
  */
@@ -120,9 +118,9 @@ class ImportOliveXMLController {
   /**
    * Var Setup.
    *
-   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   * @var \Drupal\Core\Extension\ModuleHandlerInterface
    */
-  protected $entityTypeManager;
+  protected $moduleHandler;
 
   /**
    * Var Setup.
@@ -139,10 +137,38 @@ class ImportOliveXMLController {
   protected $entry;
 
   /**
+   * Var Setup.
+   *
+   * @var ImportOliveXMLController
+   */
+  protected $issue;
+
+  /**
+   * Var Setup.
+   *
+   * @var ImportOliveXMLController
+   */
+  protected $publication;
+
+  /**
+   * Var Setup.
+   *
+   * @var ImportOliveXMLController
+   */
+  protected $storage;
+
+  /**
+   * The database connection.
+   *
+   * @var \Drupal\Core\Database\Connection
+   */
+  protected $database;
+
+  /**
    * ImportOliveXMLController constructor.
    */
   public function __construct() {
-    $this->config = Drupal::config('etype_xml_importer.settings');
+    $this->config = \Drupal::config('etype_xml_importer.settings');
     $this->importUrls = $this->config->get('importUrls');
     $this->nodeType = $this->config->get('nodeType');
     $this->langCode = 'en';
@@ -151,8 +177,14 @@ class ImportOliveXMLController {
     $this->author = $this->config->get('author');
     $this->subheadField = $this->config->get('subheadField');
     $this->longCaptionField = $this->config->get('longCaptionField');
-    $this->messenger = Drupal::messenger();
-    $this->entityTypeManager = Drupal::entityTypeManager();
+    $this->messenger = \Drupal::messenger();
+    try {
+      $this->storage = \Drupal::entityTypeManager()->getStorage('node');
+    }
+    catch (InvalidPluginDefinitionException | PluginNotFoundException $e) {
+    }
+    $this->moduleHandler = \Drupal::service('module_handler');
+    $this->database = Database::getConnection();
   }
 
   /**
@@ -161,7 +193,7 @@ class ImportOliveXMLController {
    * @return string
    *   String
    */
-  public function __toString() {
+  public function __toString(): string {
     return (string) $this->entry;
   }
 
@@ -171,11 +203,9 @@ class ImportOliveXMLController {
    * @return array
    *   Markup
    *
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
-   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  public function importOliveXml() {
+  public function importOliveXml(): array {
 
     /* throw Exception and return empty page with message if no file to import */
     try {
@@ -210,7 +240,7 @@ class ImportOliveXMLController {
       }
 
       /* Extract Zip Archive using PHP core */
-      $zip = new ZipArchive();
+      $zip = new \ZipArchive();
       $res = $zip->open($zip_file);
       if ($res === TRUE) {
         $zip->extractTo($this->extractDir);
@@ -223,7 +253,7 @@ class ImportOliveXMLController {
       }
 
       /* Loop over directory and get the Files */
-      $fileSystemIterator = new FilesystemIterator($this->extractDir);
+      $fileSystemIterator = new \FilesystemIterator($this->extractDir);
       $entries = [];
       foreach ($fileSystemIterator as $fileInfo) {
         $section = $fileInfo->getFilename();
@@ -231,7 +261,7 @@ class ImportOliveXMLController {
           $entries[] = $section;
         }
       }
-      /* Loop over found files and do the extraction */
+      /* Loop over found Section files and do the extraction */
       $t = 0;
       if (count($entries) > 0) {
         foreach ($entries as $this->entry) {
@@ -253,6 +283,14 @@ class ImportOliveXMLController {
 
           /* parse xml in each file */
           $obj = simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA);
+
+          /* Get Issue and Publication */
+          $str = $obj->channel->title;
+          $arr = explode(' - ', $str);
+          $date = \DateTime::createFromFormat("l, j F, Y", $arr[1]);
+          $this->issue = $date->format("U");
+          $this->publication = $arr[0];
+
           if (is_object($obj) && (count($obj) > 0)) {
             /* loop over items in Section file */
             foreach ($obj as $stub) {
@@ -277,7 +315,7 @@ class ImportOliveXMLController {
 
     $message = "eType XML Importer imported $t articles.";
     $markup .= "<p>$message</p>";
-    Drupal::logger('etype_xml_importer')->notice($message);
+    \Drupal::logger('etype_xml_importer')->notice($message);
     return ['#markup' => $markup];
   }
 
@@ -290,11 +328,9 @@ class ImportOliveXMLController {
    * @return array|string|null
    *   Markup
    *
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
-   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  protected function parseItem(SimpleXMLElement $item) {
+  protected function parseItem(\SimpleXMLElement $item) {
     $array = (array) $item;
 
     // Title is not an object if the stub is valid.
@@ -325,6 +361,24 @@ class ImportOliveXMLController {
 
     preg_match("/<dc:title>([^<]+)/", $ar_xml, $coincidencias);
     $array['title'] = substr($coincidencias[1], 0, 255);
+
+    preg_match("/<dc:identifier>([^<]+)/", $ar_xml, $coincidencias);
+    $array['identifier'] = substr($coincidencias[1], 0, 255);
+
+    /* Check for Duplicates */
+    if (entityTypeHasField('field_issue_identifier', 'node')) {
+      if (!empty($array['identifier'])) {
+        $nids = \Drupal::entityQuery('node')
+          ->condition('type', $this->nodeType)
+          ->condition('title', $array['title'], "=")
+          ->condition('field_issue_identifier', $array['identifier'], "=")
+          ->execute();
+
+        if (count($nids) > 0) {
+          return "Duplicate found for <strong>" . $array['title'] . " / " . $array['identifier'] . "</strong>. Story was not imported. <br />";
+        }
+      }
+    }
 
     preg_match("/<prism:coverDate>([^<]+)/", $ar_xml, $coincidencias);
     $array['pub_date'] = $coincidencias[1];
@@ -412,6 +466,7 @@ class ImportOliveXMLController {
       'title' => (new Encoding)->toUtf8($array['title']),
       'summary' => $summary,
       'body' => (new Encoding)->toUtf8($array['body']),
+      'identifier' => $array['identifier'],
     ];
 
     /* Create User based on byline */
@@ -455,12 +510,12 @@ class ImportOliveXMLController {
       $node[$this->subheadField] = (new Encoding)->toUtf8($array['slugline']);
     }
 
-    $array = [];
+    $images_array = [];
     if (count($images) > 0) {
       $ptr = 0;
       foreach ($images as $image) {
         $ipath = (string) $this->extractDir . 'img/' . $image['image'];
-        $array[] = [
+        $images_array[] = [
           'name' => $image['image'],
           'path' => $ipath,
           'caption' => (new Encoding)->toUtf8(preg_replace("/\s+/", " ", $image['caption'])),
@@ -470,7 +525,7 @@ class ImportOliveXMLController {
           break;
         }
       }
-      $node['images'] = $array;
+      $node['images'] = $images_array;
     }
 
     // Otherwise field is initiated and shows empty on node page.
@@ -491,12 +546,10 @@ class ImportOliveXMLController {
    * @param array $node
    *   Node array.
    *
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
-   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
+   * @throws \Exception
    */
   protected function createNode(array $node) {
-    $storage = $this->entityTypeManager->getStorage('node');
     $field_image = [];
     if (isset($node['images'])) {
       $rand = substr(md5(uniqid(mt_rand(), TRUE)), 0, 10);
@@ -532,6 +585,22 @@ class ImportOliveXMLController {
     if (isset($node[$this->subheadField])) {
       $insert[$this->subheadField] = $node[$this->subheadField];
     }
+
+    /* Add issue to new entity. */
+    if (entityTypeHasField('field_issue', 'node')) {
+      $insert['field_issue'] = $this->issue;
+    }
+
+    /* Add publication to new entity. */
+    if (entityTypeHasField('field_publication', 'node')) {
+      $insert['field_publication'] = $this->publication;
+    }
+
+    /* Add issue identifier to new entity. */
+    if (entityTypeHasField('field_issue_identifier', 'node')) {
+      $insert['field_issue_identifier'] = $node['identifier'];
+    }
+
     /* Add images to new entity. */
     if (count($field_image) > 0) {
       $insert[$this->imageField] = $field_image;
@@ -547,11 +616,38 @@ class ImportOliveXMLController {
       $insert['premium_content'] = 1;
     }
 
-    $new_entity = $storage->create($insert);
+    $new_entity = $this->storage->create($insert);
     $new_entity->save();
+    $nid = $new_entity->id();
 
     /* Reset variable for next node. */
     $this->longCaption = '';
+
+    /* Add Image Captions */
+    if ($this->moduleHandler->moduleExists('image_field_caption')) {
+      if (isset($node['images'])) {
+        $vid = $this->storage->getLatestRevisionId($nid);
+        $i = 0;
+        foreach ($node['images'] as $image) {
+          $caption = empty($image['caption']) ? "Alt Text for Image" : $image['caption'];
+          $query = $this->database->insert('image_field_caption');
+          $query
+            ->fields([
+              'entity_type' => 'node',
+              'bundle' => $this->nodeType,
+              'field_name' => $this->imageField,
+              'entity_id' => $nid,
+              'revision_id' => $vid,
+              'language' => 'en',
+              'delta' => $i,
+              'caption' => $caption,
+              'caption_format' => 'plain_text',
+            ])
+            ->execute();
+          $i++;
+        }
+      }
+    }
   }
 
   /**
@@ -563,7 +659,7 @@ class ImportOliveXMLController {
    * @return array
    *   Processed Images.
    */
-  protected function captions(array $images) {
+  protected function captions(array $images): array {
 
     $processed = $images;
 
@@ -587,7 +683,7 @@ class ImportOliveXMLController {
    * @return array
    *   Processed Images.
    */
-  protected function fixCaptions(array $images) {
+  protected function fixCaptions(array $images): array {
     $processed = [];
     foreach ($images as $k) {
       $this->longCaption .= $k['caption'] . ' ';
@@ -607,7 +703,7 @@ class ImportOliveXMLController {
  *
  * @package Drupal\etype_xml_importer\Controller
  */
-class ImportFileMissingException extends Exception {
+class ImportFileMissingException extends \Exception {
 
   /**
    * ImportFileMissingException constructor.
@@ -620,11 +716,11 @@ class ImportFileMissingException extends Exception {
 }
 
 /**
- * Class XMLIsFalseException.
+ * Class XMLIsFalseException reports a problem extracting XML.
  *
  * @package Drupal\etype_xml_importer\Controller
  */
-class XMLIsFalseException extends Exception {
+class XMLIsFalseException extends \Exception {
 
   /**
    * Constructs an XMLIsFalseException.
@@ -637,11 +733,11 @@ class XMLIsFalseException extends Exception {
 }
 
 /**
- * Class UserErrorException.
+ * Class UserErrorException reports a problem creating new User.
  *
  * @package Drupal\etype_xml_importer\Controller
  */
-class UserErrorException extends Exception {
+class UserErrorException extends \Exception {
 
   /**
    * Constructs an XMLIsFalseException.
@@ -652,3 +748,4 @@ class UserErrorException extends Exception {
   }
 
 }
+

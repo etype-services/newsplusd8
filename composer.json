@@ -77,6 +77,7 @@
         "drupal/honeypot": "^1.29",
         "drupal/ie9": "^1.0",
         "drupal/image_effects": "^2.3",
+        "drupal/image_field_caption": "^1.1",
         "drupal/imce": "^1.7",
         "drupal/inline_responsive_images": "^2.1",
         "drupal/jquery_view_ticker": "^1.0",

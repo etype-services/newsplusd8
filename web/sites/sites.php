@@ -2,7 +2,7 @@
 // @codingStandardsIgnoreFile
 
 /* testing */
-$sites['local.drupal8.com'] = 'local.drupal8.com';
+$sites['local.drupal8.com'] = 'registerpublications.com';
 $sites['migrate.drupal8.com'] = 'gunnisontimes.com';
 $sites['www.etypetest.com'] = 'etypetest.etypegoogle7.com';
 
@@ -61,7 +61,7 @@ $sites['www.valleynewsandviews.com'] = 'valleynewsandviews.etypegoogle7.com';
 $sites['www.stocktonsentinel.com'] = 'stocktonsentinel.etypegoogle7.com';
 $sites['www.aroundosceola.com'] = 'aroundosceola.etypegoogle7.com';
 $sites['wwd1.org'] = 'wwd1.etypegoogle7.com';
-$sites['www.guthrienewsleader.net'] = "guthrienewsleader.etypegoogle7.com";
+$sites['www.guthrienewsleader.net'] = "guthrienewsleader.net";
 $sites['www.beaumontbusinessjournal.com'] = "beaumontbusinessjournal.etypegoogle7.com";
 $sites['www.theexaminer.com'] = "theexaminer.etypegoogle7.com";
 $sites['www.hoxietimes.com'] = "hoxietimes.etypegoogle7.com";
@@ -158,9 +158,6 @@ $sites['doublemountainchronicle.etypegoogle9.com'] = "doublemountainchronicle.co
 $sites['www.archercountynews.com'] = "archercountynews.com";
 $sites['archercountynews.etypegoogle9.com'] = "archercountynews.com";
 $sites['theexaminer.etypegoogle9.com'] = "theexaminer.com";
-$sites['www.thedcregister.com'] = "registerpublications.com";
-$sites['www.theharrison-press.com'] = "registerpublications.com";
-$sites['www.theohiocountynews.com'] = "registerpublications.com";
 $sites['www.registerpublications.com'] = "registerpublications.com";
 $sites['www.cibolacitizen.com'] = "cibolacitizen.com";
 $sites['cibolacitizen.etypegoogle9.com'] = "cibolacitizen.com";
@@ -199,5 +196,7 @@ $sites['www.sealynews.com'] = "sealynews.com";
 $sites['sealynews.etypegoogle9.com'] = "sealynews.com";
 $sites['www.robconews.com'] = "robconews.com";
 $sites['robconews.etypegoogle9.com'] = "robconews.com";
-$sites['www.newguthrie.com'] = "newguthrie.com";
-$sites['newguthrie.etypegoogle9.com'] = "newguthrie.com";
+$sites['www.alpineavalanche.com'] = "alpineavalanche.com";
+$sites['alpineavalanche.etypegoogle9.com'] = "alpineavalanche.com";
+$sites['www.taylorpress.net'] = "taylorpress.net";
+$sites['taylorpress.etypegoogle9.com'] = "taylorpress.net";

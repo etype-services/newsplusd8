@@ -393,6 +393,7 @@ footer .footer-menu li > a {
 
   .region-header-right .user-menu {
     flex-wrap: wrap;
+    margin-bottom: 0.75rem;
   }
   .region-header-right .user-menu .button {
     width: 9rem;
