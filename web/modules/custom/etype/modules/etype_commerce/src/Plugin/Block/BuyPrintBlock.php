@@ -5,21 +5,18 @@ namespace Drupal\etype_commerce\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
 
 /**
- * Provides a Buy Digital Block.
+ * Provides a Buy Print Block.
  *
  * @Block(
- *   id = "buy_digital_block",
- *   admin_label = @Translation("Buy Digital"),
+ *   id = "buy_print_block",
+ *   admin_label = @Translation("Buy Print"),
  *   category = @Translation("eType"),
  * )
  */
-class BuyDigitalBlock extends BlockBase {
+class BuyPrintBlock extends BlockBase {
 
-  /**
-   * @return array
-   */
   public function build(): array {
-    return \Drupal::formBuilder()->getForm('Drupal\etype_commerce\Form\BuyDigitalForm');
+    return \Drupal::formBuilder()->getForm('Drupal\etype_commerce\Form\BuyPrintForm');
   }
 
   /**
