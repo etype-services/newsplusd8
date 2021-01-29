@@ -270,3 +270,19 @@ function etype_commerce_mail($key, &$message, $params) {
       break;
   }
 }
+
+/**
+ * @param $existing
+ * @param $type
+ * @param $theme
+ * @param $path
+ * @return array
+ */
+function etype_commerce_theme($existing, $type, $theme, $path): array {
+  return [
+    'buysub' => [
+      'variables' => [],
+      'template' => 'buysub',
+    ],
+  ];
+}

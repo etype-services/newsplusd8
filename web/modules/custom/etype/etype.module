@@ -80,7 +80,7 @@ function etype_preprocess_node(&$variables) {
  * @param array $page
  */
 function etype_page_attachments(array &$page) {
-  // $page['#attached']['library'][] = 'etype/ada-compliance';
+  $page['#attached']['library'][] = 'etype/ada-compliance';
   $page['#attached']['library'][] = 'etype/global-styling';
   $moduleHandler = Drupal::service('module_handler');
   if ($moduleHandler->moduleExists('pwa')) {
