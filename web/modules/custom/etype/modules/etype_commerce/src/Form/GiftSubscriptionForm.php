@@ -4,6 +4,8 @@ namespace Drupal\etype_commerce\Form;
 
 use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
 use Drupal\Component\Plugin\Exception\PluginNotFoundException;
+use Drupal\Core\Config\Config;
+use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
@@ -21,16 +23,9 @@ class GiftSubscriptionForm extends FormBase {
   /**
    * Settings holder.
    *
-   * @var \Drupal\Core\Config\Config
+   * @var Config
    */
   protected $config;
-
-  /**
-   * The order id.
-   *
-   * @var int
-   */
-  private $orderId;
 
   /**
    * GiftSubscriptionForm constructor.
@@ -178,10 +173,10 @@ class GiftSubscriptionForm extends FormBase {
    *
    * @param array $form
    *   The form.
-   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   * @param FormStateInterface $form_state
    *   The form state.
    *
-   * @throws \Drupal\Core\Entity\EntityStorageException
+   * @throws EntityStorageException
    *   Throw Exception.
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
