@@ -37,7 +37,7 @@ etype_commerce.admin_settings:
 etype_commerce.buysub:
   path: '/buysub'
   defaults:
-    _controller: '\Drupal\etype\Controller\BuySubController::buySub'
+    _controller: '\Drupal\etype_commerce\Controller\BuySubController::buySub'
     _title: 'Buy a Subscription'
   requirements:
     _permission: 'access content'
