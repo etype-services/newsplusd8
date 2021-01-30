@@ -18,7 +18,7 @@ class BuySubController extends ControllerBase {
    */
   public function buySub(): array {
     return [
-      '#title' => 'Buy a Subscription',
+      '#title' => 'Subscribe Now!',
       '#theme' => 'buysub',
     ];
   }

@@ -132,7 +132,7 @@ function etype_commerce_preprocess_page_title(&$variables) {
   // Update Checkout page title.
   if(preg_match("/^checkout\/.*\/login/", $url)) {
     if (\Drupal::currentUser()->isAnonymous()) {
-      $variables['title'] = 'Log in or create a new account to buy a subscription.';
+      $variables['title'] = 'Create your account!';
     }
     else {
       $variables['title'] = 'Renew your subscription';

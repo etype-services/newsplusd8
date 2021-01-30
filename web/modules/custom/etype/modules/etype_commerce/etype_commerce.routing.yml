@@ -33,3 +33,11 @@ etype_commerce.admin_settings:
     _permission: 'access administration pages'
   options:
     _admin_route: TRUE
+
+etype_commerce.buysub:
+  path: '/buysub'
+  defaults:
+    _controller: '\Drupal\etype_commerce\Controller\BuySubController::buySub'
+    _title: 'Subscribe Now!'
+  requirements:
+    _user_is_logged_in: 'FALSE'

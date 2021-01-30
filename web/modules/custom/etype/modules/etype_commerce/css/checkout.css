@@ -13,9 +13,15 @@
 #edit-login-register-field-subscription-expiry-wrapper,
 #edit-login-register-field-mailchimp-subscription-wrapper,
 .form-item-payment-information-add-payment-method-billing-information-copy-to-address-book,
-.field--type-image {
+.field--type-image,
+#edit-login-returning-customer,
+#edit-login-register legend {
   display: none;
   visibility: hidden;
+}
+
+#edit-login-register {
+  padding: 0 1rem 0 0;
 }
 
 details {
@@ -34,18 +40,15 @@ details {
   margin-bottom: 0!important;
 }
 
-@media (min-width: 780px) {
-  .form-wrapper__returning-customer,
-  .form-wrapper__guest-checkout {
-    float: none;
-  }
-  .form-wrapper__guest-checkout .fieldset-wrapper {
-    margin-top: -16px;
-  }
+.password-parent {
+  max-width: unset!important;
 }
 
-@media (min-width: 1026px) {
-  #edit-login {
-    display: flex;
-  }
+.form-wrapper__returning-customer,
+.form-wrapper__guest-checkout {
+  float: none;
 }
+.form-wrapper__guest-checkout .fieldset-wrapper {
+  margin-top: -16px;
+}
+

@@ -2,3 +2,8 @@ a[data-drupal-link-system-path="user/login"] {
   display: block!important;
   visibility: visible;
 }
+
+.user-logged-in a[data-drupal-link-system-path="buysub"] {
+  display: none!important;
+  visibility: hidden;
+}
