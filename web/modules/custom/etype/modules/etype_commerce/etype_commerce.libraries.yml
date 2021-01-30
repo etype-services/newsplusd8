@@ -16,3 +16,12 @@ login-form:
     - core/jquery
     - core/jquery.once
 
+buysub:
+  version: VERSION
+  css:
+    state:
+      css/buysub.css: { weight: 100 }
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once

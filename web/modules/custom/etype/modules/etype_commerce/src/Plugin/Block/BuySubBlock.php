@@ -8,20 +8,20 @@ use Drupal\Core\Block\BlockBase;
  * Provides a Buy Digital Block.
  *
  * @Block(
- *   id = "buy_print_block",
- *   admin_label = @Translation("Buy Print Subscription"),
+ *   id = "buy_sub_block",
+ *   admin_label = @Translation("Buy Subscriptions"),
  *   category = @Translation("eType"),
  * )
  */
-class BuyPrintBlock extends BlockBase {
+class BuySubBlock extends BlockBase {
 
   /**
    * @return array
    */
   public function build(): array {
-    $builtForm = \Drupal::formBuilder()->getForm('Drupal\etype_commerce\Form\BuyPrintForm');
-    $render['form_one'] = $builtForm;
-    return $render;
+    return [
+      '#theme' => 'buy_sub',
+    ];
   }
 
   /**

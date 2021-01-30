@@ -18,18 +18,6 @@
   visibility: hidden;
 }
 
-/* Only needed if #edit-login-register-field-mailchimp-subscription-wrapper is shown.
-#edit-login-register-field-mailchimp-subscription-wrapper .form-item {
-  display: flex;
-  align-content: center;
-}
-
-#edit-login-register-field-mailchimp-subscription-wrapper .form-item .control {
-  width: 20px;
-  margin-right: 0.75rem;
-}
-*/
-
 details {
   border: 0!important;
 }

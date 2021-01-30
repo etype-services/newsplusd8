@@ -34,7 +34,7 @@ function etype_commerce_form_alter(&$form, FormStateInterface $form_state, $form
         } else {
           $message = 'Your subscription expired on ' . $subExpiry->format('Y-m-d') . '.';
         }
-        $form['#markup'] = $message;
+        $form['#markup'] = '<div class="subscription_message">' . $message . '</div>';
       }
     }
     $form['email'] = [
@@ -270,4 +270,16 @@ function etype_commerce_mail($key, &$message, $params) {
       );
       break;
   }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function etype_commerce_theme($existing, $type, $theme, $path): array {
+  return [
+    'buy_sub' => [
+      'variables' => [],
+      'template' => 'buy_sub',
+    ],
+  ];
 }
