@@ -24,14 +24,4 @@ class BuyDigitalBlock extends BlockBase {
     return $render;
   }
 
-  /**
-   * Disable Caching.
-   *
-   * @return int
-   *   Boolean
-   */
-  public function getCacheMaxAge(): int {
-    return 0;
-  }
-
 }

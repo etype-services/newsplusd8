@@ -50,6 +50,7 @@ function etype_commerce_form_alter(&$form, FormStateInterface $form_state, $form
   switch ($form_id) {
     case 'commerce_checkout_flow_multistep_default':
       $form['#attached']['library'][] = 'etype_commerce/login-form';
+      unset ($form['login']['register']['name']);
       break;
   }
 }

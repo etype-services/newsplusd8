@@ -5,7 +5,7 @@ namespace Drupal\etype_commerce\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
 
 /**
- * Provides a Buy Digital Block.
+ * Provides a Buy Digital Block containing the Print and Digital blocks.
  *
  * @Block(
  *   id = "buy_sub_block",
@@ -22,16 +22,6 @@ class BuySubBlock extends BlockBase {
     return [
       '#theme' => 'buy_sub',
     ];
-  }
-
-  /**
-   * Disable Caching.
-   *
-   * @return int
-   *   Boolean
-   */
-  public function getCacheMaxAge(): int {
-    return 0;
   }
 
 }
