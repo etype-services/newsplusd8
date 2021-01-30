@@ -59,6 +59,10 @@ function etype_commerce_form_alter(&$form, FormStateInterface $form_state, $form
         ]
       ];
       break;
+
+    case 'edit-login-returning-customer':
+
+      break;
   }
 }
 

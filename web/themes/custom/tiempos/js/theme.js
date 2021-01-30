@@ -66,8 +66,9 @@ function getIEVersion() {
       /* Image captions for Feature */
       $(".main-caption").html(caption);
 
-      /* Add Bulma formatting to webform selects */
+      /* Add Bulma formatting to forms */
       $(".webform-submission-form .form-select").addClass('select');
+      $("input.form-email").addClass('input');
     }
   };
 })(jQuery, Drupal);
