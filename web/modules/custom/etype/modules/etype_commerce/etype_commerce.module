@@ -5,6 +5,7 @@ use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
 use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Url;
 use Drupal\user\Entity\User;
 use Drupal\user\UserInterface;
@@ -44,13 +45,19 @@ function etype_commerce_form_alter(&$form, FormStateInterface $form_state, $form
     ];
     $form['actions']['submit']['#value'] = t('Checkout');
     $form['actions']['submit']['#submit'][] = '_etype_commerce_redirect_to_checkout';
-    $form['#attached']['library'][] = 'etype_commerce/login-form';
+    $form['#attached']['library'][] = 'etype_commerce/checkout';
   }
 
   switch ($form_id) {
     case 'commerce_checkout_flow_multistep_default':
-      $form['#attached']['library'][] = 'etype_commerce/login-form';
-      unset ($form['login']['register']['name']);
+      $form['#attached']['library'][] = 'etype_commerce/checkout';
+      $form['login']['register']['name'] = [
+        '#type' => 'hidden',
+        '#required' => FALSE,
+        '#attributes' => [
+          'id' => 'edit-login-register-name',
+        ]
+      ];
       break;
   }
 }

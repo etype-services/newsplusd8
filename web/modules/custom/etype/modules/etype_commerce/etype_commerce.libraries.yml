@@ -4,13 +4,13 @@ global-styling:
     state:
       css/etype-commerce.css: {}
 
-login-form:
+checkout:
   version: VERSION
   js:
-    js/login-form.js: { }
+    js/checkout.js: { }
   css:
     state:
-      css/login-form.css: { weight: 100 }
+      css/checkout.css: { weight: 100 }
   dependencies:
     - core/drupal
     - core/jquery
