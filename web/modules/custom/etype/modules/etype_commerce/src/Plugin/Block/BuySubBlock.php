@@ -16,7 +16,10 @@ use Drupal\Core\Block\BlockBase;
 class BuySubBlock extends BlockBase {
 
   /**
+   * Build Block from theme file.
+   *
    * @return array
+   *   Render array
    */
   public function build(): array {
     return [

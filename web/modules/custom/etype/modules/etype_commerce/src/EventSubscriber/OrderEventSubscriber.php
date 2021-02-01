@@ -6,6 +6,7 @@ use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
 use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Core\Entity\EntityStorageException;
 use Drupal\state_machine\Event\WorkflowTransitionEvent;
+use Drupal\commerce_order\Entity\OrderInterface;
 use League\Csv\Exception;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Drupal\user\Entity\User;
@@ -36,28 +37,28 @@ class OrderEventSubscriber implements EventSubscriberInterface
    *
    * @var string
    */
-  protected $message;
+  protected string $message;
 
   /**
    * User role.
    *
    * @var string
    */
-  protected $role;
+  protected string $role;
 
   /**
    * The Order.
    *
    * @var \Drupal\commerce_order\Entity\OrderInterface
    */
-  protected $order;
+  protected OrderInterface $order;
 
   /**
    * The User.
    *
    * @var \Drupal\user\Entity\User
    */
-  protected $user;
+  protected User $user;
 
   /**
    * OrderEventSubscriber constructor.

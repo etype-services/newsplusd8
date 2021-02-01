@@ -288,9 +288,13 @@ function etype_commerce_mail($key, &$message, $params) {
  * Implements hook_theme().
  */
 function etype_commerce_theme($existing, $type, $theme, $path): array {
+  $conf = \Drupal::config('etype_commerce.settings');
   return [
     'buy_sub' => [
-      'variables' => [],
+      'variables' => [
+        'buyDigitalText' => $conf->get('buyDigitalText'),
+        'buyPrintText' => $conf->get('buyPrintText'),
+      ],
       'template' => 'buy_sub',
     ],
   ];
