@@ -37,28 +37,28 @@ class OrderEventSubscriber implements EventSubscriberInterface
    *
    * @var string
    */
-  protected string $message;
+  protected $message;
 
   /**
    * User role.
    *
    * @var string
    */
-  protected string $role;
+  protected $role;
 
   /**
    * The Order.
    *
    * @var \Drupal\commerce_order\Entity\OrderInterface
    */
-  protected OrderInterface $order;
+  protected $order;
 
   /**
    * The User.
    *
    * @var \Drupal\user\Entity\User
    */
-  protected User $user;
+  protected $user;
 
   /**
    * OrderEventSubscriber constructor.
