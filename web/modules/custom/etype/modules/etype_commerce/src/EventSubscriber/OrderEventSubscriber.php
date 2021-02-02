@@ -6,7 +6,6 @@ use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
 use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Core\Entity\EntityStorageException;
 use Drupal\state_machine\Event\WorkflowTransitionEvent;
-use Drupal\commerce_order\Entity\OrderInterface;
 use League\Csv\Exception;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Drupal\user\Entity\User;

@@ -1,11 +1,11 @@
 {{ attach_library('etype_commerce/buysub') }}
 <div id="buysub" class="columns">
   <div class="column">
-    {{ buyDigitalText }}
+    {{ buyDigitalText|raw }}
     {{ drupal_block('buy_digital_block') }}
   </div>
   <div class="column">
-    {{ buyPrintText }}
+    {{ buyPrintText|raw }}
     {{ drupal_block('buy_print_block') }}
   </div>
 </div>

@@ -5,7 +5,6 @@ use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
 use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Url;
 use Drupal\user\Entity\User;
 use Drupal\user\UserInterface;
@@ -59,10 +58,6 @@ function etype_commerce_form_alter(&$form, FormStateInterface $form_state, $form
         ]
       ];
       break;
-
-    case 'edit-login-returning-customer':
-
-      break;
   }
 }
 
@@ -79,6 +74,8 @@ function _etype_commerce_redirect_to_checkout(&$form, FormStateInterface $form_s
   /** @var OrderInterface $cart_id */
   $cart_id = $form_state->get('cart_id');
 
+  var_dump($_POST['purchased_entity'][0]);
+  exit;
   /* Is this a gift? */
   if ($_POST['purchased_entity'][0]['attributes']['attribute_gift'] == 10) {
     $gift_email = ($_POST['email']);
@@ -286,14 +283,22 @@ function etype_commerce_mail($key, &$message, $params) {
 
 /**
  * Implements hook_theme().
+ *
+ * @param $existing
+ * @param $type
+ * @param $theme
+ * @param $path
+ * @return array[]
  */
 function etype_commerce_theme($existing, $type, $theme, $path): array {
   $conf = \Drupal::config('etype_commerce.settings');
+  $digital_text = $conf->get('buyDigitalText');
+  $print_text = $conf->get('buyPrintText');
   return [
     'buy_sub' => [
       'variables' => [
-        'buyDigitalText' => $conf->get('buyDigitalText'),
-        'buyPrintText' => $conf->get('buyPrintText'),
+        'buyDigitalText' => $digital_text['value'],
+        'buyPrintText' => $print_text['value'],
       ],
       'template' => 'buy_sub',
     ],
