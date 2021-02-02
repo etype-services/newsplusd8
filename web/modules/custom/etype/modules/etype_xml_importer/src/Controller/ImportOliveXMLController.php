@@ -225,7 +225,7 @@ class ImportOliveXMLController {
 
     /* loop over import files */
     foreach ($import_file_array as $item) {
-      $markup .= '<p>Started import of ' . $item . '</p>';
+      $markup .= '<p><strong>STARTED IMPORT OF ' . $item . '</strong></p>';
 
       $rand = md5(time());
       $zip_file = "/tmp/" . $rand . ".zip";
@@ -298,9 +298,7 @@ class ImportOliveXMLController {
               /* xml object processing of stub which contains link, title, and description */
               foreach ($item as $k => $v) {
                 $message = $this->parseItem($v);
-                if ($message != 'Success') {
-                  $markup .= $message;
-                }
+                $markup .= $message;
               }
             }
           }
@@ -537,7 +535,7 @@ class ImportOliveXMLController {
     $node['created'] = $pub_date;
     $this->createNode($node);
     $this->i++;
-    return "Success";
+    return "Imported <strong>" . $node['title'] . " / " . $array['identifier'] . "</strong>.<br />";;
   }
 
   /**
