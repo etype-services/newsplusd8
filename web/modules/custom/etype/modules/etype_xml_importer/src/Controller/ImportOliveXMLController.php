@@ -225,7 +225,7 @@ class ImportOliveXMLController {
 
     /* loop over import files */
     foreach ($import_file_array as $item) {
-      $markup .= '<p><strong>Started import of ' . $item . '</strong></p>';
+      $markup .= '<p><strong>STARTED IMPORT OF ' . $item . '</strong></p>';
 
       $rand = md5(time());
       $zip_file = "/tmp/" . $rand . ".zip";
