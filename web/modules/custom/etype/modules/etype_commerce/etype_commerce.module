@@ -74,8 +74,6 @@ function _etype_commerce_redirect_to_checkout(&$form, FormStateInterface $form_s
   /** @var OrderInterface $cart_id */
   $cart_id = $form_state->get('cart_id');
 
-  var_dump($_POST['purchased_entity'][0]);
-  exit;
   /* Is this a gift? */
   if ($_POST['purchased_entity'][0]['attributes']['attribute_gift'] == 10) {
     $gift_email = ($_POST['email']);
