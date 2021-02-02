@@ -298,9 +298,7 @@ class ImportOliveXMLController {
               /* xml object processing of stub which contains link, title, and description */
               foreach ($item as $k => $v) {
                 $message = $this->parseItem($v);
-                if ($message != 'Success') {
-                  $markup .= $message;
-                }
+                $markup .= $message;
               }
             }
           }
@@ -537,7 +535,7 @@ class ImportOliveXMLController {
     $node['created'] = $pub_date;
     $this->createNode($node);
     $this->i++;
-    return "Success";
+    return "Imported <strong>" . $node['title'] . " / " . $array['identifier'] . "</strong>.<br />";;
   }
 
   /**
