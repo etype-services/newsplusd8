@@ -223,7 +223,7 @@ class ImportOliveXMLController {
 
     $import_file_array = explode("\n", trim($this->importUrls));
 
-    /* loop over import files */
+    /* loop over import files from config */
     foreach ($import_file_array as $item) {
       $markup .= '<p><strong>STARTED IMPORT OF ' . $item . '</strong></p>';
 
@@ -321,7 +321,7 @@ class ImportOliveXMLController {
    * Parse XML into importable format.
    *
    * @param \SimpleXMLElement $item
-   *   XML data.
+   *   XML data, contains link, title, description.
    *
    * @return array|string|null
    *   Markup
@@ -329,39 +329,45 @@ class ImportOliveXMLController {
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   protected function parseItem(\SimpleXMLElement $item) {
-    $array = (array) $item;
+    $item_array = (array) $item;
+    $message = '';
 
     // Title is not an object if the stub is valid.
-    if (is_object($array['title'])) {
-      return '<p>' . $array['link'] . ' has an issue, title seems to be empty. Please check ' . $this->entry . ' and ' . $array['link'] . '.</p>';
+    if (is_object($item_array['title'])) {
+      return '<p>' . $item_array['link'] . ' has an issue, title seems to be empty. Please check ' . $this->entry . ' and ' . $item_array['link'] . '.</p>';
     }
 
     // If the description is empty in the Section file probably an error.
-    $desc = strip_tags($array['description']);
+    $desc = strip_tags($item_array['description']);
     if (empty($desc)) {
-      return '<p>' . $array['link'] . ' has an issue, description is empty. Please check ' . $this->entry . ' and ' . $array['link'] . '.</p>';
+      return '<p>' . $item_array['link'] . ' has an issue, description is empty. Please check ' . $this->entry . ' and ' . $item_array['link'] . '.</p>';
     }
 
     // Full article is in the linked file.
-    $ar_file = $array['link'];
+    $ar_file = $item_array['link'];
     $ar_xml = file_get_contents((string) $this->extractDir . $ar_file);
 
-    /* parse article xhtml from link file */
+    /* Parse article xhtml from link file */
+
+    /* Get section */
     preg_match("/<prism:section>([^<]+)/", $ar_xml, $coincidencias);
 
-    /* ignore if classifieds? */
+    /* Ignore if classifieds? */
     if ($this->config->get('importClassifieds') !== 1) {
       if ($coincidencias[1] == 'Classifieds') {
         return ['#markup' => ''];
       }
     }
-    $array['section'] = $coincidencias[1];
+    /* Get section, currently not used */
+    // $array['section'] = $coincidencias[1];
 
+    /* Get title */
     preg_match("/<dc:title>([^<]+)/", $ar_xml, $coincidencias);
-    $array['title'] = substr($coincidencias[1], 0, 255);
+    $array['title'] = trim(substr($coincidencias[1], 0, 255));
 
+    /* Get identifier */
     preg_match("/<dc:identifier>([^<]+)/", $ar_xml, $coincidencias);
-    $array['identifier'] = substr($coincidencias[1], 0, 255);
+    $array['identifier'] = trim(substr($coincidencias[1], 0, 255));
 
     /* Check for Duplicates */
     if (entityTypeHasField('field_issue_identifier', 'node')) {
@@ -375,6 +381,9 @@ class ImportOliveXMLController {
         if (count($nids) > 0) {
           return "Duplicate found for <strong>" . $array['title'] . " / " . $array['identifier'] . "</strong>. Story was not imported. <br />";
         }
+      }
+      else {
+        $message .= "No identifier for  <strong>" . $array['title'] . "</strong>.<br />";
       }
     }
 
@@ -533,9 +542,11 @@ class ImportOliveXMLController {
     }
 
     $node['created'] = $pub_date;
+    /* Create the Node */
     $this->createNode($node);
     $this->i++;
-    return "Imported <strong>" . $node['title'] . " / " . $array['identifier'] . "</strong>.<br />";;
+    $message .= "Imported <strong>" . $node['title'] . " / " . $array['identifier'] . "</strong>.<br />";
+    return $message;
   }
 
   /**
