@@ -66,10 +66,14 @@
 
 /* All Content Types */
 article {
-  .node--view-mode-full {
+  &.node--view-mode-full {
     .node__content {
       h2 {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
+        margin-bottom: $column-gap;
+      }
+      h2 {
+        font-size: 1.3rem;
         margin-bottom: $column-gap;
       }
     }
