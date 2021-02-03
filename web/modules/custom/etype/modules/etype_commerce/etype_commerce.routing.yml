@@ -4,7 +4,7 @@ etype_commerce.expire_subscribers:
     _title: 'Expire Subscribers'
     _controller: '\Drupal\etype_commerce\Controller\ExpireSubscribersController::expireSubscribers'
   requirements:
-    _permission: 'access administration pages'
+    _permission: 'access subscriber administration'
   options:
     _admin_route: TRUE
 
