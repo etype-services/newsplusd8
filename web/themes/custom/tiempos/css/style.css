@@ -1274,11 +1274,11 @@ article.node--view-mode-full .node__content h4 {
   margin-bottom: 0.75rem;
 }
 article.node--view-mode-full .node__content h5 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin-bottom: 0.75rem;
 }
-article.node--view-mode-full .node__content h4 {
-  font-size: 1.1rem;
+article.node--view-mode-full .node__content h6 {
+  font-size: 0.9rem;
   margin-bottom: 0.75rem;
 }
 
