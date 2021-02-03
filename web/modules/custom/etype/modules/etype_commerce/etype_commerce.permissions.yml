@@ -1,0 +1,7 @@
+access subscriber information:
+  description: 'Access Views and pages for subscriber management'
+  title: 'Subscriber Management'
+
+access subscriber administration:
+  description: 'Access advanced subscriber management'
+  title: 'Advanced Subscriber Management'

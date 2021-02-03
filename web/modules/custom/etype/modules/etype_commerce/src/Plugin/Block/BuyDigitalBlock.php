@@ -16,7 +16,10 @@ use Drupal\Core\Block\BlockBase;
 class BuyDigitalBlock extends BlockBase {
 
   /**
+   * Make block for form.
+   *
    * @return array
+   *   Render array
    */
   public function build(): array {
     $builtForm = \Drupal::formBuilder()->getForm('Drupal\etype_commerce\Form\BuyDigitalForm');

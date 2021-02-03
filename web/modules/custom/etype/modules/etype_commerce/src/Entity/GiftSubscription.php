@@ -67,6 +67,11 @@ class GiftSubscription extends ContentEntityBase implements ContentEntityInterfa
       ->setDescription(t('How long the subscription lasts'))
       ->setReadOnly(FALSE);
 
+    $fields['publication'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Publication'))
+      ->setDescription(t('Which publication the subscription is for'))
+      ->setReadOnly(FALSE);
+
     $fields['paid'] = BaseFieldDefinition::create('boolean')
       ->setLabel(t('Paid'))
       ->setDescription(t('Paid flag'))

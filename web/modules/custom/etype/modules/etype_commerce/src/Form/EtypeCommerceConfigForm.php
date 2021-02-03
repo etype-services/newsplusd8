@@ -66,6 +66,24 @@ namespace Drupal\etype_commerce\Form {
         '#default_value' => $this->conf->get('MailChimpListId'),
       ];
 
+      $val = $this->conf->get('buyDigitalText');
+      $form['buyDigitalText'] = [
+        '#type' => 'text_format',
+        '#title' => $this->t('HTML for Buy Digital Form'),
+        '#cols' => '100',
+        '#default_value' => $val['value'],
+        '#format' => $val['format'],
+      ];
+
+      $val = $this->conf->get('buyPrintText');
+      $form['buyPrintText'] = [
+        '#type' => 'text_format',
+        '#title' => $this->t('HTML for Buy Print Form'),
+        '#cols' => '100',
+        '#default_value' => $val['value'],
+        '#format' => $val['format'],
+      ];
+
       return parent::buildForm($form, $form_state);
     }
 
@@ -79,6 +97,8 @@ namespace Drupal\etype_commerce\Form {
         ->set('MailChimpAPIKey', $form_state->getValue('MailChimpAPIKey'))
         ->set('MailChimpServerPrefix', $form_state->getValue('MailChimpServerPrefix'))
         ->set('MailChimpListId', $form_state->getValue('MailChimpListId'))
+        ->set('buyDigitalText', $form_state->getValue('buyDigitalText'))
+        ->set('buyPrintText', $form_state->getValue('buyPrintText'))
         ->save();
 
     }

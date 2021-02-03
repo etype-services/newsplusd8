@@ -5,10 +5,10 @@ use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
 use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Url;
 use Drupal\user\Entity\User;
 use Drupal\user\UserInterface;
+use Drupal\user\Entity\Role;
 
 /**
  * Implements hook_form_alter().
@@ -58,10 +58,6 @@ function etype_commerce_form_alter(&$form, FormStateInterface $form_state, $form
           'id' => 'edit-login-register-name',
         ]
       ];
-      break;
-
-    case 'edit-login-returning-customer':
-
       break;
   }
 }
@@ -286,12 +282,41 @@ function etype_commerce_mail($key, &$message, $params) {
 
 /**
  * Implements hook_theme().
+ *
+ * @param $existing
+ * @param $type
+ * @param $theme
+ * @param $path
+ * @return array[]
  */
 function etype_commerce_theme($existing, $type, $theme, $path): array {
+  $conf = \Drupal::config('etype_commerce.settings');
+  $digital_text = $conf->get('buyDigitalText');
+  $print_text = $conf->get('buyPrintText');
   return [
     'buy_sub' => [
-      'variables' => [],
+      'variables' => [
+        'buyDigitalText' => $digital_text['value'],
+        'buyPrintText' => $print_text['value'],
+      ],
       'template' => 'buy_sub',
     ],
   ];
+}
+
+/**
+ * Implements hook_install().
+ * @throws EntityStorageException
+ */
+function etype_commerce_install() {
+  if (!Role::load('subscription_manager')) {
+    $role = Role::create(['id' => 'subscription_manager', 'label' => 'Subscription Manager']);
+    $role->grantPermission('access subscriber information');
+    $role->grantPermission('access administration pages');
+    $role->grantPermission('access toolbar');
+    $role->grantPermission('view the administration theme');
+    $role->grantPermission('switch shortcut sets');
+    $role->grantPermission('administer users');
+    $role->save();
+  }
 }

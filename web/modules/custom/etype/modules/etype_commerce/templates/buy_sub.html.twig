@@ -1,11 +1,11 @@
 {{ attach_library('etype_commerce/buysub') }}
 <div id="buysub" class="columns">
   <div class="column">
-    <h2>Unlimited Digital Access</h2>
+    {{ buyDigitalText|raw }}
     {{ drupal_block('buy_digital_block') }}
   </div>
   <div class="column">
-    <h2>Home Delivery & Unlimited Digital Access</h2>
+    {{ buyPrintText|raw }}
     {{ drupal_block('buy_print_block') }}
   </div>
 </div>

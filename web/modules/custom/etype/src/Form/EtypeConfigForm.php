@@ -32,13 +32,13 @@ class EtypeConfigForm extends ConfigFormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state) {
+  public function buildForm(array $form, FormStateInterface $form_state): array {
 
     $config = $this->config('etype.adminsettings');
     $uid = $config->get('author');
     $message = $config->get('premium_content_message');
     $premium_content_message = !is_array($message) ? [
-      'value' => "Massage",
+      'value' => "Message",
       'format' => "basic_html",
     ] : $message;
     $author = '';

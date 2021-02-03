@@ -54,6 +54,11 @@ class BuyPrintForm extends FormBase {
       '#default_value' => 11,
     ];
 
+    $form['purchased_entity[0][attributes][attribute_publication]'] = [
+      '#type' => 'hidden',
+      '#default_value' => 12,
+    ];
+
     $form['#action'] = '/store';
 
     $form['submit'] = [
