@@ -218,10 +218,31 @@ class ImportOliveXMLController {
       return ['#markup' => ''];
     }
 
-    /* initialize markup */
+    /* initialize variables */
     $markup = '';
+    $t = 0;
 
     $import_file_array = explode("\n", trim($this->importUrls));
+
+    /* Delete Unpublished Nodes first */
+    if ($this->config->get('deleteUnpublished') == 1) {
+      $nids = \Drupal::entityQuery('node')
+        ->condition('type', $this->nodeType)
+        ->condition('status', 0, "=")
+        ->execute();
+
+      try {
+        $storage_handler = \Drupal::entityTypeManager()->getStorage('node');
+        $entities = $storage_handler->loadMultiple($nids);
+        $storage_handler->delete($entities);
+      } catch (InvalidPluginDefinitionException | PluginNotFoundException $e) {
+      }
+
+      $num = count($nids);
+      $message = "eType XML Importer deleted $num unpublished articles.";
+      $markup .= "<p>$message</p>";
+      \Drupal::logger('etype_xml_importer')->notice($message);
+    }
 
     /* loop over import files from config */
     foreach ($import_file_array as $item) {
@@ -341,6 +362,9 @@ class ImportOliveXMLController {
     $desc = strip_tags($item_array['description']);
     if (empty($desc)) {
       return '<p>' . $item_array['link'] . ' has an issue, description is empty. Please check ' . $this->entry . ' and ' . $item_array['link'] . '.</p>';
+    }
+    else {
+      $array['description'] = $desc;
     }
 
     // Full article is in the linked file.

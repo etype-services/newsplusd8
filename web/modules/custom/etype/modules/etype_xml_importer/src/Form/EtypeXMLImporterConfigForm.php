@@ -192,15 +192,21 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
     }
 
     $form['importAsPremium'] = [
-      '#title' => $this->t('Check to mark imported nodes as Premium Content.'),
+      '#title' => $this->t('Imported nodes are Premium Content.'),
       '#type' => 'checkbox',
       '#default_value' => $this->conf->get('importAsPremium'),
     ];
 
     $form['importClassifieds'] = [
-      '#title' => $this->t('Check to import Olive classified section.'),
+      '#title' => $this->t('Import classified section.'),
       '#type' => 'checkbox',
       '#default_value' => $this->conf->get('importClassifieds'),
+    ];
+
+    $form['deleteUnpublished'] = [
+      '#title' => $this->t('Delete all unpublished nodes before importing.'),
+      '#type' => 'checkbox',
+      '#default_value' => $this->conf->get('deleteUnpublished'),
     ];
 
     return parent::buildForm($form, $form_state);
@@ -237,6 +243,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       ->set('section', $form_state->getValue('section'))
       ->set('imageNumber', $form_state->getValue('imageNumber'))
       ->set('importClassifieds', $form_state->getValue('importClassifieds'))
+      ->set('deleteUnpublished', $form_state->getValue('deleteUnpublished'))
       ->set('importAsPremium', $form_state->getValue('importAsPremium'))
       ->set('author', $form_state->getValue('author'))
       ->save();
