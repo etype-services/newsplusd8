@@ -111,7 +111,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
     $form['subheadField'] = [
       '#title' => $this->t('Subhead field'),
       '#type' => 'select',
-      '#description' => 'The Drupal field to use for the imported subhead.',
+      '#description' => 'The field to use for the imported subhead.',
       '#options' => $this->fields,
       '#default_value' => $this->conf->get('subheadField'),
     ];
@@ -119,7 +119,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
     $form['imageField'] = [
       '#title' => $this->t('Image field'),
       '#type' => 'select',
-      '#description' => 'The Drupal field to use for the imported image(s).',
+      '#description' => 'The field to use for the imported image(s).',
       '#options' => $this->fields,
       '#default_value' => $this->conf->get('imageField'),
     ];
@@ -135,7 +135,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
     $form['longCaptionField'] = [
       '#title' => $this->t('Long caption field'),
       '#type' => 'select',
-      '#description' => 'The Drupal field to use for long captions.',
+      '#description' => 'The field to use for long captions.',
       '#options' => $this->fields,
       '#default_value' => $this->conf->get('longCaptionField'),
     ];
@@ -172,7 +172,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
     $form['sectionField'] = [
       '#title' => $this->t('Section field'),
       '#type' => 'select',
-      '#description' => 'The Drupal field used to store the section.',
+      '#description' => 'The field used to store the section.',
       '#options' => $this->fields,
       '#default_value' => $this->conf->get('sectionField'),
     ];
