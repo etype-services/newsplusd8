@@ -140,6 +140,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       '#default_value' => $this->conf->get('longCaptionField'),
     ];
 
+    /*
     $taxonomy = $this->conf->get('taxonomy');
     $taxonomies = taxonomy_vocabulary_get_names();
     if (empty($taxonomy)) {
@@ -152,6 +153,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       '#options' => $taxonomies,
       '#default_value' => $taxonomy,
     ];
+    */
 
     $form['section'] = [
       '#title' => $this->t('Default section'),
@@ -159,9 +161,9 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       '#type' => 'entity_autocomplete',
       '#target_type' => 'taxonomy_term',
       '#selection_handler' => 'default',
-      '#selection_settings' => [
+      /*'#selection_settings' => [
         'target_bundles' => [$taxonomy],
-      ],
+      ],*/
     ];
     $tid = $this->conf->get('section');
     if (!empty($tid)) {
@@ -239,7 +241,7 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
       ->set('imageField', $form_state->getValue('imageField'))
       ->set('longCaptionField', $form_state->getValue('longCaptionField'))
       ->set('sectionField', $form_state->getValue('sectionField'))
-      ->set('taxonomy', $form_state->getValue('taxonomy'))
+      // ->set('taxonomy', $form_state->getValue('taxonomy'))
       ->set('section', $form_state->getValue('section'))
       ->set('imageNumber', $form_state->getValue('imageNumber'))
       ->set('importClassifieds', $form_state->getValue('importClassifieds'))
