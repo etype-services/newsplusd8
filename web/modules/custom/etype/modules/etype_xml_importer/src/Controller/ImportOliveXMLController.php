@@ -382,8 +382,17 @@ class ImportOliveXMLController {
         return ['#markup' => ''];
       }
     }
-    /* Get section, currently not used */
-    // $array['section'] = $coincidencias[1];
+    /* Get section */
+    $section_name = $coincidencias[1];
+    $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')
+      ->loadByProperties(['name' => $section_name, 'vid' => 'sections']);
+    $term = reset($term);
+    if ($term != FALSE) {
+      $term_id = $term->id();
+    }
+    else {
+      $term_id = $this->config->get('section');
+    }
 
     /* Get title */
     preg_match("/<dc:title>([^<]+)/", $ar_xml, $coincidencias);
@@ -566,6 +575,7 @@ class ImportOliveXMLController {
     }
 
     $node['created'] = $pub_date;
+    $node['term_id'] = $term_id;
     /* Create the Node */
     $this->createNode($node);
     $this->i++;
@@ -612,7 +622,7 @@ class ImportOliveXMLController {
       'comment' => 0,
       'promote' => 0,
       'language' => $this->langCode,
-      $this->config->get('sectionField') => [['target_id' => $this->config->get('section')]],
+      $this->config->get('sectionField') => [['target_id' => $node['term_id']]],
     ];
     /* Add subhead to new entity. */
     if (isset($node[$this->subheadField])) {
