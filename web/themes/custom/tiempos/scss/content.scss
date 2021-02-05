@@ -138,6 +138,9 @@ article {
       margin-top: 0.3rem;
       margin-bottom: 0;
       max-width: 40vh;
+      .caption {
+        @include caption;
+      }
     }
     .field--name-body p.align-right {
       float: right;

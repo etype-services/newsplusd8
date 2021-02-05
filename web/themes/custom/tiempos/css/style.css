@@ -1320,6 +1320,11 @@ article.node--view-mode-full .node__content h6 {
   margin-bottom: 0;
   max-width: 40vh;
 }
+.page-node-type-article article .field--name-field-small-image .caption, .page-node-type-article article .field--name-body p.align-left .caption {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  color: #0a0a0a;
+}
 .page-node-type-article article .field--name-body p.align-right {
   float: right;
   margin-left: 0.75rem;
