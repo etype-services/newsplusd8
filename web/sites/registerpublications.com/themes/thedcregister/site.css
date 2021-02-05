@@ -186,6 +186,9 @@ h3.section-tag-heading a:hover {
 .owl-carousel .caption {
   width: fit-content;
   margin: 0 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  color: #0a0a0a;
 }
 
 .page-node-type-article article .field--name-field-long-caption {
