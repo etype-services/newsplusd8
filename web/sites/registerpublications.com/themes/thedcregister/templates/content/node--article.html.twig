@@ -114,14 +114,16 @@
       </div>
     {% else %}
       {% if logged_in %}
-        <div class="owl-carousel">
-          {%- for img in slider_images -%}
-            <div class="item">
-              <img alt="{{ img.alt }}" src="{{ img.url }}" />
-              <div class="caption">{{ img.caption }}</div>
-            </div>
-          {%- endfor -%}
-        </div>
+        {% if slider_images|length > 0 %}
+          <div class="owl-carousel">
+            {%- for img in slider_images -%}
+              <div class="item">
+                <img alt="{{ img.alt }}" src="{{ img.url }}" />
+                <div class="caption">{{ img.caption }}</div>
+              </div>
+            {%- endfor -%}
+          </div>
+        {% endif %}
         {{ content }}
       {% else %}
         {% if node.premium_content.value == 1 %}
