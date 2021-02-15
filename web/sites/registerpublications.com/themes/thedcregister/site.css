@@ -204,3 +204,7 @@ h3.section-tag-heading a:hover {
   overflow: visible!important;
   height: fit-content!important;
 }
+
+.page-node-type-article article .field--name-field-small-image, .page-node-type-article article .field--name-body p.align-left {
+  max-width: 20vh;
+}
