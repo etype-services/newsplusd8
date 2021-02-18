@@ -213,3 +213,5 @@ $sites['pointandshoreland.etypegoogle9.com'] = "pointandshoreland.com";
 $sites['hollandsfj.etypegoogle9.com'] = "hollandsfj.us";
 //$sites['www.rossford.com'] = "rossford.com";
 $sites['rossford.etypegoogle9.com'] = "rossford.com";
+$sites['www.leelanaunews.com'] = "leelanaunews.com";
+$sites['leelanaunews.etypegoogle9.com'] = "leelanaunews.com";
