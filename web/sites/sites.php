@@ -2,8 +2,8 @@
 // @codingStandardsIgnoreFile
 
 /* testing */
-// $sites['local.drupal8.com'] = 'local.drupal8.com';
-$sites['local.drupal8.com'] = 'registerpublications.com';
+$sites['local.drupal8.com'] = 'local.drupal8.com';
+// $sites['local.drupal8.com'] = 'registerpublications.com';
 $sites['migrate.drupal8.com'] = 'gunnisontimes.com';
 $sites['www.etypetest.com'] = 'etypetest.etypegoogle7.com';
 

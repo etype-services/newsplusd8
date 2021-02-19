@@ -101,6 +101,7 @@ function etype_pico_preprocess_node(&$variables) {
  * @param array $page
  */
 function etype_pico_page_attachments(array &$page) {
+  $page['#attached']['library'][] = 'etype_pico/etype-pico';
   $current_url = Url::fromRoute('<current>');
   $path = $current_url->toString();
   if ($path == '/e-edition') {
@@ -108,7 +109,6 @@ function etype_pico_page_attachments(array &$page) {
     $page['#attached']['drupalSettings']['toknizdUrl'] = $url;
     $page['#attached']['library'][] = 'etype_pico/pico-auth';
   }
-  $page['#attached']['library'][] = 'etype_pico/pico';
 }
 
 
