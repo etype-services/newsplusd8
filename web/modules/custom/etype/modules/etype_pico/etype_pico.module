@@ -110,3 +110,14 @@ function etype_pico_page_attachments(array &$page) {
   }
   $page['#attached']['library'][] = 'etype_pico/pico';
 }
+
+
+/**
+ * Implements hook_preprocess_HOOK().
+ * @param $variables
+ */
+function etype_pico_preprocess_block(&$variables) {
+  if ($variables['plugin_id']== 'etype_block') {
+    $variables['attributes']['class'][] = 'PicoSignal';
+  }
+}

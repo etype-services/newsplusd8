@@ -16,7 +16,7 @@ use Drupal\Core\Block\BlockBase;
  */
 class EtypeEeditionBlock extends BlockBase {
 
-  public function build() {
+  public function build(): array {
     $e_editions = etype_e_editions();
     $logged_in = Drupal::currentUser()->isAuthenticated();
     $class = '';

@@ -1,4 +1,4 @@
-.PicoRule[data-pico-status=registered], .PicoRule[data-pico-status="paying"] {
+.PicoRule[data-pico-status="registered"], .PicoRule[data-pico-status="paying"] {
   display: none;
   visibility: hidden;
 }
@@ -7,4 +7,10 @@
   width: 100%;
   height: 100%;
   min-height: 700px;
+}
+
+a[data-drupal-link-system-path="/e-edition"][data-pico-status="excluded"],
+#block-etypeeedition[data-pico-status="excluded"] {
+  display: none;
+  visibility: hidden;
 }

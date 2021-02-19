@@ -31,8 +31,13 @@
   {% if items %}
     <div class="user-menu navbar-menu is-active is-shadowless is-hidden-touch">
     {% for item in items %}
+      {% if item.url == '/e-edition' %}
         {{ link(item.title, item.url, { 'class':['button', 'has-text-white-ter',
         'has-background-black-bis', 'is-uppercase','is-size-7', 'is-sans-serif'] }) }}
+      {% else %}
+        {{ link(item.title, item.url, { 'class':['button', 'has-text-white-ter',
+        'has-background-black-bis', 'is-uppercase','is-size-7', 'is-sans-serif', 'PicoSignal'] }) }}
+      {% endif %}
     {% endfor %}
     </div>
   {% endif %}
