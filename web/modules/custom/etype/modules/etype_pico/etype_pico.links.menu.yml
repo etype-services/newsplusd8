@@ -24,4 +24,3 @@ etype_pico.e_edition:
   options:
     attributes:
       target: _blank
-      class: PicoSignal
