@@ -98,7 +98,7 @@
       {%- endfor -%}
     </div>
   {% endif %}
-  {{ content }}
+  {{ content|without('field_subhead')  }}
 {% endset %}
 
 <article{{ attributes.addClass(classes) }}>
