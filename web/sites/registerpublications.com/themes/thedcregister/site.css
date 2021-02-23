@@ -19,6 +19,9 @@
   .navbar-end a.has-text-grey-dark:hover {
     color: #185c81!important;
   }
+  article.node--type-article.node--view-mode-full footer.node__meta {
+    margin: 0 0 0.75rem 0 !important;
+  }
 }
 
 @media screen and (max-width: 1023px) {
