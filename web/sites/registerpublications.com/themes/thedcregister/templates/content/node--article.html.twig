@@ -84,6 +84,23 @@
 {{ attach_library('classy/node') }}
 {{ attach_library('thedcregister/owl-carousel') }}
 {{ attach_library('thedcregister/article') }}
+
+
+{% set the_content %}
+  {{ content.field_subhead }}
+  {% if slider_images|length > 0 %}
+    <div class="owl-carousel">
+      {%- for img in slider_images -%}
+        <div class="item">
+          <img alt="{{ img.alt }}" src="{{ img.url }}" />
+          <div class="caption">{{ img.caption }}</div>
+        </div>
+      {%- endfor -%}
+    </div>
+  {% endif %}
+  {{ content }}
+{% endset %}
+
 <article{{ attributes.addClass(classes) }}>
 
   <div id="google_translate_element"></div>
@@ -114,17 +131,7 @@
       </div>
     {% else %}
       {% if logged_in %}
-        {% if slider_images|length > 0 %}
-          <div class="owl-carousel">
-            {%- for img in slider_images -%}
-              <div class="item">
-                <img alt="{{ img.alt }}" src="{{ img.url }}" />
-                <div class="caption">{{ img.caption }}</div>
-              </div>
-            {%- endfor -%}
-          </div>
-        {% endif %}
-        {{ content }}
+        {{ the_content }}
       {% else %}
         {% if node.premium_content.value == 1 %}
           {{ content.field_subhead }}
@@ -139,7 +146,7 @@
           {% endset %}
           {{ preview }}
         {% else %}
-          {{ content }}
+          {{ the_content }}
         {% endif %}
       {% endif %}
     {% endif %}
