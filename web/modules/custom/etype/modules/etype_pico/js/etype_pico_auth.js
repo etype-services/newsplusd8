@@ -8,9 +8,9 @@
               let theAttr = theBlock.attr("data-pico-status");
               console.log(theAttr);
               if (theAttr === 'paying') {
-                window.location.replace(drupalSettings.toknizdUrl);
+                //window.location.replace(drupalSettings.toknizdUrl);
               } else {
-                window.location.replace("/");
+                //window.location.replace("/");
               }
             });
         }
