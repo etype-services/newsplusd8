@@ -4,14 +4,14 @@
         attach: function (context, settings) {
             // console.log(drupalSettings.toknizdUrl);
             window.addEventListener('pico.loaded',function () {
-              let theBlock = $("PicoBlock");
+              let theBlock = $("pico");
               let theAttr = theBlock.attr("data-pico-status");
-              console.log(theAttr);
-              //if (theAttr !== 'excluded') {
-              //  window.location.replace(drupalSettings.toknizdUrl);
-              //} else {
-              //  window.location.replace("/");
-              //}
+              // console.log(theAttr);
+              if (theAttr === 'paying') {
+                window.location.replace(drupalSettings.toknizdUrl);
+              } else {
+                window.location.replace("/");
+              }
             });
         }
     };
