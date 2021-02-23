@@ -4,9 +4,11 @@
         attach: function (context, settings) {
             // console.log(drupalSettings.toknizdUrl);
             window.addEventListener('pico.loaded',function () {
-                if (window.Pico.user.verified === true) {
-                    window.location.replace(drupalSettings.toknizdUrl);
-                }
+              let theBlock = $("PicoBlock");
+              let theAttr = theBlock.attr("data-pico-status");
+              if (theAttr !== 'excluded') {
+                window.location.replace(drupalSettings.toknizdUrl);
+              }
             });
         }
     };
