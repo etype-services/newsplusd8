@@ -9,8 +9,18 @@
   min-height: 700px;
 }
 
-a[data-drupal-link-system-path="e-edition"][data-pico-status="excluded"],
-#block-etypeeedition[data-pico-status="excluded"] {
+a[data-drupal-link-system-path="e-edition"],
+#block-etypeeedition {
   display: none;
   visibility: hidden;
+}
+
+a[data-drupal-link-system-path="e-edition"][data-pico-status="paying"] {
+  display: flex;
+  visibility: visible;
+}
+
+#block-etypeeedition[data-pico-status="paying"] {
+  display: block;
+  visibility: visible;
 }
