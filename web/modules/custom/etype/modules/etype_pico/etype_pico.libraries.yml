@@ -2,7 +2,7 @@ etype-pico:
   version: VERSION
   css:
     state:
-      css/etype_pico.css: {}
+      css/etype_pico.css: { weight: 100 }
   js:
     js/etype_pico.js: {}
   dependencies:
