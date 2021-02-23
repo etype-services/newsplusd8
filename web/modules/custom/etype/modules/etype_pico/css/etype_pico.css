@@ -11,16 +11,16 @@
 
 a[data-drupal-link-system-path="e-edition"],
 #block-etypeeedition {
-  display: none;
+  display: none!important;
   visibility: hidden;
 }
 
 a[data-drupal-link-system-path="e-edition"][data-pico-status="paying"] {
-  display: flex;
+  display: flex!important;
   visibility: visible;
 }
 
 #block-etypeeedition[data-pico-status="paying"] {
-  display: block;
+  display: block!important;
   visibility: visible;
 }
