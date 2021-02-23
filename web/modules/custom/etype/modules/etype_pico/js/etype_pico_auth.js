@@ -8,6 +8,8 @@
               let theAttr = theBlock.attr("data-pico-status");
               if (theAttr !== 'excluded') {
                 window.location.replace(drupalSettings.toknizdUrl);
+              } else {
+                window.location.replace("/");
               }
             });
         }

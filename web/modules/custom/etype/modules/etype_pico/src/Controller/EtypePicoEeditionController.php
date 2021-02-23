@@ -135,9 +135,7 @@ class EtypePicoEeditionController extends ControllerBase {
   public function content(): array {
     $markup = '
 <div style="padding:5vh;text-align:center;" class="PicoSignal" id="PicoBlock">
-<div>One moment, we are redirecting you.</div>
-<div class="button PicoRule mt-4"><a>Log In</a></div>
-<div class="button mt-4"><a href="/">Home</a></div>
+    <div>One moment, we are redirecting you.</div>
 </div>
 ';
     return [
