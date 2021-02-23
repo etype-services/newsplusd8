@@ -6,11 +6,12 @@
             window.addEventListener('pico.loaded',function () {
               let theBlock = $("PicoBlock");
               let theAttr = theBlock.attr("data-pico-status");
-              if (theAttr !== 'excluded') {
-                window.location.replace(drupalSettings.toknizdUrl);
-              } else {
-                window.location.replace("/");
-              }
+              console.log(theAttr);
+              //if (theAttr !== 'excluded') {
+              //  window.location.replace(drupalSettings.toknizdUrl);
+              //} else {
+              //  window.location.replace("/");
+              //}
             });
         }
     };
