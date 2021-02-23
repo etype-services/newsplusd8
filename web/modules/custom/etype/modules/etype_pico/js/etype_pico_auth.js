@@ -6,7 +6,7 @@
             window.addEventListener('pico.loaded',function () {
               let theBlock = $("pico");
               let theAttr = theBlock.attr("data-pico-status");
-              // console.log(theAttr);
+              console.log(theAttr);
               if (theAttr === 'paying') {
                 window.location.replace(drupalSettings.toknizdUrl);
               } else {
