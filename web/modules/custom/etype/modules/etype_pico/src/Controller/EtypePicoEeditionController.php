@@ -131,9 +131,8 @@ class EtypePicoEeditionController extends ControllerBase {
     /* V1 */
     if ($this->etypeVersion == '1' ) {
       /* There's no point in checking anything, no token required */
-      $response = etype_e_editions();
-      var_dump($response);
-      exit;
+      $e_editions = etype_e_editions();
+      $response = $e_editions[0]['path'];
     }
     else {
       if (($result = $this->validateSubscriber()) == 0) {
