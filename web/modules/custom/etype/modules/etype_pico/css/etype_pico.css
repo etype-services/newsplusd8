@@ -1,25 +1,23 @@
-.PicoRule[data-pico-status="registered"], .PicoRule[data-pico-status="paying"] {
-  display: none;
-  visibility: hidden;
-}
-
+/* Default hide e-edition links */
 a[data-drupal-link-system-path="e-edition"],
 .block-etype {
   display: none!important;
   visibility: hidden;
 }
 
+/* Show e-edition link for paying users */
 a[data-drupal-link-system-path="e-edition"][data-pico-status="paying"] {
   display: flex!important;
   visibility: visible;
 }
 
+/* Show e-edition thumbnail for paying users */
 .block-etype[data-pico-status="paying"] {
   display: block!important;
   visibility: visible;
 }
 
-/* Non-paying e-edition block */
+/* Hide non-paying e-edition block for pyaing users */
 .block-etype-pico .PicoSignal[data-pico-status="paying"] {
   display: none!important;
   visibility: hidden;
