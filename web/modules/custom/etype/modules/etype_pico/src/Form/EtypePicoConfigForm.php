@@ -68,9 +68,16 @@ class EtypePicoConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('picoPublisherId'),
     ];
 
+    $form['picoUser'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Pico User'),
+      '#size' => 55,
+      '#default_value' => $config->get('picoUser'),
+    ];
+
     $form['picoPassword'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Pico User Password'),
+      '#title' => $this->t('Pico Password'),
       '#size' => 55,
       '#default_value' => $config->get('picoPassword'),
     ];
@@ -83,6 +90,13 @@ class EtypePicoConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('nodeTypes'),
     ];
 
+    $form['etypeVersion'] = [
+      '#title' => $this->t('eType Version'),
+      '#type' => 'select',
+      '#default_value' => $config->get('etypeVersion'),
+      '#options' => ['V2', 'V1'],
+    ];
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -93,8 +107,10 @@ class EtypePicoConfigForm extends ConfigFormBase {
     parent::submitForm($form, $form_state);
     $this->config('etype_pico.settings')
       ->set('picoPublisherId', $form_state->getValue('picoPublisherId'))
+      ->set('picoUser', $form_state->getValue('picoUser'))
       ->set('picoPassword', $form_state->getValue('picoPassword'))
       ->set('nodeTypes', $form_state->getValue('nodeTypes'))
+      ->set('etypeVersion', $form_state->getValue('etypeVersion'))
       ->save();
   }
 

@@ -14,27 +14,33 @@ use SoapFault;
  * @package Drupal\etype_pico\Controller
  */
 class EtypePicoEeditionController extends ControllerBase {
+  /**
+   * eType Version.
+   *
+   * @var string
+   */
+  public $etypeVersion;
 
   /**
    * Publication Id.
    *
    * @var int
    */
-  public $pubId = '';
+  public $pubId;
 
   /**
    * User Name.
    *
    * @var string
    */
-  public $userName = 'Pico';
+  public $userName;
 
   /**
    * Password.
    *
    * @var string
    */
-  public $passwd = '';
+  public $passwd;
 
   /**
    * Web Service URL.
@@ -64,7 +70,9 @@ class EtypePicoEeditionController extends ControllerBase {
     $this->config = Drupal::config('etype.adminsettings');
     $this->picoConfig = Drupal::config('etype_pico.settings');
     $this->pubId = (int) $this->config->get('etype_pub');
+    $this->userName = $this->picoConfig->get('picoUser');
     $this->passwd = $this->picoConfig->get('picoPassword');
+    $this->etypeVersion = $this->picoConfig->get('etypeVersion');
   }
 
   /**
@@ -120,8 +128,16 @@ class EtypePicoEeditionController extends ControllerBase {
    */
   public function getEeditionUrl(): ?string {
     $response = NULL;
-    if (($result = $this->validateSubscriber()) == 0) {
-      $response = $this->getToken();
+    /* V1 */
+    if ($this->etypeVersion == '1' ) {
+      /* There's no point in checking anything, no token required */
+      $e_editions = etype_e_editions();
+      $response = $e_editions[0]['path'];
+    }
+    else {
+      if (($result = $this->validateSubscriber()) == 0) {
+        $response = $this->getToken();
+      }
     }
     return $response;
   }
