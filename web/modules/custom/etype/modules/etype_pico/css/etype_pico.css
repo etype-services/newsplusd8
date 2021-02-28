@@ -4,7 +4,7 @@
 }
 
 a[data-drupal-link-system-path="e-edition"],
-#block-etypeeedition {
+.block-etype {
   display: none!important;
   visibility: hidden;
 }
@@ -14,13 +14,13 @@ a[data-drupal-link-system-path="e-edition"][data-pico-status="paying"] {
   visibility: visible;
 }
 
-#block-etypeeedition[data-pico-status="paying"] {
+.block-etype[data-pico-status="paying"] {
   display: block!important;
   visibility: visible;
 }
 
 /* Non-paying e-edition block */
-.e-edition.PicoSignal[data-pico-status="paying"] {
+.block-etype-pico .PicoSignal[data-pico-status="paying"] {
   display: none!important;
   visibility: hidden;
 }
