@@ -82,6 +82,13 @@ class EtypePicoConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('picoPassword'),
     ];
 
+    $form['picoLandingPage'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Pico Landing Page URL'),
+      '#size' => 55,
+      '#default_value' => $config->get('picoLandingPage'),
+    ];
+
     $form['nodeTypes'] = [
       '#title' => $this->t('Content Type'),
       '#type' => 'checkboxes',
@@ -109,6 +116,7 @@ class EtypePicoConfigForm extends ConfigFormBase {
       ->set('picoPublisherId', $form_state->getValue('picoPublisherId'))
       ->set('picoUser', $form_state->getValue('picoUser'))
       ->set('picoPassword', $form_state->getValue('picoPassword'))
+      ->set('picoLandingPage', $form_state->getValue('picoLandingPage'))
       ->set('nodeTypes', $form_state->getValue('nodeTypes'))
       ->set('etypeVersion', $form_state->getValue('etypeVersion'))
       ->save();
