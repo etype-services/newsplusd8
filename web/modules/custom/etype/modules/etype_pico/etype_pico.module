@@ -11,41 +11,42 @@ use Drupal\Core\Url;
  */
 function etype_pico_preprocess_html(&$variables) {
   $current_user_roles = \Drupal::currentUser()->getRoles();
-  if (!in_array('administrator', $current_user_roles)) {
-    $e_config = Drupal::config('etype.adminsettings');
-    $head_script = $e_config->get('head_script');
-    $bottom_script = $e_config->get('bottom_script');
-    $config = Drupal::config('etype_pico.settings');
-    $picoPublisherId = $config->get('picoPublisherId');
-    $types = $config->get('nodeTypes');
-    $nodeTypes = [];
-    if (is_countable($types)) {
-      foreach ($types as $k => $v) {
-        if (!empty($v)) {
-          $nodeTypes[] = $v;
+  $current_url = Url::fromRoute('<current>');
+  $path = $current_url->toString();
+  switch(true) {
+    case $path == '/e-edition':
+    case in_array('administrator', $current_user_roles):
+    case preg_match('/\/user\/.*/', $path):
+      //pass
+      break;
+
+    default:
+      $e_config = Drupal::config('etype.adminsettings');
+      $head_script = $e_config->get('head_script');
+      $bottom_script = $e_config->get('bottom_script');
+      $config = Drupal::config('etype_pico.settings');
+      $picoPublisherId = $config->get('picoPublisherId');
+      $types = $config->get('nodeTypes');
+      $nodeTypes = [];
+      if (is_countable($types)) {
+        foreach ($types as $k => $v) {
+          if (!empty($v)) {
+            $nodeTypes[] = $v;
+          }
         }
       }
-    }
 
-    if (!empty($picoPublisherId)) {
-      $head_script .= <<<EOF
+      if (!empty($picoPublisherId)) {
+        $head_script .= <<<EOF
 <script>
 (function(p,i,c,o){var n=new Event("pico-init");i[p]=i[p]||function(){(i[p].queue=i[p].queue||[]).push(arguments)},i.document.addEventListener("pico-init",function(e){var t=i.Pico.getInstance(e,{publisherId:o,picoInit:n},i);t.handleQueueItems(i[p].queue),i[p]=function(){return t.handleQueueItems([arguments])}},!1);var e=i.document.createElement("script"),t=i.document.getElementsByTagName("script")[0];e.async=1,e.src=c,e.onload=function(e){return i.Pico.getInstance(e,{publisherId:o,picoInit:n},i)},t.parentNode.insertBefore(e,t)})("pico",window,"https://widget.pico.tools/wrapper.min.js","$picoPublisherId");
 </script>
 EOF;
 
-      /**
-       * bottom script
-       * see https://help.trypico.com/en/articles/3199263-installing-pico-on-your-website
-       */
-      $current_url = Url::fromRoute('<current>');
-      $path = $current_url->toString();
-      if ($path == '/e-edition') {
-        $picoOn = 'false';
-        $picoType = 'page';
-        $nid = '0';
-        $picoCategories = '[]';
-      } else {
+        /**
+         * bottom script
+         * see https://help.trypico.com/en/articles/3199263-installing-pico-on-your-website
+         */
         $picoOn = 'false';
         $picoType = 'page';
         $nid = '0';
@@ -70,9 +71,8 @@ EOF;
             $picoType = 'article';
           }
         }
-      }
 
-      $bottom_script .= <<<EOF
+        $bottom_script .= <<<EOF
 <script>
 var pageInfo = {
 	article: $picoOn,
@@ -85,10 +85,11 @@ window.pico('visit', pageInfo);
 </script>"
 EOF;
 
-    } // end if pico id
-    $variables['head_script'] = $head_script;
-    $variables['bottom_script'] = $bottom_script;
+      } // end if pico id
+      $variables['head_script'] = $head_script;
+      $variables['bottom_script'] = $bottom_script;
   }
+  // end switch
 }
 
 /**

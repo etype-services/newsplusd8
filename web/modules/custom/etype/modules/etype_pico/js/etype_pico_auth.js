@@ -10,7 +10,7 @@
               if (theAttr === 'paying') {
                 window.location.replace(drupalSettings.toknizdUrl);
               } else {
-                window.location.replace("/?pn=manage_account");
+                window.location.replace("/?pn=manage_payment");
               }
             });
         }
