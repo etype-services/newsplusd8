@@ -3,12 +3,6 @@ etype-pico:
   css:
     state:
       css/etype_pico.css: { weight: 100 }
-  js:
-    js/etype_pico.js: {}
-  dependencies:
-    - core/drupal
-    - core/drupalSettings
-    - core/jquery.once
 
 pico-auth:
   version: VERSION
