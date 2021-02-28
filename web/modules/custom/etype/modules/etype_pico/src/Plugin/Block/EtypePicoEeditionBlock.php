@@ -2,7 +2,6 @@
 
 namespace Drupal\etype_pico\Plugin\Block;
 
-use Drupal;
 use Drupal\Core\Block\BlockBase;
 
 /**
