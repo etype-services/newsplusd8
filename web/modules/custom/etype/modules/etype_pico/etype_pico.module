@@ -40,6 +40,7 @@ EOF;
        */
       $current_url = Url::fromRoute('<current>');
       $path = $current_url->toString();
+      echo $path;
       if ($path == '/e-edition') {
         $picoOn = 'false';
         $picoType = 'page';
