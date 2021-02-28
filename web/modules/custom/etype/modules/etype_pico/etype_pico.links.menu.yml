@@ -9,12 +9,18 @@ etype_pico.pico_login:
   weight: 10
   route_name: etype_pico.pico_login
   menu_name: account
+  options:
+    attributes:
+      class: PicoRule
 
 etype_pico.pico_subscribe:
   title: 'Subscribe'
   weight: 10
   route_name: etype_pico.pico_subscribe
   menu_name: account
+  options:
+    attributes:
+      class: PicoPlan
 
 etype_pico.e_edition:
   title: 'e-Edition'
