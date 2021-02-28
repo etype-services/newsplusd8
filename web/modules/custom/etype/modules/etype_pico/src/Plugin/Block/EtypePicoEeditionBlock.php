@@ -9,6 +9,7 @@ use Drupal\Core\Block\BlockBase;
  * Provides a 'Etype Pico E-edition' Block.
  * It's a duplicate of the eType Block.
  * CSS Rules should make this visible only to non-paying Users.
+ * It triggers the Subscribe pop-up
  *
  * @Block(
  *   id = "etype_pico_block",
