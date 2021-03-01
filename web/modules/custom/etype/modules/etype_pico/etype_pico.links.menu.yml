@@ -11,7 +11,8 @@ etype_pico.pico_login:
   menu_name: account
   options:
     attributes:
-      class: PicoRule
+      class:
+        - PicoRule
 
 etype_pico.pico_subscribe:
   title: 'Subscribe'
@@ -20,7 +21,8 @@ etype_pico.pico_subscribe:
   menu_name: account
   options:
     attributes:
-      class: PicoPlan
+      class:
+        - PicoPlan
 
 etype_pico.e_edition:
   title: 'e-Edition'
@@ -30,4 +32,5 @@ etype_pico.e_edition:
   options:
     attributes:
       target: _blank
-      class: PicoSignal
+      class:
+        - PicoSignal
