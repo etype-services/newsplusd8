@@ -13,6 +13,7 @@ etype_pico.pico_login:
     attributes:
       class:
         - PicoRule
+        - PicoSignal
 
 etype_pico.pico_subscribe:
   title: 'Subscribe'
@@ -23,6 +24,7 @@ etype_pico.pico_subscribe:
     attributes:
       class:
         - PicoPlan
+        - PicoSignal
 
 etype_pico.e_edition:
   title: 'e-Edition'
