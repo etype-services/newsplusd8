@@ -1,6 +1,6 @@
 /* Default hide e-edition links */
 a[data-drupal-link-system-path="e-edition"],
-.block-etype {
+.block-etype-block {
   display: none!important;
   visibility: hidden;
 }
@@ -12,13 +12,13 @@ a[data-drupal-link-system-path="e-edition"][data-pico-status="paying"] {
 }
 
 /* Show e-edition thumbnail for paying users */
-.block-etype[data-pico-status="paying"] {
+.block-etype-block[data-pico-status="paying"] {
   display: block!important;
   visibility: visible;
 }
 
 /* Hide non-paying e-edition block for pyaing users */
-.block-etype-pico .PicoSignal[data-pico-status="paying"] {
+.block-etype-pico-block .PicoSignal[data-pico-status="paying"] {
   display: none!important;
   visibility: hidden;
 }
