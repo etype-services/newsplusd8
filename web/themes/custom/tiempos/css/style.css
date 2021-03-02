@@ -1069,8 +1069,11 @@ footer .footer-menu li > a {
   color: #800000;
 }
 
-/* Facebook block */
-#block-facebooksidebar, #block-twitterblock, .block-centered {
+/* Facebook and other blocks */
+#block-facebooksidebar,
+#block-twitterblock,
+#block-etypepicoeedition,
+.block-centered {
   display: flex;
   justify-content: center;
 }
