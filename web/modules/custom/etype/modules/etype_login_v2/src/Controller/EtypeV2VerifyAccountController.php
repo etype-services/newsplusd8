@@ -20,19 +20,22 @@ class EtypeV2VerifyAccountController extends ControllerBase {
    *
    * @param string $username
    *   The user name.
+   * @param int $ptr
+   *   The array pointer.
    *
    * @return string
    *   The url with the token.
    */
-  public function getToken($username = NULL) {
+  public function getToken($username = NULL, $ptr = 0): string {
     if (empty($username)) {
       $username = Drupal::currentUser()->getAccountName();
     }
     $config = Drupal::config('etype.adminsettings');
-    $pubId = (int) $config->get('etype_pub');
+    $pubId = $config->get('etype_pub');
+    $pubs = explode(',', $pubId);
     $client = new soapclient('https://publisher.etype.services/webservice.asmx?WSDL');
     $params = [
-      'publicationId' => $pubId,
+      'publicationId' => $pubs[$ptr],
       'username' => $username,
     ];
     $data = $client->GenerateUrlForSubscriber($params);

@@ -23,7 +23,7 @@ etype_login_v2.account:
     _user_is_logged_in: 'TRUE'
 
 etype_login_v2.e_edition:
-  path: '/e-edition/{pubId}'
+  path: '/e-edition/{pubId}/{ptr}'
   defaults:
     _title: 'e-Edition'
     _controller: '\Drupal\etype_login_v2\Controller\EtypeV2EeditionController::goToEedition'
@@ -38,11 +38,3 @@ etype_login_v2.subscribe:
   path: '/etype-subscribe'
   defaults:
     _title: 'Subscribe'
-
-etype_login_v2.verify_account:
-  path: '/etype-verify-account'
-  defaults:
-    _title: 'Verify Account'
-    _controller: '\Drupal\etype_login_v2\Controller\EtypeV2VerifyAccountController::getToken'
-  requirements:
-    _user_is_logged_in: 'TRUE'
