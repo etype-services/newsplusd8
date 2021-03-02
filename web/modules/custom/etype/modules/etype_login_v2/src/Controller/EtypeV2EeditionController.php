@@ -30,7 +30,7 @@ class EtypeV2EeditionController extends ControllerBase {
     if ($logged_in > 0) {
       $username = \Drupal::currentUser()->getAccountName();
     }
-    $url = (new EtypeV2VerifyAccountController)->getToken($username, $ptr);
+    $url = (new EtypeV2VerifyAccountController)->getToken($username, $pubId, $ptr);
     $response = new TrustedRedirectResponse($url);
     /* We do not want the response cached */
     $cacheable_metadata = new CacheableMetadata();
