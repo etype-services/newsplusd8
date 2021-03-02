@@ -114,8 +114,11 @@ function etype_pico_page_attachments(array &$page) {
   $current_url = Url::fromRoute('<current>');
   $path = $current_url->toString();
   if ($path == '/e-edition') {
+    $config = Drupal::config('etype_pico.settings');
+    $picoLandingPage = $config->get('picoLandingPage');
     $url = (new EtypePicoEeditionController)->getEeditionUrl();
     $page['#attached']['drupalSettings']['toknizdUrl'] = $url;
+    $page['#attached']['drupalSettings']['picoLandingPage'] = $picoLandingPage;
     $page['#attached']['library'][] = 'etype_pico/pico-auth';
   }
 }

@@ -10,7 +10,11 @@
               if (theAttr === 'paying') {
                 window.location.replace(drupalSettings.toknizdUrl);
               } else {
-                window.location.replace("/?pn=manage_payment");
+                if (drupalSettings.picoLandingPage.length > 1) {
+                  window.location.replace(drupalSettings.picoLandingPage);
+                } else {
+                  window.location.replace("/?pn=manage_payment");
+                }
               }
             });
         }
