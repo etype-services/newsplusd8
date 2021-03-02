@@ -1183,6 +1183,7 @@ footer .footer-menu li > a {
   .region-content .block-etype-block {
     visibility: visible !important;
     display: block !important;
+    text-align: center;
   }
 
   .block-date-block .navbar-burger {

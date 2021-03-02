@@ -22,3 +22,11 @@ a[data-drupal-link-system-path="e-edition"][data-pico-status="paying"] {
   display: none!important;
   visibility: hidden;
 }
+
+/* move button */
+#pico-widget-container:not(._menuHidden):not(._menuOpen):not(._modalOpen) iframe.xcomponent-component-frame.xcomponent-visible {
+  bottom: 56px;
+  height: 124px;
+  right: -6px;
+  width: 130px;
+}

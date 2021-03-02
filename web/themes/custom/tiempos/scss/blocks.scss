@@ -225,6 +225,7 @@
 
   .region-content .block-etype-block {
     @include is-really-visible;
+    text-align: center;
   }
 
   .block-date-block .navbar-burger {
