@@ -4,7 +4,7 @@
         attach: function (context, settings) {
             // console.log(drupalSettings.toknizdUrl);
             window.addEventListener('pico.loaded',function () {
-              let theBlock = $("#pico");
+              let theBlock = $("#picoRedirect");
               let theAttr = theBlock.attr("data-pico-status");
               // console.log(theAttr);
               if (theAttr === 'paying') {
