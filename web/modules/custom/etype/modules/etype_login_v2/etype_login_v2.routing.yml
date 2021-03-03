@@ -23,7 +23,7 @@ etype_login_v2.account:
     _user_is_logged_in: 'TRUE'
 
 etype_login_v2.e_edition:
-  path: '/e-edition/{pubId}/{ptr}'
+  path: '/e-edition/{pubId}'
   defaults:
     _title: 'e-Edition'
     _controller: '\Drupal\etype_login_v2\Controller\EtypeV2EeditionController::goToEedition'

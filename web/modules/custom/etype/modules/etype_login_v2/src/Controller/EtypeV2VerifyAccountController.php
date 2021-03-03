@@ -22,13 +22,11 @@ class EtypeV2VerifyAccountController extends ControllerBase {
    *   The user name.
    * @param int|null $pubId
    *   the Id of the publication.
-   * @param int $ptr
-   *   The array pointer.
    *
    * @return string
    *   The url with the token.
    */
-  public function getToken($username = NULL, $pubId = NULL, $ptr = 0): string {
+  public function getToken($username = NULL, $pubId = NULL): string {
     if (empty($username)) {
       $username = Drupal::currentUser()->getAccountName();
     }
