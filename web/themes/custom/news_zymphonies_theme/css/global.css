@@ -415,7 +415,10 @@ ul.links.inline li {
   font-style: oblique;
 }
 
-#block-etypeeedition p {
+#block-etypeeedition .e-edition {
+  position: relative;
+}
+#block-etypeeedition .e-edition p {
   position: absolute;
   bottom: 30px;
   left: 30px;
@@ -423,7 +426,7 @@ ul.links.inline li {
   padding: 1rem;
   display: block;
 }
-#block-etypeeedition p a {
+#block-etypeeedition .e-edition p a {
   font-weight: 500;
   font-size: 1.2rem;
   text-transform: uppercase;
