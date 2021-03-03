@@ -46,10 +46,17 @@ EOF;
          * bottom script
          * see https://help.trypico.com/en/articles/3199263-installing-pico-on-your-website
          */
+        switch ($path) {
+          case '/e-edition':
+            $picoCategories = '[nopopup]';
+            break;
+
+          default:
+            $picoCategories = '[]';
+        }
         $picoOn = 'false';
         $picoType = 'page';
         $nid = $path;
-        $picoCategories = '[]';
         $node = Drupal::routeMatch()->getParameter('node');
         if ($node instanceof NodeInterface) {
           if (in_array($node->getType(), $nodeTypes)) {
