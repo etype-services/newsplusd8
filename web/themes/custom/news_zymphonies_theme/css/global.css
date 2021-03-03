@@ -415,6 +415,9 @@ ul.links.inline li {
   font-style: oblique;
 }
 
+#block-etypeeedition {
+  text-align: center;
+}
 #block-etypeeedition .e-edition {
   position: relative;
 }
