@@ -48,7 +48,7 @@ EOF;
          */
         switch ($path) {
           case '/e-edition':
-            $picoCategories = '[nopopup]';
+            $picoCategories = '["nopopup"]';
             break;
 
           default:
