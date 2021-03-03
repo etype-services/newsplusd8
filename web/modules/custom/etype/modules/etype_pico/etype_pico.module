@@ -48,7 +48,7 @@ EOF;
          */
         $picoOn = 'false';
         $picoType = 'page';
-        $nid = '0';
+        $nid = $path;
         $picoCategories = '[]';
         $node = Drupal::routeMatch()->getParameter('node');
         if ($node instanceof NodeInterface) {
