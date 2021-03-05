@@ -50,40 +50,31 @@ EOF;
           case '/e-edition':
           case '/puzzles':
             $picoCategories = '["nopopup"]';
+            $picoOn = 'false';
+            $picoType = 'page';
+            $picoId = $path;
             break;
 
           default:
             $picoCategories = '[]';
-        }
-        $picoOn = 'false';
-        $picoType = 'page';
-        $nid = $path;
-        $node = Drupal::routeMatch()->getParameter('node');
-        if ($node instanceof NodeInterface) {
-          if (in_array($node->getType(), $nodeTypes)) {
-            $nid = $node->id();
-            /**
-            if ($node->hasField('field_section')) {
-            $tids = $node->get('field_section')->getValue();
-            $terms = ['article'];
-            if (is_countable($tids)) {
-            foreach ($tids as $tid) {
-            $term = Term::load($tid['target_id']);
-            $terms[] = $term->getName();
+            $picoOn = 'false';
+            $picoType = 'page';
+            $picoId = $path;
+            $node = Drupal::routeMatch()->getParameter('node');
+            if ($node instanceof NodeInterface) {
+              if (in_array($node->getType(), $nodeTypes)) {
+                $picoId = $node->id();
+                $picoOn = 'true';
+                $picoType = 'article';
+              }
             }
-            }
-            }
-             */
-            $picoOn = 'true';
-            $picoType = 'article';
-          }
         }
 
         $bottom_script .= <<<EOF
 <script>
-var pageInfo = {
+let pageInfo = {
 	article: $picoOn,
-	post_id: "$nid",
+	post_id: "$picoId",
 	post_type: "$picoType",
 	taxonomies: { tags: $picoCategories },
 	url: window.location.href
