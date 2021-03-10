@@ -1,14 +1,9 @@
-name: Gavias Kiamo
+name: Kiamo for SmartyPants News
 type: theme
-description: 'A flexible, recolorable theme with many regions and a responsive, mobile-first layout.'
-package: gaviasthemes
-libraries:
-  - gavias_kiamo/global-styling
-  - core/jquery
-
-libraries-override:
-  views_infinite_scroll/views-infinite-scroll: gavias_kiamo/views-infinite-scroll
-
+base theme: gavias_kiamo
+description: 'Kiamo for SmartyPants News'
+version: 8.1.1
+core: 8.x
 regions:
   drupal_message: 'Message for drupal'
   offcanvas: 'After Offcanvas'
@@ -37,7 +32,3 @@ regions:
   after_footer: 'After Footer'
   copyright: 'Copyright'
   other: 'Other'
-
-version: '8.x'
-core: '8.x'
-project: 'drupal'
