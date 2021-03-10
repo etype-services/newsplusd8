@@ -8,6 +8,8 @@
  */
 function smartypantsnews_preprocess_html(&$variables) {
   $node = Drupal::routeMatch()->getParameter('node');
+  var_dump($node->getType());
+  exit;
   if ($node instanceof NodeInterface) {
     if ($node->getType() == 'puzzles') {
       var_dump($node->getType());
