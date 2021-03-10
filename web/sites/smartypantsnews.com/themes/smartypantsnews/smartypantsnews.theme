@@ -9,6 +9,9 @@
 function smartypantsnews_preprocess_html(&$variables) {
   $node = Drupal::routeMatch()->getParameter('node');
   if ($node->getType() == 'puzzles') {
+    $e_config = Drupal::config('etype.adminsettings');
+    $head_script = $e_config->get('head_script');
+    $bottom_script = $e_config->get('bottom_script');
     $nid = $node->id();
     $head_script .= <<<EOF
 <script>
