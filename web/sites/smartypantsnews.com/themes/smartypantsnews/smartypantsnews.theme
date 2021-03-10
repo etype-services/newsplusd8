@@ -1,1 +1,36 @@
 <?php
+
+/**
+ * Implements hook_preprocess_HOOK() for HTML document templates.
+ *
+ * Adds body classes if certain regions have content.
+ * @param $variables
+ */
+function smartypantsnews_preprocess_html(&$variables) {
+  $node = Drupal::routeMatch()->getParameter('node');
+  if ($node instanceof NodeInterface) {
+    if ($node->getType() == 'puzzles') {
+      $head_script .= <<<EOF
+<script>
+(function(p,i,c,o){var n=new Event("pico-init");i[p]=i[p]||function(){(i[p].queue=i[p].queue||[]).push(arguments)},i.document.addEventListener("pico-init",function(e){var t=i.Pico.getInstance(e,{publisherId:o,picoInit:n},i);t.handleQueueItems(i[p].queue),i[p]=function(){return t.handleQueueItems([arguments])}},!1);var e=i.document.createElement("script"),t=i.document.getElementsByTagName("script")[0];e.async=1,e.src=c,e.onload=function(e){return i.Pico.getInstance(e,{publisherId:o,picoInit:n},i)},t.parentNode.insertBefore(e,t)})("pico",window,"https://widget.pico.tools/wrapper.min.js","5bc956b3-d79a-4e80-bf07-be0612f63e2a");
+</script>
+EOF;
+
+      $bottom_script .= <<<EOF
+<script>
+let pageInfo = {
+	article: true,
+	post_id: "$node->id()",
+	post_type: "Puzzles",
+	taxonomies: { tags: },
+	url: window.location.href
+};
+window.pico('visit', pageInfo);
+</script>"
+EOF;
+
+      $variables['head_script'] = $head_script;
+      $variables['bottom_script'] = $bottom_script;
+    }
+  }
+}
