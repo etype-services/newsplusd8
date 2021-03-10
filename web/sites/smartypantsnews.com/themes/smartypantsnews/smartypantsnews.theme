@@ -22,7 +22,7 @@ let pageInfo = {
 	article: true,
 	post_id: "$nid",
 	post_type: "Puzzles",
-	taxonomies: { tags: },
+	taxonomies: { tags: '[]'},
 	url: window.location.href
 };
 window.pico('visit', pageInfo);
