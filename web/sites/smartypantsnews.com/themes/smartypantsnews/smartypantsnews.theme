@@ -8,9 +8,8 @@
  */
 function smartypantsnews_preprocess_html(&$variables) {
   $node = Drupal::routeMatch()->getParameter('node');
-  var_dump($node->getType());
   if ($node->getType() == 'puzzles') {
-    var_dump($node->getType());
+    $nid = $node->id();
     $head_script .= <<<EOF
 <script>
 (function(p,i,c,o){var n=new Event("pico-init");i[p]=i[p]||function(){(i[p].queue=i[p].queue||[]).push(arguments)},i.document.addEventListener("pico-init",function(e){var t=i.Pico.getInstance(e,{publisherId:o,picoInit:n},i);t.handleQueueItems(i[p].queue),i[p]=function(){return t.handleQueueItems([arguments])}},!1);var e=i.document.createElement("script"),t=i.document.getElementsByTagName("script")[0];e.async=1,e.src=c,e.onload=function(e){return i.Pico.getInstance(e,{publisherId:o,picoInit:n},i)},t.parentNode.insertBefore(e,t)})("pico",window,"https://widget.pico.tools/wrapper.min.js","5bc956b3-d79a-4e80-bf07-be0612f63e2a");
@@ -21,7 +20,7 @@ EOF;
 <script>
 let pageInfo = {
 	article: true,
-	post_id: "$node->id()",
+	post_id: "$nid",
 	post_type: "Puzzles",
 	taxonomies: { tags: },
 	url: window.location.href
