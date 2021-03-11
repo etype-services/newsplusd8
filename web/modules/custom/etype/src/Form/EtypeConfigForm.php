@@ -102,10 +102,10 @@ class EtypeConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('etype_author_links_off'),
     ];
 
-    $form['e_edition']['etype_ada_off'] = [
-      '#title' => $this->t('Check this box to turn ADA library off.'),
+    $form['e_edition']['etype_ada_on'] = [
+      '#title' => $this->t('Check this box to turn ADA library on.'),
       '#type' => 'checkbox',
-      '#default_value' => $config->get('etype_ada_off'),
+      '#default_value' => $config->get('etype_ada_on'),
     ];
 
     $form['e_edition']['premium_content_message'] = [
@@ -217,7 +217,7 @@ class EtypeConfigForm extends ConfigFormBase {
       ->set('etype_pub', $form_state->getValue('etype_pub'))
       ->set('etype_ptype', $form_state->getValue('etype_ptype'))
       ->set('etype_author_links_off', $form_state->getValue('etype_author_links_off'))
-      ->set('etype_ada_off', $form_state->getValue('etype_ada_off'))
+      ->set('etype_ada_on', $form_state->getValue('etype_ada_on'))
       ->set('premium_content_message', $form_state->getValue('premium_content_message'))
       ->set('premium_preview', $form_state->getValue('premium_preview'))
       ->set('facebook', $form_state->getValue('facebook'))
