@@ -1,5 +1,4 @@
-{%
-  set classes = [
+{% set classes = [
   'node',
   'node--type-' ~ node.bundle|clean_class,
   node.isPromoted() ? 'node--promoted',
@@ -7,11 +6,11 @@
   not node.isPublished() ? 'node--unpublished',
   view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
   'clearfix',
-]
-%}
+] %}
 
-<div id="pico">
-  <article{{ attributes.addClass(classes)|without('about') }}>
+<article{{ attributes.addClass(classes)|without('about') }}>
+  <div id="pico">
+
     <header>
       {{ title_prefix }}
 
@@ -27,6 +26,5 @@
     <div {{ content_attributes.addClass('node__content', 'clearfix') }}>
       {{ content }}
     </div>
-  </article>
-
-</div>
+  </div>
+</article>
