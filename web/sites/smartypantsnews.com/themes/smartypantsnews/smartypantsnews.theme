@@ -27,7 +27,7 @@ var pageInfo = {
 	article: true,
 	post_id: "$nid",
 	post_type: "puzzles",
-	taxonomies: { tags: []},
+	taxonomies: { tags: ["puzzle"]},
 	url: window.location.href
 };
 window.pico('visit', pageInfo);
