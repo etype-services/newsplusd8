@@ -80,7 +80,14 @@ function etype_preprocess_node(&$variables) {
  * @param array $page
  */
 function etype_page_attachments(array &$page) {
-  $page['#attached']['library'][] = 'etype/ada-compliance';
+  $config = Drupal::config('etype.adminsettings');
+  $etype_ada_off = $config->get('etype_ada_off');
+  switch ($etype_ada_off) {
+    case 1:
+      break;
+    default:
+      $page['#attached']['library'][] = 'etype/ada-compliance';
+  }
   $page['#attached']['library'][] = 'etype/global-styling';
   $moduleHandler = Drupal::service('module_handler');
   if ($moduleHandler->moduleExists('pwa')) {
