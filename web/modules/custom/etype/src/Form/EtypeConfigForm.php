@@ -51,6 +51,13 @@ class EtypeConfigForm extends ConfigFormBase {
     if ($moduleHandler->moduleExists('etype_login_v2')) {
       $v2 = 1;
     }
+    $moduleHandler = \Drupal::service('module_handler');
+    if ($moduleHandler->moduleExists('etype_pico')) {
+      $picoConfig = \Drupal::config('etype_pico.settings');
+      if ($picoConfig->get('etypeVersion') == 'V2') {
+        $v2 = 1;
+      }
+    }
 
     $form['e_edition'] = [
       '#type' => 'fieldset',
