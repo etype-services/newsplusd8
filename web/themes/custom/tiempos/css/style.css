@@ -196,6 +196,7 @@ main .main-content-inner {
     border-left: none !important;
     display: flex;
     justify-content: center;
+    flex-wrap: nowrap;
   }
 
   .region-footer-left, .region-footer-right {
