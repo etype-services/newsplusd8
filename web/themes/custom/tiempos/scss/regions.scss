@@ -79,9 +79,10 @@
     top: 0;
     right: 0;
   }
-
   .region-sidebar {
     border-left: none!important;
+    display: flex;
+    justify-content: center;
   }
   .region-footer-left, .region-footer-right {
     @include is-really-invisible;

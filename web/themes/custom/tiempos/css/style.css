@@ -194,6 +194,8 @@ main .main-content-inner {
 
   .region-sidebar {
     border-left: none !important;
+    display: flex;
+    justify-content: center;
   }
 
   .region-footer-left, .region-footer-right {
@@ -1069,9 +1071,6 @@ footer .footer-menu li > a {
   color: #800000;
 }
 
-/* Facebook and other blocks */
-#block-facebooksidebar,
-#block-twitterblock,
 .block-centered {
   display: flex;
   justify-content: center;
