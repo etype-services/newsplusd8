@@ -53,7 +53,6 @@ class EtypeConfigForm extends ConfigFormBase {
     }
     if ($moduleHandler->moduleExists('etype_pico')) {
       $picoConfig = \Drupal::config('etype_pico.settings');
-      echo $picoConfig->get('etypeVersion');
       if ($picoConfig->get('etypeVersion') == 0) {
         $v2 = 1;
       }
