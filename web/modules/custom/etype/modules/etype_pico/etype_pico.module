@@ -125,6 +125,9 @@ function etype_pico_page_attachments(array &$page) {
 
 /**
  * Implements hook_preprocess_block().
+ * PicoSignal class sets up data-pico-status,
+ * which is used in the css to show or hide the e-Edition block.
+ *
  * @param $variables
  */
 function etype_pico_preprocess_block(&$variables) {
