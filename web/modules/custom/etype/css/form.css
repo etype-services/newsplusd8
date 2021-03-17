@@ -13,3 +13,9 @@ body:not(.path-admin) .form-item {
 summary {
   font-weight: bold;
 }
+
+/* Hide "Preview" button */
+.node-form [data-drupal-selector="edit-preview"] {
+  display: none;
+  visibility: hidden;
+}
