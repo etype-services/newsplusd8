@@ -9,7 +9,7 @@
         let theAttr = theBlock.attr("data-pico-status");
         // console.log(theAttr);
         if (theAttr === 'paying') {
-          // theBlock.html('<a href="' + drupalSettings.toknizdUrl + '">Go to the e-Edition</a>');
+          theBlock.html('<a href="' + drupalSettings.toknizdUrl + '">Go to the e-Edition</a>');
           location.replace(drupalSettings.toknizdUrl);
         } else {
           if (drupalSettings.picoLandingPage.length > 1) {
