@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\Core\Language\LanguageInterface;
+use Drupal\Core\Url;
 use Drupal\file\Entity\File;
 use Drupal\user\Entity\User;
 
@@ -81,18 +82,22 @@ function etype_preprocess_node(&$variables) {
  */
 function etype_page_attachments(array &$page) {
   $config = Drupal::config('etype.adminsettings');
-  $etype_ada_off = $config->get('etype_ada_off');
-  switch ($etype_ada_off) {
-    case 1:
-      break;
-    default:
-      $page['#attached']['library'][] = 'etype/ada-compliance';
+  $current_url = Url::fromRoute('<current>');
+  $path = $current_url->toString();
+  if ($path !== '/e-edition') {
+    $etype_ada_off = $config->get('etype_ada_off');
+    switch ($etype_ada_off) {
+      case 1:
+        break;
+      default:
+        $page['#attached']['library'][] = 'etype/ada-compliance';
+    }
+    $moduleHandler = Drupal::service('module_handler');
+    if ($moduleHandler->moduleExists('pwa')) {
+      $page['#attached']['library'][] = 'etype/addtohomescreen';
+    }
   }
   $page['#attached']['library'][] = 'etype/global-styling';
-  $moduleHandler = Drupal::service('module_handler');
-  if ($moduleHandler->moduleExists('pwa')) {
-    $page['#attached']['library'][] = 'etype/addtohomescreen';
-  }
 }
 
 /**
