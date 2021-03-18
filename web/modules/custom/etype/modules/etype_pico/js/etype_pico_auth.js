@@ -10,12 +10,12 @@
         // console.log(theAttr);
         if (theAttr === 'paying') {
           theBlock.html('<a href="' + drupalSettings.toknizdUrl + '">Go to the e-Edition</a>');
-          window.location.replace(drupalSettings.toknizdUrl);
+          location.replace(drupalSettings.toknizdUrl);
         } else {
           if (drupalSettings.picoLandingPage.length > 1) {
-            window.location.replace(drupalSettings.picoLandingPage);
+            location.replace(drupalSettings.picoLandingPage);
           } else {
-            window.location.replace("/?pn=manage_payment");
+            location.replace("/?pn=manage_payment");
           }
         }
       });
