@@ -22,10 +22,10 @@ class EtypePicoEeditionBlock extends BlockBase {
     $e_editions = etype_e_editions();
     $output = '';
     foreach ($e_editions as $e_edition) {
-      $output .= '<div class="e-edition PicoSignal"><div><a class="PicoPlan" href="#" target="_blank" aria-label="' .
+      $output .= '<div class="e-edition PicoSignal"><div><a class="PicoPlan" href="#" aria-label="' .
         $e_edition['site_name'] . ' e-Edition"' . '><img src="' .
         $e_edition['image'] . '" alt="' . $e_edition['site_name'] . ' e-Edition"></a></div>
-<p><a class="PicoPlan" href="#" target="_blank" aria-label="' . $e_edition['site_name'] . ' e-Edition"' . '>Read ' . $e_edition['site_name'] . '</a></p></div>
+<p><a class="PicoPlan" href="#" aria-label="' . $e_edition['site_name'] . ' e-Edition"' . '>Read ' . $e_edition['site_name'] . '</a></p></div>
 ';
     }
     return [

@@ -13,64 +13,83 @@ function etype_pico_preprocess_html(&$variables) {
   $current_user_roles = \Drupal::currentUser()->getRoles();
   $current_url = Url::fromRoute('<current>');
   $path = $current_url->toString();
-  if ($path !== '/e-edition') {
-    switch(true) {
-      case in_array('administrator', $current_user_roles):
-      case preg_match('/\/user\/.*/', $path):
-        //pass
-        break;
+  $e_config = Drupal::config('etype.adminsettings');
+  $head_script = $e_config->get('head_script');
+  $bottom_script = $e_config->get('bottom_script');
 
-      default:
-        $e_config = Drupal::config('etype.adminsettings');
-        $head_script = $e_config->get('head_script');
-        $bottom_script = $e_config->get('bottom_script');
-        $config = Drupal::config('etype_pico.settings');
-        $picoPublisherId = $config->get('picoPublisherId');
-        $types = $config->get('nodeTypes');
-        $nodeTypes = [];
-        if (is_countable($types)) {
-          foreach ($types as $k => $v) {
-            if (!empty($v)) {
-              $nodeTypes[] = $v;
-            }
-          }
-        }
+  switch(true) {
+    case in_array('administrator', $current_user_roles):
+    case preg_match('/\/user\/.*/', $path):
+      // Do nothing.
+      break;
 
-        if (!empty($picoPublisherId)) {
-          $head_script .= <<<EOF
+    case $path == '/e-edition':
+      $config = Drupal::config('etype_pico.settings');
+      $picoPublisherId = $config->get('picoPublisherId');
+      $head_script = <<<EOF
 <script>
 (function(p,i,c,o){var n=new Event("pico-init");i[p]=i[p]||function(){(i[p].queue=i[p].queue||[]).push(arguments)},i.document.addEventListener("pico-init",function(e){var t=i.Pico.getInstance(e,{publisherId:o,picoInit:n},i);t.handleQueueItems(i[p].queue),i[p]=function(){return t.handleQueueItems([arguments])}},!1);var e=i.document.createElement("script"),t=i.document.getElementsByTagName("script")[0];e.async=1,e.src=c,e.onload=function(e){return i.Pico.getInstance(e,{publisherId:o,picoInit:n},i)},t.parentNode.insertBefore(e,t)})("pico",window,"https://widget.pico.tools/wrapper.min.js","$picoPublisherId");
 </script>
 EOF;
+      $bottom_script = <<<EOF
+<script>
+let pageInfo = {
+	article: false,
+	post_id: "$path",
+	post_type: "code",
+	taxonomies: { tags: ["nopopup"] },
+	url: window.location.href
+};
+window.pico('visit', pageInfo);
+</script>"
+EOF;
+      break;
 
-          /**
-           * bottom script
-           * see https://help.trypico.com/en/articles/3199263-installing-pico-on-your-website
-           */
-          switch ($path) {
-            case '/puzzles':
-              $picoCategories = '["nopopup"]';
-              $picoOn = 'false';
-              $picoType = 'page';
-              $picoId = $path;
-              break;
-
-            default:
-              $picoCategories = '[]';
-              $picoOn = 'false';
-              $picoType = 'page';
-              $picoId = $path;
-              $node = Drupal::routeMatch()->getParameter('node');
-              if ($node instanceof NodeInterface) {
-                if (in_array($node->getType(), $nodeTypes)) {
-                  $picoId = $node->id();
-                  $picoOn = 'true';
-                  $picoType = 'article';
-                }
-              }
+    default:
+      $config = Drupal::config('etype_pico.settings');
+      $picoPublisherId = $config->get('picoPublisherId');
+      $types = $config->get('nodeTypes');
+      $nodeTypes = [];
+      if (is_countable($types)) {
+        foreach ($types as $k => $v) {
+          if (!empty($v)) {
+            $nodeTypes[] = $v;
           }
+        }
+      }
+      $head_script .= <<<EOF
+<script>
+(function(p,i,c,o){var n=new Event("pico-init");i[p]=i[p]||function(){(i[p].queue=i[p].queue||[]).push(arguments)},i.document.addEventListener("pico-init",function(e){var t=i.Pico.getInstance(e,{publisherId:o,picoInit:n},i);t.handleQueueItems(i[p].queue),i[p]=function(){return t.handleQueueItems([arguments])}},!1);var e=i.document.createElement("script"),t=i.document.getElementsByTagName("script")[0];e.async=1,e.src=c,e.onload=function(e){return i.Pico.getInstance(e,{publisherId:o,picoInit:n},i)},t.parentNode.insertBefore(e,t)})("pico",window,"https://widget.pico.tools/wrapper.min.js","$picoPublisherId");
+</script>
+EOF;
+      /**
+       * bottom script
+       * see https://help.trypico.com/en/articles/3199263-installing-pico-on-your-website
+       */
+      switch ($path) {
+        case '/puzzles':
+          $picoCategories = '["nopopup"]';
+          $picoOn = 'false';
+          $picoType = 'page';
+          $picoId = $path;
+          break;
 
-          $bottom_script .= <<<EOF
+        default:
+          $picoCategories = '[]';
+          $picoOn = 'false';
+          $picoType = 'page';
+          $picoId = $path;
+          $node = Drupal::routeMatch()->getParameter('node');
+          if ($node instanceof NodeInterface) {
+            if (in_array($node->getType(), $nodeTypes)) {
+              $picoId = $node->id();
+              $picoOn = 'true';
+              $picoType = 'article';
+            }
+          }
+      }
+
+      $bottom_script .= <<<EOF
 <script>
 let pageInfo = {
 	article: $picoOn,
@@ -82,18 +101,9 @@ let pageInfo = {
 window.pico('visit', pageInfo);
 </script>"
 EOF;
-
-        } // end if pico id
-        $variables['head_script'] = $head_script;
-        $variables['bottom_script'] = $bottom_script;
-    }
-    // end switch
   }
-  else {
-    // Remove any possibly conflicting scripts for e-edition path.
-    $variables['head_script'] = '';
-    $variables['bottom_script'] = '';
-  }
+  $variables['head_script'] = $head_script;
+  $variables['bottom_script'] = $bottom_script;
 }
 
 /**
