@@ -35,13 +35,6 @@ class EtypePicoEeditionController extends ControllerBase {
   public $userName;
 
   /**
-   * Password.
-   *
-   * @var string
-   */
-  public $passwd;
-
-  /**
    * Web Service URL.
    *
    * @var string
@@ -70,33 +63,7 @@ class EtypePicoEeditionController extends ControllerBase {
     $this->picoConfig = Drupal::config('etype_pico.settings');
     $this->pubId = (int) $this->config->get('etype_pub');
     $this->userName = $this->picoConfig->get('picoUser');
-    $this->passwd = $this->picoConfig->get('picoPassword');
     $this->etypeVersion = $this->picoConfig->get('etypeVersion');
-  }
-
-  /**
-   * Validate Subscriber in etype.services.
-   *
-   * @return string
-   *   Message from etype.services.
-   */
-  public function validateSubscriber(): ?string {
-    $param = [
-      'publicationId' => $this->pubId,
-      'username' => $this->userName,
-      'password' => $this->passwd,
-    ];
-    try {
-      $client = new SoapClient($this->webServiceUrl);
-      $response = $client->ValidateSubscriber($param);
-      $validateSubscriberResult = $response->ValidateSubscriberResult;
-      return $validateSubscriberResult->TransactionMessage->Message;
-    }
-    catch (SoapFault $exception) {
-      $message = 'Could not connect to SoapClient.';
-      Drupal::logger('my_module')->error($message);
-      return NULL;
-    }
   }
 
   /**
@@ -134,9 +101,7 @@ class EtypePicoEeditionController extends ControllerBase {
       $response = $e_editions[0]['path'];
     }
     else {
-      if (($result = $this->validateSubscriber()) == 0) {
-        $response = $this->getToken();
-      }
+      $response = $this->getToken();
     }
     return $response;
   }
