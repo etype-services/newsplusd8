@@ -89,6 +89,11 @@ EOF;
     }
     // end switch
   }
+  else {
+    // Remove any possibly conflicting scripts for e-edition path.
+    $variables['head_script'] = '';
+    $variables['bottom_script'] = '';
+  }
 }
 
 /**
