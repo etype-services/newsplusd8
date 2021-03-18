@@ -29,7 +29,8 @@ a[data-drupal-link-system-path="e-edition"][data-pico-status="paying"] {
   right: -8px!important;
 }
 
-#block-etypepicoeedition {
+#block-etypepicoeedition,
+#block-etypepicoeedition-2 {
   display: flex;
   justify-content: center;
 }
