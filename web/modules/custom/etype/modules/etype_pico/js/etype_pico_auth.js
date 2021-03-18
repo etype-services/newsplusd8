@@ -2,11 +2,8 @@
     "use strict";
     Drupal.behaviors.picoAuthBehavior = {
         attach: function (context, settings) {
-          if (drupalSettings.picoLandingPage.length > 1) {
-            window.location.replace(drupalSettings.picoLandingPage);
-          } else {
-            window.location.replace("/?pn=manage_payment");
-          }
+          // console.log(drupalSettings.toknizdUrl);
+          window.location.replace(drupalSettings.toknizdUrl);
         }
     };
 })(jQuery, Drupal, drupalSettings);
