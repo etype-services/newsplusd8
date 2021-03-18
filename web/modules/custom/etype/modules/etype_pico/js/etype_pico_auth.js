@@ -3,7 +3,7 @@
   Drupal.behaviors.picoAuthBehavior = {
     attach: function (context, settings) {
       // console.log(drupalSettings.toknizdUrl);
-      /*window.addEventListener('pico.loaded',function () {
+      document.addEventListener('pico.loaded',function () {
         // alert("Pico Loaded");
         let theBlock = $("#pico");
         let theAttr = theBlock.attr("data-pico-status");
@@ -18,8 +18,7 @@
             location.replace("/?pn=manage_payment");
           }
         }
-      });*/
-      location.replace(drupalSettings.toknizdUrl);
+      });
     }
   };
 })(jQuery, Drupal, drupalSettings);
