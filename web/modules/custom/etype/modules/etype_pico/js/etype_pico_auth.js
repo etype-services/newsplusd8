@@ -8,15 +8,15 @@
         let theAttr = theBlock.attr("data-pico-status");
         // console.log(theAttr);
         if (theAttr === 'paying') {
-          alert("Pico Loaded - paying customer");
+          // alert("Pico Loaded - paying customer");
           theBlock.html('<a href="' + drupalSettings.toknizdUrl + '">Go to the e-Edition</a>');
-          //location.replace(drupalSettings.toknizdUrl);
+          location.replace(drupalSettings.toknizdUrl);
         } else {
-          alert("Pico Loaded - non-paying customer");
+          // alert("Pico Loaded - non-paying customer");
           if (drupalSettings.picoLandingPage.length > 1) {
-            //location.replace(drupalSettings.picoLandingPage);
+            location.replace(drupalSettings.picoLandingPage);
           } else {
-            //location.replace("/?pn=manage_payment");
+            location.replace("/?pn=manage_payment");
           }
         }
       });
