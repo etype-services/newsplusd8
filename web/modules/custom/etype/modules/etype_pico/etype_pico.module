@@ -42,6 +42,10 @@ function etype_pico_preprocess_html(&$variables) {
 </script>
 EOF;
 
+  $picoOn = 'false';
+  $picoType = 'page';
+  $picoId = $path;
+
   switch(true) {
     /* Turn off Pico if true */
     case in_array('administrator', $current_user_roles):
@@ -75,16 +79,11 @@ EOF;
         /* Add paths we want to treat differently */
         case '/puzzles':
           $picoCategories = '["nopopup"]';
-          $picoOn = 'false';
-          $picoType = 'page';
-          $picoId = $path;
           break;
 
         default:
           /* Set defaults */
           $picoCategories = '[]';
-          $picoOn = 'false';
-          $picoType = 'page';
 
           // Check for Content Type.
           $node = Drupal::routeMatch()->getParameter('node');
