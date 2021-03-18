@@ -4,7 +4,6 @@ namespace Drupal\etype_pico\Controller;
 
 use Drupal;
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Render\Markup;
 use SoapClient;
 use SoapFault;
 
