@@ -26,32 +26,37 @@ function etype_pico_theme($existing, $type, $theme, $path): array {
  * @param $variables
  */
 function etype_pico_preprocess_html(&$variables) {
+
   $current_user_roles = \Drupal::currentUser()->getRoles();
+
   $current_url = Url::fromRoute('<current>');
   $path = $current_url->toString();
+
   $e_config = Drupal::config('etype.adminsettings');
-  $head_script = $e_config->get('head_script');
   $bottom_script = $e_config->get('bottom_script');
-
-  switch(true) {
-    case in_array('administrator', $current_user_roles):
-    case preg_match('/\/user\/.*/', $path):
-      // Do nothing.
-      break;
-
-    case $path == '/e-edition':
-      $config = Drupal::config('etype_pico.settings');
-      $picoPublisherId = $config->get('picoPublisherId');
-      $head_script = <<<EOF
+  $config = Drupal::config('etype_pico.settings');
+  $picoPublisherId = $config->get('picoPublisherId');
+  $pico_script = <<<EOF
 <script>
 (function(p,i,c,o){var n=new Event("pico-init");i[p]=i[p]||function(){(i[p].queue=i[p].queue||[]).push(arguments)},i.document.addEventListener("pico-init",function(e){var t=i.Pico.getInstance(e,{publisherId:o,picoInit:n},i);t.handleQueueItems(i[p].queue),i[p]=function(){return t.handleQueueItems([arguments])}},!1);var e=i.document.createElement("script"),t=i.document.getElementsByTagName("script")[0];e.async=1,e.src=c,e.onload=function(e){return i.Pico.getInstance(e,{publisherId:o,picoInit:n},i)},t.parentNode.insertBefore(e,t)})("pico",window,"https://widget.pico.tools/wrapper.min.js","$picoPublisherId");
 </script>
 EOF;
+
+  switch(true) {
+    /* Turn off Pico if true */
+    case in_array('administrator', $current_user_roles):
+    case preg_match('/\/user\/.*/', $path):
+    $pico_script = '';
+      break;
+
+    case $path == '/e-edition':
+      /* Remove any other maunally added scripts for this path. */
+      $variables['head_script'] = '';
       $bottom_script = <<<EOF
 <script>
 let pageInfo = {
 	article: false,
-	post_id: "$path",
+	post_id: "/e-edition",
 	post_type: "code",
 	taxonomies: { tags: ["nopopup"] },
 	url: window.location.href
@@ -62,18 +67,12 @@ EOF;
       break;
 
     default:
-      $config = Drupal::config('etype_pico.settings');
-      $picoPublisherId = $config->get('picoPublisherId');
-      $head_script .= <<<EOF
-<script>
-(function(p,i,c,o){var n=new Event("pico-init");i[p]=i[p]||function(){(i[p].queue=i[p].queue||[]).push(arguments)},i.document.addEventListener("pico-init",function(e){var t=i.Pico.getInstance(e,{publisherId:o,picoInit:n},i);t.handleQueueItems(i[p].queue),i[p]=function(){return t.handleQueueItems([arguments])}},!1);var e=i.document.createElement("script"),t=i.document.getElementsByTagName("script")[0];e.async=1,e.src=c,e.onload=function(e){return i.Pico.getInstance(e,{publisherId:o,picoInit:n},i)},t.parentNode.insertBefore(e,t)})("pico",window,"https://widget.pico.tools/wrapper.min.js","$picoPublisherId");
-</script>
-EOF;
       /**
        * bottom script
        * see https://help.trypico.com/en/articles/3199263-installing-pico-on-your-website
        */
       switch ($path) {
+        /* Add paths we want to treat differently */
         case '/puzzles':
           $picoCategories = '["nopopup"]';
           $picoOn = 'false';
@@ -82,10 +81,11 @@ EOF;
           break;
 
         default:
+          /* Set defaults */
           $picoCategories = '[]';
           $picoOn = 'false';
           $picoType = 'page';
-          $picoId = $path;
+
           // Check for Content Type.
           $node = Drupal::routeMatch()->getParameter('node');
           $types = $config->get('nodeTypes');
@@ -99,6 +99,7 @@ EOF;
           }
           if ($node instanceof NodeInterface) {
             if (in_array($node->getType(), $nodeTypes)) {
+              /* Set Pico status to true for selected Content Types */
               $picoId = $node->id();
               $picoOn = 'true';
               $picoType = 'article';
@@ -119,7 +120,7 @@ window.pico('visit', pageInfo);
 </script>"
 EOF;
   }
-  $variables['head_script'] = $head_script;
+  $variables['pico_script'] = $pico_script;
   $variables['bottom_script'] = $bottom_script;
 }
 
