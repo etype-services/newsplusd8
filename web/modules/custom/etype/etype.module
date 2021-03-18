@@ -37,6 +37,7 @@ function etype_theme($existing, $type, $theme, $path): array {
  */
 function etype_preprocess_html(&$variables) {
   $config = Drupal::config('etype.adminsettings');
+  $variables['pico_script'] = '';
   $variables['head_script'] = $config->get('head_script');
   $variables['bottom_script'] = $config->get('bottom_script');
 }
