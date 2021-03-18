@@ -84,6 +84,7 @@ function etype_page_attachments(array &$page) {
   $config = Drupal::config('etype.adminsettings');
   $current_url = Url::fromRoute('<current>');
   $path = $current_url->toString();
+  /* Remove additional script from e-edition path */
   if ($path !== '/e-edition') {
     $etype_ada_off = $config->get('etype_ada_off');
     switch ($etype_ada_off) {
