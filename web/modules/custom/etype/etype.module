@@ -122,6 +122,8 @@ function etype_preprocess_image(&$variables) {
 function etype_e_editions(): array {
 
   $v1_url = "https://etypeservices.com/";
+  $host = Drupal::request()->getHost();
+  $v2_url = 'https://' . $host . '/';
   $logged_in = Drupal::currentUser()->isAuthenticated();
   $config = Drupal::config('etype.adminsettings');
   $picoConfig = Drupal::config('etype_pico.settings');
@@ -175,10 +177,10 @@ function etype_e_editions(): array {
         /* Thumbnail */
         $e_editions[$ptr]['image'] = 'https://etypeproductionstorage1.blob.core.windows.net/$web/Production_Prod/Publications/' . $pub . '/thumbnail.jpg';
         /* Account Links */
-        $path = '/e-edition/'. $pub;
-        $path_anon = '/e-edition/'. $pub;
-        $sub_link = '/e-edition/'. $pub;
-        $login_link = '/etype-login';
+        $path = $v2_url . 'e-edition/'. $pub;
+        $path_anon = $v2_url . 'e-edition/'. $pub;
+        $sub_link = $v2_url . 'e-edition/'. $pub;
+        $login_link = $v2_url . 'etype-login';
         break;
 
       case 'pico':
