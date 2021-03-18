@@ -12,6 +12,9 @@ etype-pico:
 
 pico-auth:
   version: VERSION
+  css:
+    state:
+      css/etype_pico_auth.css: { weight: 100 }
   js:
     js/etype_pico_auth.js: {}
   dependencies:

@@ -149,17 +149,23 @@ class EtypePicoEeditionController extends ControllerBase {
    *   markup
    */
   public function content(): array {
-    $markup = '
-<div style="padding:5vh;text-align:center;" class="PicoSignal" id="pico">
-    <div>One moment, we are redirecting you.</div>
-</div>
-';
+    $config = Drupal::config('etype_pico.settings');
+    $picoLandingPage = $config->get('picoLandingPage');
+    $url = (new EtypePicoEeditionController)->getEeditionUrl();
     return [
       '#title' => '',
-      '#children' => Markup::create($markup),
-      '#cache' => [
-        'max-age' => 0,
-      ],
+      '#theme' => 'e_edition',
+      '#attached' => [
+        'library' =>
+          [
+            'etype_pico/pico-auth',
+          ],
+        'drupalSettings' =>
+          [
+            'toknizdUrl' => $url,
+            'picoLandingPage' => $picoLandingPage,
+          ],
+        ],
     ];
   }
 

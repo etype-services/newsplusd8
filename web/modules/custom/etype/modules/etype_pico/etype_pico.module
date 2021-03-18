@@ -5,6 +5,22 @@ use Drupal\node\NodeInterface;
 use Drupal\Core\Url;
 
 /**
+ * @param $existing
+ * @param $type
+ * @param $theme
+ * @param $path
+ * @return array
+ */
+function etype_pico_theme($existing, $type, $theme, $path): array {
+  return [
+    'e_edition' => [
+      'variables' => [],
+      'template' => 'e-edition',
+    ],
+  ];
+}
+
+/**
  * Preprocess html.
  *
  * @param $variables
@@ -127,16 +143,6 @@ function etype_pico_preprocess_node(&$variables) {
  */
 function etype_pico_page_attachments(array &$page) {
   $page['#attached']['library'][] = 'etype_pico/etype-pico';
-  $current_url = Url::fromRoute('<current>');
-  $path = $current_url->toString();
-  if ($path == '/e-edition') {
-    $config = Drupal::config('etype_pico.settings');
-    $picoLandingPage = $config->get('picoLandingPage');
-    $url = (new EtypePicoEeditionController)->getEeditionUrl();
-    $page['#attached']['drupalSettings']['toknizdUrl'] = $url;
-    $page['#attached']['drupalSettings']['picoLandingPage'] = $picoLandingPage;
-    $page['#attached']['library'][] = 'etype_pico/pico-auth';
-  }
 }
 
 
