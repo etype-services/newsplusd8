@@ -9,7 +9,7 @@
         // console.log(theAttr);
         if (theAttr === 'paying') {
           // alert("Pico Loaded - paying customer");
-          theBlock.html('<a href="' + drupalSettings.toknizdUrl + '">Go to the e-Edition</a>');
+          // theBlock.html('<a href="' + drupalSettings.toknizdUrl + '">Go to the e-Edition</a>');
           location.replace(drupalSettings.toknizdUrl);
         } else {
           // alert("Pico Loaded - non-paying customer");
