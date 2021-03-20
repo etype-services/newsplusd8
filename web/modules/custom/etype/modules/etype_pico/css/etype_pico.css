@@ -32,13 +32,12 @@ a[data-drupal-link-system-path="e-edition"][data-pico-status="paying"] {
 
 /* move ADA button */
 .ll-at-toolbar-toggle {
-  bottom: 103px;
-  font-size: 22px;
+  bottom: 103px!important;
+  font-size: 22px!important;
   right: 20px!important;
 }
 
 #accessibility-toolbar-parent .ll-at-toolbar-toggle-underlay {
-  bottom: 110px;
-  cursor: pointer;
+  bottom: 110px!important;
   right: 20px!important;
 }
