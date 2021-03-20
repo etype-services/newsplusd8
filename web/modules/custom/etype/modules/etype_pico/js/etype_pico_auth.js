@@ -21,7 +21,7 @@
       });
       // Fallback, present link.
       setTimeout(function() {
-        theBlock.html('<div><a href="' + drupalSettings.toknizdUrl + '">Click here to load the Digital Edition</a></div>')
+        theBlock.html('<div><a href="' + drupalSettings.toknizdUrl + '">Click here to load the Digital Edition</a></div>');
       }, 5000);
     }
   };
