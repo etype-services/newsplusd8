@@ -157,13 +157,10 @@ class EtypeXMLImporterConfigForm extends ConfigFormBase {
 
     $form['section'] = [
       '#title' => $this->t('Default section'),
-      '#description' => 'Enter the section into which to import articles, ie "News".',
+      '#description' => 'Default section for stories if no match on import, ie "News".',
       '#type' => 'entity_autocomplete',
       '#target_type' => 'taxonomy_term',
       '#selection_handler' => 'default',
-      /*'#selection_settings' => [
-        'target_bundles' => [$taxonomy],
-      ],*/
     ];
     $tid = $this->conf->get('section');
     if (!empty($tid)) {
