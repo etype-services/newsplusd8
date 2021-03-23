@@ -198,11 +198,9 @@ class ImportOliveXMLController {
   }
 
   /**
-   * Import Olive XML.
-   *
-   * @return array
-   *   Markup
-   *
+   * @return string[]
+   * @throws InvalidPluginDefinitionException
+   * @throws PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function importOliveXml(): array {
@@ -367,9 +365,9 @@ class ImportOliveXMLController {
     $ar_file = $item_array['link'];
     $ar_xml = file_get_contents((string) $this->extractDir . $ar_file);
 
-    /* Parse article xhtml from link file */
+    /* Parse article xhtml from linked Article file */
 
-    /* Get section */
+    /* Get section from the Article file */
     preg_match("/<prism:section>([^<]+)/", $ar_xml, $coincidencias);
 
     /* Ignore if classifieds? */
