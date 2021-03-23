@@ -370,7 +370,6 @@ class ImportOliveXMLController {
     /* Get publicationName from the Article file (for Section match */
     preg_match("/<prism:publicationName>([^<]+)/", $ar_xml, $coincidencias);
     $publicationName = $coincidencias[1];
-    $message .= "$publicationName <br />";
 
     /* Get section from the Article file */
     preg_match("/<prism:section>([^<]+)/", $ar_xml, $coincidencias);
