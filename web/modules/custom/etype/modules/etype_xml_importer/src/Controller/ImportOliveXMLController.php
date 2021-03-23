@@ -395,6 +395,7 @@ class ImportOliveXMLController {
        * This is for multiple papers in one site, ie Register Publications
        */
       if (in_array($publicationName, $sections)) {
+        /* Overwrite section name */
         $sectionName = $publicationName;
       }
     }
