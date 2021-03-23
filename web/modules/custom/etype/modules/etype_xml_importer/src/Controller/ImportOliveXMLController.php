@@ -339,14 +339,10 @@ class ImportOliveXMLController {
   }
 
   /**
-   * Parse XML into importable format.
-   *
    * @param \SimpleXMLElement $item
-   *   XML data, contains link, title, description.
-   *
-   * @return array|string|null
-   *   Markup
-   *
+   * @return string|string[]
+   * @throws InvalidPluginDefinitionException
+   * @throws PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   protected function parseItem(\SimpleXMLElement $item) {
