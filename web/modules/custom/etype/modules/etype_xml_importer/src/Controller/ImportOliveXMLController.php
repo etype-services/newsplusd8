@@ -383,14 +383,17 @@ class ImportOliveXMLController {
     }
 
     /* Match publications name or section */
-    /* Step 1 get Section names */
+    /* Step 1 get Section names to match publication name */
     if (!empty($publicationName)) {
       $sections = [];
       $terms = \Drupal::service('entity_type.manager')->getStorage("taxonomy_term")->loadTree('sections');
       foreach($terms as $term) {
         $sections[] = $term->name;
       }
-      /* If publication name match for multiple pubs in one site, use that */
+      /*
+       * If publication name match for a Section name, use that.
+       * This is for multiple papers in one site, ie Register Publications
+       */
       if (in_array($publicationName, $sections)) {
         $sectionName = $publicationName;
       }
