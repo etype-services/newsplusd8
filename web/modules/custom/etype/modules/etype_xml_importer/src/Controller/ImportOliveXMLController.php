@@ -367,19 +367,37 @@ class ImportOliveXMLController {
 
     /* Parse article xhtml from linked Article file */
 
+    /* Get publicationName from the Article file (for Section match */
+    preg_match("/<prism:publicationName>([^<]+)/", $ar_xml, $coincidencias);
+    $publicationName = $coincidencias[1];
+    $message .= "$publicationName <br />";
+
     /* Get section from the Article file */
     preg_match("/<prism:section>([^<]+)/", $ar_xml, $coincidencias);
-
-    /* Ignore if classifieds? */
+    $sectionName = $coincidencias[1];
+    $message .= "$sectionName <br />";
+    /* Ignore this file/story if it the section is Classifieds? */
     if ($this->config->get('importClassifieds') !== 1) {
       if ($coincidencias[1] == 'Classifieds') {
         return ['#markup' => ''];
       }
     }
-    /* Get section */
-    $section_name = $coincidencias[1];
+
+    /* Match publications name or section */
+    /* Step 1 get Section names */
+    $sections = [];
+    $terms = \Drupal::service('entity_type.manager')->getStorage("taxonomy_term")->loadTree('sections');
+    foreach($terms as $term) {
+      $sections[] = $term->name;
+    }
+    /* If publication name match for multiple pubs in one site, use that */
+    if (in_array($publicationName, $sections)) {
+      $sectionName = $publicationName;
+    }
+
+    /* get term id to save later */
     $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')
-      ->loadByProperties(['name' => $section_name, 'vid' => 'sections']);
+      ->loadByProperties(['name' => $sectionName, 'vid' => 'sections']);
     $term = reset($term);
     if ($term != FALSE) {
       $term_id = $term->id();
