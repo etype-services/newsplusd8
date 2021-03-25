@@ -35,13 +35,13 @@ a[data-drupal-link-system-path="e-edition"][data-pico-status="paying"] {
   bottom: 103px!important;
   font-size: 22px!important;
   right: 18px!important;
-  height: 58px!important;
-  width: 58px!important;
 }
 
 #accessibility-toolbar-parent .ll-at-toolbar-toggle-underlay {
   bottom: 112px!important;
   right: 36px!important;
+  height: 58px!important;
+  width: 58px!important;
 }
 
 .accessiblity-toolbar-wrapper {
