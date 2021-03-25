@@ -38,8 +38,8 @@ a[data-drupal-link-system-path="e-edition"][data-pico-status="paying"] {
 }
 
 #accessibility-toolbar-parent .ll-at-toolbar-toggle-underlay {
-  bottom: 112px!important;
-  right: 36px!important;
+  bottom: 106px!important;
+  right: 24px!important;
   height: 58px!important;
   width: 58px!important;
 }
