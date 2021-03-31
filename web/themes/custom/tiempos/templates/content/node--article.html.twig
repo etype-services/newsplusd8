@@ -124,8 +124,8 @@
               <div class="image-container">{{ content.field_small_image[0] }}</div>
             {% endif %}
             <div class="field">{{ content.body[0]|render|striptags|truncate(premium_preview, true, true) }}</div>
-            <div class="premium_message is-sans-serif">{{ premium_content_message['value']|raw }}</div>
-            <div class="addtoany mt-2">{{ content.addtoany }}</div>
+            <div class="premium_message is-sans-serif mb-3">{{ premium_content_message['value']|raw }}</div>
+            <div class="addtoany">{{ content.addtoany }}</div>
           {% endset %}
           {{ preview }}
         {% else %}
