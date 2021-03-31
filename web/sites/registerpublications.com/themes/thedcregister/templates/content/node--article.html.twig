@@ -143,6 +143,7 @@
             {% endif %}
             <div class="field">{{ content.body[0]|render|striptags|truncate(premium_preview, true, true) }}</div>
             <div class="premium_message is-sans-serif">{{ premium_content_message['value']|raw }}</div>
+            {{ content.addtoany }}
           {% endset %}
           {{ preview }}
         {% else %}
