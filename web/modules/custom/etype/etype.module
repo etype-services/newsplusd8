@@ -143,17 +143,25 @@ function etype_e_editions(): array {
   $config = Drupal::config('system.site');
   $site = $config->get('name');
 
-  /* because Lutcher has a comma */
-  if (strpos($e_edition, '|') !== FALSE) {
-    $items = explode(',', $e_edition);
-    $pubs = explode(',', $pub);
-    $ptypes = explode(',', $ptype);
-  } else {
-    $items = [$e_edition];
-    $pubs = [$pub];
-    $ptypes = [$ptype];
+  switch ($version) {
+    case 'v2':
+      $items = explode(',', $pub);
+      break;
+
+    default:
+      /* because Lutcher has a comma */
+      if (strpos($e_edition, '|') !== FALSE) {
+        $items = explode(',', $e_edition);
+        $pubs = explode(',', $pub);
+        $ptypes = explode(',', $ptype);
+      } else {
+        $items = [$e_edition];
+        $pubs = [$pub];
+        $ptypes = [$ptype];
+      }
   }
 
+  /* The output array. */
   $e_editions = [];
   $ptr = 0;
 
