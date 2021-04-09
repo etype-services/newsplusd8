@@ -93,7 +93,6 @@ class EtypePicoEeditionController extends ControllerBase {
    * This gets an authenticated e-Edition url.
    */
   public function getEeditionUrl(): ?string {
-    $response = NULL;
     /* V1 */
     if ($this->etypeVersion == '1' ) {
       /* There's no point in checking anything, no token required */
