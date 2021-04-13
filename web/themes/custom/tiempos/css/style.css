@@ -288,7 +288,7 @@ a:hover {
   color: #363636;
   font-size: 0.8rem;
   margin: 0.1rem 0;
-  line-height: 1.1rem;
+  line-height: 1;
 }
 
 .node--view-mode-full .field--name-field-subhead {
