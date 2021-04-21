@@ -1397,6 +1397,13 @@ article.node--view-mode-teaser .node__content .content-container h2 {
 .adblock {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+}
+.adblock div {
+  margin-bottom: 10px;
+}
+.adblock div:last-child {
+  margin-bottom: 0;
 }
 
 /*# sourceMappingURL=global.css.map */

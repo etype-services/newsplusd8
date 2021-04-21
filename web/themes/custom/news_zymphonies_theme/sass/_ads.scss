@@ -15,4 +15,11 @@
 .adblock {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  div {
+    margin-bottom: 10px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
