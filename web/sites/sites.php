@@ -222,3 +222,10 @@ $sites['www.gregorynews.com'] = "gregorynews.com";
 $sites['gregorynews.etypegoogle9.com'] = "gregorynews.com";
 $sites['www.eunicetoday.com'] = "eunicetoday.com";
 $sites['eunicetoday.etypegoogle9.com'] = "eunicetoday.com";
+
+$sites['www.terrelltribune.com'] = "terrelltribune.com";
+$sites['terrelltribune.etypegoogle9.com'] = "terrelltribune.com";
+$sites['www.sequoyahcountytimes.com'] = "sequoyahcountytimes.com";
+$sites['sequoyahcountytimes.etypegoogle9.com'] = "sequoyahcountytimes.com";
+$sites['www.thejenatimes.net'] = "thejenatimes.net";
+$sites['thejenatimes.etypegoogle9.com'] = "thejenatimes.net";
