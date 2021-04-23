@@ -84,7 +84,7 @@ class EtypePicoEeditionController extends ControllerBase {
     }
     catch (SoapFault $exception) {
       $message = 'Could not connect to SoapClient.';
-      Drupal::logger('my_module')->error($message);
+      Drupal::logger('pico')->error($message);
       return NULL;
     }
   }
@@ -115,6 +115,7 @@ class EtypePicoEeditionController extends ControllerBase {
     $config = Drupal::config('etype_pico.settings');
     $picoLandingPage = $config->get('picoLandingPage');
     $url = (new EtypePicoEeditionController)->getEeditionUrl();
+    Drupal::logger('pico')->info($url);
     return [
       '#title' => '',
       '#theme' => 'e_edition',
