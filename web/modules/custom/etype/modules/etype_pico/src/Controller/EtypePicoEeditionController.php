@@ -115,7 +115,7 @@ class EtypePicoEeditionController extends ControllerBase {
     $config = Drupal::config('etype_pico.settings');
     $picoLandingPage = $config->get('picoLandingPage');
     $url = (new EtypePicoEeditionController)->getEeditionUrl();
-    Drupal::logger('pico')->info($url);
+    //Drupal::logger('pico')->info($url);
     return [
       '#title' => '',
       '#theme' => 'e_edition',
