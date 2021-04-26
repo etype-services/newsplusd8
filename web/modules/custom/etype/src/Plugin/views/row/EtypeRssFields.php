@@ -31,7 +31,7 @@ class EtypeRssFields extends RssFields {
    *
    * @throws \Drupal\Core\Entity\EntityMalformedException
    */
-  public function render($row) {
+  public function render($row): array {
     $build = parent::render($row);
     $item = $build['#row'];
     $nid = $row->nid;

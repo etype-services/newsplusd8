@@ -209,6 +209,21 @@ class EtypeConfigForm extends ConfigFormBase {
       $form['other']['author']['#default_value'] = $author;
     }
 
+    $form['other']['newspapers_archive'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Newspapers.com Key'),
+      '#size' => 55,
+      '#default_value' => $config->get('newspapers_archive'),
+    ];
+
+    $form['other']['newspapers_archive_link'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Newspapers.com Link'),
+      '#description' => $this->t('This should be the first part of a url like http://***.newspapers.com.'),
+      '#size' => 55,
+      '#default_value' => $config->get('newspapers_archive_link'),
+    ];
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -234,6 +249,8 @@ class EtypeConfigForm extends ConfigFormBase {
       ->set('head_script', $form_state->getValue('head_script'))
       ->set('bottom_script', $form_state->getValue('bottom_script'))
       ->set('author', $form_state->getValue('author'))
+      ->set('newspapers_archive', $form_state->getValue('newspapers_archive'))
+      ->set('newspapers_archive_link', $form_state->getValue('newspapers_archive_link'))
       ->save();
   }
 

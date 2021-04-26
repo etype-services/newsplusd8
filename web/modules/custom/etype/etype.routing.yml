@@ -25,3 +25,11 @@ etype.ada_compliance:
     _title: 'Americans with Disabilities Act Compliance Statement'
   requirements:
     _permission: 'access content'
+
+etype.newspapers_archive:
+  path: '/newspapers-archive'
+  defaults:
+    _controller: '\Drupal\etype\Controller\NewspapersArchiveController::accessArchive'
+    _title: 'Archive'
+  requirements:
+    _permission: 'access content'
