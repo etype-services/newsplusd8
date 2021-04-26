@@ -38,7 +38,6 @@
         "ext-zip": "*",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6",
-        "drupal-composer/drupal-scaffold": "^2.2",
         "drupal/address": "^1.9",
         "drupal/addtoany": "^1.12",
         "drupal/admin_toolbar": "^2.0",
@@ -187,12 +186,6 @@
             "drush/Commands/{$name}": [
                 "type:drupal-drush"
             ]
-        },
-        "drupal-scaffold": {
-            "initial": {
-                ".editorconfig": "../.editorconfig",
-                ".gitattributes": "../.gitattributes"
-            }
         }
     }
 }
