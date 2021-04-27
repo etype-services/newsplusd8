@@ -69,7 +69,7 @@ class SetPremiumContent extends ViewsBulkOperationsActionBase {
    * @return array
    *   The configuration form.
    */
-  public function buildConfigurationForm(array $form, FormStateInterface $form_state) {
+  public function buildConfigurationForm(array $form, FormStateInterface $form_state): array {
     $form['set_premium_content'] = [
       '#title' => t('Premium Content'),
       '#type' => 'checkbox',
@@ -82,7 +82,7 @@ class SetPremiumContent extends ViewsBulkOperationsActionBase {
    * Submit handler for the action configuration form.
    *
    * If not implemented, the cleaned form values will be
-   * passed direclty to the action $configuration parameter.
+   * passed directly to the action $configuration parameter.
    *
    * @param array $form
    *   Form array.

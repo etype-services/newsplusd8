@@ -38,7 +38,6 @@
         "ext-zip": "*",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6",
-        "drupal-composer/drupal-scaffold": "^2.2",
         "drupal/address": "^1.9",
         "drupal/addtoany": "^1.12",
         "drupal/admin_toolbar": "^2.0",
@@ -124,7 +123,8 @@
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
-        "woothemes/flexslider": "~2.0"
+        "woothemes/flexslider": "~2.0",
+        "ext-openssl": "*"
     },
     "require-dev": {
         "drupal/core-dev": "^8.8@beta",
@@ -187,12 +187,6 @@
             "drush/Commands/{$name}": [
                 "type:drupal-drush"
             ]
-        },
-        "drupal-scaffold": {
-            "initial": {
-                ".editorconfig": "../.editorconfig",
-                ".gitattributes": "../.gitattributes"
-            }
         }
     }
 }
