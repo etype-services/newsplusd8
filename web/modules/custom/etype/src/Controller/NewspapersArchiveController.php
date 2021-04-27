@@ -64,7 +64,7 @@ class NewspapersArchiveController extends ControllerBase {
     // $token = $this->getTPAToken($test_time, $test_key);
     $url = 'https://' . $this->link . '.newspapers.com/?tpa=' . $token;
     $response = new TrustedRedirectResponse($url);
-    /* We do not want the response cached */
+    /* Do not cache the response */
     $cacheable_metadata = new CacheableMetadata();
     $cacheable_metadata->setCacheMaxAge(0);
     $response->addCacheableDependency($cacheable_metadata);

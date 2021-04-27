@@ -156,7 +156,8 @@ class EtypeLoginForm extends FormBase {
 
         switch ($validateSubscriberResult) {
           case "-1":
-            $message1 = "It looks like your subscription has expired. <a href='https://www.etypeservices.com/Subscriber/SignIn.aspx?ReturnUrl=https://www.etypeservices.com/Subscriber/ReSubscribe.aspx?PubID=$pubId'>Re-subscribe now!</a> .";
+            $message1 = "It looks like your subscription has expired. Please renew using the Subscribe link above.";
+            /* <a href='https://www.etypeservices.com/Subscriber/SignIn.aspx?ReturnUrl=https://www.etypeservices.com/Subscriber/ReSubscribe.aspx?PubID=$pubId'>Re-subscribe now!</a> */
             Drupal::messenger()->addMessage($message1);
             break;
 
