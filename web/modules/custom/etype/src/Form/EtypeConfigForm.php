@@ -168,6 +168,26 @@ class EtypeConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('rss'),
     ];
 
+    $form['archive'] = [
+      '#type' => 'fieldset',
+      '#title' => $this->t('Newspapers.com'),
+    ];
+
+    $form['archive']['newspapers_archive'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Newspapers.com Key'),
+      '#size' => 55,
+      '#default_value' => $config->get('newspapers_archive'),
+    ];
+
+    $form['archive']['newspapers_archive_link'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Newspapers.com Link'),
+      '#description' => $this->t('This should be the first part of a url like https://***.newspapers.com. These fields allow "/newspapers-archive" to link to the papers archives at newspapers.com.'),
+      '#size' => 55,
+      '#default_value' => $config->get('newspapers_archive_link'),
+    ];
+
     $form['other'] = [
       '#type' => 'fieldset',
       '#title' => $this->t('Other Settings'),
@@ -208,21 +228,6 @@ class EtypeConfigForm extends ConfigFormBase {
     if ($uid > 0) {
       $form['other']['author']['#default_value'] = $author;
     }
-
-    $form['other']['newspapers_archive'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Newspapers.com Key'),
-      '#size' => 55,
-      '#default_value' => $config->get('newspapers_archive'),
-    ];
-
-    $form['other']['newspapers_archive_link'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Newspapers.com Link'),
-      '#description' => $this->t('This should be the first part of a url like http://***.newspapers.com.'),
-      '#size' => 55,
-      '#default_value' => $config->get('newspapers_archive_link'),
-    ];
 
     return parent::buildForm($form, $form_state);
   }
