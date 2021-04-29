@@ -20,7 +20,8 @@
   .path-frontpage .view-display-id-page_1,
   #block-views-block-front-page-sections-block-1-2,
   #block-views-block-front-page-sections-block-2,
-  #block-views-block-front-page-sections-block-3-2 {
+  #block-views-block-front-page-sections-block-3-2,
+  #block-views-block-front-page-sections-block-4 {
     @include is-really-visible;
   }
   .front-page-sections {
