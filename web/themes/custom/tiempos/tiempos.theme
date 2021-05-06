@@ -11,6 +11,15 @@ use Drupal\user\Entity\User;
  * @param $variables
  */
 function tiempos_preprocess_html(&$variables) {
+  /* Home Page title add slogan */
+  $is_front = \Drupal::service('path.matcher')->isFrontPage();
+  if ($is_front == 1) {
+    $site_config = \Drupal::config('system.site');
+    $variables['head_title']['title'] = $site_config->get('name');
+    if ($site_config->get('slogan')) {
+      $variables['head_title']['title'] .= ' | ' . strip_tags($site_config->get('slogan'));
+    }
+  }
   /* Add domain to styles */
   $host = Drupal::request()->getHost();
   $arr = explode(".", $host);
