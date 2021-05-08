@@ -34,6 +34,7 @@
         "ext-curl": "*",
         "ext-json": "*",
         "ext-libxml": "*",
+        "ext-openssl": "*",
         "ext-soap": "*",
         "ext-zip": "*",
         "composer/installers": "^1.2",
@@ -64,6 +65,7 @@
         "drupal/entity_embed": "^1.0",
         "drupal/entity_reference_revisions": "^1.8",
         "drupal/exclude_node_title": "^1.0",
+        "drupal/facebook_comments": "^1.0",
         "drupal/facebook_pixel": "^1.0",
         "drupal/fb_instant_articles": "^2.2",
         "drupal/features": "^3.7",
@@ -123,8 +125,7 @@
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
-        "woothemes/flexslider": "~2.0",
-        "ext-openssl": "*"
+        "woothemes/flexslider": "~2.0"
     },
     "require-dev": {
         "drupal/core-dev": "^8.8@beta",
