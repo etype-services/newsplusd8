@@ -229,3 +229,7 @@ $sites['www.sequoyahcountytimes.com'] = "sequoyahcountytimes.com";
 $sites['sequoyahcountytimes.etypegoogle9.com'] = "sequoyahcountytimes.com";
 $sites['www.thejenatimes.net'] = "thejenatimes.net";
 $sites['thejenatimes.etypegoogle9.com'] = "thejenatimes.net";
+$sites['www.tribnow.com'] = "tribnow.com";
+$sites['tribnow.etypegoogle9.com'] = "tribnow.com";
+$sites['www.evangelinetoday.com'] = "evangelinetoday.com";
+$sites['evangelinetoday.etypegoogle9.com'] = "evangelinetoday.com";
