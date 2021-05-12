@@ -3,7 +3,7 @@
 
 /* testing */
 $sites['local.drupal8.com'] = 'local.drupal8.com';
-$sites['migrate.drupal8.com'] = 'eunicetoday.com';
+$sites['migrate.drupal8.com'] = 'evangelinetoday.com';
 $sites['www.etypetest.com'] = 'etypetest.etypegoogle7.com';
 
 /* for *drall* updates */
