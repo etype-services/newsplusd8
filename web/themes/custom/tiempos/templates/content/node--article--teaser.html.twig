@@ -87,6 +87,8 @@
             {{ content.field_image[0] }}
         {% elseif content.field_small_image[0] is not null %}
             {{ content.field_small_image[0] }}
+        {% elseif content.field_library_image is not null %}
+          {{ content.field_library_image }}
         {% endif %}
       </div>
       <div class="content-container">
