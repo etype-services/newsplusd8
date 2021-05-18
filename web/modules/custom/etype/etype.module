@@ -87,12 +87,11 @@ function etype_page_attachments(array &$page) {
   $path = $current_url->toString();
   /* Remove additional script from e-edition path */
   if ($path !== '/e-edition') {
-    $etype_ada_off = $config->get('etype_ada_off');
-    switch ($etype_ada_off) {
+    $etype_ada_on = $config->get('etype_ada_on');
+    switch ($etype_ada_on) {
       case 1:
-        break;
-      default:
         $page['#attached']['library'][] = 'etype/ada-compliance';
+        break;
     }
     $moduleHandler = Drupal::service('module_handler');
     if ($moduleHandler->moduleExists('pwa')) {
