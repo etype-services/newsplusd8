@@ -251,7 +251,7 @@ class EtypeWireContentConfigForm extends ConfigFormBase {
       '#target_type' => 'taxonomy_term',
       '#selection_handler' => 'default',
       '#selection_settings' => [
-        'target_bundles' => ['sections'],
+        'target_bundles' => ['section'],
       ],
     ];
     $tid = $this->conf->get('section');
