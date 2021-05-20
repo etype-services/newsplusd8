@@ -59,7 +59,7 @@ class ImportNewzWareController {
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  public function importNewzWareXml() {
+  public function importNewzWareXml(): array {
 
     /* throw Exception and return empty page with message if no url to import from */
     try {
