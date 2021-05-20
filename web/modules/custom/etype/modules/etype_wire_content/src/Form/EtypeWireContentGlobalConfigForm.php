@@ -125,7 +125,6 @@ class EtypeWireContentGlobalConfigForm extends ConfigFormBase {
       '#title' => $this->t('Global Groups'),
       '#description' => $this->t('Add or remove groups for all sites. Groups should be on one line, with machine_name and name separated by |.'),
       '#default_value' => $options,
-      '#required' => TRUE,
     ];
 
     return parent::buildForm($form, $form_state);
