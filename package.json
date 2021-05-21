@@ -2,7 +2,6 @@
   "name": "newsplusd8",
   "dependencies": {
     "smart-app-banner": "^2.0.0",
-    "ua-parser-js": "^0.7.28",
-    "yuicompressor": "^2.4.8"
+    "ua-parser-js": "^0.7.28"
   }
 }
