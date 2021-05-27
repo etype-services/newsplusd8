@@ -9,7 +9,7 @@ use Drupal\Tests\BrowserTestBase;
  *
  * @group trust.txt
  */
-class trustTxtTest extends BrowserTestBase {
+class TrustTxtTest extends BrowserTestBase {
 
   /**
    * {@inheritdoc}

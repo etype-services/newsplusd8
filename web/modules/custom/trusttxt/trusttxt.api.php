@@ -11,7 +11,7 @@
  * @return array
  *   An array of strings to add to the trust.txt.
  */
-function hook_trusttxt() {
+function hook_trusttxt(): array {
   return [
     'greenadexchange.com, 12345, DIRECT, AEC242',
     'blueadexchange.com, 4536, DIRECT',
@@ -25,7 +25,7 @@ function hook_trusttxt() {
  * @return array
  *   An array of strings to add to the trust.txt.
  */
-function hook_app_trusttxt() {
+function hook_app_trusttxt(): array {
   return array(
     'onetwothree.com, 12345, DIRECT, AEC242',
     'fourfivesix.com, 4536, DIRECT',

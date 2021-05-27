@@ -13,7 +13,7 @@ use Drupal\Core\Extension\ModuleHandlerInterface;
 /**
  * Provides output trust.txt output.
  */
-class trustTxtController extends ControllerBase implements ContainerInjectionInterface {
+class TrustTxtController extends ControllerBase implements ContainerInjectionInterface {
 
   /**
    * The module handler service.
@@ -23,14 +23,14 @@ class trustTxtController extends ControllerBase implements ContainerInjectionInt
   protected $moduleHandler;
 
   /**
-   * trustTxt module 'trusttxt.settings' configuration.
+   * TrustTxt module 'trusttxt.settings' configuration.
    *
    * @var \Drupal\Core\Config\ImmutableConfig
    */
   protected $moduleConfig;
 
   /**
-   * Constructs a trustTxtController object.
+   * Constructs a TrustTxtController object.
    *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config
    *   Configuration object factory.
@@ -45,7 +45,7 @@ class trustTxtController extends ControllerBase implements ContainerInjectionInt
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container) {
+  public static function create(ContainerInterface $container): TrustTxtController {
     return new static(
       $container->get('config.factory'),
       $container->get('module_handler')
@@ -58,7 +58,7 @@ class trustTxtController extends ControllerBase implements ContainerInjectionInt
    * @return \Symfony\Component\HttpFoundation\Response
    *   The trust.txt file as a response object with 'text/plain' content type.
    */
-  public function build() {
+  public function build(): Response {
     $content = [];
     $content[] = $this->moduleConfig->get('content');
 
@@ -85,7 +85,7 @@ class trustTxtController extends ControllerBase implements ContainerInjectionInt
    * @return \Symfony\Component\HttpFoundation\Response
    *   The app-trust.txt file as a response object with 'text/plain' content type.
    */
-  public function buildApptrust() {
+  public function buildAppTrust(): Response {
     $content = [];
     $content[] = $this->moduleConfig->get('app_content');
 

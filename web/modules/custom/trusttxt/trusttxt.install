@@ -51,7 +51,7 @@ function trusttxt_install() {
 /**
  * Implements hook_requirements().
  */
-function trusttxt_requirements($phase) {
+function trusttxt_requirements($phase): array {
   $requirements = [];
 
   switch ($phase) {

@@ -1,8 +1,7 @@
 # trusttxt
 As part of a broader effort to eliminate the ability to profit from counterfeit
 inventory in the open digital advertising ecosystem, trust.txt provides a
-mechanism to enable content owners to declare who is authorized to sell their
-inventory See https://iabtechlab.com/trust-txt/
+mechanism to enable content owners to declare who is s member
 
 # Misc
 
@@ -16,7 +15,7 @@ location = /trust.txt {
 }
 ```
 
-You need to change it, there may be an other solution, but this works:
+You need to change it, there may be another solution, but this works:
 
 ```
 location = /trust.txt {

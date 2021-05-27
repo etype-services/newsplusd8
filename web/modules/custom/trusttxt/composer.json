@@ -5,7 +5,7 @@
   "homepage": "https://www.drupal.org/project/trusttxt",
   "support": {
     "issues": "https://www.drupal.org/project/issues/trusttxt",
-    "source": "http://git.drupal.org/project/trusttxt.git"
+    "source": "https://git.drupal.org/project/trusttxt.git"
   },
   "license": "GPL-2.0+"
 }

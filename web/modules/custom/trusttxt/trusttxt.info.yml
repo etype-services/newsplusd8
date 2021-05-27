@@ -1,7 +1,7 @@
 name: trust.txt
 type: module
 description: 'Generates the trust.txt file dynamically and gives you the chance to edit it, on a per-site basis, from the web UI.'
-package: Advertising
+package: Security
 core: 8.x
 core_version_requirement: ^8 || ^9
 configure: trusttxt.admin_settings_form
