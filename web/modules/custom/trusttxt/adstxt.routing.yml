@@ -1,0 +1,23 @@
+trusttxt.admin_settings_form:
+  path: '/admin/config/system/trusttxt'
+  defaults:
+    _form: '\Drupal\trusttxt\Form\trustTxtAdminSettingsForm'
+    _title: 'trust.txt'
+  requirements:
+    _permission: 'administer trust.txt'
+
+trusttxt.content:
+  path: '/trust.txt'
+  defaults:
+    _controller: '\Drupal\trusttxt\Controller\trustTxtController::build'
+  requirements:
+    # callback is open for accessing trusttxt file.
+    _access: 'TRUE'
+
+trusttxt.app_content:
+  path: '/app-trust.txt'
+  defaults:
+    _controller: '\Drupal\trusttxt\Controller\trustTxtController::buildApptrust'
+  requirements:
+    # callback is open for accessing trusttxt file.
+    _access: 'TRUE'

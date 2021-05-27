@@ -1,0 +1,5 @@
+trusttxt.admin_settings_form:
+  title: 'trust.txt'
+  parent: system.admin_config_search
+  description: 'Manage your trust.txt file.'
+  route_name: trusttxt.admin_settings_form
