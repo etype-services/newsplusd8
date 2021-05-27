@@ -54,7 +54,7 @@ EOF;
       break;
 
     case $path == '/e-edition':
-      /* Remove any other maunally added scripts for this path. */
+      /* Remove any other manually added scripts for this path. */
       $variables['head_script'] = '';
       $bottom_script = <<<EOF
 <script>
@@ -88,6 +88,7 @@ EOF;
           // Check for Content Type.
           $node = Drupal::routeMatch()->getParameter('node');
           $types = $config->get('nodeTypes');
+          var_dump($types);
           $nodeTypes = [];
           if (is_countable($types)) {
             foreach ($types as $k => $v) {
@@ -97,6 +98,8 @@ EOF;
             }
           }
           if ($node instanceof NodeInterface) {
+            var_dump($nodeTypes);
+            var_dump($node->getType());
             if (in_array($node->getType(), $nodeTypes)) {
               /* Set Pico status to true for selected Content Types */
               $picoId = $node->id();
