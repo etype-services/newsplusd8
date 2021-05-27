@@ -24,9 +24,4 @@ location = /trust.txt {
     try_files $uri /index.php?$query_string;
 }
 
-location = /app-trust.txt {
-    allow all;
-    log_not_found off;
-    try_files $uri /index.php?$query_string;
-}
 ```

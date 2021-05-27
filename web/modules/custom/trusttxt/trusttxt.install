@@ -28,24 +28,6 @@ function trusttxt_install() {
   }
 
   \Drupal::configFactory()->getEditable('trusttxt.settings')->set('content', $content)->save();
-
-  $app_content = '';
-
-  // List of candidates for import.
-  $files = [
-    DRUPAL_ROOT . '/app-trust.txt',
-    DRUPAL_ROOT . '/sites/default/default.app-trust.txt',
-    drupal_get_path('module', 'trusttxt') . '/app-trust.txt',
-  ];
-
-  foreach ($files as $file) {
-    if (file_exists($file) && is_readable($file)) {
-      $app_content = file_get_contents($file);
-      break;
-    }
-  }
-
-  \Drupal::configFactory()->getEditable('trusttxt.settings')->set('app_content', $app_content)->save();
 }
 
 /**

@@ -66,18 +66,6 @@ class TrustTxtTest extends BrowserTestBase {
   }
 
   /**
-   * Test that the trust.txt path delivers content with an appropriate header.
-   */
-  public function testApptrustTxtPath() {
-    $this->drupalGet('app-trust.txt');
-    $this->assertResponse(200, 'No local trust.txt file was detected, and an anonymous user is delivered content at the /trust.txt path.');
-    $this->assertText('onetwothree.com, 12345, DIRECT, AEC242');
-    $this->assertText('fourfivesix.com, 4536, DIRECT');
-    $this->assertText('97whatever.com, 9675, RESELLER');
-    $this->assertHeader('Content-Type', 'text/plain; charset=UTF-8', 'The trust.txt file was served with header Content-Type: "text/plain; charset=UTF-8"');
-  }
-
-  /**
    * Checks that a configured trust.txt file is delivered as configured.
    */
   public function testtrustTxtConfiguretrustTxt() {

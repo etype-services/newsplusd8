@@ -79,31 +79,4 @@ class TrustTxtController extends ControllerBase implements ContainerInjectionInt
     return new Response($content, 200, ['Content-Type' => 'text/plain']);
   }
 
-  /**
-   * Serves the configured app-trust.txt file.
-   *
-   * @return \Symfony\Component\HttpFoundation\Response
-   *   The app-trust.txt file as a response object with 'text/plain' content type.
-   */
-  public function buildAppTrust(): Response {
-    $content = [];
-    $content[] = $this->moduleConfig->get('app_content');
-
-    // Hook other modules for adding additional lines.
-    if ($additions = $this->moduleHandler->invokeAll('app_trusttxt')) {
-      $content = array_merge($content, $additions);
-    }
-
-    // Trim any extra whitespace and filter out empty strings.
-    $content = array_map('trim', $content);
-    $content = array_filter($content);
-    $content = implode("\n", $content);
-
-    if (empty($content)) {
-      throw new NotFoundHttpException();
-    }
-
-    return new Response($content, 200, ['Content-Type' => 'text/plain']);
-  }
-
 }

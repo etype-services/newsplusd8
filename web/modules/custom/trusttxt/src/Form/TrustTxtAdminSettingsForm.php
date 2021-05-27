@@ -38,14 +38,6 @@ class TrustTxtAdminSettingsForm extends ConfigFormBase {
       '#rows' => 20,
     ];
 
-    $form['app_trusttxt_content'] = [
-      '#type' => 'textarea',
-      '#title' => $this->t('Contents of app-trust.txt'),
-      '#default_value' => $config->get('app_content'),
-      '#cols' => 60,
-      '#rows' => 20,
-    ];
-
     return parent::buildForm($form, $form_state);
   }
 

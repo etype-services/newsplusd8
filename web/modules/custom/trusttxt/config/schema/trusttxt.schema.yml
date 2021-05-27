@@ -6,6 +6,3 @@ trusttxt.settings:
     content:
       type: string
       label: 'Contents of trust.txt'
-    app_content:
-      type: string
-      label: 'Contents of app-trust.txt'

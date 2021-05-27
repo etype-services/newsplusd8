@@ -1,3 +1,0 @@
-# trust.txt for Texas Press Association
-# these are the current members of the association, including affiliate and educational members
-member=http://texaspress.com
