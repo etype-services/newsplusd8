@@ -5,12 +5,9 @@ use Drupal\Core\Routing\RouteMatchInterface;
 /**
  * Implements hook_help().
  */
-function trusttxt_help($route_name, RouteMatchInterface $route_match) {
+function trusttxt_help($route_name, RouteMatchInterface $route_match): string {
   switch ($route_name) {
     case 'help.page.trusttxt':
       return '<p>' . t('In a multisite environment, there is no mechanism for having a separate trust.txt file for each site. This module addresses that need by letting you administer the trust.txt file from the settings interface.') . '</p>';
-
-    case 'trusttxt.admin_settings_form':
-      return t('See <a href="https://iabtechlab.com/trust-txt/">https://iabtechlab.com/trust-txt/</a> for more information concerning how to write your <a href="@trusttxt">trust.txt</a> file.', ['@trusttxt' => base_path() . 'trust.txt']);
   }
 }
