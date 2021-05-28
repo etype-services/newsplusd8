@@ -28,19 +28,19 @@ function etype_pico_preprocess_html(&$variables) {
   $current_user_roles = \Drupal::currentUser()->getRoles();
   $current_url = Url::fromRoute('<current>');
   $path = $current_url->toString();
-  // var_dump($path);
+  var_dump($path);
   $config = Drupal::config('etype_pico.settings');
   $picoNoPopup = $config->get('picoNoPopup');
   $excluded = explode(PHP_EOL, $picoNoPopup);
   /* add paths we always want to exclude */
   $excluded[] = '^/user/';
-  // var_dump($excluded);
+  var_dump($excluded);
   $allmatches = [];
   foreach ($excluded as $item) {
     preg_match('#' . trim($item) . '#', $path, $matches);
     if (isset($matches[0])) $allmatches[] = $matches[0];
   }
-  // var_dump($allmatches);
+  var_dump($allmatches);
 
   if (count($allmatches) == 0 && !in_array('administrator', $current_user_roles)) {
     /* not an excluded path, not an admin - run Pico */
