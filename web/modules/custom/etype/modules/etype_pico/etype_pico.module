@@ -63,6 +63,7 @@ EOF;
       case $path == '/e-edition':
         /* Remove any other manually added scripts for this path. */
         $variables['head_script'] = '';
+        $picoOn = 'true';
         $picoId = "/e-edition";
         $picoType = 'exclude';
         $picoCategories = '["nopopup"]';
