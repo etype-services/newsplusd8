@@ -32,7 +32,7 @@ function etype_pico_preprocess_html(&$variables) {
   $config = Drupal::config('etype_pico.settings');
   $picoNoPopup = $config->get('picoNoPopup');
   $excluded = explode(PHP_EOL, $picoNoPopup);
-  /* add paths we always want to exclude */
+  /* add paths we always want to exclude, also ensures that $excluded is not empty */
   $excluded[] = '^/user/';
   // var_dump($excluded);
   $allmatches = [];
