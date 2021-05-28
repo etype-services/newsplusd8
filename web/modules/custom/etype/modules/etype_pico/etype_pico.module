@@ -37,8 +37,10 @@ function etype_pico_preprocess_html(&$variables) {
   var_dump($excluded);
   $allmatches = [];
   foreach ($excluded as $item) {
-    preg_match('#' . trim($item) . '#', $path, $matches);
-    if (isset($matches[0])) $allmatches[] = $matches[0];
+    if (!empty($item)) {
+      preg_match('#' . trim($item) . '#', $path, $matches);
+      if (isset($matches[0])) $allmatches[] = $matches[0];
+    }
   }
   var_dump($allmatches);
 
