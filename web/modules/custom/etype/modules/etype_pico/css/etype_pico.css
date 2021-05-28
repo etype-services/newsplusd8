@@ -47,3 +47,7 @@ a[data-drupal-link-system-path="e-edition"][data-pico-status="paying"] {
 .accessiblity-toolbar-wrapper {
   bottom: 112px!important;
 }
+
+img {
+  display: none;
+}

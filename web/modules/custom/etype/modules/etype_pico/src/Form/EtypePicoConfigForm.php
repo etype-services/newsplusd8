@@ -89,6 +89,14 @@ class EtypePicoConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('picoLandingPage'),
     ];
 
+    $form['picoNoPopup'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Excluded Paths'),
+      '#description' => $this->t('Enter one pattern per line to match paths for which Pico should not load. "/form" would match all of /forms, /test/form/test, and /formtest. Use ^ at the beginning and $ at the end of the string to signify that the path should begin and/or end where the string does. So, "^/form$" would only match /form.'),
+      '#rows' => 10,
+      '#default_value' => $config->get('picoNoPopup'),
+    ];
+
     $form['nodeTypes'] = [
       '#title' => $this->t('Content Type'),
       '#type' => 'checkboxes',
@@ -119,6 +127,7 @@ class EtypePicoConfigForm extends ConfigFormBase {
       ->set('picoLandingPage', $form_state->getValue('picoLandingPage'))
       ->set('nodeTypes', $form_state->getValue('nodeTypes'))
       ->set('etypeVersion', $form_state->getValue('etypeVersion'))
+      ->set('picoNoPopup', $form_state->getValue('picoNoPopup'))
       ->save();
   }
 
