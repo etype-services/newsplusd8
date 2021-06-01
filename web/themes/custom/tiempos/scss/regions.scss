@@ -62,6 +62,7 @@
   flex-wrap: wrap;
   flex: 0 0 calc(300px + #{$column-gap} * 2); /* Fixed size, does not grow or shrink. */
   margin-bottom: $column-gap;
+  overflow: hidden;
 }
 
 #coupons {
