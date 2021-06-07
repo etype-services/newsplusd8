@@ -99,7 +99,6 @@ class EtypeLoginForm extends FormBase {
    *   The form state.
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
-   * @throws \SoapFault
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
