@@ -1,0 +1,62 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the trusttxt module.
+ */
+
+use Drupal\Core\Routing\RequestHelper;
+
+/**
+ * Implements hook_install().
+ */
+function trusttxt_install() {
+  $content = '';
+
+  // List of candidates for import.
+  $files = [
+    DRUPAL_ROOT . '/trust.txt',
+    DRUPAL_ROOT . '/sites/default/default.trust.txt',
+    drupal_get_path('module', 'trusttxt') . '/trust.txt',
+  ];
+
+  foreach ($files as $file) {
+    if (file_exists($file) && is_readable($file)) {
+      $content = file_get_contents($file);
+      break;
+    }
+  }
+
+  \Drupal::configFactory()->getEditable('trusttxt.settings')->set('content', $content)->save();
+}
+
+/**
+ * Implements hook_requirements().
+ */
+function trusttxt_requirements($phase): array {
+  $requirements = [];
+
+  switch ($phase) {
+    case 'runtime':
+      // Module cannot work without Clean URLs.
+      $request = \Drupal::request();
+      if (!RequestHelper::isCleanUrl($request)) {
+        $requirements['trusttxt_cleanurl'] = [
+          'title' => t('trust.txt'),
+          'severity' => REQUIREMENT_ERROR,
+          'value' => t('Clean URLs are mandatory for this module.'),
+        ];
+      }
+
+      // Webservers prefer the trust.txt file on disk and does not allow menu
+      // path overwrite.
+      if (file_exists(DRUPAL_ROOT . '/trust.txt')) {
+        $requirements['trusttxt_file'] = [
+          'title' => t('trust.txt'),
+          'severity' => REQUIREMENT_WARNING,
+          'value' => t('trust.txt module works only if you remove the existing trust.txt file in your website root.'),
+        ];
+      }
+  }
+  return $requirements;
+}

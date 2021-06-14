@@ -99,7 +99,6 @@ class EtypeLoginForm extends FormBase {
    *   The form state.
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
-   * @throws \SoapFault
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
@@ -170,9 +169,11 @@ class EtypeLoginForm extends FormBase {
             // Clear cache to reset e-Edition links.
             Drupal::cache('menu')->invalidateAll();
             Drupal::service('plugin.manager.menu.link')->rebuild();
-            $redirectDestination = str_replace("http://", "http://", $base_url) . $_COOKIE["redirectDestination"];
-            $url = Url::fromUri($redirectDestination);
-            $form_state->setRedirectUrl($url);
+            if (isset($_COOKIE["redirectDestination"])) {
+              $redirectDestination = str_replace("http://", "http://", $base_url) . $_COOKIE["redirectDestination"];
+              $url = Url::fromUri($redirectDestination);
+              $form_state->setRedirectUrl($url);
+            }
         }
 
         break;

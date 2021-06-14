@@ -1,0 +1,16 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function trusttxt_help($route_name, RouteMatchInterface $route_match): string {
+  $output = '';
+  switch ($route_name) {
+    case 'help.page.trusttxt':
+      $output = '<p>' . t('In a multisite environment, there is no mechanism for having a separate trust.txt file for each site. This module addresses that need by letting you administer the trust.txt file from the settings interface.') . '</p>';
+      break;
+  }
+  return $output;
+}

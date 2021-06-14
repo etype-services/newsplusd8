@@ -173,6 +173,7 @@ main .main-content-inner {
   flex: 0 0 calc(300px + 0.75rem * 2);
   /* Fixed size, does not grow or shrink. */
   margin-bottom: 0.75rem;
+  overflow: hidden;
 }
 
 #coupons {

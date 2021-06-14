@@ -1,0 +1,11 @@
+{
+  "name": "drupal/trusttxt",
+  "description": "Generates the trust.txt file dynamically and gives you the chance to edit it, on a per-site basis, from the web UI.",
+  "type": "drupal-module",
+  "homepage": "https://www.drupal.org/project/trusttxt",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/trusttxt",
+    "source": "https://git.drupal.org/project/trusttxt.git"
+  },
+  "license": "GPL-2.0+"
+}

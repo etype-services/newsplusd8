@@ -22,91 +22,77 @@ function etype_pico_theme($existing, $type, $theme, $path): array {
 
 /**
  * Preprocess html.
- *
  * @param $variables
  */
 function etype_pico_preprocess_html(&$variables) {
-
   $current_user_roles = \Drupal::currentUser()->getRoles();
-
   $current_url = Url::fromRoute('<current>');
   $path = $current_url->toString();
-
-  $e_config = Drupal::config('etype.adminsettings');
-  $bottom_script = $e_config->get('bottom_script');
+  // var_dump($path);
   $config = Drupal::config('etype_pico.settings');
-  $picoPublisherId = $config->get('picoPublisherId');
-  $pico_script = <<<EOF
+  $picoNoPopup = $config->get('picoNoPopup');
+  $excluded = explode(PHP_EOL, $picoNoPopup);
+  /* add paths we always want to exclude, also ensures that $excluded is not empty */
+  $excluded[] = '^/user/';
+  // var_dump($excluded);
+  $allmatches = [];
+  foreach ($excluded as $item) {
+    if (!empty($item)) {
+      preg_match('#' . trim($item) . '#', $path, $matches);
+      if (isset($matches[0])) $allmatches[] = $matches[0];
+    }
+  }
+  // var_dump($allmatches);
+
+  if (count($allmatches) == 0 && !in_array('administrator', $current_user_roles)) {
+    /* not an excluded path, not an admin - run Pico */
+    $e_config = Drupal::config('etype.adminsettings');
+    $bottom_script = $e_config->get('bottom_script');
+    $picoPublisherId = $config->get('picoPublisherId');
+    $pico_script = <<<EOF
 <script>
 (function(p,i,c,o){var n=new Event("pico-init");i[p]=i[p]||function(){(i[p].queue=i[p].queue||[]).push(arguments)},i.document.addEventListener("pico-init",function(e){var t=i.Pico.getInstance(e,{publisherId:o,picoInit:n},i);t.handleQueueItems(i[p].queue),i[p]=function(){return t.handleQueueItems([arguments])}},!1);var e=i.document.createElement("script"),t=i.document.getElementsByTagName("script")[0];e.async=1,e.src=c,e.onload=function(e){return i.Pico.getInstance(e,{publisherId:o,picoInit:n},i)},t.parentNode.insertBefore(e,t)})("pico",window,"https://gadget.pico.tools/wrapper.min.js","$picoPublisherId");
 </script>
 EOF;
 
-  $picoOn = 'false';
-  $picoType = 'page';
-  $picoId = $path;
+    /* Defaults */
+    $picoOn = 'false';
+    $picoType = 'page';
+    $picoId = $path;
+    $picoCategories = '[]';
 
-  switch(true) {
-    /* Turn off Pico if true */
-    case in_array('administrator', $current_user_roles):
-    case preg_match('/\/user\/.*/', $path):
-    $pico_script = '';
-      break;
+    switch(true) {
+      case $path == '/e-edition':
+        /* Remove any other manually added scripts for this path. */
+        $variables['head_script'] = '';
+        $picoOn = 'true';
+        $picoId = "/e-edition";
+        $picoType = 'code';
+        $picoCategories = '["nopopup"]';
+        break;
 
-    case $path == '/e-edition':
-      /* Remove any other maunally added scripts for this path. */
-      $variables['head_script'] = '';
-      $bottom_script = <<<EOF
-<script>
-let pageInfo = {
-	article: false,
-	post_id: "/e-edition",
-	post_type: "code",
-	taxonomies: { tags: ["nopopup"] },
-	url: window.location.href
-};
-window.pico('visit', pageInfo);
-</script>"
-EOF;
-      break;
-
-    default:
-      /**
-       * bottom script
-       * see https://help.trypico.com/en/articles/3199263-installing-pico-on-your-website
-       */
-      switch ($path) {
-        /* Add paths we want to treat differently */
-        case '/puzzles':
-          $picoCategories = '["nopopup"]';
-          break;
-
-        default:
-          /* Set defaults */
-          $picoCategories = '[]';
-
-          // Check for Content Type.
-          $node = Drupal::routeMatch()->getParameter('node');
-          $types = $config->get('nodeTypes');
-          $nodeTypes = [];
-          if (is_countable($types)) {
-            foreach ($types as $k => $v) {
-              if (!empty($v)) {
-                $nodeTypes[] = $v;
-              }
+      default:
+        // Check for Content Type.
+        $node = Drupal::routeMatch()->getParameter('node');
+        $types = $config->get('nodeTypes');
+        $nodeTypes = [];
+        if (is_countable($types)) {
+          foreach ($types as $k => $v) {
+            if (!empty($v)) {
+              $nodeTypes[] = $v;
             }
           }
-          if ($node instanceof NodeInterface) {
-            if (in_array($node->getType(), $nodeTypes)) {
-              /* Set Pico status to true for selected Content Types */
-              $picoId = $node->id();
-              $picoOn = 'true';
-              $picoType = 'article';
-            }
+        }
+        if ($node instanceof NodeInterface) {
+          if (in_array($node->getType(), $nodeTypes)) {
+            /* Set Pico status to true for selected Content Types */
+            $picoId = $node->id();
+            $picoOn = 'true';
+            $picoType = 'article';
           }
-      }
-
-      $bottom_script .= <<<EOF
+        }
+    }
+    $bottom_script .= <<<EOF
 <script>
 let pageInfo = {
 	article: $picoOn,
@@ -118,9 +104,9 @@ let pageInfo = {
 window.pico('visit', pageInfo);
 </script>"
 EOF;
+    $variables['pico_script'] = $pico_script;
+    $variables['bottom_script'] = $bottom_script;
   }
-  $variables['pico_script'] = $pico_script;
-  $variables['bottom_script'] = $bottom_script;
 }
 
 /**
