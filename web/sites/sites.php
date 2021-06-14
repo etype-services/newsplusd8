@@ -231,3 +231,6 @@ $sites['www.tribnow.com'] = "tribnow.com";
 $sites['tribnow.etypegoogle9.com'] = "tribnow.com";
 $sites['www.evangelinetoday.com'] = "evangelinetoday.com";
 $sites['evangelinetoday.etypegoogle9.com'] = "evangelinetoday.com";
+$sites['www.basiletoday.com'] = 'evangelinetoday.com';
+$sites['www.mamoutoday.com'] = 'evangelinetoday.com';
+$sites['www.villeplattetoday.com'] = 'evangelinetoday.com';
