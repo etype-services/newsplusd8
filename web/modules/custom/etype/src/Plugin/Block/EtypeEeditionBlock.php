@@ -25,10 +25,10 @@ class EtypeEeditionBlock extends BlockBase {
     }
     $output = '';
     foreach ($e_editions as $e_edition) {
-      $output .= '<div class="e-edition"><div><a href="' . $e_edition['path'] . '" target="_blank" aria-label="' .
+      $output .= '<div class="e-edition"><div><a href="' . $e_edition['path'] . '" target="_blank" rel="noreferrer" aria-label="' .
         $e_edition['site_name'] . ' e-Edition"' . $class . '><img src="' .
         $e_edition['image'] . '" alt="' . $e_edition['site_name'] . ' e-Edition"></a></div>
-<p><a href="' . $e_edition['path'] . '" target="_blank" aria-label="' . $e_edition['site_name'] . ' e-Edition"' . $class . '>Read ' . $e_edition['site_name'] . '</a></p></div>
+<p><a href="' . $e_edition['path'] . '" target="_blank" rel="noreferrer" aria-label="' . $e_edition['site_name'] . ' e-Edition"' . $class . '>Read ' . $e_edition['site_name'] . '</a></p></div>
 ';
     }
     return [
