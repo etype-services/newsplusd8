@@ -24,7 +24,7 @@ google-fonts:
   remote: //fonts.googleapis.com/css
   css:
     theme:
-      //fonts.googleapis.com/css?family=Petrona|Lato: { type: external }
+      //fonts.googleapis.com/css?family=Petrona|Lato&display=swap: { type: external }
   license:
     name: Open Font License
     url: //scripts.sil.org/OFL
