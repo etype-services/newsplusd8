@@ -33,7 +33,7 @@ class SocialMediaBlock extends BlockBase {
     foreach ($links as $k => $v) {
       if (!empty($v)) {
         $red = ucfirst($k);
-        $output .= "<a href=\"$v\" class=\"has-text-grey-dark\" target=\"_blank\" aria-label=\"" . $red . "\"><i class=\"fab fa-$k is-size-3\"></i><span class=\"sr-only\">$k</span></a>";
+        $output .= "<a href=\"$v\" class=\"has-text-grey-dark\" target=\"_blank\" rel=\"noreferrer\" aria-label=\"" . $red . "\"><i class=\"fab fa-$k is-size-3\"></i><span class=\"sr-only\">$k</span></a>";
       }
     }
     return [
