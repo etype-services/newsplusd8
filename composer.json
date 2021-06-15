@@ -44,6 +44,7 @@
         "drupal/admin_toolbar": "^2.0",
         "drupal/adsense": "^1.1",
         "drupal/adstxt": "^1.0",
+        "drupal/advagg": "^4.1",
         "drupal/antibot": "^1.4",
         "drupal/block_class": "^1.1",
         "drupal/ckeditor_font": "^1.0",
