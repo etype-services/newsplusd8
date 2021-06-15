@@ -157,7 +157,8 @@ main .main-content-inner {
 
 .region-content-ads {
   display: flex;
-  justify-content: space-between;
+  /* Changed Jun 2021 for Evangeline's ads */
+  justify-content: center;
   flex-wrap: nowrap;
   margin: 0.75rem 0;
 }
