@@ -1,6 +1,6 @@
  (function ($) {
   $(document).ready(function () {
-  
+
     // === ColorPicker ===
     if($.fn.ColorPicker){
       $('input.color-picker').each(function(){
@@ -11,7 +11,7 @@
           onChange:function (hsb, hex, rgb) {
            $('span.color-' + name).css('backgroundColor', '#' + hex);
             $input.val( '#' + hex );
-          } 
+          }
        });
       });
     };
@@ -29,7 +29,7 @@
 
   });
 
-  $(window).load(function(){
+  $(window).on('load', function(){
 
     $('input.color-picker').each(function(){
       $color = $(this).val();
