@@ -109,7 +109,7 @@ class EtypeConfigForm extends ConfigFormBase {
     ];
 
     $form['e_edition']['etype_ada_on'] = [
-      '#title' => $this->t('Check this box to turn ADA library on.'),
+      '#title' => $this->t('Check this box to turn ADA library on. The domain must be registered with the ADA vendor.'),
       '#type' => 'checkbox',
       '#default_value' => $config->get('etype_ada_on'),
     ];
