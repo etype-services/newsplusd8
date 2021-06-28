@@ -110,7 +110,7 @@ class ImportClassifiedController {
 
       // Ads do not have title, mostly.
       $str = empty($item->ItemTitle) ? substr($item->ItemDesc, 0, 25) : $item->ItemTitle;
-      $title = preg_replace("/[\x00-\x7F]/", " ", $str);
+      $title = preg_replace('/[\x00-\x7F]/', ' ', $str);
 
       if (!empty($title)) {
         // Get term id that matched VisionData category.
