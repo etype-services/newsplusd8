@@ -73,11 +73,11 @@ class EtypeConfigForm extends ConfigFormBase {
 
     if ($v2 == 1) {
       /* Save values in case of reversion? */
-      $form['e_edition']['etype_e_edition'] = [
+      $form['e_edition']['etype_papers'] = [
         '#title' => $this->t('Paper Names (for multiple papers)'),
         '#type' => 'textfield',
-        '#default_value' => $config->get('etype_e_edition'),
-        '#description' => $this->t('For sites linked to more than one publication please enter the papaer names like this: <code>Mitchell News Journal|The Yorktown News View</code> in the same order as the pub ids above.'),
+        '#default_value' => $config->get('etype_papers'),
+        '#description' => $this->t('For sites linked to more than one publication please enter the paper names like this: <code>Mitchell News Journal|The Yorktown News View</code> in the same order as the pub ids above.'),
       ];
 
       /*$form['e_edition']['etype_ptype'] = [
@@ -242,6 +242,7 @@ class EtypeConfigForm extends ConfigFormBase {
 
     $this->config('etype.adminsettings')
       ->set('etype_e_edition', $form_state->getValue('etype_e_edition'))
+      ->set('etype_papers', $form_state->getValue('etype_papers'))
       ->set('etype_pub', $form_state->getValue('etype_pub'))
       ->set('etype_ptype', $form_state->getValue('etype_ptype'))
       ->set('etype_author_links_off', $form_state->getValue('etype_author_links_off'))

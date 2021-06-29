@@ -136,6 +136,7 @@ function etype_e_editions(): array {
     $version = 'pico';
   }
   $e_edition = $config->get('etype_e_edition');
+  $etype_papers = $config->get('etype_papers');
   $pub = $config->get('etype_pub');
   $ptype = $config->get('etype_ptype');
 
@@ -144,8 +145,10 @@ function etype_e_editions(): array {
 
   switch ($version) {
     case 'v2':
+      /* V2 uses Pub Id as number of papers, so $items and $pubs are the same thing */
       $items = explode(',', $pub);
-      $site_names = explode('|', $e_edition);
+      $pubs = $items;
+      $papers = explode(',', $etype_papers);
       break;
 
     default:
@@ -168,19 +171,20 @@ function etype_e_editions(): array {
   /* loop over publications attached to site, normally just one */
   foreach ($items as $item) {
     $arr = explode('|', $item);
+    $e_edition = trim($arr[0]);
+
     if (isset($pubs[$ptr])) {
       $pub = trim($pubs[$ptr]);
     }
     if (isset($ptypes[$ptr])) {
       $ptype = trim($ptypes[$ptr]);
     }
-    $e_edition = trim($arr[0]);
 
     switch ($version) {
       case 'v2':
-        /* Site Name */
-        if (isset($site_names)) {
-          $site = trim($site_names[$ptr]);
+        /* Site Name(s) */
+        if (isset($papers[$ptr])) {
+          $site = trim($papers[$ptr]);
         }
         /* Thumbnail */
         $e_editions[$ptr]['image'] = 'https://etypeproductionstorage1.blob.core.windows.net/$web/Production_Prod/Publications/' . $pub . '/thumbnail.jpg';
