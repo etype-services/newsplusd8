@@ -18,7 +18,7 @@ class EtypeV2VerifyAccountController extends ControllerBase {
    *
    * This is used to open the etypeservices page for the paper.
    *
-   * @param string $username
+   * @param string|null $username
    *   The user name.
    * @param int|null $pubId
    *   the Id of the publication.
@@ -26,7 +26,7 @@ class EtypeV2VerifyAccountController extends ControllerBase {
    * @return string
    *   The url with the token.
    */
-  public function getToken($username = NULL, $pubId = NULL): string {
+  public function getToken(string $username = NULL, int $pubId = NULL): string {
     if (empty($username)) {
       $username = Drupal::currentUser()->getAccountName();
     }

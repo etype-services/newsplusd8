@@ -74,8 +74,9 @@ class EtypeConfigForm extends ConfigFormBase {
     if ($v2 == 1) {
       /* Save values in case of reversion? */
       $form['e_edition']['etype_e_edition'] = [
-        '#type' => 'hidden',
+        '#type' => 'textfield',
         '#default_value' => $config->get('etype_e_edition'),
+        '#description' => $this->t('For sites linked to more than one publication please enter the papaer names like this: <code>Mitchell News Journal,The Yorktown News View</code>.'),
       ];
 
       $form['e_edition']['etype_ptype'] = [
