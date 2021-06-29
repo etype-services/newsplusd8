@@ -126,7 +126,6 @@ function etype_e_editions(): array {
   $logged_in = Drupal::currentUser()->isAuthenticated();
   $config = Drupal::config('etype.adminsettings');
   $picoConfig = Drupal::config('etype_pico.settings');
-
   $version = 'v1';
   $moduleHandler = Drupal::service('module_handler');
   if ($moduleHandler->moduleExists('etype_login_v2')) {
@@ -135,11 +134,10 @@ function etype_e_editions(): array {
   if ($moduleHandler->moduleExists('etype_pico')) {
     $version = 'pico';
   }
-  $e_edition = $config->get('etype_e_edition');
-  $etype_papers = $config->get('etype_papers');
+  $e_edition = $config->get('etype_e_edition'); // for V1
+  $etype_papers = $config->get('etype_papers'); // for V2
   $pub = $config->get('etype_pub');
   $ptype = $config->get('etype_ptype');
-
   $config = Drupal::config('system.site');
   $site = $config->get('name');
 
