@@ -148,7 +148,7 @@ function etype_e_editions(): array {
       /* V2 uses Pub Id as number of papers, so $items and $pubs are the same thing */
       $items = explode(',', $pub);
       $pubs = $items;
-      $papers = explode(',', $etype_papers);
+      $papers = explode('|', $etype_papers);
       break;
 
     default:
