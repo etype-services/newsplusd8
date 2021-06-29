@@ -80,10 +80,6 @@ class EtypeConfigForm extends ConfigFormBase {
         '#description' => $this->t('For sites linked to more than one publication please enter the paper names like this: <code>Mitchell News Journal|The Yorktown News View</code> in the same order as the pub ids above.'),
       ];
 
-      /*$form['e_edition']['etype_ptype'] = [
-        '#type' => 'hidden',
-        '#default_value' => $config->get('etype_ptype'),
-      ];*/
     }
     else {
       $form['e_edition']['etype_e_edition'] = [
