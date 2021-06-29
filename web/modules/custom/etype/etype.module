@@ -145,7 +145,7 @@ function etype_e_editions(): array {
   switch ($version) {
     case 'v2':
       $items = explode(',', $pub);
-      $site_names = explode(',', $e_edition);
+      $site_names = explode('|', $e_edition);
       break;
 
     default:
@@ -168,7 +168,6 @@ function etype_e_editions(): array {
   /* loop over publications attached to site, normally just one */
   foreach ($items as $item) {
     $arr = explode('|', $item);
-
     if (isset($pubs[$ptr])) {
       $pub = trim($pubs[$ptr]);
     }

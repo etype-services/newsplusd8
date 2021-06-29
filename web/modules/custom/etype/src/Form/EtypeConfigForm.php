@@ -77,7 +77,7 @@ class EtypeConfigForm extends ConfigFormBase {
         '#title' => $this->t('Paper Names (for multiple papers)'),
         '#type' => 'textfield',
         '#default_value' => $config->get('etype_e_edition'),
-        '#description' => $this->t('For sites linked to more than one publication please enter the papaer names like this: <code>Mitchell News Journal,The Yorktown News View</code> in the same order as the pub ids above.'),
+        '#description' => $this->t('For sites linked to more than one publication please enter the papaer names like this: <code>Mitchell News Journal|The Yorktown News View</code> in the same order as the pub ids above.'),
       ];
 
       /*$form['e_edition']['etype_ptype'] = [
