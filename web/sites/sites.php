@@ -1,4 +1,5 @@
 <?php
+
 // @codingStandardsIgnoreFile
 
 /* testing */
@@ -30,8 +31,6 @@ $sites['www.poncacitynews.com'] = 'poncacitynews.etypegoogle7.com';
 $sites['www.schulenburgsticker.com'] = 'schulenburgsticker.etypegoogle7.com';
 $sites['www.thetoccoarecord.com'] = 'thetoccoarecord.etypegoogle7.com';
 $sites['www.palatkadailynews.com'] = 'palatkadailynews.etypegoogle7.com';
-$sites['www.canadianrecord.com'] = 'canadianrecord.etypegoogle7.com';
-$sites['www.elrenotribune.com'] = 'elrenotribune.etypegoogle7.com';
 $sites['www.elberton.com'] = 'elberton.etypegoogle7.com';
 $sites['www.franklincountycitizen.com'] = 'franklincountycitizen.etypegoogle7.com';
 $sites['www.cherokeescout.com'] = 'cherokeescout.etypegoogle7.com';
@@ -108,8 +107,6 @@ $sites['www.ironcountyreporter.com'] = "ironcountyreporter.com";
 $sites['ironcountyreporter.etypegoogle9.com'] = "ironcountyreporter.com";
 $sites['www.thesnydernews.com'] = "thesnydernews.com";
 $sites['thesnydernews.etypegoogle9.com'] = "thesnydernews.com";
-$sites['www.holdenvillenews.com'] = "holdenvillenews.com";
-$sites['holdenvillenews.etypegoogle9.com'] = "holdenvillenews.com";
 $sites['www.lambcountyleadernews.com'] = "lambcountyleadernews.com";
 $sites['lambcountyleadernews.etypegoogle9.com'] = "lambcountyleadernews.com";
 $sites['www.drumrightgusher.com'] = "drumrightgusher.com";
@@ -147,8 +144,6 @@ $sites['texaspress.etypegoogle9.com'] = "texaspress.com";
 $sites['www.gunnisontimes.com'] = "gunnisontimes.com";
 $sites['www.gunnisoncountrytimes.com'] = "gunnisontimes.com";
 $sites['gunnisontimes.etypegoogle9.com'] = "gunnisontimes.com";
-$sites['www.fortstocktonpioneer.com'] = "fortstocktonpioneer.com";
-$sites['fortstocktonpioneer.etypegoogle9.com'] = "fortstocktonpioneer.com";
 $sites['www.madisonvillemeteor.com'] = "madisonvillemeteor.com";
 $sites['madisonvillemeteor.etypegoogle9.com'] = "madisonvillemeteor.com";
 $sites['www.sealynews.com'] = "sealynews.com";
@@ -178,7 +173,6 @@ $sites['www.gregorynews.com'] = "gregorynews.com";
 $sites['gregorynews.etypegoogle9.com'] = "gregorynews.com";
 $sites['www.eunicetoday.com'] = "eunicetoday.com";
 $sites['eunicetoday.etypegoogle9.com'] = "eunicetoday.com";
-$sites['www.guthrienewsleader.net'] = "guthrienewsleader.net";
 $sites['www.terrelltribune.com'] = "terrelltribune.com";
 $sites['terrelltribune.etypegoogle9.com'] = "terrelltribune.com";
 $sites['www.sequoyahcountytimes.com'] = "sequoyahcountytimes.com";
