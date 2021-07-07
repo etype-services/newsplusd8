@@ -47,6 +47,7 @@
         "drupal/advagg": "^4.1",
         "drupal/antibot": "^1.4",
         "drupal/block_class": "^1.1",
+        "drupal/cacheexclude": "^1.0",
         "drupal/ckeditor_font": "^1.0",
         "drupal/clamav": "^1.0",
         "drupal/colorbutton": "^1.1",
