@@ -1,6 +1,0 @@
-global-styling:
-  version: VERSION
-  css:
-    theme:
-      site.css: { weight: 100 }
-
